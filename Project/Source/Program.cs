@@ -2,7 +2,6 @@
 /// This file is part of Ordisoftware Hebrew Calendar.
 /// Copyright 2016-2019 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
-/// Project is registered at Depotnumerique.com (Agence des Depots Numeriques).
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at 
 /// https://mozilla.org/MPL/2.0/.
@@ -19,7 +18,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using Ordisoftware.Core;
 
-namespace Ordisoftware.HebrewCalendar
+namespace Ordisoftware.HebrewLettriq
 {
 
   /// <summary>
@@ -27,6 +26,25 @@ namespace Ordisoftware.HebrewCalendar
   /// </summary>
   static class Program
   {
+
+    /// <summary>
+    /// Indicate filepath of application.
+    /// </summary>
+    static public readonly string RootPath
+      = Directory.GetParent(Path.GetDirectoryName(Application.ExecutablePath.Replace("\\Bin\\Debug\\", "\\Bin\\").Replace("\\Bin\\Release\\", "\\Bin\\"))).FullName + Path.DirectorySeparatorChar;
+
+    /// <summary>
+    /// Indicate filename of the application's icon.
+    /// </summary>
+    static public readonly string IconFilename = RootPath + "Application.ico";
+
+    /// <summary>
+    /// Indicate filename of the help file.
+    /// </summary>
+    static public readonly string HelpFilename
+      = RootPath
+      + "Help" + Path.DirectorySeparatorChar
+      + "index.htm";
 
     /// <summary>
     /// Indicate the default Settings instance.
@@ -47,7 +65,6 @@ namespace Ordisoftware.HebrewCalendar
     {
       //System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
       //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-US");
-      string filenameIcon = ".." + Path.DirectorySeparatorChar + "Application.ico";
       try
       {
         if ( Settings.UpgradeRequired )
@@ -58,10 +75,7 @@ namespace Ordisoftware.HebrewCalendar
         }
         Application.EnableVisualStyles();
         Application.SetCompatibleTextRenderingDefault(false);
-        MainForm.Instance.Icon = Icon.ExtractAssociatedIcon(filenameIcon);
-        NavigationForm.Instance.Icon = MainForm.Instance.Icon;
-        CelebrationsForm.Instance.Icon = MainForm.Instance.Icon;
-        PreferencesForm.Instance.Icon = MainForm.Instance.Icon;
+        MainForm.Instance.Icon = Icon.ExtractAssociatedIcon(IconFilename);
         AboutBox.Instance.Icon = MainForm.Instance.Icon;
         UserDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)
                        + Path.DirectorySeparatorChar + AboutBox.Instance.CompanyName

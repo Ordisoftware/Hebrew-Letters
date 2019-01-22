@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Ordisoftware.HebrewCalendar.Properties {
+namespace Ordisoftware.HebrewLettriq.Properties {
     using System;
     
     

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Ordisoftware.HebrewCalendar.Properties {
+namespace Ordisoftware.HebrewLettriq.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -26,9 +26,9 @@ namespace Ordisoftware.HebrewCalendar.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Center")]
-        public global::Ordisoftware.HebrewCalendar.ControlLocation MainFormPosition {
+        public global::Ordisoftware.HebrewLettriq.ControlLocation MainFormPosition {
             get {
-                return ((global::Ordisoftware.HebrewCalendar.ControlLocation)(this["MainFormPosition"]));
+                return ((global::Ordisoftware.HebrewLettriq.ControlLocation)(this["MainFormPosition"]));
             }
             set {
                 this["MainFormPosition"] = value;

@@ -2,7 +2,6 @@
 /// This file is part of Ordisoftware Hebrew Calendar.
 /// Copyright 2016-2019 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
-/// Project is registered at Depotnumerique.com (Agence des Depots Numeriques).
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at 
 /// https://mozilla.org/MPL/2.0/.
@@ -18,7 +17,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using Ordisoftware.Core;
 
-namespace Ordisoftware.HebrewCalendar
+namespace Ordisoftware.HebrewLettriq
 {
 
   /// <summary>
@@ -29,62 +28,18 @@ namespace Ordisoftware.HebrewCalendar
   {
 
     /// <summary>
-    /// Update progress bar.
-    /// </summary>
-    private bool UpdateProgress(int index, int count, string text)
-    {
-      if ( index == 0 ) BarProgress.Maximum = count;
-      BarProgress.Value = index > count ? count : index;
-      BarProgress.Update();
-      SetStatus(text);
-      Application.DoEvents();
-      return IsGenerating;
-    }
-
-    /// <summary>
     /// Update the buttons.
     /// </summary>
     private void UpdateButtons()
     {
       try
       {
-        ActionSaveReport.Enabled = !IsGenerating && LunisolarCalendar.LunisolarDays.Count > 0;
-        ActionExportCSV.Enabled = ActionSaveReport.Enabled;
-        ActionCopyReportToClipboard.Enabled = ActionSaveReport.Enabled;
-        ActionSearchDay.Enabled = ActionSaveReport.Enabled;
-        ActionNavigate.Enabled = ActionSaveReport.Enabled;
-        ActionViewCelebrations.Enabled = ActionSaveReport.Enabled;
-        ActionGenerate.Enabled = !IsGenerating;
-        ActionStop.Enabled = IsGenerating;
-        MenuView.Enabled = !IsGenerating;
-        SctionPreferences.Enabled = !IsGenerating;
-        BarProgress.Value = 0;
-        LabelStatus.Text = "";
         Refresh();
       }
       catch ( Exception except )
       {
         DisplayManager.ShowError(except.Message);
       }
-    }
-
-    /// <summary>
-    /// Update the text calendar view aspect.
-    /// </summary>
-    public void UpdateTextCalendar()
-    {
-      CalendarText.Font = new Font(Program.Settings.FontName, Program.Settings.FontSize);
-    }
-
-    /// <summary>
-    /// Set the status label text.
-    /// </summary>
-    /// <param name="text">The text.</param>
-    private void SetStatus(string text)
-    {
-      if ( LabelStatus.Text == text ) return;
-      LabelStatus.Text = text;
-      StatusBottom.Refresh();
     }
 
     /// <summary>

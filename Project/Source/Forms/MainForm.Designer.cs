@@ -1,4 +1,4 @@
-﻿namespace Ordisoftware.HebrewCalendar
+﻿namespace Ordisoftware.HebrewLettriq
 {
   partial class MainForm
   {
@@ -50,7 +50,6 @@
       this.ActionHelp = new System.Windows.Forms.ToolStripButton();
       this.ActionAbout = new System.Windows.Forms.ToolStripButton();
       this.Sep6 = new System.Windows.Forms.ToolStripSeparator();
-      this.SctionPreferences = new System.Windows.Forms.ToolStripButton();
       this.MenuSettings = new System.Windows.Forms.ToolStripDropDownButton();
       this.MenuitemScreenPosition = new System.Windows.Forms.ToolStripMenuItem();
       this.EditScreenNone = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,6 +63,7 @@
       this.EditShowTips = new System.Windows.Forms.ToolStripMenuItem();
       this.EditESCtoExit = new System.Windows.Forms.ToolStripMenuItem();
       this.EditConfirmClosing = new System.Windows.Forms.ToolStripMenuItem();
+      this.ActionPreferences = new System.Windows.Forms.ToolStripButton();
       this.PanelMain.SuspendLayout();
       this.PanelCalendarOuter.SuspendLayout();
       this.PanelCalendarInner.SuspendLayout();
@@ -149,7 +149,7 @@
             this.ActionHelp,
             this.ActionAbout,
             this.Sep6,
-            this.SctionPreferences,
+            this.ActionPreferences,
             this.MenuSettings});
       this.ToolStrip.Name = "ToolStrip";
       this.ToolStrip.ShowItemToolTips = false;
@@ -160,7 +160,6 @@
       resources.ApplyResources(this.ActionCopyReportToClipboard, "ActionCopyReportToClipboard");
       this.ActionCopyReportToClipboard.Name = "ActionCopyReportToClipboard";
       this.ActionCopyReportToClipboard.Padding = new System.Windows.Forms.Padding(5);
-      this.ActionCopyReportToClipboard.Click += new System.EventHandler(this.ActionCopyReportToClipboard_Click);
       this.ActionCopyReportToClipboard.MouseEnter += new System.EventHandler(this.ShowToolTipOnMouseEnter);
       this.ActionCopyReportToClipboard.MouseLeave += new System.EventHandler(this.ShowToolTipOnMouseLeave);
       // 
@@ -236,17 +235,6 @@
       this.Sep6.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
       this.Sep6.Name = "Sep6";
       resources.ApplyResources(this.Sep6, "Sep6");
-      // 
-      // SctionPreferences
-      // 
-      this.SctionPreferences.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-      this.SctionPreferences.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      resources.ApplyResources(this.SctionPreferences, "SctionPreferences");
-      this.SctionPreferences.Name = "SctionPreferences";
-      this.SctionPreferences.Padding = new System.Windows.Forms.Padding(5);
-      this.SctionPreferences.Click += new System.EventHandler(this.ActionPreferences_Click);
-      this.SctionPreferences.MouseEnter += new System.EventHandler(this.ShowToolTipOnMouseEnter);
-      this.SctionPreferences.MouseLeave += new System.EventHandler(this.ShowToolTipOnMouseLeave);
       // 
       // MenuSettings
       // 
@@ -351,6 +339,17 @@
       this.EditConfirmClosing.CheckState = System.Windows.Forms.CheckState.Checked;
       this.EditConfirmClosing.Name = "EditConfirmClosing";
       // 
+      // SctionPreferences
+      // 
+      this.ActionPreferences.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+      this.ActionPreferences.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      resources.ApplyResources(this.ActionPreferences, "SctionPreferences");
+      this.ActionPreferences.Name = "SctionPreferences";
+      this.ActionPreferences.Padding = new System.Windows.Forms.Padding(5);
+      this.ActionPreferences.Click += new System.EventHandler(this.ActionPreferences_Click);
+      this.ActionPreferences.MouseEnter += new System.EventHandler(this.ShowToolTipOnMouseEnter);
+      this.ActionPreferences.MouseLeave += new System.EventHandler(this.ShowToolTipOnMouseLeave);
+      // 
       // MainForm
       // 
       resources.ApplyResources(this, "$this");
@@ -408,7 +407,7 @@
     private System.Windows.Forms.Label label1;
     internal System.Windows.Forms.Panel PanelCalendar;
     private System.Windows.Forms.Timer TimerTooltip;
-    internal System.Windows.Forms.ToolStripButton SctionPreferences;
+    internal System.Windows.Forms.ToolStripButton ActionPreferences;
   }
 }
 

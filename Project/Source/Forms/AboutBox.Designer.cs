@@ -1,4 +1,4 @@
-﻿namespace Ordisoftware.HebrewCalendar
+﻿namespace Ordisoftware.HebrewLettriq
 {
   partial class AboutBox
   {

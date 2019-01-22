@@ -2,7 +2,6 @@
 /// This file is part of Ordisoftware Hebrew Calendar.
 /// Copyright 2016-2019 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
-/// Project is registered at Depotnumerique.com (Agence des Depots Numeriques).
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at 
 /// https://mozilla.org/MPL/2.0/.
@@ -15,9 +14,9 @@
 /// <edited> 2016-04 </edited>
 using System;
 using System.Windows.Forms;
-using Ordisoftware.HebrewCalendar.Properties;
+using Ordisoftware.HebrewLettriq.Properties;
 
-namespace Ordisoftware.HebrewCalendar
+namespace Ordisoftware.HebrewLettriq
 {
 
   /// <summary>
@@ -50,7 +49,6 @@ namespace Ordisoftware.HebrewCalendar
       MainForm.EditConfirmClosing.Checked = true;
       MainForm.EditESCtoExit.Checked = false;
       MainForm.EditShowTips.Checked = true;
-      MainForm.SetView(ViewModeType.Month);
       settings.Store();
     }
 
@@ -80,11 +78,6 @@ namespace Ordisoftware.HebrewCalendar
       MainForm.EditConfirmClosing.Checked = settings.ConfirmClosing;
       MainForm.EditESCtoExit.Checked = settings.ESCtoExit;
       MainForm.EditShowTips.Checked = settings.ShowTips;
-      PreferencesForm.Instance.PanelTopColor.BackColor = settings.NavigateTopColor;
-      PreferencesForm.Instance.PanelMiddleColor.BackColor = settings.NavigateMiddleColor;
-      PreferencesForm.Instance.PanelBottomColor.BackColor = settings.NavigateBottomColor;
-      PreferencesForm.Instance.PanelTextColor.BackColor = settings.TextColor;
-      PreferencesForm.Instance.PanelBackColor.BackColor = settings.TextBackground;
     }
 
     /// <summary>
@@ -111,11 +104,6 @@ namespace Ordisoftware.HebrewCalendar
       settings.ConfirmClosing = MainForm.EditConfirmClosing.Checked;
       settings.ESCtoExit = MainForm.EditESCtoExit.Checked;
       settings.ShowTips = MainForm.EditShowTips.Checked;
-      settings.NavigateTopColor = PreferencesForm.Instance.PanelTopColor.BackColor;
-      settings.NavigateMiddleColor = PreferencesForm.Instance.PanelMiddleColor.BackColor;
-      settings.NavigateBottomColor = PreferencesForm.Instance.PanelBottomColor.BackColor;
-      settings.TextColor = PreferencesForm.Instance.PanelTextColor.BackColor;
-      settings.TextBackground = PreferencesForm.Instance.PanelBackColor.BackColor;
       settings.Save();
     }
 

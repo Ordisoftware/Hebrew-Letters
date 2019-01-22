@@ -1,4 +1,4 @@
-﻿namespace Ordisoftware.HebrewCalendar.Properties {
+﻿namespace Ordisoftware.HebrewLettriq.Properties {
     
     
     // Cette classe vous permet de gérer des événements spécifiques dans la classe de paramètres :
