@@ -34,6 +34,9 @@
       this.PanelCalendarOuter = new System.Windows.Forms.Panel();
       this.PanelCalendarInner = new System.Windows.Forms.Panel();
       this.PanelCalendar = new System.Windows.Forms.Panel();
+      this.textboxLettrique = new System.Windows.Forms.RichTextBox();
+      this.buttonClear = new System.Windows.Forms.Button();
+      this.buttonLettrique = new System.Windows.Forms.Button();
       this.PanelSepTop = new System.Windows.Forms.Panel();
       this.PanelTitle = new System.Windows.Forms.Panel();
       this.LabelTitle = new System.Windows.Forms.Label();
@@ -50,6 +53,7 @@
       this.ActionHelp = new System.Windows.Forms.ToolStripButton();
       this.ActionAbout = new System.Windows.Forms.ToolStripButton();
       this.Sep6 = new System.Windows.Forms.ToolStripSeparator();
+      this.ActionPreferences = new System.Windows.Forms.ToolStripButton();
       this.MenuSettings = new System.Windows.Forms.ToolStripDropDownButton();
       this.MenuitemScreenPosition = new System.Windows.Forms.ToolStripMenuItem();
       this.EditScreenNone = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,10 +67,11 @@
       this.EditShowTips = new System.Windows.Forms.ToolStripMenuItem();
       this.EditESCtoExit = new System.Windows.Forms.ToolStripMenuItem();
       this.EditConfirmClosing = new System.Windows.Forms.ToolStripMenuItem();
-      this.ActionPreferences = new System.Windows.Forms.ToolStripButton();
+      this.PanelLetters = new Ordisoftware.HebrewLettriq.LettersControl();
       this.PanelMain.SuspendLayout();
       this.PanelCalendarOuter.SuspendLayout();
       this.PanelCalendarInner.SuspendLayout();
+      this.PanelCalendar.SuspendLayout();
       this.PanelTitle.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.moonPhaseImagePictureBox)).BeginInit();
       this.ToolStrip.SuspendLayout();
@@ -96,8 +101,31 @@
       // 
       // PanelCalendar
       // 
+      this.PanelCalendar.Controls.Add(this.textboxLettrique);
+      this.PanelCalendar.Controls.Add(this.buttonClear);
+      this.PanelCalendar.Controls.Add(this.buttonLettrique);
+      this.PanelCalendar.Controls.Add(this.PanelLetters);
       resources.ApplyResources(this.PanelCalendar, "PanelCalendar");
       this.PanelCalendar.Name = "PanelCalendar";
+      // 
+      // textboxLettrique
+      // 
+      resources.ApplyResources(this.textboxLettrique, "textboxLettrique");
+      this.textboxLettrique.Name = "textboxLettrique";
+      // 
+      // buttonClear
+      // 
+      resources.ApplyResources(this.buttonClear, "buttonClear");
+      this.buttonClear.Name = "buttonClear";
+      this.buttonClear.UseVisualStyleBackColor = true;
+      this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
+      // 
+      // buttonLettrique
+      // 
+      resources.ApplyResources(this.buttonLettrique, "buttonLettrique");
+      this.buttonLettrique.Name = "buttonLettrique";
+      this.buttonLettrique.UseVisualStyleBackColor = true;
+      this.buttonLettrique.Click += new System.EventHandler(this.buttonLettrique_Click);
       // 
       // PanelSepTop
       // 
@@ -236,6 +264,17 @@
       this.Sep6.Name = "Sep6";
       resources.ApplyResources(this.Sep6, "Sep6");
       // 
+      // ActionPreferences
+      // 
+      this.ActionPreferences.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+      this.ActionPreferences.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      resources.ApplyResources(this.ActionPreferences, "ActionPreferences");
+      this.ActionPreferences.Name = "ActionPreferences";
+      this.ActionPreferences.Padding = new System.Windows.Forms.Padding(5);
+      this.ActionPreferences.Click += new System.EventHandler(this.ActionPreferences_Click);
+      this.ActionPreferences.MouseEnter += new System.EventHandler(this.ShowToolTipOnMouseEnter);
+      this.ActionPreferences.MouseLeave += new System.EventHandler(this.ShowToolTipOnMouseLeave);
+      // 
       // MenuSettings
       // 
       this.MenuSettings.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -339,16 +378,12 @@
       this.EditConfirmClosing.CheckState = System.Windows.Forms.CheckState.Checked;
       this.EditConfirmClosing.Name = "EditConfirmClosing";
       // 
-      // SctionPreferences
+      // PanelLetters
       // 
-      this.ActionPreferences.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-      this.ActionPreferences.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      resources.ApplyResources(this.ActionPreferences, "SctionPreferences");
-      this.ActionPreferences.Name = "SctionPreferences";
-      this.ActionPreferences.Padding = new System.Windows.Forms.Padding(5);
-      this.ActionPreferences.Click += new System.EventHandler(this.ActionPreferences_Click);
-      this.ActionPreferences.MouseEnter += new System.EventHandler(this.ShowToolTipOnMouseEnter);
-      this.ActionPreferences.MouseLeave += new System.EventHandler(this.ShowToolTipOnMouseLeave);
+      this.PanelLetters.BackColor = System.Drawing.Color.Transparent;
+      resources.ApplyResources(this.PanelLetters, "PanelLetters");
+      this.PanelLetters.Name = "PanelLetters";
+      this.PanelLetters.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PanelLetters_KeyPress);
       // 
       // MainForm
       // 
@@ -356,6 +391,9 @@
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.Controls.Add(this.PanelMain);
       this.Controls.Add(this.ToolStrip);
+      this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+      this.MaximizeBox = false;
+      this.MinimizeBox = false;
       this.Name = "MainForm";
       this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
       this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
@@ -364,6 +402,7 @@
       this.PanelMain.ResumeLayout(false);
       this.PanelCalendarOuter.ResumeLayout(false);
       this.PanelCalendarInner.ResumeLayout(false);
+      this.PanelCalendar.ResumeLayout(false);
       this.PanelTitle.ResumeLayout(false);
       ((System.ComponentModel.ISupportInitialize)(this.moonPhaseImagePictureBox)).EndInit();
       this.ToolStrip.ResumeLayout(false);
@@ -408,6 +447,10 @@
     internal System.Windows.Forms.Panel PanelCalendar;
     private System.Windows.Forms.Timer TimerTooltip;
     internal System.Windows.Forms.ToolStripButton ActionPreferences;
+    private System.Windows.Forms.Button buttonClear;
+    private System.Windows.Forms.Button buttonLettrique;
+    private LettersControl PanelLetters;
+    private System.Windows.Forms.RichTextBox textboxLettrique;
   }
 }
 

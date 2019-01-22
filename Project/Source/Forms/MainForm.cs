@@ -15,11 +15,13 @@
 using Microsoft.Win32;
 using Ordisoftware.Core;
 using System;
+using System.Text;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using System.Drawing.Printing;
 
@@ -250,6 +252,44 @@ namespace Ordisoftware.HebrewLettriq
         if ( !DisplayManager.QueryYesNo(Localizer.ExitApplicationText.GetLang()) )
           return;
       Close();
+    }
+
+    private void PanelLetters_KeyPress(object sender, KeyPressEventArgs e)
+    {
+      if ( e.KeyChar == '\r' ) buttonLettrique.PerformClick();
+    }
+
+    private void buttonClear_Click(object sender, EventArgs e)
+    {
+      PanelLetters.Input.Text = "";
+    }
+
+    private string TabString = ""; // ControlStrings.Tab;
+    bool ShowRef = true;
+
+    private void buttonLettrique_Click(object sender, EventArgs e)
+    {
+      textboxLettrique.Clear();
+      textboxLettrique.Focus();
+      textboxLettrique.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.249999F); ;
+      StringBuilder text = new StringBuilder();
+      string letterstext = "";
+      int sum = 0;
+      string word = PanelLetters.Input.Text; // Letters.SwapFinale(panelLetters.Input.Text);
+      for ( int i = word.Length - 1; i >= 0; i-- )
+      {
+        Letter l = Letters.Instance[word[i]];
+        string s = l.Name;
+        letterstext += s;
+        sum += l.Value;
+        if ( i != 0 ) letterstext += "-";
+        string list = l.Meanings.ElementAt(0);
+        for ( int p = 1; p < l.Meanings.Count(); p++ ) list += ", " + l.Meanings.ElementAt(p);
+        text.AppendLine(TabString + s + " (" + l.Value + ")");
+        text.AppendLine(l.Structure + " - " + l.Function + " : " + TabString + TabString + list);
+      }
+      textboxLettrique.AppendText(letterstext + " (" + sum.ToString() + ")" + Environment.NewLine
+                                              + text + Environment.NewLine);
     }
 
   }
