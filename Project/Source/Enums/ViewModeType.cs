@@ -1,6 +1,6 @@
 ﻿/// <license>
-/// This file is part of Ordisoftware Hebrew Calendar.
-/// Copyright 2016-2019 Olivier Rogier.
+/// This file is part of Ordisoftware Hebrew Lettriq.
+/// Copyright 2012-2019 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at 
@@ -10,40 +10,28 @@
 /// relevant directory) where a recipient would be likely to look for such a notice.
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
-/// <created> 2012-10 </created>
-/// <edited> 2013-04 </edited>
+/// <created> 2019-01 </created>
+/// <edited> 2019-01 </edited>
 using System;
-using System.Collections.Generic;
-using Ordisoftware.Core;
 
 namespace Ordisoftware.HebrewLettriq
 {
 
   /// <summary>
-  /// Provide root item.
+  /// Provide data view mode type.
   /// </summary>
-  [Serializable]
-  public class Root
-  {
-    public string Hebrew { get; set; }
-    public List<string> Description { get; set; }
-    public Root() { }
-  }
-
-  /// <summary>
-  /// Provide roots dictionary singleton.
-  /// </summary>
-  [Serializable]
-  public sealed partial class Roots : Dictionary<string, Root>
+  public enum ViewModeType
   {
 
     /// <summary>
-    /// Constructor.
+    /// Text view mode to display the search panel.
     /// </summary>
-    private Roots()
-    {
-      //find all same words and connect to a new root
-    }
+    Search,
+
+    /// <summary>
+    /// Grid view mode to display the settings panel.
+    /// </summary>
+    Settings
 
   }
 

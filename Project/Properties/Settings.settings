@@ -2,6 +2,14 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Ordisoftware.HebrewLettriq.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
+    <Setting Name="ConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Dsn=Hebrew-Lettriq&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.Odbc&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Dsn=Hebrew-Lettriq</Value>
+    </Setting>
     <Setting Name="MainFormPosition" Type="Ordisoftware.HebrewLettriq.ControlLocation" Scope="User">
       <Value Profile="(Default)">Center</Value>
     </Setting>
@@ -26,26 +34,14 @@
     <Setting Name="ConfirmClosing" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="FontName" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Courier New</Value>
-    </Setting>
-    <Setting Name="FontSize" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">10</Value>
-    </Setting>
     <Setting Name="ShowTips" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="TextColor" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">Black</Value>
-    </Setting>
-    <Setting Name="TextBackground" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">White</Value>
-    </Setting>
-    <Setting Name="StartupHide" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
     <Setting Name="UpgradeRequired" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="CurrentView" Type="Ordisoftware.HebrewLettriq.ViewModeType" Scope="User">
+      <Value Profile="(Default)">Search</Value>
     </Setting>
   </Settings>
 </SettingsFile>

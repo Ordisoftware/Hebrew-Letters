@@ -78,8 +78,11 @@ namespace Ordisoftware.HebrewLettriq
     /// <param name="e">Event information.</param>
     private void MainForm_Load(object sender, EventArgs e)
     {
+      this.meaningsTableAdapter.Fill(this.dataSet.Meanings);
+      this.lettersTableAdapter.Fill(this.dataSet.Letters);
       Program.Settings.Retrieve();
-      Refresh();
+      SetView(Program.Settings.CurrentView, true);
+      UpdateButtons();
     }
 
     /// <summary>
@@ -159,6 +162,26 @@ namespace Ordisoftware.HebrewLettriq
     }
 
     /// <summary>
+    /// Event handler. Called by ActionViewSearch for click events.
+    /// </summary>
+    /// <param name="sender">Source of the event.</param>
+    /// <param name="e">Event information.</param>
+    private void ActionViewSearch_Click(object sender, EventArgs e)
+    {
+      SetView(ViewModeType.Search);
+    }
+
+    /// <summary>
+    /// Event handler. Called by ActionViewSettings for click events.
+    /// </summary>
+    /// <param name="sender">Source of the event.</param>
+    /// <param name="e">Event information.</param>
+    private void ActionViewSettings_Click(object sender, EventArgs e)
+    {
+      SetView(ViewModeType.Settings);
+    }
+
+    /// <summary>
     /// Event handler. Called by ActionResetWinSettings for click events.
     /// </summary>
     /// <param name="sender">Source of the event.</param>
@@ -177,16 +200,6 @@ namespace Ordisoftware.HebrewLettriq
     internal void EditScreenPosition_Click(object sender, EventArgs e)
     {
       DoScreenPosition(sender, e);
-    }
-
-    /// <summary>
-    /// Event handler. Called by ActionPreferences for click events.
-    /// </summary>
-    /// <param name="sender">Source of the event.</param>
-    /// <param name="e">Event information.</param>
-    private void ActionPreferences_Click(object sender, EventArgs e)
-    {
-      //PreferencesForm.Instance.ShowDialog();
     }
 
     /// <summary>
@@ -292,6 +305,21 @@ namespace Ordisoftware.HebrewLettriq
                                               + text + Environment.NewLine);
     }
 
+    private void lettersBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+    {
+      this.Validate();
+      this.lettersBindingSource.EndEdit();
+      this.tableAdapterManager.UpdateAll(this.dataSet);
+
+    }
+
+    private void lettersBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
+    {
+      this.Validate();
+      this.lettersBindingSource.EndEdit();
+      this.tableAdapterManager.UpdateAll(this.dataSet);
+
+    }
   }
 
 }

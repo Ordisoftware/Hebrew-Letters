@@ -49,6 +49,7 @@ namespace Ordisoftware.HebrewLettriq
       MainForm.EditConfirmClosing.Checked = true;
       MainForm.EditESCtoExit.Checked = false;
       MainForm.EditShowTips.Checked = true;
+      MainForm.SetView(ViewModeType.Search);
       settings.Store();
     }
 

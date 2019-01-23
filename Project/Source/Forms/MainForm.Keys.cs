@@ -30,9 +30,6 @@ namespace Ordisoftware.HebrewLettriq
     {
       switch ( keyData )
       {
-        case Keys.Control | Keys.C:
-          ActionCopyReportToClipboard.PerformClick();
-          return true;
         case Keys.Escape:
           if ( EditESCtoExit.Checked )
             Close();
@@ -41,7 +38,7 @@ namespace Ordisoftware.HebrewLettriq
           ActionHelp.PerformClick();
           return true;
         case Keys.F8:
-          ActionPreferences.PerformClick();
+          ActionViewSettings.PerformClick();
           return true;
         case Keys.F12:
           ActionAbout.PerformClick();

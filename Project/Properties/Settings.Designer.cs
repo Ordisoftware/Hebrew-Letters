@@ -23,6 +23,16 @@ namespace Ordisoftware.HebrewLettriq.Properties {
             }
         }
         
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Dsn=Hebrew-Lettriq")]
+        public string ConnectionString {
+            get {
+                return ((string)(this["ConnectionString"]));
+            }
+        }
+        
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Center")]
@@ -121,30 +131,6 @@ namespace Ordisoftware.HebrewLettriq.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Courier New")]
-        public string FontName {
-            get {
-                return ((string)(this["FontName"]));
-            }
-            set {
-                this["FontName"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10")]
-        public int FontSize {
-            get {
-                return ((int)(this["FontSize"]));
-            }
-            set {
-                this["FontSize"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool ShowTips {
             get {
@@ -157,42 +143,6 @@ namespace Ordisoftware.HebrewLettriq.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Black")]
-        public global::System.Drawing.Color TextColor {
-            get {
-                return ((global::System.Drawing.Color)(this["TextColor"]));
-            }
-            set {
-                this["TextColor"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("White")]
-        public global::System.Drawing.Color TextBackground {
-            get {
-                return ((global::System.Drawing.Color)(this["TextBackground"]));
-            }
-            set {
-                this["TextBackground"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool StartupHide {
-            get {
-                return ((bool)(this["StartupHide"]));
-            }
-            set {
-                this["StartupHide"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool UpgradeRequired {
             get {
@@ -200,6 +150,18 @@ namespace Ordisoftware.HebrewLettriq.Properties {
             }
             set {
                 this["UpgradeRequired"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Search")]
+        public global::Ordisoftware.HebrewLettriq.ViewModeType CurrentView {
+            get {
+                return ((global::Ordisoftware.HebrewLettriq.ViewModeType)(this["CurrentView"]));
+            }
+            set {
+                this["CurrentView"] = value;
             }
         }
     }

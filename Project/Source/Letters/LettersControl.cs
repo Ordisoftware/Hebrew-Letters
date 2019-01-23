@@ -32,6 +32,27 @@ namespace Ordisoftware.HebrewLettriq
     [ThreadStatic]
     private bool NewKeyPressed = false;
 
+    public Color LettersBackground
+    {
+      get { return Panel.BackColor; }
+      set { Panel.BackColor = value; }
+    }
+
+    public Color InputBackground
+    {
+      get { return Input.BackColor; }
+      set { Input.BackColor = value; }
+    }
+
+    /// <summary>
+    /// Constructor
+    /// </summary>
+    public LettersControl()
+    {
+      InitializeComponent();
+      CreateLetters();
+    }
+
     /// <summary>
     /// Create letters buttons.
     /// </summary>
@@ -62,6 +83,7 @@ namespace Ordisoftware.HebrewLettriq
           button.Location = new Point(x, y);
           button.Size = new Size(Math.Abs(dx), dy);
           button.FlatStyle = FlatStyle.Flat;
+          button.FlatAppearance.BorderSize = 0;
           button.FlatAppearance.BorderColor = SystemColors.Control;
           button.Font = font;
           button.Text = new string(l.Code, 1);
@@ -107,15 +129,6 @@ namespace Ordisoftware.HebrewLettriq
         if ( Input.SelectionStart != 0 ) 
           Input.SelectionStart = Input.SelectionStart - 1;
       }
-    }
-
-    /// <summary>
-    /// Constructor
-    /// </summary>
-    public LettersControl()
-    {
-      InitializeComponent();
-      CreateLetters();
     }
 
   }

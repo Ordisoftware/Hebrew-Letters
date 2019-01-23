@@ -39,15 +39,15 @@ namespace Ordisoftware.HebrewLettriq
     {
       for ( int i = 0; i < _Codes.Length; i++ )
         Add(_Codes[i],
-                  new Letter()
-                  {
-                    Code = _Codes[i],
-                    Value = _Values[i],
-                    Name = _Names[i],
-                    Structure = _Structures[i],
-                    Function = _Functions[i],
-                    Meanings = _Meanings[i]
-                  });
+            new Letter()
+            {
+              Code = _Codes[i],
+              Value = _Values[i],
+              Name = _Names[i],
+              Structure = _Structures[i],
+              Function = _Functions[i],
+              Meanings = _Meanings[i]
+            });
     }
 
   }

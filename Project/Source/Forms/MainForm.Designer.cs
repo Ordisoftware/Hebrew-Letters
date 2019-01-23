@@ -29,14 +29,44 @@
     private void InitializeComponent()
     {
       this.components = new System.ComponentModel.Container();
+      System.Windows.Forms.Label codeLabel;
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+      System.Windows.Forms.Label nameLabel;
+      System.Windows.Forms.Label structureLabel;
+      System.Windows.Forms.Label functionLabel;
+      System.Windows.Forms.Label valueSimpleLabel;
+      System.Windows.Forms.Label valueFullLabel;
       this.PanelMain = new System.Windows.Forms.Panel();
-      this.PanelCalendarOuter = new System.Windows.Forms.Panel();
-      this.PanelCalendarInner = new System.Windows.Forms.Panel();
-      this.PanelCalendar = new System.Windows.Forms.Panel();
+      this.PanelMainOuter = new System.Windows.Forms.Panel();
+      this.PanelMainInner = new System.Windows.Forms.Panel();
+      this.PanelMainCenter = new System.Windows.Forms.Panel();
+      this.TabControl = new System.Windows.Forms.TabControl();
+      this.TabPageText = new System.Windows.Forms.TabPage();
+      this.PanelViewSearch = new System.Windows.Forms.Panel();
       this.textboxLettrique = new System.Windows.Forms.RichTextBox();
-      this.buttonClear = new System.Windows.Forms.Button();
       this.buttonLettrique = new System.Windows.Forms.Button();
+      this.buttonClear = new System.Windows.Forms.Button();
+      this.TabPageMonth = new System.Windows.Forms.TabPage();
+      this.PanelViewSettings = new System.Windows.Forms.Panel();
+      this.lettersBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+      this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+      this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+      this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
+      this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
+      this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
+      this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
+      this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
+      this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+      this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
+      this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
+      this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+      this.lettersBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+      this.codeTextBox = new System.Windows.Forms.TextBox();
+      this.nameTextBox = new System.Windows.Forms.TextBox();
+      this.structureTextBox = new System.Windows.Forms.TextBox();
+      this.functionTextBox = new System.Windows.Forms.TextBox();
+      this.valueSimpleTextBox = new System.Windows.Forms.TextBox();
+      this.valueFullTextBox = new System.Windows.Forms.TextBox();
       this.PanelSepTop = new System.Windows.Forms.Panel();
       this.PanelTitle = new System.Windows.Forms.Panel();
       this.LabelTitle = new System.Windows.Forms.Label();
@@ -44,7 +74,6 @@
       this.label1 = new System.Windows.Forms.Label();
       this.TimerTooltip = new System.Windows.Forms.Timer(this.components);
       this.ToolStrip = new System.Windows.Forms.ToolStrip();
-      this.ActionCopyReportToClipboard = new System.Windows.Forms.ToolStripButton();
       this.ActionExit = new System.Windows.Forms.ToolStripButton();
       this.Sep4 = new System.Windows.Forms.ToolStripSeparator();
       this.ActionContact = new System.Windows.Forms.ToolStripButton();
@@ -53,7 +82,6 @@
       this.ActionHelp = new System.Windows.Forms.ToolStripButton();
       this.ActionAbout = new System.Windows.Forms.ToolStripButton();
       this.Sep6 = new System.Windows.Forms.ToolStripSeparator();
-      this.ActionPreferences = new System.Windows.Forms.ToolStripButton();
       this.MenuSettings = new System.Windows.Forms.ToolStripDropDownButton();
       this.MenuitemScreenPosition = new System.Windows.Forms.ToolStripMenuItem();
       this.EditScreenNone = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,51 +95,138 @@
       this.EditShowTips = new System.Windows.Forms.ToolStripMenuItem();
       this.EditESCtoExit = new System.Windows.Forms.ToolStripMenuItem();
       this.EditConfirmClosing = new System.Windows.Forms.ToolStripMenuItem();
+      this.ActionViewSearch = new System.Windows.Forms.ToolStripButton();
+      this.ActionViewSettings = new System.Windows.Forms.ToolStripButton();
       this.PanelLetters = new Ordisoftware.HebrewLettriq.LettersControl();
+      this.dataSet = new Ordisoftware.HebrewLettriq.Data.DataSet();
+      this.lettersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+      this.lettersTableAdapter = new Ordisoftware.HebrewLettriq.Data.DataSetTableAdapters.LettersTableAdapter();
+      this.tableAdapterManager = new Ordisoftware.HebrewLettriq.Data.DataSetTableAdapters.TableAdapterManager();
+      this.meaningsTableAdapter = new Ordisoftware.HebrewLettriq.Data.DataSetTableAdapters.MeaningsTableAdapter();
+      this.meaningsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+      this.meaningsDataGridView = new System.Windows.Forms.DataGridView();
+      this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      codeLabel = new System.Windows.Forms.Label();
+      nameLabel = new System.Windows.Forms.Label();
+      structureLabel = new System.Windows.Forms.Label();
+      functionLabel = new System.Windows.Forms.Label();
+      valueSimpleLabel = new System.Windows.Forms.Label();
+      valueFullLabel = new System.Windows.Forms.Label();
       this.PanelMain.SuspendLayout();
-      this.PanelCalendarOuter.SuspendLayout();
-      this.PanelCalendarInner.SuspendLayout();
-      this.PanelCalendar.SuspendLayout();
+      this.PanelMainOuter.SuspendLayout();
+      this.PanelMainInner.SuspendLayout();
+      this.PanelMainCenter.SuspendLayout();
+      this.TabControl.SuspendLayout();
+      this.TabPageText.SuspendLayout();
+      this.PanelViewSearch.SuspendLayout();
+      this.TabPageMonth.SuspendLayout();
+      this.PanelViewSettings.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.lettersBindingNavigator)).BeginInit();
+      this.lettersBindingNavigator.SuspendLayout();
       this.PanelTitle.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.moonPhaseImagePictureBox)).BeginInit();
       this.ToolStrip.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.lettersBindingSource)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.meaningsBindingSource)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.meaningsDataGridView)).BeginInit();
       this.SuspendLayout();
+      // 
+      // codeLabel
+      // 
+      resources.ApplyResources(codeLabel, "codeLabel");
+      codeLabel.Name = "codeLabel";
+      // 
+      // nameLabel
+      // 
+      resources.ApplyResources(nameLabel, "nameLabel");
+      nameLabel.Name = "nameLabel";
+      // 
+      // structureLabel
+      // 
+      resources.ApplyResources(structureLabel, "structureLabel");
+      structureLabel.Name = "structureLabel";
+      // 
+      // functionLabel
+      // 
+      resources.ApplyResources(functionLabel, "functionLabel");
+      functionLabel.Name = "functionLabel";
+      // 
+      // valueSimpleLabel
+      // 
+      resources.ApplyResources(valueSimpleLabel, "valueSimpleLabel");
+      valueSimpleLabel.Name = "valueSimpleLabel";
+      // 
+      // valueFullLabel
+      // 
+      resources.ApplyResources(valueFullLabel, "valueFullLabel");
+      valueFullLabel.Name = "valueFullLabel";
       // 
       // PanelMain
       // 
-      this.PanelMain.Controls.Add(this.PanelCalendarOuter);
+      this.PanelMain.Controls.Add(this.PanelMainOuter);
       this.PanelMain.Controls.Add(this.PanelSepTop);
       this.PanelMain.Controls.Add(this.PanelTitle);
       resources.ApplyResources(this.PanelMain, "PanelMain");
       this.PanelMain.Name = "PanelMain";
       // 
-      // PanelCalendarOuter
+      // PanelMainOuter
       // 
-      this.PanelCalendarOuter.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-      this.PanelCalendarOuter.Controls.Add(this.PanelCalendarInner);
-      resources.ApplyResources(this.PanelCalendarOuter, "PanelCalendarOuter");
-      this.PanelCalendarOuter.Name = "PanelCalendarOuter";
+      this.PanelMainOuter.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+      this.PanelMainOuter.Controls.Add(this.PanelMainInner);
+      resources.ApplyResources(this.PanelMainOuter, "PanelMainOuter");
+      this.PanelMainOuter.Name = "PanelMainOuter";
       // 
-      // PanelCalendarInner
+      // PanelMainInner
       // 
-      this.PanelCalendarInner.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-      this.PanelCalendarInner.Controls.Add(this.PanelCalendar);
-      resources.ApplyResources(this.PanelCalendarInner, "PanelCalendarInner");
-      this.PanelCalendarInner.Name = "PanelCalendarInner";
+      this.PanelMainInner.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+      this.PanelMainInner.Controls.Add(this.PanelMainCenter);
+      resources.ApplyResources(this.PanelMainInner, "PanelMainInner");
+      this.PanelMainInner.Name = "PanelMainInner";
       // 
-      // PanelCalendar
+      // PanelMainCenter
       // 
-      this.PanelCalendar.Controls.Add(this.textboxLettrique);
-      this.PanelCalendar.Controls.Add(this.buttonClear);
-      this.PanelCalendar.Controls.Add(this.buttonLettrique);
-      this.PanelCalendar.Controls.Add(this.PanelLetters);
-      resources.ApplyResources(this.PanelCalendar, "PanelCalendar");
-      this.PanelCalendar.Name = "PanelCalendar";
+      this.PanelMainCenter.Controls.Add(this.TabControl);
+      resources.ApplyResources(this.PanelMainCenter, "PanelMainCenter");
+      this.PanelMainCenter.Name = "PanelMainCenter";
+      // 
+      // TabControl
+      // 
+      this.TabControl.Controls.Add(this.TabPageText);
+      this.TabControl.Controls.Add(this.TabPageMonth);
+      resources.ApplyResources(this.TabControl, "TabControl");
+      this.TabControl.Name = "TabControl";
+      this.TabControl.SelectedIndex = 0;
+      this.TabControl.TabStop = false;
+      // 
+      // TabPageText
+      // 
+      this.TabPageText.Controls.Add(this.PanelViewSearch);
+      resources.ApplyResources(this.TabPageText, "TabPageText");
+      this.TabPageText.Name = "TabPageText";
+      this.TabPageText.UseVisualStyleBackColor = true;
+      // 
+      // PanelViewSearch
+      // 
+      this.PanelViewSearch.Controls.Add(this.PanelLetters);
+      this.PanelViewSearch.Controls.Add(this.textboxLettrique);
+      this.PanelViewSearch.Controls.Add(this.buttonLettrique);
+      this.PanelViewSearch.Controls.Add(this.buttonClear);
+      resources.ApplyResources(this.PanelViewSearch, "PanelViewSearch");
+      this.PanelViewSearch.Name = "PanelViewSearch";
       // 
       // textboxLettrique
       // 
       resources.ApplyResources(this.textboxLettrique, "textboxLettrique");
       this.textboxLettrique.Name = "textboxLettrique";
+      // 
+      // buttonLettrique
+      // 
+      resources.ApplyResources(this.buttonLettrique, "buttonLettrique");
+      this.buttonLettrique.Name = "buttonLettrique";
+      this.buttonLettrique.UseVisualStyleBackColor = true;
+      this.buttonLettrique.Click += new System.EventHandler(this.buttonLettrique_Click);
       // 
       // buttonClear
       // 
@@ -120,12 +235,162 @@
       this.buttonClear.UseVisualStyleBackColor = true;
       this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
       // 
-      // buttonLettrique
+      // TabPageMonth
       // 
-      resources.ApplyResources(this.buttonLettrique, "buttonLettrique");
-      this.buttonLettrique.Name = "buttonLettrique";
-      this.buttonLettrique.UseVisualStyleBackColor = true;
-      this.buttonLettrique.Click += new System.EventHandler(this.buttonLettrique_Click);
+      this.TabPageMonth.Controls.Add(this.PanelViewSettings);
+      resources.ApplyResources(this.TabPageMonth, "TabPageMonth");
+      this.TabPageMonth.Name = "TabPageMonth";
+      this.TabPageMonth.UseVisualStyleBackColor = true;
+      // 
+      // PanelViewSettings
+      // 
+      resources.ApplyResources(this.PanelViewSettings, "PanelViewSettings");
+      this.PanelViewSettings.Controls.Add(this.meaningsDataGridView);
+      this.PanelViewSettings.Controls.Add(this.lettersBindingNavigator);
+      this.PanelViewSettings.Controls.Add(codeLabel);
+      this.PanelViewSettings.Controls.Add(this.codeTextBox);
+      this.PanelViewSettings.Controls.Add(nameLabel);
+      this.PanelViewSettings.Controls.Add(this.nameTextBox);
+      this.PanelViewSettings.Controls.Add(structureLabel);
+      this.PanelViewSettings.Controls.Add(this.structureTextBox);
+      this.PanelViewSettings.Controls.Add(functionLabel);
+      this.PanelViewSettings.Controls.Add(this.functionTextBox);
+      this.PanelViewSettings.Controls.Add(valueSimpleLabel);
+      this.PanelViewSettings.Controls.Add(this.valueSimpleTextBox);
+      this.PanelViewSettings.Controls.Add(valueFullLabel);
+      this.PanelViewSettings.Controls.Add(this.valueFullTextBox);
+      this.PanelViewSettings.Name = "PanelViewSettings";
+      // 
+      // lettersBindingNavigator
+      // 
+      this.lettersBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
+      this.lettersBindingNavigator.BindingSource = this.lettersBindingSource;
+      this.lettersBindingNavigator.CountItem = this.bindingNavigatorCountItem;
+      this.lettersBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
+      this.lettersBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bindingNavigatorMoveFirstItem,
+            this.bindingNavigatorMovePreviousItem,
+            this.bindingNavigatorSeparator,
+            this.bindingNavigatorPositionItem,
+            this.bindingNavigatorCountItem,
+            this.bindingNavigatorSeparator1,
+            this.bindingNavigatorMoveNextItem,
+            this.bindingNavigatorMoveLastItem,
+            this.bindingNavigatorSeparator2,
+            this.bindingNavigatorAddNewItem,
+            this.bindingNavigatorDeleteItem,
+            this.lettersBindingNavigatorSaveItem});
+      resources.ApplyResources(this.lettersBindingNavigator, "lettersBindingNavigator");
+      this.lettersBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
+      this.lettersBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
+      this.lettersBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
+      this.lettersBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
+      this.lettersBindingNavigator.Name = "lettersBindingNavigator";
+      this.lettersBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
+      // 
+      // bindingNavigatorAddNewItem
+      // 
+      this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      resources.ApplyResources(this.bindingNavigatorAddNewItem, "bindingNavigatorAddNewItem");
+      this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+      // 
+      // bindingNavigatorCountItem
+      // 
+      this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+      resources.ApplyResources(this.bindingNavigatorCountItem, "bindingNavigatorCountItem");
+      // 
+      // bindingNavigatorDeleteItem
+      // 
+      this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      resources.ApplyResources(this.bindingNavigatorDeleteItem, "bindingNavigatorDeleteItem");
+      this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+      // 
+      // bindingNavigatorMoveFirstItem
+      // 
+      this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      resources.ApplyResources(this.bindingNavigatorMoveFirstItem, "bindingNavigatorMoveFirstItem");
+      this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
+      // 
+      // bindingNavigatorMovePreviousItem
+      // 
+      this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      resources.ApplyResources(this.bindingNavigatorMovePreviousItem, "bindingNavigatorMovePreviousItem");
+      this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
+      // 
+      // bindingNavigatorSeparator
+      // 
+      this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
+      resources.ApplyResources(this.bindingNavigatorSeparator, "bindingNavigatorSeparator");
+      // 
+      // bindingNavigatorPositionItem
+      // 
+      resources.ApplyResources(this.bindingNavigatorPositionItem, "bindingNavigatorPositionItem");
+      this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
+      // 
+      // bindingNavigatorSeparator1
+      // 
+      this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
+      resources.ApplyResources(this.bindingNavigatorSeparator1, "bindingNavigatorSeparator1");
+      // 
+      // bindingNavigatorMoveNextItem
+      // 
+      this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      resources.ApplyResources(this.bindingNavigatorMoveNextItem, "bindingNavigatorMoveNextItem");
+      this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
+      // 
+      // bindingNavigatorMoveLastItem
+      // 
+      this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      resources.ApplyResources(this.bindingNavigatorMoveLastItem, "bindingNavigatorMoveLastItem");
+      this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
+      // 
+      // bindingNavigatorSeparator2
+      // 
+      this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
+      resources.ApplyResources(this.bindingNavigatorSeparator2, "bindingNavigatorSeparator2");
+      // 
+      // lettersBindingNavigatorSaveItem
+      // 
+      this.lettersBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      resources.ApplyResources(this.lettersBindingNavigatorSaveItem, "lettersBindingNavigatorSaveItem");
+      this.lettersBindingNavigatorSaveItem.Name = "lettersBindingNavigatorSaveItem";
+      this.lettersBindingNavigatorSaveItem.Click += new System.EventHandler(this.lettersBindingNavigatorSaveItem_Click_1);
+      // 
+      // codeTextBox
+      // 
+      this.codeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lettersBindingSource, "Code", true));
+      resources.ApplyResources(this.codeTextBox, "codeTextBox");
+      this.codeTextBox.Name = "codeTextBox";
+      // 
+      // nameTextBox
+      // 
+      this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lettersBindingSource, "Name", true));
+      resources.ApplyResources(this.nameTextBox, "nameTextBox");
+      this.nameTextBox.Name = "nameTextBox";
+      // 
+      // structureTextBox
+      // 
+      this.structureTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lettersBindingSource, "Structure", true));
+      resources.ApplyResources(this.structureTextBox, "structureTextBox");
+      this.structureTextBox.Name = "structureTextBox";
+      // 
+      // functionTextBox
+      // 
+      this.functionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lettersBindingSource, "Function", true));
+      resources.ApplyResources(this.functionTextBox, "functionTextBox");
+      this.functionTextBox.Name = "functionTextBox";
+      // 
+      // valueSimpleTextBox
+      // 
+      this.valueSimpleTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lettersBindingSource, "ValueSimple", true));
+      resources.ApplyResources(this.valueSimpleTextBox, "valueSimpleTextBox");
+      this.valueSimpleTextBox.Name = "valueSimpleTextBox";
+      // 
+      // valueFullTextBox
+      // 
+      this.valueFullTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lettersBindingSource, "ValueFull", true));
+      resources.ApplyResources(this.valueFullTextBox, "valueFullTextBox");
+      this.valueFullTextBox.Name = "valueFullTextBox";
       // 
       // PanelSepTop
       // 
@@ -168,7 +433,6 @@
       this.ToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
       this.ToolStrip.ImageScalingSize = new System.Drawing.Size(32, 32);
       this.ToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ActionCopyReportToClipboard,
             this.ActionExit,
             this.Sep4,
             this.ActionContact,
@@ -177,19 +441,11 @@
             this.ActionHelp,
             this.ActionAbout,
             this.Sep6,
-            this.ActionPreferences,
-            this.MenuSettings});
+            this.MenuSettings,
+            this.ActionViewSearch,
+            this.ActionViewSettings});
       this.ToolStrip.Name = "ToolStrip";
       this.ToolStrip.ShowItemToolTips = false;
-      // 
-      // ActionCopyReportToClipboard
-      // 
-      this.ActionCopyReportToClipboard.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      resources.ApplyResources(this.ActionCopyReportToClipboard, "ActionCopyReportToClipboard");
-      this.ActionCopyReportToClipboard.Name = "ActionCopyReportToClipboard";
-      this.ActionCopyReportToClipboard.Padding = new System.Windows.Forms.Padding(5);
-      this.ActionCopyReportToClipboard.MouseEnter += new System.EventHandler(this.ShowToolTipOnMouseEnter);
-      this.ActionCopyReportToClipboard.MouseLeave += new System.EventHandler(this.ShowToolTipOnMouseLeave);
       // 
       // ActionExit
       // 
@@ -263,17 +519,6 @@
       this.Sep6.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
       this.Sep6.Name = "Sep6";
       resources.ApplyResources(this.Sep6, "Sep6");
-      // 
-      // ActionPreferences
-      // 
-      this.ActionPreferences.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-      this.ActionPreferences.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      resources.ApplyResources(this.ActionPreferences, "ActionPreferences");
-      this.ActionPreferences.Name = "ActionPreferences";
-      this.ActionPreferences.Padding = new System.Windows.Forms.Padding(5);
-      this.ActionPreferences.Click += new System.EventHandler(this.ActionPreferences_Click);
-      this.ActionPreferences.MouseEnter += new System.EventHandler(this.ShowToolTipOnMouseEnter);
-      this.ActionPreferences.MouseLeave += new System.EventHandler(this.ShowToolTipOnMouseLeave);
       // 
       // MenuSettings
       // 
@@ -378,12 +623,87 @@
       this.EditConfirmClosing.CheckState = System.Windows.Forms.CheckState.Checked;
       this.EditConfirmClosing.Name = "EditConfirmClosing";
       // 
+      // ActionViewSearch
+      // 
+      this.ActionViewSearch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      resources.ApplyResources(this.ActionViewSearch, "ActionViewSearch");
+      this.ActionViewSearch.Name = "ActionViewSearch";
+      this.ActionViewSearch.Padding = new System.Windows.Forms.Padding(5);
+      this.ActionViewSearch.Click += new System.EventHandler(this.ActionViewSearch_Click);
+      this.ActionViewSearch.MouseEnter += new System.EventHandler(this.ShowToolTipOnMouseEnter);
+      this.ActionViewSearch.MouseLeave += new System.EventHandler(this.ShowToolTipOnMouseLeave);
+      // 
+      // ActionViewSettings
+      // 
+      this.ActionViewSettings.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      resources.ApplyResources(this.ActionViewSettings, "ActionViewSettings");
+      this.ActionViewSettings.Name = "ActionViewSettings";
+      this.ActionViewSettings.Padding = new System.Windows.Forms.Padding(5);
+      this.ActionViewSettings.Click += new System.EventHandler(this.ActionViewSettings_Click);
+      this.ActionViewSettings.MouseEnter += new System.EventHandler(this.ShowToolTipOnMouseEnter);
+      this.ActionViewSettings.MouseLeave += new System.EventHandler(this.ShowToolTipOnMouseLeave);
+      // 
       // PanelLetters
       // 
       this.PanelLetters.BackColor = System.Drawing.Color.Transparent;
+      this.PanelLetters.InputBackground = System.Drawing.SystemColors.Window;
+      this.PanelLetters.LettersBackground = System.Drawing.Color.LightYellow;
       resources.ApplyResources(this.PanelLetters, "PanelLetters");
       this.PanelLetters.Name = "PanelLetters";
       this.PanelLetters.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PanelLetters_KeyPress);
+      // 
+      // dataSet
+      // 
+      this.dataSet.DataSetName = "DataSet";
+      this.dataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+      // 
+      // lettersBindingSource
+      // 
+      this.lettersBindingSource.DataMember = "Letters";
+      this.lettersBindingSource.DataSource = this.dataSet;
+      // 
+      // lettersTableAdapter
+      // 
+      this.lettersTableAdapter.ClearBeforeFill = true;
+      // 
+      // tableAdapterManager
+      // 
+      this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+      this.tableAdapterManager.LettersTableAdapter = this.lettersTableAdapter;
+      this.tableAdapterManager.MeaningsTableAdapter = this.meaningsTableAdapter;
+      this.tableAdapterManager.UpdateOrder = Ordisoftware.HebrewLettriq.Data.DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+      // 
+      // meaningsTableAdapter
+      // 
+      this.meaningsTableAdapter.ClearBeforeFill = true;
+      // 
+      // meaningsBindingSource
+      // 
+      this.meaningsBindingSource.DataMember = "Letters_Meanings";
+      this.meaningsBindingSource.DataSource = this.lettersBindingSource;
+      // 
+      // meaningsDataGridView
+      // 
+      this.meaningsDataGridView.AutoGenerateColumns = false;
+      this.meaningsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+      this.meaningsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2});
+      this.meaningsDataGridView.DataSource = this.meaningsBindingSource;
+      resources.ApplyResources(this.meaningsDataGridView, "meaningsDataGridView");
+      this.meaningsDataGridView.Name = "meaningsDataGridView";
+      // 
+      // dataGridViewTextBoxColumn1
+      // 
+      this.dataGridViewTextBoxColumn1.DataPropertyName = "LetterCode";
+      resources.ApplyResources(this.dataGridViewTextBoxColumn1, "dataGridViewTextBoxColumn1");
+      this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+      // 
+      // dataGridViewTextBoxColumn2
+      // 
+      this.dataGridViewTextBoxColumn2.DataPropertyName = "Meaning";
+      resources.ApplyResources(this.dataGridViewTextBoxColumn2, "dataGridViewTextBoxColumn2");
+      this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
       // 
       // MainForm
       // 
@@ -400,13 +720,26 @@
       this.Load += new System.EventHandler(this.MainForm_Load);
       this.Shown += new System.EventHandler(this.MainForm_Shown);
       this.PanelMain.ResumeLayout(false);
-      this.PanelCalendarOuter.ResumeLayout(false);
-      this.PanelCalendarInner.ResumeLayout(false);
-      this.PanelCalendar.ResumeLayout(false);
+      this.PanelMainOuter.ResumeLayout(false);
+      this.PanelMainInner.ResumeLayout(false);
+      this.PanelMainCenter.ResumeLayout(false);
+      this.TabControl.ResumeLayout(false);
+      this.TabPageText.ResumeLayout(false);
+      this.PanelViewSearch.ResumeLayout(false);
+      this.TabPageMonth.ResumeLayout(false);
+      this.PanelViewSettings.ResumeLayout(false);
+      this.PanelViewSettings.PerformLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.lettersBindingNavigator)).EndInit();
+      this.lettersBindingNavigator.ResumeLayout(false);
+      this.lettersBindingNavigator.PerformLayout();
       this.PanelTitle.ResumeLayout(false);
       ((System.ComponentModel.ISupportInitialize)(this.moonPhaseImagePictureBox)).EndInit();
       this.ToolStrip.ResumeLayout(false);
       this.ToolStrip.PerformLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.dataSet)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.lettersBindingSource)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.meaningsBindingSource)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.meaningsDataGridView)).EndInit();
       this.ResumeLayout(false);
 
     }
@@ -435,22 +768,55 @@
     private System.Windows.Forms.ToolStripMenuItem ActionResetWinSettings;
     internal System.Windows.Forms.ToolStripMenuItem EditShowTips;
     private System.Windows.Forms.ToolStripSeparator Sep6;
-    private System.Windows.Forms.ToolStripButton ActionCopyReportToClipboard;
     private System.Windows.Forms.Panel PanelMain;
     private System.Windows.Forms.Panel PanelSepTop;
     private System.Windows.Forms.Panel PanelTitle;
     private System.Windows.Forms.Label LabelTitle;
-    private System.Windows.Forms.Panel PanelCalendarOuter;
-    private System.Windows.Forms.Panel PanelCalendarInner;
+    private System.Windows.Forms.Panel PanelMainOuter;
+    private System.Windows.Forms.Panel PanelMainInner;
     private System.Windows.Forms.PictureBox moonPhaseImagePictureBox;
     private System.Windows.Forms.Label label1;
-    internal System.Windows.Forms.Panel PanelCalendar;
+    internal System.Windows.Forms.Panel PanelMainCenter;
     private System.Windows.Forms.Timer TimerTooltip;
-    internal System.Windows.Forms.ToolStripButton ActionPreferences;
     private System.Windows.Forms.Button buttonClear;
     private System.Windows.Forms.Button buttonLettrique;
     private LettersControl PanelLetters;
     private System.Windows.Forms.RichTextBox textboxLettrique;
+    private System.Windows.Forms.TabControl TabControl;
+    private System.Windows.Forms.TabPage TabPageText;
+    private System.Windows.Forms.Panel PanelViewSearch;
+    private System.Windows.Forms.TabPage TabPageMonth;
+    private System.Windows.Forms.Panel PanelViewSettings;
+    private System.Windows.Forms.ToolStripButton ActionViewSearch;
+    private System.Windows.Forms.ToolStripButton ActionViewSettings;
+    private Data.DataSet dataSet;
+    private System.Windows.Forms.BindingSource lettersBindingSource;
+    private Data.DataSetTableAdapters.LettersTableAdapter lettersTableAdapter;
+    private Data.DataSetTableAdapters.TableAdapterManager tableAdapterManager;
+    private System.Windows.Forms.BindingNavigator lettersBindingNavigator;
+    private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
+    private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
+    private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
+    private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
+    private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
+    private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
+    private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
+    private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
+    private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
+    private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
+    private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
+    private System.Windows.Forms.ToolStripButton lettersBindingNavigatorSaveItem;
+    private System.Windows.Forms.TextBox codeTextBox;
+    private System.Windows.Forms.TextBox nameTextBox;
+    private System.Windows.Forms.TextBox structureTextBox;
+    private System.Windows.Forms.TextBox functionTextBox;
+    private System.Windows.Forms.TextBox valueSimpleTextBox;
+    private System.Windows.Forms.TextBox valueFullTextBox;
+    private Data.DataSetTableAdapters.MeaningsTableAdapter meaningsTableAdapter;
+    private System.Windows.Forms.DataGridView meaningsDataGridView;
+    private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+    private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+    private System.Windows.Forms.BindingSource meaningsBindingSource;
   }
 }
 
