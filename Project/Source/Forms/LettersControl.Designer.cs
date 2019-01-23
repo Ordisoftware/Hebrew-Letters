@@ -1,4 +1,4 @@
-﻿namespace Ordisoftware.HebrewLettriq
+﻿namespace Ordisoftware.HebrewLetters
 {
   partial class LettersControl
   {

@@ -364,7 +364,7 @@
     <value>PanelLetters</value>
   </data>
   <data name="&gt;&gt;PanelLetters.Type" xml:space="preserve">
-    <value>Ordisoftware.HebrewLettriq.LettersControl, Ordisoftware.HebrewLettriq, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.HebrewLetters.LettersControl, Ordisoftware.HebrewLetters, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;PanelLetters.Parent" xml:space="preserve">
     <value>PanelViewSearch</value>
@@ -379,7 +379,7 @@
     <value>716, 220</value>
   </data>
   <data name="textboxLettrique.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+    <value>1</value>
   </data>
   <data name="textboxLettrique.Text" xml:space="preserve">
     <value />
@@ -396,9 +396,6 @@
   <data name="&gt;&gt;textboxLettrique.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="buttonLettrique.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="buttonLettrique.Location" type="System.Drawing.Point, System.Drawing">
     <value>529, 195</value>
   </data>
@@ -409,7 +406,7 @@
     <value>2</value>
   </data>
   <data name="buttonLettrique.Text" xml:space="preserve">
-    <value>Lettrique</value>
+    <value>Analyse</value>
   </data>
   <data name="&gt;&gt;buttonLettrique.Name" xml:space="preserve">
     <value>buttonLettrique</value>
@@ -436,7 +433,7 @@
     <value>3</value>
   </data>
   <data name="buttonClear.Text" xml:space="preserve">
-    <value>Effacer</value>
+    <value>Erase</value>
   </data>
   <data name="&gt;&gt;buttonClear.Name" xml:space="preserve">
     <value>buttonClear</value>
@@ -922,7 +919,7 @@
     <value>0</value>
   </data>
   <data name="LabelTitle.Text" xml:space="preserve">
-    <value>LETTRIQ STUDY</value>
+    <value>Letters STUDY</value>
   </data>
   <data name="LabelTitle.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
@@ -1487,7 +1484,7 @@
   <data name="ActionViewSettings.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAXISURBVFhHvVdbT1RXFDZpG/Shtmla0r70D7SpaZ9MX5q0
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAXJSURBVFhHvVdbT1RXFDZpG/Shtmla0r70D7SpaZ9MX5q0
         D33RNE3apmmaWNs0MogGO9gWuQyCMCoUtVQrIyAIKhoUGZhhBi+AiDe0CMyFQR3QQRRRBLzXytf17cM5
         ziiQjpqu5GPt/e3D+tZee52dMzPEXnzT4qibne7ErFQnYlKexEwFh/JPyzM2NahFTQrr9jIX/i+jFjU1
         ac3eYHbKWuYBrV8AR78Kw5eCz5DsGFRem0fJMyZji1GLmpq0ZrEslbLW+cBxCXLi6zDI/OTnsLiHlFfz
@@ -1501,18 +1498,18 @@
         N7q9yuvPRPASnElRZETi8JX/zbYT2atykJWVjSq7QyVFeyHVNXUC17n7++MRIDcmgf90eZXXnzF4OWvu
         kti1txYFm2xqnLEyCyMjo4IRWDKyFFdWUoJvcoqnTuCmlPJx3BLI24QtB3zKcx7J+yGFwO5qOyp37Yaj
         3oW09AyUlVWgy+tXKJUxOZe7AfYaOzIzc5yia3wVGU242e3B5gYPChu8BmyC4oMSpLFbec4j+KYAyg6f
-        R+aafNTYa9F/aQChUD+Grg2jXgTrXQ1qTO7SwACcLrdUZO2w6BpfRUYF+KZwV+EgJ5XG1oM+5fVn6KUI
-        KGsMyF9AXnX8mpyKWocLJ0/9hfLyHciSHsi2rsU2GZOrc7qRZsnkEXwgmK3UxWJjJhK4Kwq3pZ7huCOc
-        9BeK9vuU51znxaFcdl+1txrmpF9gsxWjvb0DFdsrkZxiQU/vRQSCF5Ei5d9WUanWiopLkZq+EqmWTOPj
-        1EjgAc9VAodD+k1ZifQAjfNwvvJoH8xmMwYHh6TEV9B0+Aisq3Nh29eiPSAW6O2DZeUqtTZweVAdSaok
-        JdrqGIwjmM7KD/knRpFWdfwCli1LRGenByfbTqO19QRyrKuxpfpRAmeD8nmWbcWR1uNoO3UaXmnM5JQ0
-        JqA+To0mLD3gFfhQKueto0xQ3ujHzuaA8pzrfEVTN6qO9SJ7nQ0JSxKxJjcfbafbUb3PjkTzctj2NqNw
-        TzOW/pSEPdU1ai0vfwOSfl6BhIRlzUYC+vfAdLajafIKVLb0KH8xFEJc/BJVhTNnOrHPXodV2TlIS7Oo
-        Mbk2acSliWbMnfvhEtF9V6AdwfP4YZK72oqKiu0I9JxHe0cXfP4eeLzdUu5uNSbXI2s75a6INy+/Lrqv
-        C7QmfMviGFM/zaQSbMjHwR7hMdE/yTsQk+7GvKQ12GorlMtoF0ymeBQU/IGz54IKebl5iDeZ1EVVVFSC
-        OFNCo+i+QnHaq4L3BR8LPnkGfPrjd98eWbRo0Q0ZzzfFxWHw6pB6OxbLmBzXFi5ceEzG7wmMi+glAZPg
-        /fwseFswR8BLZs73Cxa0xJkWSzUW4wcZh61RnM0X8QP1eRgDcle84V4TvCP4aAIck+Man3nu4o+bngx3
-        SkwhOmPGvxk1qCe0Xs2eAAAAAElFTkSuQmCC
+        R+aafNTYa9F/aQChUD+Grg2jXgTrXQ1qTO7SwACcLjcslrXDomt8FRkV4JvCXYWDnFQaWw/6lNefoZci
+        oKwxIH8BedXxa3Iqah0unDz1F8rLdyBLeiDbuhbbZEyuzulGmiWTR/CBYLZSF4uNmUjgrijclnqG445w
+        0l8o2u9TnnOdF4dy2X3V3mqYk36BzVaM9vYOVGyvRHKKBT29FxEIXkSKlH9bRaVaKyouRWr6SqRaMo2P
+        UyOBBzxXCRwO6TdlJdIDNM7D+cqjfTCbzRgcHJISX0HT4SOwrs6FbV+L9oBYoLcPlpWr1NrA5UF1JKmS
+        lGirYzCOYDorP+SfGEVa1fELWLYsEZ2dHpxsO43W1hPIsa7GlupHCZwNyudZthVHWo+j7dRpeKUxk1PS
+        mID6ODWasPSAV+BDqZy3jjJBeaMfO5sDynOu8xVN3ag61ovsdTYkLEnEmtx8tJ1uR/U+OxLNy2Hb24zC
+        Pc1Y+lMS9lTXqLW8/A1I+nkFEhKWNRsJ6N8D09mOpskrUNnSo/zFUAhx8UtUFc6c6cQ+ex1WZecgLc2i
+        xuTapBGXJpoxd+6HS0T3XYF2BM/jh0nuaisqKrYj0HMe7R1d8Pl74PF2S7m71Zhcj6ztlLsi3rz8uui+
+        LtCa8C2LY0z9NJNKsCEfB3uEx0T/JO9ATLob85LWYKutUC6jXTCZ4lFQ8AfOngsq5OXmId5kUhdVUVEJ
+        4kwJjaL7CsVprwreF3ws+OQZ8OmP3317ZNGiRTdkPN8UF4fBq0Pq7VgsY3JcW7hw4TEZvycwLqKXBEyC
+        9/Oz4G3BHAEvmTnfL1jQEmdaLNVYjB9kHLZGcTZfxA/U52EMyF3xhntN8I7gowlwTI5rfOa5iz9uejLc
+        KTGF6IwZ/wITHqgmpKNVuAAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="ActionViewSettings.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
@@ -1582,7 +1579,7 @@
     <value>CenterScreen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Hebrew Lettriq</value>
+    <value>Hebrew Letters</value>
   </data>
   <data name="&gt;&gt;LettersBindingSource.Name" xml:space="preserve">
     <value>LettersBindingSource</value>
@@ -1594,7 +1591,7 @@
     <value>DataSet</value>
   </data>
   <data name="&gt;&gt;DataSet.Type" xml:space="preserve">
-    <value>Ordisoftware.HebrewLettriq.Data.DataSet, Ordisoftware.HebrewLettriq, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.HebrewLetters.Data.DataSet, Ordisoftware.HebrewLetters, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;dataGridViewTextBoxColumn2.Name" xml:space="preserve">
     <value>dataGridViewTextBoxColumn2</value>
@@ -1756,19 +1753,19 @@
     <value>LettersTableAdapter</value>
   </data>
   <data name="&gt;&gt;LettersTableAdapter.Type" xml:space="preserve">
-    <value>Ordisoftware.HebrewLettriq.Data.DataSetTableAdapters.LettersTableAdapter, Ordisoftware.HebrewLettriq, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.LettersTableAdapter, Ordisoftware.HebrewLetters, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;TableAdapterManager.Name" xml:space="preserve">
     <value>TableAdapterManager</value>
   </data>
   <data name="&gt;&gt;TableAdapterManager.Type" xml:space="preserve">
-    <value>Ordisoftware.HebrewLettriq.Data.DataSetTableAdapters.TableAdapterManager, Ordisoftware.HebrewLettriq, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.TableAdapterManager, Ordisoftware.HebrewLetters, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;MeaningsTableAdapter.Name" xml:space="preserve">
     <value>MeaningsTableAdapter</value>
   </data>
   <data name="&gt;&gt;MeaningsTableAdapter.Type" xml:space="preserve">
-    <value>Ordisoftware.HebrewLettriq.Data.DataSetTableAdapters.MeaningsTableAdapter, Ordisoftware.HebrewLettriq, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.MeaningsTableAdapter, Ordisoftware.HebrewLetters, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainForm</value>

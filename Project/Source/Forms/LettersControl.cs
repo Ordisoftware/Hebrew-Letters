@@ -17,7 +17,7 @@ using System.Windows.Forms;
 using Ordisoftware.Core;
 using Ordisoftware.Core.Diagnostics;
 
-namespace Ordisoftware.HebrewLettriq
+namespace Ordisoftware.HebrewLetters
 {
 
   /// <summary>

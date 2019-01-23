@@ -14,9 +14,9 @@
 /// <edited> 2016-04 </edited>
 using System;
 using System.Windows.Forms;
-using Ordisoftware.HebrewLettriq.Properties;
+using Ordisoftware.HebrewLetters.Properties;
 
-namespace Ordisoftware.HebrewLettriq
+namespace Ordisoftware.HebrewLetters
 {
 
   /// <summary>

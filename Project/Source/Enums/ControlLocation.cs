@@ -14,7 +14,7 @@
 /// <edited> 2016-04 </edited>
 using System;
 
-namespace Ordisoftware.HebrewLettriq
+namespace Ordisoftware.HebrewLetters
 {
 
   /// <summary>

@@ -1,16 +1,16 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Ordisoftware.HebrewLettriq.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Ordisoftware.HebrewLetters.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
     <Setting Name="ConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Dsn=Hebrew-Lettriq&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Dsn=Hebrew-Letters&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.Odbc&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Dsn=Hebrew-Lettriq</Value>
+      <Value Profile="(Default)">Dsn=Hebrew-Letters</Value>
     </Setting>
-    <Setting Name="MainFormPosition" Type="Ordisoftware.HebrewLettriq.ControlLocation" Scope="User">
+    <Setting Name="MainFormPosition" Type="Ordisoftware.HebrewLetters.ControlLocation" Scope="User">
       <Value Profile="(Default)">Center</Value>
     </Setting>
     <Setting Name="MainFormLeft" Type="System.Int32" Scope="User">
@@ -40,7 +40,7 @@
     <Setting Name="UpgradeRequired" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="CurrentView" Type="Ordisoftware.HebrewLettriq.ViewModeType" Scope="User">
+    <Setting Name="CurrentView" Type="Ordisoftware.HebrewLetters.ViewModeType" Scope="User">
       <Value Profile="(Default)">Search</Value>
     </Setting>
   </Settings>

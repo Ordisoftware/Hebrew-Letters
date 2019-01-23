@@ -16,7 +16,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Ordisoftware.HebrewLettriq
+namespace Ordisoftware.HebrewLetters
 {
 
   /// <summary>

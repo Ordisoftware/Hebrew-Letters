@@ -1,4 +1,4 @@
-﻿namespace Ordisoftware.HebrewLettriq
+﻿namespace Ordisoftware.HebrewLetters
 {
   partial class MainForm
   {
@@ -44,7 +44,7 @@
       this.TabControl = new System.Windows.Forms.TabControl();
       this.TabPageText = new System.Windows.Forms.TabPage();
       this.PanelViewSearch = new System.Windows.Forms.Panel();
-      this.PanelLetters = new Ordisoftware.HebrewLettriq.LettersControl();
+      this.PanelLetters = new Ordisoftware.HebrewLetters.LettersControl();
       this.textboxLettrique = new System.Windows.Forms.RichTextBox();
       this.buttonLettrique = new System.Windows.Forms.Button();
       this.buttonClear = new System.Windows.Forms.Button();
@@ -54,7 +54,7 @@
       this.ActionReset = new System.Windows.Forms.LinkLabel();
       this.comboBox1 = new System.Windows.Forms.ComboBox();
       this.LettersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-      this.DataSet = new Ordisoftware.HebrewLettriq.Data.DataSet();
+      this.DataSet = new Ordisoftware.HebrewLetters.Data.DataSet();
       this.meaningsDataGridView = new System.Windows.Forms.DataGridView();
       this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.meaningsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -93,9 +93,9 @@
       this.EditConfirmClosing = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionViewSearch = new System.Windows.Forms.ToolStripButton();
       this.ActionViewSettings = new System.Windows.Forms.ToolStripButton();
-      this.LettersTableAdapter = new Ordisoftware.HebrewLettriq.Data.DataSetTableAdapters.LettersTableAdapter();
-      this.TableAdapterManager = new Ordisoftware.HebrewLettriq.Data.DataSetTableAdapters.TableAdapterManager();
-      this.MeaningsTableAdapter = new Ordisoftware.HebrewLettriq.Data.DataSetTableAdapters.MeaningsTableAdapter();
+      this.LettersTableAdapter = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.LettersTableAdapter();
+      this.TableAdapterManager = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.TableAdapterManager();
+      this.MeaningsTableAdapter = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.MeaningsTableAdapter();
       codeLabel = new System.Windows.Forms.Label();
       nameLabel = new System.Windows.Forms.Label();
       structureLabel = new System.Windows.Forms.Label();
@@ -614,7 +614,7 @@
       this.TableAdapterManager.BackupDataSetBeforeUpdate = false;
       this.TableAdapterManager.LettersTableAdapter = this.LettersTableAdapter;
       this.TableAdapterManager.MeaningsTableAdapter = this.MeaningsTableAdapter;
-      this.TableAdapterManager.UpdateOrder = Ordisoftware.HebrewLettriq.Data.DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+      this.TableAdapterManager.UpdateOrder = Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
       // 
       // MeaningsTableAdapter
       // 

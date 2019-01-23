@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace Ordisoftware.HebrewLettriq.Data {
+namespace Ordisoftware.HebrewLetters.Data {
     
     
     /// <summary>
@@ -1128,7 +1128,7 @@ namespace Ordisoftware.HebrewLettriq.Data {
         }
     }
 }
-namespace Ordisoftware.HebrewLettriq.Data.DataSetTableAdapters {
+namespace Ordisoftware.HebrewLetters.Data.DataSetTableAdapters {
     
     
     /// <summary>
@@ -1305,7 +1305,7 @@ namespace Ordisoftware.HebrewLettriq.Data.DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.Odbc.OdbcConnection();
-            this._connection.ConnectionString = global::Ordisoftware.HebrewLettriq.Properties.Settings.Default.ConnectionString;
+            this._connection.ConnectionString = global::Ordisoftware.HebrewLetters.Properties.Settings.Default.ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1684,7 +1684,7 @@ namespace Ordisoftware.HebrewLettriq.Data.DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.Odbc.OdbcConnection();
-            this._connection.ConnectionString = global::Ordisoftware.HebrewLettriq.Properties.Settings.Default.ConnectionString;
+            this._connection.ConnectionString = global::Ordisoftware.HebrewLetters.Properties.Settings.Default.ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

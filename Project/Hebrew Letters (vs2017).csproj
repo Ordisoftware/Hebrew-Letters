@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{E4E4C05B-71ED-42DE-A2FA-345AE793A9AC}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Ordisoftware.HebrewLettriq</RootNamespace>
-    <AssemblyName>Ordisoftware.HebrewLettriq</AssemblyName>
+    <RootNamespace>Ordisoftware.HebrewLetters</RootNamespace>
+    <AssemblyName>Ordisoftware.HebrewLetters</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

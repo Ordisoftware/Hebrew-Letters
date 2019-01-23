@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Les informations générales relatives à un assembly dépendent de
 // l'ensemble d'attributs suivant. Changez les valeurs de ces attributs pour modifier les informations
 // associées à un assembly.
-[assembly: AssemblyTitle("Hebrew Lettriq")]
+[assembly: AssemblyTitle("Hebrew Letters")]
 [assembly: AssemblyDescription("A tool for the lettriq study of hebrew words")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Ordisoftware")]
-[assembly: AssemblyProduct("www.ordisoftware.com/projects/hebrew-lettriq")]
+[assembly: AssemblyProduct("www.ordisoftware.com/projects/hebrew-letters")]
 [assembly: AssemblyCopyright("Copyright 2012-2019 Olivier Rogier")]
 [assembly: AssemblyTrademark("www.ordisoftware.com")]
 [assembly: AssemblyCulture("")]

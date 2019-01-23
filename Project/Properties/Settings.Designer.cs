@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Ordisoftware.HebrewLettriq.Properties {
+namespace Ordisoftware.HebrewLetters.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -36,9 +36,9 @@ namespace Ordisoftware.HebrewLettriq.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Center")]
-        public global::Ordisoftware.HebrewLettriq.ControlLocation MainFormPosition {
+        public global::Ordisoftware.HebrewLetters.ControlLocation MainFormPosition {
             get {
-                return ((global::Ordisoftware.HebrewLettriq.ControlLocation)(this["MainFormPosition"]));
+                return ((global::Ordisoftware.HebrewLetters.ControlLocation)(this["MainFormPosition"]));
             }
             set {
                 this["MainFormPosition"] = value;
@@ -156,9 +156,9 @@ namespace Ordisoftware.HebrewLettriq.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Search")]
-        public global::Ordisoftware.HebrewLettriq.ViewModeType CurrentView {
+        public global::Ordisoftware.HebrewLetters.ViewModeType CurrentView {
             get {
-                return ((global::Ordisoftware.HebrewLettriq.ViewModeType)(this["CurrentView"]));
+                return ((global::Ordisoftware.HebrewLetters.ViewModeType)(this["CurrentView"]));
             }
             set {
                 this["CurrentView"] = value;

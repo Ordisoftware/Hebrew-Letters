@@ -4,7 +4,7 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConnectionString (Settings)" PropertyReference="ApplicationSettings.Ordisoftware.HebrewLettriq.Properties.Settings.GlobalReference.Default.ConnectionString" Provider="System.Data.Odbc" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ConnectionString (Settings)" PropertyReference="ApplicationSettings.Ordisoftware.HebrewLetters.Properties.Settings.GlobalReference.Default.ConnectionString" Provider="System.Data.Odbc" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="LettersTableAdapter" GeneratorDataComponentClassName="LettersTableAdapter" Name="Letters" UserDataComponentName="LettersTableAdapter">
@@ -107,7 +107,7 @@
   <xs:element name="DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DataSet" msprop:Generator_UserDSName="DataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Letters" msprop:Generator_TableClassName="LettersDataTable" msprop:Generator_TableVarName="tableLetters" msprop:Generator_RowChangedName="LettersRowChanged" msprop:Generator_TablePropName="Letters" msprop:Generator_RowDeletingName="LettersRowDeleting" msprop:Generator_RowChangingName="LettersRowChanging" msprop:Generator_RowEvHandlerName="LettersRowChangeEventHandler" msprop:Generator_RowDeletedName="LettersRowDeleted" msprop:Generator_RowClassName="LettersRow" msprop:Generator_UserTableName="Letters" msprop:Generator_RowEvArgName="LettersRowChangeEvent">
+        <xs:element name="Letters" msprop:Generator_TableClassName="LettersDataTable" msprop:Generator_TableVarName="tableLetters" msprop:Generator_TablePropName="Letters" msprop:Generator_RowDeletingName="LettersRowDeleting" msprop:Generator_RowChangingName="LettersRowChanging" msprop:Generator_RowEvHandlerName="LettersRowChangeEventHandler" msprop:Generator_RowDeletedName="LettersRowDeleted" msprop:Generator_UserTableName="Letters" msprop:Generator_RowChangedName="LettersRowChanged" msprop:Generator_RowEvArgName="LettersRowChangeEvent" msprop:Generator_RowClassName="LettersRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Code" msprop:Generator_ColumnVarNameInTable="columnCode" msprop:Generator_ColumnPropNameInRow="Code" msprop:Generator_ColumnPropNameInTable="CodeColumn" msprop:Generator_UserColumnName="Code">
@@ -143,7 +143,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Meanings" msprop:Generator_TableClassName="MeaningsDataTable" msprop:Generator_TableVarName="tableMeanings" msprop:Generator_TablePropName="Meanings" msprop:Generator_RowDeletingName="MeaningsRowDeleting" msprop:Generator_RowChangingName="MeaningsRowChanging" msprop:Generator_RowEvHandlerName="MeaningsRowChangeEventHandler" msprop:Generator_RowDeletedName="MeaningsRowDeleted" msprop:Generator_UserTableName="Meanings" msprop:Generator_RowChangedName="MeaningsRowChanged" msprop:Generator_RowEvArgName="MeaningsRowChangeEvent" msprop:Generator_RowClassName="MeaningsRow">
+        <xs:element name="Meanings" msprop:Generator_TableClassName="MeaningsDataTable" msprop:Generator_TableVarName="tableMeanings" msprop:Generator_RowChangedName="MeaningsRowChanged" msprop:Generator_TablePropName="Meanings" msprop:Generator_RowDeletingName="MeaningsRowDeleting" msprop:Generator_RowChangingName="MeaningsRowChanging" msprop:Generator_RowEvHandlerName="MeaningsRowChangeEventHandler" msprop:Generator_RowDeletedName="MeaningsRowDeleted" msprop:Generator_RowClassName="MeaningsRow" msprop:Generator_UserTableName="Meanings" msprop:Generator_RowEvArgName="MeaningsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="LetterCode" msprop:Generator_ColumnVarNameInTable="columnLetterCode" msprop:Generator_ColumnPropNameInRow="LetterCode" msprop:Generator_ColumnPropNameInTable="LetterCodeColumn" msprop:Generator_UserColumnName="LetterCode">
@@ -172,7 +172,7 @@
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="Letters_Meanings" msdata:parent="Letters" msdata:child="Meanings" msdata:parentkey="Code" msdata:childkey="LetterCode" msprop:Generator_UserChildTable="Meanings" msprop:Generator_ChildPropName="GetMeaningsRows" msprop:Generator_UserRelationName="Letters_Meanings" msprop:Generator_ParentPropName="LettersRow" msprop:Generator_RelationVarName="relationLetters_Meanings" msprop:Generator_UserParentTable="Letters" />
+      <msdata:Relationship name="Letters_Meanings" msdata:parent="Letters" msdata:child="Meanings" msdata:parentkey="Code" msdata:childkey="LetterCode" msprop:Generator_UserChildTable="Meanings" msprop:Generator_ChildPropName="GetMeaningsRows" msprop:Generator_UserRelationName="Letters_Meanings" msprop:Generator_RelationVarName="relationLetters_Meanings" msprop:Generator_UserParentTable="Letters" msprop:Generator_ParentPropName="LettersRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

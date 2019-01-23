@@ -24,7 +24,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Ordisoftware.HebrewLettriq
+namespace Ordisoftware.HebrewLetters
 {
 
   /// <summary>

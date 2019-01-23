@@ -16,7 +16,7 @@ using System;
 using System.Data.Odbc;
 using System.Windows.Forms;
 
-namespace Ordisoftware.HebrewLettriq
+namespace Ordisoftware.HebrewLetters
 {
 
   /// <summary>
@@ -45,7 +45,8 @@ namespace Ordisoftware.HebrewLettriq
                                                    Name text NOT NULL, 
                                                    Structure text NOT NULL, 
                                                    Function text NOT NULL, 
-                                                   Value integer NOT NULL, 
+                                                   ValueSimple integer NOT NULL, 
+                                                   ValueFull integer NOT NULL, 
                                                    CONSTRAINT Pk_Letters_Code PRIMARY KEY ( Code ) 
                                                  )", connection);
           cmdCreateTable.ExecuteNonQuery();
@@ -102,7 +103,6 @@ namespace Ordisoftware.HebrewLettriq
           rowMeaning.Meaning = meaning;
           DataSet.Meanings.AddMeaningsRow(rowMeaning);
         }
-        //row.Meanings = _Meanings[i];
         DataSet.Letters.AddLettersRow(rowLetter);
       }
       TableAdapterManager.UpdateAll(DataSet);
