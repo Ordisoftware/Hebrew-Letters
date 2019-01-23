@@ -37,7 +37,7 @@ namespace Ordisoftware.HebrewLetters
     /// <summary>
     /// INdicate filename of the help file.
     /// </summary>
-    static public readonly string HelpFilename 
+    static public readonly string HelpFilename
       = Directory.GetParent(Path.GetDirectoryName(Application.ExecutablePath.Replace("\\Debug\\", "\\").Replace("\\Release\\", "\\"))).FullName + Path.DirectorySeparatorChar
       + "Help" + Path.DirectorySeparatorChar
       + "index.htm";
@@ -274,10 +274,21 @@ namespace Ordisoftware.HebrewLetters
       Close();
     }
 
+    private void ActionAddMeaning_Click(object sender, EventArgs e)
+    {
+      var row = (DataRowView)meaningsBindingSource.AddNew();
+      EditMeanings.BeginEdit(false);
+    }
+
+    private void ActionDeleteMeaning_Click(object sender, EventArgs e)
+    {
+      meaningsBindingSource.RemoveCurrent();
+    }
+
     private void ActionReset_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
       if ( DisplayManager.QueryYesNo("This will restaure all default values." + Environment.NewLine + Environment.NewLine +
-                                    "Do you want to continue?") )
+                                     "Do you want to continue?") )
         CreateDataIfNotExists(true);
     }
 

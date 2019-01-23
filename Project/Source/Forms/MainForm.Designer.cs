@@ -51,11 +51,13 @@
       this.TabPageMonth = new System.Windows.Forms.TabPage();
       this.PanelViewSettings = new System.Windows.Forms.Panel();
       this.PanelSettingsDetails = new System.Windows.Forms.Panel();
+      this.ActionDeleteMeaning = new System.Windows.Forms.Button();
+      this.ActionAddMeaning = new System.Windows.Forms.Button();
       this.ActionReset = new System.Windows.Forms.LinkLabel();
       this.comboBox1 = new System.Windows.Forms.ComboBox();
       this.LettersBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.DataSet = new Ordisoftware.HebrewLetters.Data.DataSet();
-      this.meaningsDataGridView = new System.Windows.Forms.DataGridView();
+      this.EditMeanings = new System.Windows.Forms.DataGridView();
       this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.meaningsBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.valueFullTextBox = new System.Windows.Forms.TextBox();
@@ -115,7 +117,7 @@
       this.PanelSettingsDetails.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.LettersBindingSource)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.DataSet)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.meaningsDataGridView)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.EditMeanings)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.meaningsBindingSource)).BeginInit();
       this.PanelTitle.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.moonPhaseImagePictureBox)).BeginInit();
@@ -255,11 +257,13 @@
       // PanelSettingsDetails
       // 
       this.PanelSettingsDetails.BackColor = System.Drawing.SystemColors.Control;
+      this.PanelSettingsDetails.Controls.Add(this.ActionDeleteMeaning);
+      this.PanelSettingsDetails.Controls.Add(this.ActionAddMeaning);
       this.PanelSettingsDetails.Controls.Add(this.ActionReset);
       this.PanelSettingsDetails.Controls.Add(this.comboBox1);
       this.PanelSettingsDetails.Controls.Add(label2);
       this.PanelSettingsDetails.Controls.Add(codeLabel);
-      this.PanelSettingsDetails.Controls.Add(this.meaningsDataGridView);
+      this.PanelSettingsDetails.Controls.Add(this.EditMeanings);
       this.PanelSettingsDetails.Controls.Add(this.valueFullTextBox);
       this.PanelSettingsDetails.Controls.Add(valueFullLabel);
       this.PanelSettingsDetails.Controls.Add(this.valueSimpleTextBox);
@@ -272,6 +276,22 @@
       this.PanelSettingsDetails.Controls.Add(this.structureTextBox);
       resources.ApplyResources(this.PanelSettingsDetails, "PanelSettingsDetails");
       this.PanelSettingsDetails.Name = "PanelSettingsDetails";
+      // 
+      // ActionDeleteMeaning
+      // 
+      resources.ApplyResources(this.ActionDeleteMeaning, "ActionDeleteMeaning");
+      this.ActionDeleteMeaning.FlatAppearance.BorderSize = 0;
+      this.ActionDeleteMeaning.Name = "ActionDeleteMeaning";
+      this.ActionDeleteMeaning.UseVisualStyleBackColor = true;
+      this.ActionDeleteMeaning.Click += new System.EventHandler(this.ActionDeleteMeaning_Click);
+      // 
+      // ActionAddMeaning
+      // 
+      resources.ApplyResources(this.ActionAddMeaning, "ActionAddMeaning");
+      this.ActionAddMeaning.FlatAppearance.BorderSize = 0;
+      this.ActionAddMeaning.Name = "ActionAddMeaning";
+      this.ActionAddMeaning.UseVisualStyleBackColor = true;
+      this.ActionAddMeaning.Click += new System.EventHandler(this.ActionAddMeaning_Click);
       // 
       // ActionReset
       // 
@@ -300,17 +320,21 @@
       this.DataSet.DataSetName = "DataSet";
       this.DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
       // 
-      // meaningsDataGridView
+      // EditMeanings
       // 
-      resources.ApplyResources(this.meaningsDataGridView, "meaningsDataGridView");
-      this.meaningsDataGridView.AutoGenerateColumns = false;
-      this.meaningsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-      this.meaningsDataGridView.ColumnHeadersVisible = false;
-      this.meaningsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+      this.EditMeanings.AllowUserToAddRows = false;
+      this.EditMeanings.AllowUserToResizeColumns = false;
+      this.EditMeanings.AllowUserToResizeRows = false;
+      resources.ApplyResources(this.EditMeanings, "EditMeanings");
+      this.EditMeanings.AutoGenerateColumns = false;
+      this.EditMeanings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+      this.EditMeanings.ColumnHeadersVisible = false;
+      this.EditMeanings.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn2});
-      this.meaningsDataGridView.DataSource = this.meaningsBindingSource;
-      this.meaningsDataGridView.Name = "meaningsDataGridView";
-      this.meaningsDataGridView.RowHeadersVisible = false;
+      this.EditMeanings.DataSource = this.meaningsBindingSource;
+      this.EditMeanings.MultiSelect = false;
+      this.EditMeanings.Name = "EditMeanings";
+      this.EditMeanings.RowHeadersVisible = false;
       // 
       // dataGridViewTextBoxColumn2
       // 
@@ -326,15 +350,19 @@
       // 
       // valueFullTextBox
       // 
+      this.valueFullTextBox.BackColor = System.Drawing.SystemColors.Window;
       this.valueFullTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "ValueFull", true));
       resources.ApplyResources(this.valueFullTextBox, "valueFullTextBox");
       this.valueFullTextBox.Name = "valueFullTextBox";
+      this.valueFullTextBox.ReadOnly = true;
       // 
       // valueSimpleTextBox
       // 
+      this.valueSimpleTextBox.BackColor = System.Drawing.SystemColors.Window;
       this.valueSimpleTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "ValueSimple", true));
       resources.ApplyResources(this.valueSimpleTextBox, "valueSimpleTextBox");
       this.valueSimpleTextBox.Name = "valueSimpleTextBox";
+      this.valueSimpleTextBox.ReadOnly = true;
       // 
       // functionTextBox
       // 
@@ -344,9 +372,11 @@
       // 
       // nameTextBox
       // 
+      this.nameTextBox.BackColor = System.Drawing.SystemColors.Window;
       this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Name", true));
       resources.ApplyResources(this.nameTextBox, "nameTextBox");
       this.nameTextBox.Name = "nameTextBox";
+      this.nameTextBox.ReadOnly = true;
       // 
       // structureTextBox
       // 
@@ -647,7 +677,7 @@
       this.PanelSettingsDetails.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.LettersBindingSource)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.DataSet)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.meaningsDataGridView)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.EditMeanings)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.meaningsBindingSource)).EndInit();
       this.PanelTitle.ResumeLayout(false);
       ((System.ComponentModel.ISupportInitialize)(this.moonPhaseImagePictureBox)).EndInit();
@@ -712,12 +742,14 @@
     private System.Windows.Forms.TextBox valueSimpleTextBox;
     private System.Windows.Forms.TextBox valueFullTextBox;
     private Data.DataSetTableAdapters.MeaningsTableAdapter MeaningsTableAdapter;
-    private System.Windows.Forms.DataGridView meaningsDataGridView;
+    private System.Windows.Forms.DataGridView EditMeanings;
     private System.Windows.Forms.BindingSource meaningsBindingSource;
     private System.Windows.Forms.Panel PanelSettingsDetails;
     private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
     private System.Windows.Forms.ComboBox comboBox1;
     private System.Windows.Forms.LinkLabel ActionReset;
+    private System.Windows.Forms.Button ActionDeleteMeaning;
+    private System.Windows.Forms.Button ActionAddMeaning;
   }
 }
 
