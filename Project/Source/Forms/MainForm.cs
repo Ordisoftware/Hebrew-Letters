@@ -23,7 +23,6 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using System.Drawing.Printing;
 
 namespace Ordisoftware.HebrewLettriq
 {
@@ -78,8 +77,10 @@ namespace Ordisoftware.HebrewLettriq
     /// <param name="e">Event information.</param>
     private void MainForm_Load(object sender, EventArgs e)
     {
-      this.meaningsTableAdapter.Fill(this.dataSet.Meanings);
-      this.lettersTableAdapter.Fill(this.dataSet.Letters);
+      CreateDatabaseIfNotExists();
+      CreateDataIfNotExists(false);
+      MeaningsTableAdapter.Fill(DataSet.Meanings);
+      LettersTableAdapter.Fill(DataSet.Letters);
       Program.Settings.Retrieve();
       SetView(Program.Settings.CurrentView, true);
       UpdateButtons();
@@ -102,6 +103,13 @@ namespace Ordisoftware.HebrewLettriq
     /// <param name="e">Form closing event information.</param>
     private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
     {
+      if ( DataSet.HasChanges() ) TableAdapterManager.UpdateAll(DataSet);
+      if ( EditConfirmClosing.Checked )
+        if ( !DisplayManager.QueryYesNo(Localizer.ExitApplicationText.GetLang()) )
+        {
+          e.Cancel = true;
+          return;
+        }
     }
 
     /// <summary>
@@ -168,6 +176,7 @@ namespace Ordisoftware.HebrewLettriq
     /// <param name="e">Event information.</param>
     private void ActionViewSearch_Click(object sender, EventArgs e)
     {
+      if ( DataSet.HasChanges() ) TableAdapterManager.UpdateAll(DataSet);
       SetView(ViewModeType.Search);
     }
 
@@ -178,6 +187,7 @@ namespace Ordisoftware.HebrewLettriq
     /// <param name="e">Event information.</param>
     private void ActionViewSettings_Click(object sender, EventArgs e)
     {
+      if ( DataSet.HasChanges() ) TableAdapterManager.UpdateAll(DataSet);
       SetView(ViewModeType.Settings);
     }
 
@@ -261,10 +271,14 @@ namespace Ordisoftware.HebrewLettriq
     /// <param name="e">Event information.</param>
     private void ActionExit_Click(object sender, EventArgs e)
     {
-      if ( EditConfirmClosing.Checked )
-        if ( !DisplayManager.QueryYesNo(Localizer.ExitApplicationText.GetLang()) )
-          return;
       Close();
+    }
+
+    private void ActionReset_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      if ( DisplayManager.QueryYesNo("This will restaure all default values." + Environment.NewLine + Environment.NewLine +
+                                    "Do you want to continue?") )
+        CreateDataIfNotExists(true);
     }
 
     private void PanelLetters_KeyPress(object sender, KeyPressEventArgs e)
@@ -305,21 +319,6 @@ namespace Ordisoftware.HebrewLettriq
                                               + text + Environment.NewLine);
     }
 
-    private void lettersBindingNavigatorSaveItem_Click(object sender, EventArgs e)
-    {
-      this.Validate();
-      this.lettersBindingSource.EndEdit();
-      this.tableAdapterManager.UpdateAll(this.dataSet);
-
-    }
-
-    private void lettersBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
-    {
-      this.Validate();
-      this.lettersBindingSource.EndEdit();
-      this.tableAdapterManager.UpdateAll(this.dataSet);
-
-    }
   }
 
 }

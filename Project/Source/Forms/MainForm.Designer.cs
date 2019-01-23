@@ -36,6 +36,7 @@
       System.Windows.Forms.Label functionLabel;
       System.Windows.Forms.Label valueSimpleLabel;
       System.Windows.Forms.Label valueFullLabel;
+      System.Windows.Forms.Label label2;
       this.PanelMain = new System.Windows.Forms.Panel();
       this.PanelMainOuter = new System.Windows.Forms.Panel();
       this.PanelMainInner = new System.Windows.Forms.Panel();
@@ -43,30 +44,25 @@
       this.TabControl = new System.Windows.Forms.TabControl();
       this.TabPageText = new System.Windows.Forms.TabPage();
       this.PanelViewSearch = new System.Windows.Forms.Panel();
+      this.PanelLetters = new Ordisoftware.HebrewLettriq.LettersControl();
       this.textboxLettrique = new System.Windows.Forms.RichTextBox();
       this.buttonLettrique = new System.Windows.Forms.Button();
       this.buttonClear = new System.Windows.Forms.Button();
       this.TabPageMonth = new System.Windows.Forms.TabPage();
       this.PanelViewSettings = new System.Windows.Forms.Panel();
-      this.lettersBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-      this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-      this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-      this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-      this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-      this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-      this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-      this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-      this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-      this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-      this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-      this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-      this.lettersBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-      this.codeTextBox = new System.Windows.Forms.TextBox();
+      this.PanelSettingsDetails = new System.Windows.Forms.Panel();
+      this.ActionReset = new System.Windows.Forms.LinkLabel();
+      this.comboBox1 = new System.Windows.Forms.ComboBox();
+      this.LettersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+      this.DataSet = new Ordisoftware.HebrewLettriq.Data.DataSet();
+      this.meaningsDataGridView = new System.Windows.Forms.DataGridView();
+      this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.meaningsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+      this.valueFullTextBox = new System.Windows.Forms.TextBox();
+      this.valueSimpleTextBox = new System.Windows.Forms.TextBox();
+      this.functionTextBox = new System.Windows.Forms.TextBox();
       this.nameTextBox = new System.Windows.Forms.TextBox();
       this.structureTextBox = new System.Windows.Forms.TextBox();
-      this.functionTextBox = new System.Windows.Forms.TextBox();
-      this.valueSimpleTextBox = new System.Windows.Forms.TextBox();
-      this.valueFullTextBox = new System.Windows.Forms.TextBox();
       this.PanelSepTop = new System.Windows.Forms.Panel();
       this.PanelTitle = new System.Windows.Forms.Panel();
       this.LabelTitle = new System.Windows.Forms.Label();
@@ -97,22 +93,16 @@
       this.EditConfirmClosing = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionViewSearch = new System.Windows.Forms.ToolStripButton();
       this.ActionViewSettings = new System.Windows.Forms.ToolStripButton();
-      this.PanelLetters = new Ordisoftware.HebrewLettriq.LettersControl();
-      this.dataSet = new Ordisoftware.HebrewLettriq.Data.DataSet();
-      this.lettersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-      this.lettersTableAdapter = new Ordisoftware.HebrewLettriq.Data.DataSetTableAdapters.LettersTableAdapter();
-      this.tableAdapterManager = new Ordisoftware.HebrewLettriq.Data.DataSetTableAdapters.TableAdapterManager();
-      this.meaningsTableAdapter = new Ordisoftware.HebrewLettriq.Data.DataSetTableAdapters.MeaningsTableAdapter();
-      this.meaningsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-      this.meaningsDataGridView = new System.Windows.Forms.DataGridView();
-      this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.LettersTableAdapter = new Ordisoftware.HebrewLettriq.Data.DataSetTableAdapters.LettersTableAdapter();
+      this.TableAdapterManager = new Ordisoftware.HebrewLettriq.Data.DataSetTableAdapters.TableAdapterManager();
+      this.MeaningsTableAdapter = new Ordisoftware.HebrewLettriq.Data.DataSetTableAdapters.MeaningsTableAdapter();
       codeLabel = new System.Windows.Forms.Label();
       nameLabel = new System.Windows.Forms.Label();
       structureLabel = new System.Windows.Forms.Label();
       functionLabel = new System.Windows.Forms.Label();
       valueSimpleLabel = new System.Windows.Forms.Label();
       valueFullLabel = new System.Windows.Forms.Label();
+      label2 = new System.Windows.Forms.Label();
       this.PanelMain.SuspendLayout();
       this.PanelMainOuter.SuspendLayout();
       this.PanelMainInner.SuspendLayout();
@@ -122,15 +112,14 @@
       this.PanelViewSearch.SuspendLayout();
       this.TabPageMonth.SuspendLayout();
       this.PanelViewSettings.SuspendLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.lettersBindingNavigator)).BeginInit();
-      this.lettersBindingNavigator.SuspendLayout();
+      this.PanelSettingsDetails.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.LettersBindingSource)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.DataSet)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.meaningsDataGridView)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.meaningsBindingSource)).BeginInit();
       this.PanelTitle.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.moonPhaseImagePictureBox)).BeginInit();
       this.ToolStrip.SuspendLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.lettersBindingSource)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.meaningsBindingSource)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.meaningsDataGridView)).BeginInit();
       this.SuspendLayout();
       // 
       // codeLabel
@@ -162,6 +151,11 @@
       // 
       resources.ApplyResources(valueFullLabel, "valueFullLabel");
       valueFullLabel.Name = "valueFullLabel";
+      // 
+      // label2
+      // 
+      resources.ApplyResources(label2, "label2");
+      label2.Name = "label2";
       // 
       // PanelMain
       // 
@@ -209,12 +203,22 @@
       // 
       // PanelViewSearch
       // 
+      this.PanelViewSearch.BackColor = System.Drawing.SystemColors.Control;
       this.PanelViewSearch.Controls.Add(this.PanelLetters);
       this.PanelViewSearch.Controls.Add(this.textboxLettrique);
       this.PanelViewSearch.Controls.Add(this.buttonLettrique);
       this.PanelViewSearch.Controls.Add(this.buttonClear);
       resources.ApplyResources(this.PanelViewSearch, "PanelViewSearch");
       this.PanelViewSearch.Name = "PanelViewSearch";
+      // 
+      // PanelLetters
+      // 
+      this.PanelLetters.BackColor = System.Drawing.Color.Transparent;
+      this.PanelLetters.InputBackground = System.Drawing.SystemColors.Window;
+      this.PanelLetters.LettersBackground = System.Drawing.Color.LightYellow;
+      resources.ApplyResources(this.PanelLetters, "PanelLetters");
+      this.PanelLetters.Name = "PanelLetters";
+      this.PanelLetters.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PanelLetters_KeyPress);
       // 
       // textboxLettrique
       // 
@@ -245,152 +249,110 @@
       // PanelViewSettings
       // 
       resources.ApplyResources(this.PanelViewSettings, "PanelViewSettings");
-      this.PanelViewSettings.Controls.Add(this.meaningsDataGridView);
-      this.PanelViewSettings.Controls.Add(this.lettersBindingNavigator);
-      this.PanelViewSettings.Controls.Add(codeLabel);
-      this.PanelViewSettings.Controls.Add(this.codeTextBox);
-      this.PanelViewSettings.Controls.Add(nameLabel);
-      this.PanelViewSettings.Controls.Add(this.nameTextBox);
-      this.PanelViewSettings.Controls.Add(structureLabel);
-      this.PanelViewSettings.Controls.Add(this.structureTextBox);
-      this.PanelViewSettings.Controls.Add(functionLabel);
-      this.PanelViewSettings.Controls.Add(this.functionTextBox);
-      this.PanelViewSettings.Controls.Add(valueSimpleLabel);
-      this.PanelViewSettings.Controls.Add(this.valueSimpleTextBox);
-      this.PanelViewSettings.Controls.Add(valueFullLabel);
-      this.PanelViewSettings.Controls.Add(this.valueFullTextBox);
+      this.PanelViewSettings.Controls.Add(this.PanelSettingsDetails);
       this.PanelViewSettings.Name = "PanelViewSettings";
       // 
-      // lettersBindingNavigator
+      // PanelSettingsDetails
       // 
-      this.lettersBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
-      this.lettersBindingNavigator.BindingSource = this.lettersBindingSource;
-      this.lettersBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-      this.lettersBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
-      this.lettersBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bindingNavigatorMoveFirstItem,
-            this.bindingNavigatorMovePreviousItem,
-            this.bindingNavigatorSeparator,
-            this.bindingNavigatorPositionItem,
-            this.bindingNavigatorCountItem,
-            this.bindingNavigatorSeparator1,
-            this.bindingNavigatorMoveNextItem,
-            this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorSeparator2,
-            this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem,
-            this.lettersBindingNavigatorSaveItem});
-      resources.ApplyResources(this.lettersBindingNavigator, "lettersBindingNavigator");
-      this.lettersBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-      this.lettersBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
-      this.lettersBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
-      this.lettersBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-      this.lettersBindingNavigator.Name = "lettersBindingNavigator";
-      this.lettersBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
+      this.PanelSettingsDetails.BackColor = System.Drawing.SystemColors.Control;
+      this.PanelSettingsDetails.Controls.Add(this.ActionReset);
+      this.PanelSettingsDetails.Controls.Add(this.comboBox1);
+      this.PanelSettingsDetails.Controls.Add(label2);
+      this.PanelSettingsDetails.Controls.Add(codeLabel);
+      this.PanelSettingsDetails.Controls.Add(this.meaningsDataGridView);
+      this.PanelSettingsDetails.Controls.Add(this.valueFullTextBox);
+      this.PanelSettingsDetails.Controls.Add(valueFullLabel);
+      this.PanelSettingsDetails.Controls.Add(this.valueSimpleTextBox);
+      this.PanelSettingsDetails.Controls.Add(valueSimpleLabel);
+      this.PanelSettingsDetails.Controls.Add(nameLabel);
+      this.PanelSettingsDetails.Controls.Add(this.functionTextBox);
+      this.PanelSettingsDetails.Controls.Add(this.nameTextBox);
+      this.PanelSettingsDetails.Controls.Add(functionLabel);
+      this.PanelSettingsDetails.Controls.Add(structureLabel);
+      this.PanelSettingsDetails.Controls.Add(this.structureTextBox);
+      resources.ApplyResources(this.PanelSettingsDetails, "PanelSettingsDetails");
+      this.PanelSettingsDetails.Name = "PanelSettingsDetails";
       // 
-      // bindingNavigatorAddNewItem
+      // ActionReset
       // 
-      this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      resources.ApplyResources(this.bindingNavigatorAddNewItem, "bindingNavigatorAddNewItem");
-      this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+      resources.ApplyResources(this.ActionReset, "ActionReset");
+      this.ActionReset.Name = "ActionReset";
+      this.ActionReset.TabStop = true;
+      this.ActionReset.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ActionReset_LinkClicked);
       // 
-      // bindingNavigatorCountItem
+      // comboBox1
       // 
-      this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-      resources.ApplyResources(this.bindingNavigatorCountItem, "bindingNavigatorCountItem");
+      this.comboBox1.DataSource = this.LettersBindingSource;
+      this.comboBox1.DisplayMember = "Code";
+      this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+      resources.ApplyResources(this.comboBox1, "comboBox1");
+      this.comboBox1.FormattingEnabled = true;
+      this.comboBox1.Name = "comboBox1";
       // 
-      // bindingNavigatorDeleteItem
+      // LettersBindingSource
       // 
-      this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      resources.ApplyResources(this.bindingNavigatorDeleteItem, "bindingNavigatorDeleteItem");
-      this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+      this.LettersBindingSource.AllowNew = false;
+      this.LettersBindingSource.DataMember = "Letters";
+      this.LettersBindingSource.DataSource = this.DataSet;
       // 
-      // bindingNavigatorMoveFirstItem
+      // DataSet
       // 
-      this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      resources.ApplyResources(this.bindingNavigatorMoveFirstItem, "bindingNavigatorMoveFirstItem");
-      this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
+      this.DataSet.DataSetName = "DataSet";
+      this.DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
       // 
-      // bindingNavigatorMovePreviousItem
+      // meaningsDataGridView
       // 
-      this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      resources.ApplyResources(this.bindingNavigatorMovePreviousItem, "bindingNavigatorMovePreviousItem");
-      this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
+      resources.ApplyResources(this.meaningsDataGridView, "meaningsDataGridView");
+      this.meaningsDataGridView.AutoGenerateColumns = false;
+      this.meaningsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+      this.meaningsDataGridView.ColumnHeadersVisible = false;
+      this.meaningsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn2});
+      this.meaningsDataGridView.DataSource = this.meaningsBindingSource;
+      this.meaningsDataGridView.Name = "meaningsDataGridView";
+      this.meaningsDataGridView.RowHeadersVisible = false;
       // 
-      // bindingNavigatorSeparator
+      // dataGridViewTextBoxColumn2
       // 
-      this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-      resources.ApplyResources(this.bindingNavigatorSeparator, "bindingNavigatorSeparator");
+      this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+      this.dataGridViewTextBoxColumn2.DataPropertyName = "Meaning";
+      resources.ApplyResources(this.dataGridViewTextBoxColumn2, "dataGridViewTextBoxColumn2");
+      this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
       // 
-      // bindingNavigatorPositionItem
+      // meaningsBindingSource
       // 
-      resources.ApplyResources(this.bindingNavigatorPositionItem, "bindingNavigatorPositionItem");
-      this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
+      this.meaningsBindingSource.DataMember = "Letters_Meanings";
+      this.meaningsBindingSource.DataSource = this.LettersBindingSource;
       // 
-      // bindingNavigatorSeparator1
+      // valueFullTextBox
       // 
-      this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-      resources.ApplyResources(this.bindingNavigatorSeparator1, "bindingNavigatorSeparator1");
+      this.valueFullTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "ValueFull", true));
+      resources.ApplyResources(this.valueFullTextBox, "valueFullTextBox");
+      this.valueFullTextBox.Name = "valueFullTextBox";
       // 
-      // bindingNavigatorMoveNextItem
+      // valueSimpleTextBox
       // 
-      this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      resources.ApplyResources(this.bindingNavigatorMoveNextItem, "bindingNavigatorMoveNextItem");
-      this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
+      this.valueSimpleTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "ValueSimple", true));
+      resources.ApplyResources(this.valueSimpleTextBox, "valueSimpleTextBox");
+      this.valueSimpleTextBox.Name = "valueSimpleTextBox";
       // 
-      // bindingNavigatorMoveLastItem
+      // functionTextBox
       // 
-      this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      resources.ApplyResources(this.bindingNavigatorMoveLastItem, "bindingNavigatorMoveLastItem");
-      this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-      // 
-      // bindingNavigatorSeparator2
-      // 
-      this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-      resources.ApplyResources(this.bindingNavigatorSeparator2, "bindingNavigatorSeparator2");
-      // 
-      // lettersBindingNavigatorSaveItem
-      // 
-      this.lettersBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      resources.ApplyResources(this.lettersBindingNavigatorSaveItem, "lettersBindingNavigatorSaveItem");
-      this.lettersBindingNavigatorSaveItem.Name = "lettersBindingNavigatorSaveItem";
-      this.lettersBindingNavigatorSaveItem.Click += new System.EventHandler(this.lettersBindingNavigatorSaveItem_Click_1);
-      // 
-      // codeTextBox
-      // 
-      this.codeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lettersBindingSource, "Code", true));
-      resources.ApplyResources(this.codeTextBox, "codeTextBox");
-      this.codeTextBox.Name = "codeTextBox";
+      this.functionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Function", true));
+      resources.ApplyResources(this.functionTextBox, "functionTextBox");
+      this.functionTextBox.Name = "functionTextBox";
       // 
       // nameTextBox
       // 
-      this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lettersBindingSource, "Name", true));
+      this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Name", true));
       resources.ApplyResources(this.nameTextBox, "nameTextBox");
       this.nameTextBox.Name = "nameTextBox";
       // 
       // structureTextBox
       // 
-      this.structureTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lettersBindingSource, "Structure", true));
+      this.structureTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Structure", true));
       resources.ApplyResources(this.structureTextBox, "structureTextBox");
       this.structureTextBox.Name = "structureTextBox";
-      // 
-      // functionTextBox
-      // 
-      this.functionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lettersBindingSource, "Function", true));
-      resources.ApplyResources(this.functionTextBox, "functionTextBox");
-      this.functionTextBox.Name = "functionTextBox";
-      // 
-      // valueSimpleTextBox
-      // 
-      this.valueSimpleTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lettersBindingSource, "ValueSimple", true));
-      resources.ApplyResources(this.valueSimpleTextBox, "valueSimpleTextBox");
-      this.valueSimpleTextBox.Name = "valueSimpleTextBox";
-      // 
-      // valueFullTextBox
-      // 
-      this.valueFullTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.lettersBindingSource, "ValueFull", true));
-      resources.ApplyResources(this.valueFullTextBox, "valueFullTextBox");
-      this.valueFullTextBox.Name = "valueFullTextBox";
       // 
       // PanelSepTop
       // 
@@ -643,67 +605,20 @@
       this.ActionViewSettings.MouseEnter += new System.EventHandler(this.ShowToolTipOnMouseEnter);
       this.ActionViewSettings.MouseLeave += new System.EventHandler(this.ShowToolTipOnMouseLeave);
       // 
-      // PanelLetters
+      // LettersTableAdapter
       // 
-      this.PanelLetters.BackColor = System.Drawing.Color.Transparent;
-      this.PanelLetters.InputBackground = System.Drawing.SystemColors.Window;
-      this.PanelLetters.LettersBackground = System.Drawing.Color.LightYellow;
-      resources.ApplyResources(this.PanelLetters, "PanelLetters");
-      this.PanelLetters.Name = "PanelLetters";
-      this.PanelLetters.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PanelLetters_KeyPress);
+      this.LettersTableAdapter.ClearBeforeFill = true;
       // 
-      // dataSet
+      // TableAdapterManager
       // 
-      this.dataSet.DataSetName = "DataSet";
-      this.dataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+      this.TableAdapterManager.BackupDataSetBeforeUpdate = false;
+      this.TableAdapterManager.LettersTableAdapter = this.LettersTableAdapter;
+      this.TableAdapterManager.MeaningsTableAdapter = this.MeaningsTableAdapter;
+      this.TableAdapterManager.UpdateOrder = Ordisoftware.HebrewLettriq.Data.DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
       // 
-      // lettersBindingSource
+      // MeaningsTableAdapter
       // 
-      this.lettersBindingSource.DataMember = "Letters";
-      this.lettersBindingSource.DataSource = this.dataSet;
-      // 
-      // lettersTableAdapter
-      // 
-      this.lettersTableAdapter.ClearBeforeFill = true;
-      // 
-      // tableAdapterManager
-      // 
-      this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-      this.tableAdapterManager.LettersTableAdapter = this.lettersTableAdapter;
-      this.tableAdapterManager.MeaningsTableAdapter = this.meaningsTableAdapter;
-      this.tableAdapterManager.UpdateOrder = Ordisoftware.HebrewLettriq.Data.DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-      // 
-      // meaningsTableAdapter
-      // 
-      this.meaningsTableAdapter.ClearBeforeFill = true;
-      // 
-      // meaningsBindingSource
-      // 
-      this.meaningsBindingSource.DataMember = "Letters_Meanings";
-      this.meaningsBindingSource.DataSource = this.lettersBindingSource;
-      // 
-      // meaningsDataGridView
-      // 
-      this.meaningsDataGridView.AutoGenerateColumns = false;
-      this.meaningsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-      this.meaningsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2});
-      this.meaningsDataGridView.DataSource = this.meaningsBindingSource;
-      resources.ApplyResources(this.meaningsDataGridView, "meaningsDataGridView");
-      this.meaningsDataGridView.Name = "meaningsDataGridView";
-      // 
-      // dataGridViewTextBoxColumn1
-      // 
-      this.dataGridViewTextBoxColumn1.DataPropertyName = "LetterCode";
-      resources.ApplyResources(this.dataGridViewTextBoxColumn1, "dataGridViewTextBoxColumn1");
-      this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-      // 
-      // dataGridViewTextBoxColumn2
-      // 
-      this.dataGridViewTextBoxColumn2.DataPropertyName = "Meaning";
-      resources.ApplyResources(this.dataGridViewTextBoxColumn2, "dataGridViewTextBoxColumn2");
-      this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+      this.MeaningsTableAdapter.ClearBeforeFill = true;
       // 
       // MainForm
       // 
@@ -728,18 +643,16 @@
       this.PanelViewSearch.ResumeLayout(false);
       this.TabPageMonth.ResumeLayout(false);
       this.PanelViewSettings.ResumeLayout(false);
-      this.PanelViewSettings.PerformLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.lettersBindingNavigator)).EndInit();
-      this.lettersBindingNavigator.ResumeLayout(false);
-      this.lettersBindingNavigator.PerformLayout();
+      this.PanelSettingsDetails.ResumeLayout(false);
+      this.PanelSettingsDetails.PerformLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.LettersBindingSource)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.DataSet)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.meaningsDataGridView)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.meaningsBindingSource)).EndInit();
       this.PanelTitle.ResumeLayout(false);
       ((System.ComponentModel.ISupportInitialize)(this.moonPhaseImagePictureBox)).EndInit();
       this.ToolStrip.ResumeLayout(false);
       this.ToolStrip.PerformLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.dataSet)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.lettersBindingSource)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.meaningsBindingSource)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.meaningsDataGridView)).EndInit();
       this.ResumeLayout(false);
 
     }
@@ -789,34 +702,22 @@
     private System.Windows.Forms.Panel PanelViewSettings;
     private System.Windows.Forms.ToolStripButton ActionViewSearch;
     private System.Windows.Forms.ToolStripButton ActionViewSettings;
-    private Data.DataSet dataSet;
-    private System.Windows.Forms.BindingSource lettersBindingSource;
-    private Data.DataSetTableAdapters.LettersTableAdapter lettersTableAdapter;
-    private Data.DataSetTableAdapters.TableAdapterManager tableAdapterManager;
-    private System.Windows.Forms.BindingNavigator lettersBindingNavigator;
-    private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
-    private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-    private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
-    private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
-    private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
-    private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
-    private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
-    private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
-    private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
-    private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
-    private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-    private System.Windows.Forms.ToolStripButton lettersBindingNavigatorSaveItem;
-    private System.Windows.Forms.TextBox codeTextBox;
+    private Data.DataSet DataSet;
+    private System.Windows.Forms.BindingSource LettersBindingSource;
+    private Data.DataSetTableAdapters.LettersTableAdapter LettersTableAdapter;
+    private Data.DataSetTableAdapters.TableAdapterManager TableAdapterManager;
     private System.Windows.Forms.TextBox nameTextBox;
     private System.Windows.Forms.TextBox structureTextBox;
     private System.Windows.Forms.TextBox functionTextBox;
     private System.Windows.Forms.TextBox valueSimpleTextBox;
     private System.Windows.Forms.TextBox valueFullTextBox;
-    private Data.DataSetTableAdapters.MeaningsTableAdapter meaningsTableAdapter;
+    private Data.DataSetTableAdapters.MeaningsTableAdapter MeaningsTableAdapter;
     private System.Windows.Forms.DataGridView meaningsDataGridView;
-    private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-    private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
     private System.Windows.Forms.BindingSource meaningsBindingSource;
+    private System.Windows.Forms.Panel PanelSettingsDetails;
+    private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+    private System.Windows.Forms.ComboBox comboBox1;
+    private System.Windows.Forms.LinkLabel ActionReset;
   }
 }
 

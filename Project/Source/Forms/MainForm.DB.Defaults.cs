@@ -14,6 +14,7 @@
 /// <edited> 2013-04 </edited>
 using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace Ordisoftware.HebrewLettriq
 {
@@ -21,23 +22,28 @@ namespace Ordisoftware.HebrewLettriq
   /// <summary>
   /// Provide hebrew letters dictionary singleton.
   /// </summary>
-  public partial class Letters
+  public partial class MainForm : Form
   {
 
     /// <summary>
     /// Indicate letters keyboard codes.
     /// </summary>
-    private char[] _Codes = { 'a', 'b', 'g', 'd', 'h', 'v', 'z', 'x', 'u', 'y', 'k', 'l', 'm', 'n', 'c', 'i', 'p', 'j', 'q', 'r', '>', 't' };
+    private string[] _Codes = { "a", "b", "g", "d", "h", "v", "z", "x", "u", "y", "k", "l", "m", "n", "c", "i", "p", "j", "q", "r", ">", "t" };
 
     /// <summary>
-    /// Indicate letters values.
+    /// Indicate letters simple values.
     /// </summary>
-    private int[] _Values = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 200, 300, 400 };
+    private int[] _ValuesSimple = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 200, 300, 400 };
+
+    /// <summary>
+    /// Indicate letters simple values.
+    /// </summary>
+    private int[] _ValuesFull = { 111, 412, 83, 434, 6, 12, 67, 418, 419, 20, 100, 74, 90, 106, 120, 130, 81, 104, 186, 510, 360, 406 };
 
     /// <summary>
     /// Indicate letters names.
     /// </summary>
-    private string[] _Names = { "Alef", "Bet", "Gimel", "Dalet", "Hé", "Vav", "Zayin", "'Het", "Tet", "Youd", "Kaf", "Lamed", "Mem", "Noun", "Samech'", "'Ayin", "Pé", "Tsadé", "Qof", "Resh", "Shin", "Tav" };
+    private string[] _Names = { "Alef", "Bet", "Gimel", "Dalet", "Hé", "Vav", "Zayin", "Het", "Tet", "Youd", "Kaf", "Lamed", "Mem", "Noun", "Samech", "Ayin", "Pé", "Tsadé", "Qof", "Resh", "Shin", "Tav" };
 
     /// <summary>
     /// Indicates letters structures definitions.
