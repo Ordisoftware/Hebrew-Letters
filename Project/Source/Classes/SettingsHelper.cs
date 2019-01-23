@@ -47,7 +47,6 @@ namespace Ordisoftware.HebrewLetters
       MainForm.EditScreenBottomRight.Checked = false;
       MainForm.EditScreenCenter.Checked = true;
       MainForm.EditConfirmClosing.Checked = true;
-      MainForm.EditESCtoExit.Checked = false;
       MainForm.EditShowTips.Checked = true;
       MainForm.SetView(ViewModeType.Search);
       settings.Store();
@@ -77,7 +76,6 @@ namespace Ordisoftware.HebrewLetters
       MainForm.EditScreenPosition_Click(null, null);
       MainForm.WindowState = settings.MainFormState;
       MainForm.EditConfirmClosing.Checked = settings.ConfirmClosing;
-      MainForm.EditESCtoExit.Checked = settings.ESCtoExit;
       MainForm.EditShowTips.Checked = settings.ShowTips;
     }
 
@@ -103,7 +101,6 @@ namespace Ordisoftware.HebrewLetters
       if ( MainForm.EditScreenBottomRight.Checked ) settings.MainFormPosition = ControlLocation.BottomRight;
       if ( MainForm.EditScreenCenter.Checked ) settings.MainFormPosition = ControlLocation.Center;
       settings.ConfirmClosing = MainForm.EditConfirmClosing.Checked;
-      settings.ESCtoExit = MainForm.EditESCtoExit.Checked;
       settings.ShowTips = MainForm.EditShowTips.Checked;
       settings.Save();
     }

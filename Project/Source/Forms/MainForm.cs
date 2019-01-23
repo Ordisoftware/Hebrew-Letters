@@ -294,40 +294,68 @@ namespace Ordisoftware.HebrewLetters
 
     private void PanelLetters_KeyPress(object sender, KeyPressEventArgs e)
     {
-      if ( e.KeyChar == '\r' ) buttonLettrique.PerformClick();
+      if ( e.KeyChar == '\r' ) ButtonAnalyse.PerformClick();
     }
 
     private void buttonClear_Click(object sender, EventArgs e)
     {
-      PanelLetters.Input.Text = "";
+      EditLetters.Input.Text = "";
+      ButtonAnalyse.PerformClick();
     }
 
-    private string TabString = ""; // ControlStrings.Tab;
-    bool ShowRef = true;
-
-    private void buttonLettrique_Click(object sender, EventArgs e)
+    private void ButtonCopyToClipboard_Click(object sender, EventArgs e)
     {
-      textboxLettrique.Clear();
-      textboxLettrique.Focus();
-      textboxLettrique.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.249999F); ;
-      StringBuilder text = new StringBuilder();
-      string letterstext = "";
+      Clipboard.SetText(EditSentence.Text);
+    }
+
+    private void ButtonAnalyse_Click(object sender, EventArgs e)
+    {
+      string word = EditLetters.Input.Text; // Letters.SwapFinale(panelLetters.Input.Text);
+      EditAnalyse.Focus();
+      EditAnalyse.Rows.Clear();
+      EditSentence.Text = "";
+      EditSum.Text = "";
       int sum = 0;
-      string word = PanelLetters.Input.Text; // Letters.SwapFinale(panelLetters.Input.Text);
-      for ( int i = word.Length - 1; i >= 0; i-- )
+      for ( int pos = word.Length - 1; pos >= 0; pos-- )
       {
-        Letter l = Letters.Instance[word[i]];
-        string s = l.Name;
-        letterstext += s;
-        sum += l.Value;
-        if ( i != 0 ) letterstext += "-";
-        string list = l.Meanings.ElementAt(0);
-        for ( int p = 1; p < l.Meanings.Count(); p++ ) list += ", " + l.Meanings.ElementAt(p);
-        text.AppendLine(TabString + s + " (" + l.Value + ")");
-        text.AppendLine(l.Structure + " - " + l.Function + " : " + TabString + TabString + list);
+        int index = EditAnalyse.Rows.Add();
+        var l = DataSet.Letters.FindByCode(Convert.ToString(word[pos]));
+        sum += l.ValueSimple;
+        EditAnalyse[0, index].Value = l.Name;
+        var rowMeaning = (DataGridViewComboBoxCell)EditAnalyse[1, index];
+        rowMeaning.Items.Add(l.Structure);
+        rowMeaning.Items.Add(l.Function);
+        foreach ( var meaning in l.GetMeaningsRows() )
+          rowMeaning.Items.Add(meaning.Meaning);
       }
-      textboxLettrique.AppendText(letterstext + " (" + sum.ToString() + ")" + Environment.NewLine
-                                              + text + Environment.NewLine);
+      EditSum.Text = sum.ToString();
+    }
+
+    private void EditAnalyse_CellEnter(object sender, DataGridViewCellEventArgs e)
+    {
+      bool validClick = ( e.RowIndex != -1 && e.ColumnIndex != -1 );
+      if ( EditAnalyse.Columns[e.ColumnIndex] is DataGridViewComboBoxColumn && validClick )
+      {
+        EditAnalyse.BeginEdit(true);
+        ( (ComboBox)EditAnalyse.EditingControl ).DroppedDown = true;
+      }
+    }
+
+    private void EditAnalyse_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+    {
+      var combobox = e.Control as ComboBox;
+      if ( combobox != null )
+      {
+        combobox.SelectedIndexChanged -= new EventHandler(UpdateSentence);
+        combobox.SelectedValueChanged += new EventHandler(UpdateSentence);
+      }
+    }
+
+    private void UpdateSentence(object sender, EventArgs e)
+    {
+      EditSentence.Text = "";
+      foreach ( DataGridViewRow row in EditAnalyse.Rows )
+        EditSentence.Text += (row.Cells[1].EditedFormattedValue ?? "") + " ";
     }
 
   }

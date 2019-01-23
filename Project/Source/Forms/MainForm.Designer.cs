@@ -37,6 +37,8 @@
       System.Windows.Forms.Label valueSimpleLabel;
       System.Windows.Forms.Label valueFullLabel;
       System.Windows.Forms.Label label2;
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
       this.PanelMain = new System.Windows.Forms.Panel();
       this.PanelMainOuter = new System.Windows.Forms.Panel();
       this.PanelMainInner = new System.Windows.Forms.Panel();
@@ -44,10 +46,16 @@
       this.TabControl = new System.Windows.Forms.TabControl();
       this.TabPageText = new System.Windows.Forms.TabPage();
       this.PanelViewSearch = new System.Windows.Forms.Panel();
-      this.PanelLetters = new Ordisoftware.HebrewLetters.LettersControl();
-      this.textboxLettrique = new System.Windows.Forms.RichTextBox();
-      this.buttonLettrique = new System.Windows.Forms.Button();
-      this.buttonClear = new System.Windows.Forms.Button();
+      this.ButtonCopyToClipboard = new System.Windows.Forms.Button();
+      this.EditSentence = new System.Windows.Forms.TextBox();
+      this.EditSum = new System.Windows.Forms.TextBox();
+      this.LabelSum = new System.Windows.Forms.Label();
+      this.EditAnalyse = new System.Windows.Forms.DataGridView();
+      this.ColumnLetter = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.ColumnMeaning = new System.Windows.Forms.DataGridViewComboBoxColumn();
+      this.EditLetters = new Ordisoftware.HebrewLetters.LettersControl();
+      this.ButtonAnalyse = new System.Windows.Forms.Button();
+      this.ButtonClear = new System.Windows.Forms.Button();
       this.TabPageMonth = new System.Windows.Forms.TabPage();
       this.PanelViewSettings = new System.Windows.Forms.Panel();
       this.PanelSettingsDetails = new System.Windows.Forms.Panel();
@@ -91,7 +99,6 @@
       this.ActionResetWinSettings = new System.Windows.Forms.ToolStripMenuItem();
       this.Sep7 = new System.Windows.Forms.ToolStripSeparator();
       this.EditShowTips = new System.Windows.Forms.ToolStripMenuItem();
-      this.EditESCtoExit = new System.Windows.Forms.ToolStripMenuItem();
       this.EditConfirmClosing = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionViewSearch = new System.Windows.Forms.ToolStripButton();
       this.ActionViewSettings = new System.Windows.Forms.ToolStripButton();
@@ -112,6 +119,7 @@
       this.TabControl.SuspendLayout();
       this.TabPageText.SuspendLayout();
       this.PanelViewSearch.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.EditAnalyse)).BeginInit();
       this.TabPageMonth.SuspendLayout();
       this.PanelViewSettings.SuspendLayout();
       this.PanelSettingsDetails.SuspendLayout();
@@ -206,40 +214,102 @@
       // PanelViewSearch
       // 
       this.PanelViewSearch.BackColor = System.Drawing.SystemColors.Control;
-      this.PanelViewSearch.Controls.Add(this.PanelLetters);
-      this.PanelViewSearch.Controls.Add(this.textboxLettrique);
-      this.PanelViewSearch.Controls.Add(this.buttonLettrique);
-      this.PanelViewSearch.Controls.Add(this.buttonClear);
+      this.PanelViewSearch.Controls.Add(this.ButtonCopyToClipboard);
+      this.PanelViewSearch.Controls.Add(this.EditSentence);
+      this.PanelViewSearch.Controls.Add(this.EditSum);
+      this.PanelViewSearch.Controls.Add(this.LabelSum);
+      this.PanelViewSearch.Controls.Add(this.EditAnalyse);
+      this.PanelViewSearch.Controls.Add(this.EditLetters);
+      this.PanelViewSearch.Controls.Add(this.ButtonAnalyse);
+      this.PanelViewSearch.Controls.Add(this.ButtonClear);
       resources.ApplyResources(this.PanelViewSearch, "PanelViewSearch");
       this.PanelViewSearch.Name = "PanelViewSearch";
       // 
-      // PanelLetters
+      // ButtonCopyToClipboard
       // 
-      this.PanelLetters.BackColor = System.Drawing.Color.Transparent;
-      this.PanelLetters.InputBackground = System.Drawing.SystemColors.Window;
-      this.PanelLetters.LettersBackground = System.Drawing.Color.LightYellow;
-      resources.ApplyResources(this.PanelLetters, "PanelLetters");
-      this.PanelLetters.Name = "PanelLetters";
-      this.PanelLetters.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PanelLetters_KeyPress);
+      resources.ApplyResources(this.ButtonCopyToClipboard, "ButtonCopyToClipboard");
+      this.ButtonCopyToClipboard.FlatAppearance.BorderSize = 0;
+      this.ButtonCopyToClipboard.Name = "ButtonCopyToClipboard";
+      this.ButtonCopyToClipboard.UseVisualStyleBackColor = true;
+      this.ButtonCopyToClipboard.Click += new System.EventHandler(this.ButtonCopyToClipboard_Click);
       // 
-      // textboxLettrique
+      // EditSentence
       // 
-      resources.ApplyResources(this.textboxLettrique, "textboxLettrique");
-      this.textboxLettrique.Name = "textboxLettrique";
+      resources.ApplyResources(this.EditSentence, "EditSentence");
+      this.EditSentence.BackColor = System.Drawing.Color.Honeydew;
+      this.EditSentence.Name = "EditSentence";
       // 
-      // buttonLettrique
+      // EditSum
       // 
-      resources.ApplyResources(this.buttonLettrique, "buttonLettrique");
-      this.buttonLettrique.Name = "buttonLettrique";
-      this.buttonLettrique.UseVisualStyleBackColor = true;
-      this.buttonLettrique.Click += new System.EventHandler(this.buttonLettrique_Click);
+      this.EditSum.BackColor = System.Drawing.Color.LavenderBlush;
+      resources.ApplyResources(this.EditSum, "EditSum");
+      this.EditSum.Name = "EditSum";
+      this.EditSum.ReadOnly = true;
       // 
-      // buttonClear
+      // LabelSum
       // 
-      resources.ApplyResources(this.buttonClear, "buttonClear");
-      this.buttonClear.Name = "buttonClear";
-      this.buttonClear.UseVisualStyleBackColor = true;
-      this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
+      resources.ApplyResources(this.LabelSum, "LabelSum");
+      this.LabelSum.Name = "LabelSum";
+      // 
+      // EditAnalyse
+      // 
+      this.EditAnalyse.AllowUserToAddRows = false;
+      this.EditAnalyse.AllowUserToDeleteRows = false;
+      this.EditAnalyse.AllowUserToResizeColumns = false;
+      this.EditAnalyse.AllowUserToResizeRows = false;
+      resources.ApplyResources(this.EditAnalyse, "EditAnalyse");
+      this.EditAnalyse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+      this.EditAnalyse.ColumnHeadersVisible = false;
+      this.EditAnalyse.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnLetter,
+            this.ColumnMeaning});
+      this.EditAnalyse.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+      this.EditAnalyse.Name = "EditAnalyse";
+      this.EditAnalyse.RowHeadersVisible = false;
+      this.EditAnalyse.RowTemplate.Height = 32;
+      this.EditAnalyse.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.EditAnalyse_CellEnter);
+      this.EditAnalyse.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.EditAnalyse_EditingControlShowing);
+      // 
+      // ColumnLetter
+      // 
+      dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
+      this.ColumnLetter.DefaultCellStyle = dataGridViewCellStyle1;
+      resources.ApplyResources(this.ColumnLetter, "ColumnLetter");
+      this.ColumnLetter.Name = "ColumnLetter";
+      this.ColumnLetter.ReadOnly = true;
+      // 
+      // ColumnMeaning
+      // 
+      this.ColumnMeaning.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+      dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5);
+      this.ColumnMeaning.DefaultCellStyle = dataGridViewCellStyle2;
+      resources.ApplyResources(this.ColumnMeaning, "ColumnMeaning");
+      this.ColumnMeaning.Name = "ColumnMeaning";
+      this.ColumnMeaning.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+      this.ColumnMeaning.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+      // 
+      // EditLetters
+      // 
+      this.EditLetters.BackColor = System.Drawing.Color.Transparent;
+      this.EditLetters.InputBackground = System.Drawing.Color.AliceBlue;
+      this.EditLetters.LettersBackground = System.Drawing.Color.LightYellow;
+      resources.ApplyResources(this.EditLetters, "EditLetters");
+      this.EditLetters.Name = "EditLetters";
+      this.EditLetters.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PanelLetters_KeyPress);
+      // 
+      // ButtonAnalyse
+      // 
+      resources.ApplyResources(this.ButtonAnalyse, "ButtonAnalyse");
+      this.ButtonAnalyse.Name = "ButtonAnalyse";
+      this.ButtonAnalyse.UseVisualStyleBackColor = true;
+      this.ButtonAnalyse.Click += new System.EventHandler(this.ButtonAnalyse_Click);
+      // 
+      // ButtonClear
+      // 
+      resources.ApplyResources(this.ButtonClear, "ButtonClear");
+      this.ButtonClear.Name = "ButtonClear";
+      this.ButtonClear.UseVisualStyleBackColor = true;
+      this.ButtonClear.Click += new System.EventHandler(this.buttonClear_Click);
       // 
       // TabPageMonth
       // 
@@ -521,7 +591,6 @@
             this.ActionResetWinSettings,
             this.Sep7,
             this.EditShowTips,
-            this.EditESCtoExit,
             this.EditConfirmClosing});
       resources.ApplyResources(this.MenuSettings, "MenuSettings");
       this.MenuSettings.Name = "MenuSettings";
@@ -599,14 +668,6 @@
       resources.ApplyResources(this.EditShowTips, "EditShowTips");
       this.EditShowTips.Name = "EditShowTips";
       // 
-      // EditESCtoExit
-      // 
-      this.EditESCtoExit.Checked = true;
-      this.EditESCtoExit.CheckOnClick = true;
-      this.EditESCtoExit.CheckState = System.Windows.Forms.CheckState.Checked;
-      resources.ApplyResources(this.EditESCtoExit, "EditESCtoExit");
-      this.EditESCtoExit.Name = "EditESCtoExit";
-      // 
       // EditConfirmClosing
       // 
       resources.ApplyResources(this.EditConfirmClosing, "EditConfirmClosing");
@@ -671,6 +732,8 @@
       this.TabControl.ResumeLayout(false);
       this.TabPageText.ResumeLayout(false);
       this.PanelViewSearch.ResumeLayout(false);
+      this.PanelViewSearch.PerformLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.EditAnalyse)).EndInit();
       this.TabPageMonth.ResumeLayout(false);
       this.PanelViewSettings.ResumeLayout(false);
       this.PanelSettingsDetails.ResumeLayout(false);
@@ -707,7 +770,6 @@
     internal System.Windows.Forms.ToolStripMenuItem EditScreenBottomLeft;
     internal System.Windows.Forms.ToolStripMenuItem EditScreenBottomRight;
     internal System.Windows.Forms.ToolStripMenuItem EditConfirmClosing;
-    internal System.Windows.Forms.ToolStripMenuItem EditESCtoExit;
     private System.Windows.Forms.ToolStripMenuItem ActionResetWinSettings;
     internal System.Windows.Forms.ToolStripMenuItem EditShowTips;
     private System.Windows.Forms.ToolStripSeparator Sep6;
@@ -721,10 +783,9 @@
     private System.Windows.Forms.Label label1;
     internal System.Windows.Forms.Panel PanelMainCenter;
     private System.Windows.Forms.Timer TimerTooltip;
-    private System.Windows.Forms.Button buttonClear;
-    private System.Windows.Forms.Button buttonLettrique;
-    private LettersControl PanelLetters;
-    private System.Windows.Forms.RichTextBox textboxLettrique;
+    private System.Windows.Forms.Button ButtonClear;
+    private System.Windows.Forms.Button ButtonAnalyse;
+    private LettersControl EditLetters;
     private System.Windows.Forms.TabControl TabControl;
     private System.Windows.Forms.TabPage TabPageText;
     private System.Windows.Forms.Panel PanelViewSearch;
@@ -750,6 +811,13 @@
     private System.Windows.Forms.LinkLabel ActionReset;
     private System.Windows.Forms.Button ActionDeleteMeaning;
     private System.Windows.Forms.Button ActionAddMeaning;
+    private System.Windows.Forms.DataGridView EditAnalyse;
+    private System.Windows.Forms.TextBox EditSum;
+    private System.Windows.Forms.Label LabelSum;
+    private System.Windows.Forms.TextBox EditSentence;
+    private System.Windows.Forms.Button ButtonCopyToClipboard;
+    private System.Windows.Forms.DataGridViewTextBoxColumn ColumnLetter;
+    private System.Windows.Forms.DataGridViewComboBoxColumn ColumnMeaning;
   }
 }
 

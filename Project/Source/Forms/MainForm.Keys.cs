@@ -30,10 +30,6 @@ namespace Ordisoftware.HebrewLetters
     {
       switch ( keyData )
       {
-        case Keys.Escape:
-          if ( EditESCtoExit.Checked )
-            Close();
-          return true;
         case Keys.F1:
           ActionHelp.PerformClick();
           return true;
