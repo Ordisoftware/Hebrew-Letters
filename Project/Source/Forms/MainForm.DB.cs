@@ -87,16 +87,16 @@ namespace Ordisoftware.HebrewLetters
       connection.Close();
       MeaningsTableAdapter.Fill(DataSet.Meanings);
       LettersTableAdapter.Fill(DataSet.Letters);
-      for ( int i = 0; i < _Codes.Length; i++ )
+      for ( int index = 0; index < _Codes.Length; index++ )
       {
         var rowLetter = DataSet.Letters.NewLettersRow();
-        rowLetter.Code = _Codes[i];
-        rowLetter.ValueSimple = _ValuesSimple[i];
-        rowLetter.ValueFull = _ValuesFull[i];
-        rowLetter.Name = _Names[i];
-        rowLetter.Structure = _Structures[i];
-        rowLetter.Function = _Functions[i];
-        foreach ( string meaning in _Meanings[i] )
+        rowLetter.Code = _Codes[index];
+        rowLetter.ValueSimple = _ValuesSimple[index];
+        rowLetter.ValueFull = _ValuesFull[index];
+        rowLetter.Name = _Names[index];
+        rowLetter.Structure = _Structures[index];
+        rowLetter.Function = _Functions[index];
+        foreach ( var meaning in GetMeanings(index) )
         {
           var rowMeaning = DataSet.Meanings.NewMeaningsRow();
           rowMeaning.LetterCode = rowLetter.Code;

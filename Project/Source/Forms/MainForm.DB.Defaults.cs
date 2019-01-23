@@ -13,6 +13,7 @@
 /// <created> 2012-10 </created>
 /// <edited> 2013-04 </edited>
 using System;
+using System.Globalization;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -56,34 +57,142 @@ namespace Ordisoftware.HebrewLetters
     private string[] _Functions = { "Maître", "Passage", "Voyage", "Étudiant", "Joie", "Communication", "Nourriture", "Vitalité", "Beauté", "Amour", "Amusement", "Éducation", "Dualité", "Pouvoir", "Perfectionnement", "Apprivoisement", "Résurrection", "Ailes", "Sagesse", "Maturité", "Discrétion", "Offrande" };
 
     /// <summary>
+    /// Return the meanings list of a letter.
+    /// </summary>
+    /// <param name="index">The index.</param>
+    /// <returns></returns>
+    private List<string> GetMeanings(int index)
+    {
+      string lang = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
+      if ( !_Meanings[index].ContainsKey(lang) ) lang = "en";
+      // TODO remove
+      lang = "fr";
+      List<string> value;
+      _Meanings[index].TryGetValue(lang, out value);
+      return value;
+    }
+
+    private class Dico : Dictionary<string, List<string>>
+    {
+    }
+
+    /// <summary>
     /// Indicates letters meanings definitions.
     /// </summary>
-    private List<string>[] _Meanings = 
+    private List<Dico> _Meanings = new List<Dico>
     {
-      new List<string>() { "Principe originel", "miroir des mondes", "création du potentiel", "espace", "silence", "Adam (yod droit) et Ève (yod gauche)" },
-      new List<string>() { "Porteur de la flamme", "demeure de l'énergie", "solitaire", "volonté", "temple", "foyer", "instruction" },
-      new List<string>() { "Porteur en marche", "énergie en mouvement", "force", "berger", "témoignage", "histoire", "investissement", "temps" },
-      new List<string>() { "Seuil", "sanctuaire", "accueil", "porte", "observation", "humilité", "déroulement", "errance", "faiblesse", "déséquilibre", "roi", "pauvre" },
-      new List<string>() { "Souffle de vie", "rencontre", "présentation", "étonnement", "festivité", "équilibre" },
-      new List<string>() { "Rayon de lumière", "union esprit-matière", "unité", "fusion", "médiation", "droiture", "cap", "direction", "expression", "enfant (fille)" },
-      new List<string>() { "Équilibre", "détermination", "discernement", "sentiment", "action", "réussite", "futur", "enfant (fils)" },
-      new List<string>() { "Équilibre", "soutien", "protection", "début", "engagement", "motivation", "fidélité", "incorruptibilité", "dualité" },
-      new List<string>() { "Refuge", "barque", "voyage", "intériorité", "foyer", "sagesse", "puissance", "immortalité" },
-      new List<string>() { "Flamme-énergie (Adam Y", "Ève X)", "noyau spirituel", "impulsion", "paix", "liberté", "germe", "pureté", "spermatozoïde" },
-      new List<string>() { "Élan intérieur", "éveil du potentiel", "force", "croissance", "inclinaison", "courbure", "voute", "assimilation" },
-      new List<string>() { "Élévation", "transmission", "regard", "position d'observation", "passif devient actif", "existence", "expérience", "orientation" },
-      new List<string>() { "Formation", "transformation", "maturation", "salutation", "prière", "service", "origine", "reconnaissance", "inconscient" },
-      new List<string>() { "Vie", "fécondité", "nourriture", "engendrement", "perpétuation", "nouveau-né", "chute" },
-      new List<string>() { "Pulsions instinctives", "passions", "réconfort", "berceau", "autorité", "support du créé", "alliance", "ovule" },
-      new List<string>() { "Prise de conscience", "soutien du créé", "source", "illumination", "croissance" },
-      new List<string>() { "Libération", "expression", "verbe", "création", "réalisation du potentiel", "préparation à l'indépendance" },
-      new List<string>() { "Destiné", "action vers but", "sublimation", "justesse", "refuge", "appui", "préparation départ", "élan extérieur", "vertu intérieure" },
-      new List<string>() { "Début cycle", "départ", "lâcher prise", "vérité", "illumination", "différentiation entre réel et imaginaire" },
-      new List<string>() { "Indépendance", "solitude", "discrétion", "clarté du mental", "changement", "renouveau", "incarnation", "destruction/début et génération/fin" },
-      new List<string>() { "Force vitale", "chair", "puissance universelle", "changement", "dépassement", "amitié", "foyer", "famille" },
-      new List<string>() { "Aboutissement", "perfection", "mystère", "synthèse", "fécondation", "matière", "union", "fusion (Aboulafia : signe", "symbole)" }
+      new Dico()
+      {
+        { "en", new List<string>() { "" } },
+        { "fr", new List<string>() { "Principe originel", "Miroir", "Potentiel", "Espace", "Distance", "Équilibre", "Silence", "Ève et Adam" } }
+      },
+      new Dico()
+      {
+        { "en", new List<string>() { ""  } },
+        { "fr", new List<string>() { "Porteur de la flamme", "Demeure", "Foyer", "Solitude", "Instruction", "Volonté" } }
+      },
+      new Dico()
+      {
+        { "en", new List<string>() { "" } },
+        { "fr", new List<string>() { "Porteur en marche", "Energie en mouvement", "Temps", "Berger", "Témoignage", "Histoire", "Investissement", "Libération" } }
+      },
+      new Dico()
+      {
+        { "en", new List<string>() { "" } },
+        { "fr", new List<string>() { "Seuil", "Sanctuaire", "Accueil", "Porte", "Humilité", "Déroulement", "Errance", "Faiblesse", "Déséquilibre", "Pauvreté" } }
+      },
+      new Dico()
+      {
+        { "en", new List<string>() { "" } },
+        { "fr", new List<string>() { "Souffle de vie", "Respiration", "Rencontre", "Présentation", "Etonnement", "Festivité" } }
+      },
+      new Dico()
+      {
+        { "en", new List<string>() { "" } },
+        { "fr", new List<string>() { "Rayon de lumière", "Médiation", "Droiture", "Cap", "Direction", "Expression", "Fusion", "Enfant (fille)" } }
+      },
+      new Dico()
+      {
+        { "en", new List<string>() { "" } },
+        { "fr", new List<string>() { "Équilibre", "Logique", "Discernement", "Sentiment", "Détermination", "Action", "Réussite", "Révolte", "Enfant (fils)" } }
+      },
+      new Dico()
+      {
+        { "en", new List<string>() { "" } },
+        { "fr", new List<string>() { "Expression", "Soutien", "Protection", "Début", "Engagement", "Motivation", "Fidélité", "Incorruptibilité", "Dualité" } }
+      },
+      new Dico()
+      {
+        { "en", new List<string>() { "" } },
+        { "fr", new List<string>() { "Refuge", "Voyage", "Intériorité", "Sagesse", "Puissance", "Eternité" } }
+      },
+      new Dico()
+      {
+        { "en", new List<string>() { "" } },
+        { "fr", new List<string>() { "Germe", "Noyau spirituel", "Impulsion", "Paix", "Bénédiction", "Liberté", "Structure", "Pureté", "Donner", "Spermatozoïde", "Flamme-énergie (Adam XY, Ève XX)" } }
+      },
+      new Dico()
+      {
+        { "en", new List<string>() { "" } },
+        { "fr", new List<string>() { "Élan intérieur", "Éveil", "Courbure", "Échange", "Force", "Puissance" } }
+      },
+      new Dico()
+      {
+        { "en", new List<string>() { "" } },
+        { "fr", new List<string>() { "Élévation", "Transmission", "Regard", "Observation", "Orientation", "Existence", "Expérience", "Invention", "Passif devient actif" } }
+      },
+      new Dico()
+      {
+        { "en", new List<string>() { "" } },
+        { "fr", new List<string>() { "Formation", "Transformation", "Maturation", "Salutation", "Prière", "Service", "Reconnaissance", "Origine", "Inconscient" } }
+      },
+      new Dico()
+      {
+        { "en", new List<string>() { ""  } },
+        { "fr", new List<string>() { "Vie", "Fécondité", "Nourriture", "Engendrement", "Perpétuation", "Prodiges", "Intime", "Caché", "Chute", "Nouveau-né" } }
+      },
+      new Dico()
+      {
+        { "en", new List<string>() { ""  } },
+        { "fr", new List<string>() { "Pulsions instinctives", "Passions", "Réconfort", "Berceau", "Autorité", "Support du créé", "Ossature", "Alliance", "Ovule" } }
+      },
+      new Dico()
+      {
+        { "en", new List<string>() { ""  } },
+        { "fr", new List<string>() { "Prise de conscience", "Soutien du créé", "Vision", "Regard", "Source", "Croissance", "Aide", "Illumination" } }
+      },
+      new Dico()
+      {
+        { "en", new List<string>() { ""  } },
+        { "fr", new List<string>() { "Libération", "Expression", "Verbe", "Parole", "Création", "Assimiler", "Confiance", "Secrets", "Transgression", "Culpabilité", "Réalisation du potentiel", "Préparation à l'indépendance" } }
+      },
+      new Dico()
+      {
+        { "en", new List<string>() { ""  } },
+        { "fr", new List<string>() { "Destiné", "Action", "Sublimation", "Justesse", "Appui", "Préparation départ", "Élan extérieur" } }
+      },
+      new Dico()
+      {
+        { "en", new List<string>() { ""  } },
+        { "fr", new List<string>() { "Début du cycle", "Départ", "Lâcher prise", "Interrompre", "Vérité", "Séparer", "Différentiation entre réel et imaginaire" } }
+      },
+      new Dico()
+      {
+        { "en", new List<string>() { ""  } },
+        { "fr", new List<string>() { "Indépendance", "Discrétion", "Intellect", "Clarté du mental", "Changement", "Renouveau", "Incarnation", "Changement" } }
+      },
+      new Dico()
+      {
+        { "en", new List<string>() { ""  } },
+        { "fr", new List<string>() { "Force vitale", "Puissance", "Réflexion", "Réduction", "Dépassement", "Chair", "Amitié", "Foyer", "Famille" } }
+      },
+      new Dico()
+      {
+        { "en", new List<string>() { ""  } },
+        { "fr", new List<string>() { "Fin", "Aboutissement", "Perfection", "Musique", "Don", "Mystère", "Synthèse", "Matière", "Substance", "Fécondation", "Union", "Fusion", "Signe", "Symbole" } }
+      }
     };
-    
+
   }
 
 }
