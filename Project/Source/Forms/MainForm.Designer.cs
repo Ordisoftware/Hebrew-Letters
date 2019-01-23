@@ -37,8 +37,8 @@
       System.Windows.Forms.Label valueSimpleLabel;
       System.Windows.Forms.Label valueFullLabel;
       System.Windows.Forms.Label label2;
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
       this.PanelMain = new System.Windows.Forms.Panel();
       this.PanelMainOuter = new System.Windows.Forms.Panel();
       this.PanelMainInner = new System.Windows.Forms.Panel();
@@ -46,23 +46,23 @@
       this.TabControl = new System.Windows.Forms.TabControl();
       this.TabPageText = new System.Windows.Forms.TabPage();
       this.PanelViewSearch = new System.Windows.Forms.Panel();
-      this.ButtonCopyToClipboard = new System.Windows.Forms.Button();
+      this.ActionAnalyse = new System.Windows.Forms.Button();
+      this.ActionClear = new System.Windows.Forms.Button();
+      this.ActionCopyToClipboard = new System.Windows.Forms.Button();
       this.EditSentence = new System.Windows.Forms.TextBox();
-      this.EditSum = new System.Windows.Forms.TextBox();
-      this.LabelSum = new System.Windows.Forms.Label();
+      this.EditGematria = new System.Windows.Forms.TextBox();
+      this.LabelGematria = new System.Windows.Forms.Label();
       this.EditAnalyse = new System.Windows.Forms.DataGridView();
       this.ColumnLetter = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.ColumnMeaning = new System.Windows.Forms.DataGridViewComboBoxColumn();
       this.EditLetters = new Ordisoftware.HebrewLetters.LettersControl();
-      this.ButtonAnalyse = new System.Windows.Forms.Button();
-      this.ButtonClear = new System.Windows.Forms.Button();
       this.TabPageMonth = new System.Windows.Forms.TabPage();
       this.PanelViewSettings = new System.Windows.Forms.Panel();
       this.PanelSettingsDetails = new System.Windows.Forms.Panel();
       this.ActionDeleteMeaning = new System.Windows.Forms.Button();
       this.ActionAddMeaning = new System.Windows.Forms.Button();
       this.ActionReset = new System.Windows.Forms.LinkLabel();
-      this.comboBox1 = new System.Windows.Forms.ComboBox();
+      this.comboBoxCode = new System.Windows.Forms.ComboBox();
       this.LettersBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.DataSet = new Ordisoftware.HebrewLetters.Data.DataSet();
       this.EditMeanings = new System.Windows.Forms.DataGridView();
@@ -214,24 +214,40 @@
       // PanelViewSearch
       // 
       this.PanelViewSearch.BackColor = System.Drawing.SystemColors.Control;
-      this.PanelViewSearch.Controls.Add(this.ButtonCopyToClipboard);
+      this.PanelViewSearch.Controls.Add(this.ActionAnalyse);
+      this.PanelViewSearch.Controls.Add(this.ActionClear);
+      this.PanelViewSearch.Controls.Add(this.ActionCopyToClipboard);
       this.PanelViewSearch.Controls.Add(this.EditSentence);
-      this.PanelViewSearch.Controls.Add(this.EditSum);
-      this.PanelViewSearch.Controls.Add(this.LabelSum);
+      this.PanelViewSearch.Controls.Add(this.EditGematria);
+      this.PanelViewSearch.Controls.Add(this.LabelGematria);
       this.PanelViewSearch.Controls.Add(this.EditAnalyse);
       this.PanelViewSearch.Controls.Add(this.EditLetters);
-      this.PanelViewSearch.Controls.Add(this.ButtonAnalyse);
-      this.PanelViewSearch.Controls.Add(this.ButtonClear);
       resources.ApplyResources(this.PanelViewSearch, "PanelViewSearch");
       this.PanelViewSearch.Name = "PanelViewSearch";
       // 
-      // ButtonCopyToClipboard
+      // ActionAnalyse
       // 
-      resources.ApplyResources(this.ButtonCopyToClipboard, "ButtonCopyToClipboard");
-      this.ButtonCopyToClipboard.FlatAppearance.BorderSize = 0;
-      this.ButtonCopyToClipboard.Name = "ButtonCopyToClipboard";
-      this.ButtonCopyToClipboard.UseVisualStyleBackColor = true;
-      this.ButtonCopyToClipboard.Click += new System.EventHandler(this.ButtonCopyToClipboard_Click);
+      this.ActionAnalyse.FlatAppearance.BorderSize = 0;
+      resources.ApplyResources(this.ActionAnalyse, "ActionAnalyse");
+      this.ActionAnalyse.Name = "ActionAnalyse";
+      this.ActionAnalyse.UseVisualStyleBackColor = true;
+      this.ActionAnalyse.Click += new System.EventHandler(this.ActionAnalyse_Click);
+      // 
+      // ActionClear
+      // 
+      this.ActionClear.FlatAppearance.BorderSize = 0;
+      resources.ApplyResources(this.ActionClear, "ActionClear");
+      this.ActionClear.Name = "ActionClear";
+      this.ActionClear.UseVisualStyleBackColor = true;
+      this.ActionClear.Click += new System.EventHandler(this.ActionClear_Click);
+      // 
+      // ActionCopyToClipboard
+      // 
+      resources.ApplyResources(this.ActionCopyToClipboard, "ActionCopyToClipboard");
+      this.ActionCopyToClipboard.FlatAppearance.BorderSize = 0;
+      this.ActionCopyToClipboard.Name = "ActionCopyToClipboard";
+      this.ActionCopyToClipboard.UseVisualStyleBackColor = true;
+      this.ActionCopyToClipboard.Click += new System.EventHandler(this.ActionCopyToClipboard_Click);
       // 
       // EditSentence
       // 
@@ -239,17 +255,17 @@
       this.EditSentence.BackColor = System.Drawing.Color.Honeydew;
       this.EditSentence.Name = "EditSentence";
       // 
-      // EditSum
+      // EditGematria
       // 
-      this.EditSum.BackColor = System.Drawing.Color.LavenderBlush;
-      resources.ApplyResources(this.EditSum, "EditSum");
-      this.EditSum.Name = "EditSum";
-      this.EditSum.ReadOnly = true;
+      resources.ApplyResources(this.EditGematria, "EditGematria");
+      this.EditGematria.BackColor = System.Drawing.Color.LavenderBlush;
+      this.EditGematria.Name = "EditGematria";
+      this.EditGematria.ReadOnly = true;
       // 
-      // LabelSum
+      // LabelGematria
       // 
-      resources.ApplyResources(this.LabelSum, "LabelSum");
-      this.LabelSum.Name = "LabelSum";
+      resources.ApplyResources(this.LabelGematria, "LabelGematria");
+      this.LabelGematria.Name = "LabelGematria";
       // 
       // EditAnalyse
       // 
@@ -272,8 +288,8 @@
       // 
       // ColumnLetter
       // 
-      dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
-      this.ColumnLetter.DefaultCellStyle = dataGridViewCellStyle1;
+      dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(5);
+      this.ColumnLetter.DefaultCellStyle = dataGridViewCellStyle3;
       resources.ApplyResources(this.ColumnLetter, "ColumnLetter");
       this.ColumnLetter.Name = "ColumnLetter";
       this.ColumnLetter.ReadOnly = true;
@@ -281,8 +297,8 @@
       // ColumnMeaning
       // 
       this.ColumnMeaning.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-      dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5);
-      this.ColumnMeaning.DefaultCellStyle = dataGridViewCellStyle2;
+      dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5);
+      this.ColumnMeaning.DefaultCellStyle = dataGridViewCellStyle4;
       resources.ApplyResources(this.ColumnMeaning, "ColumnMeaning");
       this.ColumnMeaning.Name = "ColumnMeaning";
       this.ColumnMeaning.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -296,20 +312,6 @@
       resources.ApplyResources(this.EditLetters, "EditLetters");
       this.EditLetters.Name = "EditLetters";
       this.EditLetters.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PanelLetters_KeyPress);
-      // 
-      // ButtonAnalyse
-      // 
-      resources.ApplyResources(this.ButtonAnalyse, "ButtonAnalyse");
-      this.ButtonAnalyse.Name = "ButtonAnalyse";
-      this.ButtonAnalyse.UseVisualStyleBackColor = true;
-      this.ButtonAnalyse.Click += new System.EventHandler(this.ButtonAnalyse_Click);
-      // 
-      // ButtonClear
-      // 
-      resources.ApplyResources(this.ButtonClear, "ButtonClear");
-      this.ButtonClear.Name = "ButtonClear";
-      this.ButtonClear.UseVisualStyleBackColor = true;
-      this.ButtonClear.Click += new System.EventHandler(this.buttonClear_Click);
       // 
       // TabPageMonth
       // 
@@ -330,7 +332,7 @@
       this.PanelSettingsDetails.Controls.Add(this.ActionDeleteMeaning);
       this.PanelSettingsDetails.Controls.Add(this.ActionAddMeaning);
       this.PanelSettingsDetails.Controls.Add(this.ActionReset);
-      this.PanelSettingsDetails.Controls.Add(this.comboBox1);
+      this.PanelSettingsDetails.Controls.Add(this.comboBoxCode);
       this.PanelSettingsDetails.Controls.Add(label2);
       this.PanelSettingsDetails.Controls.Add(codeLabel);
       this.PanelSettingsDetails.Controls.Add(this.EditMeanings);
@@ -370,14 +372,14 @@
       this.ActionReset.TabStop = true;
       this.ActionReset.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ActionReset_LinkClicked);
       // 
-      // comboBox1
+      // comboBoxCode
       // 
-      this.comboBox1.DataSource = this.LettersBindingSource;
-      this.comboBox1.DisplayMember = "Code";
-      this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-      resources.ApplyResources(this.comboBox1, "comboBox1");
-      this.comboBox1.FormattingEnabled = true;
-      this.comboBox1.Name = "comboBox1";
+      this.comboBoxCode.DataSource = this.LettersBindingSource;
+      this.comboBoxCode.DisplayMember = "Code";
+      this.comboBoxCode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+      resources.ApplyResources(this.comboBoxCode, "comboBoxCode");
+      this.comboBoxCode.FormattingEnabled = true;
+      this.comboBoxCode.Name = "comboBoxCode";
       // 
       // LettersBindingSource
       // 
@@ -783,8 +785,6 @@
     private System.Windows.Forms.Label label1;
     internal System.Windows.Forms.Panel PanelMainCenter;
     private System.Windows.Forms.Timer TimerTooltip;
-    private System.Windows.Forms.Button ButtonClear;
-    private System.Windows.Forms.Button ButtonAnalyse;
     private LettersControl EditLetters;
     private System.Windows.Forms.TabControl TabControl;
     private System.Windows.Forms.TabPage TabPageText;
@@ -807,17 +807,19 @@
     private System.Windows.Forms.BindingSource meaningsBindingSource;
     private System.Windows.Forms.Panel PanelSettingsDetails;
     private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-    private System.Windows.Forms.ComboBox comboBox1;
+    private System.Windows.Forms.ComboBox comboBoxCode;
     private System.Windows.Forms.LinkLabel ActionReset;
     private System.Windows.Forms.Button ActionDeleteMeaning;
     private System.Windows.Forms.Button ActionAddMeaning;
     private System.Windows.Forms.DataGridView EditAnalyse;
-    private System.Windows.Forms.TextBox EditSum;
-    private System.Windows.Forms.Label LabelSum;
+    private System.Windows.Forms.TextBox EditGematria;
+    private System.Windows.Forms.Label LabelGematria;
     private System.Windows.Forms.TextBox EditSentence;
-    private System.Windows.Forms.Button ButtonCopyToClipboard;
+    private System.Windows.Forms.Button ActionCopyToClipboard;
     private System.Windows.Forms.DataGridViewTextBoxColumn ColumnLetter;
     private System.Windows.Forms.DataGridViewComboBoxColumn ColumnMeaning;
+    private System.Windows.Forms.Button ActionAnalyse;
+    private System.Windows.Forms.Button ActionClear;
   }
 }
 

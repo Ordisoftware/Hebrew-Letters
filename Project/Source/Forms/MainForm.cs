@@ -294,27 +294,27 @@ namespace Ordisoftware.HebrewLetters
 
     private void PanelLetters_KeyPress(object sender, KeyPressEventArgs e)
     {
-      if ( e.KeyChar == '\r' ) ButtonAnalyse.PerformClick();
+      if ( e.KeyChar == '\r' ) ActionAnalyse.PerformClick();
     }
 
-    private void buttonClear_Click(object sender, EventArgs e)
+    private void ActionClear_Click(object sender, EventArgs e)
     {
       EditLetters.Input.Text = "";
-      ButtonAnalyse.PerformClick();
+      ActionAnalyse.PerformClick();
     }
 
-    private void ButtonCopyToClipboard_Click(object sender, EventArgs e)
+    private void ActionCopyToClipboard_Click(object sender, EventArgs e)
     {
       Clipboard.SetText(EditSentence.Text);
     }
 
-    private void ButtonAnalyse_Click(object sender, EventArgs e)
+    private void ActionAnalyse_Click(object sender, EventArgs e)
     {
       string word = EditLetters.Input.Text; // Letters.SwapFinale(panelLetters.Input.Text);
       EditAnalyse.Focus();
       EditAnalyse.Rows.Clear();
       EditSentence.Text = "";
-      EditSum.Text = "";
+      EditGematria.Text = "";
       int sum = 0;
       for ( int pos = word.Length - 1; pos >= 0; pos-- )
       {
@@ -328,7 +328,7 @@ namespace Ordisoftware.HebrewLetters
         foreach ( var meaning in l.GetMeaningsRows() )
           rowMeaning.Items.Add(meaning.Meaning);
       }
-      EditSum.Text = sum.ToString();
+      EditGematria.Text = sum.ToString();
     }
 
     private void EditAnalyse_CellEnter(object sender, DataGridViewCellEventArgs e)
