@@ -224,6 +224,7 @@
       // EditAnalyze
       // 
       resources.ApplyResources(this.EditAnalyze, "EditAnalyze");
+      this.EditAnalyze.BackColor = System.Drawing.Color.MintCream;
       this.EditAnalyze.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.EditAnalyze.Name = "EditAnalyze";
       // 
@@ -254,7 +255,7 @@
       // EditSentence
       // 
       resources.ApplyResources(this.EditSentence, "EditSentence");
-      this.EditSentence.BackColor = System.Drawing.Color.Honeydew;
+      this.EditSentence.BackColor = System.Drawing.SystemColors.Window;
       this.EditSentence.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.EditSentence.Name = "EditSentence";
       // 
