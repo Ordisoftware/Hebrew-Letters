@@ -15,6 +15,7 @@
 using Microsoft.Win32;
 using Ordisoftware.Core;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
@@ -301,55 +302,49 @@ namespace Ordisoftware.HebrewLetters
     private void ActionAnalyse_Click(object sender, EventArgs e)
     {
       string word = EditLetters.Input.Text; // Letters.SwapFinale(panelLetters.Input.Text);
-      EditAnalyse.Focus();
-      EditAnalyse.Rows.Clear();
       EditSentence.Text = "";
       EditGematria.Text = "";
+      EditAnalyze.Controls.Clear();
       int sum = 0;
+      int dy = 0;
       for ( int pos = word.Length - 1; pos >= 0; pos-- )
       {
-        int index = EditAnalyse.Rows.Add();
         var l = DataSet.Letters.FindByCode(Convert.ToString(word[pos]));
         sum += l.ValueSimple;
-        EditAnalyse[0, index].Value = l.Name;
-        var cellComboBox = (DataGridViewComboBoxCell)EditAnalyse[1, index];
-        cellComboBox.Items.Add(l.Verb);
-        cellComboBox.Items.Add(l.Structure);
-        cellComboBox.Items.Add(l.Function);
+        var label = new Label();
+        label.Text = l.Name;
+        label.AutoSize = false;
+        label.Size = new Size(50, 13);
+        label.Location = new Point(100, 20 + dy);
+        label.TextAlign = ContentAlignment.TopRight;
+        EditAnalyze.Controls.Add(label);
+        var combobox = new ComboBox();
+        combobox.DropDownStyle = ComboBoxStyle.DropDownList;
+        combobox.Size = new Size(200, 21);
+        combobox.Location = new Point(155, 16 + dy);
+        combobox.SelectedIndexChanged += MeaningComboBox_SelectedIndexChanged;
+        EditAnalyze.Controls.Add(combobox);
+        combobox.Items.Add(l.Verb);
+        combobox.Items.Add(l.Structure);
+        combobox.Items.Add(l.Function);
         foreach ( var meaning in l.GetMeaningsRows() )
-          cellComboBox.Items.Add(meaning.Meaning);
+          combobox.Items.Add(meaning.Meaning);
+        dy += 30;
+
       }
       EditGematria.Text = sum.ToString();
     }
 
-    private void EditAnalyse_CellEnter(object sender, DataGridViewCellEventArgs e)
-    {
-      if ( EditAnalyse.Columns[e.ColumnIndex] is DataGridViewComboBoxColumn )
-      {
-        EditAnalyse.BeginEdit(true);
-        ( (ComboBox)EditAnalyse.EditingControl ).DroppedDown = true;
-      }
-    }
-
-    private void EditAnalyse_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
-    {
-      /* bug -> background black
-      var combobox = e.Control as ComboBox;
-      if ( combobox != null )
-      {
-        combobox.SelectedIndexChanged += new EventHandler(ActionCreateSentence_Click);
-        combobox.SelectedValueChanged += new EventHandler(ActionCreateSentence_Click);
-      }*/
-    }
-
-    private void ActionCreateSentence_Click(object sender, EventArgs e)
+    private void MeaningComboBox_SelectedIndexChanged(object sender, EventArgs e)
     {
       string str = "";
-      foreach ( DataGridViewRow row in EditAnalyse.Rows )
-        str += ( row.Cells[1].EditedFormattedValue ?? "" ) + " ";
+      foreach ( var control in EditAnalyze.Controls )
+        if (control is ComboBox)
+          str += ( (control as ComboBox).Text ?? "" ) + " ";
       str = str == "" ? "" : str.Remove(str.Length - 1, 1);
       EditSentence.Text = str;
     }
+
   }
 
 }
