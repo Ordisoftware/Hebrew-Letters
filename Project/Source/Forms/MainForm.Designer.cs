@@ -106,6 +106,7 @@
       this.LettersTableAdapter = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.LettersTableAdapter();
       this.TableAdapterManager = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.TableAdapterManager();
       this.MeaningsTableAdapter = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.MeaningsTableAdapter();
+      this.ActionCreateSentence = new System.Windows.Forms.Button();
       nameLabel = new System.Windows.Forms.Label();
       structureLabel = new System.Windows.Forms.Label();
       functionLabel = new System.Windows.Forms.Label();
@@ -215,6 +216,7 @@
       // PanelViewSearch
       // 
       this.PanelViewSearch.BackColor = System.Drawing.SystemColors.Control;
+      this.PanelViewSearch.Controls.Add(this.ActionCreateSentence);
       this.PanelViewSearch.Controls.Add(this.ActionAnalyse);
       this.PanelViewSearch.Controls.Add(this.ActionClear);
       this.PanelViewSearch.Controls.Add(this.ActionCopyToClipboard);
@@ -255,7 +257,6 @@
       resources.ApplyResources(this.EditSentence, "EditSentence");
       this.EditSentence.BackColor = System.Drawing.Color.Honeydew;
       this.EditSentence.Name = "EditSentence";
-      this.EditSentence.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MouseMoveUpdateSentence);
       // 
       // EditGematria
       // 
@@ -287,7 +288,6 @@
       this.EditAnalyse.RowTemplate.Height = 32;
       this.EditAnalyse.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.EditAnalyse_CellEnter);
       this.EditAnalyse.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.EditAnalyse_EditingControlShowing);
-      this.EditAnalyse.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MouseMoveUpdateSentence);
       // 
       // ColumnLetter
       // 
@@ -724,6 +724,14 @@
       // 
       this.MeaningsTableAdapter.ClearBeforeFill = true;
       // 
+      // ActionCreateSentence
+      // 
+      resources.ApplyResources(this.ActionCreateSentence, "ActionCreateSentence");
+      this.ActionCreateSentence.FlatAppearance.BorderSize = 0;
+      this.ActionCreateSentence.Name = "ActionCreateSentence";
+      this.ActionCreateSentence.UseVisualStyleBackColor = true;
+      this.ActionCreateSentence.Click += new System.EventHandler(this.ActionCreateSentence_Click);
+      // 
       // MainForm
       // 
       resources.ApplyResources(this, "$this");
@@ -831,6 +839,7 @@
     private System.Windows.Forms.Button ActionAnalyse;
     private System.Windows.Forms.Button ActionClear;
     private System.Windows.Forms.TextBox verbTextBox;
+    private System.Windows.Forms.Button ActionCreateSentence;
   }
 }
 

@@ -342,7 +342,7 @@ namespace Ordisoftware.HebrewLetters
       }*/
     }
 
-    private void MouseMoveUpdateSentence(object sender, MouseEventArgs e)
+    private void ActionCreateSentence_Click(object sender, EventArgs e)
     {
       string str = "";
       foreach ( DataGridViewRow row in EditAnalyse.Rows )
