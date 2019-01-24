@@ -331,11 +331,24 @@ namespace Ordisoftware.HebrewLetters
       }
     }
 
-    private void ActionCreateSentence_Click(object sender, EventArgs e)
+    private void EditAnalyse_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
     {
-      EditSentence.Text = "";
+      /* bug -> background black
+      var combobox = e.Control as ComboBox;
+      if ( combobox != null )
+      {
+        combobox.SelectedIndexChanged += new EventHandler(ActionCreateSentence_Click);
+        combobox.SelectedValueChanged += new EventHandler(ActionCreateSentence_Click);
+      }*/
+    }
+
+    private void MouseMoveUpdateSentence(object sender, MouseEventArgs e)
+    {
+      string str = "";
       foreach ( DataGridViewRow row in EditAnalyse.Rows )
-        EditSentence.Text += ( row.Cells[1].EditedFormattedValue ?? "" ) + " ";
+        str += ( row.Cells[1].EditedFormattedValue ?? "" ) + " ";
+      str = str == "" ? "" : str.Remove(str.Length - 1, 1);
+      EditSentence.Text = str;
     }
   }
 

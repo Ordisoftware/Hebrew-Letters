@@ -46,7 +46,6 @@
       this.TabControl = new System.Windows.Forms.TabControl();
       this.TabPageText = new System.Windows.Forms.TabPage();
       this.PanelViewSearch = new System.Windows.Forms.Panel();
-      this.ActionCreateSentence = new System.Windows.Forms.Button();
       this.ActionAnalyse = new System.Windows.Forms.Button();
       this.ActionClear = new System.Windows.Forms.Button();
       this.ActionCopyToClipboard = new System.Windows.Forms.Button();
@@ -216,7 +215,6 @@
       // PanelViewSearch
       // 
       this.PanelViewSearch.BackColor = System.Drawing.SystemColors.Control;
-      this.PanelViewSearch.Controls.Add(this.ActionCreateSentence);
       this.PanelViewSearch.Controls.Add(this.ActionAnalyse);
       this.PanelViewSearch.Controls.Add(this.ActionClear);
       this.PanelViewSearch.Controls.Add(this.ActionCopyToClipboard);
@@ -227,14 +225,6 @@
       this.PanelViewSearch.Controls.Add(this.EditLetters);
       resources.ApplyResources(this.PanelViewSearch, "PanelViewSearch");
       this.PanelViewSearch.Name = "PanelViewSearch";
-      // 
-      // ActionCreateSentence
-      // 
-      resources.ApplyResources(this.ActionCreateSentence, "ActionCreateSentence");
-      this.ActionCreateSentence.FlatAppearance.BorderSize = 0;
-      this.ActionCreateSentence.Name = "ActionCreateSentence";
-      this.ActionCreateSentence.UseVisualStyleBackColor = true;
-      this.ActionCreateSentence.Click += new System.EventHandler(this.ActionCreateSentence_Click);
       // 
       // ActionAnalyse
       // 
@@ -265,6 +255,7 @@
       resources.ApplyResources(this.EditSentence, "EditSentence");
       this.EditSentence.BackColor = System.Drawing.Color.Honeydew;
       this.EditSentence.Name = "EditSentence";
+      this.EditSentence.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MouseMoveUpdateSentence);
       // 
       // EditGematria
       // 
@@ -295,6 +286,8 @@
       this.EditAnalyse.RowHeadersVisible = false;
       this.EditAnalyse.RowTemplate.Height = 32;
       this.EditAnalyse.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.EditAnalyse_CellEnter);
+      this.EditAnalyse.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.EditAnalyse_EditingControlShowing);
+      this.EditAnalyse.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MouseMoveUpdateSentence);
       // 
       // ColumnLetter
       // 
@@ -838,7 +831,6 @@
     private System.Windows.Forms.Button ActionAnalyse;
     private System.Windows.Forms.Button ActionClear;
     private System.Windows.Forms.TextBox verbTextBox;
-    private System.Windows.Forms.Button ActionCreateSentence;
   }
 }
 
