@@ -3,12 +3,17 @@
 >This project follows the [Manufacturing Software Guidelines](https://github.com/Ordisoftware/Guidelines).
 
 >Licensed under the terms of the [Mozilla Public License 2.0](LICENSE)<br/>
->[Project Website](http://www.ordisoftware.com/projects/hebrew-lettriq)<br/>
+>[Project Website](http://www.ordisoftware.com/projects/hebrew-letters)<br/>
 >[Twitter](https://twitter.com/ordisoftware)<br/>
 
 A tool for Windows written in C# that allows the lettriq study of hebrew words.
 
 ## Functionalities
+
+- Hebrew letters database with their customizable meanings.
+- Analyse a word letter by letter to get a sentence describing its meaning.
+- Copy the result to clipboard.
+- English, French.
 
 ## Requirements
 
@@ -24,6 +29,6 @@ A tool for Windows written in C# that allows the lettriq study of hebrew words.
 
 ## Changelog
 
-#### Year.Month.Day - Version 1.0
+#### 2019.Month.Day - Version 1.0
 
 - Initial release.
