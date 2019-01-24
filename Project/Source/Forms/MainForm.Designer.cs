@@ -37,8 +37,6 @@
       System.Windows.Forms.Label valueFullLabel;
       System.Windows.Forms.Label label2;
       System.Windows.Forms.Label verbLabel;
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
       this.PanelMain = new System.Windows.Forms.Panel();
       this.PanelMainOuter = new System.Windows.Forms.Panel();
       this.PanelMainInner = new System.Windows.Forms.Panel();
@@ -46,15 +44,13 @@
       this.TabControl = new System.Windows.Forms.TabControl();
       this.TabPageText = new System.Windows.Forms.TabPage();
       this.PanelViewSearch = new System.Windows.Forms.Panel();
+      this.EditAnalyze = new System.Windows.Forms.Panel();
       this.ActionAnalyse = new System.Windows.Forms.Button();
       this.ActionClear = new System.Windows.Forms.Button();
       this.ActionCopyToClipboard = new System.Windows.Forms.Button();
       this.EditSentence = new System.Windows.Forms.TextBox();
       this.EditGematria = new System.Windows.Forms.TextBox();
       this.LabelGematria = new System.Windows.Forms.Label();
-      this.EditAnalyse = new System.Windows.Forms.DataGridView();
-      this.ColumnLetter = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.ColumnMeaning = new System.Windows.Forms.DataGridViewComboBoxColumn();
       this.EditLetters = new Ordisoftware.HebrewLetters.LettersControl();
       this.TabPageMonth = new System.Windows.Forms.TabPage();
       this.PanelViewSettings = new System.Windows.Forms.Panel();
@@ -106,7 +102,6 @@
       this.LettersTableAdapter = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.LettersTableAdapter();
       this.TableAdapterManager = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.TableAdapterManager();
       this.MeaningsTableAdapter = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.MeaningsTableAdapter();
-      this.ActionCreateSentence = new System.Windows.Forms.Button();
       nameLabel = new System.Windows.Forms.Label();
       structureLabel = new System.Windows.Forms.Label();
       functionLabel = new System.Windows.Forms.Label();
@@ -121,7 +116,6 @@
       this.TabControl.SuspendLayout();
       this.TabPageText.SuspendLayout();
       this.PanelViewSearch.SuspendLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.EditAnalyse)).BeginInit();
       this.TabPageMonth.SuspendLayout();
       this.PanelViewSettings.SuspendLayout();
       this.PanelSettingsDetails.SuspendLayout();
@@ -216,17 +210,22 @@
       // PanelViewSearch
       // 
       this.PanelViewSearch.BackColor = System.Drawing.SystemColors.Control;
-      this.PanelViewSearch.Controls.Add(this.ActionCreateSentence);
+      this.PanelViewSearch.Controls.Add(this.EditAnalyze);
       this.PanelViewSearch.Controls.Add(this.ActionAnalyse);
       this.PanelViewSearch.Controls.Add(this.ActionClear);
       this.PanelViewSearch.Controls.Add(this.ActionCopyToClipboard);
       this.PanelViewSearch.Controls.Add(this.EditSentence);
       this.PanelViewSearch.Controls.Add(this.EditGematria);
       this.PanelViewSearch.Controls.Add(this.LabelGematria);
-      this.PanelViewSearch.Controls.Add(this.EditAnalyse);
       this.PanelViewSearch.Controls.Add(this.EditLetters);
       resources.ApplyResources(this.PanelViewSearch, "PanelViewSearch");
       this.PanelViewSearch.Name = "PanelViewSearch";
+      // 
+      // EditAnalyze
+      // 
+      resources.ApplyResources(this.EditAnalyze, "EditAnalyze");
+      this.EditAnalyze.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.EditAnalyze.Name = "EditAnalyze";
       // 
       // ActionAnalyse
       // 
@@ -256,12 +255,14 @@
       // 
       resources.ApplyResources(this.EditSentence, "EditSentence");
       this.EditSentence.BackColor = System.Drawing.Color.Honeydew;
+      this.EditSentence.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.EditSentence.Name = "EditSentence";
       // 
       // EditGematria
       // 
-      this.EditGematria.BackColor = System.Drawing.Color.LavenderBlush;
       resources.ApplyResources(this.EditGematria, "EditGematria");
+      this.EditGematria.BackColor = System.Drawing.Color.LavenderBlush;
+      this.EditGematria.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.EditGematria.Name = "EditGematria";
       this.EditGematria.ReadOnly = true;
       // 
@@ -269,43 +270,6 @@
       // 
       resources.ApplyResources(this.LabelGematria, "LabelGematria");
       this.LabelGematria.Name = "LabelGematria";
-      // 
-      // EditAnalyse
-      // 
-      this.EditAnalyse.AllowUserToAddRows = false;
-      this.EditAnalyse.AllowUserToDeleteRows = false;
-      this.EditAnalyse.AllowUserToResizeColumns = false;
-      this.EditAnalyse.AllowUserToResizeRows = false;
-      resources.ApplyResources(this.EditAnalyse, "EditAnalyse");
-      this.EditAnalyse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-      this.EditAnalyse.ColumnHeadersVisible = false;
-      this.EditAnalyse.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnLetter,
-            this.ColumnMeaning});
-      this.EditAnalyse.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-      this.EditAnalyse.Name = "EditAnalyse";
-      this.EditAnalyse.RowHeadersVisible = false;
-      this.EditAnalyse.RowTemplate.Height = 32;
-      this.EditAnalyse.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.EditAnalyse_CellEnter);
-      this.EditAnalyse.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.EditAnalyse_EditingControlShowing);
-      // 
-      // ColumnLetter
-      // 
-      dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(5);
-      this.ColumnLetter.DefaultCellStyle = dataGridViewCellStyle3;
-      resources.ApplyResources(this.ColumnLetter, "ColumnLetter");
-      this.ColumnLetter.Name = "ColumnLetter";
-      this.ColumnLetter.ReadOnly = true;
-      // 
-      // ColumnMeaning
-      // 
-      this.ColumnMeaning.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-      dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5);
-      this.ColumnMeaning.DefaultCellStyle = dataGridViewCellStyle4;
-      resources.ApplyResources(this.ColumnMeaning, "ColumnMeaning");
-      this.ColumnMeaning.Name = "ColumnMeaning";
-      this.ColumnMeaning.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-      this.ColumnMeaning.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
       // 
       // EditLetters
       // 
@@ -355,6 +319,7 @@
       // 
       // verbTextBox
       // 
+      this.verbTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.verbTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Verb", true));
       resources.ApplyResources(this.verbTextBox, "verbTextBox");
       this.verbTextBox.Name = "verbTextBox";
@@ -434,6 +399,7 @@
       // valueFullTextBox
       // 
       this.valueFullTextBox.BackColor = System.Drawing.Color.LavenderBlush;
+      this.valueFullTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.valueFullTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "ValueFull", true));
       resources.ApplyResources(this.valueFullTextBox, "valueFullTextBox");
       this.valueFullTextBox.Name = "valueFullTextBox";
@@ -442,6 +408,7 @@
       // valueSimpleTextBox
       // 
       this.valueSimpleTextBox.BackColor = System.Drawing.Color.LavenderBlush;
+      this.valueSimpleTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.valueSimpleTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "ValueSimple", true));
       resources.ApplyResources(this.valueSimpleTextBox, "valueSimpleTextBox");
       this.valueSimpleTextBox.Name = "valueSimpleTextBox";
@@ -449,6 +416,7 @@
       // 
       // functionTextBox
       // 
+      this.functionTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.functionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Function", true));
       resources.ApplyResources(this.functionTextBox, "functionTextBox");
       this.functionTextBox.Name = "functionTextBox";
@@ -456,6 +424,7 @@
       // nameTextBox
       // 
       this.nameTextBox.BackColor = System.Drawing.Color.LightYellow;
+      this.nameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Name", true));
       resources.ApplyResources(this.nameTextBox, "nameTextBox");
       this.nameTextBox.Name = "nameTextBox";
@@ -463,6 +432,7 @@
       // 
       // structureTextBox
       // 
+      this.structureTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.structureTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Structure", true));
       resources.ApplyResources(this.structureTextBox, "structureTextBox");
       this.structureTextBox.Name = "structureTextBox";
@@ -724,14 +694,6 @@
       // 
       this.MeaningsTableAdapter.ClearBeforeFill = true;
       // 
-      // ActionCreateSentence
-      // 
-      resources.ApplyResources(this.ActionCreateSentence, "ActionCreateSentence");
-      this.ActionCreateSentence.FlatAppearance.BorderSize = 0;
-      this.ActionCreateSentence.Name = "ActionCreateSentence";
-      this.ActionCreateSentence.UseVisualStyleBackColor = true;
-      this.ActionCreateSentence.Click += new System.EventHandler(this.ActionCreateSentence_Click);
-      // 
       // MainForm
       // 
       resources.ApplyResources(this, "$this");
@@ -753,7 +715,6 @@
       this.TabPageText.ResumeLayout(false);
       this.PanelViewSearch.ResumeLayout(false);
       this.PanelViewSearch.PerformLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.EditAnalyse)).EndInit();
       this.TabPageMonth.ResumeLayout(false);
       this.PanelViewSettings.ResumeLayout(false);
       this.PanelSettingsDetails.ResumeLayout(false);
@@ -829,17 +790,14 @@
     private System.Windows.Forms.LinkLabel ActionReset;
     private System.Windows.Forms.Button ActionDeleteMeaning;
     private System.Windows.Forms.Button ActionAddMeaning;
-    private System.Windows.Forms.DataGridView EditAnalyse;
     private System.Windows.Forms.TextBox EditGematria;
     private System.Windows.Forms.Label LabelGematria;
     private System.Windows.Forms.TextBox EditSentence;
     private System.Windows.Forms.Button ActionCopyToClipboard;
-    private System.Windows.Forms.DataGridViewTextBoxColumn ColumnLetter;
-    private System.Windows.Forms.DataGridViewComboBoxColumn ColumnMeaning;
     private System.Windows.Forms.Button ActionAnalyse;
     private System.Windows.Forms.Button ActionClear;
     private System.Windows.Forms.TextBox verbTextBox;
-    private System.Windows.Forms.Button ActionCreateSentence;
+    private System.Windows.Forms.Panel EditAnalyze;
   }
 }
 
