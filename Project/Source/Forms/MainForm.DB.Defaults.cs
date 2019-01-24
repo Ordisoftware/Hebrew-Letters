@@ -174,7 +174,7 @@ namespace Ordisoftware.HebrewLetters
       new Dico()
       {
         { "en", new List<string>() { ""  } },
-        { "fr", new List<string>() { "Début du cycle", "Départ", "Lâcher prise", "Interrompre", "Vérité", "Séparer", "Différentiation entre réel et imaginaire" } }
+        { "fr", new List<string>() { "Début du cycle", "Départ", "Lâcher prise", "Interrompre", "Vérité", "Séparer", "Discernement", "Différentiation entre réel et imaginaire" } }
       },
       new Dico()
       {

@@ -33,6 +33,9 @@ namespace Ordisoftware.HebrewLetters
         case Keys.F1:
           ActionHelp.PerformClick();
           return true;
+        case Keys.F2:
+          ActionViewSearch.PerformClick();
+          return true;
         case Keys.F8:
           ActionViewSettings.PerformClick();
           return true;

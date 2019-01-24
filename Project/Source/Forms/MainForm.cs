@@ -15,13 +15,10 @@
 using Microsoft.Win32;
 using Ordisoftware.Core;
 using System;
-using System.Text;
-using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace Ordisoftware.HebrewLetters
@@ -287,7 +284,7 @@ namespace Ordisoftware.HebrewLetters
 
     private void ActionReset_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
-      if ( DisplayManager.QueryYesNo("This will restaure all default values." + Environment.NewLine + Environment.NewLine +
+      if ( DisplayManager.QueryYesNo("This will restore all letters to default values." + Environment.NewLine + Environment.NewLine +
                                      "Do you want to continue?") )
         CreateDataIfNotExists(true);
     }
