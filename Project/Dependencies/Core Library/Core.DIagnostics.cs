@@ -22,23 +22,23 @@ namespace Ordisoftware.Core.Diagnostics
   static public class Debugger
   {
 
-    static public void ManageException(Exception except)
+    static public void ManageException(Exception ex)
     {
-      ManageException(null, except, true);
+      ManageException(null, ex, true);
     }
 
-    static public void ManageException(object sender, Exception except)
+    static public void ManageException(object sender, Exception ex)
     {
-      ManageException(sender, except, true);
+      ManageException(sender, ex, true);
     }
 
-    static public void ManageException(object sender, Exception except, bool doshow)
+    static public void ManageException(object sender, Exception ex, bool doshow)
     {
-      string message = except.Message;
-      var exceptInner = except.InnerException;
+      string message = ex.Message;
+      var exceptInner = ex.InnerException;
       while ( exceptInner != null )
       {
-        message += Environment.NewLine + Environment.NewLine + except.InnerException;
+        message += Environment.NewLine + Environment.NewLine + ex.InnerException;
         exceptInner = exceptInner.InnerException;
       }
       if ( doshow ) DisplayManager.Show(message);

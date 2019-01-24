@@ -1,5 +1,5 @@
 ﻿/// <license>
-/// This file is part of Ordisoftware Hebrew Calendar.
+/// This file is part of Ordisoftware Hebrew Letters.
 /// Copyright 2016-2019 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
@@ -14,6 +14,7 @@
 /// <edited> 2019-01 </edited>
 using System;
 using System.IO;
+using System.Linq;
 using System.Drawing;
 using System.Windows.Forms;
 using Ordisoftware.Core;
@@ -56,6 +57,8 @@ namespace Ordisoftware.HebrewLetters
     /// </summary>
     static public string UserDataFolder { get; private set; }
 
+    static public string StartupWord { get; private set; }
+
     /// <summary>
     /// Main entry-point for this application.
     /// </summary>
@@ -82,11 +85,19 @@ namespace Ordisoftware.HebrewLetters
                        + Path.DirectorySeparatorChar + AboutBox.Instance.AssemblyTitle
                        + Path.DirectorySeparatorChar;
         Directory.CreateDirectory(UserDataFolder);
+        string s = "";
+        if ( args.Length == 1 )
+        {
+          foreach (char c in args[0])
+            if ( Letters.Codes.Contains(Convert.ToString(c)) )
+              s += c;
+        }
+        StartupWord = s;
         Application.Run(MainForm.Instance);
       }
-      catch ( Exception except )
+      catch ( Exception ex )
       {
-        except.Manage();
+        ex.Manage();
       }
     }
 

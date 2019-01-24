@@ -24,9 +24,9 @@ namespace Ordisoftware.HebrewLetters
   {
 
     /// <summary>
-    /// Text view mode to display the search panel.
+    /// Text view mode to display the analyse panel.
     /// </summary>
-    Search,
+    Analyse,
 
     /// <summary>
     /// Grid view mode to display the settings panel.

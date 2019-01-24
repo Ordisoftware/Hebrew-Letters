@@ -1,5 +1,5 @@
 ﻿/// <license>
-/// This file is part of Ordisoftware Hebrew Calendar.
+/// This file is part of Ordisoftware Hebrew Letters.
 /// Copyright 2016-2019 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
@@ -48,7 +48,7 @@ namespace Ordisoftware.HebrewLetters
       MainForm.EditScreenCenter.Checked = true;
       MainForm.EditConfirmClosing.Checked = true;
       MainForm.EditShowTips.Checked = true;
-      MainForm.SetView(ViewModeType.Search);
+      MainForm.SetView(ViewModeType.Analyse);
       settings.Store();
     }
 

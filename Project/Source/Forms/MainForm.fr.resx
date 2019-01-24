@@ -145,6 +145,12 @@
   <data name="label2.Text" xml:space="preserve">
     <value>Significations</value>
   </data>
+  <data name="verbLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 13</value>
+  </data>
+  <data name="verbLabel.Text" xml:space="preserve">
+    <value>Verbe</value>
+  </data>
   <data name="ActionAnalyse.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -231,10 +237,13 @@
         yWaGjjKLf5teF2eI33zFJpPsf/1rxj+OLGCX3KpXaTLJnvHn1OX6GxOhmv/sVmGFAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="verbTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 384</value>
+  </data>
   <data name="ActionDeleteMeaning.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsAAAA7AAWrWiQkAAASBSURBVFhHzZdtTJtlFIbLZvSXuKigMTFB3PCDQsdgYNym
+        YQUAAAAJcEhZcwAADr8AAA6/ATgFUyQAAASBSURBVFhHzZdtTJtlFIbLZvSXuKigMTFB3PCDQsdgYNym
         DjdntsGgrHTMuUFgDDJRwP0wfi5OnTHqj/nXbYWNGRMntEEjQTanieASE2c0joJCGZSWrtLSj7e0fXt7
         zkMpA6rroCzeyZUeznPe59x9Pshbxf9Bt+j1+naDwYC2trabAvfintybDdzOiZst7sm92UASu2L9NTCI
         gUHTksI9WNyTe7OB5GkDg6YhmIauLCncgxU2kDzLwNCVYQyPmJcU7sGKaoALRkdHYbFYlgSem3uwohqw
@@ -259,7 +268,7 @@
   <data name="ActionAddMeaning.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsAAAA7AAWrWiQkAAARiSURBVFhHzZdtTFtVGMcPm9HExJfMMBP1gxo/LNExhmNR
+        YQUAAAAJcEhZcwAADr8AAA6/ATgFUyQAAARiSURBVFhHzZdtTFtVGMcPm9HExJfMMBP1gxo/LNExhmNR
         s2xmYMyCm6MI1ZAYP8xZ43wNCi64LMG9uMw5JiFzZoOxKWZqaCtjE3HZaHBTsg9EE3lzUDagwCZUylvb
         27/P/5S2KI10UBb/yS88POe55/mfc8+9uVX/B91ks9mq7XY7rFbrDYG92JO9aeA2Jm602JO9aSCRrqhL
         HZ3o6HTOK+xBsSd708DikIFOZxecXZfnFfagJg0s/oeBrstXcKW7Z15hDyqqARb09vbC5XLNC5ybPaio
@@ -286,6 +295,21 @@
   </data>
   <data name="ActionReset.Text" xml:space="preserve">
     <value>Restaurer les valeurs par défaut</value>
+  </data>
+  <data name="valueFullTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 224</value>
+  </data>
+  <data name="valueSimpleTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 177</value>
+  </data>
+  <data name="functionTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 337</value>
+  </data>
+  <data name="nameTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 108</value>
+  </data>
+  <data name="structureTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 290</value>
   </data>
   <data name="LabelTitle.Text" xml:space="preserve">
     <value>ETUDE LETTRIQUE</value>
@@ -601,7 +625,7 @@
   <data name="ActionViewSettings.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAXISURBVFhHvVdbT1RXFDZpG/Shtmla0r70D7SpaZ9MX5q0
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAXJSURBVFhHvVdbT1RXFDZpG/Shtmla0r70D7SpaZ9MX5q0
         D33RNE3apmmaWNs0MogGO9gWuQyCMCoUtVQrIyAIKhoUGZhhBi+AiDe0CMyFQR3QQRRRBLzXytf17cM5
         ziiQjpqu5GPt/e3D+tZee52dMzPEXnzT4qibne7ErFQnYlKexEwFh/JPyzM2NahFTQrr9jIX/i+jFjU1
         ac3eYHbKWuYBrV8AR78Kw5eCz5DsGFRem0fJMyZji1GLmpq0ZrEslbLW+cBxCXLi6zDI/OTnsLiHlFfz
@@ -615,18 +639,18 @@
         N7q9yuvPRPASnElRZETi8JX/zbYT2atykJWVjSq7QyVFeyHVNXUC17n7++MRIDcmgf90eZXXnzF4OWvu
         kti1txYFm2xqnLEyCyMjo4IRWDKyFFdWUoJvcoqnTuCmlPJx3BLI24QtB3zKcx7J+yGFwO5qOyp37Yaj
         3oW09AyUlVWgy+tXKJUxOZe7AfYaOzIzc5yia3wVGU242e3B5gYPChu8BmyC4oMSpLFbec4j+KYAyg6f
-        R+aafNTYa9F/aQChUD+Grg2jXgTrXQ1qTO7SwACcLrdUZO2w6BpfRUYF+KZwV+EgJ5XG1oM+5fVn6KUI
-        KGsMyF9AXnX8mpyKWocLJ0/9hfLyHciSHsi2rsU2GZOrc7qRZsnkEXwgmK3UxWJjJhK4Kwq3pZ7huCOc
-        9BeK9vuU51znxaFcdl+1txrmpF9gsxWjvb0DFdsrkZxiQU/vRQSCF5Ei5d9WUanWiopLkZq+EqmWTOPj
-        1EjgAc9VAodD+k1ZifQAjfNwvvJoH8xmMwYHh6TEV9B0+Aisq3Nh29eiPSAW6O2DZeUqtTZweVAdSaok
-        JdrqGIwjmM7KD/knRpFWdfwCli1LRGenByfbTqO19QRyrKuxpfpRAmeD8nmWbcWR1uNoO3UaXmnM5JQ0
-        JqA+To0mLD3gFfhQKueto0xQ3ujHzuaA8pzrfEVTN6qO9SJ7nQ0JSxKxJjcfbafbUb3PjkTzctj2NqNw
-        TzOW/pSEPdU1ai0vfwOSfl6BhIRlzUYC+vfAdLajafIKVLb0KH8xFEJc/BJVhTNnOrHPXodV2TlIS7Oo
-        Mbk2acSliWbMnfvhEtF9V6AdwfP4YZK72oqKiu0I9JxHe0cXfP4eeLzdUu5uNSbXI2s75a6INy+/Lrqv
-        C7QmfMviGFM/zaQSbMjHwR7hMdE/yTsQk+7GvKQ12GorlMtoF0ymeBQU/IGz54IKebl5iDeZ1EVVVFSC
-        OFNCo+i+QnHaq4L3BR8LPnkGfPrjd98eWbRo0Q0ZzzfFxWHw6pB6OxbLmBzXFi5ceEzG7wmMi+glAZPg
-        /fwseFswR8BLZs73Cxa0xJkWSzUW4wcZh61RnM0X8QP1eRgDcle84V4TvCP4aAIck+Man3nu4o+bngx3
-        SkwhOmPGvxk1qCe0Xs2eAAAAAElFTkSuQmCC
+        R+aafNTYa9F/aQChUD+Grg2jXgTrXQ1qTO7SwACcLjcslrXDomt8FRkV4JvCXYWDnFQaWw/6lNefoZci
+        oKwxIH8BedXxa3Iqah0unDz1F8rLdyBLeiDbuhbbZEyuzulGmiWTR/CBYLZSF4uNmUjgrijclnqG445w
+        0l8o2u9TnnOdF4dy2X3V3mqYk36BzVaM9vYOVGyvRHKKBT29FxEIXkSKlH9bRaVaKyouRWr6SqRaMo2P
+        UyOBBzxXCRwO6TdlJdIDNM7D+cqjfTCbzRgcHJISX0HT4SOwrs6FbV+L9oBYoLcPlpWr1NrA5UF1JKmS
+        lGirYzCOYDorP+SfGEVa1fELWLYsEZ2dHpxsO43W1hPIsa7GlupHCZwNyudZthVHWo+j7dRpeKUxk1PS
+        mID6ODWasPSAV+BDqZy3jjJBeaMfO5sDynOu8xVN3ag61ovsdTYkLEnEmtx8tJ1uR/U+OxLNy2Hb24zC
+        Pc1Y+lMS9lTXqLW8/A1I+nkFEhKWNRsJ6N8D09mOpskrUNnSo/zFUAhx8UtUFc6c6cQ+ex1WZecgLc2i
+        xuTapBGXJpoxd+6HS0T3XYF2BM/jh0nuaisqKrYj0HMe7R1d8Pl74PF2S7m71Zhcj6ztlLsi3rz8uui+
+        LtCa8C2LY0z9NJNKsCEfB3uEx0T/JO9ATLob85LWYKutUC6jXTCZ4lFQ8AfOngsq5OXmId5kUhdVUVEJ
+        4kwJjaL7CsVprwreF3ws+OQZ8OmP3317ZNGiRTdkPN8UF4fBq0Pq7VgsY3JcW7hw4TEZvycwLqKXBEyC
+        9/Oz4G3BHAEvmTnfL1jQEmdaLNVYjB9kHLZGcTZfxA/U52EMyF3xhntN8I7gowlwTI5rfOa5iz9uejLc
+        KTGF6IwZ/wITHqgmpKNVuAAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="ActionViewSettings.Text" xml:space="preserve">

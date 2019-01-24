@@ -1,5 +1,5 @@
 ﻿/// <license>
-/// This file is part of Ordisoftware Hebrew Calendar.
+/// This file is part of Ordisoftware Hebrew Letters.
 /// Copyright 2016-2019 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
@@ -79,18 +79,12 @@ namespace Ordisoftware.HebrewLetters
       MeaningsTableAdapter.Fill(DataSet.Meanings);
       LettersTableAdapter.Fill(DataSet.Letters);
       Program.Settings.Retrieve();
-      SetView(Program.Settings.CurrentView, true);
-      UpdateButtons();
-    }
-
-    /// <summary>
-    /// Event handler. Called by MainForm for shown events.
-    /// </summary>
-    /// <param name="sender">Source of the event.</param>
-    /// <param name="e">Event information.</param>
-    private void MainForm_Shown(object sender, EventArgs e)
-    {
-      UpdateButtons();
+      SetView(Program.StartupWord == "" ? Program.Settings.CurrentView : ViewModeType.Analyse, true);
+      if ( Program.StartupWord != "" )
+      {
+        EditLetters.Input.Text = Program.StartupWord;
+        ActionAnalyse.PerformClick();
+      }
     }
 
     /// <summary>
@@ -174,7 +168,7 @@ namespace Ordisoftware.HebrewLetters
     private void ActionViewSearch_Click(object sender, EventArgs e)
     {
       if ( DataSet.HasChanges() ) TableAdapterManager.UpdateAll(DataSet);
-      SetView(ViewModeType.Search);
+      SetView(ViewModeType.Analyse);
     }
 
     /// <summary>
@@ -318,42 +312,31 @@ namespace Ordisoftware.HebrewLetters
         var l = DataSet.Letters.FindByCode(Convert.ToString(word[pos]));
         sum += l.ValueSimple;
         EditAnalyse[0, index].Value = l.Name;
-        var rowMeaning = (DataGridViewComboBoxCell)EditAnalyse[1, index];
-        rowMeaning.Items.Add(l.Structure);
-        rowMeaning.Items.Add(l.Function);
+        var cellComboBox = (DataGridViewComboBoxCell)EditAnalyse[1, index];
+        cellComboBox.Items.Add(l.Verb);
+        cellComboBox.Items.Add(l.Structure);
+        cellComboBox.Items.Add(l.Function);
         foreach ( var meaning in l.GetMeaningsRows() )
-          rowMeaning.Items.Add(meaning.Meaning);
+          cellComboBox.Items.Add(meaning.Meaning);
       }
       EditGematria.Text = sum.ToString();
     }
 
     private void EditAnalyse_CellEnter(object sender, DataGridViewCellEventArgs e)
     {
-      bool validClick = ( e.RowIndex != -1 && e.ColumnIndex != -1 );
-      if ( EditAnalyse.Columns[e.ColumnIndex] is DataGridViewComboBoxColumn && validClick )
+      if ( EditAnalyse.Columns[e.ColumnIndex] is DataGridViewComboBoxColumn )
       {
         EditAnalyse.BeginEdit(true);
         ( (ComboBox)EditAnalyse.EditingControl ).DroppedDown = true;
       }
     }
 
-    private void EditAnalyse_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
-    {
-      var combobox = e.Control as ComboBox;
-      if ( combobox != null )
-      {
-        combobox.SelectedIndexChanged -= new EventHandler(UpdateSentence);
-        combobox.SelectedValueChanged += new EventHandler(UpdateSentence);
-      }
-    }
-
-    private void UpdateSentence(object sender, EventArgs e)
+    private void ActionCreateSentence_Click(object sender, EventArgs e)
     {
       EditSentence.Text = "";
       foreach ( DataGridViewRow row in EditAnalyse.Rows )
-        EditSentence.Text += (row.Cells[1].EditedFormattedValue ?? "") + " ";
+        EditSentence.Text += ( row.Cells[1].EditedFormattedValue ?? "" ) + " ";
     }
-
   }
 
 }

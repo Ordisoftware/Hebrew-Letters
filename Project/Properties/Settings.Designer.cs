@@ -143,7 +143,7 @@ namespace Ordisoftware.HebrewLetters.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Search")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Analyse")]
         public global::Ordisoftware.HebrewLetters.ViewModeType CurrentView {
             get {
                 return ((global::Ordisoftware.HebrewLetters.ViewModeType)(this["CurrentView"]));

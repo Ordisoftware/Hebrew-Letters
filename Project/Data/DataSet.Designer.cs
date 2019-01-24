@@ -329,6 +329,8 @@ namespace Ordisoftware.HebrewLetters.Data {
             
             private global::System.Data.DataColumn columnFunction;
             
+            private global::System.Data.DataColumn columnVerb;
+            
             private global::System.Data.DataColumn columnValueSimple;
             
             private global::System.Data.DataColumn columnValueFull;
@@ -400,6 +402,14 @@ namespace Ordisoftware.HebrewLetters.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn VerbColumn {
+                get {
+                    return this.columnVerb;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public global::System.Data.DataColumn ValueSimpleColumn {
                 get {
                     return this.columnValueSimple;
@@ -451,13 +461,14 @@ namespace Ordisoftware.HebrewLetters.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public LettersRow AddLettersRow(string Code, string Name, string Structure, string Function, int ValueSimple, int ValueFull) {
+            public LettersRow AddLettersRow(string Code, string Name, string Structure, string Function, string Verb, int ValueSimple, int ValueFull) {
                 LettersRow rowLettersRow = ((LettersRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Code,
                         Name,
                         Structure,
                         Function,
+                        Verb,
                         ValueSimple,
                         ValueFull};
                 rowLettersRow.ItemArray = columnValuesArray;
@@ -493,6 +504,7 @@ namespace Ordisoftware.HebrewLetters.Data {
                 this.columnName = base.Columns["Name"];
                 this.columnStructure = base.Columns["Structure"];
                 this.columnFunction = base.Columns["Function"];
+                this.columnVerb = base.Columns["Verb"];
                 this.columnValueSimple = base.Columns["ValueSimple"];
                 this.columnValueFull = base.Columns["ValueFull"];
             }
@@ -508,6 +520,8 @@ namespace Ordisoftware.HebrewLetters.Data {
                 base.Columns.Add(this.columnStructure);
                 this.columnFunction = new global::System.Data.DataColumn("Function", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFunction);
+                this.columnVerb = new global::System.Data.DataColumn("Verb", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVerb);
                 this.columnValueSimple = new global::System.Data.DataColumn("ValueSimple", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnValueSimple);
                 this.columnValueFull = new global::System.Data.DataColumn("ValueFull", typeof(int), null, global::System.Data.MappingType.Element);
@@ -523,6 +537,8 @@ namespace Ordisoftware.HebrewLetters.Data {
                 this.columnStructure.MaxLength = 65536;
                 this.columnFunction.AllowDBNull = false;
                 this.columnFunction.MaxLength = 65536;
+                this.columnVerb.AllowDBNull = false;
+                this.columnVerb.MaxLength = 65536;
                 this.columnValueSimple.AllowDBNull = false;
                 this.columnValueFull.AllowDBNull = false;
             }
@@ -979,6 +995,17 @@ namespace Ordisoftware.HebrewLetters.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string Verb {
+                get {
+                    return ((string)(this[this.tableLetters.VerbColumn]));
+                }
+                set {
+                    this[this.tableLetters.VerbColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public int ValueSimple {
                 get {
                     return ((int)(this[this.tableLetters.ValueSimpleColumn]));
@@ -1256,47 +1283,51 @@ namespace Ordisoftware.HebrewLetters.Data.DataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Name", "Name");
             tableMapping.ColumnMappings.Add("Structure", "Structure");
             tableMapping.ColumnMappings.Add("Function", "Function");
+            tableMapping.ColumnMappings.Add("Verb", "Verb");
             tableMapping.ColumnMappings.Add("ValueSimple", "ValueSimple");
             tableMapping.ColumnMappings.Add("ValueFull", "ValueFull");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.Odbc.OdbcCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
             this._adapter.DeleteCommand.CommandText = "DELETE FROM \"Letters\" WHERE ((\"Code\" = ?) AND (\"Name\" = ?) AND (\"Structure\" = ?) " +
-                "AND (\"Function\" = ?) AND (\"ValueSimple\" = ?) AND (\"ValueFull\" = ?))";
+                "AND (\"Function\" = ?) AND (\"Verb\" = ?) AND (\"ValueSimple\" = ?) AND (\"ValueFull\" =" +
+                " ?))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_Code", global::System.Data.Odbc.OdbcType.NChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Code", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_Name", global::System.Data.Odbc.OdbcType.NChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Name", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_Structure", global::System.Data.Odbc.OdbcType.NChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Structure", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_Function", global::System.Data.Odbc.OdbcType.NChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Function", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_Verb", global::System.Data.Odbc.OdbcType.NChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Verb", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_ValueSimple", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ValueSimple", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_ValueFull", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ValueFull", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.Odbc.OdbcCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO \"Letters\" (\"Code\", \"Name\", \"Structure\", \"Function\", \"ValueSimple\", \"V" +
-                "alueFull\") VALUES (?, ?, ?, ?, ?, ?)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO \"Letters\" (\"Code\", \"Name\", \"Structure\", \"Function\", \"Verb\", \"ValueSim" +
+                "ple\", \"ValueFull\") VALUES (?, ?, ?, ?, ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Code", global::System.Data.Odbc.OdbcType.NChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Code", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Name", global::System.Data.Odbc.OdbcType.NChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Name", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Structure", global::System.Data.Odbc.OdbcType.NChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Structure", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Function", global::System.Data.Odbc.OdbcType.NChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Function", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Verb", global::System.Data.Odbc.OdbcType.NChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Verb", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("ValueSimple", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ValueSimple", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("ValueFull", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ValueFull", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.Odbc.OdbcCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE \"Letters\" SET \"Code\" = ?, \"Name\" = ?, \"Structure\" = ?, \"Function\" = ?, \"Va" +
-                "lueSimple\" = ?, \"ValueFull\" = ? WHERE ((\"Code\" = ?) AND (\"Name\" = ?) AND (\"Struc" +
-                "ture\" = ?) AND (\"Function\" = ?) AND (\"ValueSimple\" = ?) AND (\"ValueFull\" = ?))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE ""Letters"" SET ""Code"" = ?, ""Name"" = ?, ""Structure"" = ?, ""Function"" = ?, ""Verb"" = ?, ""ValueSimple"" = ?, ""ValueFull"" = ? WHERE ((""Code"" = ?) AND (""Name"" = ?) AND (""Structure"" = ?) AND (""Function"" = ?) AND (""Verb"" = ?) AND (""ValueSimple"" = ?) AND (""ValueFull"" = ?))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Code", global::System.Data.Odbc.OdbcType.NChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Code", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Name", global::System.Data.Odbc.OdbcType.NChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Name", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Structure", global::System.Data.Odbc.OdbcType.NChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Structure", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Function", global::System.Data.Odbc.OdbcType.NChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Function", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Verb", global::System.Data.Odbc.OdbcType.NChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Verb", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("ValueSimple", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ValueSimple", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("ValueFull", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ValueFull", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_Code", global::System.Data.Odbc.OdbcType.NChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Code", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_Name", global::System.Data.Odbc.OdbcType.NChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Name", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_Structure", global::System.Data.Odbc.OdbcType.NChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Structure", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_Function", global::System.Data.Odbc.OdbcType.NChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Function", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_Verb", global::System.Data.Odbc.OdbcType.NChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Verb", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_ValueSimple", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ValueSimple", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_ValueFull", global::System.Data.Odbc.OdbcType.Int, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ValueFull", global::System.Data.DataRowVersion.Original, false, null));
         }
@@ -1314,8 +1345,8 @@ namespace Ordisoftware.HebrewLetters.Data.DataSetTableAdapters {
             this._commandCollection = new global::System.Data.Odbc.OdbcCommand[1];
             this._commandCollection[0] = new global::System.Data.Odbc.OdbcCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT \"Code\", \"Name\", \"Structure\", \"Function\", \"ValueSimple\", \"ValueFull\" FROM \"" +
-                "Letters\"";
+            this._commandCollection[0].CommandText = "SELECT \"Code\", \"Name\", \"Structure\", \"Function\", \"Verb\", \"ValueSimple\", \"ValueFull" +
+                "\" FROM \"Letters\"";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1376,7 +1407,7 @@ namespace Ordisoftware.HebrewLetters.Data.DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_Code, string Original_Name, string Original_Structure, string Original_Function, int Original_ValueSimple, int Original_ValueFull) {
+        public virtual int Delete(string Original_Code, string Original_Name, string Original_Structure, string Original_Function, string Original_Verb, int Original_ValueSimple, int Original_ValueFull) {
             if ((Original_Code == null)) {
                 throw new global::System.ArgumentNullException("Original_Code");
             }
@@ -1401,8 +1432,14 @@ namespace Ordisoftware.HebrewLetters.Data.DataSetTableAdapters {
             else {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_Function));
             }
-            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_ValueSimple));
-            this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_ValueFull));
+            if ((Original_Verb == null)) {
+                throw new global::System.ArgumentNullException("Original_Verb");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Verb));
+            }
+            this.Adapter.DeleteCommand.Parameters[5].Value = ((int)(Original_ValueSimple));
+            this.Adapter.DeleteCommand.Parameters[6].Value = ((int)(Original_ValueFull));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1423,7 +1460,7 @@ namespace Ordisoftware.HebrewLetters.Data.DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Code, string Name, string Structure, string Function, int ValueSimple, int ValueFull) {
+        public virtual int Insert(string Code, string Name, string Structure, string Function, string Verb, int ValueSimple, int ValueFull) {
             if ((Code == null)) {
                 throw new global::System.ArgumentNullException("Code");
             }
@@ -1448,8 +1485,14 @@ namespace Ordisoftware.HebrewLetters.Data.DataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Function));
             }
-            this.Adapter.InsertCommand.Parameters[4].Value = ((int)(ValueSimple));
-            this.Adapter.InsertCommand.Parameters[5].Value = ((int)(ValueFull));
+            if ((Verb == null)) {
+                throw new global::System.ArgumentNullException("Verb");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Verb));
+            }
+            this.Adapter.InsertCommand.Parameters[5].Value = ((int)(ValueSimple));
+            this.Adapter.InsertCommand.Parameters[6].Value = ((int)(ValueFull));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1470,7 +1513,7 @@ namespace Ordisoftware.HebrewLetters.Data.DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Code, string Name, string Structure, string Function, int ValueSimple, int ValueFull, string Original_Code, string Original_Name, string Original_Structure, string Original_Function, int Original_ValueSimple, int Original_ValueFull) {
+        public virtual int Update(string Code, string Name, string Structure, string Function, string Verb, int ValueSimple, int ValueFull, string Original_Code, string Original_Name, string Original_Structure, string Original_Function, string Original_Verb, int Original_ValueSimple, int Original_ValueFull) {
             if ((Code == null)) {
                 throw new global::System.ArgumentNullException("Code");
             }
@@ -1495,34 +1538,46 @@ namespace Ordisoftware.HebrewLetters.Data.DataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Function));
             }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(ValueSimple));
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(ValueFull));
+            if ((Verb == null)) {
+                throw new global::System.ArgumentNullException("Verb");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Verb));
+            }
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(ValueSimple));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(ValueFull));
             if ((Original_Code == null)) {
                 throw new global::System.ArgumentNullException("Original_Code");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_Code));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Code));
             }
             if ((Original_Name == null)) {
                 throw new global::System.ArgumentNullException("Original_Name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Name));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_Name));
             }
             if ((Original_Structure == null)) {
                 throw new global::System.ArgumentNullException("Original_Structure");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_Structure));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Structure));
             }
             if ((Original_Function == null)) {
                 throw new global::System.ArgumentNullException("Original_Function");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Function));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Function));
             }
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_ValueSimple));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_ValueFull));
+            if ((Original_Verb == null)) {
+                throw new global::System.ArgumentNullException("Original_Verb");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_Verb));
+            }
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_ValueSimple));
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_ValueFull));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1543,8 +1598,8 @@ namespace Ordisoftware.HebrewLetters.Data.DataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Name, string Structure, string Function, int ValueSimple, int ValueFull, string Original_Code, string Original_Name, string Original_Structure, string Original_Function, int Original_ValueSimple, int Original_ValueFull) {
-            return this.Update(Original_Code, Name, Structure, Function, ValueSimple, ValueFull, Original_Code, Original_Name, Original_Structure, Original_Function, Original_ValueSimple, Original_ValueFull);
+        public virtual int Update(string Name, string Structure, string Function, string Verb, int ValueSimple, int ValueFull, string Original_Code, string Original_Name, string Original_Structure, string Original_Function, string Original_Verb, int Original_ValueSimple, int Original_ValueFull) {
+            return this.Update(Original_Code, Name, Structure, Function, Verb, ValueSimple, ValueFull, Original_Code, Original_Name, Original_Structure, Original_Function, Original_Verb, Original_ValueSimple, Original_ValueFull);
         }
     }
     

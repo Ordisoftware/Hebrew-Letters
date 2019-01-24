@@ -1,5 +1,5 @@
 ﻿/// <license>
-/// This file is part of Ordisoftware Hebrew Calendar.
+/// This file is part of Ordisoftware Hebrew Letters.
 /// Copyright 2016-2019 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
@@ -14,14 +14,13 @@ using System;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using Ordisoftware.Core;
 using Ordisoftware.Core.Diagnostics;
 
 namespace Ordisoftware.HebrewLetters
 {
 
   /// <summary>
-  /// Provide LettersControl class.
+  /// Provide Letters input panel Control class.
   /// </summary>
   public partial class LettersControl : UserControl
   {
@@ -32,12 +31,18 @@ namespace Ordisoftware.HebrewLetters
     [ThreadStatic]
     private bool NewKeyPressed = false;
 
+    /// <summary>
+    /// Indicate the background color of letters panel
+    /// </summary>
     public Color LettersBackground
     {
       get { return Panel.BackColor; }
       set { Panel.BackColor = value; }
     }
 
+    /// <summary>
+    /// Indicate the background color of input panel
+    /// </summary>
     public Color InputBackground
     {
       get { return Input.BackColor; }
@@ -58,7 +63,6 @@ namespace Ordisoftware.HebrewLetters
     /// </summary>
     private void CreateLetters()
     {
-      //if ( SystemManager.Process.IsDesigntime ) return;
       try
       {
         int dy = 45;
@@ -70,7 +74,7 @@ namespace Ordisoftware.HebrewLetters
         Button button;
         Size size = new Size(45, 13);
         Font font = new Font("Hebrew", 20.25F, FontStyle.Bold);
-        foreach ( Letter l in Letters.Instance.Values )
+        foreach ( string letter in Letters.Codes )
         {
           label = new Label();
           button = new Button();
@@ -78,7 +82,7 @@ namespace Ordisoftware.HebrewLetters
           Panel.Controls.Add(button);
           label.Location = new Point(x, y + dy);
           label.Size = size;
-          label.Text = l.Code.ToString();
+          label.Text = letter;
           label.TextAlign = ContentAlignment.MiddleCenter;
           button.Location = new Point(x, y);
           button.Size = new Size(Math.Abs(dx), dy);
@@ -86,15 +90,16 @@ namespace Ordisoftware.HebrewLetters
           button.FlatAppearance.BorderSize = 0;
           button.FlatAppearance.BorderColor = SystemColors.Control;
           button.Font = font;
-          button.Text = new string(l.Code, 1);
+          button.Text = letter;
           button.TabStop = false;
           button.Click += delegate(object sender, EventArgs e)
           {
             Input.Text = ((Button)sender).Text + Input.Text;
-            this.OnClick(new LetterEventArgs(((Button)sender).Text));
+            OnClick(new LetterEventArgs(((Button)sender).Text));
           };
           n += 1;
-          if ( n != 12 ) x += dx;
+          if ( n != 12 )
+            x += dx;
           else
           {
             x = 500 + dx;
@@ -102,9 +107,9 @@ namespace Ordisoftware.HebrewLetters
           }
         }
       }
-      catch ( Exception except )
+      catch ( Exception ex )
       {
-        Debugger.ManageException(this, except);
+        Debugger.ManageException(this, ex);
       }
     }
 
@@ -113,9 +118,11 @@ namespace Ordisoftware.HebrewLetters
     /// </summary>
     private void Input_KeyPress(object sender, KeyPressEventArgs e)
     {
-      this.OnKeyPress(e);
-      if ( !Letters.Instance.Keys.Contains(e.KeyChar) ) e.KeyChar = '\x0';
-      else NewKeyPressed = true;
+      OnKeyPress(e);
+      if ( !Letters.Codes.Contains(Convert.ToString(e.KeyChar)) )
+        e.KeyChar = '\x0';
+      else
+        NewKeyPressed = true;
     }
 
     /// <summary>

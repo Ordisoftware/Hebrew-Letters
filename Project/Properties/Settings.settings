@@ -38,7 +38,7 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="CurrentView" Type="Ordisoftware.HebrewLetters.ViewModeType" Scope="User">
-      <Value Profile="(Default)">Search</Value>
+      <Value Profile="(Default)">Analyse</Value>
     </Setting>
   </Settings>
 </SettingsFile>

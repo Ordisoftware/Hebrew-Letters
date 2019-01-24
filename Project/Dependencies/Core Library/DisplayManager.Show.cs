@@ -99,9 +99,9 @@ namespace Ordisoftware.Core
       {
         res = ShowWinForm(title, text, buttons, icon);
       }
-      catch ( Exception except )
+      catch ( Exception ex )
       {
-        except.Manage();
+        ex.Manage();
       }
       return res;
     }

@@ -1,5 +1,5 @@
 ﻿/// <license>
-/// This file is part of Ordisoftware Hebrew Calendar.
+/// This file is part of Ordisoftware Hebrew Letters.
 /// Copyright 2016-2019 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
@@ -15,7 +15,6 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using Ordisoftware.Core;
 
 namespace Ordisoftware.HebrewLetters
 {
@@ -26,21 +25,6 @@ namespace Ordisoftware.HebrewLetters
   /// <seealso cref="T:System.Windows.Forms.Form"/>
   public partial class MainForm
   {
-
-    /// <summary>
-    /// Update the buttons.
-    /// </summary>
-    private void UpdateButtons()
-    {
-      try
-      {
-        Refresh();
-      }
-      catch ( Exception except )
-      {
-        DisplayManager.ShowError(except.Message);
-      }
-    }
 
     /// <summary>
     /// Center the form to the screen.
