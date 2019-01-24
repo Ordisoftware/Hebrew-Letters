@@ -1,3 +1,53 @@
 # Hebrew-Letters
 
-A tool for the lettriq study of hebrew words.
+>This project follows the [Manufacturing Software Guidelines](https://github.com/Ordisoftware/Guidelines).
+
+>Licensed under the terms of the [Mozilla Public License 2.0](LICENSE)<br/>
+>[Project Website](http://www.ordisoftware.com/projects/hebrew-letters)<br/>
+>[Twitter](https://twitter.com/ordisoftware)<br/>
+
+A tool for Windows written in C# that allows the lettriq study of hebrew words.
+
+## Functionalities
+
+- Hebrew letters database with their customizable meanings.
+- Analyse a word letter by letter to get a sentence describing its meaning.
+- Copy the result to clipboard.
+- English, French.
+
+## Requirements
+
+- Windows Vista x32/x64 or superior
+- Screen 1024x768 or superior
+- Framework .NET 3.5 or superior
+
+## Screenshots
+
+![Analyse](http://www.ordisoftware.com/uploads/2019/01/hebrew-letters-analyse.png)
+
+![Settings](http://www.ordisoftware.com/uploads/2019/01/hebrew-letters-settings.png)
+
+## Videos
+
+[![Showing video](https://img.youtube.com/vi/rs7l-wvVt-I/0.jpg)](https://www.youtube.com/watch?v=rs7l-wvVt-I)
+
+## Frequently asked questions
+
+#### How to install SQlite ODBC Driver?
+
+- [sqliteodbc.exe](http://www.ch-werner.de/sqliteodbc/sqliteodbc.exe) must be installed on Windows 32-bit.
+- [sqliteodbc.exe](http://www.ch-werner.de/sqliteodbc/sqliteodbc.exe) and [sqliteodbc_w64.exe](http://www.ch-werner.de/sqliteodbc/sqliteodbc_w64.exe) must be installed on Windows 64-bit.
+
+#### What to do in case of ODBC datasource connection error?
+
+The setup tries to register an ODBC DSN to the registry but in case of problem run "C:\Program Files\Ordisoftware\Hebrew Letters\Register ODBC.reg" or open the ODBC datasource manager (Admin tools in Windows' Control panel) and create a user datasource named "Hebrew-Letters" for "SQLite 3 ODBC Driver" with "Database Name" sets to:
+
+"%USERPROFILE%\AppData\Roaming\Ordisoftware\Hebrew Letters\Hebrew-Letters.sqlite"
+
+Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
+
+## Changelog
+
+#### 2019.01.24 - Version 1.0
+
+- Initial release.
