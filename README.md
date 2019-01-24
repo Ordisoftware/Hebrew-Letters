@@ -20,6 +20,7 @@ A tool for Windows written in C# that allows the lettriq study of hebrew words.
 - Windows Vista x32/x64 or superior
 - Screen 1024x768 or superior
 - Framework .NET 3.5 or superior
+- [SQLite ODBC Driver](http://www.ch-werner.de/sqliteodbc/)
 
 ## Screenshots
 
