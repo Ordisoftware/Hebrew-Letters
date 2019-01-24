@@ -284,8 +284,7 @@ namespace Ordisoftware.HebrewLetters
 
     private void ActionReset_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
-      if ( DisplayManager.QueryYesNo("This will restore all letters to default values." + Environment.NewLine + Environment.NewLine +
-                                     "Do you want to continue?") )
+      if ( DisplayManager.QueryYesNo(Localizer.RestoreLettersDefaultText.GetLang()) )
         CreateDataIfNotExists(true);
     }
 

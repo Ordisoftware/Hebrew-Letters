@@ -66,13 +66,22 @@ namespace Ordisoftware.HebrewLetters
         { "fr", "Quitter l'application ?" }
       };
 
+    static public readonly Dictionary<string, string> RestoreLettersDefaultText
+      = new Dictionary<string, string>()
+      {
+        { "en", "This will restore all letters to default values." + Environment.NewLine + Environment.NewLine +
+                "Do you want to continue?" },
+        { "fr", "Cela va restaurer les lettres à leurs valeurs par défaut." + Environment.NewLine + Environment.NewLine +
+                "Voulez-vous continuer ?" }
+      };
+
     static public readonly Dictionary<string, string> RestoreWinPosText
       = new Dictionary<string, string>()
       {
         { "en", "This action will restore windows position." + Environment.NewLine + Environment.NewLine +
-                "Are you sure you want to do this?" },
+                "Do you want to continue?" },
         { "fr", "Cette action va restaurer la position de la fenêtre"  + Environment.NewLine + Environment.NewLine +
-                "Etes vous sûr de vouloir faire cela ?" }
+                "Voulez-vous continuer ?" }
       };
 
   }
