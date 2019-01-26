@@ -81,9 +81,10 @@ Source: ..\Project\Dependencies\*; DestDir: {app}\Project\Dependencies\; Flags: 
 Source: ..\Project\Properties\*; DestDir: {app}\Project\Properties\; Flags: ignoreversion recursesubdirs
 Source: ..\Project\Source\*; DestDir: {app}\Project\Source\; Flags: ignoreversion recursesubdirs; Excludes: *.lnk
 Source: ..\Project\*; DestDir: {app}\Project; Flags: ignoreversion; Excludes: *.suo, *.user
+Source: ..\Register ODBC.reg; DestDir: {app}
 Source: ..\*; DestDir: {app}; Flags: ignoreversion
 Source: *; DestDir: {app}\Setup; Excludes: *.---, {#MyAppPublisher}{#MyAppNameNoSpace}Setup*.exe
-DestDir: {app}; Source: ..\Register ODBC.reg
+Source: ..\Project\Dependencies\Font\Hebrew.ttf; DestDir: {fonts}; FontInstall: Hebrew Normal; Flags: onlyifdoesntexist uninsneveruninstall
 
 [Icons]
 Name: {commondesktop}\{#MyAppPublisher} {#MyAppName}; Filename: {app}\Bin\{#MyAppExeName}; Tasks: desktopicon; IconFilename: {app}\Application.ico
