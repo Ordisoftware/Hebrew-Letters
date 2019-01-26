@@ -196,8 +196,8 @@ namespace Ordisoftware.HebrewLetters
       },
       new MeaningTranslation()
       {
-        { "en", new List<string>() { "Independence", "Discretion", "Intellect", "Mind clarity", "Change", "Renewal", "Incarnation" } },
-        { "fr", new List<string>() { "Indépendance", "Discrétion", "Intellect", "Clarté du mental", "Changement", "Renouveau", "Incarnation" } }
+        { "en", new List<string>() { "Independence", "Discretion", "Intellect", "Mind", "Change", "Renewal", "Incarnation" } },
+        { "fr", new List<string>() { "Indépendance", "Discrétion", "Intellect", "Mental", "Changement", "Renouveau", "Incarnation" } }
       },
       new MeaningTranslation()
       {

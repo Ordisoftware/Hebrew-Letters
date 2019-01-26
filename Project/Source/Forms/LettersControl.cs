@@ -10,6 +10,8 @@
 /// relevant directory) where a recipient would be likely to look for such a notice.
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
+/// <created> 2012-10 </created>
+/// <edited> 2019-01 </edited>
 using System;
 using System.Drawing;
 using System.Linq;
