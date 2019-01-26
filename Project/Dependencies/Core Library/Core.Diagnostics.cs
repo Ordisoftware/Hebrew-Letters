@@ -35,11 +35,11 @@ namespace Ordisoftware.Core.Diagnostics
     static public void ManageException(object sender, Exception ex, bool doshow)
     {
       string message = ex.Message;
-      var exceptInner = ex.InnerException;
-      while ( exceptInner != null )
+      var exInner = ex.InnerException;
+      while ( exInner != null )
       {
         message += Environment.NewLine + Environment.NewLine + ex.InnerException;
-        exceptInner = exceptInner.InnerException;
+        exInner = exInner.InnerException;
       }
       if ( doshow ) DisplayManager.Show(message);
     }
