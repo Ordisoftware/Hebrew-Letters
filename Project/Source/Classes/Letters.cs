@@ -111,7 +111,7 @@ namespace Ordisoftware.HebrewLetters
       },
       new MeaningTranslation()
       {
-        { "en", new List<string>() { "On the Move", "Energy in Motion", "Time", "Shepherd", "Testimony", "History", "Investment", "Liberation" } },
+        { "en", new List<string>() { "Bearer on the Move", "Energy in motion", "Time", "Shepherd", "Testimony", "History", "Investment", "Liberation" } },
         { "fr", new List<string>() { "Porteur en marche", "Energie en mouvement", "Temps", "Berger", "Témoignage", "Histoire", "Investissement", "Libération" } }
       },
       new MeaningTranslation()
@@ -121,8 +121,8 @@ namespace Ordisoftware.HebrewLetters
       },
       new MeaningTranslation()
       {
-        { "en", new List<string>() { "Breath of life", "Breathing", "Meeting", "Presentation", "Astonishment", "Celebration" } },
-        { "fr", new List<string>() { "Souffle de vie", "Respiration", "Rencontre", "Présentation", "Etonnement", "Festivité" } }
+        { "en", new List<string>() { "Breath", "Breathing", "Meeting", "Presentation", "Astonishment", "Celebration" } },
+        { "fr", new List<string>() { "Souffle", "Respiration", "Rencontre", "Présentation", "Etonnement", "Festivité" } }
       },
       new MeaningTranslation()
       {
@@ -186,8 +186,8 @@ namespace Ordisoftware.HebrewLetters
       },
       new MeaningTranslation()
       {
-        { "en", new List<string>() { "Destiny", "Action", "Sublimation", "Accompaniment", "Support", "Start Preparation", "External impulse" } },
-        { "fr", new List<string>() { "Destiné", "Action", "Sublimation", "Justesse", "Appui", "Préparation départ", "Élan extérieur" } }
+        { "en", new List<string>() { "External impulse", "Destiny", "Action", "Sublimation", "Accompaniment", "Support", "Start Preparation" } },
+        { "fr", new List<string>() { "Élan extérieur", "Destiné", "Action", "Sublimation", "Justesse", "Appui", "Préparation départ" } }
       },
       new MeaningTranslation()
       {
@@ -196,8 +196,8 @@ namespace Ordisoftware.HebrewLetters
       },
       new MeaningTranslation()
       {
-        { "en", new List<string>() { "Independence", "Discretion", "Intellect", "Mind clarity", "Change", "Renewal", "Incarnation" } },
-        { "fr", new List<string>() { "Indépendance", "Discrétion", "Intellect", "Clarté du mental", "Changement", "Renouveau", "Incarnation" } }
+        { "en", new List<string>() { "Independence", "Discretion", "Intellect", "Mind", "Change", "Renewal", "Incarnation" } },
+        { "fr", new List<string>() { "Indépendance", "Discrétion", "Intellect", "Mental", "Changement", "Renouveau", "Incarnation" } }
       },
       new MeaningTranslation()
       {
