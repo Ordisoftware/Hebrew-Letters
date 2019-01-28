@@ -77,6 +77,7 @@ namespace Ordisoftware.HebrewLetters
       MainForm.WindowState = settings.MainFormState;
       MainForm.EditConfirmClosing.Checked = settings.ConfirmClosing;
       MainForm.EditShowTips.Checked = settings.ShowTips;
+      MainForm.SelectCloseApp.Checked = settings.CopyToClipboardCloseApp;
     }
 
     /// <summary>
@@ -102,6 +103,7 @@ namespace Ordisoftware.HebrewLetters
       if ( MainForm.EditScreenCenter.Checked ) settings.MainFormPosition = ControlLocation.Center;
       settings.ConfirmClosing = MainForm.EditConfirmClosing.Checked;
       settings.ShowTips = MainForm.EditShowTips.Checked;
+      settings.CopyToClipboardCloseApp = MainForm.SelectCloseApp.Checked;
       settings.Save();
     }
 

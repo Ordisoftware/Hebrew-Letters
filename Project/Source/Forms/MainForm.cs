@@ -15,7 +15,6 @@
 using Microsoft.Win32;
 using Ordisoftware.Core;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
@@ -296,7 +295,8 @@ namespace Ordisoftware.HebrewLetters
 
     private void ActionCopyToClipboard_Click(object sender, EventArgs e)
     {
-      Clipboard.SetText(EditSentence.Text);
+      if ( EditSentence.Text != "") Clipboard.SetText(EditSentence.Text);
+      if ( SelectCloseApp.Checked ) Close();
     }
 
     private void ActionAnalyse_Click(object sender, EventArgs e)

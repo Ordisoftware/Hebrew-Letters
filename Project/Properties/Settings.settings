@@ -40,5 +40,8 @@
     <Setting Name="CurrentView" Type="Ordisoftware.HebrewLetters.ViewModeType" Scope="User">
       <Value Profile="(Default)">Analyse</Value>
     </Setting>
+    <Setting Name="CopyToClipboardCloseApp" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

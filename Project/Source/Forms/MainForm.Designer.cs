@@ -44,6 +44,7 @@
       this.TabControl = new System.Windows.Forms.TabControl();
       this.TabPageText = new System.Windows.Forms.TabPage();
       this.PanelViewSearch = new System.Windows.Forms.Panel();
+      this.SelectCloseApp = new System.Windows.Forms.CheckBox();
       this.EditAnalyze = new System.Windows.Forms.Panel();
       this.ActionAnalyse = new System.Windows.Forms.Button();
       this.ActionClear = new System.Windows.Forms.Button();
@@ -209,7 +210,9 @@
       // 
       // PanelViewSearch
       // 
+      resources.ApplyResources(this.PanelViewSearch, "PanelViewSearch");
       this.PanelViewSearch.BackColor = System.Drawing.SystemColors.Control;
+      this.PanelViewSearch.Controls.Add(this.SelectCloseApp);
       this.PanelViewSearch.Controls.Add(this.EditAnalyze);
       this.PanelViewSearch.Controls.Add(this.ActionAnalyse);
       this.PanelViewSearch.Controls.Add(this.ActionClear);
@@ -218,8 +221,13 @@
       this.PanelViewSearch.Controls.Add(this.EditGematria);
       this.PanelViewSearch.Controls.Add(this.LabelGematria);
       this.PanelViewSearch.Controls.Add(this.EditLetters);
-      resources.ApplyResources(this.PanelViewSearch, "PanelViewSearch");
       this.PanelViewSearch.Name = "PanelViewSearch";
+      // 
+      // SelectCloseApp
+      // 
+      resources.ApplyResources(this.SelectCloseApp, "SelectCloseApp");
+      this.SelectCloseApp.Name = "SelectCloseApp";
+      this.SelectCloseApp.UseVisualStyleBackColor = true;
       // 
       // EditAnalyze
       // 
@@ -799,6 +807,7 @@
     private System.Windows.Forms.Button ActionClear;
     private System.Windows.Forms.TextBox verbTextBox;
     private System.Windows.Forms.Panel EditAnalyze;
+    internal System.Windows.Forms.CheckBox SelectCloseApp;
   }
 }
 
