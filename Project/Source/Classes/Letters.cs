@@ -72,8 +72,8 @@ namespace Ordisoftware.HebrewLetters
     /// </summary>
     static public readonly Dictionary<string, string[]> Structures = new Dictionary<string, string[]>()
     {
-      { "en", new string[] { "Bull", "House", "Camel", "Column", "Praise", "Nail", "Weapon", "Beast", "Shield", "Hand", "Palm", "Stick", "Waters", "Fish", "Support", "Eye", "Mouth", "Hook", "Neck", "Head ", "Tooth", "Cross" } },
-      { "fr", new string[] { "Taureau", "Maison", "Chameau", "Colonne", "Louange", "Clou", "Arme", "Bête", "Bouclier", "Main", "Paume", "Bâton", "Eaux", "Poisson", "Appui", "Oeil", "Bouche", "Hameçon", "Nuque", "Tête", "Dent", "Croix" } }
+      { "en", new string[] { "Bull", "House", "Camel", "Column", "Praise", "Nail", "Weapon", "Creature", "Shield", "Hand", "Palm", "Stick", "Waters", "Fish", "Support", "Eye", "Mouth", "Hook", "Neck", "Head ", "Tooth", "Cross" } },
+      { "fr", new string[] { "Taureau", "Maison", "Chameau", "Colonne", "Louange", "Clou", "Arme", "Créature", "Bouclier", "Main", "Paume", "Bâton", "Eaux", "Poisson", "Appui", "Oeil", "Bouche", "Hameçon", "Nuque", "Tête", "Dent", "Croix" } }
     };
 
     /// <summary>
@@ -91,7 +91,7 @@ namespace Ordisoftware.HebrewLetters
     static public readonly Dictionary<string, string[]> Verbs = new Dictionary<string, string[]>()
     {
       { "en", new string[] { "Plan", "Arrange", "Eloborate", "Emit", "Note", "Speak", "Persevere", "Grant", "Assemble", "Exist", "Spread", "Give", "Contribute", "Lead", "Gather", "Interact", "Protect", "Help", "Free", "Show", "Share", "Support" } },
-      { "fr", new string[] { "Planifier", "Disposer", "Eloborer", "Emettre", "Constater", "Parler", "Persévérer", "Accorder", "Assembler", "Exister", "Répandre", "Donner", "Contribuer", "Diriger", "Rassembler", "Interagir", "Protéger", "Aider", "Libérer", "Montrer", "Partager", "Soutenir" } }
+      { "fr", new string[] { "Planifier", "Disposer", "Éloborer", "Émettre", "Constater", "Parler", "Persévérer", "Accorder", "Assembler", "Exister", "Répandre", "Donner", "Contribuer", "Diriger", "Rassembler", "Interagir", "Protéger", "Aider", "Libérer", "Montrer", "Partager", "Soutenir" } }
     };
 
     /// <summary>
@@ -112,7 +112,7 @@ namespace Ordisoftware.HebrewLetters
       new MeaningTranslation()
       {
         { "en", new List<string>() { "Bearer on the Move", "Energy in motion", "Time", "Shepherd", "Testimony", "History", "Investment", "Liberation" } },
-        { "fr", new List<string>() { "Porteur en marche", "Energie en mouvement", "Temps", "Berger", "Témoignage", "Histoire", "Investissement", "Libération" } }
+        { "fr", new List<string>() { "Porteur en marche", "Énergie en mouvement", "Temps", "Berger", "Témoignage", "Histoire", "Investissement", "Libération" } }
       },
       new MeaningTranslation()
       {
@@ -122,7 +122,7 @@ namespace Ordisoftware.HebrewLetters
       new MeaningTranslation()
       {
         { "en", new List<string>() { "Breath", "Breathing", "Meeting", "Presentation", "Astonishment", "Celebration" } },
-        { "fr", new List<string>() { "Souffle", "Respiration", "Rencontre", "Présentation", "Etonnement", "Festivité" } }
+        { "fr", new List<string>() { "Souffle", "Respiration", "Rencontre", "Présentation", "Étonnement", "Festivité" } }
       },
       new MeaningTranslation()
       {
@@ -142,12 +142,12 @@ namespace Ordisoftware.HebrewLetters
       new MeaningTranslation()
       {
         { "en", new List<string>() { "Refuge", "Journey", "Innerity", "Wisdom", "Power", "Eternity" } },
-        { "fr", new List<string>() { "Refuge", "Voyage", "Intériorité", "Sagesse", "Puissance", "Eternité" } }
+        { "fr", new List<string>() { "Refuge", "Voyage", "Intériorité", "Sagesse", "Puissance", "Éternité" } }
       },
       new MeaningTranslation()
       {
-        { "en", new List<string>() { "Sprout", "Spiritual Core", "Impulse", "Peace", "Blessing", "Freedom", "Structure", "Purity", "Giving", "Spermatozoa", "Flame-energy (Adam XY, Eve XX)" } },
-        { "fr", new List<string>() { "Germe", "Noyau spirituel", "Impulsion", "Paix", "Bénédiction", "Liberté", "Structure", "Pureté", "Donner", "Spermatozoïde", "Flamme-énergie (Adam XY, Ève XX)" } }
+        { "en", new List<string>() { "Sprout", "Energy", "Flame", "Spiritual Core", "Impulse", "Peace", "Blessing", "Freedom", "Structure", "Purity", "Giving", "Spermatozoa", "Adam XY, Eve XX" } },
+        { "fr", new List<string>() { "Germe", "Énergie", "Flamme", "Noyau spirituel", "Impulsion", "Paix", "Bénédiction", "Liberté", "Structure", "Pureté", "Donner", "Spermatozoïde", "Adam XY, Ève XX" } }
       },
       new MeaningTranslation()
       {
@@ -161,8 +161,8 @@ namespace Ordisoftware.HebrewLetters
       },
       new MeaningTranslation()
       {
-        { "en", new List<string>() { "Formation", "Transformation", "Maturation", "Salutation", "Prayer", "Service", "Recognition", "Origin", "Unconscious" } },
-        { "fr", new List<string>() { "Formation", "Transformation", "Maturation", "Salutation", "Prière", "Service", "Reconnaissance", "Origine", "Inconscient" } }
+        { "en", new List<string>() { "Formation", "Transformation", "Maturation", "Salutation", "Prayer", "Service", "Recognition", "Unconscious" } },
+        { "fr", new List<string>() { "Formation", "Transformation", "Maturation", "Salutation", "Prière", "Service", "Reconnaissance", "Inconscient" } }
       },
       new MeaningTranslation()
       {

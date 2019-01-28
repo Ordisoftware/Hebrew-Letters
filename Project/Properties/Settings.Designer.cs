@@ -152,5 +152,17 @@ namespace Ordisoftware.HebrewLetters.Properties {
                 this["CurrentView"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool CopyToClipboardCloseApp {
+            get {
+                return ((bool)(this["CopyToClipboardCloseApp"]));
+            }
+            set {
+                this["CopyToClipboardCloseApp"] = value;
+            }
+        }
     }
 }
