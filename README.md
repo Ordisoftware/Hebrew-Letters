@@ -49,6 +49,10 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 ## Changelog
 
+#### 2019.05.22 - Version 1.1
+
+- Add check update.
+
 #### 2019.01.24 - Version 1.0
 
 - Initial release.
