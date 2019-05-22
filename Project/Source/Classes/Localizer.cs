@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2019-01 </edited>
+/// <edited> 2019-05 </edited>
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -89,6 +89,27 @@ namespace Ordisoftware.HebrewLetters
       {
         { "en", "Exit application?" },
         { "fr", "Quitter l'application ?" }
+      };
+
+    static public readonly Dictionary<string, string> CheckUpdateNoNewText
+      = new Dictionary<string, string>()
+      {
+        { "en", "There is no new version available." },
+        { "fr", "Il n'y a pas de nouvelle version de disponible." }
+      };
+
+    static public readonly Dictionary<string, string> CheckUpdateResultText
+      = new Dictionary<string, string>()
+      {
+        { "en", "A newer version is available : " },
+        { "fr", "Une nouvelle version est disponible : " }
+      };
+
+    static public readonly Dictionary<string, string> CheckUpdateAskDownloadText
+      = new Dictionary<string, string>()
+      {
+        { "en", "Do you want to open the download page?" },
+        { "fr", "Voulez-vous ouvrir la page de téléchargement ?" }
       };
 
     static public readonly Dictionary<string, string> RestoreWinPosText

@@ -81,6 +81,7 @@
       this.ActionExit = new System.Windows.Forms.ToolStripButton();
       this.Sep4 = new System.Windows.Forms.ToolStripSeparator();
       this.ActionContact = new System.Windows.Forms.ToolStripButton();
+      this.ActionCheckUpdate = new System.Windows.Forms.ToolStripButton();
       this.ActionWebsite = new System.Windows.Forms.ToolStripButton();
       this.Sep5 = new System.Windows.Forms.ToolStripSeparator();
       this.ActionHelp = new System.Windows.Forms.ToolStripButton();
@@ -490,6 +491,7 @@
             this.ActionExit,
             this.Sep4,
             this.ActionContact,
+            this.ActionCheckUpdate,
             this.ActionWebsite,
             this.Sep5,
             this.ActionHelp,
@@ -528,6 +530,17 @@
       this.ActionContact.Click += new System.EventHandler(this.ActionContact_Click);
       this.ActionContact.MouseEnter += new System.EventHandler(this.ShowToolTipOnMouseEnter);
       this.ActionContact.MouseLeave += new System.EventHandler(this.ShowToolTipOnMouseLeave);
+      // 
+      // ActionCheckUpdate
+      // 
+      this.ActionCheckUpdate.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+      this.ActionCheckUpdate.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      resources.ApplyResources(this.ActionCheckUpdate, "ActionCheckUpdate");
+      this.ActionCheckUpdate.Name = "ActionCheckUpdate";
+      this.ActionCheckUpdate.Padding = new System.Windows.Forms.Padding(5);
+      this.ActionCheckUpdate.Click += new System.EventHandler(this.ActionCheckUpdate_Click);
+      this.ActionCheckUpdate.MouseEnter += new System.EventHandler(this.ShowToolTipOnMouseEnter);
+      this.ActionCheckUpdate.MouseLeave += new System.EventHandler(this.ShowToolTipOnMouseLeave);
       // 
       // ActionWebsite
       // 
@@ -716,6 +729,7 @@
       this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
       this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
       this.Load += new System.EventHandler(this.MainForm_Load);
+      this.Shown += new System.EventHandler(this.MainForm_Shown);
       this.PanelMain.ResumeLayout(false);
       this.PanelMainOuter.ResumeLayout(false);
       this.PanelMainInner.ResumeLayout(false);
@@ -808,6 +822,7 @@
     private System.Windows.Forms.TextBox verbTextBox;
     private System.Windows.Forms.Panel EditAnalyze;
     internal System.Windows.Forms.CheckBox SelectCloseApp;
+    private System.Windows.Forms.ToolStripButton ActionCheckUpdate;
   }
 }
 
