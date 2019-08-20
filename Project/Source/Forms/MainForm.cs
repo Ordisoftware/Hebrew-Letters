@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2019-05 </edited>
+/// <edited> 2019-08 </edited>
 using Microsoft.Win32;
 using Ordisoftware.Core;
 using System;
@@ -140,7 +140,6 @@ namespace Ordisoftware.HebrewLetters
         string url = "http://www.ordisoftware.com/files/" + title.Replace(" ", "") + ".update";
         using ( WebClient client = new WebClient() )
         {
-
           string version = client.DownloadString(url);
           if ( version == AboutBox.Instance.AssemblyVersion )
           {
@@ -339,11 +338,18 @@ namespace Ordisoftware.HebrewLetters
       ActionAnalyse.PerformClick();
     }
 
-    private void ActionCopyToClipboard_Click(object sender, EventArgs e)
+    private void ActionCopyToClipboardMeanings_Click(object sender, EventArgs e)
+    {
+      if ( EditLetters.Input.Text != "" ) Clipboard.SetText(Meanings);
+    }
+
+    private void ActionCopyToClipboardResults_Click(object sender, EventArgs e)
     {
       if ( EditSentence.Text != "") Clipboard.SetText(EditSentence.Text);
       if ( SelectCloseApp.Checked ) Close();
     }
+
+    private string Meanings;
 
     private void ActionAnalyse_Click(object sender, EventArgs e)
     {
@@ -353,6 +359,7 @@ namespace Ordisoftware.HebrewLetters
       EditAnalyze.Controls.Clear();
       int sum = 0;
       int dy = 0;
+      Meanings = "";
       for ( int pos = word.Length - 1; pos >= 0; pos-- )
       {
         var l = DataSet.Letters.FindByCode(Convert.ToString(word[pos]));
@@ -370,13 +377,26 @@ namespace Ordisoftware.HebrewLetters
         combobox.Location = new Point(155, 16 + dy);
         combobox.SelectedIndexChanged += MeaningComboBox_SelectedIndexChanged;
         EditAnalyze.Controls.Add(combobox);
+        combobox.Items.Add(l.Positive);
+        combobox.Items.Add(l.Negative);
         combobox.Items.Add(l.Verb);
         combobox.Items.Add(l.Structure);
         combobox.Items.Add(l.Function);
+        Meanings += l.Name + ": ";
         foreach ( var meaning in l.GetMeaningsRows() )
+        {
           combobox.Items.Add(meaning.Meaning);
+          Meanings += meaning.Meaning + ", ";
+        }
         dy += 30;
-
+        try
+        {
+          Meanings = Meanings.Remove(Meanings.Length - 2, 1);
+        }
+        catch
+        {
+        }
+        Meanings += Environment.NewLine;
       }
       EditGematria.Text = sum.ToString();
     }

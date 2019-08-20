@@ -1,0 +1,224 @@
+ALEF
+ValueSimple: 1
+ValueFull: 111
+Positive: Savoir
+Negative: Ignorance
+Verb: Planifier
+Structure: Boeuf
+Function: Maître
+Meanings: Unité,Un,Unique,Unifié,Source,Origine,Chef,Instructeur,Néant,Immatériel,Silence,Potentiel,Indéterminé,Non manifesté,Concept,Espace,Distance,Interstice,Stabilité,Satisfaction,Modestie,Art,Enseignement,Imagination,Miroir de la création différenciée : moi-toi,Adam (Youd droit) et 'Havah (Youd gauche)
+
+BET
+ValueSimple: 2
+ValueFull: 412
+Positive: Bénédiction
+Negative: Malédiction
+Verb: Disposer
+Structure: Maison
+Function: Passage
+Meanings: Porteur de la flamme,Demeure de l'énergie,Temple,Corps,Volonté,Analyse,Création,Réparation,Intériorité,Solitude
+
+GUIMEL
+ValueSimple: 3
+ValueFull: 83
+Positive: Raison
+Negative: Folie
+Verb: Donner
+Structure: Chameau
+Function: Voyage
+Meanings: Porteur en marche,Énergie en mouvement,Berger,Temps,Générosité,Investissement,Richesse,Étude,Témoignage,Histoire,Destin
+
+DALET
+ValueSimple: 4
+ValueFull: 434
+Positive: Équilibre
+Negative: Déséquilibre
+Verb: Émettre
+Structure: Colonne
+Function: Étudiant
+Meanings: Porte,Seuil,Sanctuaire,Manifestation,Déroulement,Écoulement,Pensée,Humilité,Pauvreté,Errance,Faiblesse,Soumission
+ 
+HÉ
+ValueSimple: 5
+ValueFull: 6
+Positive: Mouvement
+Negative: Immobilité
+Verb: Constater
+Structure: Louange
+Function: Joie
+Meanings: Souffle,Respiration,Rencontre,Présentation,Transmission,Magnétisme,Fenêtre,Étonnement,Festivité,Prière
+
+VAV
+ValueSimple: 6
+ValueFull: 12
+Positive: Liaison
+Negative: Rupture
+Verb: Informer
+Structure: Clou
+Function: Communication
+Meanings: Lumière,Coordination,Réalité,Fondement,Loi,Cap,Direction,Médiation,Droiture,Fille
+
+ZAYIN
+ValueSimple: 7
+ValueFull: 67
+Positive: Compassion
+Negative: Mépris
+Verb: Persévérer
+Structure: Arme
+Function: Combat
+Meanings: Logique,Action,Discernement,Détermination,Rigueur,Contradiction,Révolte,Audace,Sentiment,Repos,Fils
+
+'HET
+ValueSimple: 8
+ValueFull: 408
+Positive: Fidélité
+Negative: Trahison
+Verb: Accorder
+Structure: Barrière
+Function: Vitalité
+Sens kabalistique : Intestin grâle - Cancer
+Lettrique : Soutien de la Matière
+Meanings: Soutien,Créature,Limite,Territoire,Domaine,Engagement,Accord,Influence,Autorité,Purification,Incorruptibilité,Motivation,Renoncement,Lâcheté,Péché
+
+TET
+Nom : tu
+ValueSimple: 9
+ValueFull: 409
+Positive: Association
+Negative: Isolement
+Verb: Assembler
+Structure: Bouclier
+Function: Beauté
+Sens kabalistique : Rein droit - Lion
+Lettrique : Refuge de la Matière
+Meanings: Barque,Refuge,Protection,Échange,Réflexion,Éternité,Dénuement
+
+YOUD
+ValueSimple: 10
+ValueFull: 20
+Positive: Impulsion
+Negative: Interruption
+Verb: Exister
+Structure: Main
+Function: Amour
+Meanings: Flamme énergie (Adam XY et 'Havah XX),Noyau spirituel,Germe,Centre,Pureté,Abnégation,Spermatozoïde
+
+KAF
+ValueSimple: 20
+ValueFull: 100
+Positive: Attraction
+Negative: Répulsion
+Verb: Répandre
+Structure: Paume
+Function: Amusement
+Meanings: Élan intérieur,Éveil du potentiel,Courbure,Couvrir,Assimilation,Puissance
+
+LAMED
+ValueSimple: 30
+ValueFull: 74
+Positive: Évolution
+Negative: Régression
+Verb: Transmettre
+Structure: Bâton
+Function: Éducation
+Meanings: Élévation,Orientation,Observation,Existence,Expérience,Instruction,Enseigner,Dynamiser,Dépasser,Inventer,Ferveur,Passif devient actif
+
+MEM
+ValueSimple: 40
+ValueFull: 80
+Positive: Progrès
+Negative: Corruption
+Verb: Contribuer
+Structure: Eaux
+Function: Dualité
+Meanings: Matrice,Formation,Transformation,Transmutation,Alchimie,Maturation,Salutation,Reconnaissance,Plénitude,Prière,Service,Chemin,Inconscient
+
+NOUN
+ValueSimple: 50
+ValueFull: 106
+Positive: Fécondité
+Negative: Austérité
+Verb: Diriger
+Structure: Poisson
+Function: Pouvoir
+Meanings: Vie,Engendrement,Perpétuation,Nouveau-né,Nourriture,Abondance,Prodige,Cerveau,Caché,Intime,Présence,Foi,Chute
+
+SAMEK
+ValueSimple: 60
+ValueFull: 120
+Positive: Création
+Negative: Destruction
+Verb: Rassembler
+Structure: Appui
+Function: Perfectionnement
+Meanings: Squelette,Charpente,Ossature,Berceau,Pulsion,Passion,Réconfort,Sécurité,Alliance,Dissoudre,Ovule
+
+'AYIN
+ValueSimple: 70
+ValueFull: 130
+Positive: Visible
+Negative: Invisible
+Verb: Interagir
+Structure: Oeil
+Function: Apprivoisement
+Meanings: Prise de conscience,Regard,Vision,Secret,Mystère,Croissance,Superficialité
+
+PÉ
+ValueSimple: 80
+ValueFull: 85
+Positive: Confiance
+Negative: Doute
+Verb: Protéger
+Structure: Bouche
+Function: Renaissance
+Meanings: Expression,Verbe,Parole,Délivrance,Réalisation du potentiel,Préparation à l'indépendance,Révélation,,Initiation,Dignité,Transgression,Culpabilité
+
+TSADI
+ValueSimple: 90
+ValueFull: 104
+Positive: Assistance
+Negative: Abandon
+Verb: Aider
+Structure: Hameçon
+Function: Ailes
+Meanings: Élan extérieur,Extériorisation,Préparation au départ,Sublimation,Juste,Piège
+ 
+QOUF
+ValueSimple: 100
+ValueFull: 186
+Positive: Vérité
+Negative: Mensonge
+Verb: Libérer
+Structure: Nuque
+Function: Sagesse
+Meanings: Départ,Début,Lâcher prise,Don,Différentiation entre réel et imaginaire,Illumination,Liberté,Imitation,Séparation,Coupure,Conspiration
+
+RESH
+ValueSimple: 200
+ValueFull: 500
+Positive: Indépendance
+Negative: Esclavage
+Verb: Montrer
+Structure: Tête
+Function: Maturité
+Meanings: Mental,Intellect,Clarté,Renouvellement,Incarnation,Discrétion,Royauté,Vanité,Paix,Guerre
+
+SHIN
+ValueSimple: 300
+ValueFull: 360
+Positive: Cohésion
+Negative: Confusion
+Verb: Partager
+Structure: Dent
+Function: Modération
+Meanings: Force,Chair,Foyer,Famille,Amitié,Réduction,Aveuglement
+ 
+TAV
+ValueSimple: 400
+ValueFull: 406
+Positive: Réussite
+Negative: Échec
+Verb: Soutenir
+Structure: Signe
+Function: Offrande
+Meanings: Matière,Substance,Synthèse,Union,Fusion,But,Aboutissement,Perfection,Grâce,Musique,Marque,Symbole

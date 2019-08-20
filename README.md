@@ -49,6 +49,11 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 ## Changelog
 
+#### 2019.08.20 - Version 2.0
+
+- Improve and update letters' description and meanings.
+- Add meanings clipboard raw export.
+
 #### 2019.05.22 - Version 1.1
 
 - Add check update.

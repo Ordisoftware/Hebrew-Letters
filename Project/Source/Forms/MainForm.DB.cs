@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-01 </created>
-/// <edited> 2019-01 </edited>
+/// <edited> 2019-08 </edited>
 using System;
 using System.Data.Odbc;
 using System.Windows.Forms;
@@ -34,37 +34,57 @@ namespace Ordisoftware.HebrewLetters
       connection.Open();
       try
       {
-        var cmdCheckTable = new OdbcCommand("SELECT count(*) FROM sqlite_master " +
-                                            "WHERE type = 'table' AND name = 'Letters'", connection);
-        int result = (int)cmdCheckTable.ExecuteScalar();
-        if ( result == 0 )
+        void checkTable(string table, string sql)
         {
-          var cmdCreateTable = new OdbcCommand(@"CREATE TABLE Letters
-                                                 ( 
-                                                   Code TEXT NOT NULL, 
-                                                   Name TEXT NOT NULL, 
-                                                   Structure TEXT NOT NULL, 
-                                                   Function TEXT NOT NULL, 
-                                                	 Verb TEXT NOT NULL,
-                                                   ValueSimple INTEGER NOT NULL, 
-                                                   ValueFull INTEGER NOT NULL, 
-                                                   CONSTRAINT Pk_Letter_Code PRIMARY KEY ( Code ) 
-                                                 )", connection);
-          cmdCreateTable.ExecuteNonQuery();
+          var command = new OdbcCommand("SELECT count(*) FROM sqlite_master " +
+                                        "WHERE type = 'table' AND name = '" + table + "'", connection);
+          int result = (int)command.ExecuteScalar();
+          if ( result == 0 )
+          {
+            var cmdCreateTable = new OdbcCommand(sql, connection);
+            cmdCreateTable.ExecuteNonQuery();
+          }
         }
-        cmdCheckTable = new OdbcCommand("SELECT count(*) FROM sqlite_master " +
-                                        "WHERE type = 'table' AND name = 'Meanings'", connection);
-        result = (int)cmdCheckTable.ExecuteScalar();
-        if ( result == 0 )
+        void checkColumn(string table, string column, string sql)
         {
-          var cmdCreateTable = new OdbcCommand(@"CREATE TABLE Meanings
-                                                 ( 
-                                                   LetterCode TEXT NOT NULL , 
-                                                   Meaning TEXT NOT NULL , 
-                                                   FOREIGN KEY ( LetterCode ) REFERENCES Letters( Code ) 
-                                                 )", connection);
-          cmdCreateTable.ExecuteNonQuery();
+          var command = new OdbcCommand("PRAGMA table_info(" + table + ")", connection);
+          var reader = command.ExecuteReader();
+          int nameIndex = reader.GetOrdinal("Name");
+          bool b = false;
+          while ( reader.Read() )
+            if ( reader.GetString(nameIndex).Equals(column) )
+            {
+              b = true;
+              break;
+            }
+          if ( !b )
+          {
+            var cmdCreateColumn = new OdbcCommand(sql, connection);
+            cmdCreateColumn.ExecuteNonQuery();
+          }
         }
+        checkTable("Letters", @"CREATE TABLE Letters
+                                ( 
+                                  Code TEXT NOT NULL, 
+                                  Name TEXT NOT NULL, 
+                                  Negative TEXT NOT NULL, 
+                                  Positive TEXT NOT NULL, 
+                                  Structure TEXT NOT NULL, 
+                                  Function TEXT NOT NULL, 
+                                  Verb TEXT NOT NULL,
+                                  ValueSimple INTEGER NOT NULL, 
+                                  ValueFull INTEGER NOT NULL, 
+                                  CONSTRAINT Pk_Letter_Code PRIMARY KEY ( Code ) 
+                                )");
+
+        checkTable("Meanings", @"CREATE TABLE Meanings
+                                 (
+                                   LetterCode TEXT NOT NULL,
+                                   Meaning TEXT NOT NULL,
+                                   FOREIGN KEY(LetterCode) REFERENCES Letters(Code)
+                                 )");
+        checkColumn("Letters", "Negative", "ALTER TABLE Letters ADD COLUMN Negative TEXT;");
+        checkColumn("Letters", "Positive", "ALTER TABLE Letters ADD COLUMN Positive TEXT;");
       }
       finally
       {
@@ -90,17 +110,35 @@ namespace Ordisoftware.HebrewLetters
       connection.Close();
       MeaningsTableAdapter.Fill(DataSet.Meanings);
       LettersTableAdapter.Fill(DataSet.Letters);
+
+      string data = System.IO.File.ReadAllText(Program.RootPath + "Project\\Data\\Alphabet.txt",
+                                               System.Text.Encoding.Default);
+      int indexStart = 0;
+      Func<string, string> getStrValue = (name) =>
+      {
+        int p = data.IndexOf(name, indexStart);
+        string s = data.Substring(p + name.Length, data.IndexOf("\r\n", p) - p - name.Length);
+        indexStart = data.IndexOf("\r\n", p) + 2;
+        return s;
+      };
+      Func<string, int> getIntValue = (name) =>
+      {
+        return Convert.ToInt32(getStrValue(name));
+      };
       for ( int index = 0; index < Letters.Codes.Length; index++ )
       {
         var rowLetter = DataSet.Letters.NewLettersRow();
         rowLetter.Code = Letters.Codes[index];
-        rowLetter.ValueSimple = Letters.ValuesSimple[index];
-        rowLetter.ValueFull = Letters.ValuesFull[index];
         rowLetter.Name = Letters.Names[index];
-        rowLetter.Structure = Letters.Structures.GetLang()[index];
-        rowLetter.Function = Letters.Functions.GetLang()[index];
-        rowLetter.Verb = Letters.Verbs.GetLang()[index];
-        foreach ( var meaning in Letters.Meanings.GetLang(index) )
+        rowLetter.ValueSimple = getIntValue("ValueSimple: ");
+        rowLetter.ValueFull = getIntValue("ValueFull: ");
+        rowLetter.Positive = getStrValue("Positive: ");
+        rowLetter.Negative = getStrValue("Negative: ");
+        rowLetter.Verb = getStrValue("Verb: ");
+        rowLetter.Structure = getStrValue("Structure: ");
+        rowLetter.Function = getStrValue("Function: ");
+        var meanings = getStrValue("Meanings: ").Split(',');
+        foreach ( var meaning in meanings )
         {
           var rowMeaning = DataSet.Meanings.NewMeaningsRow();
           rowMeaning.LetterCode = rowLetter.Code;
@@ -115,3 +153,13 @@ namespace Ordisoftware.HebrewLetters
   }
 
 }
+
+
+
+
+
+
+
+
+
+

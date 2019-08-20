@@ -3,7 +3,7 @@
 
 #define MyAppName "Hebrew Letters"
 #define MyAppNameNoSpace "HebrewLetters"
-#define MyAppVersion "1.1"
+#define MyAppVersion "2.0"
 #define MyAppPublisher "Ordisoftware"
 #define MyAppURL "http://www.ordisoftware.com/projects/hebrew-letters"
 #define MyAppExeName "Ordisoftware.HebrewLetters.exe"
@@ -81,6 +81,7 @@ Source: ..\Project\Dependencies\*; DestDir: {app}\Project\Dependencies\; Flags: 
 Source: ..\Project\Properties\*; DestDir: {app}\Project\Properties\; Flags: ignoreversion recursesubdirs
 Source: ..\Project\Source\*; DestDir: {app}\Project\Source\; Flags: ignoreversion recursesubdirs; Excludes: *.lnk
 Source: ..\Project\*; DestDir: {app}\Project; Flags: ignoreversion; Excludes: *.suo, *.user
+Source: ..\Project\Data\Alphabet.txt; DestDir: {app}\Project\Data; Flags: ignoreversion; Excludes: *.suo, *.user
 Source: ..\Register ODBC.reg; DestDir: {app}
 Source: ..\*; DestDir: {app}; Flags: ignoreversion
 Source: *; DestDir: {app}\Setup; Excludes: *.---, {#MyAppPublisher}{#MyAppNameNoSpace}Setup*.exe
