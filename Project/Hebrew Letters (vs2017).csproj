@@ -144,7 +144,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Data\Alphabet.txt" />
+    <Content Include="Data\Alphabet-en.txt" />
+    <Content Include="Data\Alphabet-fr.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

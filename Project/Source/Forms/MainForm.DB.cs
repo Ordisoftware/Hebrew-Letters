@@ -14,6 +14,7 @@
 /// <edited> 2019-08 </edited>
 using System;
 using System.Data.Odbc;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace Ordisoftware.HebrewLetters
@@ -111,7 +112,9 @@ namespace Ordisoftware.HebrewLetters
       MeaningsTableAdapter.Fill(DataSet.Meanings);
       LettersTableAdapter.Fill(DataSet.Letters);
 
-      string data = System.IO.File.ReadAllText(Program.RootPath + "Project\\Data\\Alphabet.txt",
+      string lang = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
+      if ( lang != "fr" && lang != "en" ) lang = "en";
+      string data = System.IO.File.ReadAllText(Program.RootPath + "Project\\Data\\Alphabet-" + lang + ".txt",
                                                System.Text.Encoding.Default);
       int indexStart = 0;
       Func<string, string> getStrValue = (name) =>
