@@ -6,7 +6,7 @@ Negative: Ignorance
 Verb: Plan
 Structure: Beef
 Function: Master
-Meanings: Unity, One, Single, Unified, Source, Origin, Head, Instructor, None, Intangible, Silence, Potential, Undetermined, Not manifested, Concept, Space, Distance, Interstice, Stability, Satisfaction, Modesty, Art, Teaching, Imagination , Mirror of differentiated creation: me-you, Adam (Youd right) and 'Havah (Youd left)
+Meanings: Unity,One,Single,Unified,Source,Origin,Head,Instructor,None,Intangible,Silence,Potential,Undetermined,Not manifested,Concept,Space,Distance,Interstice,Stability,Satisfaction,Modesty,Art,Teaching,Imagination,Mirror of differentiated creation: me-you,Adam (Youd right) and 'Havah (Youd left)
 
 BET
 ValueSimple: 2
@@ -16,7 +16,7 @@ Negative: Curse
 Verb: Arrange
 Structure: House
 Function: Passage
-Meanings: Torchbearer, Abode of Energy, Temple, Body, Will, Analysis, Creation, Repair, Innerity, Solitude
+Meanings: Torchbearer,Abode of Energy,Temple,Body,Will,Analysis,Creation,Repair,Innerity,Solitude
 
 GUIMEL
 ValueSimple: 3
@@ -26,7 +26,7 @@ Negative: Madness
 Verb: Give
 Structure: Camel
 Function: Travel
-Meanings: On the Move, Energy in Motion, Shepherd, Time, Generosity, Investment, Wealth, Study, Testimony, History, Destiny
+Meanings: On the Move,Energy in Motion,Shepherd,Time,Generosity,Investment,Wealth,Study,Testimony,History,Destiny
 
 DALET
 ValueSimple: 4
@@ -36,7 +36,7 @@ Negative: Imbalance
 Verb: Emit
 Structure: Column
 Function: Student
-Meanings: Gate, Threshold, Sanctuary, Manifestation, Flow, Flow, Thought, Humility, Poverty, Wandering, Weakness, Submission
+Meanings: Gate,Threshold,Sanctuary,Manifestation,Flow,Flow,Thought,Humility,Poverty,Wandering,Weakness,Submission
  
 HE
 ValueSimple: 5
@@ -46,7 +46,7 @@ Negative: Immobility
 Verb: Finding
 Structure: Praise
 Function: Joy
-Meanings: Breath, Respiration, Meeting, Presentation, Transmission, Magnetism, Window, Astonishment, Celebration, Prayer
+Meanings: Breath,Respiration,Meeting,Presentation,Transmission,Magnetism,Window,Astonishment,Celebration,Prayer
 
 VAV
 ValueSimple: 6
@@ -56,7 +56,7 @@ Negative: Break
 Verb: Inform
 Structure: Nail
 Function: Communication
-Meanings: Light, Coordination, Reality, Foundation, Law, Cap, Direction, Mediation, Righteousness, Girl
+Meanings: Light,Coordination,Reality,Foundation,Law,Cap,Direction,Mediation,Righteousness,Girl
 
 zayin
 ValueSimple: 7
@@ -66,7 +66,7 @@ Negative: Contempt
 Verb: Persevere
 Structure: Weapon
 Function: Combat
-Meanings: Logic, Action, Discernment, Determination, Rigor, Contradiction, Revolt, Audacity, Feeling, Rest, Son
+Meanings: Logic,Action,Discernment,Determination,Rigor,Contradiction,Revolt,Audacity,Feeling,Rest,Son
 
 'HET
 ValueSimple: 8
@@ -78,7 +78,7 @@ Structure: Barrier
 Function: Vitality
 Kabalistic sense: Intestine grâle - Cancer
 Lettric: Support of Matter
-Meanings: Support, Creature, Boundary, Territory, Domain, Engagement, Agreement, Influence, Authority, Purification, Incorruptibility, Motivation, Renunciation, Cowardice, Sin
+Meanings: Support,Creature,Boundary,Territory,Domain,Engagement,Agreement,Influence,Authority,Purification,Incorruptibility,Motivation,Renunciation,Cowardice,Sin
 
 TET
 Name: you
@@ -91,7 +91,7 @@ Structure: Shield
 Function: Beauty
 Kabalistic sense: Right kidney - Lion
 Lettric: Refuge of Matter
-Meanings: Barque, Refuge, Protection, Exchange, Reflection, Eternity, Denial
+Meanings: Barque,Refuge,Protection,Exchange,Reflection,Eternity,Denial
 
 YOUD
 ValueSimple: 10
@@ -101,7 +101,7 @@ Negative: Interruption
 Verb: Exister
 Structure: Main
 Function: Love
-Meanings: Flame Energy (Adam XY and 'Havah XX), Spiritual Core, Sprout, Center, Purity, Abnegation, Spermatozoa
+Meanings: Flame Energy (Adam XY and 'Havah XX),Spiritual Core,Sprout,Center,Purity,Abnegation,Spermatozoa
 
 KAF
 ValueSimple: 20
@@ -111,7 +111,7 @@ Negative: Repulsion
 Verb: Spread
 Structure: Palm
 Function: Fun
-Meanings: Inner Elk, Potential Awakening, Curvature, Cover, Assimilation, Power
+Meanings: Inner Elk,Potential Awakening,Curvature,Cover,Assimilation,Power
 
 LAMED
 ValueSimple: 30
@@ -121,7 +121,7 @@ Negative: Regression
 Verb: Transmit
 Structure: Stick
 Function: Education
-Meanings: Elevation, Orientation, Observation, Existence, Experience, Instruction, Teach, Energize, Exceed, Invent, Fervor, Passive becomes active
+Meanings: Elevation,Orientation,Observation,Existence,Experience,Instruction,Teach,Energize,Exceed,Invent,Fervor,Passive becomes active
 
 MEM
 ValueSimple: 40
@@ -131,7 +131,7 @@ Negative: Corruption
 Verb: Contribute
 Structure: Waters
 Function: Duality
-Meanings: Matrix, Formation, Transformation, Transmutation, Alchemy, Maturation, Salutation, Recognition, Fullness, Prayer, Service, Path, Unconscious
+Meanings: Matrix,Formation,Transformation,Transmutation,Alchemy,Maturation,Salutation,Recognition,Fullness,Prayer,Service,Path,Unconscious
 
 NOUN
 ValueSimple: 50
@@ -141,7 +141,7 @@ Negative: Austerity
 Verb: Leading
 Structure: Fish
 Function: Power
-Meanings: Life, Engendering, Perpetuation, Newborn, Food, Abundance, Prodigy, Brain, Hidden, Intimate, Presence, Faith, Falling
+Meanings: Life,Engendering,Perpetuation,Newborn,Food,Abundance,Prodigy,Brain,Hidden,Intimate,Presence,Faith,Falling
 
 SAMEK
 ValueSimple: 60
@@ -151,7 +151,7 @@ Negative: Destruction
 Verb: Gather
 Structure: Support
 Function: Improvement
-Meanings: Skeleton, Framing, Frame, Cradle, Pulse, Passion, Comfort, Safety, Alliance, Dissolve, Ovum
+Meanings: Skeleton,Framing,Frame,Cradle,Pulse,Passion,Comfort,Safety,Alliance,Dissolve,Ovum
 
 'AYIN
 ValueSimple: 70
@@ -161,7 +161,7 @@ Negative: Invisible
 Verb: Interact
 Structure: Eye
 Function: Taming
-Meanings: Awareness, Look, Vision, Secret, Mystery, Growth, Superficiality
+Meanings: Awareness,Look,Vision,Secret,Mystery,Growth,Superficiality
 
 GOE
 ValueSimple: 80
@@ -171,7 +171,7 @@ Negative: Doubt
 Verb: Protect
 Structure: Mouth
 Function: Renaissance
-Meanings: Expression, Verb, Word, Deliverance, Realization of Potential, Independence Preparation, Revelation, Initiation, Dignity, Transgression, Guilt
+Meanings: Expression,Verb,Word,Deliverance,Realization of Potential,Independence Preparation,Revelation,Initiation,Dignity,Transgression,Guilt
 
 Tsadi
 ValueSimple: 90
@@ -181,7 +181,7 @@ Negative: Abandonment
 Verb: Help
 Structure: Fishhook
 Function: Wings
-Meanings: Outward Moan, Outdoors, Prep, Sublimation, Fair, Trap
+Meanings: Outward Moan,Outdoors,Prep,Sublimation,Fair,Trap
  
 QOUF
 ValueSimple: 100
@@ -191,7 +191,7 @@ Negative: Lie
 Verb: Free
 Structure: Neck
 Function: Wisdom
-Meanings: Departure, Beginning, Letting go, Don, Differentiation between real and imaginary, Illumination, Freedom, Imitation, Separation, Clipping, Conspiracy
+Meanings: Departure,Beginning,Letting go,Don,Differentiation between real and imaginary,Illumination,Freedom,Imitation,Separation,Clipping,Conspiracy
 
 RESH
 ValueSimple: 200
@@ -201,7 +201,7 @@ Negative: Slavery
 Verb: Show
 Structure: Head
 Function: Maturity
-Meanings: Mind, Intellect, Clarity, Renewal, Incarnation, Discretion, Royalty, Vanity, Peace, War
+Meanings: Mind,Intellect,Clarity,Renewal,Incarnation,Discretion,Royalty,Vanity,Peace,War
 
 SHIN
 ValueSimple: 300
@@ -211,7 +211,7 @@ Negative: Confusion
 Verb: Share
 Structure: Tooth
 Function: Moderation
-Meanings: Strength, Chair, Home, Family, Friendship, Reduction, Blindness
+Meanings: Strength,Chair,Home,Family,Friendship,Reduction,Blindness
  
 TAV
 ValueSimple: 400
@@ -221,4 +221,4 @@ Negative: Fail
 Verb: Support
 Structure: Sign
 Function: Offering
-Meanings: Matter, Substance, Synthesis, Union, Fusion, Goal, Finishing, Perfection, Grace, Music, Brand, Symbol
+Meanings: Matter,Substance,Synthesis,Union,Fusion,Goal,Finishing,Perfection,Grace,Music,Brand,Symbol

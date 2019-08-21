@@ -141,7 +141,7 @@ namespace Ordisoftware.HebrewLetters
         using ( WebClient client = new WebClient() )
         {
           string version = client.DownloadString(url);
-          if ( version == AboutBox.Instance.AssemblyVersion )
+          if ( version.CompareTo(AboutBox.Instance.AssemblyVersion) < 0 )
           {
             if ( !auto )
               DisplayManager.Show(Localizer.CheckUpdateNoNewText.GetLang());

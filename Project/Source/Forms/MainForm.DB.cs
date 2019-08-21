@@ -16,6 +16,7 @@ using System;
 using System.Data.Odbc;
 using System.Globalization;
 using System.Windows.Forms;
+using Ordisoftware.Core;
 
 namespace Ordisoftware.HebrewLetters
 {
@@ -31,6 +32,7 @@ namespace Ordisoftware.HebrewLetters
     /// </summary>
     public void CreateDatabaseIfNotExists()
     {
+      bool upgraded = false;
       var connection = new OdbcConnection(Program.Settings.ConnectionString);
       connection.Open();
       try
@@ -62,6 +64,7 @@ namespace Ordisoftware.HebrewLetters
           {
             var cmdCreateColumn = new OdbcCommand(sql, connection);
             cmdCreateColumn.ExecuteNonQuery();
+            upgraded = true;
           }
         }
         checkTable("Letters", @"CREATE TABLE Letters
@@ -90,6 +93,9 @@ namespace Ordisoftware.HebrewLetters
       finally
       {
         connection.Close();
+        if ( upgraded )
+          if ( DisplayManager.QueryYesNo(Localizer.DatabaseChangedText.GetLang()) )
+            SetView(ViewModeType.Settings);
       }
     }
 
