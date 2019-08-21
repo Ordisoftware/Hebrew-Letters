@@ -58,7 +58,7 @@ Structure: Nail
 Function: Communication
 Meanings: Light,Coordination,Reality,Foundation,Law,Cap,Direction,Mediation,Righteousness,Girl
 
-zayin
+ZAYIN
 ValueSimple: 7
 ValueFull: 67
 Positive: Compassion
@@ -81,7 +81,6 @@ Lettric: Support of Matter
 Meanings: Support,Creature,Boundary,Territory,Domain,Engagement,Agreement,Influence,Authority,Purification,Incorruptibility,Motivation,Renunciation,Cowardice,Sin
 
 TET
-Name: you
 ValueSimple: 9
 ValueFull: 409
 Positive: Association
@@ -163,7 +162,7 @@ Structure: Eye
 Function: Taming
 Meanings: Awareness,Look,Vision,Secret,Mystery,Growth,Superficiality
 
-GOE
+PÉ
 ValueSimple: 80
 ValueFull: 85
 Positive: Trust
@@ -173,7 +172,7 @@ Structure: Mouth
 Function: Renaissance
 Meanings: Expression,Verb,Word,Deliverance,Realization of Potential,Independence Preparation,Revelation,Initiation,Dignity,Transgression,Guilt
 
-Tsadi
+TSADI
 ValueSimple: 90
 ValueFull: 104
 Positive: Assistance

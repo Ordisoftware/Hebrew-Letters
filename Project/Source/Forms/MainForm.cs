@@ -310,6 +310,11 @@ namespace Ordisoftware.HebrewLetters
       Close();
     }
 
+    private void TextBox_TextChanged(object sender, EventArgs e)
+    {
+      LettersBindingSource.EndEdit();
+    }
+
     private void ActionAddMeaning_Click(object sender, EventArgs e)
     {
       var row = (DataRowView)meaningsBindingSource.AddNew();

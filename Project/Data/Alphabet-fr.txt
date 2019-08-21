@@ -81,7 +81,6 @@ Lettrique : Soutien de la Matière
 Meanings: Soutien,Créature,Limite,Territoire,Domaine,Engagement,Accord,Influence,Autorité,Purification,Incorruptibilité,Motivation,Renoncement,Lâcheté,Péché
 
 TET
-Nom : tu
 ValueSimple: 9
 ValueFull: 409
 Positive: Association

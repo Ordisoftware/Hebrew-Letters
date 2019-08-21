@@ -61,10 +61,19 @@ namespace Ordisoftware.HebrewLetters
     /// <summary>
     /// Indicate letters names.
     /// </summary>
-    static public readonly string[] Names = 
+    static public readonly string[] Names =
     {
       "Alef", "Bet", "Gimel", "Dalet", "Hé", "Vav", "Zayin", "Het", "Tet", "Youd", "Kaf",
       "Lamed", "Mem", "Noun", "Samech", "Ayin", "Pé", "Tsadé", "Qof", "Resh", "Shin", "Tav"
+    };
+
+    /// <summary>
+    /// Indicate hebrew letters names.
+    /// </summary>
+    static public readonly string[] HebrewNames =
+    {
+      "pla", "tyb", "lmyg", "tld", "ah", "vv", "]yz", "tx", "tu", "dvy", "pk",
+      "dml", ",m", "]vn", "!mc", "]yi", "hp", "ydj", "pvq", ">r", "]y>", "vt",
     };
 
   }

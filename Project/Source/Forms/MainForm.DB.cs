@@ -71,6 +71,7 @@ namespace Ordisoftware.HebrewLetters
                                 ( 
                                   Code TEXT NOT NULL, 
                                   Name TEXT NOT NULL, 
+                                  Hebrew TEXT NOT NULL, 
                                   Negative TEXT NOT NULL, 
                                   Positive TEXT NOT NULL, 
                                   Structure TEXT NOT NULL, 
@@ -87,8 +88,9 @@ namespace Ordisoftware.HebrewLetters
                                    Meaning TEXT NOT NULL,
                                    FOREIGN KEY(LetterCode) REFERENCES Letters(Code)
                                  )");
-        checkColumn("Letters", "Negative", "ALTER TABLE Letters ADD COLUMN Negative TEXT;");
+        checkColumn("Letters", "Hebrew", "ALTER TABLE Letters ADD COLUMN Hebrew TEXT;");
         checkColumn("Letters", "Positive", "ALTER TABLE Letters ADD COLUMN Positive TEXT;");
+        checkColumn("Letters", "Negative", "ALTER TABLE Letters ADD COLUMN Negative TEXT;");
       }
       finally
       {
@@ -139,6 +141,7 @@ namespace Ordisoftware.HebrewLetters
         var rowLetter = DataSet.Letters.NewLettersRow();
         rowLetter.Code = Letters.Codes[index];
         rowLetter.Name = Letters.Names[index];
+        rowLetter.Hebrew = Letters.HebrewNames[index];
         rowLetter.ValueSimple = getIntValue("ValueSimple: ");
         rowLetter.ValueFull = getIntValue("ValueFull: ");
         rowLetter.Positive = getStrValue("Positive: ");
@@ -162,13 +165,3 @@ namespace Ordisoftware.HebrewLetters
   }
 
 }
-
-
-
-
-
-
-
-
-
-
