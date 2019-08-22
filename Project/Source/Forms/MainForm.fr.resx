@@ -118,20 +118,35 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="nameLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 91</value>
+  </data>
   <data name="nameLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>29, 13</value>
   </data>
   <data name="nameLabel.Text" xml:space="preserve">
     <value>Nom</value>
   </data>
+  <data name="structureLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 375</value>
+  </data>
+  <data name="functionLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 419</value>
+  </data>
   <data name="functionLabel.Text" xml:space="preserve">
     <value>Fonction</value>
+  </data>
+  <data name="valueSimpleLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 145</value>
   </data>
   <data name="valueSimpleLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>37, 13</value>
   </data>
   <data name="valueSimpleLabel.Text" xml:space="preserve">
     <value>Valeur</value>
+  </data>
+  <data name="valueFullLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 189</value>
   </data>
   <data name="valueFullLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>68, 13</value>
@@ -145,11 +160,38 @@
   <data name="label2.Text" xml:space="preserve">
     <value>Significations</value>
   </data>
+  <data name="verbLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 331</value>
+  </data>
   <data name="verbLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>35, 13</value>
   </data>
   <data name="verbLabel.Text" xml:space="preserve">
     <value>Verbe</value>
+  </data>
+  <data name="positiveLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 243</value>
+  </data>
+  <data name="positiveLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 13</value>
+  </data>
+  <data name="positiveLabel.Text" xml:space="preserve">
+    <value>Positif</value>
+  </data>
+  <data name="negativeLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 287</value>
+  </data>
+  <data name="negativeLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 13</value>
+  </data>
+  <data name="negativeLabel.Text" xml:space="preserve">
+    <value>Négatif</value>
+  </data>
+  <data name="SelectCloseApp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 17</value>
+  </data>
+  <data name="SelectCloseApp.Text" xml:space="preserve">
+    <value>Fermer</value>
   </data>
   <data name="ActionAnalyse.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -206,7 +248,7 @@
         QcHfWxD7cuaSnN4AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="ActionCopyToClipboard.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="ActionCopyToClipboardMeanings.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADrwAAA68AZW8ckkAAAXpSURBVFhHtZfrbxRVGMb3A1/9yPwT/gVCaQsCicao0aiJ
@@ -237,13 +279,50 @@
         yWaGjjKLf5teF2eI33zFJpPsf/1rxj+OLGCX3KpXaTLJnvHn1OX6GxOhmv/sVmGFAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="ActionCopyToClipboardResult.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
+  </data>
+  <data name="negativeTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 303</value>
+  </data>
+  <data name="positiveTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 259</value>
+  </data>
   <data name="verbTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 384</value>
+    <value>26, 347</value>
   </data>
   <data name="ActionDeleteMeaning.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADr4AAA6+AepCscAAAASBSURBVFhHzZdtTJtlFIbLZvSXuKigMTFB3PCDQsdgYNym
+        YQUAAAAJcEhZcwAADrwAAA68AZW8ckkAAASBSURBVFhHzZdtTJtlFIbLZvSXuKigMTFB3PCDQsdgYNym
         DjdntsGgrHTMuUFgDDJRwP0wfi5OnTHqj/nXbYWNGRMntEEjQTanieASE2c0joJCGZSWrtLSj7e0fXt7
         zkMpA6rroCzeyZUeznPe59x9Pshbxf9Bt+j1+naDwYC2trabAvfintybDdzOiZst7sm92UASu2L9NTCI
         gUHTksI9WNyTe7OB5GkDg6YhmIauLCncgxU2kDzLwNCVYQyPmJcU7sGKaoALRkdHYbFYlgSem3uwohqw
@@ -268,7 +347,7 @@
   <data name="ActionAddMeaning.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADr4AAA6+AepCscAAAARiSURBVFhHzZdtTFtVGMcPm9HExJfMMBP1gxo/LNExhmNR
+        YQUAAAAJcEhZcwAADrwAAA68AZW8ckkAAARiSURBVFhHzZdtTFtVGMcPm9HExJfMMBP1gxo/LNExhmNR
         s2xmYMyCm6MI1ZAYP8xZ43wNCi64LMG9uMw5JiFzZoOxKWZqaCtjE3HZaHBTsg9EE3lzUDagwCZUylvb
         27/P/5S2KI10UBb/yS88POe55/mfc8+9uVX/B91ks9mq7XY7rFbrDYG92JO9aeA2Jm602JO9aSCRrqhL
         HZ3o6HTOK+xBsSd708DikIFOZxecXZfnFfagJg0s/oeBrstXcKW7Z15hDyqqARb09vbC5XLNC5ybPaio
@@ -297,19 +376,19 @@
     <value>Restaurer les valeurs par défaut</value>
   </data>
   <data name="valueFullTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 224</value>
+    <value>26, 205</value>
   </data>
   <data name="valueSimpleTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 177</value>
+    <value>26, 161</value>
   </data>
   <data name="functionTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 337</value>
+    <value>26, 435</value>
   </data>
   <data name="nameTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 108</value>
+    <value>26, 107</value>
   </data>
   <data name="structureTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 290</value>
+    <value>26, 391</value>
   </data>
   <data name="LabelTitle.Text" xml:space="preserve">
     <value>ETUDE LETTRIQUE</value>

@@ -3,7 +3,7 @@
 
 #define MyAppName "Hebrew Letters"
 #define MyAppNameNoSpace "HebrewLetters"
-#define MyAppVersion "1.1"
+#define MyAppVersion "2.0"
 #define MyAppPublisher "Ordisoftware"
 #define MyAppURL "http://www.ordisoftware.com/projects/hebrew-letters"
 #define MyAppExeName "Ordisoftware.HebrewLetters.exe"
@@ -76,8 +76,9 @@ Source: ..\Bin\Release\*.dll; DestDir: {app}\Bin; Flags: ignoreversion recursesu
 Source: ..\Bin\Release\*.pdb; DestDir: {app}\Bin; Flags: ignoreversion recursesubdirs skipifsourcedoesntexist
 Source: ..\Bin\Release\*.xml; DestDir: {app}\Bin; Flags: ignoreversion recursesubdirs skipifsourcedoesntexist
 Source: ..\Help\*; DestDir: {app}\Help; Flags: ignoreversion recursesubdirs skipifsourcedoesntexist
-Source: ..\Project\License\*; DestDir: {app}\Project\License; Flags: ignoreversion recursesubdirs
+Source: ..\Project\Data\*; DestDir: {app}\Project\Data; Flags: ignoreversion; Excludes: *.suo, *.user
 Source: ..\Project\Dependencies\*; DestDir: {app}\Project\Dependencies\; Flags: ignoreversion recursesubdirs skipifsourcedoesntexist
+Source: ..\Project\License\*; DestDir: {app}\Project\License; Flags: ignoreversion recursesubdirs
 Source: ..\Project\Properties\*; DestDir: {app}\Project\Properties\; Flags: ignoreversion recursesubdirs
 Source: ..\Project\Source\*; DestDir: {app}\Project\Source\; Flags: ignoreversion recursesubdirs; Excludes: *.lnk
 Source: ..\Project\*; DestDir: {app}\Project; Flags: ignoreversion; Excludes: *.suo, *.user

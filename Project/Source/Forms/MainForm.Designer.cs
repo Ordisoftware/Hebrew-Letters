@@ -37,6 +37,8 @@
       System.Windows.Forms.Label valueFullLabel;
       System.Windows.Forms.Label label2;
       System.Windows.Forms.Label verbLabel;
+      System.Windows.Forms.Label positiveLabel;
+      System.Windows.Forms.Label negativeLabel;
       this.PanelMain = new System.Windows.Forms.Panel();
       this.PanelMainOuter = new System.Windows.Forms.Panel();
       this.PanelMainInner = new System.Windows.Forms.Panel();
@@ -48,7 +50,8 @@
       this.EditAnalyze = new System.Windows.Forms.Panel();
       this.ActionAnalyse = new System.Windows.Forms.Button();
       this.ActionClear = new System.Windows.Forms.Button();
-      this.ActionCopyToClipboard = new System.Windows.Forms.Button();
+      this.ActionCopyToClipboardMeanings = new System.Windows.Forms.Button();
+      this.ActionCopyToClipboardResult = new System.Windows.Forms.Button();
       this.EditSentence = new System.Windows.Forms.TextBox();
       this.EditGematria = new System.Windows.Forms.TextBox();
       this.LabelGematria = new System.Windows.Forms.Label();
@@ -56,9 +59,12 @@
       this.TabPageMonth = new System.Windows.Forms.TabPage();
       this.PanelViewSettings = new System.Windows.Forms.Panel();
       this.PanelSettingsDetails = new System.Windows.Forms.Panel();
-      this.verbTextBox = new System.Windows.Forms.TextBox();
+      this.hebrewLabel1 = new System.Windows.Forms.Label();
       this.LettersBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.DataSet = new Ordisoftware.HebrewLetters.Data.DataSet();
+      this.negativeTextBox = new System.Windows.Forms.TextBox();
+      this.positiveTextBox = new System.Windows.Forms.TextBox();
+      this.verbTextBox = new System.Windows.Forms.TextBox();
       this.ActionDeleteMeaning = new System.Windows.Forms.Button();
       this.ActionAddMeaning = new System.Windows.Forms.Button();
       this.ActionReset = new System.Windows.Forms.LinkLabel();
@@ -111,6 +117,8 @@
       valueFullLabel = new System.Windows.Forms.Label();
       label2 = new System.Windows.Forms.Label();
       verbLabel = new System.Windows.Forms.Label();
+      positiveLabel = new System.Windows.Forms.Label();
+      negativeLabel = new System.Windows.Forms.Label();
       this.PanelMain.SuspendLayout();
       this.PanelMainOuter.SuspendLayout();
       this.PanelMainInner.SuspendLayout();
@@ -165,6 +173,16 @@
       resources.ApplyResources(verbLabel, "verbLabel");
       verbLabel.Name = "verbLabel";
       // 
+      // positiveLabel
+      // 
+      resources.ApplyResources(positiveLabel, "positiveLabel");
+      positiveLabel.Name = "positiveLabel";
+      // 
+      // negativeLabel
+      // 
+      resources.ApplyResources(negativeLabel, "negativeLabel");
+      negativeLabel.Name = "negativeLabel";
+      // 
       // PanelMain
       // 
       this.PanelMain.Controls.Add(this.PanelMainOuter);
@@ -217,7 +235,8 @@
       this.PanelViewSearch.Controls.Add(this.EditAnalyze);
       this.PanelViewSearch.Controls.Add(this.ActionAnalyse);
       this.PanelViewSearch.Controls.Add(this.ActionClear);
-      this.PanelViewSearch.Controls.Add(this.ActionCopyToClipboard);
+      this.PanelViewSearch.Controls.Add(this.ActionCopyToClipboardMeanings);
+      this.PanelViewSearch.Controls.Add(this.ActionCopyToClipboardResult);
       this.PanelViewSearch.Controls.Add(this.EditSentence);
       this.PanelViewSearch.Controls.Add(this.EditGematria);
       this.PanelViewSearch.Controls.Add(this.LabelGematria);
@@ -253,13 +272,21 @@
       this.ActionClear.UseVisualStyleBackColor = true;
       this.ActionClear.Click += new System.EventHandler(this.ActionClear_Click);
       // 
-      // ActionCopyToClipboard
+      // ActionCopyToClipboardMeanings
       // 
-      resources.ApplyResources(this.ActionCopyToClipboard, "ActionCopyToClipboard");
-      this.ActionCopyToClipboard.FlatAppearance.BorderSize = 0;
-      this.ActionCopyToClipboard.Name = "ActionCopyToClipboard";
-      this.ActionCopyToClipboard.UseVisualStyleBackColor = true;
-      this.ActionCopyToClipboard.Click += new System.EventHandler(this.ActionCopyToClipboard_Click);
+      this.ActionCopyToClipboardMeanings.FlatAppearance.BorderSize = 0;
+      resources.ApplyResources(this.ActionCopyToClipboardMeanings, "ActionCopyToClipboardMeanings");
+      this.ActionCopyToClipboardMeanings.Name = "ActionCopyToClipboardMeanings";
+      this.ActionCopyToClipboardMeanings.UseVisualStyleBackColor = true;
+      this.ActionCopyToClipboardMeanings.Click += new System.EventHandler(this.ActionCopyToClipboardMeanings_Click);
+      // 
+      // ActionCopyToClipboardResult
+      // 
+      resources.ApplyResources(this.ActionCopyToClipboardResult, "ActionCopyToClipboardResult");
+      this.ActionCopyToClipboardResult.FlatAppearance.BorderSize = 0;
+      this.ActionCopyToClipboardResult.Name = "ActionCopyToClipboardResult";
+      this.ActionCopyToClipboardResult.UseVisualStyleBackColor = true;
+      this.ActionCopyToClipboardResult.Click += new System.EventHandler(this.ActionCopyToClipboardResults_Click);
       // 
       // EditSentence
       // 
@@ -306,6 +333,11 @@
       // PanelSettingsDetails
       // 
       this.PanelSettingsDetails.BackColor = System.Drawing.SystemColors.Control;
+      this.PanelSettingsDetails.Controls.Add(this.hebrewLabel1);
+      this.PanelSettingsDetails.Controls.Add(negativeLabel);
+      this.PanelSettingsDetails.Controls.Add(this.negativeTextBox);
+      this.PanelSettingsDetails.Controls.Add(positiveLabel);
+      this.PanelSettingsDetails.Controls.Add(this.positiveTextBox);
       this.PanelSettingsDetails.Controls.Add(verbLabel);
       this.PanelSettingsDetails.Controls.Add(this.verbTextBox);
       this.PanelSettingsDetails.Controls.Add(this.ActionDeleteMeaning);
@@ -327,12 +359,11 @@
       resources.ApplyResources(this.PanelSettingsDetails, "PanelSettingsDetails");
       this.PanelSettingsDetails.Name = "PanelSettingsDetails";
       // 
-      // verbTextBox
+      // hebrewLabel1
       // 
-      this.verbTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.verbTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Verb", true));
-      resources.ApplyResources(this.verbTextBox, "verbTextBox");
-      this.verbTextBox.Name = "verbTextBox";
+      this.hebrewLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Hebrew", true));
+      resources.ApplyResources(this.hebrewLabel1, "hebrewLabel1");
+      this.hebrewLabel1.Name = "hebrewLabel1";
       // 
       // LettersBindingSource
       // 
@@ -344,6 +375,30 @@
       // 
       this.DataSet.DataSetName = "DataSet";
       this.DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+      // 
+      // negativeTextBox
+      // 
+      this.negativeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.negativeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Negative", true));
+      resources.ApplyResources(this.negativeTextBox, "negativeTextBox");
+      this.negativeTextBox.Name = "negativeTextBox";
+      this.negativeTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+      // 
+      // positiveTextBox
+      // 
+      this.positiveTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.positiveTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Positive", true));
+      resources.ApplyResources(this.positiveTextBox, "positiveTextBox");
+      this.positiveTextBox.Name = "positiveTextBox";
+      this.positiveTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+      // 
+      // verbTextBox
+      // 
+      this.verbTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.verbTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Verb", true));
+      resources.ApplyResources(this.verbTextBox, "verbTextBox");
+      this.verbTextBox.Name = "verbTextBox";
+      this.verbTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
       // 
       // ActionDeleteMeaning
       // 
@@ -430,6 +485,7 @@
       this.functionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Function", true));
       resources.ApplyResources(this.functionTextBox, "functionTextBox");
       this.functionTextBox.Name = "functionTextBox";
+      this.functionTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
       // 
       // nameTextBox
       // 
@@ -446,6 +502,7 @@
       this.structureTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Structure", true));
       resources.ApplyResources(this.structureTextBox, "structureTextBox");
       this.structureTextBox.Name = "structureTextBox";
+      this.structureTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
       // 
       // PanelSepTop
       // 
@@ -816,13 +873,17 @@
     private System.Windows.Forms.TextBox EditGematria;
     private System.Windows.Forms.Label LabelGematria;
     private System.Windows.Forms.TextBox EditSentence;
-    private System.Windows.Forms.Button ActionCopyToClipboard;
+    private System.Windows.Forms.Button ActionCopyToClipboardResult;
     private System.Windows.Forms.Button ActionAnalyse;
     private System.Windows.Forms.Button ActionClear;
     private System.Windows.Forms.TextBox verbTextBox;
     private System.Windows.Forms.Panel EditAnalyze;
     internal System.Windows.Forms.CheckBox SelectCloseApp;
     private System.Windows.Forms.ToolStripButton ActionCheckUpdate;
+    private System.Windows.Forms.TextBox negativeTextBox;
+    private System.Windows.Forms.TextBox positiveTextBox;
+    private System.Windows.Forms.Button ActionCopyToClipboardMeanings;
+    private System.Windows.Forms.Label hebrewLabel1;
   }
 }
 

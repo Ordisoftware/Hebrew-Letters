@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2019-05 </edited>
+/// <edited> 2019-08 </edited>
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -110,6 +110,15 @@ namespace Ordisoftware.HebrewLetters
       {
         { "en", "Do you want to open the download page?" },
         { "fr", "Voulez-vous ouvrir la page de téléchargement ?" }
+      };
+
+    static public readonly Dictionary<string, string> DatabaseChangedText
+      = new Dictionary<string, string>()
+      {
+        { "en", "Database upgraded." + Environment.NewLine + Environment.NewLine +
+                "Do you want to open the parameters page to reset them?" },
+        { "fr", "La base de données a été mise à jour." + Environment.NewLine + Environment.NewLine +
+                "Voulez-vous ouvrir la page des paramètres pour les réinitialiser ?" }
       };
 
     static public readonly Dictionary<string, string> RestoreWinPosText
