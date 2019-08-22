@@ -49,11 +49,11 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 ## Changelog
 
-#### __________ - Version 2.0
+#### 2019.08.22 - Version 2.0
 
-- Upgrade DB to improve letters' description and meanings.
+- Upgrade DB to improve letters description.
 - Add raw export to clipboard of a word's meanings.
-- Some improvments
+- Some improvments.
 
 #### 2019.05.22 - Version 1.1
 
