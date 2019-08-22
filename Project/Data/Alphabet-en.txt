@@ -6,7 +6,7 @@ Negative: Ignorance
 Verb: Plan
 Structure: Beef
 Function: Master
-Meanings: Unity,One,Single,Unified,Source,Origin,Head,Instructor,None,Intangible,Silence,Potential,Undetermined,Not manifested,Concept,Space,Distance,Interstice,Stability,Satisfaction,Modesty,Art,Teaching,Imagination,Mirror of differentiated creation: me-you,Adam (Youd right) and 'Havah (Youd left)
+Meanings: Unit,One,Single,Unified,Source,Origin,Leader,Instructor,None,Intangible,Silence,Potential,Undetermined,Not manifested,Concept,Space,Distance,Interstice,Stability,Satisfaction,Modesty,Art,Teaching,Imagination,Mirror of differentiated creation: me-you,Adam (Youd right) and 'Havah (Youd left)
 
 BET
 ValueSimple: 2
@@ -43,7 +43,7 @@ ValueSimple: 5
 ValueFull: 6
 Positive: Movement
 Negative: Immobility
-Verb: Finding
+Verb: Note
 Structure: Praise
 Function: Joy
 Meanings: Breath,Respiration,Meeting,Presentation,Transmission,Magnetism,Window,Astonishment,Celebration,Prayer
@@ -78,7 +78,7 @@ Structure: Barrier
 Function: Vitality
 Kabalistic sense: Intestine grâle - Cancer
 Lettric: Support of Matter
-Meanings: Support,Creature,Boundary,Territory,Domain,Engagement,Agreement,Influence,Authority,Purification,Incorruptibility,Motivation,Renunciation,Cowardice,Sin
+Meanings: Support,Creature,Boundary,Territory,Domain,Commitment,Agreement,Influence,Authority,Purification,Incorruptibility,Motivation,Renunciation,Cowardice,Sin
 
 TET
 ValueSimple: 9
@@ -95,12 +95,12 @@ Meanings: Barque,Refuge,Protection,Exchange,Reflection,Eternity,Denial
 YOUD
 ValueSimple: 10
 ValueFull: 20
-Positive: Impulse
+Positive: Impetus
 Negative: Interruption
-Verb: Exister
-Structure: Main
+Verb: Exist
+Structure: Hand
 Function: Love
-Meanings: Flame Energy (Adam XY and 'Havah XX),Spiritual Core,Sprout,Center,Purity,Abnegation,Spermatozoa
+Meanings: Flame Energy (Adam XY and 'Havah XX),Spiritual Core,Seed,Center,Purity,Peace,Abnegation,Spermatozoa
 
 KAF
 ValueSimple: 20
@@ -110,7 +110,7 @@ Negative: Repulsion
 Verb: Spread
 Structure: Palm
 Function: Fun
-Meanings: Inner Elk,Potential Awakening,Curvature,Cover,Assimilation,Power
+Meanings: Inner impetus,Potential Awakening,Curvature,Cover,Assimilation,Strength
 
 LAMED
 ValueSimple: 30
@@ -130,7 +130,7 @@ Negative: Corruption
 Verb: Contribute
 Structure: Waters
 Function: Duality
-Meanings: Matrix,Formation,Transformation,Transmutation,Alchemy,Maturation,Salutation,Recognition,Fullness,Prayer,Service,Path,Unconscious
+Meanings: Matrix,Formation,Transformation,Transmutation,Alchemy,Maturation,Salutation,Gratitude,Fullness,Prayer,Service,Path,Unconscious
 
 NOUN
 ValueSimple: 50
@@ -150,7 +150,7 @@ Negative: Destruction
 Verb: Gather
 Structure: Support
 Function: Improvement
-Meanings: Skeleton,Framing,Frame,Cradle,Pulse,Passion,Comfort,Safety,Alliance,Dissolve,Ovum
+Meanings: Skeleton,Framing,Frame,Cradle,Impulse,Passion,Solace,Safety,Alliance,Dissolve,Ovum
 
 'AYIN
 ValueSimple: 70
@@ -170,7 +170,7 @@ Negative: Doubt
 Verb: Protect
 Structure: Mouth
 Function: Renaissance
-Meanings: Expression,Verb,Word,Deliverance,Realization of Potential,Independence Preparation,Revelation,Initiation,Dignity,Transgression,Guilt
+Meanings: Expression,Verb,Speech,Deliverance,Realization of potential,Independence preparation,Revelation,Initiation,Dignity,Transgression,Guilt
 
 TSADI
 ValueSimple: 90
@@ -180,17 +180,17 @@ Negative: Abandonment
 Verb: Help
 Structure: Fishhook
 Function: Wings
-Meanings: Outward Moan,Outdoors,Prep,Sublimation,Fair,Trap
+Meanings: External impetus,Externalization,Preparation for departure,Sublimation,Fair,Trap
  
 QOUF
 ValueSimple: 100
 ValueFull: 186
 Positive: Truth
 Negative: Lie
-Verb: Free
+Verb: Release
 Structure: Neck
 Function: Wisdom
-Meanings: Departure,Beginning,Letting go,Don,Differentiation between real and imaginary,Illumination,Freedom,Imitation,Separation,Clipping,Conspiracy
+Meanings: Departure,Beginning,Letting go,Don,Differentiation between real and imaginary,Illumination,Freedom,Imitation,Separation,Cut,Conspiracy
 
 RESH
 ValueSimple: 200
@@ -200,7 +200,7 @@ Negative: Slavery
 Verb: Show
 Structure: Head
 Function: Maturity
-Meanings: Mind,Intellect,Clarity,Renewal,Incarnation,Discretion,Royalty,Vanity,Peace,War
+Meanings: Mind,Intellect,Clarity,Renewal,Incarnation,Discretion,Royalty,Vanity,War
 
 SHIN
 ValueSimple: 300
@@ -210,7 +210,7 @@ Negative: Confusion
 Verb: Share
 Structure: Tooth
 Function: Moderation
-Meanings: Strength,Chair,Home,Family,Friendship,Reduction,Blindness
+Meanings: Strength,Flesh,Home,Family,Friendship,Reduction,Blindness
  
 TAV
 ValueSimple: 400
@@ -220,4 +220,4 @@ Negative: Fail
 Verb: Support
 Structure: Sign
 Function: Offering
-Meanings: Matter,Substance,Synthesis,Union,Fusion,Goal,Finishing,Perfection,Grace,Music,Brand,Symbol
+Meanings: Material,Substance,Synthesis,Union,Fusion,Goal,Outcome,Perfection,Grace,Music,Mark,Symbol

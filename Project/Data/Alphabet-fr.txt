@@ -100,7 +100,7 @@ Negative: Interruption
 Verb: Exister
 Structure: Main
 Function: Amour
-Meanings: Flamme énergie (Adam XY et 'Havah XX),Noyau spirituel,Germe,Centre,Pureté,Abnégation,Spermatozoïde
+Meanings: Flamme énergie (Adam XY et 'Havah XX),Noyau spirituel,Germe,Centre,Pureté,Paix,Abnégation,Spermatozoïde
 
 KAF
 ValueSimple: 20
@@ -150,7 +150,7 @@ Negative: Destruction
 Verb: Rassembler
 Structure: Appui
 Function: Perfectionnement
-Meanings: Squelette,Charpente,Ossature,Berceau,Pulsion,Passion,Réconfort,Sécurité,Alliance,Dissoudre,Ovule
+Meanings: Squelette,Framework,Ossature,Berceau,Pulsion,Passion,Réconfort,Sécurité,Alliance,Dissoudre,Ovule
 
 'AYIN
 ValueSimple: 70
@@ -170,7 +170,7 @@ Negative: Doute
 Verb: Protéger
 Structure: Bouche
 Function: Renaissance
-Meanings: Expression,Verbe,Parole,Délivrance,Réalisation du potentiel,Préparation à l'indépendance,Révélation,,Initiation,Dignité,Transgression,Culpabilité
+Meanings: Expression,Verbe,Parole,Délivrance,Réalisation du potentiel,Préparation à l'indépendance,Révélation,Initiation,Dignité,Transgression,Culpabilité
 
 TSADI
 ValueSimple: 90
@@ -200,7 +200,7 @@ Negative: Esclavage
 Verb: Montrer
 Structure: Tête
 Function: Maturité
-Meanings: Mental,Intellect,Clarté,Renouvellement,Incarnation,Discrétion,Royauté,Vanité,Paix,Guerre
+Meanings: Mental,Intellect,Clarté,Renouvellement,Incarnation,Discrétion,Royauté,Vanité,Guerre
 
 SHIN
 ValueSimple: 300
