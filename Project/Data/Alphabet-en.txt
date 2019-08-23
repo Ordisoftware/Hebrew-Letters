@@ -46,7 +46,7 @@ Negative: Immobility
 Verb: Note
 Structure: Praise
 Function: Joy
-Meanings: Breath,Respiration,Meeting,Presentation,Transmission,Magnetism,Window,Astonishment,Celebration,Prayer
+Meanings: Breath,Respiration,Meeting,Presentation,Transmission,Magnetism,Window,Astonishment,Celebration
 
 VAV
 ValueSimple: 6
