@@ -46,7 +46,7 @@ Negative: Immobilité
 Verb: Constater
 Structure: Louange
 Function: Joie
-Meanings: Souffle,Respiration,Rencontre,Présentation,Transmission,Magnétisme,Fenêtre,Étonnement,Festivité,Prière
+Meanings: Souffle,Respiration,Rencontre,Présentation,Transmission,Magnétisme,Fenêtre,Étonnement,Festivité
 
 VAV
 ValueSimple: 6
