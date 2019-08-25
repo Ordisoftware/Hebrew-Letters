@@ -140,11 +140,10 @@ namespace Ordisoftware.HebrewLetters
         string url = "http://www.ordisoftware.com/files/" + title.Replace(" ", "") + ".update";
         using ( WebClient client = new WebClient() )
         {
-          string version = client.DownloadString(url);
-          string[] partsVersion = version.Split('.');
+          string[] partsVersion = client.DownloadString(url).Split('.');
+          var version = new Version(Convert.ToInt32(partsVersion[0]), Convert.ToInt32(partsVersion[1]));
           string[] partsAssemblyVersion = AboutBox.Instance.AssemblyVersion.Split('.');
-          if ( Convert.ToInt32(partsVersion[0]) <= Convert.ToInt32(partsAssemblyVersion[0])
-            && Convert.ToInt32(partsVersion[1]) <= Convert.ToInt32(partsAssemblyVersion[1]) )
+          if ( version.CompareTo(System.Reflection.Assembly.GetExecutingAssembly().GetName().Version) <= 0 )
           {
             if ( !auto )
               DisplayManager.Show(Localizer.CheckUpdateNoNewText.GetLang());
