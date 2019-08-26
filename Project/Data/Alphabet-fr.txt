@@ -200,7 +200,7 @@ Negative: Esclavage
 Verb: Montrer
 Structure: Tête
 Function: Maturité
-Meanings: Mental,Intellect,Clarté,Renouvellement,Incarnation,Discrétion,Royauté,Vanité,Guerre
+Meanings: Mental,Intellect,Clarté,Renouvellement,Changement,Incarnation,Discrétion,Royauté,Vanité,Guerre
 
 SHIN
 ValueSimple: 300

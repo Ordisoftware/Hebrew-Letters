@@ -200,7 +200,7 @@ Negative: Slavery
 Verb: Show
 Structure: Head
 Function: Maturity
-Meanings: Mind,Intellect,Clarity,Renewal,Incarnation,Discretion,Royalty,Vanity,War
+Meanings: Mind,Intellect,Clarity,Renewal,Change,Incarnation,Discretion,Royalty,Vanity,War
 
 SHIN
 ValueSimple: 300
