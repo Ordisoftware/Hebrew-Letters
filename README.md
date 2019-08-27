@@ -49,6 +49,10 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 ## Changelog
 
+#### 2019.08.27 - Version 2.1
+
+- Improve raw export to clipboard of a word's meanings.
+
 #### 2019.08.22 - Version 2.0
 
 - Upgrade DB to improve letters description.

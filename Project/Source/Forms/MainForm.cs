@@ -390,6 +390,11 @@ namespace Ordisoftware.HebrewLetters
         combobox.Items.Add(l.Structure);
         combobox.Items.Add(l.Function);
         Meanings += l.Name + ": ";
+        Meanings += l.Positive + ", ";
+        Meanings += l.Negative + ", ";
+        Meanings += l.Verb + ", ";
+        Meanings += l.Structure + ", ";
+        Meanings += l.Function + ", ";
         foreach ( var meaning in l.GetMeaningsRows() )
         {
           combobox.Items.Add(meaning.Meaning);
