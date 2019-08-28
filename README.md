@@ -49,6 +49,10 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 ## Changelog
 
+#### 2019.08.28 - Version 2.2
+
+- Fix letters english names.
+
 #### 2019.08.27 - Version 2.1
 
 - Improve raw export to clipboard of a word's meanings.

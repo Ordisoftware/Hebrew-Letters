@@ -140,7 +140,7 @@ namespace Ordisoftware.HebrewLetters
       {
         var rowLetter = DataSet.Letters.NewLettersRow();
         rowLetter.Code = Letters.Codes[index];
-        rowLetter.Name = Letters.Names[index];
+        rowLetter.Name = Letters.Names.GetLang()[index];
         rowLetter.Hebrew = Letters.HebrewNames[index];
         rowLetter.ValueSimple = getIntValue("ValueSimple: ");
         rowLetter.ValueFull = getIntValue("ValueFull: ");

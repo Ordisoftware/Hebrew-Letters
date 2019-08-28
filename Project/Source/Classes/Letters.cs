@@ -61,11 +61,22 @@ namespace Ordisoftware.HebrewLetters
     /// <summary>
     /// Indicate letters names.
     /// </summary>
-    static public readonly string[] Names =
-    {
-      "Alef", "Bet", "Gimel", "Dalet", "Hé", "Vav", "Zayin", "Het", "Tet", "Youd", "Kaf",
-      "Lamed", "Mem", "Noun", "Samech", "Ayin", "Pé", "Tsadé", "Qof", "Resh", "Shin", "Tav"
-    };
+    static public readonly Dictionary<string, string[]> Names
+      = new Dictionary<string, string[]>()
+      {
+        {
+          "en", new string[]
+          { "Alef", "Bet", "Gimel", "Dalet", "He", "Vav", "Zayin", "'Het", "Tet", "Yod", "Kaf",
+            "Lamed", "Mem", "Nun", "Samek", "'Ayin", "Pay", "Tsadi", "Qof", "Resh", "Shin", "Tav"
+          }
+        },
+        {
+          "fr", new string[]
+          { "Alef", "Bet", "Guimel", "Dalet", "Hé", "Vav", "Zayin", "'Het", "Tet", "Youd", "Kaf",
+            "Lamed", "Mem", "Noun", "Samek", "'Ayin", "Pé", "Tsadi", "Qouf", "Resh", "Shin", "Tav"
+          }
+        }
+      };
 
     /// <summary>
     /// Indicate hebrew letters names.
