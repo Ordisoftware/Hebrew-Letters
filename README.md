@@ -1,4 +1,4 @@
-# Hebrew-Letters
+# Hebrew Letters
 
 >This project follows the [Manufacturing Software Guidelines](https://github.com/Ordisoftware/Guidelines).
 
