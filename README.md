@@ -49,6 +49,10 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 ## Changelog
 
+#### 2019.09.04 - Version 2.3
+
+- Update controls tabs.
+
 #### 2019.08.28 - Version 2.2
 
 - Fix letters english names.
