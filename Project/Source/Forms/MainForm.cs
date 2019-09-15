@@ -59,6 +59,11 @@ namespace Ordisoftware.HebrewLetters
     private ToolTip LastToolTip = new ToolTip();
 
     /// <summary>
+    /// Indicate if the application is ready for the user.
+    /// </summary>
+    public bool IsReady { get; private set; }
+
+    /// <summary>
     /// Default constructor.
     /// </summary>
     private MainForm()
@@ -91,6 +96,7 @@ namespace Ordisoftware.HebrewLetters
     private void MainForm_Shown(object sender, EventArgs e)
     {
       CheckUpdate(true);
+      IsReady = true;
     }
 
     /// <summary>
@@ -420,6 +426,12 @@ namespace Ordisoftware.HebrewLetters
           str += ( (control as ComboBox).Text ?? "" ) + " ";
       str = str == "" ? "" : str.Remove(str.Length - 1, 1);
       EditSentence.Text = str;
+    }
+
+    private void MainForm_WindowsChanged(object sender, EventArgs e)
+    {
+      if ( !IsReady ) return;
+      EditScreenNone.PerformClick();
     }
 
   }
