@@ -49,6 +49,10 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 ## Changelog
 
+#### 2019.09.__ - Version 2.4
+
+- Fix window location and settings.
+
 #### 2019.09.04 - Version 2.3
 
 - Update controls tabs.
