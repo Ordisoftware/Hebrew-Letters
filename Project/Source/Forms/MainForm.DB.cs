@@ -88,9 +88,9 @@ namespace Ordisoftware.HebrewLetters
                                    Meaning TEXT NOT NULL,
                                    FOREIGN KEY(LetterCode) REFERENCES Letters(Code)
                                  )");
-        checkColumn("Letters", "Hebrew", "ALTER TABLE Letters ADD COLUMN Hebrew TEXT;");
-        checkColumn("Letters", "Positive", "ALTER TABLE Letters ADD COLUMN Positive TEXT;");
-        checkColumn("Letters", "Negative", "ALTER TABLE Letters ADD COLUMN Negative TEXT;");
+        checkColumn("Letters", "Hebrew", "ALTER TABLE Letters ADD COLUMN Hebrew TEXT DEFAULT '' NOT NULL;");
+        checkColumn("Letters", "Positive", "ALTER TABLE Letters ADD COLUMN Positive TEXT DEFAULT '' NOT NULL;");
+        checkColumn("Letters", "Negative", "ALTER TABLE Letters ADD COLUMN Negative TEXT DEFAULT '' NOT NULL;");
       }
       finally
       {
