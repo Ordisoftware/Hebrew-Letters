@@ -49,11 +49,10 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 ## Changelog
 
-#### __________ - Version 2.5
+#### 2019.09.19 - Version 2.5
 
 - Add option to disable startup check update.
 - Some code refactorings.
-- Some fixes.
 
 #### 2019.09.15 - Version 2.4
 
