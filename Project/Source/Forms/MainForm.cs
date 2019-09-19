@@ -19,7 +19,6 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Net;
 using System.Windows.Forms;
 
 namespace Ordisoftware.HebrewLetters
@@ -95,7 +94,7 @@ namespace Ordisoftware.HebrewLetters
 
     private void MainForm_Shown(object sender, EventArgs e)
     {
-      CheckUpdate(true);
+      Program.CheckUpdate(true);
       IsReady = true;
     }
 
@@ -108,7 +107,7 @@ namespace Ordisoftware.HebrewLetters
     {
       if ( DataSet.HasChanges() ) TableAdapterManager.UpdateAll(DataSet);
       if ( EditConfirmClosing.Checked )
-        if ( !DisplayManager.QueryYesNo(Localizer.ExitApplicationText.GetLang()) )
+        if ( !DisplayManager.QueryYesNo(Translations.ExitApplicationText.GetLang()) )
         {
           e.Cancel = true;
           return;
@@ -133,36 +132,6 @@ namespace Ordisoftware.HebrewLetters
     private void SessionEnding(object sender, SessionEndingEventArgs e)
     {
       Close();
-    }
-
-    /// <summary>
-    /// Check if a newer version is available.
-    /// </summary>
-    private void CheckUpdate(bool auto)
-    {
-      try
-      {
-        string title = AboutBox.Instance.AssemblyTitle;
-        string url = "http://www.ordisoftware.com/files/" + title.Replace(" ", "") + ".update";
-        using ( WebClient client = new WebClient() )
-        {
-          string[] partsVersion = client.DownloadString(url).Split('.');
-          var version = new Version(Convert.ToInt32(partsVersion[0]), Convert.ToInt32(partsVersion[1]));
-          if ( version.CompareTo(System.Reflection.Assembly.GetExecutingAssembly().GetName().Version) <= 0 )
-          {
-            if ( !auto )
-              DisplayManager.Show(Localizer.CheckUpdateNoNewText.GetLang());
-          }
-          else
-            if ( DisplayManager.QueryYesNo(Localizer.CheckUpdateResultText.GetLang() + version + Environment.NewLine +
-                                           Environment.NewLine +
-                                           Localizer.CheckUpdateAskDownloadText.GetLang()) )
-            AboutBox.Instance.OpenApplicationHome();
-        }
-      }
-      catch
-      {
-      }
     }
 
     /// <summary>
@@ -231,7 +200,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void ActionResetWinSettings_Click(object sender, EventArgs e)
     {
-      if ( DisplayManager.QueryYesNo(Localizer.RestoreWinPosText.GetLang()) )
+      if ( DisplayManager.QueryYesNo(Translations.RestoreWinPosText.GetLang()) )
         Program.Settings.RestoreMainForm();
     }
 
@@ -304,7 +273,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void ActionCheckUpdate_Click(object sender, EventArgs e)
     {
-      CheckUpdate(false);
+      Program.CheckUpdate(false);
     }
 
     /// <summary>
@@ -335,7 +304,7 @@ namespace Ordisoftware.HebrewLetters
 
     private void ActionReset_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
-      if ( DisplayManager.QueryYesNo(Localizer.RestoreLettersDefaultText.GetLang()) )
+      if ( DisplayManager.QueryYesNo(Translations.RestoreLettersDefaultText.GetLang()) )
         CreateDataIfNotExists(true);
     }
 

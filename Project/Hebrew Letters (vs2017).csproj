@@ -58,7 +58,8 @@
     <Compile Include="Dependencies\Core Library\DisplayManager.Show.cs" />
     <Compile Include="Dependencies\Core Library\SystemManager.Url.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Source\Classes\Letters.cs" />
+    <Compile Include="Source\Enums\Letters.cs" />
+    <Compile Include="Source\Enums\Translations.cs" />
     <Compile Include="Source\Classes\Localizer.cs" />
     <Compile Include="Source\Classes\SettingsHelper.cs" />
     <Compile Include="Source\Forms\MainForm.DB.cs">

@@ -49,9 +49,14 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 ## Changelog
 
-#### 2019.09.__ - Version 2.4
+#### 2019.09.19 - Version 2.5
 
-- Fix window location and settings.
+- Add option to disable startup check update.
+- Some code refactorings.
+
+#### 2019.09.15 - Version 2.4
+
+- Fix starting form location.
 
 #### 2019.09.04 - Version 2.3
 
