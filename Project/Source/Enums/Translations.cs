@@ -21,7 +21,7 @@ namespace Ordisoftware.HebrewLetters
   static public class Translations
   {
 
-    static public readonly string NewLine = NewLine;
+    static public readonly string NewLine = Environment.NewLine;
 
     static public readonly Dictionary<string, string> ApplicationDescriptionText
       = new Dictionary<string, string>()
