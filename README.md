@@ -52,6 +52,7 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 #### __________ - Version 2.5
 
 - Fix database creation.
+- Some fixes.
 
 #### 2019.09.15 - Version 2.4
 
