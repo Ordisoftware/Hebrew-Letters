@@ -59,6 +59,7 @@
       this.TabPageMonth = new System.Windows.Forms.TabPage();
       this.PanelViewSettings = new System.Windows.Forms.Panel();
       this.PanelSettingsDetails = new System.Windows.Forms.Panel();
+      this.EditCheckUpdateAtStartup = new System.Windows.Forms.CheckBox();
       this.hebrewLabel1 = new System.Windows.Forms.Label();
       this.LettersBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.DataSet = new Ordisoftware.HebrewLetters.Data.DataSet();
@@ -333,6 +334,7 @@
       // PanelSettingsDetails
       // 
       this.PanelSettingsDetails.BackColor = System.Drawing.SystemColors.Control;
+      this.PanelSettingsDetails.Controls.Add(this.EditCheckUpdateAtStartup);
       this.PanelSettingsDetails.Controls.Add(this.hebrewLabel1);
       this.PanelSettingsDetails.Controls.Add(negativeLabel);
       this.PanelSettingsDetails.Controls.Add(this.negativeTextBox);
@@ -358,6 +360,15 @@
       this.PanelSettingsDetails.Controls.Add(this.structureTextBox);
       resources.ApplyResources(this.PanelSettingsDetails, "PanelSettingsDetails");
       this.PanelSettingsDetails.Name = "PanelSettingsDetails";
+      // 
+      // EditCheckUpdateAtStartup
+      // 
+      resources.ApplyResources(this.EditCheckUpdateAtStartup, "EditCheckUpdateAtStartup");
+      this.EditCheckUpdateAtStartup.Checked = global::Ordisoftware.HebrewLetters.Properties.Settings.Default.CheckUpdateAtStartup;
+      this.EditCheckUpdateAtStartup.CheckState = System.Windows.Forms.CheckState.Checked;
+      this.EditCheckUpdateAtStartup.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Ordisoftware.HebrewLetters.Properties.Settings.Default, "CheckUpdateAtStartup", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+      this.EditCheckUpdateAtStartup.Name = "EditCheckUpdateAtStartup";
+      this.EditCheckUpdateAtStartup.UseVisualStyleBackColor = true;
       // 
       // hebrewLabel1
       // 
@@ -886,6 +897,7 @@
     private System.Windows.Forms.TextBox positiveTextBox;
     private System.Windows.Forms.Button ActionCopyToClipboardMeanings;
     private System.Windows.Forms.Label hebrewLabel1;
+    private System.Windows.Forms.CheckBox EditCheckUpdateAtStartup;
   }
 }
 

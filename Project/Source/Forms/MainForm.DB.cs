@@ -96,7 +96,7 @@ namespace Ordisoftware.HebrewLetters
       {
         connection.Close();
         if ( upgraded )
-          if ( DisplayManager.QueryYesNo(Localizer.DatabaseChangedText.GetLang()) )
+          if ( DisplayManager.QueryYesNo(Translations.DatabaseChangedText.GetLang()) )
             SetView(ViewModeType.Settings);
       }
     }
@@ -122,7 +122,7 @@ namespace Ordisoftware.HebrewLetters
 
       string lang = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
       if ( lang != "fr" && lang != "en" ) lang = "en";
-      string data = System.IO.File.ReadAllText(Program.RootPath + "Project\\Data\\Alphabet-" + lang + ".txt",
+      string data = System.IO.File.ReadAllText(Program.RootFolderPath + "Project\\Data\\Alphabet-" + lang + ".txt",
                                                System.Text.Encoding.Default);
       int indexStart = 0;
       Func<string, string> getStrValue = (name) =>
