@@ -49,9 +49,11 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 ## Changelog
 
-#### 2019.__.__ - Version 2.6
+#### 2019.09.__ - Version 2.6
 
 - Add option to choose language.
+- Improve UI.
+- Update meanings.
 - Update help.
 - Some code refactorings.
 
