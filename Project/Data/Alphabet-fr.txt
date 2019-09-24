@@ -6,7 +6,7 @@ Negative: Ignorance
 Verb: Planifier
 Structure: Boeuf
 Function: Maître
-Meanings: Unité,Un,Unique,Unifié,Source,Origine,Chef,Instructeur,Néant,Immatériel,Silence,Potentiel,Indéterminé,Non manifesté,Concept,Espace,Distance,Interstice,Stabilité,Satisfaction,Modestie,Art,Enseignement,Imagination,Miroir de la création différenciée : moi-toi,Adam (Youd droit) et 'Havah (Youd gauche)
+Meanings: Unité,Un,Unique,Unifié,Source,Origine,Chef,Instructeur,Néant,Immatériel,Silence,Potentiel,Indéterminé,Non manifesté,Concept,Espace,Distance,Interstice,Stabilité,Satisfaction,Modestie,Art,Enseignement,Imagination,Miroir,Adam et 'Havah
 
 BET
 ValueSimple: 2
@@ -100,7 +100,7 @@ Negative: Interruption
 Verb: Exister
 Structure: Main
 Function: Amour
-Meanings: Flamme énergie (Adam XY et 'Havah XX),Noyau spirituel,Germe,Centre,Pureté,Paix,Abnégation,Spermatozoïde
+Meanings: Flamme, Énergie,Noyau spirituel,Germe,Centre,Pureté,Paix,Abnégation,Spermatozoïde
 
 KAF
 ValueSimple: 20
@@ -190,7 +190,7 @@ Negative: Mensonge
 Verb: Libérer
 Structure: Nuque
 Function: Sagesse
-Meanings: Départ,Début,Lâcher prise,Don,Différentiation entre réel et imaginaire,Illumination,Liberté,Imitation,Séparation,Coupure,Conspiration
+Meanings: Départ,Début,Lâcher prise,Don,Différentiation,Illumination,Liberté,Imitation,Séparation,Coupure,Conspiration
 
 RESH
 ValueSimple: 200

@@ -6,7 +6,7 @@ Negative: Ignorance
 Verb: Plan
 Structure: Beef
 Function: Master
-Meanings: Unit,One,Single,Unified,Source,Origin,Leader,Instructor,None,Intangible,Silence,Potential,Undetermined,Not manifested,Concept,Space,Distance,Interstice,Stability,Satisfaction,Modesty,Art,Teaching,Imagination,Mirror of differentiated creation: me-you,Adam (Youd right) and 'Havah (Youd left)
+Meanings: Unit,One,Single,Unified,Source,Origin,Leader,Instructor,None,Intangible,Silence,Potential,Undetermined,Not manifested,Concept,Space,Distance,Interstice,Stability,Satisfaction,Modesty,Art,Teaching,Imagination,Mirror,Adam and 'Havah
 
 BET
 ValueSimple: 2
@@ -100,7 +100,7 @@ Negative: Interruption
 Verb: Exist
 Structure: Hand
 Function: Love
-Meanings: Flame Energy (Adam XY and 'Havah XX),Spiritual Core,Seed,Center,Purity,Peace,Abnegation,Spermatozoa
+Meanings: Flame, Energy,Spiritual Core,Seed,Center,Purity,Peace,Abnegation,Spermatozoa
 
 KAF
 ValueSimple: 20
@@ -190,7 +190,7 @@ Negative: Lie
 Verb: Release
 Structure: Neck
 Function: Wisdom
-Meanings: Departure,Beginning,Letting go,Don,Differentiation between real and imaginary,Illumination,Freedom,Imitation,Separation,Cut,Conspiracy
+Meanings: Departure,Beginning,Letting go,Don,Differentiation,Illumination,Freedom,Imitation,Separation,Cut,Conspiracy
 
 RESH
 ValueSimple: 200
