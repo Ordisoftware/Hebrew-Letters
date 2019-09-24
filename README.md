@@ -47,6 +47,14 @@ The setup tries to register an ODBC DSN to the registry but in case of problem r
 
 Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
+#### Keyboard shortcuts
+
+- F1 : Analyse view
+- F2 : Settings view
+- F8 : Preferences
+- F11 : Help
+- F12 : About
+
 ## Changelog
 
 #### 2019.09.__ - Version 2.6
