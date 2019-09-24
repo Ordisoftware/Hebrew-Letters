@@ -82,7 +82,7 @@ namespace Ordisoftware.HebrewLetters
           {
             MenuItem = ActionViewSettings,
             Panel = PanelViewSettings,
-            Focused = comboBoxCode
+            Focused = ComboBoxCode
           }
         }
       };

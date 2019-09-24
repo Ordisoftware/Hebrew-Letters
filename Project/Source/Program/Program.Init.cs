@@ -20,6 +20,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
+using System.ComponentModel;
 
 namespace Ordisoftware.HebrewLetters
 {
@@ -74,15 +75,26 @@ namespace Ordisoftware.HebrewLetters
     static internal void ApplyCurrentLanguage()
     {
       string lang = "en-US";
-      if ( Settings.Language == "fr" )
-        lang = "fr-FR";
+      if ( Settings.Language == "fr" ) lang = "fr-FR";
       var culture = new CultureInfo(lang);
-      foreach ( Form form in Application.OpenForms )
-        if ( form != AboutBox.Instance )
-          new Infralution.Localization.CultureManager().ManagedControl = form;
-      new Infralution.Localization.CultureManager().ManagedControl = AboutBox.Instance;
       Infralution.Localization.CultureManager.ApplicationUICulture = culture;
+      foreach ( Form form in Application.OpenForms )
+      {
+        new Infralution.Localization.CultureManager().ManagedControl = form;
+        ComponentResourceManager resources = new ComponentResourceManager(form.GetType());
+        resources.ApplyResources(form, "$this");
+        ApplyResources(resources, form.Controls);
+      }
       AboutBox.Instance.AboutBox_Shown(null, null);
+    }
+
+    static private void ApplyResources(ComponentResourceManager resources, Control.ControlCollection controls)
+    {
+      foreach ( Control control in controls )
+      {
+        if ( control is Label ) resources.ApplyResources(control, control.Name);
+        ApplyResources(resources, control.Controls);
+      }
     }
 
     static private void SetFormsIcon()

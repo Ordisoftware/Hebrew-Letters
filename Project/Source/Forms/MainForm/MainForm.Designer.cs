@@ -35,7 +35,7 @@
       System.Windows.Forms.Label functionLabel;
       System.Windows.Forms.Label valueSimpleLabel;
       System.Windows.Forms.Label valueFullLabel;
-      System.Windows.Forms.Label label2;
+      System.Windows.Forms.Label LabelMeanings;
       System.Windows.Forms.Label verbLabel;
       System.Windows.Forms.Label positiveLabel;
       System.Windows.Forms.Label negativeLabel;
@@ -59,10 +59,7 @@
       this.TabPageMonth = new System.Windows.Forms.TabPage();
       this.PanelViewSettings = new System.Windows.Forms.Panel();
       this.PanelSettingsDetails = new System.Windows.Forms.Panel();
-      this.ActionSelectLangFR = new System.Windows.Forms.Button();
-      this.ActionSelectLangEN = new System.Windows.Forms.Button();
-      this.EditCheckUpdateAtStartup = new System.Windows.Forms.CheckBox();
-      this.hebrewLabel1 = new System.Windows.Forms.Label();
+      this.LabelHebrew = new System.Windows.Forms.Label();
       this.LettersBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.DataSet = new Ordisoftware.HebrewLetters.Data.DataSet();
       this.negativeTextBox = new System.Windows.Forms.TextBox();
@@ -71,7 +68,7 @@
       this.ActionDeleteMeaning = new System.Windows.Forms.Button();
       this.ActionAddMeaning = new System.Windows.Forms.Button();
       this.ActionReset = new System.Windows.Forms.LinkLabel();
-      this.comboBoxCode = new System.Windows.Forms.ComboBox();
+      this.ComboBoxCode = new System.Windows.Forms.ComboBox();
       this.EditMeanings = new System.Windows.Forms.DataGridView();
       this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.meaningsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -84,7 +81,6 @@
       this.PanelTitle = new System.Windows.Forms.Panel();
       this.LabelTitle = new System.Windows.Forms.Label();
       this.moonPhaseImagePictureBox = new System.Windows.Forms.PictureBox();
-      this.label1 = new System.Windows.Forms.Label();
       this.TimerTooltip = new System.Windows.Forms.Timer(this.components);
       this.ToolStrip = new System.Windows.Forms.ToolStrip();
       this.ActionExit = new System.Windows.Forms.ToolStripButton();
@@ -97,6 +93,7 @@
       this.ActionHelp = new System.Windows.Forms.ToolStripButton();
       this.ActionAbout = new System.Windows.Forms.ToolStripButton();
       this.Sep6 = new System.Windows.Forms.ToolStripSeparator();
+      this.ActionPreferences = new System.Windows.Forms.ToolStripButton();
       this.MenuSettings = new System.Windows.Forms.ToolStripDropDownButton();
       this.MenuitemScreenPosition = new System.Windows.Forms.ToolStripMenuItem();
       this.EditScreenNone = new System.Windows.Forms.ToolStripMenuItem();
@@ -114,13 +111,12 @@
       this.LettersTableAdapter = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.LettersTableAdapter();
       this.TableAdapterManager = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.TableAdapterManager();
       this.MeaningsTableAdapter = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.MeaningsTableAdapter();
-      this.ActionPreferences = new System.Windows.Forms.ToolStripButton();
       nameLabel = new System.Windows.Forms.Label();
       structureLabel = new System.Windows.Forms.Label();
       functionLabel = new System.Windows.Forms.Label();
       valueSimpleLabel = new System.Windows.Forms.Label();
       valueFullLabel = new System.Windows.Forms.Label();
-      label2 = new System.Windows.Forms.Label();
+      LabelMeanings = new System.Windows.Forms.Label();
       verbLabel = new System.Windows.Forms.Label();
       positiveLabel = new System.Windows.Forms.Label();
       negativeLabel = new System.Windows.Forms.Label();
@@ -168,10 +164,10 @@
       resources.ApplyResources(valueFullLabel, "valueFullLabel");
       valueFullLabel.Name = "valueFullLabel";
       // 
-      // label2
+      // LabelMeanings
       // 
-      resources.ApplyResources(label2, "label2");
-      label2.Name = "label2";
+      resources.ApplyResources(LabelMeanings, "LabelMeanings");
+      LabelMeanings.Name = "LabelMeanings";
       // 
       // verbLabel
       // 
@@ -338,10 +334,7 @@
       // PanelSettingsDetails
       // 
       this.PanelSettingsDetails.BackColor = System.Drawing.SystemColors.Control;
-      this.PanelSettingsDetails.Controls.Add(this.ActionSelectLangFR);
-      this.PanelSettingsDetails.Controls.Add(this.ActionSelectLangEN);
-      this.PanelSettingsDetails.Controls.Add(this.EditCheckUpdateAtStartup);
-      this.PanelSettingsDetails.Controls.Add(this.hebrewLabel1);
+      this.PanelSettingsDetails.Controls.Add(this.LabelHebrew);
       this.PanelSettingsDetails.Controls.Add(negativeLabel);
       this.PanelSettingsDetails.Controls.Add(this.negativeTextBox);
       this.PanelSettingsDetails.Controls.Add(positiveLabel);
@@ -351,8 +344,8 @@
       this.PanelSettingsDetails.Controls.Add(this.ActionDeleteMeaning);
       this.PanelSettingsDetails.Controls.Add(this.ActionAddMeaning);
       this.PanelSettingsDetails.Controls.Add(this.ActionReset);
-      this.PanelSettingsDetails.Controls.Add(this.comboBoxCode);
-      this.PanelSettingsDetails.Controls.Add(label2);
+      this.PanelSettingsDetails.Controls.Add(this.ComboBoxCode);
+      this.PanelSettingsDetails.Controls.Add(LabelMeanings);
       this.PanelSettingsDetails.Controls.Add(this.EditMeanings);
       this.PanelSettingsDetails.Controls.Add(this.valueFullTextBox);
       this.PanelSettingsDetails.Controls.Add(valueFullLabel);
@@ -367,40 +360,11 @@
       resources.ApplyResources(this.PanelSettingsDetails, "PanelSettingsDetails");
       this.PanelSettingsDetails.Name = "PanelSettingsDetails";
       // 
-      // ActionSelectLangFR
+      // LabelHebrew
       // 
-      this.ActionSelectLangFR.AllowDrop = true;
-      this.ActionSelectLangFR.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-      this.ActionSelectLangFR.FlatAppearance.BorderSize = 0;
-      resources.ApplyResources(this.ActionSelectLangFR, "ActionSelectLangFR");
-      this.ActionSelectLangFR.Name = "ActionSelectLangFR";
-      this.ActionSelectLangFR.UseVisualStyleBackColor = true;
-      this.ActionSelectLangFR.Click += new System.EventHandler(this.ActionSelectLangFR_Click);
-      // 
-      // ActionSelectLangEN
-      // 
-      this.ActionSelectLangEN.AllowDrop = true;
-      this.ActionSelectLangEN.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-      this.ActionSelectLangEN.FlatAppearance.BorderSize = 0;
-      resources.ApplyResources(this.ActionSelectLangEN, "ActionSelectLangEN");
-      this.ActionSelectLangEN.Name = "ActionSelectLangEN";
-      this.ActionSelectLangEN.UseVisualStyleBackColor = true;
-      this.ActionSelectLangEN.Click += new System.EventHandler(this.ActionSelectLangEN_Click);
-      // 
-      // EditCheckUpdateAtStartup
-      // 
-      resources.ApplyResources(this.EditCheckUpdateAtStartup, "EditCheckUpdateAtStartup");
-      this.EditCheckUpdateAtStartup.Checked = global::Ordisoftware.HebrewLetters.Properties.Settings.Default.CheckUpdateAtStartup;
-      this.EditCheckUpdateAtStartup.CheckState = System.Windows.Forms.CheckState.Checked;
-      this.EditCheckUpdateAtStartup.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Ordisoftware.HebrewLetters.Properties.Settings.Default, "CheckUpdateAtStartup", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-      this.EditCheckUpdateAtStartup.Name = "EditCheckUpdateAtStartup";
-      this.EditCheckUpdateAtStartup.UseVisualStyleBackColor = true;
-      // 
-      // hebrewLabel1
-      // 
-      this.hebrewLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Hebrew", true));
-      resources.ApplyResources(this.hebrewLabel1, "hebrewLabel1");
-      this.hebrewLabel1.Name = "hebrewLabel1";
+      this.LabelHebrew.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Hebrew", true));
+      resources.ApplyResources(this.LabelHebrew, "LabelHebrew");
+      this.LabelHebrew.Name = "LabelHebrew";
       // 
       // LettersBindingSource
       // 
@@ -460,15 +424,15 @@
       this.ActionReset.TabStop = true;
       this.ActionReset.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ActionReset_LinkClicked);
       // 
-      // comboBoxCode
+      // ComboBoxCode
       // 
-      this.comboBoxCode.BackColor = System.Drawing.Color.LightYellow;
-      this.comboBoxCode.DataSource = this.LettersBindingSource;
-      this.comboBoxCode.DisplayMember = "Code";
-      this.comboBoxCode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-      resources.ApplyResources(this.comboBoxCode, "comboBoxCode");
-      this.comboBoxCode.FormattingEnabled = true;
-      this.comboBoxCode.Name = "comboBoxCode";
+      this.ComboBoxCode.BackColor = System.Drawing.Color.LightYellow;
+      this.ComboBoxCode.DataSource = this.LettersBindingSource;
+      this.ComboBoxCode.DisplayMember = "Code";
+      this.ComboBoxCode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+      resources.ApplyResources(this.ComboBoxCode, "ComboBoxCode");
+      this.ComboBoxCode.FormattingEnabled = true;
+      this.ComboBoxCode.Name = "ComboBoxCode";
       // 
       // EditMeanings
       // 
@@ -565,11 +529,6 @@
       resources.ApplyResources(this.moonPhaseImagePictureBox, "moonPhaseImagePictureBox");
       this.moonPhaseImagePictureBox.Name = "moonPhaseImagePictureBox";
       this.moonPhaseImagePictureBox.TabStop = false;
-      // 
-      // label1
-      // 
-      resources.ApplyResources(this.label1, "label1");
-      this.label1.Name = "label1";
       // 
       // TimerTooltip
       // 
@@ -693,6 +652,15 @@
       this.Sep6.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
       this.Sep6.Name = "Sep6";
       resources.ApplyResources(this.Sep6, "Sep6");
+      // 
+      // ActionPreferences
+      // 
+      this.ActionPreferences.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+      this.ActionPreferences.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      resources.ApplyResources(this.ActionPreferences, "ActionPreferences");
+      this.ActionPreferences.Name = "ActionPreferences";
+      this.ActionPreferences.Padding = new System.Windows.Forms.Padding(5);
+      this.ActionPreferences.Click += new System.EventHandler(this.ActionPreferences_Click);
       // 
       // MenuSettings
       // 
@@ -823,15 +791,6 @@
       // 
       this.MeaningsTableAdapter.ClearBeforeFill = true;
       // 
-      // ActionPreferences
-      // 
-      this.ActionPreferences.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-      this.ActionPreferences.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      resources.ApplyResources(this.ActionPreferences, "ActionPreferences");
-      this.ActionPreferences.Name = "ActionPreferences";
-      this.ActionPreferences.Padding = new System.Windows.Forms.Padding(5);
-      this.ActionPreferences.Click += new System.EventHandler(this.ActionPreferences_Click);
-      // 
       // MainForm
       // 
       resources.ApplyResources(this, "$this");
@@ -901,7 +860,6 @@
     private System.Windows.Forms.Panel PanelMainOuter;
     private System.Windows.Forms.Panel PanelMainInner;
     private System.Windows.Forms.PictureBox moonPhaseImagePictureBox;
-    private System.Windows.Forms.Label label1;
     internal System.Windows.Forms.Panel PanelMainCenter;
     private System.Windows.Forms.Timer TimerTooltip;
     private LettersControl EditLetters;
@@ -926,7 +884,7 @@
     private System.Windows.Forms.BindingSource meaningsBindingSource;
     private System.Windows.Forms.Panel PanelSettingsDetails;
     private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-    private System.Windows.Forms.ComboBox comboBoxCode;
+    private System.Windows.Forms.ComboBox ComboBoxCode;
     private System.Windows.Forms.LinkLabel ActionReset;
     private System.Windows.Forms.Button ActionDeleteMeaning;
     private System.Windows.Forms.Button ActionAddMeaning;
@@ -943,11 +901,8 @@
     private System.Windows.Forms.TextBox negativeTextBox;
     private System.Windows.Forms.TextBox positiveTextBox;
     private System.Windows.Forms.Button ActionCopyToClipboardMeanings;
-    private System.Windows.Forms.Label hebrewLabel1;
-    private System.Windows.Forms.CheckBox EditCheckUpdateAtStartup;
+    private System.Windows.Forms.Label LabelHebrew;
     private System.Windows.Forms.ToolStripButton ActionCreateGitHubIssue;
-    private System.Windows.Forms.Button ActionSelectLangFR;
-    private System.Windows.Forms.Button ActionSelectLangEN;
     private System.Windows.Forms.ToolStripButton ActionPreferences;
   }
 }

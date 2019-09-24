@@ -95,7 +95,6 @@ namespace Ordisoftware.HebrewLetters
     {
       Program.CheckUpdate(true);
       IsReady = true;
-      UpdateLanguagesButtons();
     }
 
     /// <summary>
@@ -402,34 +401,6 @@ namespace Ordisoftware.HebrewLetters
     {
       if ( !IsReady ) return;
       EditScreenNone.PerformClick();
-    }
-
-    private void UpdateLanguagesButtons()
-    {
-      if ( Program.Settings.Language == "en" )
-      {
-        ActionSelectLangEN.FlatAppearance.BorderSize = 1;
-        ActionSelectLangFR.FlatAppearance.BorderSize = 0;
-      }
-      if ( Program.Settings.Language == "fr" )
-      {
-        ActionSelectLangFR.FlatAppearance.BorderSize = 1;
-        ActionSelectLangEN.FlatAppearance.BorderSize = 0;
-      }
-    }
-
-    private void ActionSelectLangEN_Click(object sender, EventArgs e)
-    {
-      Program.Settings.Language = "en";
-      Program.ApplyCurrentLanguage();
-      UpdateLanguagesButtons();
-    }
-
-    private void ActionSelectLangFR_Click(object sender, EventArgs e)
-    {
-      Program.Settings.Language = "fr";
-      Program.ApplyCurrentLanguage();
-      UpdateLanguagesButtons();
     }
 
   }
