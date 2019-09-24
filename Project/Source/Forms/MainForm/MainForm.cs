@@ -308,15 +308,22 @@ namespace Ordisoftware.HebrewLetters
         CreateDataIfNotExists(true);
     }
 
-    private void PanelLetters_KeyPress(object sender, KeyPressEventArgs e)
+    private void EditLetters_KeyPress(object sender, KeyPressEventArgs e)
     {
       if ( e.KeyChar == '\r' ) ActionAnalyse.PerformClick();
+    }
+
+    private void EditLetters_InputTextChanged(object sender, EventArgs e)
+    {
+      ActionAnalyse.Enabled = EditLetters.Input.Text != "";
     }
 
     private void ActionClear_Click(object sender, EventArgs e)
     {
       EditLetters.Input.Text = "";
-      ActionAnalyse.PerformClick();
+      EditSentence.Text = "";
+      EditGematria.Text = "";
+      EditAnalyze.Controls.Clear();
     }
 
     private void ActionCopyToClipboardMeanings_Click(object sender, EventArgs e)

@@ -13,6 +13,7 @@
 /// <created> 2016-04 </created>
 /// <edited> 2019-09 </edited>
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
@@ -20,7 +21,6 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
-using System.ComponentModel;
 
 namespace Ordisoftware.HebrewLetters
 {
@@ -77,15 +77,20 @@ namespace Ordisoftware.HebrewLetters
       string lang = "en-US";
       if ( Settings.Language == "fr" ) lang = "fr-FR";
       var culture = new CultureInfo(lang);
-      Infralution.Localization.CultureManager.ApplicationUICulture = culture;
+      Thread.CurrentThread.CurrentCulture = culture;
+      Thread.CurrentThread.CurrentUICulture = culture;
       foreach ( Form form in Application.OpenForms )
-      {
-        new Infralution.Localization.CultureManager().ManagedControl = form;
-        ComponentResourceManager resources = new ComponentResourceManager(form.GetType());
-        resources.ApplyResources(form, "$this");
-        ApplyResources(resources, form.Controls);
-      }
+        if ( form != AboutBox.Instance )
+        {
+          new Infralution.Localization.CultureManager().ManagedControl = form;
+          ComponentResourceManager resources = new ComponentResourceManager(form.GetType());
+          ApplyResources(resources, form.Controls);
+        }
+      new Infralution.Localization.CultureManager().ManagedControl = AboutBox.Instance;
+      Infralution.Localization.CultureManager.ApplicationUICulture = culture;
       AboutBox.Instance.AboutBox_Shown(null, null);
+      MainForm.Instance.LabelGematria.Location = new Point(MainForm.Instance.LabelGematria.Location.X,
+                                                           MainForm.Instance.EditGematria.Location.Y - 19);
     }
 
     static private void ApplyResources(ComponentResourceManager resources, Control.ControlCollection controls)

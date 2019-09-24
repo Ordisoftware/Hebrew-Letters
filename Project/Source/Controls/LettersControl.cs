@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Hebrew Letters.
-/// Copyright 2016-2019 Olivier Rogier.
+/// Copyright 2012-2019 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at 
@@ -16,7 +16,7 @@ using System;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using Ordisoftware.Core.Diagnostics;
+using Ordisoftware.Core;
 
 namespace Ordisoftware.HebrewLetters
 {
@@ -30,11 +30,10 @@ namespace Ordisoftware.HebrewLetters
     /// <summary>
     /// Indicates if a key is being processed.
     /// </summary>
-    [ThreadStatic]
-    private bool NewKeyPressed = false;
+    private bool KeyProcessed = false;
 
     /// <summary>
-    /// Indicate the background color of letters panel
+    /// Indicate the background color of letters panel.
     /// </summary>
     public Color LettersBackground
     {
@@ -43,12 +42,21 @@ namespace Ordisoftware.HebrewLetters
     }
 
     /// <summary>
-    /// Indicate the background color of input panel
+    /// Indicate the background color of input textbox.
     /// </summary>
-    public Color InputBackground
+    public Color InputBackColor
     {
       get { return Input.BackColor; }
       set { Input.BackColor = value; }
+    }
+
+    /// <summary>
+    /// Input textbox text changed event.
+    /// </summary>
+    public event EventHandler InputTextChanged
+    {
+      add { Input.TextChanged += value; }
+      remove { Input.TextChanged -= value; }
     }
 
     /// <summary>
@@ -111,7 +119,7 @@ namespace Ordisoftware.HebrewLetters
       }
       catch ( Exception ex )
       {
-        Debugger.ManageException(this, ex);
+        ex.Manage(this);
       }
     }
 
@@ -124,7 +132,7 @@ namespace Ordisoftware.HebrewLetters
       if ( !HebrewLetters.Codes.Contains(Convert.ToString(e.KeyChar)) )
         e.KeyChar = '\x0';
       else
-        NewKeyPressed = true;
+        KeyProcessed = true;
     }
 
     /// <summary>
@@ -132,9 +140,9 @@ namespace Ordisoftware.HebrewLetters
     /// </summary>
     private void Input_KeyUp(object sender, KeyEventArgs e)
     {
-      if ( NewKeyPressed )
+      if ( KeyProcessed )
       {
-        NewKeyPressed = false;
+        KeyProcessed = false;
         if ( Input.SelectionStart != 0 ) 
           Input.SelectionStart = Input.SelectionStart - 1;
       }
