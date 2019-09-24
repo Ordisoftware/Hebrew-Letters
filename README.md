@@ -32,6 +32,8 @@ A tool for Windows written in C# that allows the lettriq study of hebrew words.
 
 [![Showing video](https://img.youtube.com/vi/rs7l-wvVt-I/0.jpg)](https://www.youtube.com/watch?v=rs7l-wvVt-I)
 
+[![Showing video](https://img.youtube.com/vi/Wc5SdiASvCg/0.jpg)](https://www.youtube.com/watch?v=Wc5SdiASvCg)
+
 ## Frequently asked questions
 
 #### How to install SQlite ODBC Driver?
