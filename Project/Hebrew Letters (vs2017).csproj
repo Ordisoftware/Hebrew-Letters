@@ -57,8 +57,11 @@
     <Compile Include="Dependencies\Core Library\DisplayManager.QueryBox.cs" />
     <Compile Include="Dependencies\Core Library\DisplayManager.Show.cs" />
     <Compile Include="Dependencies\Core Library\SystemManager.Url.cs" />
+    <Compile Include="Dependencies\CultureManager\CultureManager.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Source\Enums\Letters.cs" />
+    <Compile Include="Source\Classes\HebrewLetters.cs" />
     <Compile Include="Source\Enums\Translations.cs" />
     <Compile Include="Source\Classes\Localizer.cs" />
     <Compile Include="Source\Classes\SettingsHelper.cs" />
@@ -88,13 +91,16 @@
     <Compile Include="Source\Forms\MainForm.Update.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Source\Forms\LettersControl.cs">
+    <Compile Include="Source\Controls\LettersControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Source\Forms\LettersControl.Designer.cs">
+    <Compile Include="Source\Controls\LettersControl.Designer.cs">
       <DependentUpon>LettersControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\Program.cs" />
+    <Compile Include="Source\Program\Program.Init.cs" />
+    <Compile Include="Source\Program\Program.cs" />
+    <Compile Include="Source\Program\Program.System.cs" />
+    <Compile Include="Source\Program\Program.Vars.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -118,7 +124,7 @@
     <EmbeddedResource Include="Source\Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Source\Forms\LettersControl.resx">
+    <EmbeddedResource Include="Source\Controls\LettersControl.resx">
       <DependentUpon>LettersControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />

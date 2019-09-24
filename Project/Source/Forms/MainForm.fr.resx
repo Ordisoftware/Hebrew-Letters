@@ -443,26 +443,6 @@
   <data name="ActionExit.ToolTipText" xml:space="preserve">
     <value>Quitter</value>
   </data>
-  <data name="ActionContact.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANLSURBVFhH7ZbbThNRGIV7oZcm3uh7+Ar6EF6aiMH3MHLw
-        wK13AvFCE2MwUQxQOStoW+SMbYAWFMqh5SAC9Qi/65vpkKEziQiFG5lkhZm9//9ba/bebYmcXqeXrjM3
-        G/ubKxsH7EZD3CrqXd0os/a48sALT7wJcI6BgpnN/zKb++FqXsqWSbD2uPLAC0+8CXChQqnWf5tVdWSt
-        sGP2LG3WJD3PlEewYMLGAy888SbARZZmTcma0rt2pzNr2yp8OWvWLL36dDTBgAUTNh544Yn3XoCVn2Yt
-        c2YvZnesrttdiVY9t0nRQ4peGLBgwsYDr0CAnAaj82btC2ZPkwW71ZKxLTVqxRwp/D/J64MBCyZsPPAK
-        BFjSAWkvNnUtas9SBbvdlrFNAXr0jHoPKK+eXhiwYMLGA69AgEUNdiphl9QNYElnYrJgNVE3RH9OWj6g
-        VEsPvTBgwYSNB16hAfxv+UZNfQI9TOS1hFPOUsZXpPxfpBp32aecXhiw/KsTGmDhu9lbpfeL5vcCNnzI
-        W1WrQuyaDX0xG1wLF3PUUEsPvTBKuXgFA+hgvFNxqWKCDKybPRpctdq2advWl8jYV7NRmfnFGHPUUEsP
-        vWFMvIIBtCw0xLSMfsVXzTac/Uxbrfb0btQNkdoyS2664p4x5qihlh56S3l44BUaIKGGhAo8Deh5jW/I
-        1mmrkT7KqFp/772eNpXbt6K4Z4w5aqilh14YfiYe4QG0LENaNv9+5vSNxX5WSxN607ENswkMtMxXH/Tt
-        E2PMOTWqpYdeGP5zg0foFixqcESFwyoYEWRJz1U6yY9H8s5bAWZ+tGiQ1JqniuKeMeaooZYeemHAgumw
-        NY9X6ArQiBZ1Sus6MvZkOGdJgcZLDp1XN16U9+yvoYdeGLBgenXhK6D9Sukt+Om8r4beuYJNCpAUaEJN
-        hxG9MGDBhI0HXoEAyzq1FNTHstaDuX60/Sf9sIIBCyZsPPAKBNAnxOrjWSXfsbQaprSvpC+HYMGEjQde
-        gQD6hNhnpZvRXs3os5XxpMYjqciBCRsPvPYF4N8jBXUmcscsPPAq/kvmBrjWENusbEw4qa4fs/DAC08v
-        wHnpknRZunJCwgtPvCNnizekOUnhiffp9V9fkcgfSY4xpIzUX0kAAAAASUVORK5CYII=
-</value>
-  </data>
   <data name="ActionCheckUpdate.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -496,6 +476,54 @@
   </data>
   <data name="ActionCheckUpdate.Text" xml:space="preserve">
     <value>Vérifier mise à jour</value>
+  </data>
+  <data name="toolStripButton1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARKSURBVFhHrVdbSFRRFL1KijofJs4IpqAoPsaJIcW35Pv9
+        bsbwMeYjTUdR1EELaURIRUNlskgTEksQUvoNQz/qJ6RUMBz6MPrQH9Og+shE+7itM86M3rnHxzh3wWbt
+        e86Zvc89d5+99zDWYGBgwLW9vb2gpKREGxERMV5dXf2WSFBQ0NPy8nJtU1NTzuTk5GXjcuGg0WhuJiYm
+        zoeFhbF4PFX8/PwO0tLS5rq6upR4tg0dHR0JUVFRq1Cpzs4SbORzfX19JHTrMDs761hQUPDI19eXatga
+        kUqlbE5OTr9er3fE89kYHx93TU5Ofg+VavCiEh0d/WZhYcEV+smYmpoSYbdLUKlGbJXMzMx33d3dJ59E
+        dnb2K5D5Bw4ODhwD1oq7uzvr7OzMGcMNegnmA1foDoizWKFQdIyOjnpUVlaq5XL5uYMxPj5+9RZAjlyl
+        Ug1YzhcWFirAR5iZmZHIZLKfUDkL6+rqYsBmVFRUNOTl5T0rKipSNTc3kxsiJdLW1paET6cqLS19UVtb
+        S17EDPwmCcSxixzyA5/CBfohlEplP4iziIhWq5WCbUUwhGcbL3EfzDDLy8sueItfponj0tramgq2CQ0N
+        DXkgnu3Y2NhtlmUdGKTSG7QF/v7+5P5eh24TsrKykiUSCc8+kcbGxkwmPT39GW0yPz//OVgQxMXFTYJ4
+        PnJzc3UMjmKFNjk4OHgVLAhGRkZiQTwfCQkJH8gJ/LGcwNhvsKCAzX8gjh/E3ibj6enJGSQSHh7+BSwo
+        4IfY5PhBymcZe3t7ziARlN2vYEGRmpr6HcTxExgYyDIhISGcQSKo/bgh7CXogmBzc9OZ5ge1gSVBuGU5
+        QaSnpycRLAiQ5kk+4flAhfzGGCKRMonCNAoWBAhAcqV5PmJiYuaY4uJiHW0yICBgv6qqKgC6TYB9KQJw
+        HyrPB/rIB0xnZyevWJgEt2GjpaXlwvWAOPf29t6ASrWPNC0HM+QzmBdlZGR8RBb8JBKJDM/BwcEHCMr+
+        sbGxc5+GTqeT1tTUTHh5eVHfnAgCUA8+BOr3bZBhAulxCe23t1qtVnp4eJgNODk5kfS8BcMzhiJiAVLU
+        ysrKXiN2tu3s7DjOaIISXgM+BGlCjcnHMAl9HalYhLt7zzRmEtT3ejAVKGx3QZz1NElJSSHpnws0CPFu
+        bm7mN0YA9pJxnMhD3OG/kZGRLCqbfnh42IuM09Db23sNxHN4XHx8fA7QtMig84EuSgMyLEQLtoMTOL2L
+        tcDi4iIJWJ7T44KO6ujoaUB39ARkWIw2bR3fvBqnI5+fn5fixshp39+ElZWVUzeA+v8YfDZIIykWi6lG
+        dnd3r4CpOGkDOHYWAaqFfn4gBhT4Z7QDlWNsb2/PF0wFbQOhoaE7xrbMeqCRkCCZjOHv1QEez9zA2tqa
+        eQPIpLu43v3T09Niw6QtGBoaEqOL1eD69BmHTgRa7j4EWtPExITEOHQKGOY/TG6jc5+XmF0AAAAASUVO
+        RK5CYII=
+</value>
+  </data>
+  <data name="toolStripButton1.Text" xml:space="preserve">
+    <value>Demander une résolution de problème</value>
+  </data>
+  <data name="ActionContact.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANLSURBVFhH7ZbbThNRGIV7oZcm3uh7+Ar6EF6aiMH3MHLw
+        wK13AvFCE2MwUQxQOStoW+SMbYAWFMqh5SAC9Qi/65vpkKEziQiFG5lkhZm9//9ba/bebYmcXqeXrjM3
+        G/ubKxsH7EZD3CrqXd0os/a48sALT7wJcI6BgpnN/zKb++FqXsqWSbD2uPLAC0+8CXChQqnWf5tVdWSt
+        sGP2LG3WJD3PlEewYMLGAy888SbARZZmTcma0rt2pzNr2yp8OWvWLL36dDTBgAUTNh544Yn3XoCVn2Yt
+        c2YvZnesrttdiVY9t0nRQ4peGLBgwsYDr0CAnAaj82btC2ZPkwW71ZKxLTVqxRwp/D/J64MBCyZsPPAK
+        BFjSAWkvNnUtas9SBbvdlrFNAXr0jHoPKK+eXhiwYMLGA69AgEUNdiphl9QNYElnYrJgNVE3RH9OWj6g
+        VEsPvTBgwYSNB16hAfxv+UZNfQI9TOS1hFPOUsZXpPxfpBp32aecXhiw/KsTGmDhu9lbpfeL5vcCNnzI
+        W1WrQuyaDX0xG1wLF3PUUEsPvTBKuXgFA+hgvFNxqWKCDKybPRpctdq2advWl8jYV7NRmfnFGHPUUEsP
+        vWFMvIIBtCw0xLSMfsVXzTac/Uxbrfb0btQNkdoyS2664p4x5qihlh56S3l44BUaIKGGhAo8Deh5jW/I
+        1mmrkT7KqFp/772eNpXbt6K4Z4w5aqilh14YfiYe4QG0LENaNv9+5vSNxX5WSxN607ENswkMtMxXH/Tt
+        E2PMOTWqpYdeGP5zg0foFixqcESFwyoYEWRJz1U6yY9H8s5bAWZ+tGiQ1JqniuKeMeaooZYeemHAgumw
+        NY9X6ArQiBZ1Sus6MvZkOGdJgcZLDp1XN16U9+yvoYdeGLBgenXhK6D9Sukt+Om8r4beuYJNCpAUaEJN
+        hxG9MGDBhI0HXoEAyzq1FNTHstaDuX60/Sf9sIIBCyZsPPAKBNAnxOrjWSXfsbQaprSvpC+HYMGEjQde
+        gQD6hNhnpZvRXs3os5XxpMYjqciBCRsPvPYF4N8jBXUmcscsPPAq/kvmBrjWENusbEw4qa4fs/DAC08v
+        wHnpknRZunJCwgtPvCNnizekOUnhiffp9V9fkcgfSY4xpIzUX0kAAAAASUVORK5CYII=
+</value>
   </data>
   <data name="ActionWebsite.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -614,51 +642,6 @@
   <data name="ActionAbout.ToolTipText" xml:space="preserve">
     <value>A propos (F12)</value>
   </data>
-  <data name="EditScreenNone.Text" xml:space="preserve">
-    <value>Libre</value>
-  </data>
-  <data name="EditScreenTopLeft.Text" xml:space="preserve">
-    <value>Haut gauche</value>
-  </data>
-  <data name="EditScreenTopRight.Text" xml:space="preserve">
-    <value>Haut droit</value>
-  </data>
-  <data name="EditScreenBottomLeft.Text" xml:space="preserve">
-    <value>Bas gauche</value>
-  </data>
-  <data name="EditScreenBottomRight.Text" xml:space="preserve">
-    <value>Bas droit</value>
-  </data>
-  <data name="EditScreenCenter.Text" xml:space="preserve">
-    <value>Centrer</value>
-  </data>
-  <data name="MenuitemScreenPosition.Size" type="System.Drawing.Size, System.Drawing">
-    <value>279, 22</value>
-  </data>
-  <data name="MenuitemScreenPosition.Text" xml:space="preserve">
-    <value>Position de l'écran</value>
-  </data>
-  <data name="ActionResetWinSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>279, 22</value>
-  </data>
-  <data name="ActionResetWinSettings.Text" xml:space="preserve">
-    <value>Réinitialiser les paramètres de fenêtre</value>
-  </data>
-  <data name="Sep7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>276, 6</value>
-  </data>
-  <data name="EditShowTips.Size" type="System.Drawing.Size, System.Drawing">
-    <value>279, 22</value>
-  </data>
-  <data name="EditShowTips.Text" xml:space="preserve">
-    <value>Affichier les astuces des menus</value>
-  </data>
-  <data name="EditConfirmClosing.Size" type="System.Drawing.Size, System.Drawing">
-    <value>279, 22</value>
-  </data>
-  <data name="EditConfirmClosing.Text" xml:space="preserve">
-    <value>Confirmer la fermeture de l'application</value>
-  </data>
   <data name="MenuSettings.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -698,6 +681,51 @@
         5coo5a+xoH84KOCca9yXnf33Dsp/THzmL9rjBN/tvKQ8MF8yS1as+Ot1FmZez85u51q6j5/hyX7mT+rj
         Bg/Is+IbbiHxHPHrNJxzjfv4mf+5+L0xY4ZnyjxAVCb7Dw6Kw4mSO+IxAAAAAElFTkSuQmCC
 </value>
+  </data>
+  <data name="MenuitemScreenPosition.Size" type="System.Drawing.Size, System.Drawing">
+    <value>279, 22</value>
+  </data>
+  <data name="MenuitemScreenPosition.Text" xml:space="preserve">
+    <value>Position de l'écran</value>
+  </data>
+  <data name="EditScreenNone.Text" xml:space="preserve">
+    <value>Libre</value>
+  </data>
+  <data name="EditScreenTopLeft.Text" xml:space="preserve">
+    <value>Haut gauche</value>
+  </data>
+  <data name="EditScreenTopRight.Text" xml:space="preserve">
+    <value>Haut droit</value>
+  </data>
+  <data name="EditScreenBottomLeft.Text" xml:space="preserve">
+    <value>Bas gauche</value>
+  </data>
+  <data name="EditScreenBottomRight.Text" xml:space="preserve">
+    <value>Bas droit</value>
+  </data>
+  <data name="EditScreenCenter.Text" xml:space="preserve">
+    <value>Centrer</value>
+  </data>
+  <data name="ActionResetWinSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>279, 22</value>
+  </data>
+  <data name="ActionResetWinSettings.Text" xml:space="preserve">
+    <value>Réinitialiser les paramètres de fenêtre</value>
+  </data>
+  <data name="Sep7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>276, 6</value>
+  </data>
+  <data name="EditShowTips.Size" type="System.Drawing.Size, System.Drawing">
+    <value>279, 22</value>
+  </data>
+  <data name="EditShowTips.Text" xml:space="preserve">
+    <value>Affichier les astuces des menus</value>
+  </data>
+  <data name="EditConfirmClosing.Size" type="System.Drawing.Size, System.Drawing">
+    <value>279, 22</value>
+  </data>
+  <data name="EditConfirmClosing.Text" xml:space="preserve">
+    <value>Confirmer la fermeture de l'application</value>
   </data>
   <data name="ActionViewSearch.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

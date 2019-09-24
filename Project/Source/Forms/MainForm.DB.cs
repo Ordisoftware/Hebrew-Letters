@@ -96,7 +96,7 @@ namespace Ordisoftware.HebrewLetters
       {
         connection.Close();
         if ( upgraded )
-          if ( DisplayManager.QueryYesNo(Translations.DatabaseChangedText.GetLang()) )
+          if ( DisplayManager.QueryYesNo(Translations.DatabaseChanged.GetLang()) )
             SetView(ViewModeType.Settings);
       }
     }
@@ -122,7 +122,7 @@ namespace Ordisoftware.HebrewLetters
 
       string lang = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
       if ( lang != "fr" && lang != "en" ) lang = "en";
-      string data = System.IO.File.ReadAllText(Program.RootFolderPath + "Project\\Data\\Alphabet-" + lang + ".txt",
+      string data = System.IO.File.ReadAllText(Program.AppRootFolderPath + "Project\\Data\\Alphabet-" + lang + ".txt",
                                                System.Text.Encoding.Default);
       int indexStart = 0;
       Func<string, string> getStrValue = (name) =>
@@ -136,12 +136,12 @@ namespace Ordisoftware.HebrewLetters
       {
         return Convert.ToInt32(getStrValue(name));
       };
-      for ( int index = 0; index < Letters.Codes.Length; index++ )
+      for ( int index = 0; index < HebrewLetters.Codes.Length; index++ )
       {
         var rowLetter = DataSet.Letters.NewLettersRow();
-        rowLetter.Code = Letters.Codes[index];
-        rowLetter.Name = Letters.Names.GetLang()[index];
-        rowLetter.Hebrew = Letters.HebrewNames[index];
+        rowLetter.Code = HebrewLetters.Codes[index];
+        rowLetter.Name = HebrewLetters.Names.GetLang()[index];
+        rowLetter.Hebrew = HebrewLetters.HebrewNames[index];
         rowLetter.ValueSimple = getIntValue("ValueSimple: ");
         rowLetter.ValueFull = getIntValue("ValueFull: ");
         rowLetter.Positive = getStrValue("Positive: ");

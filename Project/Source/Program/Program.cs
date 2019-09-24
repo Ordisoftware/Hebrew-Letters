@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Hebrew Letters.
-/// Copyright 2012-2019 Olivier Rogier.
+/// Copyright 2016-2019 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at 
@@ -10,28 +10,29 @@
 /// relevant directory) where a recipient would be likely to look for such a notice.
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
-/// <created> 2019-01 </created>
-/// <edited> 2019-01 </edited>
+/// <created> 2016-04 </created>
+/// <edited> 2019-09 </edited>
 using System;
+using System.Windows.Forms;
 
 namespace Ordisoftware.HebrewLetters
 {
 
-  /// <summary>
-  /// Provide data view mode type.
-  /// </summary>
-  public enum ViewModeType
+  static partial class Program
   {
 
-    /// <summary>
-    /// Text view mode to display the analyse panel.
-    /// </summary>
-    Analyse,
-
-    /// <summary>
-    /// Grid view mode to display the settings panel.
-    /// </summary>
-    Settings
+    [STAThread]
+    static void Main(string[] args)
+    {
+      CheckSettingsUpgrade();
+      Application.EnableVisualStyles();
+      Application.SetCompatibleTextRenderingDefault(false);
+      CheckCommandLineArguments(args);
+      ApplyCurrentLanguage();
+      SetFormsIcon();
+      InitializeUserFolders();
+      Application.Run(MainForm.Instance);
+    }
 
   }
 

@@ -107,7 +107,7 @@ namespace Ordisoftware.HebrewLetters
     {
       if ( DataSet.HasChanges() ) TableAdapterManager.UpdateAll(DataSet);
       if ( EditConfirmClosing.Checked )
-        if ( !DisplayManager.QueryYesNo(Translations.ExitApplicationText.GetLang()) )
+        if ( !DisplayManager.QueryYesNo(Translations.ExitApplication.GetLang()) )
         {
           e.Cancel = true;
           return;
@@ -200,7 +200,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void ActionResetWinSettings_Click(object sender, EventArgs e)
     {
-      if ( DisplayManager.QueryYesNo(Translations.RestoreWinPosText.GetLang()) )
+      if ( DisplayManager.QueryYesNo(Translations.RestoreWindowPosition.GetLang()) )
         Program.Settings.RestoreMainForm();
     }
 
@@ -304,7 +304,7 @@ namespace Ordisoftware.HebrewLetters
 
     private void ActionReset_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
-      if ( DisplayManager.QueryYesNo(Translations.RestoreLettersDefaultText.GetLang()) )
+      if ( DisplayManager.QueryYesNo(Translations.RestoreLettersDefault.GetLang()) )
         CreateDataIfNotExists(true);
     }
 

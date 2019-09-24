@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Hebrew Letters.
-/// Copyright 2016-2019 Olivier Rogier.
+/// Copyright 2012-2019 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at 
@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2016-04 </edited>
+/// <edited> 2019-09 </edited>
 using System;
 using System.Diagnostics;
 using System.Reflection;
@@ -47,12 +47,6 @@ namespace Ordisoftware.HebrewLetters
     private AboutBox()
     {
       InitializeComponent();
-      Text = Text + " " + AssemblyTitle;
-      labelTitle.Text = AssemblyTitle;
-      labelDescription.Text = Translations.ApplicationDescriptionText.GetLang();
-      labelVersion.Text = labelVersion.Text + AssemblyVersion;
-      labelCopyright.Text = AssemblyCopyright;
-      labelTrademark.Text = AssemblyTrademark;
     }
 
     /// <summary>
@@ -63,6 +57,16 @@ namespace Ordisoftware.HebrewLetters
     private void AboutBox_Load(object sender, EventArgs e)
     {
       editLicense.Rtf = Properties.Resources.MPL_2_0;
+    }
+
+    internal void AboutBox_Shown(object sender, EventArgs e)
+    {
+      Text = Translations.AboutBoxTitle.GetLang(AssemblyTitle);
+      labelTitle.Text = AssemblyTitle;
+      labelDescription.Text = Translations.ApplicationDescription.GetLang();
+      labelVersion.Text = Translations.AboutBoxVersion.GetLang(AssemblyVersion);
+      labelCopyright.Text = AssemblyCopyright;
+      labelTrademark.Text = AssemblyTrademark;
     }
 
     /// <summary>
