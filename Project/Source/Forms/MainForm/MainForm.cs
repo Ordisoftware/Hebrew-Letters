@@ -74,7 +74,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void MainForm_Load(object sender, EventArgs e)
     {
-      var upgraded = CreateDatabaseIfNotExists();
+      var upgraded = CreateSchemaIfNotExists();
       CreateDataIfNotExists(false);
       MeaningsTableAdapter.Fill(DataSet.Meanings);
       LettersTableAdapter.Fill(DataSet.Letters);

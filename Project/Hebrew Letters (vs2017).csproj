@@ -65,7 +65,10 @@
     <Compile Include="Source\Enums\Translations.cs" />
     <Compile Include="Source\Classes\Localizer.cs" />
     <Compile Include="Source\Classes\SettingsHelper.cs" />
-    <Compile Include="Source\Forms\MainForm\MainForm.DB.cs">
+    <Compile Include="Source\Forms\MainForm\MainForm.DB.CreateSchema.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Forms\MainForm\MainForm.DB.CreateData.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Source\Enums\ControlLocation.cs" />

@@ -14,23 +14,19 @@
 /// <edited> 2019-09 </edited>
 using System;
 using System.Data.Odbc;
-using System.Globalization;
 using System.Windows.Forms;
 using Ordisoftware.Core;
 
 namespace Ordisoftware.HebrewLetters
 {
 
-  /// <summary>
-  /// Provide SQLite utilities methods.
-  /// </summary>
   public partial class MainForm : Form
   {
 
     /// <summary>
-    /// Check if tables exists or create them.
+    /// Check if tables and columns exists or create them.
     /// </summary>
-    public bool CreateDatabaseIfNotExists()
+    public bool CreateSchemaIfNotExists()
     {
       bool upgraded = false;
       var connection = new OdbcConnection(Program.Settings.ConnectionString);
@@ -135,67 +131,6 @@ namespace Ordisoftware.HebrewLetters
         connection.Close();
       }
       return upgraded;
-    }
-
-    /// <summary>
-    /// Check if tables must be filled with default values 
-    /// if they are empty or not having 22 rows.
-    /// </summary>
-    /// <param name="reset">True if force the restoring of default values.</param>
-    public void CreateDataIfNotExists(bool reset)
-    {
-      var connection = new OdbcConnection(Program.Settings.ConnectionString);
-      connection.Open();
-      var command = new OdbcCommand("SELECT count(*) FROM Letters", connection);
-      if ( !reset && (int)command.ExecuteScalar() == 22 ) return;
-      command = new OdbcCommand("DELETE FROM Meanings", connection);
-      command.ExecuteNonQuery();
-      command = new OdbcCommand("DELETE FROM Letters", connection);
-      command.ExecuteNonQuery();
-      connection.Close();
-      MeaningsTableAdapter.Fill(DataSet.Meanings);
-      LettersTableAdapter.Fill(DataSet.Letters);
-      string lang = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
-      if ( lang != "fr" && lang != "en" ) lang = "en";
-      string data = System.IO.File.ReadAllText(Program.AppRootFolderPath + "Project\\Data\\Alphabet-" + lang + ".txt",
-                                               System.Text.Encoding.Default);
-      int indexStart = 0;
-      Func<string, string> getStrValue = (name) =>
-      {
-        int p = data.IndexOf(name, indexStart);
-        string s = data.Substring(p + name.Length, data.IndexOf("\r\n", p) - p - name.Length);
-        indexStart = data.IndexOf("\r\n", p) + 2;
-        return s;
-      };
-      Func<string, int> getIntValue = (name) =>
-      {
-        return Convert.ToInt32(getStrValue(name));
-      };
-      for ( int index = 0; index < HebrewLetters.Codes.Length; index++ )
-      {
-        var rowLetter = DataSet.Letters.NewLettersRow();
-        rowLetter.Code = HebrewLetters.Codes[index];
-        rowLetter.Name = HebrewLetters.Names.GetLang()[index];
-        rowLetter.Hebrew = HebrewLetters.HebrewNames[index];
-        rowLetter.ValueSimple = getIntValue("ValueSimple: ");
-        rowLetter.ValueFull = getIntValue("ValueFull: ");
-        rowLetter.Positive = getStrValue("Positive: ");
-        rowLetter.Negative = getStrValue("Negative: ");
-        rowLetter.Verb = getStrValue("Verb: ");
-        rowLetter.Structure = getStrValue("Structure: ");
-        rowLetter.Function = getStrValue("Function: ");
-        var meanings = getStrValue("Meanings: ").Split(',');
-        foreach ( var meaning in meanings )
-        {
-          var rowMeaning = DataSet.Meanings.NewMeaningsRow();
-          rowMeaning.ID = Guid.NewGuid().ToString();
-          rowMeaning.LetterCode = rowLetter.Code;
-          rowMeaning.Meaning = meaning;
-          DataSet.Meanings.AddMeaningsRow(rowMeaning);
-        }
-        DataSet.Letters.AddLettersRow(rowLetter);
-      }
-      TableAdapterManager.UpdateAll(DataSet);
     }
 
   }
