@@ -118,77 +118,29 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="nameLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 90</value>
-  </data>
-  <data name="nameLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>29, 13</value>
-  </data>
   <data name="nameLabel.Text" xml:space="preserve">
     <value>Nom</value>
-  </data>
-  <data name="structureLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 358</value>
-  </data>
-  <data name="functionLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 400</value>
   </data>
   <data name="functionLabel.Text" xml:space="preserve">
     <value>Fonction</value>
   </data>
-  <data name="valueSimpleLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 140</value>
-  </data>
-  <data name="valueSimpleLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>37, 13</value>
-  </data>
   <data name="valueSimpleLabel.Text" xml:space="preserve">
     <value>Valeur</value>
-  </data>
-  <data name="valueFullLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 182</value>
-  </data>
-  <data name="valueFullLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>68, 13</value>
   </data>
   <data name="valueFullLabel.Text" xml:space="preserve">
     <value>Valeur pleine</value>
   </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 13</value>
-  </data>
   <data name="label2.Text" xml:space="preserve">
     <value>Significations</value>
-  </data>
-  <data name="verbLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 316</value>
-  </data>
-  <data name="verbLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 13</value>
   </data>
   <data name="verbLabel.Text" xml:space="preserve">
     <value>Verbe</value>
   </data>
-  <data name="positiveLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 232</value>
-  </data>
-  <data name="positiveLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 13</value>
-  </data>
   <data name="positiveLabel.Text" xml:space="preserve">
     <value>Positif</value>
   </data>
-  <data name="negativeLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 274</value>
-  </data>
-  <data name="negativeLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>41, 13</value>
-  </data>
   <data name="negativeLabel.Text" xml:space="preserve">
     <value>Négatif</value>
-  </data>
-  <data name="SelectCloseApp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 17</value>
   </data>
   <data name="SelectCloseApp.Text" xml:space="preserve">
     <value>Fermer</value>
@@ -316,15 +268,6 @@
   <data name="EditCheckUpdateAtStartup.Text" xml:space="preserve">
     <value>Vérifier mise à jour au démarrage</value>
   </data>
-  <data name="negativeTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 290</value>
-  </data>
-  <data name="positiveTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 248</value>
-  </data>
-  <data name="verbTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 332</value>
-  </data>
   <data name="ActionDeleteMeaning.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -377,21 +320,6 @@
   </data>
   <data name="ActionReset.Text" xml:space="preserve">
     <value>Restaurer les valeurs par défaut</value>
-  </data>
-  <data name="valueFullTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 198</value>
-  </data>
-  <data name="valueSimpleTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 156</value>
-  </data>
-  <data name="functionTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 416</value>
-  </data>
-  <data name="nameTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 106</value>
-  </data>
-  <data name="structureTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 374</value>
   </data>
   <data name="LabelTitle.Text" xml:space="preserve">
     <value>ETUDE LETTRIQUE</value>

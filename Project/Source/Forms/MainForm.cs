@@ -16,7 +16,6 @@ using Microsoft.Win32;
 using Ordisoftware.Core;
 using System;
 using System.Data;
-using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -96,6 +95,7 @@ namespace Ordisoftware.HebrewLetters
     {
       Program.CheckUpdate(true);
       IsReady = true;
+      UpdateLanguagesButtons();
     }
 
     /// <summary>
@@ -234,16 +234,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void ActionHelp_Click(object sender, EventArgs e)
     {
-      using ( var process = new Process() )
-        try
-        {
-          process.StartInfo.FileName = HelpFilename;
-          process.Start();
-        }
-        catch ( Exception ex )
-        {
-          DisplayManager.ShowError(ex.Message);
-        }
+      Program.RunShell(Program.HelpFilename);
     }
 
     /// <summary>
@@ -284,6 +275,16 @@ namespace Ordisoftware.HebrewLetters
     private void ActionExit_Click(object sender, EventArgs e)
     {
       Close();
+    }
+
+    private void ActionPreferences_Click(object sender, EventArgs e)
+    {
+      PreferencesForm.Run();
+    }
+
+    private void ActionCreateGitHubIssue_Click(object sender, EventArgs e)
+    {
+      SystemManager.OpenWebLink(Program.GitHubRepositoryURL + "/issues");
     }
 
     private void TextBox_TextChanged(object sender, EventArgs e)
@@ -334,7 +335,7 @@ namespace Ordisoftware.HebrewLetters
 
     private void ActionAnalyse_Click(object sender, EventArgs e)
     {
-      string word = EditLetters.Input.Text; // Letters.SwapFinale(panelLetters.Input.Text);
+      string word = EditLetters.Input.Text;
       EditSentence.Text = "";
       EditGematria.Text = "";
       EditAnalyze.Controls.Clear();
@@ -401,6 +402,34 @@ namespace Ordisoftware.HebrewLetters
     {
       if ( !IsReady ) return;
       EditScreenNone.PerformClick();
+    }
+
+    private void UpdateLanguagesButtons()
+    {
+      if ( Program.Settings.Language == "en" )
+      {
+        ActionSelectLangEN.FlatAppearance.BorderSize = 1;
+        ActionSelectLangFR.FlatAppearance.BorderSize = 0;
+      }
+      if ( Program.Settings.Language == "fr" )
+      {
+        ActionSelectLangFR.FlatAppearance.BorderSize = 1;
+        ActionSelectLangEN.FlatAppearance.BorderSize = 0;
+      }
+    }
+
+    private void ActionSelectLangEN_Click(object sender, EventArgs e)
+    {
+      Program.Settings.Language = "en";
+      Program.ApplyCurrentLanguage();
+      UpdateLanguagesButtons();
+    }
+
+    private void ActionSelectLangFR_Click(object sender, EventArgs e)
+    {
+      Program.Settings.Language = "fr";
+      Program.ApplyCurrentLanguage();
+      UpdateLanguagesButtons();
     }
 
   }
