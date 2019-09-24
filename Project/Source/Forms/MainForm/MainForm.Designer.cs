@@ -46,6 +46,9 @@
       this.TabControl = new System.Windows.Forms.TabControl();
       this.TabPageText = new System.Windows.Forms.TabPage();
       this.PanelViewSearch = new System.Windows.Forms.Panel();
+      this.ActionReset = new System.Windows.Forms.Button();
+      this.ActionDelLast = new System.Windows.Forms.Button();
+      this.ActionDelFirst = new System.Windows.Forms.Button();
       this.SelectCloseApp = new System.Windows.Forms.CheckBox();
       this.EditAnalyze = new System.Windows.Forms.Panel();
       this.ActionAnalyse = new System.Windows.Forms.Button();
@@ -67,7 +70,7 @@
       this.verbTextBox = new System.Windows.Forms.TextBox();
       this.ActionDeleteMeaning = new System.Windows.Forms.Button();
       this.ActionAddMeaning = new System.Windows.Forms.Button();
-      this.ActionReset = new System.Windows.Forms.LinkLabel();
+      this.ActionRestoreDefaults = new System.Windows.Forms.LinkLabel();
       this.ComboBoxCode = new System.Windows.Forms.ComboBox();
       this.EditMeanings = new System.Windows.Forms.DataGridView();
       this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -232,6 +235,9 @@
       // 
       resources.ApplyResources(this.PanelViewSearch, "PanelViewSearch");
       this.PanelViewSearch.BackColor = System.Drawing.SystemColors.Control;
+      this.PanelViewSearch.Controls.Add(this.ActionReset);
+      this.PanelViewSearch.Controls.Add(this.ActionDelLast);
+      this.PanelViewSearch.Controls.Add(this.ActionDelFirst);
       this.PanelViewSearch.Controls.Add(this.SelectCloseApp);
       this.PanelViewSearch.Controls.Add(this.EditAnalyze);
       this.PanelViewSearch.Controls.Add(this.ActionAnalyse);
@@ -243,6 +249,30 @@
       this.PanelViewSearch.Controls.Add(this.LabelGematria);
       this.PanelViewSearch.Controls.Add(this.EditLetters);
       this.PanelViewSearch.Name = "PanelViewSearch";
+      // 
+      // ActionReset
+      // 
+      resources.ApplyResources(this.ActionReset, "ActionReset");
+      this.ActionReset.FlatAppearance.BorderSize = 0;
+      this.ActionReset.Name = "ActionReset";
+      this.ActionReset.UseVisualStyleBackColor = true;
+      this.ActionReset.Click += new System.EventHandler(this.ActionReset_Click);
+      // 
+      // ActionDelLast
+      // 
+      resources.ApplyResources(this.ActionDelLast, "ActionDelLast");
+      this.ActionDelLast.FlatAppearance.BorderSize = 0;
+      this.ActionDelLast.Name = "ActionDelLast";
+      this.ActionDelLast.UseVisualStyleBackColor = true;
+      this.ActionDelLast.Click += new System.EventHandler(this.ActionDelLast_Click);
+      // 
+      // ActionDelFirst
+      // 
+      resources.ApplyResources(this.ActionDelFirst, "ActionDelFirst");
+      this.ActionDelFirst.FlatAppearance.BorderSize = 0;
+      this.ActionDelFirst.Name = "ActionDelFirst";
+      this.ActionDelFirst.UseVisualStyleBackColor = true;
+      this.ActionDelFirst.Click += new System.EventHandler(this.ActionDelFirst_Click);
       // 
       // SelectCloseApp
       // 
@@ -344,7 +374,7 @@
       this.PanelSettingsDetails.Controls.Add(this.verbTextBox);
       this.PanelSettingsDetails.Controls.Add(this.ActionDeleteMeaning);
       this.PanelSettingsDetails.Controls.Add(this.ActionAddMeaning);
-      this.PanelSettingsDetails.Controls.Add(this.ActionReset);
+      this.PanelSettingsDetails.Controls.Add(this.ActionRestoreDefaults);
       this.PanelSettingsDetails.Controls.Add(this.ComboBoxCode);
       this.PanelSettingsDetails.Controls.Add(LabelMeanings);
       this.PanelSettingsDetails.Controls.Add(this.EditMeanings);
@@ -418,12 +448,12 @@
       this.ActionAddMeaning.UseVisualStyleBackColor = true;
       this.ActionAddMeaning.Click += new System.EventHandler(this.ActionAddMeaning_Click);
       // 
-      // ActionReset
+      // ActionRestoreDefaults
       // 
-      resources.ApplyResources(this.ActionReset, "ActionReset");
-      this.ActionReset.Name = "ActionReset";
-      this.ActionReset.TabStop = true;
-      this.ActionReset.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ActionReset_LinkClicked);
+      resources.ApplyResources(this.ActionRestoreDefaults, "ActionRestoreDefaults");
+      this.ActionRestoreDefaults.Name = "ActionRestoreDefaults";
+      this.ActionRestoreDefaults.TabStop = true;
+      this.ActionRestoreDefaults.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ActionReset_LinkClicked);
       // 
       // ComboBoxCode
       // 
@@ -886,7 +916,7 @@
     private System.Windows.Forms.Panel PanelSettingsDetails;
     private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
     private System.Windows.Forms.ComboBox ComboBoxCode;
-    private System.Windows.Forms.LinkLabel ActionReset;
+    private System.Windows.Forms.LinkLabel ActionRestoreDefaults;
     private System.Windows.Forms.Button ActionDeleteMeaning;
     private System.Windows.Forms.Button ActionAddMeaning;
     private System.Windows.Forms.TextBox EditSentence;
@@ -905,6 +935,9 @@
     private System.Windows.Forms.ToolStripButton ActionPreferences;
     internal System.Windows.Forms.Label LabelGematria;
     internal System.Windows.Forms.TextBox EditGematria;
+    private System.Windows.Forms.Button ActionReset;
+    private System.Windows.Forms.Button ActionDelLast;
+    private System.Windows.Forms.Button ActionDelFirst;
   }
 }
 

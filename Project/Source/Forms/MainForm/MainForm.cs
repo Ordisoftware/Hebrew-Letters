@@ -83,12 +83,15 @@ namespace Ordisoftware.HebrewLetters
       MeaningsTableAdapter.Fill(DataSet.Meanings);
       LettersTableAdapter.Fill(DataSet.Letters);
       Program.Settings.Retrieve();
-      SetView(Program.StartupWord == "" ? Program.Settings.CurrentView : ViewModeType.Analyse, true);
       if ( Program.StartupWord != "" )
       {
         EditLetters.Input.Text = Program.StartupWord;
         ActionAnalyse.PerformClick();
+        SetView(ViewModeType.Analyse, true);
+        ActionReset.Enabled = true;
       }
+      else
+        SetView(Program.Settings.CurrentView, true);
     }
 
     private void MainForm_Shown(object sender, EventArgs e)
@@ -316,6 +319,8 @@ namespace Ordisoftware.HebrewLetters
     private void EditLetters_InputTextChanged(object sender, EventArgs e)
     {
       ActionAnalyse.Enabled = EditLetters.Input.Text != "";
+      ActionDelFirst.Enabled = EditLetters.Input.Text.Length > 2;
+      ActionDelLast.Enabled = ActionDelFirst.Enabled;
     }
 
     private void ActionClear_Click(object sender, EventArgs e)
@@ -410,6 +415,22 @@ namespace Ordisoftware.HebrewLetters
       EditScreenNone.PerformClick();
     }
 
+    private void ActionDelLast_Click(object sender, EventArgs e)
+    {
+      if ( EditLetters.Input.Text.Length <= 2 ) return;
+      EditLetters.Input.Text = EditLetters.Input.Text.Remove(0, 1);
+    }
+
+    private void ActionDelFirst_Click(object sender, EventArgs e)
+    {
+      if ( EditLetters.Input.Text.Length <= 2 ) return;
+      EditLetters.Input.Text = EditLetters.Input.Text.Remove(EditLetters.Input.Text.Length - 1, 1);
+    }
+
+    private void ActionReset_Click(object sender, EventArgs e)
+    {
+      EditLetters.Input.Text = Program.StartupWord;
+    }
   }
 
 }
