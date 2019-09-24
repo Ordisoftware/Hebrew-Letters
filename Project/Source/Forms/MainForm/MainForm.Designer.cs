@@ -395,6 +395,7 @@
       this.PanelSettingsDetails.Controls.Add(this.structureTextBox);
       resources.ApplyResources(this.PanelSettingsDetails, "PanelSettingsDetails");
       this.PanelSettingsDetails.Name = "PanelSettingsDetails";
+      this.PanelSettingsDetails.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelSettingsDetails_Paint);
       // 
       // LabelHebrew
       // 
@@ -473,6 +474,7 @@
       // EditMeanings
       // 
       this.EditMeanings.AllowUserToAddRows = false;
+      this.EditMeanings.AllowUserToDeleteRows = false;
       this.EditMeanings.AllowUserToResizeColumns = false;
       this.EditMeanings.AllowUserToResizeRows = false;
       resources.ApplyResources(this.EditMeanings, "EditMeanings");
@@ -485,6 +487,7 @@
       this.EditMeanings.MultiSelect = false;
       this.EditMeanings.Name = "EditMeanings";
       this.EditMeanings.RowHeadersVisible = false;
+      this.EditMeanings.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.EditMeanings_CellEndEdit);
       // 
       // dataGridViewTextBoxColumn2
       // 
@@ -495,6 +498,7 @@
       // 
       // meaningsBindingSource
       // 
+      this.meaningsBindingSource.AllowNew = true;
       this.meaningsBindingSource.DataMember = "Letters_Meanings";
       this.meaningsBindingSource.DataSource = this.LettersBindingSource;
       // 

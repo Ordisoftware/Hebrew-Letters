@@ -15,9 +15,10 @@
 using Microsoft.Win32;
 using Ordisoftware.Core;
 using System;
+using System.Linq;
 using System.Data;
+using System.Data.Odbc;
 using System.Drawing;
-using System.IO;
 using System.Windows.Forms;
 
 namespace Ordisoftware.HebrewLetters
@@ -101,7 +102,15 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Form closing event information.</param>
     private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
     {
-      if ( DataSet.HasChanges() ) TableAdapterManager.UpdateAll(DataSet);
+      if ( DataSet.HasChanges() )
+        try
+        {
+          TableAdapterManager.UpdateAll(DataSet);
+        }
+        catch ( Exception ex )
+        {
+          ex.Manage();
+        }
       if ( EditConfirmClosing.Checked )
         if ( !DisplayManager.QueryYesNo(Translations.ExitApplication.GetLang()) )
         {
@@ -297,18 +306,25 @@ namespace Ordisoftware.HebrewLetters
     private void ActionAddMeaning_Click(object sender, EventArgs e)
     {
       var row = (DataRowView)meaningsBindingSource.AddNew();
+      ( (Data.DataSet.MeaningsRow)row.Row ).ID = Guid.NewGuid().ToString();
+      ( (Data.DataSet.MeaningsRow)row.Row ).Meaning = "";
       EditMeanings.BeginEdit(false);
     }
 
     private void ActionDeleteMeaning_Click(object sender, EventArgs e)
     {
+      if ( meaningsBindingSource.Count < 1 ) return;
       meaningsBindingSource.RemoveCurrent();
     }
 
     private void ActionReset_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
       if ( DisplayManager.QueryYesNo(Translations.RestoreLettersDefault.GetLang()) )
+      {
         CreateDataIfNotExists(true);
+        ActionClear.PerformClick();
+        ActionReset.PerformClick();
+      }
     }
 
     private void EditLetters_KeyPress(object sender, KeyPressEventArgs e)
@@ -319,7 +335,7 @@ namespace Ordisoftware.HebrewLetters
     private void EditLetters_InputTextChanged(object sender, EventArgs e)
     {
       ActionAnalyse.Enabled = EditLetters.Input.Text != "";
-      ActionDelFirst.Enabled = EditLetters.Input.Text.Length > 2;
+      ActionDelFirst.Enabled = EditLetters.Input.Text.Length > 1;
       ActionDelLast.Enabled = ActionDelFirst.Enabled;
     }
 
@@ -339,7 +355,7 @@ namespace Ordisoftware.HebrewLetters
 
     private void ActionCopyToClipboardResults_Click(object sender, EventArgs e)
     {
-      if ( EditSentence.Text != "") Clipboard.SetText(EditSentence.Text);
+      if ( EditSentence.Text != "" ) Clipboard.SetText(EditSentence.Text);
       if ( SelectCloseApp.Checked ) Close();
     }
 
@@ -404,8 +420,8 @@ namespace Ordisoftware.HebrewLetters
     {
       string str = "";
       foreach ( var control in EditAnalyze.Controls )
-        if (control is ComboBox)
-          str += ( (control as ComboBox).Text ?? "" ) + " ";
+        if ( control is ComboBox )
+          str += ( ( control as ComboBox ).Text ?? "" ) + " ";
       str = str == "" ? "" : str.Remove(str.Length - 1, 1);
       EditSentence.Text = str;
     }
@@ -432,6 +448,17 @@ namespace Ordisoftware.HebrewLetters
       ActionCopyToClipboardResult.Enabled = EditSentence.Text != "";
     }
 
+    private void EditMeanings_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+    {
+      if ( EditMeanings[e.ColumnIndex, e.RowIndex].Value == DBNull.Value )
+        EditMeanings[e.ColumnIndex, e.RowIndex].Value = "";
+      if ( DataSet.HasChanges() ) TableAdapterManager.UpdateAll(DataSet);
+    }
+
+    private void PanelSettingsDetails_Paint(object sender, PaintEventArgs e)
+    {
+
+    }
   }
 
 }

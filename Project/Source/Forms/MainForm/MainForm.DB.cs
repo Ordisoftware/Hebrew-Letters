@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-01 </created>
-/// <edited> 2019-08 </edited>
+/// <edited> 2019-09 </edited>
 using System;
 using System.Data.Odbc;
 using System.Globalization;
@@ -62,8 +62,11 @@ namespace Ordisoftware.HebrewLetters
             }
           if ( !b )
           {
-            var cmdCreateColumn = new OdbcCommand(sql, connection);
-            cmdCreateColumn.ExecuteNonQuery();
+            if ( sql != "" )
+            {
+              var cmdCreateColumn = new OdbcCommand(sql, connection);
+              cmdCreateColumn.ExecuteNonQuery();
+            }
             upgraded = true;
           }
         }
@@ -81,16 +84,51 @@ namespace Ordisoftware.HebrewLetters
                                   ValueFull INTEGER NOT NULL, 
                                   CONSTRAINT Pk_Letter_Code PRIMARY KEY ( Code ) 
                                 )");
-
-        checkTable("Meanings", @"CREATE TABLE Meanings
-                                 (
-                                   LetterCode TEXT NOT NULL,
-                                   Meaning TEXT NOT NULL,
-                                   FOREIGN KEY(LetterCode) REFERENCES Letters(Code)
-                                 )");
-        checkColumn("Letters", "Hebrew", "ALTER TABLE Letters ADD COLUMN Hebrew TEXT DEFAULT '' NOT NULL;");
-        checkColumn("Letters", "Positive", "ALTER TABLE Letters ADD COLUMN Positive TEXT DEFAULT '' NOT NULL;");
-        checkColumn("Letters", "Negative", "ALTER TABLE Letters ADD COLUMN Negative TEXT DEFAULT '' NOT NULL;");
+        string sqlCreateMeanings = @"CREATE TABLE Meanings
+                                     (
+                                       ID TEXT NOT NULL, 
+                                       LetterCode TEXT NOT NULL,
+                                       Meaning TEXT DEFAULT '' NOT NULL,
+                                       FOREIGN KEY(LetterCode) REFERENCES Letters(Code)
+                                       CONSTRAINT Pk_Meaning_ID PRIMARY KEY ( ID ) 
+                                     )";
+        checkTable("Meanings", sqlCreateMeanings);
+        checkColumn("Meanings", "ID", "");
+        if ( upgraded )
+          try
+          {
+            OdbcCommand command;
+            try
+            {
+              command = new OdbcCommand("ALTER TABLE Meanings RENAME TO Meanings_Temp", connection);
+              command.ExecuteNonQuery();
+              checkTable("Meanings", sqlCreateMeanings);
+              command = new OdbcCommand("SELECT * FROM Meanings_Temp", connection);
+              var reader = command.ExecuteReader();
+              while ( reader.Read() )
+                new OdbcCommand("INSERT INTO Meanings (ID, LetterCode, Meaning) VALUES (\"" +
+                                 Guid.NewGuid().ToString() + "\", \"" +
+                                 (string)reader["LetterCode"] + "\", \"" +
+                                 (string)reader["Meaning"] + "\")",
+                                 connection).ExecuteNonQuery();
+            }
+            finally
+            {
+              new OdbcCommand("DROP TABLE Meanings_Temp", connection).ExecuteNonQuery();
+            }
+          }
+          catch (Exception ex)
+          {
+            ex.Manage();
+          }
+        upgraded = false;
+        checkColumn("Letters", "Hebrew", "ALTER TABLE Letters ADD COLUMN Hebrew TEXT DEFAULT '' NOT NULL");
+        checkColumn("Letters", "Positive", "ALTER TABLE Letters ADD COLUMN Positive TEXT DEFAULT '' NOT NULL");
+        checkColumn("Letters", "Negative", "ALTER TABLE Letters ADD COLUMN Negative TEXT DEFAULT '' NOT NULL");
+      }
+      catch (Exception ex)
+      {
+        ex.Manage();
       }
       finally
       {
@@ -152,6 +190,7 @@ namespace Ordisoftware.HebrewLetters
         foreach ( var meaning in meanings )
         {
           var rowMeaning = DataSet.Meanings.NewMeaningsRow();
+          rowMeaning.ID = Guid.NewGuid().ToString();
           rowMeaning.LetterCode = rowLetter.Code;
           rowMeaning.Meaning = meaning;
           DataSet.Meanings.AddMeaningsRow(rowMeaning);

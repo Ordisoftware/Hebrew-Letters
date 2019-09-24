@@ -723,6 +723,8 @@ namespace Ordisoftware.HebrewLetters.Data {
             
             private global::System.Data.DataColumn columnMeaning;
             
+            private global::System.Data.DataColumn columnID;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public MeaningsDataTable() {
@@ -774,6 +776,14 @@ namespace Ordisoftware.HebrewLetters.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn IDColumn {
+                get {
+                    return this.columnID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -809,17 +819,25 @@ namespace Ordisoftware.HebrewLetters.Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public MeaningsRow AddMeaningsRow(LettersRow parentLettersRowByLetters_Meanings, string Meaning) {
+            public MeaningsRow AddMeaningsRow(LettersRow parentLettersRowByLetters_Meanings, string Meaning, string ID) {
                 MeaningsRow rowMeaningsRow = ((MeaningsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        Meaning};
+                        Meaning,
+                        ID};
                 if ((parentLettersRowByLetters_Meanings != null)) {
                     columnValuesArray[0] = parentLettersRowByLetters_Meanings[0];
                 }
                 rowMeaningsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowMeaningsRow);
                 return rowMeaningsRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public MeaningsRow FindByID(string ID) {
+                return ((MeaningsRow)(this.Rows.Find(new object[] {
+                            ID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -841,6 +859,7 @@ namespace Ordisoftware.HebrewLetters.Data {
             internal void InitVars() {
                 this.columnLetterCode = base.Columns["LetterCode"];
                 this.columnMeaning = base.Columns["Meaning"];
+                this.columnID = base.Columns["ID"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -850,10 +869,17 @@ namespace Ordisoftware.HebrewLetters.Data {
                 base.Columns.Add(this.columnLetterCode);
                 this.columnMeaning = new global::System.Data.DataColumn("Meaning", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMeaning);
+                this.columnID = new global::System.Data.DataColumn("ID", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnID}, true));
                 this.columnLetterCode.AllowDBNull = false;
                 this.columnLetterCode.MaxLength = 65536;
                 this.columnMeaning.AllowDBNull = false;
                 this.columnMeaning.MaxLength = 65536;
+                this.columnID.AllowDBNull = false;
+                this.columnID.Unique = true;
+                this.columnID.MaxLength = 65536;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1200,6 +1226,17 @@ namespace Ordisoftware.HebrewLetters.Data {
                 }
                 set {
                     this[this.tableMeanings.MeaningColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string ID {
+                get {
+                    return ((string)(this[this.tableMeanings.IDColumn]));
+                }
+                set {
+                    this[this.tableMeanings.IDColumn] = value;
                 }
             }
             
@@ -1998,13 +2035,34 @@ namespace Ordisoftware.HebrewLetters.Data.DataSetTableAdapters {
             tableMapping.DataSetTable = "Meanings";
             tableMapping.ColumnMappings.Add("LetterCode", "LetterCode");
             tableMapping.ColumnMappings.Add("Meaning", "Meaning");
+            tableMapping.ColumnMappings.Add("ID", "ID");
             this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.Odbc.OdbcCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM \"Meanings\" WHERE ((\"LetterCode\" = ?) AND (\"Meaning\" = ?) AND (\"ID\" = " +
+                "?))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_LetterCode", global::System.Data.Odbc.OdbcType.NChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "LetterCode", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_Meaning", global::System.Data.Odbc.OdbcType.NChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Meaning", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_ID", global::System.Data.Odbc.OdbcType.NChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.Odbc.OdbcCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO \"Meanings\" (\"LetterCode\", \"Meaning\") VALUES (?, ?)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO \"Meanings\" (\"LetterCode\", \"Meaning\", \"ID\") VALUES (?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("LetterCode", global::System.Data.Odbc.OdbcType.NChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "LetterCode", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Meaning", global::System.Data.Odbc.OdbcType.NChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Meaning", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("ID", global::System.Data.Odbc.OdbcType.NChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand = new global::System.Data.Odbc.OdbcCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = "UPDATE \"Meanings\" SET \"LetterCode\" = ?, \"Meaning\" = ?, \"ID\" = ? WHERE ((\"LetterCo" +
+                "de\" = ?) AND (\"Meaning\" = ?) AND (\"ID\" = ?))";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("LetterCode", global::System.Data.Odbc.OdbcType.NChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "LetterCode", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Meaning", global::System.Data.Odbc.OdbcType.NChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Meaning", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("ID", global::System.Data.Odbc.OdbcType.NChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_LetterCode", global::System.Data.Odbc.OdbcType.NChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "LetterCode", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_Meaning", global::System.Data.Odbc.OdbcType.NChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Meaning", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.Odbc.OdbcParameter("Original_ID", global::System.Data.Odbc.OdbcType.NChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2020,7 +2078,7 @@ namespace Ordisoftware.HebrewLetters.Data.DataSetTableAdapters {
             this._commandCollection = new global::System.Data.Odbc.OdbcCommand[1];
             this._commandCollection[0] = new global::System.Data.Odbc.OdbcCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT \"LetterCode\", \"Meaning\" FROM \"Meanings\"";
+            this._commandCollection[0].CommandText = "SELECT        LetterCode, Meaning, ID\r\nFROM            Meanings";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -2075,39 +2133,6 @@ namespace Ordisoftware.HebrewLetters.Data.DataSetTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(global::System.Data.DataRow[] dataRows) {
             return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string LetterCode, string Meaning) {
-            if ((LetterCode == null)) {
-                throw new global::System.ArgumentNullException("LetterCode");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(LetterCode));
-            }
-            if ((Meaning == null)) {
-                throw new global::System.ArgumentNullException("Meaning");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Meaning));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
         }
     }
     
