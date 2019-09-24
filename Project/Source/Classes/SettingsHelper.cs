@@ -81,7 +81,7 @@ namespace Ordisoftware.HebrewLetters
       MainForm.EditScreenBottomLeft.Checked = settings.MainFormPosition == ControlLocation.BottomLeft;
       MainForm.EditScreenBottomRight.Checked = settings.MainFormPosition == ControlLocation.BottomRight;
       MainForm.EditScreenCenter.Checked = settings.MainFormPosition == ControlLocation.Center;
-      MainForm.EditScreenPosition_Click(null, null);
+      MainForm.SelectScreenPosition_Click(null, null);
       MainForm.WindowState = settings.MainFormState;
       MainForm.EditConfirmClosing.Checked = settings.ConfirmClosing;
       MainForm.EditShowTips.Checked = settings.ShowTips;

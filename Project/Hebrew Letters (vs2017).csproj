@@ -82,6 +82,9 @@
     <Compile Include="Source\Forms\MainForm\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Source\Forms\MainForm\MainForm.Analyse.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Source\Forms\MainForm\MainForm.Keys.cs">
       <SubType>Form</SubType>
     </Compile>

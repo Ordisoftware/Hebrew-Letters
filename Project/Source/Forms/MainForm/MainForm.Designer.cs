@@ -300,8 +300,8 @@
       // 
       // ActionClear
       // 
-      this.ActionClear.FlatAppearance.BorderSize = 0;
       resources.ApplyResources(this.ActionClear, "ActionClear");
+      this.ActionClear.FlatAppearance.BorderSize = 0;
       this.ActionClear.Name = "ActionClear";
       this.ActionClear.UseVisualStyleBackColor = true;
       this.ActionClear.Click += new System.EventHandler(this.ActionClear_Click);
@@ -395,7 +395,6 @@
       this.PanelSettingsDetails.Controls.Add(this.structureTextBox);
       resources.ApplyResources(this.PanelSettingsDetails, "PanelSettingsDetails");
       this.PanelSettingsDetails.Name = "PanelSettingsDetails";
-      this.PanelSettingsDetails.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelSettingsDetails_Paint);
       // 
       // LabelHebrew
       // 
@@ -420,7 +419,7 @@
       this.negativeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Negative", true));
       resources.ApplyResources(this.negativeTextBox, "negativeTextBox");
       this.negativeTextBox.Name = "negativeTextBox";
-      this.negativeTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+      this.negativeTextBox.TextChanged += new System.EventHandler(this.TextBoxLetterConcept_TextChanged);
       // 
       // positiveTextBox
       // 
@@ -428,7 +427,7 @@
       this.positiveTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Positive", true));
       resources.ApplyResources(this.positiveTextBox, "positiveTextBox");
       this.positiveTextBox.Name = "positiveTextBox";
-      this.positiveTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+      this.positiveTextBox.TextChanged += new System.EventHandler(this.TextBoxLetterConcept_TextChanged);
       // 
       // verbTextBox
       // 
@@ -436,7 +435,7 @@
       this.verbTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Verb", true));
       resources.ApplyResources(this.verbTextBox, "verbTextBox");
       this.verbTextBox.Name = "verbTextBox";
-      this.verbTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+      this.verbTextBox.TextChanged += new System.EventHandler(this.TextBoxLetterConcept_TextChanged);
       // 
       // ActionDeleteMeaning
       // 
@@ -526,7 +525,7 @@
       this.functionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Function", true));
       resources.ApplyResources(this.functionTextBox, "functionTextBox");
       this.functionTextBox.Name = "functionTextBox";
-      this.functionTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+      this.functionTextBox.TextChanged += new System.EventHandler(this.TextBoxLetterConcept_TextChanged);
       // 
       // nameTextBox
       // 
@@ -543,7 +542,7 @@
       this.structureTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Structure", true));
       resources.ApplyResources(this.structureTextBox, "structureTextBox");
       this.structureTextBox.Name = "structureTextBox";
-      this.structureTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+      this.structureTextBox.TextChanged += new System.EventHandler(this.TextBoxLetterConcept_TextChanged);
       // 
       // PanelSepTop
       // 
@@ -734,42 +733,42 @@
       this.EditScreenNone.CheckOnClick = true;
       resources.ApplyResources(this.EditScreenNone, "EditScreenNone");
       this.EditScreenNone.Name = "EditScreenNone";
-      this.EditScreenNone.Click += new System.EventHandler(this.EditScreenPosition_Click);
+      this.EditScreenNone.Click += new System.EventHandler(this.SelectScreenPosition_Click);
       // 
       // EditScreenTopLeft
       // 
       this.EditScreenTopLeft.CheckOnClick = true;
       resources.ApplyResources(this.EditScreenTopLeft, "EditScreenTopLeft");
       this.EditScreenTopLeft.Name = "EditScreenTopLeft";
-      this.EditScreenTopLeft.Click += new System.EventHandler(this.EditScreenPosition_Click);
+      this.EditScreenTopLeft.Click += new System.EventHandler(this.SelectScreenPosition_Click);
       // 
       // EditScreenTopRight
       // 
       this.EditScreenTopRight.CheckOnClick = true;
       resources.ApplyResources(this.EditScreenTopRight, "EditScreenTopRight");
       this.EditScreenTopRight.Name = "EditScreenTopRight";
-      this.EditScreenTopRight.Click += new System.EventHandler(this.EditScreenPosition_Click);
+      this.EditScreenTopRight.Click += new System.EventHandler(this.SelectScreenPosition_Click);
       // 
       // EditScreenBottomLeft
       // 
       this.EditScreenBottomLeft.CheckOnClick = true;
       resources.ApplyResources(this.EditScreenBottomLeft, "EditScreenBottomLeft");
       this.EditScreenBottomLeft.Name = "EditScreenBottomLeft";
-      this.EditScreenBottomLeft.Click += new System.EventHandler(this.EditScreenPosition_Click);
+      this.EditScreenBottomLeft.Click += new System.EventHandler(this.SelectScreenPosition_Click);
       // 
       // EditScreenBottomRight
       // 
       this.EditScreenBottomRight.CheckOnClick = true;
       resources.ApplyResources(this.EditScreenBottomRight, "EditScreenBottomRight");
       this.EditScreenBottomRight.Name = "EditScreenBottomRight";
-      this.EditScreenBottomRight.Click += new System.EventHandler(this.EditScreenPosition_Click);
+      this.EditScreenBottomRight.Click += new System.EventHandler(this.SelectScreenPosition_Click);
       // 
       // EditScreenCenter
       // 
       this.EditScreenCenter.CheckOnClick = true;
       resources.ApplyResources(this.EditScreenCenter, "EditScreenCenter");
       this.EditScreenCenter.Name = "EditScreenCenter";
-      this.EditScreenCenter.Click += new System.EventHandler(this.EditScreenPosition_Click);
+      this.EditScreenCenter.Click += new System.EventHandler(this.SelectScreenPosition_Click);
       // 
       // ActionResetWinSettings
       // 
