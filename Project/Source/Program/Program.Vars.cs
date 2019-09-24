@@ -107,8 +107,13 @@ namespace Ordisoftware.HebrewLetters
     /// <summary>
     /// Indicate name of the help file.
     /// </summary>
-    static public readonly string HelpFilename
-      = AppRootFolderPath + "Help" + Path.DirectorySeparatorChar + "index-" + Localizer.Language + ".htm";
+    static public string HelpFilename
+    {
+      get
+      {
+        return AppRootFolderPath + "Help" + Path.DirectorySeparatorChar + "index-" + Localizer.Language + ".htm";
+      }
+    }
 
     /// <summary>
     /// Indicate the command line argument for word used at startup.
