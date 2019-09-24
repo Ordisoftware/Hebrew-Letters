@@ -49,6 +49,12 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 ## Changelog
 
+#### 2019.__.__ - Version 2.6
+
+- Add option to choose language.
+- Update help.
+- Some code refactorings.
+
 #### 2019.09.19 - Version 2.5
 
 - Add option to disable startup check update.
