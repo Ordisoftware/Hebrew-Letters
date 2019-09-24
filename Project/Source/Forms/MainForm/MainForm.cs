@@ -329,6 +329,7 @@ namespace Ordisoftware.HebrewLetters
       EditSentence.Text = "";
       EditGematria.Text = "";
       EditAnalyze.Controls.Clear();
+      ActionCopyToClipboardMeanings.Enabled = false;
     }
 
     private void ActionCopyToClipboardMeanings_Click(object sender, EventArgs e)
@@ -396,6 +397,7 @@ namespace Ordisoftware.HebrewLetters
       }
       EditGematria.Text = sum.ToString();
       EditAnalyze.Focus();
+      ActionCopyToClipboardMeanings.Enabled = EditAnalyze.Controls.Count > 0;
     }
 
     private void MeaningComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -410,13 +412,13 @@ namespace Ordisoftware.HebrewLetters
 
     private void ActionDelLast_Click(object sender, EventArgs e)
     {
-      if ( EditLetters.Input.Text.Length <= 2 ) return;
+      if ( EditLetters.Input.Text.Length <= 1 ) return;
       EditLetters.Input.Text = EditLetters.Input.Text.Remove(0, 1);
     }
 
     private void ActionDelFirst_Click(object sender, EventArgs e)
     {
-      if ( EditLetters.Input.Text.Length <= 2 ) return;
+      if ( EditLetters.Input.Text.Length <= 1 ) return;
       EditLetters.Input.Text = EditLetters.Input.Text.Remove(EditLetters.Input.Text.Length - 1, 1);
     }
 
@@ -424,6 +426,12 @@ namespace Ordisoftware.HebrewLetters
     {
       EditLetters.Input.Text = Program.StartupWord;
     }
+
+    private void EditSentence_TextChanged(object sender, EventArgs e)
+    {
+      ActionCopyToClipboardResult.Enabled = EditSentence.Text != "";
+    }
+
   }
 
 }
