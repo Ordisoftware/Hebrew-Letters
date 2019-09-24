@@ -24,9 +24,9 @@ A tool for Windows written in C# that allows the lettriq study of hebrew words.
 
 ## Screenshots
 
-![Analyse Tab](http://www.ordisoftware.com/uploads/2019/01/hebrew-letters-analyse.png)
+![Analyse Tab](http://www.ordisoftware.com/uploads/2019/09/hebrew-letters-analyse-en.png)
 
-![Settings Tab](http://www.ordisoftware.com/uploads/2019/01/hebrew-letters-settings.png)
+![Settings Tab](http://www.ordisoftware.com/uploads/2019/09/hebrew-letters-settings-en.png)
 
 ## Videos
 
@@ -46,6 +46,14 @@ The setup tries to register an ODBC DSN to the registry but in case of problem r
 "%USERPROFILE%\AppData\Roaming\Ordisoftware\Hebrew Letters\Hebrew-Letters.sqlite"
 
 Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
+
+#### Keyboard shortcuts
+
+- F1 : Analyse view
+- F2 : Settings view
+- F8 : Preferences
+- F11 : Help
+- F12 : About
 
 ## Changelog
 
