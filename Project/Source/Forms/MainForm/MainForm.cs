@@ -74,7 +74,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void MainForm_Load(object sender, EventArgs e)
     {
-      CreateDatabaseIfNotExists();
+      var upgraded = CreateDatabaseIfNotExists();
       CreateDataIfNotExists(false);
       MeaningsTableAdapter.Fill(DataSet.Meanings);
       LettersTableAdapter.Fill(DataSet.Letters);
@@ -88,6 +88,9 @@ namespace Ordisoftware.HebrewLetters
       }
       else
         SetView(Program.Settings.CurrentView, true);
+      if (upgraded)
+        if ( DisplayManager.QueryYesNo(Translations.DatabaseChanged.GetLang()) )
+          SetView(ViewModeType.Settings);
     }
 
     private void MainForm_Shown(object sender, EventArgs e)
@@ -103,6 +106,8 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Form closing event information.</param>
     private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
     {
+      LettersBindingSource.EndEdit();
+      meaningsBindingSource.EndEdit();
       if ( DataSet.HasChanges() )
         try
         {

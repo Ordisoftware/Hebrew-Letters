@@ -30,7 +30,7 @@ namespace Ordisoftware.HebrewLetters
     /// <summary>
     /// Check if tables exists or create them.
     /// </summary>
-    public void CreateDatabaseIfNotExists()
+    public bool CreateDatabaseIfNotExists()
     {
       bool upgraded = false;
       var connection = new OdbcConnection(Program.Settings.ConnectionString);
@@ -133,10 +133,8 @@ namespace Ordisoftware.HebrewLetters
       finally
       {
         connection.Close();
-        if ( upgraded )
-          if ( DisplayManager.QueryYesNo(Translations.DatabaseChanged.GetLang()) )
-            SetView(ViewModeType.Settings);
       }
+      return upgraded;
     }
 
     /// <summary>
