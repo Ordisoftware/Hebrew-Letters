@@ -88,7 +88,7 @@ namespace Ordisoftware.HebrewLetters
         EditLetters.Input.Text = Program.StartupWord;
         ActionAnalyse.PerformClick();
         SetView(ViewModeType.Analyse, true);
-        ActionReset.Enabled = true;
+        ActionReset.Visible = true;
       }
       else
         SetView(Program.Settings.CurrentView, true);

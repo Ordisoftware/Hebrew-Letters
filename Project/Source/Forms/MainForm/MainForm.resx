@@ -411,9 +411,6 @@
   <data name="PanelViewSearch.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="ActionReset.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="ActionReset.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
@@ -434,6 +431,9 @@
   </data>
   <data name="ActionReset.Text" xml:space="preserve">
     <value>-</value>
+  </data>
+  <data name="ActionReset.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;ActionReset.Name" xml:space="preserve">
     <value>ActionReset</value>

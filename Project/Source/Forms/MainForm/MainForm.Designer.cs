@@ -252,8 +252,8 @@
       // 
       // ActionReset
       // 
-      resources.ApplyResources(this.ActionReset, "ActionReset");
       this.ActionReset.FlatAppearance.BorderSize = 0;
+      resources.ApplyResources(this.ActionReset, "ActionReset");
       this.ActionReset.Name = "ActionReset";
       this.ActionReset.UseVisualStyleBackColor = true;
       this.ActionReset.Click += new System.EventHandler(this.ActionReset_Click);
