@@ -59,12 +59,12 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 ## Changelog
 
-#### 2019.09.__ - Version 2.6
+#### 2019.09.25 - Version 2.6
 
 - Add option to choose language.
 - Fix meanings can't be edited or deleted.
+- Fix meanings.
 - Improve UI.
-- Update meanings.
 - Update help.
 - Some code refactorings.
 
