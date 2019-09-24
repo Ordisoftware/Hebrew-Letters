@@ -13,6 +13,7 @@
 /// <created> 2019-09 </created>
 /// <edited> 2019-09 </edited>
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Ordisoftware.HebrewLetters
@@ -55,13 +56,13 @@ namespace Ordisoftware.HebrewLetters
     {
       if ( Program.Settings.Language == "en" )
       {
-        ActionSelectLangEN.FlatAppearance.BorderSize = 1;
-        ActionSelectLangFR.FlatAppearance.BorderSize = 0;
+        ActionSelectLangEN.BackColor = SystemColors.ControlLightLight;
+        ActionSelectLangFR.BackColor = SystemColors.Control;
       }
       if ( Program.Settings.Language == "fr" )
       {
-        ActionSelectLangFR.FlatAppearance.BorderSize = 1;
-        ActionSelectLangEN.FlatAppearance.BorderSize = 0;
+        ActionSelectLangFR.BackColor = SystemColors.ControlLightLight;
+        ActionSelectLangEN.BackColor = SystemColors.Control;
       }
     }
 
