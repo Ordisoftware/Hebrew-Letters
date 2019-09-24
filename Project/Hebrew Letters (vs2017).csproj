@@ -97,6 +97,12 @@
     <Compile Include="Source\Controls\LettersControl.Designer.cs">
       <DependentUpon>LettersControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Source\Forms\PreferencesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Forms\PreferencesForm.designer.cs">
+      <DependentUpon>PreferencesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Source\Program\Program.Init.cs" />
     <Compile Include="Source\Program\Program.cs" />
     <Compile Include="Source\Program\Program.System.cs" />
@@ -126,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Controls\LettersControl.resx">
       <DependentUpon>LettersControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Forms\PreferencesForm.resx">
+      <DependentUpon>PreferencesForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Data\DataSet.xsc">
