@@ -88,7 +88,7 @@
     <Compile Include="Source\Forms\MainForm\MainForm.SetView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Source\Forms\MainForm\MainForm.Update.cs">
+    <Compile Include="Source\Forms\MainForm\MainForm.Screen.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Source\Controls\LettersControl.cs">

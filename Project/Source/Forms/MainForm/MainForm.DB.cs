@@ -119,7 +119,6 @@ namespace Ordisoftware.HebrewLetters
       connection.Close();
       MeaningsTableAdapter.Fill(DataSet.Meanings);
       LettersTableAdapter.Fill(DataSet.Letters);
-
       string lang = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
       if ( lang != "fr" && lang != "en" ) lang = "en";
       string data = System.IO.File.ReadAllText(Program.AppRootFolderPath + "Project\\Data\\Alphabet-" + lang + ".txt",

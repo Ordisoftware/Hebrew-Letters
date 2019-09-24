@@ -31,14 +31,6 @@ namespace Ordisoftware.HebrewLetters
   {
 
     /// <summary>
-    /// INdicate filename of the help file.
-    /// </summary>
-    static public readonly string HelpFilename
-      = Directory.GetParent(Path.GetDirectoryName(Application.ExecutablePath.Replace("\\Debug\\", "\\").Replace("\\Release\\", "\\"))).FullName + Path.DirectorySeparatorChar
-      + "Help" + Path.DirectorySeparatorChar
-      + "index.htm";
-
-    /// <summary>
     /// Indicate the singleton instance.
     /// </summary>
     static public readonly MainForm Instance;
@@ -60,6 +52,8 @@ namespace Ordisoftware.HebrewLetters
     /// Indicate if the application is ready for the user.
     /// </summary>
     public bool IsReady { get; private set; }
+
+    private string SelectedMeanings;
 
     /// <summary>
     /// Default constructor.
@@ -124,6 +118,12 @@ namespace Ordisoftware.HebrewLetters
     private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
     {
       Program.Settings.Store();
+    }
+
+    private void MainForm_WindowsChanged(object sender, EventArgs e)
+    {
+      if ( !IsReady ) return;
+      EditScreenNone.PerformClick();
     }
 
     /// <summary>
@@ -333,7 +333,7 @@ namespace Ordisoftware.HebrewLetters
 
     private void ActionCopyToClipboardMeanings_Click(object sender, EventArgs e)
     {
-      if ( EditLetters.Input.Text != "" ) Clipboard.SetText(Meanings);
+      if ( EditLetters.Input.Text != "" ) Clipboard.SetText(SelectedMeanings);
     }
 
     private void ActionCopyToClipboardResults_Click(object sender, EventArgs e)
@@ -341,8 +341,6 @@ namespace Ordisoftware.HebrewLetters
       if ( EditSentence.Text != "") Clipboard.SetText(EditSentence.Text);
       if ( SelectCloseApp.Checked ) Close();
     }
-
-    private string Meanings;
 
     private void ActionAnalyse_Click(object sender, EventArgs e)
     {
@@ -352,7 +350,7 @@ namespace Ordisoftware.HebrewLetters
       EditAnalyze.Controls.Clear();
       int sum = 0;
       int dy = 0;
-      Meanings = "";
+      SelectedMeanings = "";
       for ( int pos = word.Length - 1; pos >= 0; pos-- )
       {
         var l = DataSet.Letters.FindByCode(Convert.ToString(word[pos]));
@@ -375,26 +373,26 @@ namespace Ordisoftware.HebrewLetters
         combobox.Items.Add(l.Verb);
         combobox.Items.Add(l.Structure);
         combobox.Items.Add(l.Function);
-        Meanings += l.Name + ": ";
-        Meanings += l.Positive + ", ";
-        Meanings += l.Negative + ", ";
-        Meanings += l.Verb + ", ";
-        Meanings += l.Structure + ", ";
-        Meanings += l.Function + ", ";
+        SelectedMeanings += l.Name + ": ";
+        SelectedMeanings += l.Positive + ", ";
+        SelectedMeanings += l.Negative + ", ";
+        SelectedMeanings += l.Verb + ", ";
+        SelectedMeanings += l.Structure + ", ";
+        SelectedMeanings += l.Function + ", ";
         foreach ( var meaning in l.GetMeaningsRows() )
         {
           combobox.Items.Add(meaning.Meaning);
-          Meanings += meaning.Meaning + ", ";
+          SelectedMeanings += meaning.Meaning + ", ";
         }
         dy += 30;
         try
         {
-          Meanings = Meanings.Remove(Meanings.Length - 2, 1);
+          SelectedMeanings = SelectedMeanings.Remove(SelectedMeanings.Length - 2, 1);
         }
         catch
         {
         }
-        Meanings += Environment.NewLine;
+        SelectedMeanings += Environment.NewLine;
       }
       EditGematria.Text = sum.ToString();
     }
@@ -407,12 +405,6 @@ namespace Ordisoftware.HebrewLetters
           str += ( (control as ComboBox).Text ?? "" ) + " ";
       str = str == "" ? "" : str.Remove(str.Length - 1, 1);
       EditSentence.Text = str;
-    }
-
-    private void MainForm_WindowsChanged(object sender, EventArgs e)
-    {
-      if ( !IsReady ) return;
-      EditScreenNone.PerformClick();
     }
 
     private void ActionDelLast_Click(object sender, EventArgs e)
