@@ -395,6 +395,7 @@ namespace Ordisoftware.HebrewLetters
         SelectedMeanings += Environment.NewLine;
       }
       EditGematria.Text = sum.ToString();
+      EditAnalyze.Focus();
     }
 
     private void MeaningComboBox_SelectedIndexChanged(object sender, EventArgs e)
