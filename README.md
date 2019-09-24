@@ -63,7 +63,7 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 - Add option to choose language.
 - Fix meanings can't be edited or deleted.
-- Fix meanings.
+- Fix meanings list.
 - Improve UI.
 - Update help.
 - Some code refactorings.
