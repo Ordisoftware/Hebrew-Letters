@@ -375,12 +375,6 @@
         x7G4bXscpNTfcHn9x3akM/MAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="ActionReset.Location" type="System.Drawing.Point, System.Drawing">
-    <value>25, 449</value>
-  </data>
-  <data name="ActionReset.Size" type="System.Drawing.Size, System.Drawing">
-    <value>157, 13</value>
-  </data>
   <data name="ActionReset.Text" xml:space="preserve">
     <value>Restaurer les valeurs par défaut</value>
   </data>
