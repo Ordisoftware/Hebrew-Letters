@@ -28,6 +28,8 @@ namespace Ordisoftware.HebrewLetters
   static partial class Program
   {
 
+    static private Mutex Mutex;
+
     static private bool CheckApplicationOnlyOneInstance()
     {
       var assembly = typeof(Program).Assembly;
