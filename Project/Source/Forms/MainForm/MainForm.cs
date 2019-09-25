@@ -426,6 +426,10 @@ namespace Ordisoftware.HebrewLetters
       ActionCopyToClipboardResult.Enabled = EditSentence.Text != "";
     }
 
+    private void ComboBoxCode_SelectedIndexChanged(object sender, EventArgs e)
+    {
+      EditMeanings.Focus();
+    }
   }
 
 }

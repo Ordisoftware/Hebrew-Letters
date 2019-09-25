@@ -469,6 +469,7 @@
       resources.ApplyResources(this.ComboBoxCode, "ComboBoxCode");
       this.ComboBoxCode.FormattingEnabled = true;
       this.ComboBoxCode.Name = "ComboBoxCode";
+      this.ComboBoxCode.SelectedIndexChanged += new System.EventHandler(this.ComboBoxCode_SelectedIndexChanged);
       // 
       // EditMeanings
       // 
