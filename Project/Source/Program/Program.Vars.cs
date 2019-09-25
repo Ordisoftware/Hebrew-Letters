@@ -75,6 +75,12 @@ namespace Ordisoftware.HebrewLetters
       + Path.DirectorySeparatorChar;
 
     /// <summary>
+    /// Indicate application documents folder.
+    /// </summary>
+    static public readonly string AppDocumentsFolderPath
+      = AppRootFolderPath + "Documents" + Path.DirectorySeparatorChar;
+
+    /// <summary>
     /// Indicate user data folder in roaming.
     /// </summary>
     static public string UserDataFolderPath
@@ -112,6 +118,17 @@ namespace Ordisoftware.HebrewLetters
       get
       {
         return AppRootFolderPath + "Help" + Path.DirectorySeparatorChar + "index-" + Localizer.Language + ".htm";
+      }
+    }
+
+    /// <summary>
+    /// Indicate name of the letters meanings file.
+    /// </summary>
+    static public string MeaningsFilename
+    {
+      get
+      {
+        return AppDocumentsFolderPath + "Alphabet-" + Localizer.Language + ".txt";
       }
     }
 
