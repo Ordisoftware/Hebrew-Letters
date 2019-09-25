@@ -18,18 +18,18 @@ namespace Ordisoftware.HebrewLetters
 {
 
   /// <summary>
-  /// Provide data view mode type.
+  /// Provide view mode type.
   /// </summary>
   public enum ViewModeType
   {
 
     /// <summary>
-    /// Text view mode to display the analyse panel.
+    /// Analyse view mode.
     /// </summary>
     Analyse,
 
     /// <summary>
-    /// Grid view mode to display the settings panel.
+    /// Settings view mode.
     /// </summary>
     Settings
 

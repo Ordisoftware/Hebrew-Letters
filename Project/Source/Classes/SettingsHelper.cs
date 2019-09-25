@@ -95,7 +95,8 @@ namespace Ordisoftware.HebrewLetters
     static internal void Store(this Settings settings)
     {
       var winState = MainForm.WindowState;
-      if ( winState != FormWindowState.Minimized ) settings.MainFormState = winState;
+      if ( winState != FormWindowState.Minimized ) 
+        settings.MainFormState = winState;
       if ( winState == FormWindowState.Normal )
       {
         settings.MainFormLeft = MainForm.Left;
