@@ -36,7 +36,7 @@ namespace Ordisoftware.HebrewLetters
       var attribute = (GuidAttribute)assembly.GetCustomAttributes(typeof(GuidAttribute), true)[0];
       string id = assembly.FullName + attribute.Value;
       bool created;
-      var mutex = new Mutex(true, id, out created);
+      Mutex = new Mutex(true, id, out created);
       return created;
     }
 
