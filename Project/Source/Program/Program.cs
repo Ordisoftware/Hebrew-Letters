@@ -11,48 +11,28 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2016-04 </edited>
+/// <edited> 2019-09 </edited>
 using System;
+using System.Windows.Forms;
 
 namespace Ordisoftware.HebrewLetters
 {
 
-  /// <summary>
-  /// Indicate the location of a control.
-  /// </summary>
-  [Serializable]
-  public enum ControlLocation
+  static partial class Program
   {
 
-    /// <summary>
-    /// Loose position.
-    /// </summary>
-    Loose,
-
-    /// <summary>
-    /// Top-left corner.
-    /// </summary>
-    TopLeft,
-
-    /// <summary>
-    /// Top-right corner.
-    /// </summary>
-    TopRight,
-
-    /// <summary>
-    /// Bottom-left corner.
-    /// </summary>
-    BottomLeft,
-
-    /// <summary>
-    /// Bottom-right corner.
-    /// </summary>
-    BottomRight,
-
-    /// <summary>
-    /// Centered on the screen.
-    /// </summary>
-    Center
+    [STAThread]
+    static void Main(string[] args)
+    {
+      CheckSettingsUpgrade();
+      Application.EnableVisualStyles();
+      Application.SetCompatibleTextRenderingDefault(false);
+      CheckCommandLineArguments(args);
+      ApplyCurrentLanguage();
+      SetFormsIcon();
+      InitializeUserFolders();
+      Application.Run(MainForm.Instance);
+    }
 
   }
 

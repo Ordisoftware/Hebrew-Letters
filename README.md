@@ -19,7 +19,7 @@ A tool for Windows written in C# that allows the lettriq study of hebrew words.
 
 - Windows Vista x32/x64 or superior
 - Screen 1024x768 or superior
-- Framework .NET 3.5 or superior
+- Framework .NET 4.5 or superior
 - [SQLite ODBC Driver](http://www.ch-werner.de/sqliteodbc/)
 
 ## Screenshots
@@ -58,6 +58,15 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 - F12 : About
 
 ## Changelog
+
+#### 2019.09.25 - Version 2.6
+
+- Add option to choose language.
+- Fix meanings can't be edited or deleted.
+- Fix meanings list.
+- Improve UI.
+- Update help.
+- Some code refactorings.
 
 #### 2019.09.19 - Version 2.5
 

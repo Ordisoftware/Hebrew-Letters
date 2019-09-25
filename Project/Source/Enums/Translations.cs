@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Hebrew Letters.
-/// Copyright 2016-2019 Olivier Rogier.
+/// Copyright 2012-2019 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at 
@@ -23,42 +23,56 @@ namespace Ordisoftware.HebrewLetters
 
     static public readonly string NewLine = Environment.NewLine;
 
-    static public readonly Dictionary<string, string> ApplicationDescriptionText
+    static public readonly Dictionary<string, string> AboutBoxTitle
+      = new Dictionary<string, string>()
+      {
+        { "en", "About {0}" },
+        { "fr", "À propos de {0}" }
+      };
+
+    static public readonly Dictionary<string, string> AboutBoxVersion
+      = new Dictionary<string, string>()
+      {
+        { "en", "Version {0}" },
+        { "fr", "Version {0}" }
+      };
+
+    static public readonly Dictionary<string, string> ApplicationDescription
       = new Dictionary<string, string>()
       {
         { "en", "A tool for the lettriq study of hebrew words" },
         { "fr", "Un outil pour l'étude lettrique des mots hébreux" }
       };
 
-    static public readonly Dictionary<string, string> ExitApplicationText
+    static public readonly Dictionary<string, string> ExitApplication
       = new Dictionary<string, string>()
       {
         { "en", "Exit application?" },
         { "fr", "Quitter l'application ?" }
       };
 
-    static public readonly Dictionary<string, string> CheckUpdateNoNewText
+    static public readonly Dictionary<string, string> NoNewVersionAvailable
       = new Dictionary<string, string>()
       {
         { "en", "There is no new version available." },
         { "fr", "Il n'y a pas de nouvelle version de disponible." }
       };
 
-    static public readonly Dictionary<string, string> CheckUpdateResultText
+    static public readonly Dictionary<string, string> NewVersionAvailable
       = new Dictionary<string, string>()
       {
-        { "en", "A newer version is available : " },
-        { "fr", "Une nouvelle version est disponible : " }
+        { "en", "A newer version is available : {0}" },
+        { "fr", "Une nouvelle version est disponible : {0}" }
       };
 
-    static public readonly Dictionary<string, string> CheckUpdateAskDownloadText
+    static public readonly Dictionary<string, string> AskDownloadNewVersion
       = new Dictionary<string, string>()
       {
         { "en", "Do you want to open the download page?" },
         { "fr", "Voulez-vous ouvrir la page de téléchargement ?" }
       };
 
-    static public readonly Dictionary<string, string> DatabaseChangedText
+    static public readonly Dictionary<string, string> DatabaseChanged
       = new Dictionary<string, string>()
       {
         { "en", "Database upgraded." + NewLine + NewLine +
@@ -67,7 +81,7 @@ namespace Ordisoftware.HebrewLetters
                 "Voulez-vous ouvrir la page des paramètres pour les réinitialiser ?" }
       };
 
-    static public readonly Dictionary<string, string> RestoreWinPosText
+    static public readonly Dictionary<string, string> RestoreWindowPosition
       = new Dictionary<string, string>()
       {
         { "en", "This action will restore windows position." + NewLine + NewLine +
@@ -76,7 +90,7 @@ namespace Ordisoftware.HebrewLetters
                 "Voulez-vous continuer ?" }
       };
 
-    static public readonly Dictionary<string, string> RestoreLettersDefaultText
+    static public readonly Dictionary<string, string> RestoreLettersDefault
       = new Dictionary<string, string>()
       {
         { "en", "This will restore all letters to default values." + NewLine + NewLine +
