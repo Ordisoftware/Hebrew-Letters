@@ -319,7 +319,7 @@ namespace Ordisoftware.HebrewLetters
       Close();
     }
 
-    private void TextBoxLetterConcept_TextChanged(object sender, EventArgs e)
+    private void TextBoxLetterConcept_KeyPress(object sender, KeyPressEventArgs e)
     {
       LettersBindingSource.EndEdit();
     }

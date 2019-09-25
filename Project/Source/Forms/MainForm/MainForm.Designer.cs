@@ -419,7 +419,7 @@
       this.negativeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Negative", true));
       resources.ApplyResources(this.negativeTextBox, "negativeTextBox");
       this.negativeTextBox.Name = "negativeTextBox";
-      this.negativeTextBox.TextChanged += new System.EventHandler(this.TextBoxLetterConcept_TextChanged);
+      this.negativeTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxLetterConcept_KeyPress);
       // 
       // positiveTextBox
       // 
@@ -427,7 +427,7 @@
       this.positiveTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Positive", true));
       resources.ApplyResources(this.positiveTextBox, "positiveTextBox");
       this.positiveTextBox.Name = "positiveTextBox";
-      this.positiveTextBox.TextChanged += new System.EventHandler(this.TextBoxLetterConcept_TextChanged);
+      this.positiveTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxLetterConcept_KeyPress);
       // 
       // verbTextBox
       // 
@@ -435,7 +435,7 @@
       this.verbTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Verb", true));
       resources.ApplyResources(this.verbTextBox, "verbTextBox");
       this.verbTextBox.Name = "verbTextBox";
-      this.verbTextBox.TextChanged += new System.EventHandler(this.TextBoxLetterConcept_TextChanged);
+      this.verbTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxLetterConcept_KeyPress);
       // 
       // ActionDeleteMeaning
       // 
@@ -525,7 +525,7 @@
       this.functionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Function", true));
       resources.ApplyResources(this.functionTextBox, "functionTextBox");
       this.functionTextBox.Name = "functionTextBox";
-      this.functionTextBox.TextChanged += new System.EventHandler(this.TextBoxLetterConcept_TextChanged);
+      this.functionTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxLetterConcept_KeyPress);
       // 
       // nameTextBox
       // 
@@ -542,7 +542,7 @@
       this.structureTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Structure", true));
       resources.ApplyResources(this.structureTextBox, "structureTextBox");
       this.structureTextBox.Name = "structureTextBox";
-      this.structureTextBox.TextChanged += new System.EventHandler(this.TextBoxLetterConcept_TextChanged);
+      this.structureTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxLetterConcept_KeyPress);
       // 
       // PanelSepTop
       // 
