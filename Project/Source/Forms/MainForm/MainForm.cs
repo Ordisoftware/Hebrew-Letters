@@ -324,6 +324,11 @@ namespace Ordisoftware.HebrewLetters
       LettersBindingSource.EndEdit();
     }
 
+    private void ComboBoxCode_SelectedIndexChanged(object sender, EventArgs e)
+    {
+      EditMeanings.Focus();
+    }
+
     private void ActionAddMeaning_Click(object sender, EventArgs e)
     {
       var row = (DataRowView)meaningsBindingSource.AddNew();
@@ -424,11 +429,6 @@ namespace Ordisoftware.HebrewLetters
     private void EditSentence_TextChanged(object sender, EventArgs e)
     {
       ActionCopyToClipboardResult.Enabled = EditSentence.Text != "";
-    }
-
-    private void ComboBoxCode_SelectedIndexChanged(object sender, EventArgs e)
-    {
-      EditMeanings.Focus();
     }
   }
 
