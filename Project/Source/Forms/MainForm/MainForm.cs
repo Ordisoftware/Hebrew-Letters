@@ -67,6 +67,8 @@ namespace Ordisoftware.HebrewLetters
       SystemEvents.SessionEnding += SessionEnding;
     }
 
+    private bool Upgraded;
+
     /// <summary>
     /// Event handler. Called by MainForm for load events.
     /// </summary>
@@ -74,11 +76,17 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void MainForm_Load(object sender, EventArgs e)
     {
-      var upgraded = CreateSchemaIfNotExists();
+      Upgraded = CreateSchemaIfNotExists();
       CreateDataIfNotExists(false);
       MeaningsTableAdapter.Fill(DataSet.Meanings);
       LettersTableAdapter.Fill(DataSet.Letters);
       Program.Settings.Retrieve();
+    }
+
+    private void MainForm_Shown(object sender, EventArgs e)
+    {
+      Program.CheckUpdate(true);
+      IsReady = true;
       if ( Program.StartupWord != "" )
       {
         EditLetters.Input.Text = Program.StartupWord;
@@ -88,15 +96,9 @@ namespace Ordisoftware.HebrewLetters
       }
       else
         SetView(Program.Settings.CurrentView, true);
-      if (upgraded)
+      if ( Upgraded )
         if ( DisplayManager.QueryYesNo(Translations.DatabaseChanged.GetLang()) )
           SetView(ViewModeType.Settings);
-    }
-
-    private void MainForm_Shown(object sender, EventArgs e)
-    {
-      Program.CheckUpdate(true);
-      IsReady = true;
     }
 
     /// <summary>
@@ -430,6 +432,7 @@ namespace Ordisoftware.HebrewLetters
     {
       ActionCopyToClipboardResult.Enabled = EditSentence.Text != "";
     }
+
   }
 
 }

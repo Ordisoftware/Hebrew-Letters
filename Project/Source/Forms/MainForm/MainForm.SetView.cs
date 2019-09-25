@@ -92,6 +92,11 @@ namespace Ordisoftware.HebrewLetters
       ViewPanels[view].MenuItem.Checked = true;
       ViewPanels[view].Panel.Parent = PanelMainCenter;
       ViewPanels[view].Focused.Focus();
+      if ( ViewPanels[view].Focused == EditLetters.Input )
+      {
+        EditLetters.Input.SelectionStart = 0;
+        EditLetters.Input.SelectionLength = 0;
+      }
       Program.Settings.CurrentView = view;
     }
 
