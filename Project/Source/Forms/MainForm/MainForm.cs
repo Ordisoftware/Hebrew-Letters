@@ -48,6 +48,11 @@ namespace Ordisoftware.HebrewLetters
     private ToolTip LastToolTip = new ToolTip();
 
     /// <summary>
+    /// Indicate if database has been upgraded.
+    /// </summary>
+    private bool IsDBUpgraded;
+
+    /// <summary>
     /// Indicate if the application is ready for the user.
     /// </summary>
     public bool IsReady { get; private set; }
@@ -67,8 +72,6 @@ namespace Ordisoftware.HebrewLetters
       SystemEvents.SessionEnding += SessionEnding;
     }
 
-    private bool Upgraded;
-
     /// <summary>
     /// Event handler. Called by MainForm for load events.
     /// </summary>
@@ -76,17 +79,17 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void MainForm_Load(object sender, EventArgs e)
     {
-      Upgraded = CreateSchemaIfNotExists();
+      IsDBUpgraded = CreateSchemaIfNotExists();
       CreateDataIfNotExists(false);
       MeaningsTableAdapter.Fill(DataSet.Meanings);
       LettersTableAdapter.Fill(DataSet.Letters);
       Program.Settings.Retrieve();
+      IsReady = true;
     }
 
     private void MainForm_Shown(object sender, EventArgs e)
     {
       Program.CheckUpdate(true);
-      IsReady = true;
       if ( Program.StartupWord != "" )
       {
         EditLetters.Input.Text = Program.StartupWord;
@@ -96,7 +99,7 @@ namespace Ordisoftware.HebrewLetters
       }
       else
         SetView(Program.Settings.CurrentView, true);
-      if ( Upgraded )
+      if ( IsDBUpgraded )
         if ( DisplayManager.QueryYesNo(Translations.DatabaseChanged.GetLang()) )
           SetView(ViewModeType.Settings);
     }
