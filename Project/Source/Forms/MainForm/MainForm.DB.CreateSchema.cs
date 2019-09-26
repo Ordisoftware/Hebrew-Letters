@@ -78,7 +78,7 @@ namespace Ordisoftware.HebrewLetters
                                   Verb TEXT NOT NULL,
                                   ValueSimple INTEGER NOT NULL, 
                                   ValueFull INTEGER NOT NULL, 
-                                  CONSTRAINT Pk_Letter_Code PRIMARY KEY ( Code ) 
+                                  CONSTRAINT Pk_Letter_Code PRIMARY KEY (Code) 
                                 )");
         string sqlCreateMeanings = @"CREATE TABLE Meanings
                                      (
@@ -102,11 +102,14 @@ namespace Ordisoftware.HebrewLetters
               command = new OdbcCommand("SELECT * FROM Meanings_Temp", connection);
               var reader = command.ExecuteReader();
               while ( reader.Read() )
-                new OdbcCommand("INSERT INTO Meanings (ID, LetterCode, Meaning) VALUES (\"" +
-                                 Guid.NewGuid().ToString() + "\", \"" +
-                                 (string)reader["LetterCode"] + "\", \"" +
-                                 (string)reader["Meaning"] + "\")",
-                                 connection).ExecuteNonQuery();
+              {
+                var cmd = new OdbcCommand("INSERT INTO Meanings (ID, LetterCode, Meaning) " +
+                                          "VALUES (?,?,?)", connection);
+                cmd.Parameters.Add("@ID", OdbcType.Text).Value = Guid.NewGuid().ToString();
+                cmd.Parameters.Add("@LetterCode", OdbcType.Text).Value = (string)reader["LetterCode"];
+                cmd.Parameters.Add("@Meaning", OdbcType.Text).Value = (string)reader["Meaning"];
+                cmd.ExecuteNonQuery();
+              }
             }
             finally
             {
