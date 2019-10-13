@@ -59,6 +59,10 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 ## Changelog
 
+#### ____.__.__ - Version 2.7
+
+- Improve session ending.
+
 #### 2019.09.25 - Version 2.6
 
 - Add option to choose language.
