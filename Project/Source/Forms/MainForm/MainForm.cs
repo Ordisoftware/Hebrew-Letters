@@ -124,6 +124,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Form closing event information.</param>
     private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
     {
+      if ( !IsReady ) return;
       LettersBindingSource.EndEdit();
       meaningsBindingSource.EndEdit();
       if ( DataSet.HasChanges() )
