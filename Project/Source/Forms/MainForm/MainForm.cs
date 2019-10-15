@@ -79,12 +79,19 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void MainForm_Load(object sender, EventArgs e)
     {
-      IsDBUpgraded = CreateSchemaIfNotExists();
-      CreateDataIfNotExists(false);
-      MeaningsTableAdapter.Fill(DataSet.Meanings);
-      LettersTableAdapter.Fill(DataSet.Letters);
       Program.Settings.Retrieve();
-      IsReady = true;
+      try
+      {
+        IsDBUpgraded = CreateSchemaIfNotExists();
+        CreateDataIfNotExists(false);
+        MeaningsTableAdapter.Fill(DataSet.Meanings);
+        LettersTableAdapter.Fill(DataSet.Letters);
+        IsReady = true;
+      }
+      catch ( Exception ex )
+      {
+        ex.Manage();
+      }
     }
 
     private void MainForm_Shown(object sender, EventArgs e)

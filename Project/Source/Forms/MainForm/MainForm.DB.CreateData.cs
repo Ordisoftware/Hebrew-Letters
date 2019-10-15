@@ -31,64 +31,57 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="reset">True if force the restoring of default values.</param>
     public void CreateDataIfNotExists(bool reset)
     {
-      try
+      var connection = new OdbcConnection(Program.Settings.ConnectionString);
+      connection.Open();
+      var command = new OdbcCommand("SELECT count(*) FROM Letters", connection);
+      if ( !reset && (int)command.ExecuteScalar() == 22 ) return;
+      command = new OdbcCommand("DELETE FROM Meanings", connection);
+      command.ExecuteNonQuery();
+      command = new OdbcCommand("DELETE FROM Letters", connection);
+      command.ExecuteNonQuery();
+      connection.Close();
+      MeaningsTableAdapter.Fill(DataSet.Meanings);
+      LettersTableAdapter.Fill(DataSet.Letters);
+      string lang = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
+      if ( lang != "fr" && lang != "en" ) lang = "en";
+      string data = System.IO.File.ReadAllText(Program.MeaningsFilename, System.Text.Encoding.Default);
+      int indexStart = 0;
+      Func<string, string> getStrValue = (name) =>
       {
-        var connection = new OdbcConnection(Program.Settings.ConnectionString);
-        connection.Open();
-        var command = new OdbcCommand("SELECT count(*) FROM Letters", connection);
-        if ( !reset && (int)command.ExecuteScalar() == 22 ) return;
-        command = new OdbcCommand("DELETE FROM Meanings", connection);
-        command.ExecuteNonQuery();
-        command = new OdbcCommand("DELETE FROM Letters", connection);
-        command.ExecuteNonQuery();
-        connection.Close();
-        MeaningsTableAdapter.Fill(DataSet.Meanings);
-        LettersTableAdapter.Fill(DataSet.Letters);
-        string lang = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
-        if ( lang != "fr" && lang != "en" ) lang = "en";
-        string data = System.IO.File.ReadAllText(Program.MeaningsFilename, System.Text.Encoding.Default);
-        int indexStart = 0;
-        Func<string, string> getStrValue = (name) =>
+        int p = data.IndexOf(name, indexStart);
+        string s = data.Substring(p + name.Length, data.IndexOf("\r\n", p) - p - name.Length);
+        indexStart = data.IndexOf("\r\n", p) + 2;
+        return s;
+      };
+      Func<string, int> getIntValue = (name) =>
+      {
+        return Convert.ToInt32(getStrValue(name));
+      };
+      for ( int index = 0; index < HebrewLetters.Codes.Length; index++ )
+      {
+        var rowLetter = DataSet.Letters.NewLettersRow();
+        rowLetter.Code = HebrewLetters.Codes[index];
+        rowLetter.Name = HebrewLetters.Names.GetLang()[index];
+        rowLetter.Hebrew = HebrewLetters.HebrewNames[index];
+        rowLetter.ValueSimple = getIntValue("ValueSimple: ");
+        rowLetter.ValueFull = getIntValue("ValueFull: ");
+        rowLetter.Positive = getStrValue("Positive: ");
+        rowLetter.Negative = getStrValue("Negative: ");
+        rowLetter.Verb = getStrValue("Verb: ");
+        rowLetter.Structure = getStrValue("Structure: ");
+        rowLetter.Function = getStrValue("Function: ");
+        var meanings = getStrValue("Meanings: ").Split(',');
+        foreach ( var meaning in meanings )
         {
-          int p = data.IndexOf(name, indexStart);
-          string s = data.Substring(p + name.Length, data.IndexOf("\r\n", p) - p - name.Length);
-          indexStart = data.IndexOf("\r\n", p) + 2;
-          return s;
-        };
-        Func<string, int> getIntValue = (name) =>
-        {
-          return Convert.ToInt32(getStrValue(name));
-        };
-        for ( int index = 0; index < HebrewLetters.Codes.Length; index++ )
-        {
-          var rowLetter = DataSet.Letters.NewLettersRow();
-          rowLetter.Code = HebrewLetters.Codes[index];
-          rowLetter.Name = HebrewLetters.Names.GetLang()[index];
-          rowLetter.Hebrew = HebrewLetters.HebrewNames[index];
-          rowLetter.ValueSimple = getIntValue("ValueSimple: ");
-          rowLetter.ValueFull = getIntValue("ValueFull: ");
-          rowLetter.Positive = getStrValue("Positive: ");
-          rowLetter.Negative = getStrValue("Negative: ");
-          rowLetter.Verb = getStrValue("Verb: ");
-          rowLetter.Structure = getStrValue("Structure: ");
-          rowLetter.Function = getStrValue("Function: ");
-          var meanings = getStrValue("Meanings: ").Split(',');
-          foreach ( var meaning in meanings )
-          {
-            var rowMeaning = DataSet.Meanings.NewMeaningsRow();
-            rowMeaning.ID = Guid.NewGuid().ToString();
-            rowMeaning.LetterCode = rowLetter.Code;
-            rowMeaning.Meaning = meaning;
-            DataSet.Meanings.AddMeaningsRow(rowMeaning);
-          }
-          DataSet.Letters.AddLettersRow(rowLetter);
+          var rowMeaning = DataSet.Meanings.NewMeaningsRow();
+          rowMeaning.ID = Guid.NewGuid().ToString();
+          rowMeaning.LetterCode = rowLetter.Code;
+          rowMeaning.Meaning = meaning;
+          DataSet.Meanings.AddMeaningsRow(rowMeaning);
         }
-        TableAdapterManager.UpdateAll(DataSet);
+        DataSet.Letters.AddLettersRow(rowLetter);
       }
-      catch ( Exception ex )
-      {
-        ex.Manage();
-      }
+      TableAdapterManager.UpdateAll(DataSet);
     }
 
   }
