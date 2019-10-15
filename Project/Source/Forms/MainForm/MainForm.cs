@@ -14,6 +14,7 @@
 /// <edited> 2019-08 </edited>
 using System;
 using System.Data;
+using System.Data.Odbc;
 using System.Drawing;
 using System.Windows.Forms;
 using Microsoft.Win32;
@@ -87,6 +88,11 @@ namespace Ordisoftware.HebrewLetters
         MeaningsTableAdapter.Fill(DataSet.Meanings);
         LettersTableAdapter.Fill(DataSet.Letters);
         IsReady = true;
+      }
+      catch ( OdbcException ex )
+      {
+        DisplayManager.ShowError(ex.Message);
+        Application.Exit();
       }
       catch ( Exception ex )
       {
