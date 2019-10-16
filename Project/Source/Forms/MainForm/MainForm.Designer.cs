@@ -62,24 +62,25 @@
       this.TabPageMonth = new System.Windows.Forms.TabPage();
       this.PanelViewSettings = new System.Windows.Forms.Panel();
       this.PanelSettingsDetails = new System.Windows.Forms.Panel();
+      this.PanelLetter = new System.Windows.Forms.Panel();
       this.ComboBoxCode = new System.Windows.Forms.ComboBox();
       this.LettersBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.DataSet = new Ordisoftware.HebrewLetters.Data.DataSet();
+      this.structureTextBox = new System.Windows.Forms.TextBox();
       this.LabelHebrew = new System.Windows.Forms.Label();
       this.negativeTextBox = new System.Windows.Forms.TextBox();
+      this.nameTextBox = new System.Windows.Forms.TextBox();
+      this.functionTextBox = new System.Windows.Forms.TextBox();
       this.positiveTextBox = new System.Windows.Forms.TextBox();
       this.verbTextBox = new System.Windows.Forms.TextBox();
+      this.valueSimpleTextBox = new System.Windows.Forms.TextBox();
+      this.valueFullTextBox = new System.Windows.Forms.TextBox();
+      this.ActionRestoreDefaults = new System.Windows.Forms.LinkLabel();
       this.ActionDeleteMeaning = new System.Windows.Forms.Button();
       this.ActionAddMeaning = new System.Windows.Forms.Button();
-      this.ActionRestoreDefaults = new System.Windows.Forms.LinkLabel();
       this.EditMeanings = new System.Windows.Forms.DataGridView();
       this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.meaningsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-      this.valueFullTextBox = new System.Windows.Forms.TextBox();
-      this.valueSimpleTextBox = new System.Windows.Forms.TextBox();
-      this.functionTextBox = new System.Windows.Forms.TextBox();
-      this.nameTextBox = new System.Windows.Forms.TextBox();
-      this.structureTextBox = new System.Windows.Forms.TextBox();
       this.PanelSepTop = new System.Windows.Forms.Panel();
       this.PanelTitle = new System.Windows.Forms.Panel();
       this.LabelTitle = new System.Windows.Forms.Label();
@@ -118,7 +119,6 @@
       this.LettersTableAdapter = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.LettersTableAdapter();
       this.TableAdapterManager = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.TableAdapterManager();
       this.MeaningsTableAdapter = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.MeaningsTableAdapter();
-      this.PanelLetter = new System.Windows.Forms.Panel();
       nameLabel = new System.Windows.Forms.Label();
       structureLabel = new System.Windows.Forms.Label();
       functionLabel = new System.Windows.Forms.Label();
@@ -138,6 +138,7 @@
       this.TabPageMonth.SuspendLayout();
       this.PanelViewSettings.SuspendLayout();
       this.PanelSettingsDetails.SuspendLayout();
+      this.PanelLetter.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.LettersBindingSource)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.DataSet)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.EditMeanings)).BeginInit();
@@ -145,7 +146,6 @@
       this.PanelTitle.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.moonPhaseImagePictureBox)).BeginInit();
       this.ToolStrip.SuspendLayout();
-      this.PanelLetter.SuspendLayout();
       this.SuspendLayout();
       // 
       // nameLabel
@@ -384,6 +384,30 @@
       resources.ApplyResources(this.PanelSettingsDetails, "PanelSettingsDetails");
       this.PanelSettingsDetails.Name = "PanelSettingsDetails";
       // 
+      // PanelLetter
+      // 
+      this.PanelLetter.Controls.Add(this.ComboBoxCode);
+      this.PanelLetter.Controls.Add(this.structureTextBox);
+      this.PanelLetter.Controls.Add(this.LabelHebrew);
+      this.PanelLetter.Controls.Add(structureLabel);
+      this.PanelLetter.Controls.Add(negativeLabel);
+      this.PanelLetter.Controls.Add(functionLabel);
+      this.PanelLetter.Controls.Add(this.negativeTextBox);
+      this.PanelLetter.Controls.Add(this.nameTextBox);
+      this.PanelLetter.Controls.Add(positiveLabel);
+      this.PanelLetter.Controls.Add(this.functionTextBox);
+      this.PanelLetter.Controls.Add(this.positiveTextBox);
+      this.PanelLetter.Controls.Add(nameLabel);
+      this.PanelLetter.Controls.Add(verbLabel);
+      this.PanelLetter.Controls.Add(valueSimpleLabel);
+      this.PanelLetter.Controls.Add(this.verbTextBox);
+      this.PanelLetter.Controls.Add(this.valueSimpleTextBox);
+      this.PanelLetter.Controls.Add(valueFullLabel);
+      this.PanelLetter.Controls.Add(this.valueFullTextBox);
+      this.PanelLetter.Controls.Add(this.ActionRestoreDefaults);
+      resources.ApplyResources(this.PanelLetter, "PanelLetter");
+      this.PanelLetter.Name = "PanelLetter";
+      // 
       // ComboBoxCode
       // 
       this.ComboBoxCode.BackColor = System.Drawing.Color.LightYellow;
@@ -394,6 +418,7 @@
       this.ComboBoxCode.FormattingEnabled = true;
       this.ComboBoxCode.Name = "ComboBoxCode";
       this.ComboBoxCode.SelectedIndexChanged += new System.EventHandler(this.ComboBoxCode_SelectedIndexChanged);
+      this.ComboBoxCode.Enter += new System.EventHandler(this.ComboBoxCode_Enter);
       // 
       // LettersBindingSource
       // 
@@ -407,6 +432,15 @@
       this.DataSet.DataSetName = "DataSet";
       this.DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
       // 
+      // structureTextBox
+      // 
+      this.structureTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.structureTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Structure", true));
+      resources.ApplyResources(this.structureTextBox, "structureTextBox");
+      this.structureTextBox.Name = "structureTextBox";
+      this.structureTextBox.TextChanged += new System.EventHandler(this.positiveTextBox_TextChanged);
+      this.structureTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxLetterConcept_KeyPress);
+      // 
       // LabelHebrew
       // 
       this.LabelHebrew.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Hebrew", true));
@@ -419,7 +453,26 @@
       this.negativeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Negative", true));
       resources.ApplyResources(this.negativeTextBox, "negativeTextBox");
       this.negativeTextBox.Name = "negativeTextBox";
+      this.negativeTextBox.TextChanged += new System.EventHandler(this.positiveTextBox_TextChanged);
       this.negativeTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxLetterConcept_KeyPress);
+      // 
+      // nameTextBox
+      // 
+      this.nameTextBox.BackColor = System.Drawing.Color.LightYellow;
+      this.nameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Name", true));
+      resources.ApplyResources(this.nameTextBox, "nameTextBox");
+      this.nameTextBox.Name = "nameTextBox";
+      this.nameTextBox.ReadOnly = true;
+      // 
+      // functionTextBox
+      // 
+      this.functionTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.functionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Function", true));
+      resources.ApplyResources(this.functionTextBox, "functionTextBox");
+      this.functionTextBox.Name = "functionTextBox";
+      this.functionTextBox.TextChanged += new System.EventHandler(this.positiveTextBox_TextChanged);
+      this.functionTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxLetterConcept_KeyPress);
       // 
       // positiveTextBox
       // 
@@ -427,6 +480,7 @@
       this.positiveTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Positive", true));
       resources.ApplyResources(this.positiveTextBox, "positiveTextBox");
       this.positiveTextBox.Name = "positiveTextBox";
+      this.positiveTextBox.TextChanged += new System.EventHandler(this.positiveTextBox_TextChanged);
       this.positiveTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxLetterConcept_KeyPress);
       // 
       // verbTextBox
@@ -435,7 +489,33 @@
       this.verbTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Verb", true));
       resources.ApplyResources(this.verbTextBox, "verbTextBox");
       this.verbTextBox.Name = "verbTextBox";
+      this.verbTextBox.TextChanged += new System.EventHandler(this.positiveTextBox_TextChanged);
       this.verbTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxLetterConcept_KeyPress);
+      // 
+      // valueSimpleTextBox
+      // 
+      this.valueSimpleTextBox.BackColor = System.Drawing.Color.LavenderBlush;
+      this.valueSimpleTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.valueSimpleTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "ValueSimple", true));
+      resources.ApplyResources(this.valueSimpleTextBox, "valueSimpleTextBox");
+      this.valueSimpleTextBox.Name = "valueSimpleTextBox";
+      this.valueSimpleTextBox.ReadOnly = true;
+      // 
+      // valueFullTextBox
+      // 
+      this.valueFullTextBox.BackColor = System.Drawing.Color.LavenderBlush;
+      this.valueFullTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.valueFullTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "ValueFull", true));
+      resources.ApplyResources(this.valueFullTextBox, "valueFullTextBox");
+      this.valueFullTextBox.Name = "valueFullTextBox";
+      this.valueFullTextBox.ReadOnly = true;
+      // 
+      // ActionRestoreDefaults
+      // 
+      resources.ApplyResources(this.ActionRestoreDefaults, "ActionRestoreDefaults");
+      this.ActionRestoreDefaults.Name = "ActionRestoreDefaults";
+      this.ActionRestoreDefaults.TabStop = true;
+      this.ActionRestoreDefaults.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ActionReset_LinkClicked);
       // 
       // ActionDeleteMeaning
       // 
@@ -452,13 +532,6 @@
       this.ActionAddMeaning.Name = "ActionAddMeaning";
       this.ActionAddMeaning.UseVisualStyleBackColor = true;
       this.ActionAddMeaning.Click += new System.EventHandler(this.ActionAddMeaning_Click);
-      // 
-      // ActionRestoreDefaults
-      // 
-      resources.ApplyResources(this.ActionRestoreDefaults, "ActionRestoreDefaults");
-      this.ActionRestoreDefaults.Name = "ActionRestoreDefaults";
-      this.ActionRestoreDefaults.TabStop = true;
-      this.ActionRestoreDefaults.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ActionReset_LinkClicked);
       // 
       // EditMeanings
       // 
@@ -477,7 +550,6 @@
       this.EditMeanings.Name = "EditMeanings";
       this.EditMeanings.RowHeadersVisible = false;
       this.EditMeanings.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.EditMeanings_CellEndEdit);
-      this.EditMeanings.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.EditMeanings_CellEndEdit);
       this.EditMeanings.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.EditMeanings_CellValidating);
       this.EditMeanings.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.EditMeanings_DataError);
       // 
@@ -494,49 +566,6 @@
       this.meaningsBindingSource.DataMember = "Letters_Meanings";
       this.meaningsBindingSource.DataSource = this.LettersBindingSource;
       this.meaningsBindingSource.DataError += new System.Windows.Forms.BindingManagerDataErrorEventHandler(this.BindingSource_DataError);
-      // 
-      // valueFullTextBox
-      // 
-      this.valueFullTextBox.BackColor = System.Drawing.Color.LavenderBlush;
-      this.valueFullTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.valueFullTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "ValueFull", true));
-      resources.ApplyResources(this.valueFullTextBox, "valueFullTextBox");
-      this.valueFullTextBox.Name = "valueFullTextBox";
-      this.valueFullTextBox.ReadOnly = true;
-      // 
-      // valueSimpleTextBox
-      // 
-      this.valueSimpleTextBox.BackColor = System.Drawing.Color.LavenderBlush;
-      this.valueSimpleTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.valueSimpleTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "ValueSimple", true));
-      resources.ApplyResources(this.valueSimpleTextBox, "valueSimpleTextBox");
-      this.valueSimpleTextBox.Name = "valueSimpleTextBox";
-      this.valueSimpleTextBox.ReadOnly = true;
-      // 
-      // functionTextBox
-      // 
-      this.functionTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.functionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Function", true));
-      resources.ApplyResources(this.functionTextBox, "functionTextBox");
-      this.functionTextBox.Name = "functionTextBox";
-      this.functionTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxLetterConcept_KeyPress);
-      // 
-      // nameTextBox
-      // 
-      this.nameTextBox.BackColor = System.Drawing.Color.LightYellow;
-      this.nameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Name", true));
-      resources.ApplyResources(this.nameTextBox, "nameTextBox");
-      this.nameTextBox.Name = "nameTextBox";
-      this.nameTextBox.ReadOnly = true;
-      // 
-      // structureTextBox
-      // 
-      this.structureTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.structureTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Structure", true));
-      resources.ApplyResources(this.structureTextBox, "structureTextBox");
-      this.structureTextBox.Name = "structureTextBox";
-      this.structureTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxLetterConcept_KeyPress);
       // 
       // PanelSepTop
       // 
@@ -841,30 +870,6 @@
       // 
       this.MeaningsTableAdapter.ClearBeforeFill = true;
       // 
-      // PanelLetter
-      // 
-      this.PanelLetter.Controls.Add(this.ComboBoxCode);
-      this.PanelLetter.Controls.Add(this.structureTextBox);
-      this.PanelLetter.Controls.Add(this.LabelHebrew);
-      this.PanelLetter.Controls.Add(structureLabel);
-      this.PanelLetter.Controls.Add(negativeLabel);
-      this.PanelLetter.Controls.Add(functionLabel);
-      this.PanelLetter.Controls.Add(this.negativeTextBox);
-      this.PanelLetter.Controls.Add(this.nameTextBox);
-      this.PanelLetter.Controls.Add(positiveLabel);
-      this.PanelLetter.Controls.Add(this.functionTextBox);
-      this.PanelLetter.Controls.Add(this.positiveTextBox);
-      this.PanelLetter.Controls.Add(nameLabel);
-      this.PanelLetter.Controls.Add(verbLabel);
-      this.PanelLetter.Controls.Add(valueSimpleLabel);
-      this.PanelLetter.Controls.Add(this.verbTextBox);
-      this.PanelLetter.Controls.Add(this.valueSimpleTextBox);
-      this.PanelLetter.Controls.Add(valueFullLabel);
-      this.PanelLetter.Controls.Add(this.valueFullTextBox);
-      this.PanelLetter.Controls.Add(this.ActionRestoreDefaults);
-      resources.ApplyResources(this.PanelLetter, "PanelLetter");
-      this.PanelLetter.Name = "PanelLetter";
-      // 
       // MainForm
       // 
       resources.ApplyResources(this, "$this");
@@ -892,6 +897,8 @@
       this.PanelViewSettings.ResumeLayout(false);
       this.PanelSettingsDetails.ResumeLayout(false);
       this.PanelSettingsDetails.PerformLayout();
+      this.PanelLetter.ResumeLayout(false);
+      this.PanelLetter.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.LettersBindingSource)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.DataSet)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.EditMeanings)).EndInit();
@@ -900,8 +907,6 @@
       ((System.ComponentModel.ISupportInitialize)(this.moonPhaseImagePictureBox)).EndInit();
       this.ToolStrip.ResumeLayout(false);
       this.ToolStrip.PerformLayout();
-      this.PanelLetter.ResumeLayout(false);
-      this.PanelLetter.PerformLayout();
       this.ResumeLayout(false);
 
     }
