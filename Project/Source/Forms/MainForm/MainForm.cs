@@ -366,6 +366,8 @@ namespace Ordisoftware.HebrewLetters
       EditMeanings.BeginEdit(false);
       ActionAddMeaning.Enabled = false;
       ActionDeleteMeaning.Enabled = false;
+      ToolStrip.Enabled = false;
+      PanelLetter.Enabled = false;
     }
 
     private void ActionDeleteMeaning_Click(object sender, EventArgs e)
@@ -393,6 +395,8 @@ namespace Ordisoftware.HebrewLetters
       {
         ActionAddMeaning.Enabled = true;
         ActionDeleteMeaning.Enabled = true;
+        ToolStrip.Enabled = true;
+        PanelLetter.Enabled = true;
       }
     }
 
