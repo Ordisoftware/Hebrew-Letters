@@ -83,10 +83,12 @@ namespace Ordisoftware.HebrewLetters
       Program.Settings.Retrieve();
       try
       {
+        //ComboBoxCode.DataSource = null;
+        //EditMeanings.DataSource = null;
         IsDBUpgraded = CreateSchemaIfNotExists();
         CreateDataIfNotExists(false);
-        MeaningsTableAdapter.Fill(DataSet.Meanings);
         LettersTableAdapter.Fill(DataSet.Letters);
+        MeaningsTableAdapter.Fill(DataSet.Meanings);
         IsReady = true;
       }
       catch ( OdbcException ex )
@@ -103,6 +105,8 @@ namespace Ordisoftware.HebrewLetters
     private void MainForm_Shown(object sender, EventArgs e)
     {
       Program.CheckUpdate(true);
+      //EditMeanings.DataSource = meaningsBindingSource;
+      //ComboBoxCode.DataSource = LettersBindingSource;
       if ( Program.StartupWord != "" )
       {
         EditLetters.Input.Text = Program.StartupWord;
@@ -355,8 +359,13 @@ namespace Ordisoftware.HebrewLetters
     {
       var row = (DataRowView)meaningsBindingSource.AddNew();
       ( (Data.DataSet.MeaningsRow)row.Row ).ID = Guid.NewGuid().ToString();
+      ( (Data.DataSet.MeaningsRow)row.Row ).LetterCode = ComboBoxCode.Text;
       ( (Data.DataSet.MeaningsRow)row.Row ).Meaning = "";
+      EditMeanings.EndEdit();
+      meaningsBindingSource.ResetBindings(false);
       EditMeanings.BeginEdit(false);
+      ActionAddMeaning.Enabled = false;
+      ActionDeleteMeaning.Enabled = false;
     }
 
     private void ActionDeleteMeaning_Click(object sender, EventArgs e)
@@ -364,13 +373,27 @@ namespace Ordisoftware.HebrewLetters
       if ( meaningsBindingSource.Count < 1 ) return;
       meaningsBindingSource.RemoveCurrent();
       EditMeanings.EndEdit();
+      meaningsBindingSource.ResetBindings(false);
+      if ( DataSet.HasChanges() ) TableAdapterManager.UpdateAll(DataSet);
     }
 
     private void EditMeanings_CellEndEdit(object sender, DataGridViewCellEventArgs e)
     {
-      if ( EditMeanings[e.ColumnIndex, e.RowIndex].Value == DBNull.Value )
-        EditMeanings[e.ColumnIndex, e.RowIndex].Value = "";
       if ( DataSet.HasChanges() ) TableAdapterManager.UpdateAll(DataSet);
+    }
+
+    private void EditMeanings_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+    {
+      if ( e.FormattedValue == DBNull.Value || e.FormattedValue == "" )
+      {
+        e.Cancel = true;
+        EditMeanings.BeginEdit(false);
+      }
+      else
+      {
+        ActionAddMeaning.Enabled = true;
+        ActionDeleteMeaning.Enabled = true;
+      }
     }
 
     private void ActionReset_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -462,10 +485,23 @@ namespace Ordisoftware.HebrewLetters
 
     private void BindingSource_DataError(object sender, BindingManagerDataErrorEventArgs e)
     {
+      if ( e.Exception is ArgumentOutOfRangeException ) return;
       DisplayManager.ShowError(e.Exception.Message);
-      //DataSet.RejectChanges();
+      DataSet.RejectChanges();
     }
 
+    private void EditMeanings_DataError(object sender, DataGridViewDataErrorEventArgs e)
+    {
+      if ( e.Exception is ArgumentOutOfRangeException || e.Exception is IndexOutOfRangeException )
+      {
+        // TODO resolve this bug
+        DisplayManager.ShowError("Internal index error." + Environment.NewLine + "Application will exit.");
+        DataSet.RejectChanges();
+        Application.Exit();
+      }
+      else
+        DisplayManager.ShowError(e.Exception.Message);
+    }
   }
 
 }
