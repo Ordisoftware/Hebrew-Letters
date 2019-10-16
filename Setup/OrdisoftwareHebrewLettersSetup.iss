@@ -62,8 +62,8 @@ english.SourceCode_msg=Source code of %1
 french.SourceCode_msg=Code source de %1
 english.StartWithWindows_msg=Start with Windows
 french.StartWithWindows_msg=Démarrer avec Windows
-english.OpenSQLiteODBC_msg=Open SQLite ODBC website
-french.OpenSQLiteODBC_msg=Ouvrir le site web SQLite ODBC
+english.OpenSQLiteODBC_msg=Open SQLite ODBC website to download sqliteodbc(_w64).exe
+french.OpenSQLiteODBC_msg=Ouvrir le site web SQLite ODBC pour télécharger sqliteodbc(_w64).exe
 
 [Tasks]
 Name: desktopicon; Description: {cm:CreateDesktopIcon}; GroupDescription: {cm:AdditionalIcons}; Flags: unchecked
@@ -86,7 +86,7 @@ Source: ..\Bin\Release\*.dll; DestDir: {app}\Bin; Flags: ignoreversion recursesu
 Source: ..\Bin\Release\*.pdb; DestDir: {app}\Bin; Flags: ignoreversion recursesubdirs skipifsourcedoesntexist
 Source: ..\Bin\Release\*.xml; DestDir: {app}\Bin; Flags: ignoreversion recursesubdirs skipifsourcedoesntexist
 Source: ..\Help\*; DestDir: {app}\Help; Excludes: *.bak; Flags: ignoreversion recursesubdirs skipifsourcedoesntexist
-Source: ..\Project\*; DestDir: {app}\Project; Flags: ignoreversion recursesubdirs; Excludes: *.bak, *.suo, *.user, obj
+Source: ..\Project\*; DestDir: {app}\Project; Flags: ignoreversion recursesubdirs; Excludes: *.bak, *.suo, *.user, obj, .vs
 Source: ..\Documents\*; DestDir: {app}\Documents; Flags: ignoreversion recursesubdirs skipifsourcedoesntexist
 Source: ..\Project\Dependencies\Font\Hebrew.ttf; DestDir: {fonts}; FontInstall: Hebrew Normal; Flags: onlyifdoesntexist uninsneveruninstall
 
