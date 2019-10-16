@@ -83,8 +83,6 @@ namespace Ordisoftware.HebrewLetters
       Program.Settings.Retrieve();
       try
       {
-        //ComboBoxCode.DataSource = null;
-        //EditMeanings.DataSource = null;
         IsDBUpgraded = CreateSchemaIfNotExists();
         CreateDataIfNotExists(false);
         LettersTableAdapter.Fill(DataSet.Letters);
@@ -105,8 +103,6 @@ namespace Ordisoftware.HebrewLetters
     private void MainForm_Shown(object sender, EventArgs e)
     {
       Program.CheckUpdate(true);
-      //EditMeanings.DataSource = meaningsBindingSource;
-      //ComboBoxCode.DataSource = LettersBindingSource;
       if ( Program.StartupWord != "" )
       {
         EditLetters.Input.Text = Program.StartupWord;
@@ -345,24 +341,55 @@ namespace Ordisoftware.HebrewLetters
       Close();
     }
 
+    private void positiveTextBox_TextChanged(object sender, EventArgs e)
+    {
+      //LettersBindingSource.EndEdit();
+    }
+
     private void TextBoxLetterConcept_KeyPress(object sender, KeyPressEventArgs e)
     {
-      LettersBindingSource.EndEdit();
+      //LettersBindingSource.EndEdit();
     }
 
     private void ComboBoxCode_SelectedIndexChanged(object sender, EventArgs e)
     {
-      EditMeanings.Focus();
+      /*if ( DataSet.HasChanges() )
+      {
+        LettersBindingSource.EndEdit();
+        TableAdapterManager.UpdateAll(DataSet);
+      }
+      if (
+      var code = ( (Data.DataSet.LettersRow)((DataRowView)ComboBoxCode.SelectedItem ).Row).Code;
+      int index = LettersBindingSource.Find("Code", code);
+      LettersBindingSource.Position = index;
+      LettersBindingSource.ResetBindings(false);
+      //LettersBindingSource.ResetBindings(false);
+      //EditMeanings.Focus();*/
+    }
+
+    private void ComboBoxCode_Enter(object sender, EventArgs e)
+    {
+      /*try
+      {
+        ( (Data.DataSet.LettersRow)( (DataRowView)LettersBindingSource.Current ).Row ).AcceptChanges();
+        //LettersBindingSource.EndEdit();
+        if ( DataSet.HasChanges() )
+          TableAdapterManager.UpdateAll(DataSet);
+      }
+      catch (Exception ex)
+      {
+        ex.Manage();
+      }*/
     }
 
     private void ActionAddMeaning_Click(object sender, EventArgs e)
     {
-      var row = (DataRowView)meaningsBindingSource.AddNew();
-      ( (Data.DataSet.MeaningsRow)row.Row ).ID = Guid.NewGuid().ToString();
-      ( (Data.DataSet.MeaningsRow)row.Row ).LetterCode = ComboBoxCode.Text;
-      ( (Data.DataSet.MeaningsRow)row.Row ).Meaning = "";
-      EditMeanings.EndEdit();
-      meaningsBindingSource.ResetBindings(false);
+      var row = DataSet.Meanings.NewMeaningsRow();
+      row.ID = Guid.NewGuid().ToString();
+      row.LetterCode = ComboBoxCode.Text;
+      row.Meaning = "";
+      DataSet.Meanings.AddMeaningsRow(row);
+      meaningsBindingSource.MoveLast();
       EditMeanings.BeginEdit(false);
       ActionAddMeaning.Enabled = false;
       ActionDeleteMeaning.Enabled = false;
@@ -375,8 +402,6 @@ namespace Ordisoftware.HebrewLetters
       if ( meaningsBindingSource.Count < 1 ) return;
       meaningsBindingSource.RemoveCurrent();
       EditMeanings.EndEdit();
-      meaningsBindingSource.ResetBindings(false);
-      if ( DataSet.HasChanges() ) TableAdapterManager.UpdateAll(DataSet);
     }
 
     private void EditMeanings_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -506,6 +531,7 @@ namespace Ordisoftware.HebrewLetters
       else
         DisplayManager.ShowError(e.Exception.Message);
     }
+
   }
 
 }
