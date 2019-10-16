@@ -14,6 +14,7 @@
 /// <edited> 2019-08 </edited>
 using System;
 using System.Data;
+using System.Data.Odbc;
 using System.Drawing;
 using System.Windows.Forms;
 using Microsoft.Win32;
@@ -79,17 +80,33 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void MainForm_Load(object sender, EventArgs e)
     {
-      IsDBUpgraded = CreateSchemaIfNotExists();
-      CreateDataIfNotExists(false);
-      MeaningsTableAdapter.Fill(DataSet.Meanings);
-      LettersTableAdapter.Fill(DataSet.Letters);
       Program.Settings.Retrieve();
-      IsReady = true;
+      try
+      {
+        //ComboBoxCode.DataSource = null;
+        //EditMeanings.DataSource = null;
+        IsDBUpgraded = CreateSchemaIfNotExists();
+        CreateDataIfNotExists(false);
+        LettersTableAdapter.Fill(DataSet.Letters);
+        MeaningsTableAdapter.Fill(DataSet.Meanings);
+        IsReady = true;
+      }
+      catch ( OdbcException ex )
+      {
+        DisplayManager.ShowError(ex.Message);
+        Application.Exit();
+      }
+      catch ( Exception ex )
+      {
+        ex.Manage();
+      }
     }
 
     private void MainForm_Shown(object sender, EventArgs e)
     {
       Program.CheckUpdate(true);
+      //EditMeanings.DataSource = meaningsBindingSource;
+      //ComboBoxCode.DataSource = LettersBindingSource;
       if ( Program.StartupWord != "" )
       {
         EditLetters.Input.Text = Program.StartupWord;
@@ -111,6 +128,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Form closing event information.</param>
     private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
     {
+      if ( !IsReady ) return;
       LettersBindingSource.EndEdit();
       meaningsBindingSource.EndEdit();
       if ( DataSet.HasChanges() )
@@ -158,6 +176,9 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Session ending event information.</param>
     private void SessionEnding(object sender, SessionEndingEventArgs e)
     {
+      foreach ( Form form in Application.OpenForms )
+        if ( form != this && form.Visible )
+          form.Close();
       Close();
     }
 
@@ -338,21 +359,41 @@ namespace Ordisoftware.HebrewLetters
     {
       var row = (DataRowView)meaningsBindingSource.AddNew();
       ( (Data.DataSet.MeaningsRow)row.Row ).ID = Guid.NewGuid().ToString();
+      ( (Data.DataSet.MeaningsRow)row.Row ).LetterCode = ComboBoxCode.Text;
       ( (Data.DataSet.MeaningsRow)row.Row ).Meaning = "";
+      EditMeanings.EndEdit();
+      meaningsBindingSource.ResetBindings(false);
       EditMeanings.BeginEdit(false);
+      ActionAddMeaning.Enabled = false;
+      ActionDeleteMeaning.Enabled = false;
     }
 
     private void ActionDeleteMeaning_Click(object sender, EventArgs e)
     {
       if ( meaningsBindingSource.Count < 1 ) return;
       meaningsBindingSource.RemoveCurrent();
+      EditMeanings.EndEdit();
+      meaningsBindingSource.ResetBindings(false);
+      if ( DataSet.HasChanges() ) TableAdapterManager.UpdateAll(DataSet);
     }
 
     private void EditMeanings_CellEndEdit(object sender, DataGridViewCellEventArgs e)
     {
-      if ( EditMeanings[e.ColumnIndex, e.RowIndex].Value == DBNull.Value )
-        EditMeanings[e.ColumnIndex, e.RowIndex].Value = "";
       if ( DataSet.HasChanges() ) TableAdapterManager.UpdateAll(DataSet);
+    }
+
+    private void EditMeanings_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+    {
+      if ( e.FormattedValue == DBNull.Value || e.FormattedValue == "" )
+      {
+        e.Cancel = true;
+        EditMeanings.BeginEdit(false);
+      }
+      else
+      {
+        ActionAddMeaning.Enabled = true;
+        ActionDeleteMeaning.Enabled = true;
+      }
     }
 
     private void ActionReset_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -436,6 +477,31 @@ namespace Ordisoftware.HebrewLetters
       ActionCopyToClipboardResult.Enabled = EditSentence.Text != "";
     }
 
+    private void ActionOpenWebsiteURL_Click(object sender, EventArgs e)
+    {
+      string url = (string)( (ToolStripItem)sender ).Tag;
+      SystemManager.OpenWebLink(url);
+    }
+
+    private void BindingSource_DataError(object sender, BindingManagerDataErrorEventArgs e)
+    {
+      if ( e.Exception is ArgumentOutOfRangeException ) return;
+      DisplayManager.ShowError(e.Exception.Message);
+      DataSet.RejectChanges();
+    }
+
+    private void EditMeanings_DataError(object sender, DataGridViewDataErrorEventArgs e)
+    {
+      if ( e.Exception is ArgumentOutOfRangeException || e.Exception is IndexOutOfRangeException )
+      {
+        // TODO resolve this bug
+        DisplayManager.ShowError("Internal index error." + Environment.NewLine + "Application will exit.");
+        DataSet.RejectChanges();
+        Application.Exit();
+      }
+      else
+        DisplayManager.ShowError(e.Exception.Message);
+    }
   }
 
 }
