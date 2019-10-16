@@ -62,7 +62,6 @@
       this.TabPageMonth = new System.Windows.Forms.TabPage();
       this.PanelViewSettings = new System.Windows.Forms.Panel();
       this.PanelSettingsDetails = new System.Windows.Forms.Panel();
-      this.LabelHebrew = new System.Windows.Forms.Label();
       this.LettersBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.DataSet = new Ordisoftware.HebrewLetters.Data.DataSet();
       this.negativeTextBox = new System.Windows.Forms.TextBox();
@@ -71,7 +70,6 @@
       this.ActionDeleteMeaning = new System.Windows.Forms.Button();
       this.ActionAddMeaning = new System.Windows.Forms.Button();
       this.ActionRestoreDefaults = new System.Windows.Forms.LinkLabel();
-      this.ComboBoxCode = new System.Windows.Forms.ComboBox();
       this.EditMeanings = new System.Windows.Forms.DataGridView();
       this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.meaningsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -118,6 +116,8 @@
       this.LettersTableAdapter = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.LettersTableAdapter();
       this.TableAdapterManager = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.TableAdapterManager();
       this.MeaningsTableAdapter = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.MeaningsTableAdapter();
+      this.LabelHebrew = new System.Windows.Forms.Label();
+      this.ComboBoxCode = new System.Windows.Forms.ComboBox();
       nameLabel = new System.Windows.Forms.Label();
       structureLabel = new System.Windows.Forms.Label();
       functionLabel = new System.Windows.Forms.Label();
@@ -374,6 +374,7 @@
       // PanelSettingsDetails
       // 
       this.PanelSettingsDetails.BackColor = System.Drawing.SystemColors.Control;
+      this.PanelSettingsDetails.Controls.Add(this.ComboBoxCode);
       this.PanelSettingsDetails.Controls.Add(this.LabelHebrew);
       this.PanelSettingsDetails.Controls.Add(negativeLabel);
       this.PanelSettingsDetails.Controls.Add(this.negativeTextBox);
@@ -384,7 +385,6 @@
       this.PanelSettingsDetails.Controls.Add(this.ActionDeleteMeaning);
       this.PanelSettingsDetails.Controls.Add(this.ActionAddMeaning);
       this.PanelSettingsDetails.Controls.Add(this.ActionRestoreDefaults);
-      this.PanelSettingsDetails.Controls.Add(this.ComboBoxCode);
       this.PanelSettingsDetails.Controls.Add(LabelMeanings);
       this.PanelSettingsDetails.Controls.Add(this.EditMeanings);
       this.PanelSettingsDetails.Controls.Add(this.valueFullTextBox);
@@ -400,15 +400,9 @@
       resources.ApplyResources(this.PanelSettingsDetails, "PanelSettingsDetails");
       this.PanelSettingsDetails.Name = "PanelSettingsDetails";
       // 
-      // LabelHebrew
-      // 
-      this.LabelHebrew.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Hebrew", true));
-      resources.ApplyResources(this.LabelHebrew, "LabelHebrew");
-      this.LabelHebrew.Name = "LabelHebrew";
-      // 
       // LettersBindingSource
       // 
-      this.LettersBindingSource.AllowNew = false;
+      this.LettersBindingSource.AllowNew = true;
       this.LettersBindingSource.DataMember = "Letters";
       this.LettersBindingSource.DataSource = this.DataSet;
       // 
@@ -463,17 +457,6 @@
       this.ActionRestoreDefaults.Name = "ActionRestoreDefaults";
       this.ActionRestoreDefaults.TabStop = true;
       this.ActionRestoreDefaults.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ActionReset_LinkClicked);
-      // 
-      // ComboBoxCode
-      // 
-      this.ComboBoxCode.BackColor = System.Drawing.Color.LightYellow;
-      this.ComboBoxCode.DataSource = this.LettersBindingSource;
-      this.ComboBoxCode.DisplayMember = "Code";
-      this.ComboBoxCode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-      resources.ApplyResources(this.ComboBoxCode, "ComboBoxCode");
-      this.ComboBoxCode.FormattingEnabled = true;
-      this.ComboBoxCode.Name = "ComboBoxCode";
-      this.ComboBoxCode.SelectedIndexChanged += new System.EventHandler(this.ComboBoxCode_SelectedIndexChanged);
       // 
       // EditMeanings
       // 
@@ -852,6 +835,23 @@
       // 
       this.MeaningsTableAdapter.ClearBeforeFill = true;
       // 
+      // LabelHebrew
+      // 
+      this.LabelHebrew.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Hebrew", true));
+      resources.ApplyResources(this.LabelHebrew, "LabelHebrew");
+      this.LabelHebrew.Name = "LabelHebrew";
+      // 
+      // ComboBoxCode
+      // 
+      this.ComboBoxCode.BackColor = System.Drawing.Color.LightYellow;
+      this.ComboBoxCode.DataSource = this.LettersBindingSource;
+      this.ComboBoxCode.DisplayMember = "Code";
+      this.ComboBoxCode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+      resources.ApplyResources(this.ComboBoxCode, "ComboBoxCode");
+      this.ComboBoxCode.FormattingEnabled = true;
+      this.ComboBoxCode.Name = "ComboBoxCode";
+      this.ComboBoxCode.SelectedIndexChanged += new System.EventHandler(this.ComboBoxCode_SelectedIndexChanged);
+      // 
       // MainForm
       // 
       resources.ApplyResources(this, "$this");
@@ -938,11 +938,8 @@
     private System.Windows.Forms.TextBox valueSimpleTextBox;
     private System.Windows.Forms.TextBox valueFullTextBox;
     private Data.DataSetTableAdapters.MeaningsTableAdapter MeaningsTableAdapter;
-    private System.Windows.Forms.DataGridView EditMeanings;
     private System.Windows.Forms.BindingSource meaningsBindingSource;
     private System.Windows.Forms.Panel PanelSettingsDetails;
-    private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-    private System.Windows.Forms.ComboBox ComboBoxCode;
     private System.Windows.Forms.LinkLabel ActionRestoreDefaults;
     private System.Windows.Forms.Button ActionDeleteMeaning;
     private System.Windows.Forms.Button ActionAddMeaning;
@@ -956,7 +953,6 @@
     private System.Windows.Forms.TextBox negativeTextBox;
     private System.Windows.Forms.TextBox positiveTextBox;
     private System.Windows.Forms.Button ActionCopyToClipboardMeanings;
-    private System.Windows.Forms.Label LabelHebrew;
     private System.Windows.Forms.ToolStripButton ActionPreferences;
     internal System.Windows.Forms.Label LabelGematria;
     internal System.Windows.Forms.TextBox EditGematria;
@@ -972,6 +968,10 @@
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
     private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
     private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+    private System.Windows.Forms.DataGridView EditMeanings;
+    private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+    private System.Windows.Forms.Label LabelHebrew;
+    private System.Windows.Forms.ComboBox ComboBoxCode;
   }
 }
 

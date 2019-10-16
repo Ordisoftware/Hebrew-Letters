@@ -363,6 +363,7 @@ namespace Ordisoftware.HebrewLetters
     {
       if ( meaningsBindingSource.Count < 1 ) return;
       meaningsBindingSource.RemoveCurrent();
+      EditMeanings.EndEdit();
     }
 
     private void EditMeanings_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -457,6 +458,12 @@ namespace Ordisoftware.HebrewLetters
     {
       string url = (string)( (ToolStripItem)sender ).Tag;
       SystemManager.OpenWebLink(url);
+    }
+
+    private void BindingSource_DataError(object sender, BindingManagerDataErrorEventArgs e)
+    {
+      DisplayManager.ShowError(e.Exception.Message);
+      //DataSet.RejectChanges();
     }
 
   }
