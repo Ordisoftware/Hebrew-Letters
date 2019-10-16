@@ -417,8 +417,6 @@
       resources.ApplyResources(this.ComboBoxCode, "ComboBoxCode");
       this.ComboBoxCode.FormattingEnabled = true;
       this.ComboBoxCode.Name = "ComboBoxCode";
-      this.ComboBoxCode.SelectedIndexChanged += new System.EventHandler(this.ComboBoxCode_SelectedIndexChanged);
-      this.ComboBoxCode.Enter += new System.EventHandler(this.ComboBoxCode_Enter);
       // 
       // LettersBindingSource
       // 
@@ -438,8 +436,6 @@
       this.structureTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Structure", true));
       resources.ApplyResources(this.structureTextBox, "structureTextBox");
       this.structureTextBox.Name = "structureTextBox";
-      this.structureTextBox.TextChanged += new System.EventHandler(this.positiveTextBox_TextChanged);
-      this.structureTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxLetterConcept_KeyPress);
       // 
       // LabelHebrew
       // 
@@ -453,8 +449,6 @@
       this.negativeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Negative", true));
       resources.ApplyResources(this.negativeTextBox, "negativeTextBox");
       this.negativeTextBox.Name = "negativeTextBox";
-      this.negativeTextBox.TextChanged += new System.EventHandler(this.positiveTextBox_TextChanged);
-      this.negativeTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxLetterConcept_KeyPress);
       // 
       // nameTextBox
       // 
@@ -471,8 +465,6 @@
       this.functionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Function", true));
       resources.ApplyResources(this.functionTextBox, "functionTextBox");
       this.functionTextBox.Name = "functionTextBox";
-      this.functionTextBox.TextChanged += new System.EventHandler(this.positiveTextBox_TextChanged);
-      this.functionTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxLetterConcept_KeyPress);
       // 
       // positiveTextBox
       // 
@@ -480,8 +472,6 @@
       this.positiveTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Positive", true));
       resources.ApplyResources(this.positiveTextBox, "positiveTextBox");
       this.positiveTextBox.Name = "positiveTextBox";
-      this.positiveTextBox.TextChanged += new System.EventHandler(this.positiveTextBox_TextChanged);
-      this.positiveTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxLetterConcept_KeyPress);
       // 
       // verbTextBox
       // 
@@ -489,8 +479,6 @@
       this.verbTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Verb", true));
       resources.ApplyResources(this.verbTextBox, "verbTextBox");
       this.verbTextBox.Name = "verbTextBox";
-      this.verbTextBox.TextChanged += new System.EventHandler(this.positiveTextBox_TextChanged);
-      this.verbTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxLetterConcept_KeyPress);
       // 
       // valueSimpleTextBox
       // 
@@ -549,7 +537,6 @@
       this.EditMeanings.MultiSelect = false;
       this.EditMeanings.Name = "EditMeanings";
       this.EditMeanings.RowHeadersVisible = false;
-      this.EditMeanings.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.EditMeanings_CellEndEdit);
       this.EditMeanings.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.EditMeanings_CellValidating);
       this.EditMeanings.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.EditMeanings_DataError);
       // 
