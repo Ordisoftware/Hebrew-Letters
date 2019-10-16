@@ -341,47 +341,6 @@ namespace Ordisoftware.HebrewLetters
       Close();
     }
 
-    private void positiveTextBox_TextChanged(object sender, EventArgs e)
-    {
-      //LettersBindingSource.EndEdit();
-    }
-
-    private void TextBoxLetterConcept_KeyPress(object sender, KeyPressEventArgs e)
-    {
-      //LettersBindingSource.EndEdit();
-    }
-
-    private void ComboBoxCode_SelectedIndexChanged(object sender, EventArgs e)
-    {
-      /*if ( DataSet.HasChanges() )
-      {
-        LettersBindingSource.EndEdit();
-        TableAdapterManager.UpdateAll(DataSet);
-      }
-      if (
-      var code = ( (Data.DataSet.LettersRow)((DataRowView)ComboBoxCode.SelectedItem ).Row).Code;
-      int index = LettersBindingSource.Find("Code", code);
-      LettersBindingSource.Position = index;
-      LettersBindingSource.ResetBindings(false);
-      //LettersBindingSource.ResetBindings(false);
-      //EditMeanings.Focus();*/
-    }
-
-    private void ComboBoxCode_Enter(object sender, EventArgs e)
-    {
-      /*try
-      {
-        ( (Data.DataSet.LettersRow)( (DataRowView)LettersBindingSource.Current ).Row ).AcceptChanges();
-        //LettersBindingSource.EndEdit();
-        if ( DataSet.HasChanges() )
-          TableAdapterManager.UpdateAll(DataSet);
-      }
-      catch (Exception ex)
-      {
-        ex.Manage();
-      }*/
-    }
-
     private void ActionAddMeaning_Click(object sender, EventArgs e)
     {
       var row = DataSet.Meanings.NewMeaningsRow();
@@ -389,6 +348,7 @@ namespace Ordisoftware.HebrewLetters
       row.LetterCode = ComboBoxCode.Text;
       row.Meaning = "";
       DataSet.Meanings.AddMeaningsRow(row);
+      meaningsBindingSource.ResetBindings(false);
       meaningsBindingSource.MoveLast();
       EditMeanings.BeginEdit(false);
       ActionAddMeaning.Enabled = false;
@@ -402,11 +362,6 @@ namespace Ordisoftware.HebrewLetters
       if ( meaningsBindingSource.Count < 1 ) return;
       meaningsBindingSource.RemoveCurrent();
       EditMeanings.EndEdit();
-    }
-
-    private void EditMeanings_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-    {
-      if ( DataSet.HasChanges() ) TableAdapterManager.UpdateAll(DataSet);
     }
 
     private void EditMeanings_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
@@ -523,8 +478,9 @@ namespace Ordisoftware.HebrewLetters
     {
       if ( e.Exception is ArgumentOutOfRangeException || e.Exception is IndexOutOfRangeException )
       {
-        // TODO resolve this bug
-        DisplayManager.ShowError("Internal index error." + Environment.NewLine + "Application will exit.");
+        DisplayManager.ShowError("Internal index error." + Environment.NewLine +
+                                 "Application will exit." + Environment.NewLine + Environment.NewLine + 
+                                 e.Exception.InnerException?.Message ?? "Unknown.");
         DataSet.RejectChanges();
         Application.Exit();
       }
