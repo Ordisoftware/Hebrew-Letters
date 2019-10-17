@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2019-08 </edited>
+/// <edited> 2019-10 </edited>
 using System;
 using System.Data;
 using System.Data.Odbc;
@@ -87,6 +87,7 @@ namespace Ordisoftware.HebrewLetters
         CreateDataIfNotExists(false);
         LettersTableAdapter.Fill(DataSet.Letters);
         MeaningsTableAdapter.Fill(DataSet.Meanings);
+        ComboBoxCode_SelectedIndexChanged(null, null);
         IsReady = true;
       }
       catch ( OdbcException ex )
@@ -341,6 +342,42 @@ namespace Ordisoftware.HebrewLetters
       Close();
     }
 
+    private void ActionOpenWebsiteURL_Click(object sender, EventArgs e)
+    {
+      string url = (string)( (ToolStripItem)sender ).Tag;
+      SystemManager.OpenWebLink(url);
+    }
+
+    private void ActionReset_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      if ( DisplayManager.QueryYesNo(Translations.RestoreLettersDefault.GetLang()) )
+      {
+        CreateDataIfNotExists(true);
+        ActionClear.PerformClick();
+        ActionReset.PerformClick();
+      }
+    }
+
+    private void UpdateButtons()
+    {
+      try
+      {
+        if ( ComboBoxCode.SelectedItem == null ) return;
+        var row = (Data.DataSet.LettersRow)( (DataRowView)ComboBoxCode.SelectedItem ).Row;
+        ActionAddMeaning.Enabled = true;
+        ActionDeleteMeaning.Enabled = row.GetMeaningsRows().Length > 0;
+      }
+      catch ( Exception ex )
+      {
+        ex.Manage();
+      }
+    }
+
+    private void ComboBoxCode_SelectedIndexChanged(object sender, EventArgs e)
+    {
+      UpdateButtons();
+    }
+
     private void ActionAddMeaning_Click(object sender, EventArgs e)
     {
       var row = DataSet.Meanings.NewMeaningsRow();
@@ -362,6 +399,7 @@ namespace Ordisoftware.HebrewLetters
       if ( meaningsBindingSource.Count < 1 ) return;
       meaningsBindingSource.RemoveCurrent();
       EditMeanings.EndEdit();
+      UpdateButtons();
     }
 
     private void EditMeanings_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
@@ -373,20 +411,9 @@ namespace Ordisoftware.HebrewLetters
       }
       else
       {
-        ActionAddMeaning.Enabled = true;
-        ActionDeleteMeaning.Enabled = true;
         ToolStrip.Enabled = true;
         PanelLetter.Enabled = true;
-      }
-    }
-
-    private void ActionReset_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-    {
-      if ( DisplayManager.QueryYesNo(Translations.RestoreLettersDefault.GetLang()) )
-      {
-        CreateDataIfNotExists(true);
-        ActionClear.PerformClick();
-        ActionReset.PerformClick();
+        UpdateButtons();
       }
     }
 
@@ -461,25 +488,19 @@ namespace Ordisoftware.HebrewLetters
       ActionCopyToClipboardResult.Enabled = EditSentence.Text != "";
     }
 
-    private void ActionOpenWebsiteURL_Click(object sender, EventArgs e)
-    {
-      string url = (string)( (ToolStripItem)sender ).Tag;
-      SystemManager.OpenWebLink(url);
-    }
-
     private void BindingSource_DataError(object sender, BindingManagerDataErrorEventArgs e)
     {
-      if ( e.Exception is ArgumentOutOfRangeException ) return;
+      if ( e.Exception is ArgumentOutOfRangeException ) return; // ?
       DisplayManager.ShowError(e.Exception.Message);
       DataSet.RejectChanges();
     }
 
     private void EditMeanings_DataError(object sender, DataGridViewDataErrorEventArgs e)
     {
-      if ( e.Exception is ArgumentOutOfRangeException || e.Exception is IndexOutOfRangeException )
+      if ( e.Exception is ArgumentOutOfRangeException || e.Exception is IndexOutOfRangeException ) // ?
       {
         DisplayManager.ShowError("Internal index error." + Environment.NewLine +
-                                 "Application will exit." + Environment.NewLine + Environment.NewLine + 
+                                 "Application will exit." + Environment.NewLine + Environment.NewLine +
                                  e.Exception.InnerException?.Message ?? "Unknown.");
         DataSet.RejectChanges();
         Application.Exit();

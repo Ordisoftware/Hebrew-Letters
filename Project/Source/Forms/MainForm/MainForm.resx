@@ -931,7 +931,7 @@
     <value>EditLetters</value>
   </data>
   <data name="&gt;&gt;EditLetters.Type" xml:space="preserve">
-    <value>Ordisoftware.HebrewLetters.LettersControl, Ordisoftware.HebrewLetters, Version=2.6.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.HebrewLetters.LettersControl, Ordisoftware.HebrewLetters, Version=2.7.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;EditLetters.Parent" xml:space="preserve">
     <value>PanelViewSearch</value>
@@ -2451,7 +2451,7 @@
     <value>DataSet</value>
   </data>
   <data name="&gt;&gt;DataSet.Type" xml:space="preserve">
-    <value>Ordisoftware.HebrewLetters.Data.DataSet, Ordisoftware.HebrewLetters, Version=2.6.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.HebrewLetters.Data.DataSet, Ordisoftware.HebrewLetters, Version=2.7.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;dataGridViewTextBoxColumn2.Name" xml:space="preserve">
     <value>dataGridViewTextBoxColumn2</value>
@@ -2649,19 +2649,19 @@
     <value>LettersTableAdapter</value>
   </data>
   <data name="&gt;&gt;LettersTableAdapter.Type" xml:space="preserve">
-    <value>Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.LettersTableAdapter, Ordisoftware.HebrewLetters, Version=2.6.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.LettersTableAdapter, Ordisoftware.HebrewLetters, Version=2.7.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;TableAdapterManager.Name" xml:space="preserve">
     <value>TableAdapterManager</value>
   </data>
   <data name="&gt;&gt;TableAdapterManager.Type" xml:space="preserve">
-    <value>Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.TableAdapterManager, Ordisoftware.HebrewLetters, Version=2.6.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.TableAdapterManager, Ordisoftware.HebrewLetters, Version=2.7.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;MeaningsTableAdapter.Name" xml:space="preserve">
     <value>MeaningsTableAdapter</value>
   </data>
   <data name="&gt;&gt;MeaningsTableAdapter.Type" xml:space="preserve">
-    <value>Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.MeaningsTableAdapter, Ordisoftware.HebrewLetters, Version=2.6.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.MeaningsTableAdapter, Ordisoftware.HebrewLetters, Version=2.7.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainForm</value>
