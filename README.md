@@ -20,7 +20,7 @@ A tool for Windows written in C# that allows the lettriq study of hebrew words.
 - Windows Vista x32/x64 or superior
 - Screen 1024x768 or superior
 - Framework .NET 4.5 or superior
-- [SQLite ODBC Driver](http://www.ch-werner.de/sqliteodbc/)
+- SQLite ODBC Driver
 
 ## Screenshots
 
@@ -38,8 +38,10 @@ A tool for Windows written in C# that allows the lettriq study of hebrew words.
 
 #### How to install SQlite ODBC Driver?
 
-- [sqliteodbc.exe](http://www.ch-werner.de/sqliteodbc/sqliteodbc.exe) must be installed on Windows 32-bit.
-- [sqliteodbc_w64.exe](http://www.ch-werner.de/sqliteodbc/sqliteodbc_w64.exe) must be installed on Windows 64-bit.
+The setup tries to install the driver:
+
+- [sqliteodbc.exe](http://www.ch-werner.de/sqliteodbc/sqliteodbc.exe) on Windows 32-bit.
+- [sqliteodbc_w64.exe](http://www.ch-werner.de/sqliteodbc/sqliteodbc_w64.exe) on Windows 64-bit.
 
 #### What to do in case of ODBC datasource connection error?
 
