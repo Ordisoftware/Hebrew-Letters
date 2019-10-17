@@ -112,7 +112,8 @@ namespace Ordisoftware.HebrewLetters
         ActionReset.Visible = true;
       }
       else
-        SetView(Program.Settings.CurrentView, true);
+        SetView(ViewModeType.Analyse, true);
+        //SetView(Program.Settings.CurrentView, true);
       if ( IsDBUpgraded )
         if ( DisplayManager.QueryYesNo(Translations.DatabaseChanged.GetLang()) )
           SetView(ViewModeType.Settings);

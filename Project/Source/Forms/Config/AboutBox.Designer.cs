@@ -56,7 +56,9 @@
       // 
       // labelTrademark
       // 
+      this.labelTrademark.ActiveLinkColor = System.Drawing.Color.MediumBlue;
       resources.ApplyResources(this.labelTrademark, "labelTrademark");
+      this.labelTrademark.LinkColor = System.Drawing.Color.Navy;
       this.labelTrademark.Name = "labelTrademark";
       this.labelTrademark.TabStop = true;
       this.labelTrademark.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.labelTrademarkName_LinkClicked);
