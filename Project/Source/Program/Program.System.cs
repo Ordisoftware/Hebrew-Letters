@@ -62,7 +62,8 @@ namespace Ordisoftware.HebrewLetters
         }
         catch ( Exception ex )
         {
-          ex.Manage(new Exception(ex.Message + Environment.NewLine + process.StartInfo.FileName));
+          DisplayManager.ShowError(ex.Message + Environment.NewLine + Environment.NewLine +
+                                   process.StartInfo.FileName);
         }
     }
 

@@ -72,15 +72,6 @@ namespace Ordisoftware.HebrewLetters
         { "fr", "Voulez-vous ouvrir la page de téléchargement ?" }
       };
 
-    static public readonly Dictionary<string, string> DatabaseChanged
-      = new Dictionary<string, string>()
-      {
-        { "en", "Database upgraded." + NewLine + NewLine +
-                "Do you want to open the parameters page to reset them?" },
-        { "fr", "La base de données a été mise à jour." + NewLine + NewLine +
-                "Voulez-vous ouvrir la page des paramètres pour les réinitialiser ?" }
-      };
-
     static public readonly Dictionary<string, string> RestoreWindowPosition
       = new Dictionary<string, string>()
       {
@@ -90,12 +81,21 @@ namespace Ordisoftware.HebrewLetters
                 "Voulez-vous continuer ?" }
       };
 
+    static public readonly Dictionary<string, string> DatabaseChanged
+      = new Dictionary<string, string>()
+      {
+        { "en", "Database upgraded." + NewLine + NewLine +
+                "Do you want to open the parameters page to reset them?" },
+        { "fr", "La base de données a été mise à jour." + NewLine + NewLine +
+                "Voulez-vous ouvrir la page des paramètres pour les réinitialiser ?" }
+      };
+
     static public readonly Dictionary<string, string> RestoreLettersDefault
       = new Dictionary<string, string>()
       {
-        { "en", "This will restore all letters to default values." + NewLine + NewLine +
+        { "en", "Letters will be restored to their default values." + NewLine + NewLine +
                 "Do you want to continue?" },
-        { "fr", "Cela va restaurer les lettres à leurs valeurs par défaut." + NewLine + NewLine +
+        { "fr", "Les lettres vont être restaurées à leurs valeurs par défaut." + NewLine + NewLine +
                 "Voulez-vous continuer ?" }
       };
 
