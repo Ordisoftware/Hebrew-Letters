@@ -61,6 +61,12 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 ## Changelog
 
+#### 2019.10.18 - Version 2.7
+
+- Improve UI.
+- Some fixes.
+- Some code refactorings.
+
 #### 2019.09.25 - Version 2.6
 
 - Add option to choose language.

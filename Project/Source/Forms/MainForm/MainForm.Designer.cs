@@ -417,6 +417,7 @@
       resources.ApplyResources(this.ComboBoxCode, "ComboBoxCode");
       this.ComboBoxCode.FormattingEnabled = true;
       this.ComboBoxCode.Name = "ComboBoxCode";
+      this.ComboBoxCode.SelectedIndexChanged += new System.EventHandler(this.ComboBoxCode_SelectedIndexChanged);
       // 
       // LettersBindingSource
       // 
@@ -500,7 +501,9 @@
       // 
       // ActionRestoreDefaults
       // 
+      this.ActionRestoreDefaults.ActiveLinkColor = System.Drawing.Color.MediumBlue;
       resources.ApplyResources(this.ActionRestoreDefaults, "ActionRestoreDefaults");
+      this.ActionRestoreDefaults.LinkColor = System.Drawing.Color.Navy;
       this.ActionRestoreDefaults.Name = "ActionRestoreDefaults";
       this.ActionRestoreDefaults.TabStop = true;
       this.ActionRestoreDefaults.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ActionReset_LinkClicked);
@@ -915,8 +918,8 @@
     internal System.Windows.Forms.ToolStripMenuItem EditScreenBottomLeft;
     internal System.Windows.Forms.ToolStripMenuItem EditScreenBottomRight;
     internal System.Windows.Forms.ToolStripMenuItem EditConfirmClosing;
-    private System.Windows.Forms.ToolStripMenuItem ActionResetWinSettings;
     internal System.Windows.Forms.ToolStripMenuItem EditShowTips;
+    private System.Windows.Forms.ToolStripMenuItem ActionResetWinSettings;
     private System.Windows.Forms.ToolStripSeparator Sep6;
     private System.Windows.Forms.Panel PanelMain;
     private System.Windows.Forms.Panel PanelSepTop;
@@ -925,7 +928,7 @@
     private System.Windows.Forms.Panel PanelMainOuter;
     private System.Windows.Forms.Panel PanelMainInner;
     private System.Windows.Forms.PictureBox moonPhaseImagePictureBox;
-    internal System.Windows.Forms.Panel PanelMainCenter;
+    private System.Windows.Forms.Panel PanelMainCenter;
     private System.Windows.Forms.Timer TimerTooltip;
     private LettersControl EditLetters;
     private System.Windows.Forms.TabControl TabControl;

@@ -12,6 +12,7 @@
 /// </license>
 /// <created> 2016-04 </created>
 /// <edited> 2019-09 </edited>
+using System;
 using System.IO;
 using System.Windows.Forms;
 
@@ -111,7 +112,7 @@ namespace Ordisoftware.HebrewLetters
       = AppRootFolderPath + "Application.ico";
 
     /// <summary>
-    /// Indicate name of the help file.
+    /// Indicate filename of the help.
     /// </summary>
     static public string HelpFilename
     {
