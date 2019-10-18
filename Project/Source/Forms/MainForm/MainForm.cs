@@ -510,6 +510,11 @@ namespace Ordisoftware.HebrewLetters
         DisplayManager.ShowError(e.Exception.Message);
     }
 
+    private void ActionOpenHebrewAlphabet_Click(object sender, EventArgs e)
+    {
+      string url = (string)( (ToolStripItem)sender ).Tag;
+      SystemManager.OpenWebLink(url);
+    }
   }
 
 }
