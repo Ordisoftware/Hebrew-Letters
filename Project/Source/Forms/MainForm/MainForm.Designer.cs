@@ -119,6 +119,8 @@
       this.LettersTableAdapter = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.LettersTableAdapter();
       this.TableAdapterManager = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.TableAdapterManager();
       this.MeaningsTableAdapter = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.MeaningsTableAdapter();
+      this.ActionOpenHebrewAlphabet = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
       nameLabel = new System.Windows.Forms.Label();
       structureLabel = new System.Windows.Forms.Label();
       functionLabel = new System.Windows.Forms.Label();
@@ -657,7 +659,9 @@
             this.ActionWebCheckUpdate,
             this.toolStripSeparator5,
             this.toolStripMenuItem6,
-            this.toolStripMenuItem1});
+            this.toolStripMenuItem1,
+            this.toolStripSeparator10,
+            this.ActionOpenHebrewAlphabet});
       resources.ApplyResources(this.MenuWeb, "MenuWeb");
       this.MenuWeb.Name = "MenuWeb";
       // 
@@ -860,6 +864,18 @@
       // 
       this.MeaningsTableAdapter.ClearBeforeFill = true;
       // 
+      // ActionOpenHebrewAlphabet
+      // 
+      resources.ApplyResources(this.ActionOpenHebrewAlphabet, "ActionOpenHebrewAlphabet");
+      this.ActionOpenHebrewAlphabet.Name = "ActionOpenHebrewAlphabet";
+      this.ActionOpenHebrewAlphabet.Tag = "https://sites.google.com/site/asherhaimhalevi/hebrew-alphabet";
+      this.ActionOpenHebrewAlphabet.Click += new System.EventHandler(this.ActionOpenHebrewAlphabet_Click);
+      // 
+      // toolStripSeparator10
+      // 
+      this.toolStripSeparator10.Name = "toolStripSeparator10";
+      resources.ApplyResources(this.toolStripSeparator10, "toolStripSeparator10");
+      // 
       // MainForm
       // 
       resources.ApplyResources(this, "$this");
@@ -983,6 +999,8 @@
     private System.Windows.Forms.Label LabelHebrew;
     private System.Windows.Forms.ComboBox ComboBoxCode;
     private System.Windows.Forms.Panel PanelLetter;
+    private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
+    private System.Windows.Forms.ToolStripMenuItem ActionOpenHebrewAlphabet;
   }
 }
 
