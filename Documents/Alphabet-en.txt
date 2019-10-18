@@ -137,7 +137,7 @@ ValueSimple: 50
 ValueFull: 106
 Positive: Fecundity
 Negative: Austerity
-Verb: Leading
+Verb: Lead
 Structure: Fish
 Function: Power
 Meanings: Life,Engendering,Perpetuation,Newborn,Food,Abundance,Prodigy,Brain,Hidden,Intimate,Presence,Faith,Falling
