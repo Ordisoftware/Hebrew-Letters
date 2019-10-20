@@ -61,6 +61,12 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 ## Changelog
 
+#### ____.__.__ - Version 2.8
+
+- Improve UI.
+- Some fixes.
+- Update help.
+
 #### 2019.10.18 - Version 2.7
 
 - Improve UI.
