@@ -71,8 +71,7 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 #### ____.__.__ - Version 2.8
 
-- Improve UI.
-- Some fixes.
+- Fix french translation of parameters lost in previous version.
 - Update help.
 
 #### 2019.10.18 - Version 2.7
