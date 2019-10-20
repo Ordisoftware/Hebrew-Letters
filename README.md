@@ -15,6 +15,14 @@ A tool for Windows written in C# that allows the lettriq letter-by-letter study 
 - Copy the result to clipboard.
 - English, French.
 
+## Review
+
+[Softpedia.com](https://www.softpedia.com/get/Others/Home-Education/Hebrew-Letters.shtml)
+
+_"An easy-to-use and intuitive way to study and translate Hebrew words"_
+
+![Note](http://www.ordisoftware.com/uploads/2019/10/softpedia4.5-1.png)
+
 ## Requirements
 
 - Windows Vista x32/x64 or superior
