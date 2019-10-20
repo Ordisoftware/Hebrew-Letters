@@ -79,6 +79,7 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 - Improve UI.
 - Some fixes.
 - Some code refactorings.
+- Setup install SQLite ODBC Driver if not present.
 
 #### 2019.09.25 - Version 2.6
 
