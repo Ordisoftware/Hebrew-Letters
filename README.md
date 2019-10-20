@@ -69,7 +69,7 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 ## Changelog
 
-#### ____.__.__ - Version 2.8
+#### 2019.10.21 - Version 2.8
 
 - Fix french translation of parameters lost in previous version.
 - Update help.
