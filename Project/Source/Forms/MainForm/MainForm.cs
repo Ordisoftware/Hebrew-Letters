@@ -515,6 +515,11 @@ namespace Ordisoftware.HebrewLetters
       string url = (string)( (ToolStripItem)sender ).Tag;
       SystemManager.OpenWebLink(url);
     }
+
+    private void PanelSettingsDetails_Paint(object sender, PaintEventArgs e)
+    {
+
+    }
   }
 
 }
