@@ -100,7 +100,7 @@ Negative: Interruption
 Verb: Exist
 Structure: Hand
 Function: Love
-Meanings: Flame, Energy,Spiritual Core,Seed,Center,Purity,Peace,Abnegation,Spermatozoa
+Meanings: Flame,Energy,Spiritual Core,Seed,Center,Purity,Peace,Abnegation,Spermatozoa
 
 KAF
 ValueSimple: 20

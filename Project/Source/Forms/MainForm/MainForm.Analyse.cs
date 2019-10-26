@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2019-08 </edited>
+/// <edited> 2019-10 </edited>
 using System;
 using System.Data;
 using System.Drawing;
@@ -49,11 +49,11 @@ namespace Ordisoftware.HebrewLetters
         combobox.Location = new Point(155, 16 + dy);
         combobox.SelectedIndexChanged += MeaningComboBox_SelectedIndexChanged;
         EditAnalyze.Controls.Add(combobox);
-        combobox.Items.Add(l.Positive);
-        combobox.Items.Add(l.Negative);
-        combobox.Items.Add(l.Verb);
-        combobox.Items.Add(l.Structure);
-        combobox.Items.Add(l.Function);
+        combobox.Items.Add(l.Positive.Trim());
+        combobox.Items.Add(l.Negative.Trim());
+        combobox.Items.Add(l.Verb.Trim());
+        combobox.Items.Add(l.Structure.Trim());
+        combobox.Items.Add(l.Function.Trim());
         SelectedMeanings += l.Name + ": ";
         SelectedMeanings += l.Positive + ", ";
         SelectedMeanings += l.Negative + ", ";
@@ -62,18 +62,12 @@ namespace Ordisoftware.HebrewLetters
         SelectedMeanings += l.Function + ", ";
         foreach ( var meaning in l.GetMeaningsRows() )
         {
-          combobox.Items.Add(meaning.Meaning);
-          SelectedMeanings += meaning.Meaning + ", ";
+          var str = meaning.Meaning.Trim();
+          combobox.Items.Add(str);
+          SelectedMeanings += str + ",";
         }
         dy += 30;
-        try
-        {
-          SelectedMeanings = SelectedMeanings.Remove(SelectedMeanings.Length - 2, 1);
-        }
-        catch
-        {
-        }
-        SelectedMeanings += Environment.NewLine;
+        SelectedMeanings = SelectedMeanings.TrimEnd(',') + Environment.NewLine;
       }
       EditGematria.Text = sum.ToString();
       ActionCopyToClipboardMeanings.Enabled = EditAnalyze.Controls.Count > 0;
