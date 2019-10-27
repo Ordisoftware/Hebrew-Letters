@@ -100,7 +100,7 @@ Negative: Interruption
 Verb: Exister
 Structure: Main
 Function: Amour
-Meanings: Flamme, Énergie,Noyau spirituel,Germe,Centre,Pureté,Paix,Abnégation,Spermatozoïde
+Meanings: Flamme,Énergie,Noyau spirituel,Germe,Centre,Pureté,Paix,Abnégation,Spermatozoïde
 
 KAF
 ValueSimple: 20

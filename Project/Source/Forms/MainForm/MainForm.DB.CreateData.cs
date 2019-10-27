@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-01 </created>
-/// <edited> 2019-09 </edited>
+/// <edited> 2019-10 </edited>
 using System;
 using System.Data.Odbc;
 using System.Globalization;
@@ -53,7 +53,7 @@ namespace Ordisoftware.HebrewLetters
           int p = data.IndexOf(name, indexStart);
           string s = data.Substring(p + name.Length, data.IndexOf("\r\n", p) - p - name.Length);
           indexStart = data.IndexOf("\r\n", p) + 2;
-          return s;
+          return s.Trim();
         };
         Func<string, int> getIntValue = (name) =>
         {
@@ -78,7 +78,7 @@ namespace Ordisoftware.HebrewLetters
             var rowMeaning = DataSet.Meanings.NewMeaningsRow();
             rowMeaning.ID = Guid.NewGuid().ToString();
             rowMeaning.LetterCode = rowLetter.Code;
-            rowMeaning.Meaning = meaning;
+            rowMeaning.Meaning = meaning.Trim();
             DataSet.Meanings.AddMeaningsRow(rowMeaning);
           }
           DataSet.Letters.AddLettersRow(rowLetter);
