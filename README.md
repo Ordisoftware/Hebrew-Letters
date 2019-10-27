@@ -69,6 +69,10 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 ## Changelog
 
+#### 2019.10.27 - Version 2.9
+
+- Improve meanings by trimming leading and trailing spaces.
+
 #### 2019.10.21 - Version 2.8
 
 - Fix french translation of parameters labels lost in previous version.
