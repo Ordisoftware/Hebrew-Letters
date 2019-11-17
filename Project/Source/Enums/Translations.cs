@@ -40,8 +40,8 @@ namespace Ordisoftware.HebrewLetters
     static public readonly Dictionary<string, string> ApplicationDescription
       = new Dictionary<string, string>()
       {
-        { "en", "A tool for the lettriq letter-by-letter study of hebrew words" },
-        { "fr", "Un outil pour l'étude lettrique lettre-par-lettre des mots hébreux" }
+        { "en", "Lettriq letter-by-letter study of hebrew words" },
+        { "fr", "Étude lettrique lettre-par-lettre des mots hébreux" }
       };
 
     static public readonly Dictionary<string, string> ExitApplication

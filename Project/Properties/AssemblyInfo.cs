@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // l'ensemble d'attributs suivant. Changez les valeurs de ces attributs pour modifier les informations
 // associées à un assembly.
 [assembly: AssemblyTitle("Hebrew Letters")]
-[assembly: AssemblyDescription("A tool for the lettriq letter-by-letter study of hebrew words")]
+[assembly: AssemblyDescription("Lettriq letter-by-letter study of hebrew words")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Ordisoftware")]
 [assembly: AssemblyProduct("www.ordisoftware.com/projects/hebrew-letters")]
