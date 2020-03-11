@@ -13,6 +13,7 @@
 /// <created> 2016-04 </created>
 /// <edited> 2019-10 </edited>
 using System;
+using System.Linq;
 using System.Data;
 using System.Data.Odbc;
 using System.Drawing;
@@ -446,6 +447,8 @@ namespace Ordisoftware.HebrewLetters
       ActionDelFirst.Enabled = EditLetters.Input.Text.Length > 1;
       ActionDelLast.Enabled = ActionDelFirst.Enabled;
       ActionClear.Enabled = ActionAnalyse.Enabled;
+      ActionCopyToUnicode.Enabled = ActionAnalyse.Enabled;
+      ActionSearchOnline.Enabled = ActionAnalyse.Enabled;
       DoAnalyse();
     }
 
@@ -456,6 +459,17 @@ namespace Ordisoftware.HebrewLetters
       EditGematria.Text = "";
       EditAnalyze.Controls.Clear();
       ActionCopyToClipboardMeanings.Enabled = false;
+      EditLetters.Input.Focus();
+    }
+
+    private void ActionPastFromUnicode_Click(object sender, EventArgs e)
+    {
+      EditLetters.Input.Text = HebrewLetters.ConvertToHebrewFont(new string(Clipboard.GetText().Reverse().ToArray()));
+    }
+
+    private void ActionCopyToUnicode_Click(object sender, EventArgs e)
+    {
+      if ( EditLetters.Input.Text != "" ) Clipboard.SetText(HebrewLetters.ConvertToUnicode(EditLetters.Input.Text));
     }
 
     private void ActionCopyToClipboardMeanings_Click(object sender, EventArgs e)
@@ -516,10 +530,11 @@ namespace Ordisoftware.HebrewLetters
       SystemManager.OpenWebLink(url);
     }
 
-    private void PanelSettingsDetails_Paint(object sender, PaintEventArgs e)
+    private void ActionSearchOnline_Click(object sender, EventArgs e)
     {
-
+      ContextMenuSearchOnline.Show(ActionSearchOnline, new Point(0, ActionSearchOnline.Height));
     }
+
   }
 
 }
