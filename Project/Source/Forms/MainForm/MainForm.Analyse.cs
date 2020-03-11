@@ -35,6 +35,7 @@ namespace Ordisoftware.HebrewLetters
       for ( int pos = word.Length - 1; pos >= 0; pos-- )
       {
         var l = DataSet.Letters.FindByCode(Convert.ToString(word[pos]));
+        if ( l == null ) continue;
         sum += l.ValueSimple;
         var label = new Label();
         label.Text = l.Name;
