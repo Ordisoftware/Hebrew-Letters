@@ -88,6 +88,14 @@ namespace Ordisoftware.HebrewLetters
       return result;
     }
 
+    static public string ConvertToUnicode(string str)
+    {
+      string result = "";
+      foreach ( char c in str )
+        result = ConvertToUnicode(c) + result;
+      return result;
+    }
+
     /// <summary>
     // Convert letters from www.fourmilab.ch/etexts/www/hebrew/Bible to font codes.
     /// </summary>
@@ -124,6 +132,43 @@ namespace Ordisoftware.HebrewLetters
         case 'ת': return 't';
         case ':': return '.';
         case '-': return ' ';
+        default: return c;
+      }
+    }
+
+    static private char ConvertToUnicode(char c)
+    {
+      switch ( c )
+      {
+        case 'a': return 'א';
+        case 'b': return 'ב';
+        case 'g': return 'ג';
+        case 'd': return 'ד';
+        case 'h': return 'ה';
+        case 'v': return 'ו';
+        case 'z': return 'ז';
+        case 'x': return 'ח';
+        case 'u': return 'ט';
+        case 'y': return 'י';
+        case 'k': return 'כ';
+        case '!': return 'ך';
+        case 'l': return 'ל';
+        case 'm': return 'מ';
+        case ',': return 'ם';
+        case 'n': return 'נ';
+        case ']': return 'ן';
+        case 'c': return 'ס';
+        case 'i': return 'ע';
+        case 'p': return 'פ';
+        case '[': return 'ף';
+        case 'j': return 'צ';
+        case '/': return 'ץ';
+        case 'q': return 'ק';
+        case 'r': return 'ר';
+        case '>': return 'ש';
+        case 't': return 'ת';
+        case '.': return ':';
+        case ' ': return '-';
         default: return c;
       }
     }
