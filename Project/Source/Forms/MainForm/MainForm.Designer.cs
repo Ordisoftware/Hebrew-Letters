@@ -60,7 +60,7 @@
       this.kleinDictionaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.reversoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.lexilogosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.ActionPastFromUnicode = new System.Windows.Forms.Button();
+      this.ActionPasteFromUnicode = new System.Windows.Forms.Button();
       this.ActionCopyToUnicode = new System.Windows.Forms.Button();
       this.ActionClear = new System.Windows.Forms.Button();
       this.ActionCopyToClipboardMeanings = new System.Windows.Forms.Button();
@@ -261,7 +261,7 @@
       this.PanelViewSearch.Controls.Add(this.EditAnalyze);
       this.PanelViewSearch.Controls.Add(this.ActionAnalyse);
       this.PanelViewSearch.Controls.Add(this.ActionSearchOnline);
-      this.PanelViewSearch.Controls.Add(this.ActionPastFromUnicode);
+      this.PanelViewSearch.Controls.Add(this.ActionPasteFromUnicode);
       this.PanelViewSearch.Controls.Add(this.ActionCopyToUnicode);
       this.PanelViewSearch.Controls.Add(this.ActionClear);
       this.PanelViewSearch.Controls.Add(this.ActionCopyToClipboardMeanings);
@@ -372,13 +372,13 @@
       this.lexilogosToolStripMenuItem.Name = "lexilogosToolStripMenuItem";
       resources.ApplyResources(this.lexilogosToolStripMenuItem, "lexilogosToolStripMenuItem");
       // 
-      // ActionPastFromUnicode
+      // ActionPasteFromUnicode
       // 
-      this.ActionPastFromUnicode.FlatAppearance.BorderSize = 0;
-      resources.ApplyResources(this.ActionPastFromUnicode, "ActionPastFromUnicode");
-      this.ActionPastFromUnicode.Name = "ActionPastFromUnicode";
-      this.ActionPastFromUnicode.UseVisualStyleBackColor = true;
-      this.ActionPastFromUnicode.Click += new System.EventHandler(this.ActionPastFromUnicode_Click);
+      this.ActionPasteFromUnicode.FlatAppearance.BorderSize = 0;
+      resources.ApplyResources(this.ActionPasteFromUnicode, "ActionPasteFromUnicode");
+      this.ActionPasteFromUnicode.Name = "ActionPasteFromUnicode";
+      this.ActionPasteFromUnicode.UseVisualStyleBackColor = true;
+      this.ActionPasteFromUnicode.Click += new System.EventHandler(this.ActionPasteFromUnicode_Click);
       // 
       // ActionCopyToUnicode
       // 
@@ -1093,7 +1093,7 @@
     private System.Windows.Forms.ToolStripMenuItem kleinDictionaryToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem reversoToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem lexilogosToolStripMenuItem;
-    private System.Windows.Forms.Button ActionPastFromUnicode;
+    private System.Windows.Forms.Button ActionPasteFromUnicode;
   }
 }
 

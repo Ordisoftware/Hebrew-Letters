@@ -84,15 +84,27 @@ namespace Ordisoftware.HebrewLetters
     static public string ConvertToHebrewFont(string str)
     {
       string result = "";
-      foreach ( char c in str ) result += ConvertToKey(c);
+      foreach ( char c in str )
+      {
+        char cNew = ConvertToKey(c);
+        if ( cNew != '\0' )
+          result += cNew;
+      }
       return result;
     }
 
+    /// <summary>
+    // Convert hebrew font key codes to standard hebrew letters.
+    /// </summary>
     static public string ConvertToUnicode(string str)
     {
       string result = "";
       foreach ( char c in str )
-        result = ConvertToUnicode(c) + result;
+      {
+        char cNew = ConvertToUnicode(c);
+        if ( cNew != '\0' )
+          result = cNew + result;
+      }
       return result;
     }
 
@@ -132,7 +144,7 @@ namespace Ordisoftware.HebrewLetters
         case 'ת': return 't';
         case ':': return '.';
         case '-': return ' ';
-        default: return c;
+        default: return '\0';
       }
     }
 
@@ -169,7 +181,7 @@ namespace Ordisoftware.HebrewLetters
         case 't': return 'ת';
         case '.': return ':';
         case ' ': return '-';
-        default: return c;
+        default: return '\0';
       }
     }
 

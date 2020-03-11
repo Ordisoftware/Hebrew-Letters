@@ -462,7 +462,7 @@ namespace Ordisoftware.HebrewLetters
       EditLetters.Input.Focus();
     }
 
-    private void ActionPastFromUnicode_Click(object sender, EventArgs e)
+    private void ActionPasteFromUnicode_Click(object sender, EventArgs e)
     {
       EditLetters.Input.Text = HebrewLetters.ConvertToHebrewFont(new string(Clipboard.GetText().Reverse().ToArray()));
     }
