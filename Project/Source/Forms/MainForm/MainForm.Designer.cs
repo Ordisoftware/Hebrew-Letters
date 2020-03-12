@@ -346,31 +346,37 @@
       // 
       this.googleToolStripMenuItem.Name = "googleToolStripMenuItem";
       resources.ApplyResources(this.googleToolStripMenuItem, "googleToolStripMenuItem");
+      this.googleToolStripMenuItem.Click += new System.EventHandler(this.googleToolStripMenuItem_Click);
       // 
       // googleTranslateToolStripMenuItem
       // 
       this.googleTranslateToolStripMenuItem.Name = "googleTranslateToolStripMenuItem";
       resources.ApplyResources(this.googleTranslateToolStripMenuItem, "googleTranslateToolStripMenuItem");
+      this.googleTranslateToolStripMenuItem.Click += new System.EventHandler(this.googleTranslateToolStripMenuItem_Click);
       // 
       // wiktionaryToolStripMenuItem
       // 
       this.wiktionaryToolStripMenuItem.Name = "wiktionaryToolStripMenuItem";
       resources.ApplyResources(this.wiktionaryToolStripMenuItem, "wiktionaryToolStripMenuItem");
+      this.wiktionaryToolStripMenuItem.Click += new System.EventHandler(this.wiktionaryToolStripMenuItem_Click);
       // 
       // kleinDictionaryToolStripMenuItem
       // 
       this.kleinDictionaryToolStripMenuItem.Name = "kleinDictionaryToolStripMenuItem";
       resources.ApplyResources(this.kleinDictionaryToolStripMenuItem, "kleinDictionaryToolStripMenuItem");
+      this.kleinDictionaryToolStripMenuItem.Click += new System.EventHandler(this.kleinDictionaryToolStripMenuItem_Click);
       // 
       // reversoToolStripMenuItem
       // 
       this.reversoToolStripMenuItem.Name = "reversoToolStripMenuItem";
       resources.ApplyResources(this.reversoToolStripMenuItem, "reversoToolStripMenuItem");
+      this.reversoToolStripMenuItem.Click += new System.EventHandler(this.reversoToolStripMenuItem_Click);
       // 
       // lexilogosToolStripMenuItem
       // 
       this.lexilogosToolStripMenuItem.Name = "lexilogosToolStripMenuItem";
       resources.ApplyResources(this.lexilogosToolStripMenuItem, "lexilogosToolStripMenuItem");
+      this.lexilogosToolStripMenuItem.Click += new System.EventHandler(this.lexilogosToolStripMenuItem_Click);
       // 
       // ActionPasteFromUnicode
       // 

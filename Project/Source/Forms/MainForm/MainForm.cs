@@ -19,6 +19,7 @@ using System.Data.Odbc;
 using System.Drawing;
 using System.Windows.Forms;
 using Microsoft.Win32;
+using System.Runtime.InteropServices;
 using Ordisoftware.Core;
 
 namespace Ordisoftware.HebrewLetters
@@ -64,6 +65,10 @@ namespace Ordisoftware.HebrewLetters
     /// </summary>
     private string SelectedMeanings;
 
+    [DllImport("User32.dll", CharSet = CharSet.Auto)]
+    public static extern IntPtr SetClipboardViewer(IntPtr hWndNewViewer);
+    private IntPtr _ClipboardViewerNext;
+
     /// <summary>
     /// Default constructor.
     /// </summary>
@@ -72,6 +77,29 @@ namespace Ordisoftware.HebrewLetters
       InitializeComponent();
       Text = AboutBox.Instance.AssemblyTitle;
       SystemEvents.SessionEnding += SessionEnding;
+      _ClipboardViewerNext = SetClipboardViewer(Handle);
+    }
+
+    protected override void WndProc(ref Message m)
+    {
+      const int WM_DRAWCLIPBOARD = 0x308;
+      switch ( m.Msg )
+      {
+        case WM_DRAWCLIPBOARD:
+          string str = Clipboard.GetText();
+          bool isValid = false;
+          foreach ( char c in str )
+            if ( HebrewLetters.ConvertToKey(c) != '\0' )
+            {
+              isValid = true;
+              break;
+            }
+          ActionPasteFromUnicode.Enabled = isValid;
+          break;
+        default:
+          base.WndProc(ref m);
+          break;
+      }
     }
 
     /// <summary>
@@ -114,7 +142,6 @@ namespace Ordisoftware.HebrewLetters
       }
       else
         SetView(ViewModeType.Analyse, true);
-        //SetView(Program.Settings.CurrentView, true);
       if ( IsDBUpgraded )
         if ( DisplayManager.QueryYesNo(Translations.DatabaseChanged.GetLang()) )
           SetView(ViewModeType.Settings);
@@ -465,11 +492,13 @@ namespace Ordisoftware.HebrewLetters
     private void ActionPasteFromUnicode_Click(object sender, EventArgs e)
     {
       EditLetters.Input.Text = HebrewLetters.ConvertToHebrewFont(new string(Clipboard.GetText().Reverse().ToArray()));
+      EditLetters.Input.Focus();
     }
 
     private void ActionCopyToUnicode_Click(object sender, EventArgs e)
     {
       if ( EditLetters.Input.Text != "" ) Clipboard.SetText(HebrewLetters.ConvertToUnicode(EditLetters.Input.Text));
+      EditLetters.Input.Focus();
     }
 
     private void ActionCopyToClipboardMeanings_Click(object sender, EventArgs e)
@@ -533,6 +562,36 @@ namespace Ordisoftware.HebrewLetters
     private void ActionSearchOnline_Click(object sender, EventArgs e)
     {
       ContextMenuSearchOnline.Show(ActionSearchOnline, new Point(0, ActionSearchOnline.Height));
+    }
+
+    private void googleToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void googleTranslateToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void wiktionaryToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void kleinDictionaryToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void reversoToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void lexilogosToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+
     }
 
   }
