@@ -41,7 +41,7 @@
       this.Panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.Panel.Location = new System.Drawing.Point(0, 0);
       this.Panel.Name = "Panel";
-      this.Panel.Size = new System.Drawing.Size(510, 170);
+      this.Panel.Size = new System.Drawing.Size(510, 180);
       this.Panel.TabIndex = 1;
       // 
       // Input
@@ -49,7 +49,7 @@
       this.Input.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.Input.Dock = System.Windows.Forms.DockStyle.Bottom;
       this.Input.Font = new System.Drawing.Font("Hebrew", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.Input.Location = new System.Drawing.Point(0, 177);
+      this.Input.Location = new System.Drawing.Point(0, 187);
       this.Input.Name = "Input";
       this.Input.Size = new System.Drawing.Size(510, 53);
       this.Input.TabIndex = 2;
@@ -64,7 +64,7 @@
       this.Controls.Add(this.Input);
       this.Controls.Add(this.Panel);
       this.Name = "LettersControl";
-      this.Size = new System.Drawing.Size(510, 230);
+      this.Size = new System.Drawing.Size(510, 240);
       this.ResumeLayout(false);
       this.PerformLayout();
 

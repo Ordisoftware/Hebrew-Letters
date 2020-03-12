@@ -83,10 +83,11 @@ namespace Ordisoftware.HebrewLetters
         Label labelValue;
         Label labelKey;
         Button buttonLetter;
-        Size sizeLabelValue = new Size(45, 8);
-        Size sizeLabelKey = new Size(45, 13);
-        Font fontLetter = new Font("Hebrew", 20.25F, FontStyle.Bold);
-        Font fontValue = new Font("Microsoft Sans Serif", 6.25F);
+        var colorLabel = Color.DimGray;
+        var sizeLabelValue = new Size(45, 8);
+        var sizeLabelKey = new Size(45, 13);
+        var fontLetter = new Font("Hebrew", 20.25F, FontStyle.Bold);
+        var fontValue = new Font("Microsoft Sans Serif", 6.25F);
         for ( int index = 0; index < HebrewLetters.Codes.Length; index++ )
         {
           string letter = HebrewLetters.Codes[index];
@@ -100,15 +101,15 @@ namespace Ordisoftware.HebrewLetters
           labelValue.Location = new Point(x, y + dy);
           labelValue.Size = sizeLabelKey;
           labelValue.Font = fontValue;
-          labelValue.ForeColor = Color.DarkSlateGray;
+          labelValue.ForeColor = colorLabel;
           labelValue.BackColor = Color.Transparent;
           labelValue.Text = HebrewLetters.ValuesSimple[index].ToString();
           labelValue.TextAlign = ContentAlignment.MiddleCenter;
 
-          labelKey.Location = new Point(x, y + dy + labelValue.Height + 1);
+          labelKey.Location = new Point(x, y + dy + labelValue.Height + 2);
           labelKey.Size = sizeLabelKey;
           labelKey.Text = letter;
-          labelKey.ForeColor = Color.DarkSlateGray;
+          labelKey.ForeColor = colorLabel;
           labelKey.BackColor = Color.Transparent;
           labelKey.TextAlign = ContentAlignment.MiddleCenter;
 
@@ -132,7 +133,7 @@ namespace Ordisoftware.HebrewLetters
           else
           {
             x = 500 + dx;
-            y += dy + labelValue.Height + labelKey.Height + 10;
+            y += dy + labelValue.Height + labelKey.Height + 15;
           }
         }
       }
