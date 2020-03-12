@@ -111,7 +111,7 @@ namespace Ordisoftware.HebrewLetters
     /// <summary>
     // Convert letters from www.fourmilab.ch/etexts/www/hebrew/Bible to font codes.
     /// </summary>
-    static private char ConvertToKey(char c)
+    static public char ConvertToKey(char c)
     {
       switch ( c )
       {
@@ -148,7 +148,7 @@ namespace Ordisoftware.HebrewLetters
       }
     }
 
-    static private char ConvertToUnicode(char c)
+    static public char ConvertToUnicode(char c)
     {
       switch ( c )
       {
