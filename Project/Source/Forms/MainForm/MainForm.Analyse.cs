@@ -56,11 +56,11 @@ namespace Ordisoftware.HebrewLetters
         combobox.Items.Add(l.Structure.Trim());
         combobox.Items.Add(l.Function.Trim());
         SelectedMeanings += l.Name.Trim() + ": ";
-        SelectedMeanings += l.Positive.Trim() + ", ";
-        SelectedMeanings += l.Negative.Trim() + ", ";
-        SelectedMeanings += l.Verb.Trim() + ", ";
-        SelectedMeanings += l.Structure.Trim() + ", ";
-        SelectedMeanings += l.Function.Trim() + ", ";
+        SelectedMeanings += l.Positive.Trim() + ",";
+        SelectedMeanings += l.Negative.Trim() + ",";
+        SelectedMeanings += l.Verb.Trim() + ",";
+        SelectedMeanings += l.Structure.Trim() + ",";
+        SelectedMeanings += l.Function.Trim() + ",";
         foreach ( var meaning in l.GetMeaningsRows() )
         {
           var str = meaning.Meaning.Trim();
