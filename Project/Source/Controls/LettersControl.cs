@@ -122,10 +122,10 @@ namespace Ordisoftware.HebrewLetters
           buttonLetter.Text = letter;
           buttonLetter.BackColor = Color.Transparent;
           buttonLetter.TabStop = false;
-          buttonLetter.Click += delegate(object sender, EventArgs e)
+          buttonLetter.Click += delegate (object sender, EventArgs e)
           {
-            Input.Text = ((Button)sender).Text + Input.Text;
-            OnClick(new LetterEventArgs(((Button)sender).Text));
+            Input.Text = ( (Button)sender ).Text + Input.Text;
+            OnClick(new LetterEventArgs(( (Button)sender ).Text));
           };
           n += 1;
           if ( n != 12 )
@@ -163,8 +163,28 @@ namespace Ordisoftware.HebrewLetters
       if ( KeyProcessed )
       {
         KeyProcessed = false;
-        if ( Input.SelectionStart != 0 ) 
+        if ( Input.SelectionStart != 0 )
           Input.SelectionStart = Input.SelectionStart - 1;
+      }
+    }
+
+    private void Input_KeyDown(object sender, KeyEventArgs e)
+    {
+      if ( e.Control && e.KeyCode == Keys.X )
+      {
+        Clipboard.SetText(Input.SelectedText);
+        Input.Text = Input.Text.Remove(Input.SelectionStart, Input.SelectionLength);
+      }
+      if ( e.Control && e.KeyCode == Keys.C )
+      {
+        Clipboard.SetText(Input.SelectedText);
+      }
+      if ( e.Control && e.KeyCode == Keys.V )
+      {
+        string insertText = Clipboard.GetText();
+        int selectionIndex = Input.SelectionStart;
+        Input.Text = Input.Text.Insert(selectionIndex, insertText);
+        Input.SelectionStart = selectionIndex + insertText.Length;
       }
     }
 
@@ -173,7 +193,7 @@ namespace Ordisoftware.HebrewLetters
   /// <summary>
   /// Provide LetterEventArgs class.
   /// </summary>
-  public class LetterEventArgs : EventArgs
+    public class LetterEventArgs : EventArgs
   {
     public string LetterCode { get; private set; }
     public LetterEventArgs(string lettercode) { LetterCode = lettercode; }

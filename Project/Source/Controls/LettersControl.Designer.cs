@@ -54,6 +54,7 @@
       this.Input.Size = new System.Drawing.Size(510, 53);
       this.Input.TabIndex = 2;
       this.Input.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+      this.Input.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Input_KeyDown);
       this.Input.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Input_KeyPress);
       this.Input.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Input_KeyUp);
       // 
