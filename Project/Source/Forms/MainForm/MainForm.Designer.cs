@@ -54,12 +54,7 @@
       this.ActionAnalyse = new System.Windows.Forms.Button();
       this.ActionSearchOnline = new System.Windows.Forms.Button();
       this.ContextMenuSearchOnline = new System.Windows.Forms.ContextMenuStrip(this.components);
-      this.googleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.googleTranslateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.wiktionaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.kleinDictionaryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.reversoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.lexilogosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.ActionOpenWordOnline = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionPasteFromUnicode = new System.Windows.Forms.Button();
       this.ActionCopyToUnicode = new System.Windows.Forms.Button();
       this.ActionClear = new System.Windows.Forms.Button();
@@ -112,6 +107,13 @@
       this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
       this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
       this.ActionOpenHebrewAlphabet = new System.Windows.Forms.ToolStripMenuItem();
+      this.MenuTools = new System.Windows.Forms.ToolStripDropDownButton();
+      this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+      this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
       this.Sep6 = new System.Windows.Forms.ToolStripSeparator();
       this.ActionPreferences = new System.Windows.Forms.ToolStripButton();
       this.MenuSettings = new System.Windows.Forms.ToolStripDropDownButton();
@@ -128,6 +130,8 @@
       this.EditConfirmClosing = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionViewSearch = new System.Windows.Forms.ToolStripButton();
       this.ActionViewSettings = new System.Windows.Forms.ToolStripButton();
+      this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+      this.ActionSearchTerm = new System.Windows.Forms.ToolStripButton();
       this.LettersTableAdapter = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.LettersTableAdapter();
       this.TableAdapterManager = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.TableAdapterManager();
       this.MeaningsTableAdapter = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.MeaningsTableAdapter();
@@ -333,50 +337,14 @@
       // ContextMenuSearchOnline
       // 
       this.ContextMenuSearchOnline.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.googleToolStripMenuItem,
-            this.googleTranslateToolStripMenuItem,
-            this.wiktionaryToolStripMenuItem,
-            this.kleinDictionaryToolStripMenuItem,
-            this.reversoToolStripMenuItem,
-            this.lexilogosToolStripMenuItem});
+            this.ActionOpenWordOnline});
       this.ContextMenuSearchOnline.Name = "ContextMenuSearchOnline";
       resources.ApplyResources(this.ContextMenuSearchOnline, "ContextMenuSearchOnline");
       // 
-      // googleToolStripMenuItem
+      // ActionOpenWordOnline
       // 
-      this.googleToolStripMenuItem.Name = "googleToolStripMenuItem";
-      resources.ApplyResources(this.googleToolStripMenuItem, "googleToolStripMenuItem");
-      this.googleToolStripMenuItem.Click += new System.EventHandler(this.googleToolStripMenuItem_Click);
-      // 
-      // googleTranslateToolStripMenuItem
-      // 
-      this.googleTranslateToolStripMenuItem.Name = "googleTranslateToolStripMenuItem";
-      resources.ApplyResources(this.googleTranslateToolStripMenuItem, "googleTranslateToolStripMenuItem");
-      this.googleTranslateToolStripMenuItem.Click += new System.EventHandler(this.googleTranslateToolStripMenuItem_Click);
-      // 
-      // wiktionaryToolStripMenuItem
-      // 
-      this.wiktionaryToolStripMenuItem.Name = "wiktionaryToolStripMenuItem";
-      resources.ApplyResources(this.wiktionaryToolStripMenuItem, "wiktionaryToolStripMenuItem");
-      this.wiktionaryToolStripMenuItem.Click += new System.EventHandler(this.wiktionaryToolStripMenuItem_Click);
-      // 
-      // kleinDictionaryToolStripMenuItem
-      // 
-      this.kleinDictionaryToolStripMenuItem.Name = "kleinDictionaryToolStripMenuItem";
-      resources.ApplyResources(this.kleinDictionaryToolStripMenuItem, "kleinDictionaryToolStripMenuItem");
-      this.kleinDictionaryToolStripMenuItem.Click += new System.EventHandler(this.kleinDictionaryToolStripMenuItem_Click);
-      // 
-      // reversoToolStripMenuItem
-      // 
-      this.reversoToolStripMenuItem.Name = "reversoToolStripMenuItem";
-      resources.ApplyResources(this.reversoToolStripMenuItem, "reversoToolStripMenuItem");
-      this.reversoToolStripMenuItem.Click += new System.EventHandler(this.reversoToolStripMenuItem_Click);
-      // 
-      // lexilogosToolStripMenuItem
-      // 
-      this.lexilogosToolStripMenuItem.Name = "lexilogosToolStripMenuItem";
-      resources.ApplyResources(this.lexilogosToolStripMenuItem, "lexilogosToolStripMenuItem");
-      this.lexilogosToolStripMenuItem.Click += new System.EventHandler(this.lexilogosToolStripMenuItem_Click);
+      resources.ApplyResources(this.ActionOpenWordOnline, "ActionOpenWordOnline");
+      this.ActionOpenWordOnline.Name = "ActionOpenWordOnline";
       // 
       // ActionPasteFromUnicode
       // 
@@ -688,11 +656,14 @@
             this.ActionHelp,
             this.ActionAbout,
             this.MenuWeb,
+            this.MenuTools,
             this.Sep6,
             this.ActionPreferences,
             this.MenuSettings,
             this.ActionViewSearch,
-            this.ActionViewSettings});
+            this.ActionViewSettings,
+            this.toolStripSeparator1,
+            this.ActionSearchTerm});
       this.ToolStrip.Name = "ToolStrip";
       this.ToolStrip.ShowItemToolTips = false;
       // 
@@ -817,6 +788,60 @@
       this.ActionOpenHebrewAlphabet.Name = "ActionOpenHebrewAlphabet";
       this.ActionOpenHebrewAlphabet.Tag = "https://sites.google.com/site/asherhaimhalevi/hebrew-alphabet";
       this.ActionOpenHebrewAlphabet.Click += new System.EventHandler(this.ActionOpenHebrewAlphabet_Click);
+      // 
+      // MenuTools
+      // 
+      this.MenuTools.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+      this.MenuTools.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      this.MenuTools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem11,
+            this.toolStripMenuItem7,
+            this.toolStripSeparator3,
+            this.toolStripMenuItem8,
+            this.toolStripMenuItem10,
+            this.toolStripMenuItem9});
+      resources.ApplyResources(this.MenuTools, "MenuTools");
+      this.MenuTools.Name = "MenuTools";
+      // 
+      // toolStripMenuItem11
+      // 
+      resources.ApplyResources(this.toolStripMenuItem11, "toolStripMenuItem11");
+      this.toolStripMenuItem11.Name = "toolStripMenuItem11";
+      this.toolStripMenuItem11.Tag = "http://shorashon.free.fr/online/";
+      this.toolStripMenuItem11.Click += new System.EventHandler(this.ActionOpenWebsiteURL_Click);
+      // 
+      // toolStripMenuItem7
+      // 
+      resources.ApplyResources(this.toolStripMenuItem7, "toolStripMenuItem7");
+      this.toolStripMenuItem7.Name = "toolStripMenuItem7";
+      this.toolStripMenuItem7.Tag = "http://www.billheidrick.com/works/hgemat.htm";
+      this.toolStripMenuItem7.Click += new System.EventHandler(this.ActionOpenWebsiteURL_Click);
+      // 
+      // toolStripSeparator3
+      // 
+      this.toolStripSeparator3.Name = "toolStripSeparator3";
+      resources.ApplyResources(this.toolStripSeparator3, "toolStripSeparator3");
+      // 
+      // toolStripMenuItem8
+      // 
+      resources.ApplyResources(this.toolStripMenuItem8, "toolStripMenuItem8");
+      this.toolStripMenuItem8.Name = "toolStripMenuItem8";
+      this.toolStripMenuItem8.Tag = "https://www.lexilogos.com/bible_hebreu.htm";
+      this.toolStripMenuItem8.Click += new System.EventHandler(this.ActionOpenWebsiteURL_Click);
+      // 
+      // toolStripMenuItem10
+      // 
+      resources.ApplyResources(this.toolStripMenuItem10, "toolStripMenuItem10");
+      this.toolStripMenuItem10.Name = "toolStripMenuItem10";
+      this.toolStripMenuItem10.Tag = "https://www.lexilogos.com/hebreu_ancien_dictionnaire.htm";
+      this.toolStripMenuItem10.Click += new System.EventHandler(this.ActionOpenWebsiteURL_Click);
+      // 
+      // toolStripMenuItem9
+      // 
+      resources.ApplyResources(this.toolStripMenuItem9, "toolStripMenuItem9");
+      this.toolStripMenuItem9.Name = "toolStripMenuItem9";
+      this.toolStripMenuItem9.Tag = "https://www.lexilogos.com/hebreu_moderne_dictionnaire.htm";
+      this.toolStripMenuItem9.Click += new System.EventHandler(this.ActionOpenWebsiteURL_Click);
       // 
       // Sep6
       // 
@@ -948,6 +973,21 @@
       this.ActionViewSettings.Click += new System.EventHandler(this.ActionViewSettings_Click);
       this.ActionViewSettings.MouseEnter += new System.EventHandler(this.ShowToolTipOnMouseEnter);
       this.ActionViewSettings.MouseLeave += new System.EventHandler(this.ShowToolTipOnMouseLeave);
+      // 
+      // toolStripSeparator1
+      // 
+      this.toolStripSeparator1.Name = "toolStripSeparator1";
+      resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
+      // 
+      // ActionSearchTerm
+      // 
+      this.ActionSearchTerm.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      resources.ApplyResources(this.ActionSearchTerm, "ActionSearchTerm");
+      this.ActionSearchTerm.Name = "ActionSearchTerm";
+      this.ActionSearchTerm.Padding = new System.Windows.Forms.Padding(5);
+      this.ActionSearchTerm.Click += new System.EventHandler(this.ActionSearchTerm_Click);
+      this.ActionSearchTerm.MouseEnter += new System.EventHandler(this.ShowToolTipOnMouseEnter);
+      this.ActionSearchTerm.MouseLeave += new System.EventHandler(this.ShowToolTipOnMouseLeave);
       // 
       // LettersTableAdapter
       // 
@@ -1093,13 +1133,17 @@
     private System.Windows.Forms.Button ActionCopyToUnicode;
     private System.Windows.Forms.Button ActionSearchOnline;
     private System.Windows.Forms.ContextMenuStrip ContextMenuSearchOnline;
-    private System.Windows.Forms.ToolStripMenuItem googleToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem googleTranslateToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem wiktionaryToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem kleinDictionaryToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem reversoToolStripMenuItem;
-    private System.Windows.Forms.ToolStripMenuItem lexilogosToolStripMenuItem;
     private System.Windows.Forms.Button ActionPasteFromUnicode;
+    private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+    private System.Windows.Forms.ToolStripButton ActionSearchTerm;
+    private System.Windows.Forms.ToolStripDropDownButton MenuTools;
+    private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem11;
+    private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem7;
+    private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+    private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
+    private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem10;
+    private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
+    private System.Windows.Forms.ToolStripMenuItem ActionOpenWordOnline;
   }
 }
 

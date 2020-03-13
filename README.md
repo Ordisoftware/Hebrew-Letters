@@ -74,11 +74,7 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 - Add letters values in the input panel.
 - Add copy hebrew unicode to clipboard button.
 - Add paste from unicode clipboard content button.
-- Add online search for Google, Google Translate, Wiktionary, Klein Dictionary, Reverso and Lexilogos.
-- Add search term in meanings.
-- Add Ctrl+C and Ctrl+X and Ctrl+V to the input box.
-- Disable guematria box when no input.
-- Improve UI.
+- Add online search from several providers.
 
 #### 2019.10.27 - Version 2.9
 

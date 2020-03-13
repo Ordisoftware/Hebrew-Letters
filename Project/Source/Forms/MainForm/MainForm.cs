@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Hebrew Letters.
-/// Copyright 2016-2019 Olivier Rogier.
+/// Copyright 2016-2020 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at 
@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2019-10 </edited>
+/// <edited> 2020-03 </edited>
 using System;
 using System.Linq;
 using System.Data;
@@ -67,7 +67,7 @@ namespace Ordisoftware.HebrewLetters
 
     [DllImport("User32.dll", CharSet = CharSet.Auto)]
     public static extern IntPtr SetClipboardViewer(IntPtr hWndNewViewer);
-    private IntPtr _ClipboardViewerNext;
+    private IntPtr ClipboardViewerNext;
 
     /// <summary>
     /// Default constructor.
@@ -77,7 +77,16 @@ namespace Ordisoftware.HebrewLetters
       InitializeComponent();
       Text = AboutBox.Instance.AssemblyTitle;
       SystemEvents.SessionEnding += SessionEnding;
-      _ClipboardViewerNext = SetClipboardViewer(Handle);
+      ClipboardViewerNext = SetClipboardViewer(Handle);
+      int index = 1;
+      EventHandler action = (sender, e) =>
+      {
+        var menuitem = (ToolStripMenuItem)sender;
+        var control = ( (ContextMenuStrip)menuitem.Owner ).SourceControl;
+        Program.RunShell(((string)menuitem.Tag).Replace("%WORD%", HebrewLetters.ConvertToUnicode(EditLetters.Input.Text)));
+      };
+      foreach ( var item in OnlineWordProviders.Items )
+        ContextMenuSearchOnline.Items.Insert(index++, item.CreateMenuItem(action, ActionOpenWordOnline.Image));
     }
 
     protected override void WndProc(ref Message m)
@@ -564,36 +573,10 @@ namespace Ordisoftware.HebrewLetters
       ContextMenuSearchOnline.Show(ActionSearchOnline, new Point(0, ActionSearchOnline.Height));
     }
 
-    private void googleToolStripMenuItem_Click(object sender, EventArgs e)
+    private void ActionSearchTerm_Click(object sender, EventArgs e)
     {
 
     }
-
-    private void googleTranslateToolStripMenuItem_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void wiktionaryToolStripMenuItem_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void kleinDictionaryToolStripMenuItem_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void reversoToolStripMenuItem_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void lexilogosToolStripMenuItem_Click(object sender, EventArgs e)
-    {
-
-    }
-
   }
 
 }
