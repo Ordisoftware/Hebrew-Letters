@@ -214,7 +214,7 @@ namespace Ordisoftware.HebrewLetters
           string str = Clipboard.GetText();
           bool isValid = false;
           foreach ( char c in str )
-            if ( HebrewLetters.ConvertToKey(c) != '\0' )
+            if ( c != ' ' && HebrewLetters.ConvertToKey(c) != '\0' )
             {
               isValid = true;
               break;
@@ -510,13 +510,15 @@ namespace Ordisoftware.HebrewLetters
 
     private void ActionPasteFromUnicode_Click(object sender, EventArgs e)
     {
-      EditLetters.Input.Text = HebrewLetters.ConvertToHebrewFont(new string(Clipboard.GetText().Reverse().ToArray()));
+      string str = Clipboard.GetText().Replace(" ", "");
+      EditLetters.Input.Text = HebrewLetters.ConvertToHebrewFont(new string(str.Reverse().ToArray()));
       EditLetters.Input.Focus();
     }
 
     private void ActionCopyToUnicode_Click(object sender, EventArgs e)
     {
-      if ( EditLetters.Input.Text != "" ) Clipboard.SetText(HebrewLetters.ConvertToUnicode(EditLetters.Input.Text));
+      if ( EditLetters.Input.Text != "" )
+        Clipboard.SetText(HebrewLetters.ConvertToUnicode(EditLetters.Input.Text));
       EditLetters.Input.Focus();
     }
 
@@ -591,7 +593,8 @@ namespace Ordisoftware.HebrewLetters
       string letterName = "";
       var formSearch = new SearchMeaning();
       formSearch.EditTerm.Text = LastTermSearched;
-      if ( formSearch.ShowDialog() != DialogResult.OK ) return;
+      if ( formSearch.ShowDialog() != DialogResult.OK )
+        return;
       Func<Data.DataSet.MeaningsRow[], string, bool> contains = (rows, str) =>
       {
         foreach ( var row in rows )
@@ -620,7 +623,8 @@ namespace Ordisoftware.HebrewLetters
         foreach ( var row in query )
           formResults.Listbox.Items.Add(row.Name);
         formResults.Listbox.SelectedItem = formResults.Listbox.Items[0];
-        if ( formResults.ShowDialog() == DialogResult.Cancel ) return;
+        if ( formResults.ShowDialog() == DialogResult.Cancel )
+          return;
         letterName = formResults.Listbox.SelectedItem.ToString();
       }
       else
