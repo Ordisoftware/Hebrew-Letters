@@ -86,28 +86,11 @@ namespace Ordisoftware.HebrewLetters
         Program.RunShell(((string)menuitem.Tag).Replace("%WORD%", HebrewLetters.ConvertToUnicode(EditLetters.Input.Text)));
       };
       foreach ( var item in OnlineWordProviders.Items )
-        ContextMenuSearchOnline.Items.Insert(index++, item.CreateMenuItem(action, ActionOpenWordOnline.Image));
-    }
-
-    protected override void WndProc(ref Message m)
-    {
-      const int WM_DRAWCLIPBOARD = 0x308;
-      switch ( m.Msg )
       {
-        case WM_DRAWCLIPBOARD:
-          string str = Clipboard.GetText();
-          bool isValid = false;
-          foreach ( char c in str )
-            if ( HebrewLetters.ConvertToKey(c) != '\0' )
-            {
-              isValid = true;
-              break;
-            }
-          ActionPasteFromUnicode.Enabled = isValid;
-          break;
-        default:
-          base.WndProc(ref m);
-          break;
+        if (item.Name == "-")
+          ContextMenuSearchOnline.Items.Insert(index++, new ToolStripSeparator());
+        else
+          ContextMenuSearchOnline.Items.Insert(index++, item.CreateMenuItem(action));
       }
     }
 
@@ -139,6 +122,11 @@ namespace Ordisoftware.HebrewLetters
       }
     }
 
+    /// <summary>
+    /// Event handler. Called by MainForm for form shown events.
+    /// </summary>
+    /// <param name="sender">Source of the event.</param>
+    /// <param name="e">Form closing event information.</param>
     private void MainForm_Shown(object sender, EventArgs e)
     {
       Program.CheckUpdate(true);
@@ -215,6 +203,28 @@ namespace Ordisoftware.HebrewLetters
         if ( form != this && form.Visible )
           form.Close();
       Close();
+    }
+
+    protected override void WndProc(ref Message m)
+    {
+      const int WM_DRAWCLIPBOARD = 0x308;
+      switch ( m.Msg )
+      {
+        case WM_DRAWCLIPBOARD:
+          string str = Clipboard.GetText();
+          bool isValid = false;
+          foreach ( char c in str )
+            if ( HebrewLetters.ConvertToKey(c) != '\0' )
+            {
+              isValid = true;
+              break;
+            }
+          ActionPasteFromUnicode.Enabled = isValid;
+          break;
+        default:
+          base.WndProc(ref m);
+          break;
+      }
     }
 
     /// <summary>
@@ -573,11 +583,14 @@ namespace Ordisoftware.HebrewLetters
       ContextMenuSearchOnline.Show(ActionSearchOnline, new Point(0, ActionSearchOnline.Height));
     }
 
+    private string LastTermSearched;
+
     private void ActionSearchTerm_Click(object sender, EventArgs e)
     {
       ActionViewSettings.PerformClick();
       string letterName = "";
       var formSearch = new SearchMeaning();
+      formSearch.EditTerm.Text = LastTermSearched;
       if ( formSearch.ShowDialog() != DialogResult.OK ) return;
       Func<Data.DataSet.MeaningsRow[], string, bool> contains = (rows, str) =>
       {
@@ -586,7 +599,8 @@ namespace Ordisoftware.HebrewLetters
             return true;
         return false;
       };
-      string term = formSearch.EditTerm.Text.ToLower();
+      LastTermSearched = formSearch.EditTerm.Text;
+      string term = LastTermSearched.ToLower();
       var query = from letter in DataSet.Letters
                   where letter.Function.ToLower().Contains(term)
                      || letter.Verb.ToLower().Contains(term)

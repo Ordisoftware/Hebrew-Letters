@@ -339,6 +339,7 @@
       this.ContextMenuSearchOnline.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ActionOpenWordOnline});
       this.ContextMenuSearchOnline.Name = "ContextMenuSearchOnline";
+      this.ContextMenuSearchOnline.ShowImageMargin = false;
       resources.ApplyResources(this.ContextMenuSearchOnline, "ContextMenuSearchOnline");
       // 
       // ActionOpenWordOnline

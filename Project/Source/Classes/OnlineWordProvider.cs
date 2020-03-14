@@ -53,32 +53,16 @@ namespace Ordisoftware.HebrewLetters
       Items.Add(item);
 
       item = new OnlineWordProvider();
-      item.Name = "Google Search";
-      item.URL = "https://www.google.com/search?q=%WORD%";
+      item.Name = "Sefaria Klein Dictionary EN";
+      item.URL = "https://www.sefaria.org/Klein_Dictionary%2C_%WORD%_%E1%B4%B5?lang=bi";
       Items.Add(item);
 
       item = new OnlineWordProvider();
-      item.Name = "Bing Search";
-      item.URL = "http://www.bing.com/search?q=%WORD%";
+      item.Name = "Dict.com FR";
+      item.URL = "https://www.dict.com/hebreu-francais/%WORD%";
       Items.Add(item);
 
-      item = new OnlineWordProvider();
-      item.Name = "Google Translate EN";
-      item.URL = "https://translate.google.com/?op=translate&sl=iw&tl=en&text=%WORD%";
-      Items.Add(item);
-      item = new OnlineWordProvider();
-      item.Name = "Google Translate FR";
-      item.URL = "https://translate.google.com/?op=translate&sl=iw&tl=fr&text=%WORD%";
-      Items.Add(item);
-
-      item = new OnlineWordProvider();
-      item.Name = "Bing Translate EN";
-      item.URL = "https://www.bing.com/translator/?from=he&to=en&text=%WORD%";
-      Items.Add(item);
-      item = new OnlineWordProvider();
-      item.Name = "Bing Translate FR";
-      item.URL = "https://www.bing.com/translator/?from=he&to=fr&text=%WORD%";
-      Items.Add(item);
+      Items.Add(new OnlineWordProvider() { Name = "-" });
 
       item = new OnlineWordProvider();
       item.Name = "Wiktionary EN";
@@ -89,10 +73,29 @@ namespace Ordisoftware.HebrewLetters
       item.URL = "https://fr.wiktionary.org/w/index.php?search=%WORD%";
       Items.Add(item);
 
+      Items.Add(new OnlineWordProvider() { Name = "-" });
+
       item = new OnlineWordProvider();
-      item.Name = "Sefaria Klein Dictionary EN";
-      item.URL = "https://www.sefaria.org/Klein_Dictionary%2C_%WORD%_%E1%B4%B5?lang=bi";
+      item.Name = "Google Translate EN";
+      item.URL = "https://translate.google.com/?op=translate&sl=iw&tl=en&text=%WORD%";
       Items.Add(item);
+      item = new OnlineWordProvider();
+      item.Name = "Google Translate FR";
+      item.URL = "https://translate.google.com/?op=translate&sl=iw&tl=fr&text=%WORD%";
+      Items.Add(item);
+
+      Items.Add(new OnlineWordProvider() { Name = "-" });
+
+      item = new OnlineWordProvider();
+      item.Name = "Bing Translate EN";
+      item.URL = "https://www.bing.com/translator/?from=he&to=en&text=%WORD%";
+      Items.Add(item);
+      item = new OnlineWordProvider();
+      item.Name = "Bing Translate FR";
+      item.URL = "https://www.bing.com/translator/?from=he&to=fr&text=%WORD%";
+      Items.Add(item);
+
+      Items.Add(new OnlineWordProvider() { Name = "-" });
 
       item = new OnlineWordProvider();
       item.Name = "Reverso Dictionary EN";
@@ -103,6 +106,8 @@ namespace Ordisoftware.HebrewLetters
       item.URL = "https://dictionnaire.reverso.net/hebreu-francais/%WORD%";
       Items.Add(item);
 
+      Items.Add(new OnlineWordProvider() { Name = "-" });
+
       item = new OnlineWordProvider();
       item.Name = "Reverso Context EN";
       item.URL = "https://context.reverso.net/translation/hebrew-english/%WORD%";
@@ -111,6 +116,8 @@ namespace Ordisoftware.HebrewLetters
       item.Name = "Reverso Context FR";
       item.URL = "https://context.reverso.net/translation/hebrew-french/%WORD%";
       Items.Add(item);
+
+      Items.Add(new OnlineWordProvider() { Name = "-" });
 
       item = new OnlineWordProvider();
       item.Name = "Glosbe Dictionary EN";
@@ -121,10 +128,18 @@ namespace Ordisoftware.HebrewLetters
       item.URL = "https://fr.glosbe.com/he/fr/%WORD%";
       Items.Add(item);
 
+      Items.Add(new OnlineWordProvider() { Name = "-" });
+
       item = new OnlineWordProvider();
-      item.Name = "Dict.com FR";
-      item.URL = "https://www.dict.com/hebreu-francais/%WORD%";
+      item.Name = "Google Search";
+      item.URL = "https://www.google.com/search?q=%WORD%";
       Items.Add(item);
+
+      item = new OnlineWordProvider();
+      item.Name = "Bing Search";
+      item.URL = "http://www.bing.com/search?q=%WORD%";
+      Items.Add(item);
+
     }
 
   }

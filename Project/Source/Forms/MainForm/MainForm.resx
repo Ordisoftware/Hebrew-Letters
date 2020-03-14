@@ -674,7 +674,7 @@
 </value>
   </data>
   <data name="ActionOpenWordOnline.Size" type="System.Drawing.Size, System.Drawing">
-    <value>139, 22</value>
+    <value>155, 22</value>
   </data>
   <data name="ActionOpenWordOnline.Text" xml:space="preserve">
     <value>Open online</value>
@@ -683,7 +683,7 @@
     <value>False</value>
   </data>
   <data name="ContextMenuSearchOnline.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 26</value>
+    <value>156, 48</value>
   </data>
   <data name="&gt;&gt;ContextMenuSearchOnline.Name" xml:space="preserve">
     <value>ContextMenuSearchOnline</value>
