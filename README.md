@@ -70,7 +70,7 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 ## Changelog
 
-#### 2020.03.__ - Version 3.0
+#### 2020.03.14 - Version 3.0
 
 - Add search a term.
 - Add letters values in the input panel.
