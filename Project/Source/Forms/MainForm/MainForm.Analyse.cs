@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Hebrew Letters.
-/// Copyright 2016-2019 Olivier Rogier.
+/// Copyright 2016-2020 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at 
@@ -35,6 +35,7 @@ namespace Ordisoftware.HebrewLetters
       for ( int pos = word.Length - 1; pos >= 0; pos-- )
       {
         var l = DataSet.Letters.FindByCode(Convert.ToString(word[pos]));
+        if ( l == null ) continue;
         sum += l.ValueSimple;
         var label = new Label();
         label.Text = l.Name;
@@ -55,11 +56,11 @@ namespace Ordisoftware.HebrewLetters
         combobox.Items.Add(l.Structure.Trim());
         combobox.Items.Add(l.Function.Trim());
         SelectedMeanings += l.Name.Trim() + ": ";
-        SelectedMeanings += l.Positive.Trim() + ", ";
-        SelectedMeanings += l.Negative.Trim() + ", ";
-        SelectedMeanings += l.Verb.Trim() + ", ";
-        SelectedMeanings += l.Structure.Trim() + ", ";
-        SelectedMeanings += l.Function.Trim() + ", ";
+        SelectedMeanings += l.Positive.Trim() + ",";
+        SelectedMeanings += l.Negative.Trim() + ",";
+        SelectedMeanings += l.Verb.Trim() + ",";
+        SelectedMeanings += l.Structure.Trim() + ",";
+        SelectedMeanings += l.Function.Trim() + ",";
         foreach ( var meaning in l.GetMeaningsRows() )
         {
           var str = meaning.Meaning.Trim();

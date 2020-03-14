@@ -76,36 +76,56 @@ namespace Ordisoftware.HebrewLetters
       try
       {
         int dy = 45;
-        int dx = -dy;
+        int dx = -45;
         int x = 500 + dx;
         int y = 5;
         int n = 1;
-        Label label;
-        Button button;
-        Size size = new Size(45, 13);
-        Font font = new Font("Hebrew", 20.25F, FontStyle.Bold);
-        foreach ( string letter in HebrewLetters.Codes )
+        Label labelValue;
+        Label labelKey;
+        Button buttonLetter;
+        var colorLabel = Color.DimGray;
+        var sizeLabelValue = new Size(45, 8);
+        var sizeLabelKey = new Size(45, 13);
+        var fontLetter = new Font("Hebrew", 20.25F, FontStyle.Bold);
+        var fontValue = new Font("Microsoft Sans Serif", 6.25F);
+        for ( int index = 0; index < HebrewLetters.Codes.Length; index++ )
         {
-          label = new Label();
-          button = new Button();
-          Panel.Controls.Add(label);
-          Panel.Controls.Add(button);
-          label.Location = new Point(x, y + dy);
-          label.Size = size;
-          label.Text = letter;
-          label.TextAlign = ContentAlignment.MiddleCenter;
-          button.Location = new Point(x, y);
-          button.Size = new Size(Math.Abs(dx), dy);
-          button.FlatStyle = FlatStyle.Flat;
-          button.FlatAppearance.BorderSize = 0;
-          button.FlatAppearance.BorderColor = SystemColors.Control;
-          button.Font = font;
-          button.Text = letter;
-          button.TabStop = false;
-          button.Click += delegate(object sender, EventArgs e)
+          string letter = HebrewLetters.Codes[index];
+          labelKey = new Label();
+          labelValue = new Label();
+          buttonLetter = new Button();
+          Panel.Controls.Add(labelValue);
+          Panel.Controls.Add(labelKey);
+          Panel.Controls.Add(buttonLetter);
+
+          labelValue.Location = new Point(x, y + dy);
+          labelValue.Size = sizeLabelKey;
+          labelValue.Font = fontValue;
+          labelValue.ForeColor = colorLabel;
+          labelValue.BackColor = Color.Transparent;
+          labelValue.Text = HebrewLetters.ValuesSimple[index].ToString();
+          labelValue.TextAlign = ContentAlignment.MiddleCenter;
+
+          labelKey.Location = new Point(x, y + dy + labelValue.Height + 2);
+          labelKey.Size = sizeLabelKey;
+          labelKey.Text = letter;
+          labelKey.ForeColor = colorLabel;
+          labelKey.BackColor = Color.Transparent;
+          labelKey.TextAlign = ContentAlignment.MiddleCenter;
+
+          buttonLetter.Location = new Point(x, y);
+          buttonLetter.Size = new Size(Math.Abs(dx), dy);
+          buttonLetter.FlatStyle = FlatStyle.Flat;
+          buttonLetter.FlatAppearance.BorderSize = 0;
+          buttonLetter.FlatAppearance.BorderColor = SystemColors.Control;
+          buttonLetter.Font = fontLetter;
+          buttonLetter.Text = letter;
+          buttonLetter.BackColor = Color.Transparent;
+          buttonLetter.TabStop = false;
+          buttonLetter.Click += delegate (object sender, EventArgs e)
           {
-            Input.Text = ((Button)sender).Text + Input.Text;
-            OnClick(new LetterEventArgs(((Button)sender).Text));
+            Input.Text = ( (Button)sender ).Text + Input.Text;
+            OnClick(new LetterEventArgs(( (Button)sender ).Text));
           };
           n += 1;
           if ( n != 12 )
@@ -113,7 +133,7 @@ namespace Ordisoftware.HebrewLetters
           else
           {
             x = 500 + dx;
-            y += dy + 13 + 10;
+            y += dy + labelValue.Height + labelKey.Height + 15;
           }
         }
       }
@@ -143,8 +163,28 @@ namespace Ordisoftware.HebrewLetters
       if ( KeyProcessed )
       {
         KeyProcessed = false;
-        if ( Input.SelectionStart != 0 ) 
+        if ( Input.SelectionStart != 0 )
           Input.SelectionStart = Input.SelectionStart - 1;
+      }
+    }
+
+    private void Input_KeyDown(object sender, KeyEventArgs e)
+    {
+      if ( e.Control && e.KeyCode == Keys.X )
+      {
+        Clipboard.SetText(Input.SelectedText);
+        Input.Text = Input.Text.Remove(Input.SelectionStart, Input.SelectionLength);
+      }
+      if ( e.Control && e.KeyCode == Keys.C )
+      {
+        Clipboard.SetText(Input.SelectedText);
+      }
+      if ( e.Control && e.KeyCode == Keys.V )
+      {
+        string insertText = Clipboard.GetText();
+        int selectionIndex = Input.SelectionStart;
+        Input.Text = Input.Text.Insert(selectionIndex, insertText);
+        Input.SelectionStart = selectionIndex + insertText.Length;
       }
     }
 
@@ -153,7 +193,7 @@ namespace Ordisoftware.HebrewLetters
   /// <summary>
   /// Provide LetterEventArgs class.
   /// </summary>
-  public class LetterEventArgs : EventArgs
+    public class LetterEventArgs : EventArgs
   {
     public string LetterCode { get; private set; }
     public LetterEventArgs(string lettercode) { LetterCode = lettercode; }

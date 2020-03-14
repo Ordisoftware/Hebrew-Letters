@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Hebrew Letters.
-/// Copyright 2016-2019 Olivier Rogier.
+/// Copyright 2016-2020 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at 
@@ -11,13 +11,15 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2019-10 </edited>
+/// <edited> 2020-03 </edited>
 using System;
+using System.Linq;
 using System.Data;
 using System.Data.Odbc;
 using System.Drawing;
 using System.Windows.Forms;
 using Microsoft.Win32;
+using System.Runtime.InteropServices;
 using Ordisoftware.Core;
 
 namespace Ordisoftware.HebrewLetters
@@ -63,6 +65,10 @@ namespace Ordisoftware.HebrewLetters
     /// </summary>
     private string SelectedMeanings;
 
+    [DllImport("User32.dll", CharSet = CharSet.Auto)]
+    public static extern IntPtr SetClipboardViewer(IntPtr hWndNewViewer);
+    private IntPtr ClipboardViewerNext;
+
     /// <summary>
     /// Default constructor.
     /// </summary>
@@ -71,6 +77,21 @@ namespace Ordisoftware.HebrewLetters
       InitializeComponent();
       Text = AboutBox.Instance.AssemblyTitle;
       SystemEvents.SessionEnding += SessionEnding;
+      ClipboardViewerNext = SetClipboardViewer(Handle);
+      int index = 1;
+      EventHandler action = (sender, e) =>
+      {
+        var menuitem = (ToolStripMenuItem)sender;
+        var control = ( (ContextMenuStrip)menuitem.Owner ).SourceControl;
+        Program.RunShell(((string)menuitem.Tag).Replace("%WORD%", HebrewLetters.ConvertToUnicode(EditLetters.Input.Text)));
+      };
+      foreach ( var item in OnlineWordProviders.Items )
+      {
+        if (item.Name == "-")
+          ContextMenuSearchOnline.Items.Insert(index++, new ToolStripSeparator());
+        else
+          ContextMenuSearchOnline.Items.Insert(index++, item.CreateMenuItem(action));
+      }
     }
 
     /// <summary>
@@ -101,6 +122,11 @@ namespace Ordisoftware.HebrewLetters
       }
     }
 
+    /// <summary>
+    /// Event handler. Called by MainForm for form shown events.
+    /// </summary>
+    /// <param name="sender">Source of the event.</param>
+    /// <param name="e">Form closing event information.</param>
     private void MainForm_Shown(object sender, EventArgs e)
     {
       Program.CheckUpdate(true);
@@ -113,7 +139,6 @@ namespace Ordisoftware.HebrewLetters
       }
       else
         SetView(ViewModeType.Analyse, true);
-        //SetView(Program.Settings.CurrentView, true);
       if ( IsDBUpgraded )
         if ( DisplayManager.QueryYesNo(Translations.DatabaseChanged.GetLang()) )
           SetView(ViewModeType.Settings);
@@ -178,6 +203,28 @@ namespace Ordisoftware.HebrewLetters
         if ( form != this && form.Visible )
           form.Close();
       Close();
+    }
+
+    protected override void WndProc(ref Message m)
+    {
+      const int WM_DRAWCLIPBOARD = 0x308;
+      switch ( m.Msg )
+      {
+        case WM_DRAWCLIPBOARD:
+          string str = Clipboard.GetText();
+          bool isValid = false;
+          foreach ( char c in str )
+            if ( c != ' ' && HebrewLetters.ConvertToKey(c) != '\0' )
+            {
+              isValid = true;
+              break;
+            }
+          ActionPasteFromUnicode.Enabled = isValid;
+          break;
+        default:
+          base.WndProc(ref m);
+          break;
+      }
     }
 
     /// <summary>
@@ -446,6 +493,8 @@ namespace Ordisoftware.HebrewLetters
       ActionDelFirst.Enabled = EditLetters.Input.Text.Length > 1;
       ActionDelLast.Enabled = ActionDelFirst.Enabled;
       ActionClear.Enabled = ActionAnalyse.Enabled;
+      ActionCopyToUnicode.Enabled = ActionAnalyse.Enabled;
+      ActionSearchOnline.Enabled = ActionAnalyse.Enabled;
       DoAnalyse();
     }
 
@@ -456,6 +505,21 @@ namespace Ordisoftware.HebrewLetters
       EditGematria.Text = "";
       EditAnalyze.Controls.Clear();
       ActionCopyToClipboardMeanings.Enabled = false;
+      EditLetters.Input.Focus();
+    }
+
+    private void ActionPasteFromUnicode_Click(object sender, EventArgs e)
+    {
+      string str = Clipboard.GetText().Replace(" ", "");
+      EditLetters.Input.Text = HebrewLetters.ConvertToHebrewFont(new string(str.Reverse().ToArray()));
+      EditLetters.Input.Focus();
+    }
+
+    private void ActionCopyToUnicode_Click(object sender, EventArgs e)
+    {
+      if ( EditLetters.Input.Text != "" )
+        Clipboard.SetText(HebrewLetters.ConvertToUnicode(EditLetters.Input.Text));
+      EditLetters.Input.Focus();
     }
 
     private void ActionCopyToClipboardMeanings_Click(object sender, EventArgs e)
@@ -516,10 +580,58 @@ namespace Ordisoftware.HebrewLetters
       SystemManager.OpenWebLink(url);
     }
 
-    private void PanelSettingsDetails_Paint(object sender, PaintEventArgs e)
+    private void ActionSearchOnline_Click(object sender, EventArgs e)
     {
-
+      ContextMenuSearchOnline.Show(ActionSearchOnline, new Point(0, ActionSearchOnline.Height));
     }
+
+    private string LastTermSearched;
+
+    private void ActionSearchTerm_Click(object sender, EventArgs e)
+    {
+      ActionViewSettings.PerformClick();
+      string letterName = "";
+      var formSearch = new SearchMeaning();
+      formSearch.EditTerm.Text = LastTermSearched;
+      if ( formSearch.ShowDialog() != DialogResult.OK )
+        return;
+      Func<Data.DataSet.MeaningsRow[], string, bool> contains = (rows, str) =>
+      {
+        foreach ( var row in rows )
+          if ( row.Meaning.ToLower().Contains(str) )
+            return true;
+        return false;
+      };
+      LastTermSearched = formSearch.EditTerm.Text;
+      string term = LastTermSearched.ToLower();
+      var query = from letter in DataSet.Letters
+                  where letter.Function.ToLower().Contains(term)
+                     || letter.Verb.ToLower().Contains(term)
+                     || letter.Structure.ToLower().Contains(term)
+                     || letter.Positive.ToLower().Contains(term)
+                     || letter.Negative.ToLower().Contains(term)
+                     || contains(letter.GetMeaningsRows(), term)
+                  select letter;
+      if ( query.Count() == 0 )
+      {
+        MessageBox.Show(Translations.TermNotFound.GetLang(formSearch.EditTerm.Text));
+        return;
+      }
+      if ( query.Count() > 1 )
+      {
+        var formResults = new SearchTermResults();
+        foreach ( var row in query )
+          formResults.Listbox.Items.Add(row.Name);
+        formResults.Listbox.SelectedItem = formResults.Listbox.Items[0];
+        if ( formResults.ShowDialog() == DialogResult.Cancel )
+          return;
+        letterName = formResults.Listbox.SelectedItem.ToString();
+      }
+      else
+        letterName = query.First().Name;
+      LettersBindingSource.Position = LettersBindingSource.Find("Name", letterName);
+    }
+
   }
 
 }

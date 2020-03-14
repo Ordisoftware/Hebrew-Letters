@@ -63,11 +63,22 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 - F1 : Analyse view
 - F2 : Settings view
+- F3 : Search a term
 - F8 : Preferences
 - F11 : Help
 - F12 : About
 
 ## Changelog
+
+#### 2020.03.14 - Version 3.0
+
+- Add search a term.
+- Add letters values in the input panel.
+- Add copy/cut/paste for the input box.
+- Add copy hebrew unicode to clipboard button.
+- Add paste from unicode clipboard content button.
+- Add online search from several providers (Pealim, Google, Bing, Wiktionary, Sefaria, Reverso, Glosbe, Dict.com).
+- Add some links (Shorashon, Hebrew Gematria, Lexilogos). 
 
 #### 2019.10.27 - Version 2.9
 

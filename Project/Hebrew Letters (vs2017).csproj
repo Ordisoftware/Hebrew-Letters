@@ -64,7 +64,20 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Source\Forms\Boxes\SearchTermResults.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Forms\Boxes\SearchTermResults.Designer.cs">
+      <DependentUpon>SearchTermResults.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Forms\Boxes\SearchTerm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Forms\Boxes\SearchTerm.Designer.cs">
+      <DependentUpon>SearchTerm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Source\Classes\HebrewLetters.cs" />
+    <Compile Include="Source\Classes\OnlineWordProvider.cs" />
     <Compile Include="Source\Enums\Translations.cs" />
     <Compile Include="Source\Classes\Localizer.cs" />
     <Compile Include="Source\Classes\SettingsHelper.cs" />
@@ -126,6 +139,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Source\Forms\Boxes\SearchTermResults.fr.resx">
+      <DependentUpon>SearchTermResults.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Forms\Boxes\SearchTermResults.resx">
+      <DependentUpon>SearchTermResults.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\Config\AboutBox.fr.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -146,6 +165,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\Config\PreferencesForm.resx">
       <DependentUpon>PreferencesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Forms\Boxes\SearchTerm.fr.resx">
+      <DependentUpon>SearchTerm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Forms\Boxes\SearchTerm.resx">
+      <DependentUpon>SearchTerm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Data\DataSet.xsc">

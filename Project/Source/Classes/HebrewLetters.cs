@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Hebrew Letters.
-/// Copyright 2016-2019 Olivier Rogier.
+/// Copyright 2016-2020 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at 
@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2012-10 </created>
-/// <edited> 2019-09 </edited>
+/// <edited> 2020-03 </edited>
 using System;
 using System.Collections.Generic;
 
@@ -84,14 +84,34 @@ namespace Ordisoftware.HebrewLetters
     static public string ConvertToHebrewFont(string str)
     {
       string result = "";
-      foreach ( char c in str ) result += ConvertToKey(c);
+      foreach ( char c in str )
+      {
+        char cNew = ConvertToKey(c);
+        if ( cNew != '\0' )
+          result += cNew;
+      }
+      return result;
+    }
+
+    /// <summary>
+    // Convert hebrew font key codes to standard hebrew letters.
+    /// </summary>
+    static public string ConvertToUnicode(string str)
+    {
+      string result = "";
+      foreach ( char c in str )
+      {
+        char cNew = ConvertToUnicode(c);
+        if ( cNew != '\0' )
+          result = cNew + result;
+      }
       return result;
     }
 
     /// <summary>
     // Convert letters from www.fourmilab.ch/etexts/www/hebrew/Bible to font codes.
     /// </summary>
-    static private char ConvertToKey(char c)
+    static public char ConvertToKey(char c)
     {
       switch ( c )
       {
@@ -124,7 +144,44 @@ namespace Ordisoftware.HebrewLetters
         case 'ת': return 't';
         case ':': return '.';
         case '-': return ' ';
-        default: return c;
+        default: return '\0';
+      }
+    }
+
+    static public char ConvertToUnicode(char c)
+    {
+      switch ( c )
+      {
+        case 'a': return 'א';
+        case 'b': return 'ב';
+        case 'g': return 'ג';
+        case 'd': return 'ד';
+        case 'h': return 'ה';
+        case 'v': return 'ו';
+        case 'z': return 'ז';
+        case 'x': return 'ח';
+        case 'u': return 'ט';
+        case 'y': return 'י';
+        case 'k': return 'כ';
+        case '!': return 'ך';
+        case 'l': return 'ל';
+        case 'm': return 'מ';
+        case ',': return 'ם';
+        case 'n': return 'נ';
+        case ']': return 'ן';
+        case 'c': return 'ס';
+        case 'i': return 'ע';
+        case 'p': return 'פ';
+        case '[': return 'ף';
+        case 'j': return 'צ';
+        case '/': return 'ץ';
+        case 'q': return 'ק';
+        case 'r': return 'ר';
+        case '>': return 'ש';
+        case 't': return 'ת';
+        case '.': return ':';
+        case ' ': return '-';
+        default: return '\0';
       }
     }
 

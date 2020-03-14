@@ -99,6 +99,13 @@ namespace Ordisoftware.HebrewLetters
                 "Voulez-vous continuer ?" }
       };
 
+    static public readonly Dictionary<string, string> TermNotFound
+      = new Dictionary<string, string>()
+      {
+        { "en", "{0} not found." },
+        { "fr", "{0} non trouvé." }
+      };
+
   }
 
 }

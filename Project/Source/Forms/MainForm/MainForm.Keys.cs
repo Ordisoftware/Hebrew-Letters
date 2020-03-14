@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Hebrew Letters.
-/// Copyright 2016-2019 Olivier Rogier.
+/// Copyright 2016-2020 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at 
@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-01 </created>
-/// <edited> 2019-09 </edited>
+/// <edited> 2020-03 </edited>
 using System;
 using System.Windows.Forms;
 
@@ -34,6 +34,9 @@ namespace Ordisoftware.HebrewLetters
           return true;
         case Keys.F2:
           ActionViewSettings.PerformClick();
+          return true;
+        case Keys.F3:
+          ActionSearchTerm.PerformClick();
           return true;
         case Keys.F8:
           ActionPreferences.PerformClick();
