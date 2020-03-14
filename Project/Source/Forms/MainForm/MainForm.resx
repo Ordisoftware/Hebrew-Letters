@@ -2798,9 +2798,6 @@
   <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
     <value>6, 49</value>
   </data>
-  <data name="toolStripSeparator1.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="ActionSearchTerm.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -2829,9 +2826,6 @@
   </data>
   <data name="ActionSearchTerm.ToolTipText" xml:space="preserve">
     <value>Search (F3)</value>
-  </data>
-  <data name="ActionSearchTerm.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
   </data>
   <data name="ToolStrip.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>

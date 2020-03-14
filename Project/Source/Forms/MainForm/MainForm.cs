@@ -575,8 +575,45 @@ namespace Ordisoftware.HebrewLetters
 
     private void ActionSearchTerm_Click(object sender, EventArgs e)
     {
-
+      ActionViewSettings.PerformClick();
+      string letterName = "";
+      var formSearch = new SearchMeaning();
+      if ( formSearch.ShowDialog() != DialogResult.OK ) return;
+      Func<Data.DataSet.MeaningsRow[], string, bool> contains = (rows, str) =>
+      {
+        foreach ( var row in rows )
+          if ( row.Meaning.ToLower().Contains(str) )
+            return true;
+        return false;
+      };
+      string term = formSearch.EditTerm.Text.ToLower();
+      var query = from letter in DataSet.Letters
+                  where letter.Function.ToLower().Contains(term)
+                     || letter.Verb.ToLower().Contains(term)
+                     || letter.Structure.ToLower().Contains(term)
+                     || letter.Positive.ToLower().Contains(term)
+                     || letter.Negative.ToLower().Contains(term)
+                     || contains(letter.GetMeaningsRows(), term)
+                  select letter;
+      if ( query.Count() == 0 )
+      {
+        MessageBox.Show(Translations.TermNotFound.GetLang(formSearch.EditTerm.Text));
+        return;
+      }
+      if ( query.Count() > 1 )
+      {
+        var formResults = new SearchTermResults();
+        foreach ( var row in query )
+          formResults.Listbox.Items.Add(row.Name);
+        formResults.Listbox.SelectedItem = formResults.Listbox.Items[0];
+        if ( formResults.ShowDialog() == DialogResult.Cancel ) return;
+        letterName = formResults.Listbox.SelectedItem.ToString();
+      }
+      else
+        letterName = query.First().Name;
+      LettersBindingSource.Position = LettersBindingSource.Find("Name", letterName);
     }
+
   }
 
 }
