@@ -70,7 +70,7 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 ## Changelog
 
-#### 2020.04.__ - Version 3.1
+#### 2020.04.07 - Version 3.1
 
 - Add option to change the sentence font size.
 - Improve search term form.
