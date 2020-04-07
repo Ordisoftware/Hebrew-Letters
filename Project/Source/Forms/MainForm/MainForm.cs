@@ -511,7 +511,7 @@ namespace Ordisoftware.HebrewLetters
     private void ActionPasteFromUnicode_Click(object sender, EventArgs e)
     {
       string str = Clipboard.GetText().Replace(" ", "");
-      EditLetters.Input.Text = HebrewLetters.ConvertToHebrewFont(new string(str.Reverse().ToArray()));
+      EditLetters.Input.Text = HebrewLetters.ConvertToHebrewFont(new string(str.ToArray()));
       EditLetters.Input.Focus();
     }
 
