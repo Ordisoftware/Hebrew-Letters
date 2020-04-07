@@ -38,9 +38,9 @@
       // 
       // panel1
       // 
-      resources.ApplyResources(this.panel1, "panel1");
       this.panel1.Controls.Add(this.ActionSearch);
       this.panel1.Controls.Add(this.ActionCancel);
+      resources.ApplyResources(this.panel1, "panel1");
       this.panel1.Name = "panel1";
       // 
       // ActionSearch
@@ -59,6 +59,7 @@
       // 
       resources.ApplyResources(this.EditTerm, "EditTerm");
       this.EditTerm.Name = "EditTerm";
+      this.EditTerm.TextChanged += new System.EventHandler(this.EditTerm_TextChanged);
       // 
       // SearchMeaning
       // 

@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2020-03 </created>
-/// <edited> 2020-03 </edited>
+/// <edited> 2020-04 </edited>
 using System;
 using System.Windows.Forms;
 
@@ -24,6 +24,11 @@ namespace Ordisoftware.HebrewLetters
     public SearchMeaning()
     {
       InitializeComponent();
+    }
+
+    private void EditTerm_TextChanged(object sender, EventArgs e)
+    {
+      ActionSearch.Enabled = EditTerm.Text.Length >= 2;
     }
 
   }
