@@ -214,7 +214,7 @@ namespace Ordisoftware.HebrewLetters
           string str = Clipboard.GetText();
           bool isValid = false;
           foreach ( char c in str )
-            if ( c != ' ' && HebrewLetters.ConvertToKey(c) != '\0' )
+            if ( c != ' ' && HebrewLetters.ConvertToKey(c) != ' ' )
             {
               isValid = true;
               break;
@@ -510,8 +510,8 @@ namespace Ordisoftware.HebrewLetters
 
     private void ActionPasteFromUnicode_Click(object sender, EventArgs e)
     {
-      string str = Clipboard.GetText().Replace(" ", "");
-      EditLetters.Input.Text = HebrewLetters.ConvertToHebrewFont(new string(str.ToArray()));
+      string str = Clipboard.GetText();
+      EditLetters.Input.Text = HebrewLetters.ConvertToHebrewFont(new string(str.ToArray())).Replace(" ", "");
       EditLetters.Input.Focus();
     }
 
