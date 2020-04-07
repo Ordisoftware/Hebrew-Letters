@@ -1099,7 +1099,6 @@
     private System.Windows.Forms.LinkLabel ActionRestoreDefaults;
     private System.Windows.Forms.Button ActionDeleteMeaning;
     private System.Windows.Forms.Button ActionAddMeaning;
-    private System.Windows.Forms.TextBox EditSentence;
     private System.Windows.Forms.Button ActionCopyToClipboardResult;
     private System.Windows.Forms.Button ActionAnalyse;
     private System.Windows.Forms.Button ActionClear;
@@ -1145,6 +1144,7 @@
     private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem10;
     private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
     private System.Windows.Forms.ToolStripMenuItem ActionOpenWordOnline;
+    internal System.Windows.Forms.TextBox EditSentence;
   }
 }
 

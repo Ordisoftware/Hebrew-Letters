@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-09 </created>
-/// <edited> 2019-09 </edited>
+/// <edited> 2020-04 </edited>
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -40,6 +40,7 @@ namespace Ordisoftware.HebrewLetters
     {
       InitializeComponent();
       Icon = MainForm.Instance.Icon;
+      EditFontSize.Value = Program.Settings.FontSizeSentence;
     }
 
     private void PreferencesForm_Shown(object sender, EventArgs e)
@@ -82,6 +83,12 @@ namespace Ordisoftware.HebrewLetters
       UpdateLanguagesButtons();
       LanguageChanged = true;
       Close();
+    }
+
+    private void EditFontSize_ValueChanged(object sender, EventArgs e)
+    {
+      Program.Settings.FontSizeSentence = EditFontSize.Value;
+      MainForm.Instance.EditSentence.Font = new Font("Microsoft Sans Serif", (float)Program.Settings.FontSizeSentence);
     }
 
   }
