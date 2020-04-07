@@ -37,8 +37,11 @@
       this.MenuSelectOnlineVerseURL = new System.Windows.Forms.ContextMenuStrip(this.components);
       this.ActionSelectLangEN = new System.Windows.Forms.Button();
       this.ActionSelectLangFR = new System.Windows.Forms.Button();
+      this.LabelFontSize = new System.Windows.Forms.Label();
+      this.EditFontSize = new System.Windows.Forms.NumericUpDown();
       this.EditCheckUpdateAtStartup = new System.Windows.Forms.CheckBox();
       this.PanelButtons.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.EditFontSize)).BeginInit();
       this.SuspendLayout();
       // 
       // ActionClose
@@ -69,6 +72,7 @@
       this.ActionSelectLangEN.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
       resources.ApplyResources(this.ActionSelectLangEN, "ActionSelectLangEN");
       this.ActionSelectLangEN.Name = "ActionSelectLangEN";
+      this.ActionSelectLangEN.TabStop = false;
       this.ActionSelectLangEN.UseVisualStyleBackColor = true;
       this.ActionSelectLangEN.Click += new System.EventHandler(this.ActionSelectLangEN_Click);
       // 
@@ -78,8 +82,37 @@
       this.ActionSelectLangFR.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
       resources.ApplyResources(this.ActionSelectLangFR, "ActionSelectLangFR");
       this.ActionSelectLangFR.Name = "ActionSelectLangFR";
+      this.ActionSelectLangFR.TabStop = false;
       this.ActionSelectLangFR.UseVisualStyleBackColor = true;
       this.ActionSelectLangFR.Click += new System.EventHandler(this.ActionSelectLangFR_Click);
+      // 
+      // LabelFontSize
+      // 
+      resources.ApplyResources(this.LabelFontSize, "LabelFontSize");
+      this.LabelFontSize.Name = "LabelFontSize";
+      // 
+      // EditFontSize
+      // 
+      this.EditFontSize.BackColor = System.Drawing.SystemColors.Window;
+      resources.ApplyResources(this.EditFontSize, "EditFontSize");
+      this.EditFontSize.Maximum = new decimal(new int[] {
+            14,
+            0,
+            0,
+            0});
+      this.EditFontSize.Minimum = new decimal(new int[] {
+            8,
+            0,
+            0,
+            0});
+      this.EditFontSize.Name = "EditFontSize";
+      this.EditFontSize.ReadOnly = true;
+      this.EditFontSize.Value = new decimal(new int[] {
+            11,
+            0,
+            0,
+            0});
+      this.EditFontSize.ValueChanged += new System.EventHandler(this.EditFontSize_ValueChanged);
       // 
       // EditCheckUpdateAtStartup
       // 
@@ -96,6 +129,8 @@
       resources.ApplyResources(this, "$this");
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.CancelButton = this.ActionClose;
+      this.Controls.Add(this.EditFontSize);
+      this.Controls.Add(this.LabelFontSize);
       this.Controls.Add(this.ActionSelectLangFR);
       this.Controls.Add(this.ActionSelectLangEN);
       this.Controls.Add(this.EditCheckUpdateAtStartup);
@@ -108,6 +143,7 @@
       this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PreferencesForm_FormClosed);
       this.Shown += new System.EventHandler(this.PreferencesForm_Shown);
       this.PanelButtons.ResumeLayout(false);
+      ((System.ComponentModel.ISupportInitialize)(this.EditFontSize)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -122,5 +158,7 @@
     private System.Windows.Forms.CheckBox EditCheckUpdateAtStartup;
     private System.Windows.Forms.Button ActionSelectLangEN;
     private System.Windows.Forms.Button ActionSelectLangFR;
+    private System.Windows.Forms.NumericUpDown EditFontSize;
+    private System.Windows.Forms.Label LabelFontSize;
   }
 }

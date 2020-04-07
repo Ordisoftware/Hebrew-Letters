@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2019-10 </edited>
+/// <edited> 2020-03 </edited>
 using System;
 using System.Data;
 using System.Drawing;
@@ -56,19 +56,19 @@ namespace Ordisoftware.HebrewLetters
         combobox.Items.Add(l.Structure.Trim());
         combobox.Items.Add(l.Function.Trim());
         SelectedMeanings += l.Name.Trim() + ": ";
-        SelectedMeanings += l.Positive.Trim() + ",";
-        SelectedMeanings += l.Negative.Trim() + ",";
+        SelectedMeanings += l.Positive.Trim() + ", ";
+        SelectedMeanings += l.Negative.Trim() + ", ";
         SelectedMeanings += l.Verb.Trim() + ",";
-        SelectedMeanings += l.Structure.Trim() + ",";
-        SelectedMeanings += l.Function.Trim() + ",";
+        SelectedMeanings += l.Structure.Trim() + ", ";
+        SelectedMeanings += l.Function.Trim() + ", ";
         foreach ( var meaning in l.GetMeaningsRows() )
         {
           var str = meaning.Meaning.Trim();
           combobox.Items.Add(str);
-          SelectedMeanings += str + ",";
+          SelectedMeanings += str + ", ";
         }
         dy += 30;
-        SelectedMeanings = SelectedMeanings.TrimEnd(',') + Environment.NewLine;
+        SelectedMeanings = SelectedMeanings.TrimEnd().TrimEnd(',') + Environment.NewLine;
       }
       EditGematria.Text = sum.ToString();
       ActionCopyToClipboardMeanings.Enabled = EditAnalyze.Controls.Count > 0;

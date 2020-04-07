@@ -188,5 +188,17 @@ namespace Ordisoftware.HebrewLetters.Properties {
                 this["Language"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("11")]
+        public decimal FontSizeSentence {
+            get {
+                return ((decimal)(this["FontSizeSentence"]));
+            }
+            set {
+                this["FontSizeSentence"] = value;
+            }
+        }
     }
 }

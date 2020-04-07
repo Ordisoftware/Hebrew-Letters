@@ -70,6 +70,13 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 ## Changelog
 
+#### 2020.04.07 - Version 3.1
+
+- Add option to change the sentence font size.
+- Improve search term form.
+- Improve copy meanings to clipboard.
+- Remove diacritics from unicode clipboard content.
+
 #### 2020.03.14 - Version 3.0
 
 - Add search a term.

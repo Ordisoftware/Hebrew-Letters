@@ -135,6 +135,7 @@
       this.LettersTableAdapter = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.LettersTableAdapter();
       this.TableAdapterManager = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.TableAdapterManager();
       this.MeaningsTableAdapter = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.MeaningsTableAdapter();
+      this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
       nameLabel = new System.Windows.Forms.Label();
       structureLabel = new System.Windows.Forms.Label();
       functionLabel = new System.Windows.Forms.Label();
@@ -656,6 +657,7 @@
             this.Sep4,
             this.ActionHelp,
             this.ActionAbout,
+            this.toolStripSeparator4,
             this.MenuWeb,
             this.MenuTools,
             this.Sep6,
@@ -1005,6 +1007,12 @@
       // 
       this.MeaningsTableAdapter.ClearBeforeFill = true;
       // 
+      // toolStripSeparator4
+      // 
+      this.toolStripSeparator4.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+      this.toolStripSeparator4.Name = "toolStripSeparator4";
+      resources.ApplyResources(this.toolStripSeparator4, "toolStripSeparator4");
+      // 
       // MainForm
       // 
       resources.ApplyResources(this, "$this");
@@ -1099,7 +1107,6 @@
     private System.Windows.Forms.LinkLabel ActionRestoreDefaults;
     private System.Windows.Forms.Button ActionDeleteMeaning;
     private System.Windows.Forms.Button ActionAddMeaning;
-    private System.Windows.Forms.TextBox EditSentence;
     private System.Windows.Forms.Button ActionCopyToClipboardResult;
     private System.Windows.Forms.Button ActionAnalyse;
     private System.Windows.Forms.Button ActionClear;
@@ -1145,6 +1152,8 @@
     private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem10;
     private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
     private System.Windows.Forms.ToolStripMenuItem ActionOpenWordOnline;
+    internal System.Windows.Forms.TextBox EditSentence;
+    private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
   }
 }
 

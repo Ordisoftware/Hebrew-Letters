@@ -84,12 +84,8 @@ namespace Ordisoftware.HebrewLetters
     static public string ConvertToHebrewFont(string str)
     {
       string result = "";
-      foreach ( char c in str )
-      {
-        char cNew = ConvertToKey(c);
-        if ( cNew != '\0' )
-          result += cNew;
-      }
+      foreach ( char c in str.RemoveDiacritics() )
+        result = ConvertToKey(c) + result;
       return result;
     }
 
@@ -100,11 +96,7 @@ namespace Ordisoftware.HebrewLetters
     {
       string result = "";
       foreach ( char c in str )
-      {
-        char cNew = ConvertToUnicode(c);
-        if ( cNew != '\0' )
-          result = cNew + result;
-      }
+        result = ConvertToUnicode(c) + result;
       return result;
     }
 
@@ -144,7 +136,7 @@ namespace Ordisoftware.HebrewLetters
         case 'ת': return 't';
         case ':': return '.';
         case '-': return ' ';
-        default: return '\0';
+        default: return ' ';
       }
     }
 
@@ -180,8 +172,8 @@ namespace Ordisoftware.HebrewLetters
         case '>': return 'ש';
         case 't': return 'ת';
         case '.': return ':';
-        case ' ': return '-';
-        default: return '\0';
+        case ' ': return ' ';
+        default: return ' ';
       }
     }
 

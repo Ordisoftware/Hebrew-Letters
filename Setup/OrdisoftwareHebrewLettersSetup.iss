@@ -3,7 +3,7 @@
 
 #define MyAppName "Hebrew Letters"
 #define MyAppNameNoSpace "HebrewLetters"
-#define MyAppVersion "3.0"
+#define MyAppVersion "3.1"
 #define MyAppPublisher "Ordisoftware"
 #define MyAppURL "http://www.ordisoftware.com/projects/hebrew-letters"
 #define MyAppExeName "Ordisoftware.HebrewLetters.exe"
@@ -16,7 +16,7 @@ AppId={{1FD1454B-F437-4AC5-844F-C3649D664D8F}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 AppVerName={#MyAppPublisher} {#MyAppName} {#MyAppVersion}
-AppCopyright=Copyright 2019 Olivier Rogier
+AppCopyright=Copyright 2012-2020 Olivier Rogier
 AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
