@@ -70,6 +70,10 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 ## Changelog
 
+#### 2020.04.__ - Version 3.1
+
+- Few minor fixes.
+
 #### 2020.03.14 - Version 3.0
 
 - Add search a term.
