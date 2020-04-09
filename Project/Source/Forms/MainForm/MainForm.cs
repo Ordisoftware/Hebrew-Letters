@@ -20,6 +20,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using Microsoft.Win32;
 using System.Runtime.InteropServices;
+using Ordisoftware.HebrewCommon;
 using Ordisoftware.Core;
 
 namespace Ordisoftware.HebrewLetters
@@ -83,7 +84,7 @@ namespace Ordisoftware.HebrewLetters
       {
         var menuitem = (ToolStripMenuItem)sender;
         var control = ( (ContextMenuStrip)menuitem.Owner ).SourceControl;
-        Program.RunShell(((string)menuitem.Tag).Replace("%WORD%", HebrewLetters.ConvertToUnicode(EditLetters.Input.Text)));
+        Program.RunShell(((string)menuitem.Tag).Replace("%WORD%", HebrewAlphabet.ConvertToUnicode(EditLetters.Input.Text)));
       };
       foreach ( var item in Program.OnlineWordProviders.Items )
       {
@@ -215,7 +216,7 @@ namespace Ordisoftware.HebrewLetters
           string str = Clipboard.GetText();
           bool isValid = false;
           foreach ( char c in str )
-            if ( c != ' ' && HebrewLetters.ConvertToKey(c) != ' ' )
+            if ( c != ' ' && HebrewAlphabet.ConvertToKey(c) != ' ' )
             {
               isValid = true;
               break;
@@ -303,7 +304,7 @@ namespace Ordisoftware.HebrewLetters
     /// </summary>
     /// <param name="sender">Source of the event.</param>
     /// <param name="e">Event information.</param>
-    internal void SelectScreenPosition_Click(object sender, EventArgs e)
+    internal void EditScreenPosition_Click(object sender, EventArgs e)
     {
       DoScreenPosition(sender, e);
     }
@@ -512,14 +513,14 @@ namespace Ordisoftware.HebrewLetters
     private void ActionPasteFromUnicode_Click(object sender, EventArgs e)
     {
       string str = Clipboard.GetText();
-      EditLetters.Input.Text = HebrewLetters.ConvertToHebrewFont(new string(str.ToArray())).Replace(" ", "");
+      EditLetters.Input.Text = HebrewAlphabet.ConvertToHebrewFont(new string(str.ToArray())).Replace(" ", "");
       EditLetters.Input.Focus();
     }
 
     private void ActionCopyToUnicode_Click(object sender, EventArgs e)
     {
       if ( EditLetters.Input.Text != "" )
-        Clipboard.SetText(HebrewLetters.ConvertToUnicode(EditLetters.Input.Text));
+        Clipboard.SetText(HebrewAlphabet.ConvertToUnicode(EditLetters.Input.Text));
       EditLetters.Input.Focus();
     }
 

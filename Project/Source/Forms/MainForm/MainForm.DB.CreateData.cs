@@ -16,6 +16,7 @@ using System;
 using System.Data.Odbc;
 using System.Globalization;
 using System.Windows.Forms;
+using Ordisoftware.HebrewCommon;
 using Ordisoftware.Core;
 
 namespace Ordisoftware.HebrewLetters
@@ -59,12 +60,12 @@ namespace Ordisoftware.HebrewLetters
         {
           return Convert.ToInt32(getStrValue(name));
         };
-        for ( int index = 0; index < HebrewLetters.Codes.Length; index++ )
+        for ( int index = 0; index < HebrewAlphabet.Codes.Length; index++ )
         {
           var rowLetter = DataSet.Letters.NewLettersRow();
-          rowLetter.Code = HebrewLetters.Codes[index];
-          rowLetter.Name = HebrewLetters.Names.GetLang()[index];
-          rowLetter.Hebrew = HebrewLetters.HebrewNames[index];
+          rowLetter.Code = HebrewAlphabet.Codes[index];
+          rowLetter.Name = HebrewAlphabet.Names.GetLang()[index];
+          rowLetter.Hebrew = HebrewAlphabet.HebrewFontNames[index];
           rowLetter.ValueSimple = getIntValue("ValueSimple: ");
           rowLetter.ValueFull = getIntValue("ValueFull: ");
           rowLetter.Positive = getStrValue("Positive: ");

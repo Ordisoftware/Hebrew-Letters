@@ -16,6 +16,7 @@ using System;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using Ordisoftware.HebrewCommon;
 using Ordisoftware.Core;
 
 namespace Ordisoftware.HebrewLetters
@@ -88,9 +89,9 @@ namespace Ordisoftware.HebrewLetters
         var sizeLabelKey = new Size(45, 13);
         var fontLetter = new Font("Hebrew", 20.25F, FontStyle.Bold);
         var fontValue = new Font("Microsoft Sans Serif", 6.25F);
-        for ( int index = 0; index < HebrewLetters.Codes.Length; index++ )
+        for ( int index = 0; index < HebrewAlphabet.Codes.Length; index++ )
         {
-          string letter = HebrewLetters.Codes[index];
+          string letter = HebrewAlphabet.Codes[index];
           labelKey = new Label();
           labelValue = new Label();
           buttonLetter = new Button();
@@ -103,7 +104,7 @@ namespace Ordisoftware.HebrewLetters
           labelValue.Font = fontValue;
           labelValue.ForeColor = colorLabel;
           labelValue.BackColor = Color.Transparent;
-          labelValue.Text = HebrewLetters.ValuesSimple[index].ToString();
+          labelValue.Text = HebrewAlphabet.ValuesSimple[index].ToString();
           labelValue.TextAlign = ContentAlignment.MiddleCenter;
 
           labelKey.Location = new Point(x, y + dy + labelValue.Height + 2);
@@ -149,7 +150,7 @@ namespace Ordisoftware.HebrewLetters
     private void Input_KeyPress(object sender, KeyPressEventArgs e)
     {
       OnKeyPress(e);
-      if ( !HebrewLetters.Codes.Contains(Convert.ToString(e.KeyChar)) )
+      if ( !HebrewAlphabet.Codes.Contains(Convert.ToString(e.KeyChar)) )
         e.KeyChar = '\x0';
       else
         KeyProcessed = true;

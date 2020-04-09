@@ -76,10 +76,10 @@
     <Compile Include="Source\Forms\Boxes\SearchTerm.Designer.cs">
       <DependentUpon>SearchTerm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\Classes\HebrewLetters.cs" />
-    <Compile Include="Source\Classes\OnlineProviders.cs" />
+    <Compile Include="Source\Common\HebrewAlphabet.cs" />
+    <Compile Include="Source\Common\OnlineProviders.cs" />
     <Compile Include="Source\Classes\Translations.cs" />
-    <Compile Include="Source\Classes\Localizer.cs" />
+    <Compile Include="Source\Common\Localizer.cs" />
     <Compile Include="Source\Classes\SettingsHelper.cs" />
     <Compile Include="Source\Forms\MainForm\MainForm.DB.CreateSchema.cs">
       <SubType>Form</SubType>

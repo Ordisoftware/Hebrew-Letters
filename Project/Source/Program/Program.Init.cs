@@ -21,6 +21,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
+using Ordisoftware.HebrewCommon;
 
 namespace Ordisoftware.HebrewLetters
 {
@@ -83,8 +84,8 @@ namespace Ordisoftware.HebrewLetters
       if ( args.Length == 1 )
       {
         foreach ( char c in args[0] )
-          if ( HebrewLetters.Codes.Contains(Convert.ToString(c)) )
-            s += HebrewLetters.SetFinal(Convert.ToString(c), false);
+          if ( HebrewAlphabet.Codes.Contains(Convert.ToString(c)) )
+            s += HebrewAlphabet.SetFinal(Convert.ToString(c), false);
       }
       StartupWord = s;
     }
