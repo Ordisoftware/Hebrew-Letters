@@ -182,6 +182,7 @@ namespace Ordisoftware.HebrewLetters
       }
       if ( e.Control && e.KeyCode == Keys.V )
       {
+        Input.SelectedText = "";
         string insertText = Clipboard.GetText();
         int selectionIndex = Input.SelectionStart;
         Input.Text = Input.Text.Insert(selectionIndex, insertText);
@@ -194,7 +195,7 @@ namespace Ordisoftware.HebrewLetters
   /// <summary>
   /// Provide LetterEventArgs class.
   /// </summary>
-    public class LetterEventArgs : EventArgs
+  public class LetterEventArgs : EventArgs
   {
     public string LetterCode { get; private set; }
     public LetterEventArgs(string lettercode) { LetterCode = lettercode; }
