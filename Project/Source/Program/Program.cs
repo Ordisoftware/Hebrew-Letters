@@ -18,9 +18,15 @@ using System.Windows.Forms;
 namespace Ordisoftware.HebrewLetters
 {
 
+  /// <summary>
+  /// Provide Program class.
+  /// </summary>
   static partial class Program
   {
 
+    /// <summary>
+    /// Process startup method.
+    /// </summary>
     [STAThread]
     static void Main(string[] args)
     {

@@ -78,7 +78,7 @@
     </Compile>
     <Compile Include="Source\Classes\HebrewLetters.cs" />
     <Compile Include="Source\Classes\OnlineWordProviders.cs" />
-    <Compile Include="Source\Enums\Translations.cs" />
+    <Compile Include="Source\Classes\Translations.cs" />
     <Compile Include="Source\Classes\Localizer.cs" />
     <Compile Include="Source\Classes\SettingsHelper.cs" />
     <Compile Include="Source\Forms\MainForm\MainForm.DB.CreateSchema.cs">
@@ -195,5 +195,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
