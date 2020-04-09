@@ -77,7 +77,7 @@
       <DependentUpon>SearchTerm.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Classes\HebrewLetters.cs" />
-    <Compile Include="Source\Classes\OnlineWordProvider.cs" />
+    <Compile Include="Source\Classes\OnlineWordProviders.cs" />
     <Compile Include="Source\Enums\Translations.cs" />
     <Compile Include="Source\Classes\Localizer.cs" />
     <Compile Include="Source\Classes\SettingsHelper.cs" />

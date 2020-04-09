@@ -69,7 +69,7 @@ namespace Ordisoftware.HebrewLetters
       {
         foreach ( char c in args[0] )
           if ( HebrewLetters.Codes.Contains(Convert.ToString(c)) )
-            s += HebrewLetters.SetFinale(Convert.ToString(c), false);
+            s += HebrewLetters.SetFinal(Convert.ToString(c), false);
       }
       StartupWord = s;
     }

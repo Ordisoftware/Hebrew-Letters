@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2019-09 </edited>
+/// <edited> 2020-04 </edited>
 using System;
 using System.IO;
 using System.Windows.Forms;
@@ -19,6 +19,9 @@ using System.Windows.Forms;
 namespace Ordisoftware.HebrewLetters
 {
 
+  /// <summary>
+  /// Provide Program class.
+  /// </summary>
   static partial class Program
   {
 
@@ -36,7 +39,7 @@ namespace Ordisoftware.HebrewLetters
       get
       {
         string title = AboutBox.Instance.AssemblyTitle;
-        return "http://" + AboutBox.Instance.AssemblyTrademark + "/files/" + title.Replace(" ", "") + ".update";
+        return $"http://{AboutBox.Instance.AssemblyTrademark}/files/{title.Replace(" ", "")}.update";
       }
     }
 
@@ -59,7 +62,7 @@ namespace Ordisoftware.HebrewLetters
       get
       {
         string title = AboutBox.Instance.AssemblyTitle;
-        return "https://github.com/" + AboutBox.Instance.CompanyName + "/" + title.Replace(" ", "-");
+        return $"https://github.com/{AboutBox.Instance.CompanyName}/{title.Replace(" ", "-")}";
       }
     }
 
@@ -118,12 +121,12 @@ namespace Ordisoftware.HebrewLetters
     {
       get
       {
-        return AppRootFolderPath + "Help" + Path.DirectorySeparatorChar + "index-" + Localizer.Language + ".htm";
+        return AppRootFolderPath + $"Help{Path.DirectorySeparatorChar}index-{Localizer.Language}.htm";
       }
     }
 
     /// <summary>
-    /// Indicate name of the letters meanings file.
+    /// Indicate filename of the letters meanings.
     /// </summary>
     static public string MeaningsFilename
     {
@@ -132,6 +135,12 @@ namespace Ordisoftware.HebrewLetters
         return AppDocumentsFolderPath + "Alphabet-" + Localizer.Language + ".txt";
       }
     }
+
+    /// <summary>
+    /// Indicate filename of the online word providers.
+    /// </summary>
+    static public readonly string OnlineWordProvidersFileName
+      = AppDocumentsFolderPath + "OnlineWordProviders.txt";
 
     /// <summary>
     /// Indicate the command line argument for word used at startup.
