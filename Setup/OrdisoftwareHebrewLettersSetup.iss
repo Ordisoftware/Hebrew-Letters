@@ -3,7 +3,7 @@
 
 #define MyAppName "Hebrew Letters"
 #define MyAppNameNoSpace "HebrewLetters"
-#define MyAppVersion "3.1"
+#define MyAppVersion "4.0"
 #define MyAppPublisher "Ordisoftware"
 #define MyAppURL "http://www.ordisoftware.com/projects/hebrew-letters"
 #define MyAppExeName "Ordisoftware.HebrewLetters.exe"
