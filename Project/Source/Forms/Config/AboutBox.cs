@@ -47,6 +47,7 @@ namespace Ordisoftware.HebrewLetters
     private AboutBox()
     {
       InitializeComponent();
+      ActiveControl = ActionClose;
     }
 
     /// <summary>
