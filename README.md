@@ -70,10 +70,12 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 ## Changelog
 
-#### 2020.__.__ - Version 3.2
+#### 2020.__.__ - Version 4.0
 
 - Move default online providers values to a file in the application documents folder.
+>>>>- Create online providers database table.
 >>>>- Add online providers editor form.
+- Some code refactoring.
 
 #### 2020.04.07 - Version 3.1
 
