@@ -75,6 +75,7 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 - Move default online providers values to a file in the application documents folder.
 >>>>- Create online providers database table.
 >>>>- Add online providers editor form.
+- Fix paste text.
 - Some code refactoring.
 
 #### 2020.04.07 - Version 3.1
