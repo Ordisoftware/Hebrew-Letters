@@ -85,7 +85,7 @@ namespace Ordisoftware.HebrewLetters
         var control = ( (ContextMenuStrip)menuitem.Owner ).SourceControl;
         Program.RunShell(((string)menuitem.Tag).Replace("%WORD%", HebrewLetters.ConvertToUnicode(EditLetters.Input.Text)));
       };
-      foreach ( var item in OnlineWordProviders.Items )
+      foreach ( var item in Program.OnlineWordProviders.Items )
       {
         if (item.Name == "-")
           ContextMenuSearchOnline.Items.Insert(index++, new ToolStripSeparator());

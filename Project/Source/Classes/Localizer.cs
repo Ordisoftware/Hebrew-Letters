@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2019-09 </edited>
+/// <edited> 2020-04 </edited>
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -27,10 +27,19 @@ namespace Ordisoftware.HebrewLetters
   static public class Localizer
   {
 
+    /// <summary>
+    /// Indicate managed languages list.
+    /// </summary>
     static public readonly string[] AvailableLanguages = { "en", "fr" };
 
+    /// <summary>
+    /// Indicate default language.
+    /// </summary>
     static public readonly string DefaultLanguage = "en";
 
+    /// <summary>
+    /// Indicate current language.
+    /// </summary>
     static public string Language
     {
       get
@@ -59,7 +68,7 @@ namespace Ordisoftware.HebrewLetters
     /// <returns></returns>
     static public string GetLang(this Dictionary<string, string> values, params object[] parameters)
     {
-      return String.Format(values.GetLang(), parameters);
+      return string.Format(values.GetLang(), parameters);
     }
 
     /// <summary>
@@ -73,15 +82,27 @@ namespace Ordisoftware.HebrewLetters
     }
 
     /// <summary>
-    /// Get the string translation of an enum value.
+    /// Get the string translation.
     /// </summary>
-    /// <typeparam name="T">The type that is an enum.</typeparam>
+    /// <typeparam name="T">The type.</typeparam>
     /// <param name="values">The dictionary containing values>langs>translations.</param>
     /// <param name="value">The value to translate.</param>
     /// <returns></returns>
     static public string GetLang<T>(this Dictionary<T, Dictionary<string, string>> values, T value)
     {
       return values[value][Language];
+    }
+
+    /// <summary>
+    /// Get the string translation.
+    /// </summary>
+    /// <typeparam name="T">The type.</typeparam>
+    /// <param name="values">The dictionary containing langs>values>translations.</param>
+    /// <param name="value">The value to translate.</param>
+    /// <returns></returns>
+    static public string GetLang<T>(this Dictionary<string, Dictionary<T, string>> values, T value)
+    {
+      return values[Language][value];
     }
 
     /// <summary>
@@ -94,11 +115,8 @@ namespace Ordisoftware.HebrewLetters
       var normalizedString = text.Normalize(NormalizationForm.FormD);
       var stringBuilder = new StringBuilder();
       foreach ( var c in normalizedString )
-      {
-        var unicodeCategory = CharUnicodeInfo.GetUnicodeCategory(c);
-        if ( unicodeCategory != UnicodeCategory.NonSpacingMark )
+        if ( CharUnicodeInfo.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark )
           stringBuilder.Append(c);
-      }
       return stringBuilder.ToString().Normalize(NormalizationForm.FormC);
     }
 

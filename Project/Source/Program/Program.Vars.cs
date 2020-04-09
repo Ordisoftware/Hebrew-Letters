@@ -126,6 +126,15 @@ namespace Ordisoftware.HebrewLetters
     }
 
     /// <summary>
+    /// Indicate the command line argument for word used at startup.
+    /// </summary>
+    static public string StartupWord
+    {
+      get;
+      private set;
+    }
+
+    /// <summary>
     /// Indicate filename of the letters meanings.
     /// </summary>
     static public string MeaningsFilename
@@ -137,19 +146,16 @@ namespace Ordisoftware.HebrewLetters
     }
 
     /// <summary>
-    /// Indicate filename of the online word providers.
+    /// Indicate filename of the online search word providers.
     /// </summary>
     static public readonly string OnlineWordProvidersFileName
       = AppDocumentsFolderPath + "OnlineWordProviders.txt";
 
     /// <summary>
-    /// Indicate the command line argument for word used at startup.
+    /// Indicate online search word providers.
     /// </summary>
-    static public string StartupWord
-    {
-      get;
-      private set;
-    }
+    static public readonly OnlineProviders OnlineWordProviders
+      = new OnlineProviders(OnlineWordProvidersFileName);
 
   }
 
