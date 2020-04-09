@@ -70,6 +70,11 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 ## Changelog
 
+#### 2020.__.__ - Version 3.2
+
+- Move default online providers values to a file in the application documents folder.
+>>>>- Add online providers editor form.
+
 #### 2020.04.07 - Version 3.1
 
 - Add option to change the sentence font size.
