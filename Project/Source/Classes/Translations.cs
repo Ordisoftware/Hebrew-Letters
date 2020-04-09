@@ -18,6 +18,9 @@ using System.Collections.Generic;
 namespace Ordisoftware.HebrewLetters
 {
 
+  /// <summary>
+  /// Localization strings.
+  /// </summary>
   static public class Translations
   {
 
