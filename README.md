@@ -76,6 +76,7 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 >>>>- Create online providers database table.
 >>>>- Add online providers editor form.
 - Fix paste text.
+- Add Esc key to close app.
 - Some code refactoring.
 
 #### 2020.04.07 - Version 3.1
