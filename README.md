@@ -70,14 +70,15 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 ## Changelog
 
-#### 2020.__.__ - Version 4.0
+#### 2020.04.__ - Version 4.0
 
-- Move default online providers values to a file in the application documents folder.
->>>>- Create online providers database table.
+- Move online providers values from code to files in the application documents folder.
+- Fix paste from clipboard to hebrew textbox.
+- Add option to use Esc key to close app.
+- Code refactoring.
+
+>>>>- Create online providers database tables.
 >>>>- Add online providers editor form.
-- Fix paste text.
-- Add Esc key to close app.
-- Some code refactoring.
 
 #### 2020.04.07 - Version 3.1
 
