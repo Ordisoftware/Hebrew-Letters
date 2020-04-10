@@ -952,6 +952,12 @@
   <data name="EditShowTips.Text" xml:space="preserve">
     <value>Afficher les astuces des menus</value>
   </data>
+  <data name="EditESCtoExit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>279, 22</value>
+  </data>
+  <data name="EditESCtoExit.Text" xml:space="preserve">
+    <value>Echap pour cacher la fenêtre</value>
+  </data>
   <data name="EditConfirmClosing.Size" type="System.Drawing.Size, System.Drawing">
     <value>279, 22</value>
   </data>

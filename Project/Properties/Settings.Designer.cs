@@ -200,5 +200,17 @@ namespace Ordisoftware.HebrewLetters.Properties {
                 this["FontSizeSentence"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ESCtoExit {
+            get {
+                return ((bool)(this["ESCtoExit"]));
+            }
+            set {
+                this["ESCtoExit"] = value;
+            }
+        }
     }
 }

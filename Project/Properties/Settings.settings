@@ -52,5 +52,8 @@
     <Setting Name="FontSizeSentence" Type="System.Decimal" Scope="User">
       <Value Profile="(Default)">11</Value>
     </Setting>
+    <Setting Name="ESCtoExit" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

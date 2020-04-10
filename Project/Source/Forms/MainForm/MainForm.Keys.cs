@@ -47,6 +47,10 @@ namespace Ordisoftware.HebrewLetters
         case Keys.F12:
           ActionAbout.PerformClick();
           return true;
+        case Keys.Escape:
+          if ( EditESCtoExit.Checked )
+            Close();
+          return true;
       }
       return base.ProcessCmdKey(ref msg, keyData);
     }
