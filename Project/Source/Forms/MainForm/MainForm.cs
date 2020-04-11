@@ -454,7 +454,7 @@ namespace Ordisoftware.HebrewLetters
 
     private void EditMeanings_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
     {
-      if ( e.FormattedValue == DBNull.Value || e.FormattedValue == "" )
+      if ( e.FormattedValue == DBNull.Value || (string)e.FormattedValue == "" )
       {
         e.Cancel = true;
         EditMeanings.BeginEdit(false);

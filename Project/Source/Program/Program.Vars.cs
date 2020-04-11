@@ -147,13 +147,13 @@ namespace Ordisoftware.HebrewLetters
     }
 
     /// <summary>
-    /// Indicate filename of the online search word providers.
+    /// Indicate filename of the online search aword providers.
     /// </summary>
     static public readonly string OnlineWordProvidersFileName
       = AppDocumentsFolderPath + "OnlineWordProviders.txt";
 
     /// <summary>
-    /// Indicate online search word providers.
+    /// Indicate online search a word providers.
     /// </summary>
     static public readonly OnlineProviders OnlineWordProviders
       = new OnlineProviders(OnlineWordProvidersFileName);

@@ -51,7 +51,7 @@ namespace Ordisoftware.HebrewCommon
     };
 
     /// <summary>
-    // Set final letter.
+    /// Set final letter.
     /// </summary>
     static public string SetFinal(string str, bool enable)
     {
@@ -70,7 +70,7 @@ namespace Ordisoftware.HebrewCommon
     }
 
     /// <summary>
-    // Convert all final letters to non final.
+    /// Convert all final letters to non final.
     /// </summary>
     static public string UnFinalAll(string str)
     {
@@ -80,7 +80,7 @@ namespace Ordisoftware.HebrewCommon
     }
 
     /// <summary>
-    // Convert unicode hebrew chars to hebrew font chars.
+    /// Convert unicode hebrew chars to hebrew font chars.
     /// </summary>
     static public string ConvertToHebrewFont(string str)
     {
@@ -91,7 +91,7 @@ namespace Ordisoftware.HebrewCommon
     }
 
     /// <summary>
-    // Convert hebrew font chars to unicode hebrew chars.
+    /// Convert hebrew font chars to unicode hebrew chars.
     /// </summary>
     static public string ConvertToUnicode(string str)
     {
@@ -102,7 +102,7 @@ namespace Ordisoftware.HebrewCommon
     }
 
     /// <summary>
-    // Convert unicode hebrew chars to hebrew font chars.
+    /// Convert unicode hebrew chars to hebrew font chars.
     /// </summary>
     static public char ConvertToKey(char c)
     {
@@ -142,7 +142,7 @@ namespace Ordisoftware.HebrewCommon
     }
 
     /// <summary>
-    // Convert hebrew font chars to unicode hebrew chars.
+    /// Convert hebrew font chars to unicode hebrew chars.
     /// </summary>
     static public char ConvertToUnicode(char c)
     {
@@ -191,7 +191,7 @@ namespace Ordisoftware.HebrewCommon
     };
 
     /// <summary>
-    /// Indicate letters simple values.
+    /// Indicate letters full values.
     /// </summary>
     static public readonly int[] ValuesFull =
     {
@@ -200,7 +200,7 @@ namespace Ordisoftware.HebrewCommon
     };
 
     /// <summary>
-    /// Indicate letters names.
+    /// Indicate letters names in phonetic.
     /// </summary>
     static public readonly Dictionary<string, string[]> Names
       = new Dictionary<string, string[]>()
@@ -220,7 +220,7 @@ namespace Ordisoftware.HebrewCommon
       };
 
     /// <summary>
-    /// Indicate letters names.
+    /// Indicate letters names in hebrew font chars.
     /// </summary>
     static public readonly string[] HebrewFontNames =
     {
