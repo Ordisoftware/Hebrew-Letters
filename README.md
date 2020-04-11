@@ -25,7 +25,7 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 
 ## Requirements
 
-- Windows 7 x32/x64 or higher
+- Windows Vista x32/x64 or higher
 - Screen 1024x768 or higher
 - Framework .NET 4.5
 - SQLite ODBC Driver
