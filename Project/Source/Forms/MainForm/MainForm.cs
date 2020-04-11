@@ -136,14 +136,14 @@ namespace Ordisoftware.HebrewLetters
       {
         EditLetters.Input.Text = Program.StartupWord;
         ActionAnalyse.PerformClick();
-        SetView(ViewModeType.Analyse, true);
+        SetView(ViewMode.Analyse, true);
         ActionReset.Visible = true;
       }
       else
-        SetView(ViewModeType.Analyse, true);
+        SetView(ViewMode.Analyse, true);
       if ( IsDBUpgraded )
         if ( DisplayManager.QueryYesNo(Translations.DatabaseChanged.GetLang()) )
-          SetView(ViewModeType.Settings);
+          SetView(ViewMode.Settings);
     }
 
     /// <summary>
@@ -274,7 +274,7 @@ namespace Ordisoftware.HebrewLetters
     private void ActionViewSearch_Click(object sender, EventArgs e)
     {
       if ( DataSet.HasChanges() ) TableAdapterManager.UpdateAll(DataSet);
-      SetView(ViewModeType.Analyse);
+      SetView(ViewMode.Analyse);
     }
 
     /// <summary>
@@ -285,7 +285,7 @@ namespace Ordisoftware.HebrewLetters
     private void ActionViewSettings_Click(object sender, EventArgs e)
     {
       if ( DataSet.HasChanges() ) TableAdapterManager.UpdateAll(DataSet);
-      SetView(ViewModeType.Settings);
+      SetView(ViewMode.Settings);
     }
 
     /// <summary>

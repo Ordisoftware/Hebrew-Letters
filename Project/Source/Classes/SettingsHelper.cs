@@ -49,7 +49,7 @@ namespace Ordisoftware.HebrewLetters
       MainForm.EditConfirmClosing.Checked = false;
       MainForm.EditShowTips.Checked = true;
       MainForm.EditESCtoExit.Checked = false;
-      MainForm.SetView(ViewModeType.Analyse);
+      MainForm.SetView(ViewMode.Analyse);
       settings.Store();
     }
 

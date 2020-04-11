@@ -20,7 +20,7 @@ namespace Ordisoftware.HebrewLetters
   /// <summary>
   /// Provide view mode type.
   /// </summary>
-  public enum ViewModeType
+  public enum ViewMode
   {
 
     /// <summary>

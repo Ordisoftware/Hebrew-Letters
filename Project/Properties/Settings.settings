@@ -37,7 +37,7 @@
     <Setting Name="UpgradeRequired" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="CurrentView" Type="Ordisoftware.HebrewLetters.ViewModeType" Scope="User">
+    <Setting Name="CurrentView" Type="Ordisoftware.HebrewLetters.ViewMode" Scope="User">
       <Value Profile="(Default)">Analyse</Value>
     </Setting>
     <Setting Name="CopyToClipboardCloseApp" Type="System.Boolean" Scope="User">

@@ -88,7 +88,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Source\Enums\ControlLocation.cs" />
-    <Compile Include="Source\Enums\ViewModeType.cs" />
+    <Compile Include="Source\Enums\ViewMode.cs" />
     <Compile Include="Source\Forms\Config\AboutBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,7 +110,7 @@
     <Compile Include="Source\Forms\MainForm\MainForm.SetView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Source\Forms\MainForm\MainForm.Screen.cs">
+    <Compile Include="Source\Forms\MainForm\MainForm.Location.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Source\Controls\LettersControl.cs">
