@@ -1,6 +1,6 @@
 ﻿namespace Ordisoftware.HebrewLetters
 {
-  partial class SearchTermResults
+  partial class SearchTermResultsBox
   {
     /// <summary>
     /// Required designer variable.
@@ -28,7 +28,7 @@
     /// </summary>
     private void InitializeComponent()
     {
-      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SearchTermResults));
+      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SearchTermResultsBox));
       this.panel1 = new System.Windows.Forms.Panel();
       this.ActionSearch = new System.Windows.Forms.Button();
       this.ActionCancel = new System.Windows.Forms.Button();

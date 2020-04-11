@@ -18,10 +18,10 @@ using System.Windows.Forms;
 namespace Ordisoftware.HebrewLetters
 {
 
-  public partial class SearchTermResults : Form
+  public partial class SearchTermResultsBox : Form
   {
 
-    public SearchTermResults()
+    public SearchTermResultsBox()
     {
       InitializeComponent();
     }

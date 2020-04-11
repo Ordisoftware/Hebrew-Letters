@@ -593,7 +593,7 @@ namespace Ordisoftware.HebrewLetters
     {
       ActionViewSettings.PerformClick();
       string letterName = "";
-      var formSearch = new SearchMeaning();
+      var formSearch = new SearchMeaningBox();
       formSearch.EditTerm.Text = LastTermSearched;
       if ( formSearch.ShowDialog() != DialogResult.OK )
         return;
@@ -621,7 +621,7 @@ namespace Ordisoftware.HebrewLetters
       }
       if ( query.Count() > 1 )
       {
-        var formResults = new SearchTermResults();
+        var formResults = new SearchTermResultsBox();
         foreach ( var row in query )
           formResults.Listbox.Items.Add(row.Name);
         formResults.Listbox.SelectedItem = formResults.Listbox.Items[0];

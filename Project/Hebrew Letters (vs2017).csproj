@@ -64,17 +64,17 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Source\Forms\Boxes\SearchTermResults.cs">
+    <Compile Include="Source\Forms\Boxes\SearchTermResultsBox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Source\Forms\Boxes\SearchTermResults.Designer.cs">
-      <DependentUpon>SearchTermResults.cs</DependentUpon>
+    <Compile Include="Source\Forms\Boxes\SearchTermResultsBox.Designer.cs">
+      <DependentUpon>SearchTermResultsBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\Forms\Boxes\SearchTerm.cs">
+    <Compile Include="Source\Forms\Boxes\SearchTermBox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Source\Forms\Boxes\SearchTerm.Designer.cs">
-      <DependentUpon>SearchTerm.cs</DependentUpon>
+    <Compile Include="Source\Forms\Boxes\SearchTermBox.Designer.cs">
+      <DependentUpon>SearchTermBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Common\HebrewAlphabet.cs" />
     <Compile Include="Source\Common\OnlineProviders.cs" />
@@ -139,11 +139,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Source\Forms\Boxes\SearchTermResults.fr.resx">
-      <DependentUpon>SearchTermResults.cs</DependentUpon>
+    <EmbeddedResource Include="Source\Forms\Boxes\SearchTermResultsBox.fr.resx">
+      <DependentUpon>SearchTermResultsBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Source\Forms\Boxes\SearchTermResults.resx">
-      <DependentUpon>SearchTermResults.cs</DependentUpon>
+    <EmbeddedResource Include="Source\Forms\Boxes\SearchTermResultsBox.resx">
+      <DependentUpon>SearchTermResultsBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\Config\AboutBox.fr.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
@@ -166,11 +166,11 @@
     <EmbeddedResource Include="Source\Forms\Config\PreferencesForm.resx">
       <DependentUpon>PreferencesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Source\Forms\Boxes\SearchTerm.fr.resx">
-      <DependentUpon>SearchTerm.cs</DependentUpon>
+    <EmbeddedResource Include="Source\Forms\Boxes\SearchTermBox.fr.resx">
+      <DependentUpon>SearchTermBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Source\Forms\Boxes\SearchTerm.resx">
-      <DependentUpon>SearchTerm.cs</DependentUpon>
+    <EmbeddedResource Include="Source\Forms\Boxes\SearchTermBox.resx">
+      <DependentUpon>SearchTermBox.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Data\DataSet.xsc">
