@@ -80,14 +80,18 @@ namespace Ordisoftware.HebrewLetters
       catch
       {
       }
-      string s = "";
+      string word = "";
       if ( args.Length == 1 )
       {
-        foreach ( char c in args[0] )
-          if ( HebrewAlphabet.Codes.Contains(Convert.ToString(c)) )
-            s += HebrewAlphabet.SetFinal(Convert.ToString(c), false);
+        string str = Localizer.RemoveDiacritics(args[0]);
+        foreach ( char c in str )
+        {
+          string @char = Convert.ToString(c);
+          if ( HebrewAlphabet.Codes.Contains(@char) )
+            word += HebrewAlphabet.SetFinal(@char, false);
+        }
       }
-      StartupWord = s;
+      StartupWord = word;
     }
 
     /// <summary>
