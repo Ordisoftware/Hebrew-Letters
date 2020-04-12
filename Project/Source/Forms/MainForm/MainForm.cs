@@ -103,6 +103,11 @@ namespace Ordisoftware.HebrewLetters
     private void MainForm_Load(object sender, EventArgs e)
     {
       Program.Settings.Retrieve();
+      if ( Program.CheckUpdate(true) )
+      {
+        Application.Exit();
+        return;
+      }
       EditSentence.Font = new Font("Microsoft Sans Serif", (float)Program.Settings.FontSizeSentence);
       try
       {
@@ -131,7 +136,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Form closing event information.</param>
     private void MainForm_Shown(object sender, EventArgs e)
     {
-      Program.CheckUpdate(true);
+      if ( Program.IsExiting ) return;
       if ( Program.StartupWord != "" )
       {
         EditLetters.Input.Text = Program.StartupWord;
@@ -153,6 +158,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Form closing event information.</param>
     private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
     {
+      if ( Program.IsExiting ) return;
       if ( !IsReady ) return;
       LettersBindingSource.EndEdit();
       meaningsBindingSource.EndEdit();
