@@ -75,6 +75,7 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 - Move online providers values from code to files in the application documents folder.
 - Fix paste from clipboard to hebrew textbox.
 - Add option to use Esc key to close app.
+- Exit application at startup if user choose to download the a newer version.
 - Code refactoring.
 
 >>>>- Create online providers database tables.
