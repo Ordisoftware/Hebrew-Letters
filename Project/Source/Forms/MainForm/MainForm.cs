@@ -57,11 +57,6 @@ namespace Ordisoftware.HebrewLetters
     private bool IsDBUpgraded;
 
     /// <summary>
-    /// Indicate if the application is ready for the user.
-    /// </summary>
-    public bool IsReady { get; private set; }
-
-    /// <summary>
     /// Indicate the selected meanings text.
     /// </summary>
     private string SelectedMeanings;
@@ -76,6 +71,7 @@ namespace Ordisoftware.HebrewLetters
     private MainForm()
     {
       InitializeComponent();
+      Program.AllowClose = true;
       Text = AboutBox.Instance.AssemblyTitle;
       SystemEvents.SessionEnding += SessionEnding;
       ClipboardViewerNext = SetClipboardViewer(Handle);
@@ -116,7 +112,7 @@ namespace Ordisoftware.HebrewLetters
         LettersTableAdapter.Fill(DataSet.Letters);
         MeaningsTableAdapter.Fill(DataSet.Meanings);
         ComboBoxCode_SelectedIndexChanged(null, null);
-        IsReady = true;
+        Program.IsReady = true;
       }
       catch ( OdbcException ex )
       {
@@ -159,7 +155,7 @@ namespace Ordisoftware.HebrewLetters
     private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
     {
       if ( Program.IsExiting ) return;
-      if ( !IsReady ) return;
+      if ( !Program.IsReady ) return;
       LettersBindingSource.EndEdit();
       meaningsBindingSource.EndEdit();
       if ( DataSet.HasChanges() )
@@ -196,7 +192,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Form closing event information.</param>
     private void MainForm_WindowsChanged(object sender, EventArgs e)
     {
-      if ( !IsReady ) return;
+      if ( !Program.IsReady ) return;
       EditScreenNone.PerformClick();
     }
 
