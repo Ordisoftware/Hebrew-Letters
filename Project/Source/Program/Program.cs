@@ -34,9 +34,8 @@ namespace Ordisoftware.HebrewLetters
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
       CheckCommandLineArguments(args);
-      ApplyCurrentLanguage();
+      UpdateLocalization();
       SetFormsIcon();
-      InitializeUserFolders();
       Application.Run(MainForm.Instance);
     }
 
