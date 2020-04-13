@@ -106,7 +106,6 @@
       this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
       this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
       this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-      this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
       this.ActionOpenHebrewAlphabet = new System.Windows.Forms.ToolStripMenuItem();
       this.MenuTools = new System.Windows.Forms.ToolStripDropDownButton();
       this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
@@ -726,20 +725,19 @@
       this.MenuWeb.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
       this.MenuWeb.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
       this.MenuWeb.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ActionWebHome,
-            this.ActionWebContact,
-            this.toolStripSeparator2,
             this.ActionWebCheckUpdate,
             this.ActionCreateGitHubIssue,
+            this.toolStripSeparator2,
+            this.ActionWebHome,
+            this.toolStripMenuItem15,
+            this.ActionWebContact,
             this.toolStripSeparator5,
             this.toolStripMenuItem14,
             this.toolStripMenuItem13,
-            this.toolStripMenuItem15,
             this.toolStripMenuItem16,
             this.toolStripSeparator6,
-            this.toolStripMenuItem6,
             this.toolStripMenuItem1,
-            this.toolStripSeparator10,
+            this.toolStripMenuItem6,
             this.ActionOpenHebrewAlphabet});
       resources.ApplyResources(this.MenuWeb, "MenuWeb");
       this.MenuWeb.Name = "MenuWeb";
@@ -796,11 +794,6 @@
       this.toolStripMenuItem1.Name = "toolStripMenuItem1";
       this.toolStripMenuItem1.Tag = "http://www.ordisoftware.com/projects/hebrew-calendar";
       this.toolStripMenuItem1.Click += new System.EventHandler(this.ActionOpenWebsiteURL_Click);
-      // 
-      // toolStripSeparator10
-      // 
-      this.toolStripSeparator10.Name = "toolStripSeparator10";
-      resources.ApplyResources(this.toolStripSeparator10, "toolStripSeparator10");
       // 
       // ActionOpenHebrewAlphabet
       // 
@@ -1189,7 +1182,6 @@
     private System.Windows.Forms.Label LabelHebrew;
     private System.Windows.Forms.ComboBox ComboBoxCode;
     private System.Windows.Forms.Panel PanelLetter;
-    private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
     private System.Windows.Forms.ToolStripMenuItem ActionOpenHebrewAlphabet;
     private System.Windows.Forms.Button ActionCopyToUnicode;
     private System.Windows.Forms.Button ActionSearchOnline;
