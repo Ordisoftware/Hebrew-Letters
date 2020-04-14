@@ -144,7 +144,6 @@
       this.LettersTableAdapter = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.LettersTableAdapter();
       this.TableAdapterManager = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.TableAdapterManager();
       this.MeaningsTableAdapter = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.MeaningsTableAdapter();
-      this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
       nameLabel = new System.Windows.Forms.Label();
       structureLabel = new System.Windows.Forms.Label();
       functionLabel = new System.Windows.Forms.Label();
@@ -715,7 +714,6 @@
             this.toolStripSeparator7,
             this.ActionWebCheckUpdate,
             this.ActionCreateGitHubIssue,
-            this.toolStripSeparator4,
             this.toolStripMenuItem2,
             this.toolStripSeparator2,
             this.ActionWebHome,
@@ -1079,11 +1077,6 @@
       // 
       this.MeaningsTableAdapter.ClearBeforeFill = true;
       // 
-      // toolStripSeparator4
-      // 
-      this.toolStripSeparator4.Name = "toolStripSeparator4";
-      resources.ApplyResources(this.toolStripSeparator4, "toolStripSeparator4");
-      // 
       // MainForm
       // 
       resources.ApplyResources(this, "$this");
@@ -1233,7 +1226,6 @@
     private System.Windows.Forms.ToolStripDropDownButton MenuWebLinks;
     private System.Windows.Forms.ToolStripMenuItem ActionOpenWebLinkTemplateFolder;
     private System.Windows.Forms.ToolStripMenuItem ActionOpenWebLinkTemplateLink;
-    private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
   }
 }
 
