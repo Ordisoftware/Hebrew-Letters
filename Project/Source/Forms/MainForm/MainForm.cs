@@ -71,11 +71,10 @@ namespace Ordisoftware.HebrewLetters
     private MainForm()
     {
       InitializeComponent();
-      Icon = Icon.ExtractAssociatedIcon(Globals.IconFilename);
-      Globals.AllowClose = true;
       Text = Globals.AssemblyTitle;
       SystemEvents.SessionEnding += SessionEnding;
       ClipboardViewerNext = SetClipboardViewer(Handle);
+      Globals.AllowClose = true;
       int index = 1;
       EventHandler action = (sender, e) =>
       {
@@ -89,6 +88,13 @@ namespace Ordisoftware.HebrewLetters
           ContextMenuSearchOnline.Items.Insert(index++, new ToolStripSeparator());
         else
           ContextMenuSearchOnline.Items.Insert(index++, item.CreateMenuItem(action));
+      }
+      try
+      {
+        Icon = Icon.ExtractAssociatedIcon(Globals.IconFilename);
+      }
+      catch
+      {
       }
     }
 
