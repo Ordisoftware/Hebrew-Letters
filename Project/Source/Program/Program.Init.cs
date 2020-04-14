@@ -105,11 +105,6 @@ namespace Ordisoftware.HebrewLetters
       Thread.CurrentThread.CurrentCulture = culture;
       Thread.CurrentThread.CurrentUICulture = culture;
       AboutBox.Instance.Hide();
-      new Infralution.Localization.CultureManager().ManagedControl = AboutBox.Instance;
-      Infralution.Localization.CultureManager.ApplicationUICulture = culture;
-      AboutBox.Instance.AboutBox_Shown(null, null);
-      MainForm.Instance.LabelGematria.Location = new Point(MainForm.Instance.LabelGematria.Location.X,
-                                                           MainForm.Instance.EditGematria.Location.Y - 19);
       foreach ( Form form in Application.OpenForms )
         if ( form != AboutBox.Instance )
         {
@@ -117,6 +112,11 @@ namespace Ordisoftware.HebrewLetters
           ComponentResourceManager resources = new ComponentResourceManager(form.GetType());
           ApplyResources(resources, form.Controls);
         }
+      new Infralution.Localization.CultureManager().ManagedControl = AboutBox.Instance;
+      Infralution.Localization.CultureManager.ApplicationUICulture = culture;
+      AboutBox.Instance.AboutBox_Shown(null, null);
+      MainForm.Instance.LabelGematria.Location = new Point(MainForm.Instance.LabelGematria.Location.X,
+                                                           MainForm.Instance.EditGematria.Location.Y - 19);
     }
 
     /// <summary>
