@@ -72,10 +72,10 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 #### 2020.04.__ - Version 4.0
 
-- Move online providers values from code to files in the application documents folder.
-- Fix paste from clipboard to hebrew textbox.
-- Add option to use Esc key to close app.
 - Exit application at startup if user choose to download the a newer version.
+- Move online providers values from code to files in the application documents folder.
+- Add option to use Esc key to close app.
+- Fix paste from clipboard to overwrite the selected text.
 - Code refactoring.
 
 >>>>- Create online providers database tables.
