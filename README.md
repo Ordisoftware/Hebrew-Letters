@@ -76,6 +76,7 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 - Add option to use Esc key to close app.
 - Fix paste from clipboard to overwrite the selected text.
 - Add menu for web links about judaism.
+- Add grammar guide from Hebrew Words.
 - Code refactoring.
 - Move online providers values from code to files in the application documents folder.
 
