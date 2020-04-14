@@ -72,14 +72,12 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 #### 2020.04.__ - Version 4.0
 
-- Exit application at startup if user choose to download the a newer version.
-- Move online providers values from code to files in the application documents folder.
+- Exit application at startup if user choose to download a newer version.
 - Add option to use Esc key to close app.
 - Fix paste from clipboard to overwrite the selected text.
+- Add menu for web links about judaism.
 - Code refactoring.
-
->>>>- Create online providers database tables.
->>>>- Add online providers editor form.
+- Move online providers values from code to files in the application documents folder.
 
 #### 2020.04.07 - Version 3.1
 
