@@ -194,6 +194,7 @@ namespace Ordisoftware.HebrewLetters
     private void MainForm_WindowsChanged(object sender, EventArgs e)
     {
       if ( !Globals.IsReady ) return;
+      if ( !Visible ) return;
       if ( WindowState != FormWindowState.Normal  ) return;
       EditScreenNone.PerformClick();
     }
