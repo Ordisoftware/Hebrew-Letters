@@ -647,6 +647,14 @@ namespace Ordisoftware.HebrewLetters
       LettersBindingSource.Position = LettersBindingSource.Find("Name", letterName);
     }
 
+    private void ActionShowGrammarGuide_Click(object sender, EventArgs e)
+    {
+      if ( GrammarGuideForm.Instance.WindowState == FormWindowState.Minimized )
+        GrammarGuideForm.Instance.WindowState = FormWindowState.Normal;
+      GrammarGuideForm.Instance.Show();
+      GrammarGuideForm.Instance.BringToFront();
+    }
+
   }
 
 }

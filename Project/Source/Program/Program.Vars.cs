@@ -26,6 +26,17 @@ namespace Ordisoftware.HebrewLetters
   {
 
     /// <summary>
+    /// Indicate filename of the grammar guide.
+    /// </summary>
+    static public string GrammarGuideFilename
+    {
+      get
+      {
+        return Globals.HelpFolderPath + $"grammar-{Localizer.Language}.htm";
+      }
+    }
+
+    /// <summary>
     /// Indicate filename of the letters meanings.
     /// </summary>
     static public string MeaningsFilename
