@@ -70,7 +70,7 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 ## Changelog
 
-#### 2020.04.__ - Version 4.0
+#### 2020.04.__ - Version 3.2
 
 - Exit application at startup if user choose to download a newer version.
 - Add option to use Esc key to close app.
