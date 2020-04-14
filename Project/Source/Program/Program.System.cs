@@ -167,6 +167,8 @@ namespace Ordisoftware.HebrewLetters
           ToolStripDropDownItem menu;
           if ( title != "" )
           {
+            if ( items.SeparatorBeforeFolder )
+              menuRoot.DropDownItems.Add(new ToolStripSeparator());
             menu = new ToolStripMenuItem(title);
             menu.ImageScaling = ToolStripItemImageScaling.None;
             menu.Image = imageFolder;
