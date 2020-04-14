@@ -328,10 +328,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void ActionAbout_Click(object sender, EventArgs e)
     {
-      if ( AboutBox.Instance.Visible )
-        AboutBox.Instance.BringToFront();
-      else
-        AboutBox.Instance.ShowDialog();
+      AboutBox.Instance.ShowDialog();
     }
 
     /// <summary>
