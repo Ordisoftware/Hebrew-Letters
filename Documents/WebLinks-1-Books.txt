@@ -1,2 +1,0 @@
-Name = (FR) Livret "L'alphabet hébreu"
-URL = https://sites.google.com/site/asherhaimhalevi/hebrew-alphabet

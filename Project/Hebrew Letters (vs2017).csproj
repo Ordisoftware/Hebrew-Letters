@@ -64,6 +64,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Source\Common\Globals.cs" />
     <Compile Include="Source\Forms\Boxes\SearchTermResultsBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,7 +126,6 @@
     <Compile Include="Source\Forms\Config\PreferencesForm.designer.cs">
       <DependentUpon>PreferencesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\Program\Program.Init.cs" />
     <Compile Include="Source\Program\Program.cs" />
     <Compile Include="Source\Program\Program.System.cs" />
     <Compile Include="Source\Program\Program.Vars.cs" />

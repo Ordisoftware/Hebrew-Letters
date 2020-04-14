@@ -11,8 +11,12 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2019-09 </edited>
+/// <edited> 2020-04 </edited>
 using System;
+using System.ComponentModel;
+using System.Drawing;
+using System.Globalization;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Ordisoftware.HebrewLetters
@@ -25,6 +29,12 @@ namespace Ordisoftware.HebrewLetters
   {
 
     /// <summary>
+    /// Indicate the default Settings instance.
+    /// </summary>
+    static public readonly Properties.Settings Settings
+      = Properties.Settings.Default;
+
+    /// <summary>
     /// Process startup method.
     /// </summary>
     [STAThread]
@@ -35,8 +45,32 @@ namespace Ordisoftware.HebrewLetters
       Application.SetCompatibleTextRenderingDefault(false);
       CheckCommandLineArguments(args);
       UpdateLocalization();
-      SetFormsIcon();
       Application.Run(MainForm.Instance);
+    }
+
+    /// <summary>
+    /// Update localization strings to the whole application.
+    /// </summary>
+    static internal void UpdateLocalization()
+    {
+      string lang = "en-US";
+      if ( Settings.Language == "fr" ) lang = "fr-FR";
+      var culture = new CultureInfo(lang);
+      Thread.CurrentThread.CurrentCulture = culture;
+      Thread.CurrentThread.CurrentUICulture = culture;
+      AboutBox.Instance.Hide();
+      foreach ( Form form in Application.OpenForms )
+        if ( form != AboutBox.Instance )
+        {
+          new Infralution.Localization.CultureManager().ManagedControl = form;
+          ComponentResourceManager resources = new ComponentResourceManager(form.GetType());
+          ApplyResources(resources, form.Controls);
+        }
+      new Infralution.Localization.CultureManager().ManagedControl = AboutBox.Instance;
+      Infralution.Localization.CultureManager.ApplicationUICulture = culture;
+      AboutBox.Instance.AboutBox_Shown(null, null);
+      MainForm.Instance.LabelGematria.Location = new Point(MainForm.Instance.LabelGematria.Location.X,
+                                                           MainForm.Instance.EditGematria.Location.Y - 19);
     }
 
   }

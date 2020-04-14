@@ -13,9 +13,7 @@
 /// <created> 2016-04 </created>
 /// <edited> 2020-04 </edited>
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Windows.Forms;
+using System.Linq;
 using Ordisoftware.HebrewCommon;
 
 namespace Ordisoftware.HebrewLetters
@@ -28,200 +26,42 @@ namespace Ordisoftware.HebrewLetters
   {
 
     /// <summary>
-    /// Indicate if the application is exiting.
-    /// </summary>
-    static public bool IsExiting = false;
-
-    /// <summary>
-    /// Indicate if is in loading data stage.
-    /// </summary>
-    static public bool IsLoadingData = false;
-
-    /// <summary>
-    /// Indicate if the application is ready for the user.
-    /// </summary>
-    static public bool IsReady = false;
-
-    /// <summary>
-    /// Indicate if windows session is ending.
-    /// </summary>
-    static public bool IsSessionEnding = false;
-
-    /// <summary>
-    /// Indicate if application can be closed.
-    /// </summary>
-    static public bool AllowClose = false;
-
-    /// <summary>
-    /// Indicate the default Settings instance.
-    /// </summary>
-    static public readonly Properties.Settings Settings 
-      = Properties.Settings.Default;
-
-    /// <summary>
-    /// Indicate the check update URL.
-    /// </summary>
-    static public string CheckUpdateURL
-    {
-      get
-      {
-        string title = AboutBox.Instance.AssemblyTitle;
-        return $"http://{AboutBox.Instance.AssemblyTrademark}/files/{title.Replace(" ", "")}.update";
-      }
-    }
-
-    /// <summary>
-    /// Indicate the download application URL.
-    /// </summary>
-    static public string DownloadApplicationURL
-    {
-      get
-      {
-        return AboutBox.Instance.AssemblyProduct;
-      }
-    }
-
-    /// <summary>
-    /// Indicate the GitHub repository.
-    /// </summary>
-    static public string GitHubRepositoryURL
-    {
-      get
-      {
-        string title = AboutBox.Instance.AssemblyTitle;
-        return $"https://github.com/{AboutBox.Instance.CompanyName}/{title.Replace(" ", "-")}";
-      }
-    }
-
-    /// <summary>
-    /// Indicate root folder path of the application.
-    /// </summary>
-    static public readonly string AppRootFolderPath
-      = Directory.GetParent
-        (
-          Path.GetDirectoryName(Application.ExecutablePath
-                                .Replace("\\Bin\\Debug\\", "\\Bin\\")
-                                .Replace("\\Bin\\Release\\", "\\Bin\\"))
-        ).FullName
-      + Path.DirectorySeparatorChar;
-
-    /// <summary>
-    /// Indicate application documents folder.
-    /// </summary>
-    static public readonly string AppDocumentsFolderPath
-      = AppRootFolderPath + "Documents" + Path.DirectorySeparatorChar;
-
-    /// <summary>
-    /// Indicate filename of the help.
-    /// </summary>
-    static public string HelpFilename
-    {
-      get
-      {
-        return AppRootFolderPath + $"Help{Path.DirectorySeparatorChar}index-{Localizer.Language}.htm";
-      }
-    }
-
-    /// <summary>
-    /// Indicate user data folder in roaming.
-    /// </summary>
-    static public string UserDataFolderPath
-    {
-      get
-      {
-        string path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)
-                    + Path.DirectorySeparatorChar
-                    + AboutBox.Instance.AssemblyCompany
-                    + Path.DirectorySeparatorChar
-                    + AboutBox.Instance.AssemblyTitle
-                    + Path.DirectorySeparatorChar;
-        Directory.CreateDirectory(path);
-        return path;
-      }
-    }
-
-    /// <summary>
-    /// Indicate user documents folder path.
-    /// </summary>
-    static public string UserDocumentsFolderPath
-    {
-      get
-      {
-        string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
-                    + Path.DirectorySeparatorChar
-                    + AboutBox.Instance.AssemblyCompany
-                    + Path.DirectorySeparatorChar
-                    + AboutBox.Instance.AssemblyTitle
-                    + Path.DirectorySeparatorChar;
-        Directory.CreateDirectory(path);
-        return path;
-      }
-    }
-
-    /// <summary>
-    /// Indicate the extension of database file.
-    /// </summary>
-    static public readonly string DBFileExtension
-      = ".sqlite";
-
-    /// <summary>
-    /// Indicate filename of the application's icon.
-    /// </summary>
-    static public readonly string IconFilename
-      = AppRootFolderPath + "Application.ico";
-
-    /// <summary>
-    /// Indicate application documents folder.
-    /// </summary>
-    static public readonly string WebLinksFolderPath
-      = AppDocumentsFolderPath;
-
-    /// <summary>
-    /// Indicate online links providers.
-    /// </summary>
-    static public readonly List<OnlineProviders> OnlineLinksProviders
-      = new List<OnlineProviders>();
-
-    /// <summary>
-    /// Indicate filename of the online search word providers.
-    /// </summary>
-    static public readonly string OnlineWordProvidersFileName
-      = AppDocumentsFolderPath + "OnlineWordProviders.txt";
-
-    /// <summary>
-    /// Indicate online search a word providers.
-    /// </summary>
-    static public readonly OnlineProviders OnlineWordProviders
-      = new OnlineProviders(OnlineWordProvidersFileName);
-
-    /// <summary>
-    /// Indicate the command line argument for word used at startup.
-    /// </summary>
-    static public string StartupWord
-    {
-      get;
-      private set;
-    }
-
-    /// <summary>
     /// Indicate filename of the letters meanings.
     /// </summary>
     static public string MeaningsFilename
     {
       get
       {
-        return AppDocumentsFolderPath + "Alphabet-" + Localizer.Language + ".txt";
+        return Globals.DocumentsFolderPath + "Alphabet-" + Localizer.Language + ".txt";
       }
     }
 
     /// <summary>
-    /// Static constructor. 
+    /// Indicate the command line argument for word used at startup.
     /// </summary>
-    static Program()
+    static public string StartupWord
     {
-      foreach ( var file in Directory.GetFiles(WebLinksFolderPath, "WebLinks*.txt") )
-        OnlineLinksProviders.Add(new OnlineProviders(file));
+      get
+      {
+        if ( _StartupWord == null )
+        {
+          string word = "";
+          if ( CommandLineArguments != null && CommandLineArguments.Length == 1 )
+          {
+            string str = Localizer.RemoveDiacritics(CommandLineArguments[0]);
+            foreach ( char c in str )
+            {
+              string @char = Convert.ToString(c);
+              if ( HebrewAlphabet.Codes.Contains(@char) )
+                word += HebrewAlphabet.SetFinal(@char, false);
+            }
+          }
+          _StartupWord = word;
+        }
+        return _StartupWord;
+      }
     }
+    static public string _StartupWord = null;
 
   }
 

@@ -36,7 +36,7 @@ namespace Ordisoftware.HebrewLetters
     /// <summary>
     /// Indicate the singleton instance.
     /// </summary>
-    static public readonly MainForm Instance;
+    static public MainForm Instance { get; private set; }
 
     /// <summary>
     /// Static constructor.
@@ -71,8 +71,9 @@ namespace Ordisoftware.HebrewLetters
     private MainForm()
     {
       InitializeComponent();
-      Program.AllowClose = true;
-      Text = AboutBox.Instance.AssemblyTitle;
+      Icon = Icon.ExtractAssociatedIcon(Globals.IconFilename);
+      Globals.AllowClose = true;
+      Text = Globals.AssemblyTitle;
       SystemEvents.SessionEnding += SessionEnding;
       ClipboardViewerNext = SetClipboardViewer(Handle);
       int index = 1;
@@ -82,7 +83,7 @@ namespace Ordisoftware.HebrewLetters
         var control = ( (ContextMenuStrip)menuitem.Owner ).SourceControl;
         Program.RunShell(((string)menuitem.Tag).Replace("%WORD%", HebrewAlphabet.ConvertToUnicode(EditLetters.Input.Text)));
       };
-      foreach ( var item in Program.OnlineWordProviders.Items )
+      foreach ( var item in Globals.OnlineWordProviders.Items )
       {
         if (item.Name == "-")
           ContextMenuSearchOnline.Items.Insert(index++, new ToolStripSeparator());
@@ -112,7 +113,7 @@ namespace Ordisoftware.HebrewLetters
         LettersTableAdapter.Fill(DataSet.Letters);
         MeaningsTableAdapter.Fill(DataSet.Meanings);
         ComboBoxCode_SelectedIndexChanged(null, null);
-        Program.IsReady = true;
+        Globals.IsReady = true;
       }
       catch ( OdbcException ex )
       {
@@ -132,8 +133,8 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Form closing event information.</param>
     private void MainForm_Shown(object sender, EventArgs e)
     {
-      if ( Program.IsExiting ) return;
-      if ( Program.StartupWord != "" )
+      if ( Globals.IsExiting ) return;
+      if ( Program.StartupWord != null && Program.StartupWord != "" )
       {
         EditLetters.Input.Text = Program.StartupWord;
         ActionAnalyse.PerformClick();
@@ -154,8 +155,8 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Form closing event information.</param>
     private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
     {
-      if ( Program.IsExiting ) return;
-      if ( !Program.IsReady ) return;
+      if ( Globals.IsExiting ) return;
+      if ( !Globals.IsReady ) return;
       LettersBindingSource.EndEdit();
       meaningsBindingSource.EndEdit();
       if ( DataSet.HasChanges() )
@@ -192,7 +193,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Form closing event information.</param>
     private void MainForm_WindowsChanged(object sender, EventArgs e)
     {
-      if ( !Program.IsReady ) return;
+      if ( !Globals.IsReady ) return;
       EditScreenNone.PerformClick();
     }
 
@@ -338,7 +339,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void ActionHelp_Click(object sender, EventArgs e)
     {
-      Program.RunShell(Program.HelpFilename);
+      Program.RunShell(Globals.HelpFilename);
     }
 
     /// <summary>
@@ -348,7 +349,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void ActionApplicationHome_Click(object sender, EventArgs e)
     {
-      AboutBox.Instance.OpenApplicationHome();
+      Program.OpenApplicationHome();
     }
 
     /// <summary>
@@ -358,7 +359,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void ActionContact_Click(object sender, EventArgs e)
     {
-      AboutBox.Instance.OpenContactPage();
+      Program.OpenContactPage();
     }
 
     /// <summary>
@@ -368,7 +369,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void ActionCreateGitHubIssue_Click(object sender, EventArgs e)
     {
-      SystemManager.OpenWebLink(Program.GitHubRepositoryURL + "/issues");
+      Program.OpenGitHibIssuesPage();
     }
 
     /// <summary>
