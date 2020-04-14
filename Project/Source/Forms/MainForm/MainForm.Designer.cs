@@ -111,7 +111,7 @@
       this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
       this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
       this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
-      this.ActionOpenHebrewAlphabet = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
       this.Sep6 = new System.Windows.Forms.ToolStripSeparator();
       this.ActionPreferences = new System.Windows.Forms.ToolStripButton();
       this.MenuSettings = new System.Windows.Forms.ToolStripDropDownButton();
@@ -138,11 +138,13 @@
       this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
       this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
       this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
+      this.MenuWebLinks = new System.Windows.Forms.ToolStripDropDownButton();
+      this.ActionOpenWebLinkTemplateFolder = new System.Windows.Forms.ToolStripMenuItem();
+      this.ActionOpenWebLinkTemplateLink = new System.Windows.Forms.ToolStripMenuItem();
       this.LettersTableAdapter = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.LettersTableAdapter();
       this.TableAdapterManager = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.TableAdapterManager();
       this.MeaningsTableAdapter = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.MeaningsTableAdapter();
       this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-      this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
       nameLabel = new System.Windows.Forms.Label();
       structureLabel = new System.Windows.Forms.Label();
       functionLabel = new System.Windows.Forms.Label();
@@ -671,7 +673,8 @@
             this.ActionViewSettings,
             this.ActionSearchTerm,
             this.toolStripSeparator1,
-            this.MenuTools});
+            this.MenuTools,
+            this.MenuWebLinks});
       this.ToolStrip.Name = "ToolStrip";
       this.ToolStrip.ShowItemToolTips = false;
       // 
@@ -712,6 +715,8 @@
             this.toolStripSeparator7,
             this.ActionWebCheckUpdate,
             this.ActionCreateGitHubIssue,
+            this.toolStripSeparator4,
+            this.toolStripMenuItem2,
             this.toolStripSeparator2,
             this.ActionWebHome,
             this.ActionWebContact,
@@ -722,10 +727,7 @@
             this.toolStripMenuItem13,
             this.toolStripSeparator6,
             this.toolStripMenuItem1,
-            this.toolStripMenuItem6,
-            this.toolStripSeparator4,
-            this.ActionOpenHebrewAlphabet,
-            this.toolStripMenuItem2});
+            this.toolStripMenuItem6});
       resources.ApplyResources(this.MenuWeb, "MenuWeb");
       this.MenuWeb.Name = "MenuWeb";
       // 
@@ -831,12 +833,12 @@
       this.toolStripMenuItem6.Tag = "http://www.ordisoftware.com/projects/hebrew-words";
       this.toolStripMenuItem6.Click += new System.EventHandler(this.ActionOpenWebsiteURL_Click);
       // 
-      // ActionOpenHebrewAlphabet
+      // toolStripMenuItem2
       // 
-      resources.ApplyResources(this.ActionOpenHebrewAlphabet, "ActionOpenHebrewAlphabet");
-      this.ActionOpenHebrewAlphabet.Name = "ActionOpenHebrewAlphabet";
-      this.ActionOpenHebrewAlphabet.Tag = "https://sites.google.com/site/asherhaimhalevi/hebrew-alphabet";
-      this.ActionOpenHebrewAlphabet.Click += new System.EventHandler(this.ActionOpenHebrewAlphabet_Click);
+      resources.ApplyResources(this.toolStripMenuItem2, "toolStripMenuItem2");
+      this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+      this.toolStripMenuItem2.Tag = "http://asherhaimhalevi.free-bb.fr/";
+      this.toolStripMenuItem2.Click += new System.EventHandler(this.ActionOpenWebsiteURL_Click);
       // 
       // Sep6
       // 
@@ -1042,6 +1044,26 @@
       this.toolStripMenuItem9.Tag = "https://www.lexilogos.com/hebreu_moderne_dictionnaire.htm";
       this.toolStripMenuItem9.Click += new System.EventHandler(this.ActionOpenWebsiteURL_Click);
       // 
+      // MenuWebLinks
+      // 
+      this.MenuWebLinks.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      this.MenuWebLinks.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ActionOpenWebLinkTemplateFolder,
+            this.ActionOpenWebLinkTemplateLink});
+      resources.ApplyResources(this.MenuWebLinks, "MenuWebLinks");
+      this.MenuWebLinks.Name = "MenuWebLinks";
+      // 
+      // ActionOpenWebLinkTemplateFolder
+      // 
+      resources.ApplyResources(this.ActionOpenWebLinkTemplateFolder, "ActionOpenWebLinkTemplateFolder");
+      this.ActionOpenWebLinkTemplateFolder.Name = "ActionOpenWebLinkTemplateFolder";
+      // 
+      // ActionOpenWebLinkTemplateLink
+      // 
+      resources.ApplyResources(this.ActionOpenWebLinkTemplateLink, "ActionOpenWebLinkTemplateLink");
+      this.ActionOpenWebLinkTemplateLink.Name = "ActionOpenWebLinkTemplateLink";
+      this.ActionOpenWebLinkTemplateLink.Tag = "";
+      // 
       // LettersTableAdapter
       // 
       this.LettersTableAdapter.ClearBeforeFill = true;
@@ -1061,13 +1083,6 @@
       // 
       this.toolStripSeparator4.Name = "toolStripSeparator4";
       resources.ApplyResources(this.toolStripSeparator4, "toolStripSeparator4");
-      // 
-      // toolStripMenuItem2
-      // 
-      resources.ApplyResources(this.toolStripMenuItem2, "toolStripMenuItem2");
-      this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-      this.toolStripMenuItem2.Tag = "http://asherhaimhalevi.free-bb.fr/";
-      this.toolStripMenuItem2.Click += new System.EventHandler(this.ActionOpenWebsiteURL_Click);
       // 
       // MainForm
       // 
@@ -1191,7 +1206,6 @@
     private System.Windows.Forms.Label LabelHebrew;
     private System.Windows.Forms.ComboBox ComboBoxCode;
     private System.Windows.Forms.Panel PanelLetter;
-    private System.Windows.Forms.ToolStripMenuItem ActionOpenHebrewAlphabet;
     private System.Windows.Forms.Button ActionCopyToUnicode;
     private System.Windows.Forms.Button ActionSearchOnline;
     private System.Windows.Forms.ContextMenuStrip ContextMenuSearchOnline;
@@ -1215,8 +1229,11 @@
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
     private System.Windows.Forms.ToolStripMenuItem ActionAbout;
-    private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
     private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+    private System.Windows.Forms.ToolStripDropDownButton MenuWebLinks;
+    private System.Windows.Forms.ToolStripMenuItem ActionOpenWebLinkTemplateFolder;
+    private System.Windows.Forms.ToolStripMenuItem ActionOpenWebLinkTemplateLink;
+    private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
   }
 }
 

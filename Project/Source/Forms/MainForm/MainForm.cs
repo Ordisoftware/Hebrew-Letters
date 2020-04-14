@@ -90,6 +90,7 @@ namespace Ordisoftware.HebrewLetters
         else
           ContextMenuSearchOnline.Items.Insert(index++, item.CreateMenuItem(action));
       }
+      Program.CreateWebLinks(MenuWebLinks, ActionOpenWebLinkTemplateFolder.Image, ActionOpenWebLinkTemplateLink.Image);
     }
 
     /// <summary>
