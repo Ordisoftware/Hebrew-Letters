@@ -45,6 +45,8 @@ namespace Ordisoftware.HebrewLetters
 
     private void PreferencesForm_Shown(object sender, EventArgs e)
     {
+      TopMost = MainForm.Instance.TopMost;
+      BringToFront();
       UpdateLanguagesButtons();
     }
 

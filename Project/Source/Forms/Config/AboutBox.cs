@@ -69,6 +69,8 @@ namespace Ordisoftware.HebrewLetters
       labelVersion.Text = Translations.AboutBoxVersion.GetLang(Globals.AssemblyVersion);
       labelCopyright.Text = Globals.AssemblyCopyright;
       labelTrademark.Text = Globals.AssemblyTrademark;
+      TopMost = MainForm.Instance.TopMost;
+      BringToFront();
     }
 
     /// <summary>
