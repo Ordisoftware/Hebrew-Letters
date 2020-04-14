@@ -547,9 +547,6 @@
   <data name="ActionAbout.Text" xml:space="preserve">
     <value>A propos</value>
   </data>
-  <data name="ActionAbout.ToolTipText" xml:space="preserve">
-    <value>A propos (F12)</value>
-  </data>
   <data name="toolStripSeparator7.Size" type="System.Drawing.Size, System.Drawing">
     <value>386, 6</value>
   </data>
