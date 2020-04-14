@@ -71,6 +71,7 @@ namespace Ordisoftware.HebrewLetters
       AboutBox.Instance.AboutBox_Shown(null, null);
       MainForm.Instance.LabelGematria.Location = new Point(MainForm.Instance.LabelGematria.Location.X,
                                                            MainForm.Instance.EditGematria.Location.Y - 19);
+      MainForm.Instance.CreateWebLinks();
     }
 
   }

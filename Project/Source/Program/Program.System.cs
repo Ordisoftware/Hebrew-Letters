@@ -160,6 +160,8 @@ namespace Ordisoftware.HebrewLetters
     /// </summary>
     static public void CreateWebLinks(ToolStripDropDownButton menuRoot, Image imageFolder, Image imageLink)
     {
+      Globals.LoadWebLinks();
+      menuRoot.DropDownItems.Clear();
       foreach ( var items in Globals.OnlineLinksProviders )
         if ( items.Items.Count > 0 )
         {
