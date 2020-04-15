@@ -40,6 +40,7 @@
       this.LabelFontSize = new System.Windows.Forms.Label();
       this.EditFontSize = new System.Windows.Forms.NumericUpDown();
       this.EditCheckUpdateAtStartup = new System.Windows.Forms.CheckBox();
+      this.EditVacuumAtStartup = new System.Windows.Forms.CheckBox();
       this.PanelButtons.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.EditFontSize)).BeginInit();
       this.SuspendLayout();
@@ -123,12 +124,22 @@
       this.EditCheckUpdateAtStartup.Name = "EditCheckUpdateAtStartup";
       this.EditCheckUpdateAtStartup.UseVisualStyleBackColor = true;
       // 
+      // EditVacuumAtStartup
+      // 
+      resources.ApplyResources(this.EditVacuumAtStartup, "EditVacuumAtStartup");
+      this.EditVacuumAtStartup.Checked = global::Ordisoftware.HebrewLetters.Properties.Settings.Default.VacuumAtStartup;
+      this.EditVacuumAtStartup.CheckState = System.Windows.Forms.CheckState.Checked;
+      this.EditVacuumAtStartup.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Ordisoftware.HebrewLetters.Properties.Settings.Default, "VacuumAtStartup", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+      this.EditVacuumAtStartup.Name = "EditVacuumAtStartup";
+      this.EditVacuumAtStartup.UseVisualStyleBackColor = true;
+      // 
       // PreferencesForm
       // 
       this.AcceptButton = this.ActionClose;
       resources.ApplyResources(this, "$this");
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.CancelButton = this.ActionClose;
+      this.Controls.Add(this.EditVacuumAtStartup);
       this.Controls.Add(this.EditFontSize);
       this.Controls.Add(this.LabelFontSize);
       this.Controls.Add(this.ActionSelectLangFR);
@@ -160,5 +171,6 @@
     private System.Windows.Forms.Button ActionSelectLangFR;
     private System.Windows.Forms.NumericUpDown EditFontSize;
     private System.Windows.Forms.Label LabelFontSize;
+    private System.Windows.Forms.CheckBox EditVacuumAtStartup;
   }
 }

@@ -15,6 +15,7 @@
 using System;
 using System.Data.Odbc;
 using System.Windows.Forms;
+using Ordisoftware.HebrewCommon;
 using Ordisoftware.Core;
 
 namespace Ordisoftware.HebrewLetters
@@ -31,6 +32,8 @@ namespace Ordisoftware.HebrewLetters
       bool upgraded = false;
       var connection = new OdbcConnection(Program.Settings.ConnectionString);
       connection.Open();
+      if ( Program.Settings.VacuumAtStartup )
+        connection.Vacuum();
       try
       {
         void checkTable(string table, string sql)
