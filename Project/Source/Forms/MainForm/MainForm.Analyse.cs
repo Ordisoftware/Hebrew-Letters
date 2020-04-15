@@ -58,7 +58,7 @@ namespace Ordisoftware.HebrewLetters
         SelectedMeanings += l.Name.Trim() + ": ";
         SelectedMeanings += l.Positive.Trim() + ", ";
         SelectedMeanings += l.Negative.Trim() + ", ";
-        SelectedMeanings += l.Verb.Trim() + ",";
+        SelectedMeanings += l.Verb.Trim() + ", ";
         SelectedMeanings += l.Structure.Trim() + ", ";
         SelectedMeanings += l.Function.Trim() + ", ";
         foreach ( var meaning in l.GetMeaningsRows() )
