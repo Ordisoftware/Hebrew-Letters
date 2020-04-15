@@ -80,11 +80,11 @@ namespace Ordisoftware.HebrewLetters
       {
         var menuitem = (ToolStripMenuItem)sender;
         var control = ( (ContextMenuStrip)menuitem.Owner ).SourceControl;
-        Program.RunShell(((string)menuitem.Tag).Replace("%WORD%", HebrewAlphabet.ConvertToUnicode(EditLetters.Input.Text)));
+        Program.RunShell(( (string)menuitem.Tag ).Replace("%WORD%", HebrewAlphabet.ConvertToUnicode(EditLetters.Input.Text)));
       };
       foreach ( var item in Globals.OnlineWordProviders.Items )
       {
-        if (item.Name == "-")
+        if ( item.Name == "-" )
           ContextMenuSearchOnline.Items.Insert(index++, new ToolStripSeparator());
         else
           ContextMenuSearchOnline.Items.Insert(index++, item.CreateMenuItem(action));
@@ -206,7 +206,7 @@ namespace Ordisoftware.HebrewLetters
     {
       if ( !Globals.IsReady ) return;
       if ( !Visible ) return;
-      if ( WindowState != FormWindowState.Normal  ) return;
+      if ( WindowState != FormWindowState.Normal ) return;
       EditScreenNone.PerformClick();
     }
 
@@ -515,6 +515,14 @@ namespace Ordisoftware.HebrewLetters
 
     private void ActionClear_Click(object sender, EventArgs e)
     {
+      try
+      {
+        throw new Exception("test");
+      }
+      catch ( Exception ex )
+      {
+        Ordisoftware.Core.Diagnostics.Debugger.ManageException(this, ex);
+      }
       EditLetters.Input.Text = "";
       EditSentence.Text = "";
       EditGematria.Text = "";
