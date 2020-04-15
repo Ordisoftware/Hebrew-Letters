@@ -26,13 +26,14 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
+    <DebugType>full</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>..\Bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -56,6 +57,14 @@
     </Compile>
     <Compile Include="Dependencies\Core Library\AbortException.cs" />
     <Compile Include="Dependencies\Core Library\Core.Diagnostics.cs" />
+    <Compile Include="Dependencies\Core Library\Diagnostics\Debugger.cs" />
+    <Compile Include="Dependencies\Core Library\Diagnostics\ExceptionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dependencies\Core Library\Diagnostics\ExceptionForm.designer.cs">
+      <DependentUpon>ExceptionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dependencies\Core Library\Diagnostics\ExceptionInfo.cs" />
     <Compile Include="Dependencies\Core Library\DisplayManager.ManageException.cs" />
     <Compile Include="Dependencies\Core Library\DisplayManager.QueryBox.cs" />
     <Compile Include="Dependencies\Core Library\DisplayManager.Show.cs" />
@@ -136,6 +145,9 @@
     <Compile Include="Source\Program\Program.cs" />
     <Compile Include="Source\Program\Program.System.cs" />
     <Compile Include="Source\Program\Program.Vars.cs" />
+    <EmbeddedResource Include="Dependencies\Core Library\Diagnostics\ExceptionForm.resx">
+      <DependentUpon>ExceptionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
