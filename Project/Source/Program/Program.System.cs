@@ -259,9 +259,11 @@ namespace Ordisoftware.HebrewLetters
                 if ( str.StartsWith(flag.Key) )
                 {
                   str = str.Replace(flag.Key, "").TrimStart();
-                  menuitem.Image = flag.Value ?? imageLink;
+                  menuitem.Image = flag.Value;
                   break;
                 }
+              if ( menuitem.Image == null )
+                menuitem.Image = imageLink;
               menuitem.Text = str;
             }
           }
