@@ -43,6 +43,7 @@ namespace Ordisoftware.HebrewLetters
       CheckSettingsUpgrade();
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
+      Core.Diagnostics.Debugger.Active = true;
       CheckCommandLineArguments(args);
       UpdateLocalization();
       Application.Run(MainForm.Instance);

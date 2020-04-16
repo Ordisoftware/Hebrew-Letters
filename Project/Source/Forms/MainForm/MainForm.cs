@@ -515,14 +515,6 @@ namespace Ordisoftware.HebrewLetters
 
     private void ActionClear_Click(object sender, EventArgs e)
     {
-      try
-      {
-        throw new Exception("test");
-      }
-      catch ( Exception ex )
-      {
-        Ordisoftware.Core.Diagnostics.Debugger.ManageException(this, ex);
-      }
       EditLetters.Input.Text = "";
       EditSentence.Text = "";
       EditGematria.Text = "";
