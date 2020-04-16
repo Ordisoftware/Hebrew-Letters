@@ -70,7 +70,7 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 ## Changelog
 
-#### 2020.04.__ - Version 3.2
+#### 2020.05.__ - Version 4.0
 
 - Exit application at startup if user choose to download a newer version.
 - Add option to use Esc key to close app.
@@ -78,6 +78,7 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 - Add menu for web links about judaism.
 - Add grammar guide from Hebrew Words.
 - Add option to auto vacuum database at startup.
+- Add lettriq analysis method notice.
 - Code refactoring.
 - Move online providers values from code to files in the application documents folder.
 
