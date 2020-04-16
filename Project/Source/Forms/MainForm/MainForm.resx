@@ -544,7 +544,7 @@
     <value>52, 17</value>
   </data>
   <data name="SelectCloseApp.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
+    <value>9</value>
   </data>
   <data name="SelectCloseApp.Text" xml:space="preserve">
     <value>Close</value>
@@ -577,7 +577,7 @@
     <value>510, 223</value>
   </data>
   <data name="EditAnalyze.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+    <value>1</value>
   </data>
   <data name="&gt;&gt;EditAnalyze.Name" xml:space="preserve">
     <value>EditAnalyze</value>
@@ -656,32 +656,6 @@
   <metadata name="ContextMenuSearchOnline.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>26, 48</value>
   </metadata>
-  <data name="ActionOpenWordOnline.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADrwAAA68AZW8ckkAAAJ3SURBVDhPlZFJTFNBGMfn5NEbxmhiYuSgFy4uEBU3NHLw
-        pB5EKItFqNCYSJADHBRrDQa4uIBasA9KAQlUcEkXhCgBuhG2aiFQobgQJF3c40Ly95thTKMJJn7JLzNv
-        3vf7z5t5jNdBvT2695INyRet2E3wMbncij3lNolck/DeFL29Qsi8+MLgTBgDgRD6CedMBO5gFJ65Zfjc
-        PRuh9TCcL4nZsAiROmN8B8eLBaQbnOidWETaHSc25Zmx+litID7fDFW9C2rFg+y7bjj8C+KrpM4DbOgc
-        m0dmvRsPRueRcLYV02+i+F2Bt1FsO9eG0w1eEdJFvdyROh2BHlq9r5BFAY3OIPzBEL78WMK1ninB159L
-        mH4dEbvnUsA96uWO1BnbR+cxDgSRTQE3e6fFrlW2Sfpst6Ca5rwyDC4RoFAvd6S+HFDzNIAc2qHSNiGa
-        C2/3IfVqNw5XOFBwq0+sZdS5xDFqnwX+DNhPD9WOKaiNHuge+bH48RsWwp+QWeWAqtKOuXcfRMCqI9fp
-        DryilztSZ+yAzg79Y79Iv9D1XIzhz9+F9Hfxi9ZRL3ekzljKZTvKOn3QmIZQahmnc3rFhanq3PRrXThe
-        MyB1iIsuve8Dd6TO2KEr3Sjp8EHbMoKi9nEUNo8ICogz5hHkmYaRowwJNOZhFLf7wB2pM7ar7CE2ZClY
-        m65gzUkjwccYcbQWl7YMf79OpWBjthIL2Kwxo6fPDrzvBcJPgNA/iPRgctBg1LaOxwK2aJqwvajNn9/i
-        Q27TGNSmlTnVOIqjN5xI1Vv9Umcs/kRlQ4K2GUklFiQWd2DHCvB3icUWJJ23YCf1Sl3UemLr/8PYL9wy
-        YhhtcP3/AAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="ActionOpenWordOnline.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 22</value>
-  </data>
-  <data name="ActionOpenWordOnline.Text" xml:space="preserve">
-    <value>Open online</value>
-  </data>
-  <data name="ActionOpenWordOnline.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="ContextMenuSearchOnline.Size" type="System.Drawing.Size, System.Drawing">
     <value>115, 26</value>
   </data>
@@ -729,7 +703,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionSearchOnline.Location" type="System.Drawing.Point, System.Drawing">
-    <value>576, 206</value>
+    <value>579, 206</value>
   </data>
   <data name="ActionSearchOnline.Size" type="System.Drawing.Size, System.Drawing">
     <value>42, 42</value>
@@ -787,7 +761,7 @@
     <value>42, 42</value>
   </data>
   <data name="ActionPasteFromUnicode.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+    <value>7</value>
   </data>
   <data name="&gt;&gt;ActionPasteFromUnicode.Name" xml:space="preserve">
     <value>ActionPasteFromUnicode</value>
@@ -840,7 +814,7 @@
     <value>42, 42</value>
   </data>
   <data name="ActionCopyToUnicode.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="&gt;&gt;ActionCopyToUnicode.Name" xml:space="preserve">
     <value>ActionCopyToUnicode</value>
@@ -896,7 +870,7 @@
     <value>42, 42</value>
   </data>
   <data name="ActionClear.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+    <value>8</value>
   </data>
   <data name="&gt;&gt;ActionClear.Name" xml:space="preserve">
     <value>ActionClear</value>
@@ -957,7 +931,7 @@
     <value>42, 42</value>
   </data>
   <data name="ActionCopyToClipboardMeanings.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
+    <value>4</value>
   </data>
   <data name="&gt;&gt;ActionCopyToClipboardMeanings.Name" xml:space="preserve">
     <value>ActionCopyToClipboardMeanings</value>
@@ -1021,7 +995,7 @@
     <value>42, 42</value>
   </data>
   <data name="ActionCopyToClipboardResult.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
+    <value>3</value>
   </data>
   <data name="&gt;&gt;ActionCopyToClipboardResult.Name" xml:space="preserve">
     <value>ActionCopyToClipboardResult</value>
@@ -1048,7 +1022,7 @@
     <value>510, 26</value>
   </data>
   <data name="EditSentence.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
+    <value>2</value>
   </data>
   <data name="&gt;&gt;EditSentence.Name" xml:space="preserve">
     <value>EditSentence</value>
@@ -1194,14 +1168,532 @@
   <data name="&gt;&gt;TabPageText.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="&gt;&gt;PanelViewSettings.Name" xml:space="preserve">
+    <value>PanelViewSettings</value>
+  </data>
+  <data name="&gt;&gt;PanelViewSettings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PanelViewSettings.Parent" xml:space="preserve">
+    <value>TabPageMonth</value>
+  </data>
+  <data name="&gt;&gt;PanelViewSettings.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="TabPageMonth.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="TabPageMonth.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="TabPageMonth.Size" type="System.Drawing.Size, System.Drawing">
+    <value>637, 570</value>
+  </data>
+  <data name="TabPageMonth.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="TabPageMonth.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="&gt;&gt;TabPageMonth.Name" xml:space="preserve">
+    <value>TabPageMonth</value>
+  </data>
+  <data name="&gt;&gt;TabPageMonth.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TabPageMonth.Parent" xml:space="preserve">
+    <value>TabControl</value>
+  </data>
+  <data name="&gt;&gt;TabPageMonth.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="TabControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="TabControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="TabControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>645, 596</value>
+  </data>
+  <data name="TabControl.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="TabControl.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;TabControl.Name" xml:space="preserve">
+    <value>TabControl</value>
+  </data>
+  <data name="&gt;&gt;TabControl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TabControl.Parent" xml:space="preserve">
+    <value>PanelMainCenter</value>
+  </data>
+  <data name="&gt;&gt;TabControl.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="PanelMainCenter.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="PanelMainCenter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="PanelMainCenter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>645, 596</value>
+  </data>
+  <data name="PanelMainCenter.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;PanelMainCenter.Name" xml:space="preserve">
+    <value>PanelMainCenter</value>
+  </data>
+  <data name="&gt;&gt;PanelMainCenter.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PanelMainCenter.Parent" xml:space="preserve">
+    <value>PanelMainInner</value>
+  </data>
+  <data name="&gt;&gt;PanelMainCenter.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="PanelMainInner.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="PanelMainInner.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1, 1</value>
+  </data>
+  <data name="PanelMainInner.Size" type="System.Drawing.Size, System.Drawing">
+    <value>645, 596</value>
+  </data>
+  <data name="PanelMainInner.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;PanelMainInner.Name" xml:space="preserve">
+    <value>PanelMainInner</value>
+  </data>
+  <data name="&gt;&gt;PanelMainInner.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PanelMainInner.Parent" xml:space="preserve">
+    <value>PanelMainOuter</value>
+  </data>
+  <data name="&gt;&gt;PanelMainInner.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="PanelMainOuter.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="PanelMainOuter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 44</value>
+  </data>
+  <data name="PanelMainOuter.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>1, 1, 1, 1</value>
+  </data>
+  <data name="PanelMainOuter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>647, 598</value>
+  </data>
+  <data name="PanelMainOuter.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="&gt;&gt;PanelMainOuter.Name" xml:space="preserve">
+    <value>PanelMainOuter</value>
+  </data>
+  <data name="&gt;&gt;PanelMainOuter.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PanelMainOuter.Parent" xml:space="preserve">
+    <value>PanelMain</value>
+  </data>
+  <data name="&gt;&gt;PanelMainOuter.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="PanelSepTop.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="PanelSepTop.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 34</value>
+  </data>
+  <data name="PanelSepTop.Size" type="System.Drawing.Size, System.Drawing">
+    <value>647, 10</value>
+  </data>
+  <data name="PanelSepTop.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;PanelSepTop.Name" xml:space="preserve">
+    <value>PanelSepTop</value>
+  </data>
+  <data name="&gt;&gt;PanelSepTop.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PanelSepTop.Parent" xml:space="preserve">
+    <value>PanelMain</value>
+  </data>
+  <data name="&gt;&gt;PanelSepTop.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;LabelTitle.Name" xml:space="preserve">
+    <value>LabelTitle</value>
+  </data>
+  <data name="&gt;&gt;LabelTitle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LabelTitle.Parent" xml:space="preserve">
+    <value>PanelTitle</value>
+  </data>
+  <data name="&gt;&gt;LabelTitle.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="PanelTitle.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="PanelTitle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 10</value>
+  </data>
+  <data name="PanelTitle.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>1, 1, 1, 1</value>
+  </data>
+  <data name="PanelTitle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>647, 24</value>
+  </data>
+  <data name="PanelTitle.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;PanelTitle.Name" xml:space="preserve">
+    <value>PanelTitle</value>
+  </data>
+  <data name="&gt;&gt;PanelTitle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PanelTitle.Parent" xml:space="preserve">
+    <value>PanelMain</value>
+  </data>
+  <data name="&gt;&gt;PanelTitle.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="PanelMain.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="PanelMain.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 54</value>
+  </data>
+  <data name="PanelMain.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 10</value>
+  </data>
+  <data name="PanelMain.Size" type="System.Drawing.Size, System.Drawing">
+    <value>667, 652</value>
+  </data>
+  <data name="PanelMain.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;PanelMain.Name" xml:space="preserve">
+    <value>PanelMain</value>
+  </data>
+  <data name="&gt;&gt;PanelMain.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PanelMain.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;PanelMain.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="ActionOpenWordOnline.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADrwAAA68AZW8ckkAAAJ3SURBVDhPlZFJTFNBGMfn5NEbxmhiYuSgFy4uEBU3NHLw
+        pB5EKItFqNCYSJADHBRrDQa4uIBasA9KAQlUcEkXhCgBuhG2aiFQobgQJF3c40Ly95thTKMJJn7JLzNv
+        3vf7z5t5jNdBvT2695INyRet2E3wMbncij3lNolck/DeFL29Qsi8+MLgTBgDgRD6CedMBO5gFJ65Zfjc
+        PRuh9TCcL4nZsAiROmN8B8eLBaQbnOidWETaHSc25Zmx+litID7fDFW9C2rFg+y7bjj8C+KrpM4DbOgc
+        m0dmvRsPRueRcLYV02+i+F2Bt1FsO9eG0w1eEdJFvdyROh2BHlq9r5BFAY3OIPzBEL78WMK1ninB159L
+        mH4dEbvnUsA96uWO1BnbR+cxDgSRTQE3e6fFrlW2Sfpst6Ca5rwyDC4RoFAvd6S+HFDzNIAc2qHSNiGa
+        C2/3IfVqNw5XOFBwq0+sZdS5xDFqnwX+DNhPD9WOKaiNHuge+bH48RsWwp+QWeWAqtKOuXcfRMCqI9fp
+        DryilztSZ+yAzg79Y79Iv9D1XIzhz9+F9Hfxi9ZRL3ekzljKZTvKOn3QmIZQahmnc3rFhanq3PRrXThe
+        MyB1iIsuve8Dd6TO2KEr3Sjp8EHbMoKi9nEUNo8ICogz5hHkmYaRowwJNOZhFLf7wB2pM7ar7CE2ZClY
+        m65gzUkjwccYcbQWl7YMf79OpWBjthIL2Kwxo6fPDrzvBcJPgNA/iPRgctBg1LaOxwK2aJqwvajNn9/i
+        Q27TGNSmlTnVOIqjN5xI1Vv9Umcs/kRlQ4K2GUklFiQWd2DHCvB3icUWJJ23YCf1Sl3UemLr/8PYL9wy
+        YhhtcP3/AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="ActionOpenWordOnline.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 22</value>
+  </data>
+  <data name="ActionOpenWordOnline.Text" xml:space="preserve">
+    <value>Open online</value>
+  </data>
+  <data name="ActionOpenWordOnline.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="PanelViewSettings.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="&gt;&gt;PanelSettingsDetails.Name" xml:space="preserve">
+    <value>PanelSettingsDetails</value>
+  </data>
+  <data name="&gt;&gt;PanelSettingsDetails.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PanelSettingsDetails.Parent" xml:space="preserve">
+    <value>PanelViewSettings</value>
+  </data>
+  <data name="&gt;&gt;PanelSettingsDetails.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="PanelViewSettings.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="PanelViewSettings.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="PanelViewSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>631, 564</value>
+  </data>
+  <data name="PanelViewSettings.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;PanelViewSettings.Name" xml:space="preserve">
+    <value>PanelViewSettings</value>
+  </data>
+  <data name="&gt;&gt;PanelViewSettings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PanelViewSettings.Parent" xml:space="preserve">
+    <value>TabPageMonth</value>
+  </data>
+  <data name="&gt;&gt;PanelViewSettings.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;PanelLetter.Name" xml:space="preserve">
+    <value>PanelLetter</value>
+  </data>
+  <data name="&gt;&gt;PanelLetter.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PanelLetter.Parent" xml:space="preserve">
+    <value>PanelSettingsDetails</value>
+  </data>
+  <data name="&gt;&gt;PanelLetter.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;ActionDeleteMeaning.Name" xml:space="preserve">
+    <value>ActionDeleteMeaning</value>
+  </data>
+  <data name="&gt;&gt;ActionDeleteMeaning.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ActionDeleteMeaning.Parent" xml:space="preserve">
+    <value>PanelSettingsDetails</value>
+  </data>
+  <data name="&gt;&gt;ActionDeleteMeaning.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;ActionAddMeaning.Name" xml:space="preserve">
+    <value>ActionAddMeaning</value>
+  </data>
+  <data name="&gt;&gt;ActionAddMeaning.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ActionAddMeaning.Parent" xml:space="preserve">
+    <value>PanelSettingsDetails</value>
+  </data>
+  <data name="&gt;&gt;ActionAddMeaning.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;EditMeanings.Name" xml:space="preserve">
+    <value>EditMeanings</value>
+  </data>
+  <data name="&gt;&gt;EditMeanings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;EditMeanings.Parent" xml:space="preserve">
+    <value>PanelSettingsDetails</value>
+  </data>
+  <data name="&gt;&gt;EditMeanings.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="PanelSettingsDetails.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="PanelSettingsDetails.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="PanelSettingsDetails.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>20, 20, 20, 20</value>
+  </data>
+  <data name="PanelSettingsDetails.Size" type="System.Drawing.Size, System.Drawing">
+    <value>631, 564</value>
+  </data>
+  <data name="PanelSettingsDetails.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;PanelSettingsDetails.Name" xml:space="preserve">
+    <value>PanelSettingsDetails</value>
+  </data>
+  <data name="&gt;&gt;PanelSettingsDetails.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PanelSettingsDetails.Parent" xml:space="preserve">
+    <value>PanelViewSettings</value>
+  </data>
+  <data name="&gt;&gt;PanelSettingsDetails.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;ComboBoxCode.Name" xml:space="preserve">
+    <value>ComboBoxCode</value>
+  </data>
+  <data name="&gt;&gt;ComboBoxCode.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ComboBoxCode.Parent" xml:space="preserve">
+    <value>PanelLetter</value>
+  </data>
+  <data name="&gt;&gt;ComboBoxCode.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;structureTextBox.Name" xml:space="preserve">
+    <value>structureTextBox</value>
+  </data>
+  <data name="&gt;&gt;structureTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;structureTextBox.Parent" xml:space="preserve">
+    <value>PanelLetter</value>
+  </data>
+  <data name="&gt;&gt;structureTextBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;LabelHebrew.Name" xml:space="preserve">
+    <value>LabelHebrew</value>
+  </data>
+  <data name="&gt;&gt;LabelHebrew.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LabelHebrew.Parent" xml:space="preserve">
+    <value>PanelLetter</value>
+  </data>
+  <data name="&gt;&gt;LabelHebrew.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;negativeTextBox.Name" xml:space="preserve">
+    <value>negativeTextBox</value>
+  </data>
+  <data name="&gt;&gt;negativeTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;negativeTextBox.Parent" xml:space="preserve">
+    <value>PanelLetter</value>
+  </data>
+  <data name="&gt;&gt;negativeTextBox.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;nameTextBox.Name" xml:space="preserve">
+    <value>nameTextBox</value>
+  </data>
+  <data name="&gt;&gt;nameTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;nameTextBox.Parent" xml:space="preserve">
+    <value>PanelLetter</value>
+  </data>
+  <data name="&gt;&gt;nameTextBox.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;functionTextBox.Name" xml:space="preserve">
+    <value>functionTextBox</value>
+  </data>
+  <data name="&gt;&gt;functionTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;functionTextBox.Parent" xml:space="preserve">
+    <value>PanelLetter</value>
+  </data>
+  <data name="&gt;&gt;functionTextBox.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;positiveTextBox.Name" xml:space="preserve">
+    <value>positiveTextBox</value>
+  </data>
+  <data name="&gt;&gt;positiveTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;positiveTextBox.Parent" xml:space="preserve">
+    <value>PanelLetter</value>
+  </data>
+  <data name="&gt;&gt;positiveTextBox.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;verbTextBox.Name" xml:space="preserve">
+    <value>verbTextBox</value>
+  </data>
+  <data name="&gt;&gt;verbTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;verbTextBox.Parent" xml:space="preserve">
+    <value>PanelLetter</value>
+  </data>
+  <data name="&gt;&gt;verbTextBox.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;valueSimpleTextBox.Name" xml:space="preserve">
+    <value>valueSimpleTextBox</value>
+  </data>
+  <data name="&gt;&gt;valueSimpleTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;valueSimpleTextBox.Parent" xml:space="preserve">
+    <value>PanelLetter</value>
+  </data>
+  <data name="&gt;&gt;valueSimpleTextBox.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;valueFullTextBox.Name" xml:space="preserve">
+    <value>valueFullTextBox</value>
+  </data>
+  <data name="&gt;&gt;valueFullTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;valueFullTextBox.Parent" xml:space="preserve">
+    <value>PanelLetter</value>
+  </data>
+  <data name="&gt;&gt;valueFullTextBox.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="&gt;&gt;ActionRestoreDefaults.Name" xml:space="preserve">
+    <value>ActionRestoreDefaults</value>
+  </data>
+  <data name="&gt;&gt;ActionRestoreDefaults.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ActionRestoreDefaults.Parent" xml:space="preserve">
+    <value>PanelLetter</value>
+  </data>
+  <data name="&gt;&gt;ActionRestoreDefaults.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="PanelLetter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 8</value>
+  </data>
+  <data name="PanelLetter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>209, 508</value>
+  </data>
+  <data name="PanelLetter.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="&gt;&gt;PanelLetter.Name" xml:space="preserve">
+    <value>PanelLetter</value>
+  </data>
+  <data name="&gt;&gt;PanelLetter.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PanelLetter.Parent" xml:space="preserve">
+    <value>PanelSettingsDetails</value>
+  </data>
+  <data name="&gt;&gt;PanelLetter.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <metadata name="LettersBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>828, 18</value>
-  </metadata>
-  <metadata name="DataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>232, 19</value>
   </metadata>
   <data name="ComboBoxCode.Font" type="System.Drawing.Font, System.Drawing">
     <value>Hebrew, 15.749999pt</value>
@@ -1227,6 +1719,15 @@
   <data name="&gt;&gt;ComboBoxCode.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <metadata name="LettersBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>828, 18</value>
+  </metadata>
+  <metadata name="DataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>232, 19</value>
+  </metadata>
+  <metadata name="DataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>232, 19</value>
+  </metadata>
   <data name="structureTextBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>23, 374</value>
   </data>
@@ -1455,27 +1956,6 @@
   <data name="&gt;&gt;ActionRestoreDefaults.ZOrder" xml:space="preserve">
     <value>18</value>
   </data>
-  <data name="PanelLetter.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 8</value>
-  </data>
-  <data name="PanelLetter.Size" type="System.Drawing.Size, System.Drawing">
-    <value>209, 508</value>
-  </data>
-  <data name="PanelLetter.TabIndex" type="System.Int32, mscorlib">
-    <value>25</value>
-  </data>
-  <data name="&gt;&gt;PanelLetter.Name" xml:space="preserve">
-    <value>PanelLetter</value>
-  </data>
-  <data name="&gt;&gt;PanelLetter.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;PanelLetter.Parent" xml:space="preserve">
-    <value>PanelSettingsDetails</value>
-  </data>
-  <data name="&gt;&gt;PanelLetter.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="ActionDeleteMeaning.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
@@ -1586,15 +2066,12 @@
   <data name="&gt;&gt;ActionAddMeaning.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="EditMeanings.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="dataGridViewTextBoxColumn2.HeaderText" xml:space="preserve">
-    <value>Meaning</value>
-  </data>
   <metadata name="meaningsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>992, 20</value>
   </metadata>
+  <data name="EditMeanings.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
   <data name="EditMeanings.Location" type="System.Drawing.Point, System.Drawing">
     <value>222, 34</value>
   </data>
@@ -1616,210 +2093,12 @@
   <data name="&gt;&gt;EditMeanings.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="PanelSettingsDetails.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="PanelSettingsDetails.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="PanelSettingsDetails.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>20, 20, 20, 20</value>
-  </data>
-  <data name="PanelSettingsDetails.Size" type="System.Drawing.Size, System.Drawing">
-    <value>631, 564</value>
-  </data>
-  <data name="PanelSettingsDetails.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="&gt;&gt;PanelSettingsDetails.Name" xml:space="preserve">
-    <value>PanelSettingsDetails</value>
-  </data>
-  <data name="&gt;&gt;PanelSettingsDetails.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;PanelSettingsDetails.Parent" xml:space="preserve">
-    <value>PanelViewSettings</value>
-  </data>
-  <data name="&gt;&gt;PanelSettingsDetails.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="PanelViewSettings.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="PanelViewSettings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="PanelViewSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>631, 564</value>
-  </data>
-  <data name="PanelViewSettings.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;PanelViewSettings.Name" xml:space="preserve">
-    <value>PanelViewSettings</value>
-  </data>
-  <data name="&gt;&gt;PanelViewSettings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;PanelViewSettings.Parent" xml:space="preserve">
-    <value>TabPageMonth</value>
-  </data>
-  <data name="&gt;&gt;PanelViewSettings.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="TabPageMonth.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="TabPageMonth.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="TabPageMonth.Size" type="System.Drawing.Size, System.Drawing">
-    <value>637, 570</value>
-  </data>
-  <data name="TabPageMonth.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="TabPageMonth.Text" xml:space="preserve">
-    <value>Settings</value>
-  </data>
-  <data name="&gt;&gt;TabPageMonth.Name" xml:space="preserve">
-    <value>TabPageMonth</value>
-  </data>
-  <data name="&gt;&gt;TabPageMonth.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TabPageMonth.Parent" xml:space="preserve">
-    <value>TabControl</value>
-  </data>
-  <data name="&gt;&gt;TabPageMonth.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="TabControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="TabControl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="TabControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>645, 596</value>
-  </data>
-  <data name="TabControl.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="TabControl.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;TabControl.Name" xml:space="preserve">
-    <value>TabControl</value>
-  </data>
-  <data name="&gt;&gt;TabControl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TabControl.Parent" xml:space="preserve">
-    <value>PanelMainCenter</value>
-  </data>
-  <data name="&gt;&gt;TabControl.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="PanelMainCenter.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="PanelMainCenter.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="PanelMainCenter.Size" type="System.Drawing.Size, System.Drawing">
-    <value>645, 596</value>
-  </data>
-  <data name="PanelMainCenter.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;PanelMainCenter.Name" xml:space="preserve">
-    <value>PanelMainCenter</value>
-  </data>
-  <data name="&gt;&gt;PanelMainCenter.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;PanelMainCenter.Parent" xml:space="preserve">
-    <value>PanelMainInner</value>
-  </data>
-  <data name="&gt;&gt;PanelMainCenter.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="PanelMainInner.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="PanelMainInner.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1, 1</value>
-  </data>
-  <data name="PanelMainInner.Size" type="System.Drawing.Size, System.Drawing">
-    <value>645, 596</value>
-  </data>
-  <data name="PanelMainInner.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;PanelMainInner.Name" xml:space="preserve">
-    <value>PanelMainInner</value>
-  </data>
-  <data name="&gt;&gt;PanelMainInner.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;PanelMainInner.Parent" xml:space="preserve">
-    <value>PanelMainOuter</value>
-  </data>
-  <data name="&gt;&gt;PanelMainInner.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="PanelMainOuter.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="PanelMainOuter.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 44</value>
-  </data>
-  <data name="PanelMainOuter.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
-  </data>
-  <data name="PanelMainOuter.Size" type="System.Drawing.Size, System.Drawing">
-    <value>647, 598</value>
-  </data>
-  <data name="PanelMainOuter.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
-  </data>
-  <data name="&gt;&gt;PanelMainOuter.Name" xml:space="preserve">
-    <value>PanelMainOuter</value>
-  </data>
-  <data name="&gt;&gt;PanelMainOuter.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;PanelMainOuter.Parent" xml:space="preserve">
-    <value>PanelMain</value>
-  </data>
-  <data name="&gt;&gt;PanelMainOuter.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="PanelSepTop.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="PanelSepTop.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 34</value>
-  </data>
-  <data name="PanelSepTop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>647, 10</value>
-  </data>
-  <data name="PanelSepTop.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="&gt;&gt;PanelSepTop.Name" xml:space="preserve">
-    <value>PanelSepTop</value>
-  </data>
-  <data name="&gt;&gt;PanelSepTop.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;PanelSepTop.Parent" xml:space="preserve">
-    <value>PanelMain</value>
-  </data>
-  <data name="&gt;&gt;PanelSepTop.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
+  <data name="dataGridViewTextBoxColumn2.HeaderText" xml:space="preserve">
+    <value>Meaning</value>
+  </data>
+  <metadata name="meaningsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>992, 20</value>
+  </metadata>
   <data name="LabelTitle.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
@@ -1856,60 +2135,6 @@
   <data name="&gt;&gt;LabelTitle.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="PanelTitle.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="PanelTitle.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 10</value>
-  </data>
-  <data name="PanelTitle.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
-  </data>
-  <data name="PanelTitle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>647, 24</value>
-  </data>
-  <data name="PanelTitle.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;PanelTitle.Name" xml:space="preserve">
-    <value>PanelTitle</value>
-  </data>
-  <data name="&gt;&gt;PanelTitle.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;PanelTitle.Parent" xml:space="preserve">
-    <value>PanelMain</value>
-  </data>
-  <data name="&gt;&gt;PanelTitle.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="PanelMain.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="PanelMain.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 54</value>
-  </data>
-  <data name="PanelMain.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>10, 10, 10, 10</value>
-  </data>
-  <data name="PanelMain.Size" type="System.Drawing.Size, System.Drawing">
-    <value>667, 652</value>
-  </data>
-  <data name="PanelMain.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;PanelMain.Name" xml:space="preserve">
-    <value>PanelMain</value>
-  </data>
-  <data name="&gt;&gt;PanelMain.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;PanelMain.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;PanelMain.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="moonPhaseImagePictureBox.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -1936,6 +2161,33 @@
   </metadata>
   <data name="ToolStrip.AutoSize" type="System.Boolean, mscorlib">
     <value>False</value>
+  </data>
+  <data name="ToolStrip.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="ToolStrip.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 5, 5, 0</value>
+  </data>
+  <data name="ToolStrip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>667, 54</value>
+  </data>
+  <data name="ToolStrip.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="ToolStrip.Text" xml:space="preserve">
+    <value>toolStrip1</value>
+  </data>
+  <data name="&gt;&gt;ToolStrip.Name" xml:space="preserve">
+    <value>ToolStrip</value>
+  </data>
+  <data name="&gt;&gt;ToolStrip.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ToolStrip.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;ToolStrip.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="ActionExit.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2041,6 +2293,52 @@
   <data name="ActionHelp.ToolTipText" xml:space="preserve">
     <value>Help (F11)</value>
   </data>
+  <data name="MenuWeb.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
+  </data>
+  <data name="MenuWeb.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="MenuWeb.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 46</value>
+  </data>
   <data name="ActionAbout.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -2128,17 +2426,18 @@
   <data name="toolStripMenuItem2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         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
-        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
+        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
+        TkSuQmCC
 </value>
   </data>
   <data name="toolStripMenuItem2.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
@@ -2208,17 +2507,17 @@
   <data name="toolStripMenuItem15.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJJSURBVDhPjVNbTxNREN4/ZVS8IAalQrmXS8ESkTSmGkkM
-        REk0RFETotHEwIMPYqKPxgeN0UjwFkSNxke32wu0uG2giDa0ROi23f2cme22mPSBSSY7c/aby/lmjsIS
-        dfUVvtW6zVCDF7tVjnGCEW7oqwoSdXkRbuxH6ATpjnOO4VilfEgAAdKhVt8D9UALgofa/guqpnYCCgrW
-        diB4sBWhYz2ItJ9G+vksUlMz0I522dUJ42DLtpNAq+9GPDCGtfuPoR3pxM+Ra2CxtnMIN/koiUcwoeO9
-        klDs0pUUdhZ7A7DyBYowxY60DWL90ROsTE4LONp9RpQrL3oDiHb5ETzcLr6i1jQj/WLWrlgswkiuIvv+
-        E/Jrv5Fd+IrY0Agsw4D5dwv51V+CK2Y2kbr3QJIoQWpZH50gUB7m1jaS47elMktuOSHE5qJx24/rSD97
-        LTZM6rb/HF2BSWsekODiRhbqfjeWfOepHUsCfuxxITP3UXyuyv8Zy37i8qTNQdTjh0mEcQK+v37xOlWw
-        YCRWZCrZD1+kaGZuHsvDV2AViC+S+Nmx0hiJXYPaZcnFdGx+/i42S/LqHWy8eis2c+RI5s08tDoPJSAm
-        eTSxwQtITT9EcuIuYv5R6uIG9Es3EWk9hcy7BQn+8/QlEsRRcvyWdMZaXiSeNU+El0mr6xSG1b1NWBoY
-        LtWkW9E0wm4f1H3u0kI5m1hKEm48Wdk6Xmu6GvPDnaWmWGcQ6RiqbCR9KwmqKVXgNrkztaZFlJPuxDgv
-        ctfPmbtktZ+zovwDi5vNN1UZhBkAAAAASUVORK5CYII=
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJISURBVDhPjVNbTxNREN4/ZVS8IAallnIvl4IlImlMNZIY
+        iJJoiKImBKOJgQcfxEQfjQ8ao5HgLYi3xEe3222hxbaBItrQEqC33c+Z2W6LSR+YZLIzZ7+5nG/mKCxh
+        R2/hW63TCDZ4sFflGDsYekNvVZCowwPd2YfgKdJd5xzDsUr5kAACpEOtvhvqoWYEjrT+F1RNrQQUFKht
+        R+BwC4InuhFqO4vUi1kkp2agHe+0qhPGxpZtO4FW34WofxRrD55AO9aBX8M3wGLuZKE3eimJWzDBkz2S
+        UOzSlRR2Fnv8MPMFijDEDrUOYP3xU6xMTAs43HVOlCsvevwId/oQONomvqLWNCH1ctaqWCwil1hF5sNn
+        5Nf+ILPwHZHBYZi5HIytbeRXfwuumN5E8v5DSaIEqOXYyDiB8jC2d5AYuyOVWbLLcSE2G45afjSG1PM3
+        YsOgbvsu0BWYtKZ+CS5uZKAedGHJe5HaMSXg5z4H0nOfxOeq/J+x7MevTlgchN0+GEQYJ+D7xy7fpAom
+        cvEVmUrm41cpmp6bx/LQNZgF4osken60NEZiN0ftsmQjMWx++SE2S+L6XWy8fic2c2RL+u08tDo3JSAm
+        eTSRgUtITj9CYvweIr4R6uIWYlduI9RyBun3CxL899krxImjxNikdMZaXiSeNU+El0mr6xCG1f2NWOof
+        KtWkW9E0dJcX6gFXaaHsTSwl0Z2nK1vHa01XY364s+QU6wxC7YOVjaRvJUE1pQrcJnem1jSLctLdGPtF
+        7vk5c5es1nNWlH96p80vVUvP8QAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="toolStripMenuItem15.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
@@ -2239,22 +2538,22 @@
   <data name="toolStripMenuItem16.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         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
-        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
+        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
 </value>
   </data>
   <data name="toolStripMenuItem16.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
@@ -2295,14 +2594,14 @@
   <data name="toolStripMenuItem13.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGgSURBVDhPnVNLSwJRFD7jI7TfIIZoP0AjBKGFREIkgi4y
-        fEA/p1a5NKiV7ooIwnWG/oQkSNAWgutmNB/z+Jo7p8mkIaUDH+fec77zzblzzyVhRj6/p5dKVRPXerF4
-        tRLl8qVxfJzk4mj0RCZS4XLB9AaIsBLM1RGLnZK6tfUqgrLHo8obG5oFr1cz98sQMTtvckXNPBB4o7Hf
-        L1uqkuT8NSd8cRWfbyQE3sXGar9QAG5ugEYDeHwEnp6AdhtoNjl2ewuUSt9Co81NZdFBOAxMJrDMMNj/
-        NDs2mwHb2w4C+/tMmE7ZDwbAwwOvRbGmcbGwVMpBIJPhpKqy7/cBrxeIx4FOh2PzOftcbg2BXg/w+4F0
-        Guh2OWbnslkHgWSSk/YRhkOg1eK1OIIoto9wcOAgEAwCisKEv37ieAyEQksCi2s8PASqVaBe5yu7uwPu
-        73ldq3Hu6Mgq/t3BPwZp5PMppEUiz2IjS9Jcdrt5bIV3gp2TJGuU1UDghYxEImO2/7HuY7I4zJ0Yu7tZ
-        fpFEUbOtM52oYuJiBSq6JJ2bYjtERJ8Ei3wIqnSs6AAAAABJRU5ErkJggg==
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGhSURBVDhPnVNNSwJRFL2jKWO/QYrQfoBGBEELiYJQBFtk
+        2AT9nFrV0qBWtTMiCNcq+hOSIMFaCG6nRjPn6/Te3CaLhowuHO5795575r5595E0t1hcczStLHDu7O2d
+        TcX+/qm7s5Ph4lRqVyeyEApBeBdEmArmOkinD8ian3+QQX1mxtKjUdtDJGKL/XfImJ8XXFljxuNPNIzF
+        XjxVRQn+WhA+uIaqDqTAs9x47ZdKQKUCVKtArQY0GkCrBdTrHLu6AjTtU2gwO2tMOkgkgNEInrku+6/m
+        x8ZjYHExQGB9nQlvb+x7PeD2ltey2La5WNrmZoBAPs9Jy2L/+AhEIsDKCtBuc8w02W9v/0Gg2wViMSCX
+        Azodjvm5QiFAIJPhpH+Efh9oNnktjyCL/SNsbAQIzM0BhsGE337icAgsLHwTmFzj1hZQLgOXl3xl19fA
+        zQ2vLy44l816xT87+McgDVTVIDuZvJMbXVFMPRzmsZU+CH5OUbxRtuLxe3JXV/Oi/de/PiaPw9yRu7xc
+        4BdJlBJtHTpEJwLHU3DiKMqREFsiInoHgNp7xmWQJR4AAAAASUVORK5CYII=
 </value>
   </data>
   <data name="toolStripMenuItem13.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
@@ -2323,7 +2622,7 @@
   <data name="toolStripMenuItem1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFjSURBVDhPnZE9SMNQFIXtIjoInQpiqVB/UBGLguBYZ4NI
+        YQUAAAAJcEhZcwAADsEAAA7BAbiRa+0AAAFjSURBVDhPnZE9SMNQFIXtIjoInQpiqVB/UBGLguBYZ4NI
         FnFwc5QSEAdHEQQpVheRIgaMRTN0sAhxKFLo5ObiYqcuRaeOGXv03PbFNDYiffDBe++e+70bMqCWaZog
         lmWhc/VrqQzpXLWXtq+h2WwKjUYD6d10T1SG8CzN3OilNWSLWeHsIYfjtz3k60eC/ZGD/ZmTvcqQzfIG
         tAMNIpi5nkTkJILoxRCmrBgW7TGsl2eFnZdlgXves87c0t38j2D6akIEw+eDSJhRpOxRrD4mBTbqzwso
@@ -2344,7 +2643,7 @@
   <data name="toolStripMenuItem6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAG3SURBVDhPnZM5a0JBFIXf73D5E1aaImBQ0riAYqeVlQgq
+        YQUAAAAJcEhZcwAADsEAAA7BAbiRa+0AAAG3SURBVDhPnZM5a0JBFIXf73D5E1aaImBQ0riAYqeVlQgq
         go1Yihb2NuJWuPwUwTIxEkyK2DxxaVTc9cQz+B6OBkIycBnmcO/37twzT7Hb7Q/xePwjkUi8/SVSqVTf
         6XQ+KZlM5gX/XGfIu0La5YxAIACbzYbD4YDj8XhRgXa7DUVR7nTW6gAtiVEul7Hf70UBl6a73W7sdjuc
         TiehS4DhcKgnMmq1mgAwrFarrns8Hh0SiUQGOoBCo9GQIPV6XQAKhYKkax2GQiFVAjA5n89LyblcDiaT
@@ -2363,52 +2662,6 @@
   </data>
   <data name="toolStripMenuItem6.Text" xml:space="preserve">
     <value>Translate the Bible with Hebrew Words</value>
-  </data>
-  <data name="MenuWeb.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-</value>
-  </data>
-  <data name="MenuWeb.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="MenuWeb.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 46</value>
   </data>
   <data name="Sep6.Size" type="System.Drawing.Size, System.Drawing">
     <value>6, 49</value>
@@ -2458,6 +2711,61 @@
   </data>
   <data name="ActionPreferences.ToolTipText" xml:space="preserve">
     <value>Preferences (F8)</value>
+  </data>
+  <data name="MenuSettings.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
+  </data>
+  <data name="MenuSettings.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="MenuSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 46</value>
+  </data>
+  <data name="MenuitemScreenPosition.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="MenuitemScreenPosition.Size" type="System.Drawing.Size, System.Drawing">
+    <value>221, 22</value>
+  </data>
+  <data name="MenuitemScreenPosition.Text" xml:space="preserve">
+    <value>Screen position</value>
   </data>
   <data name="EditScreenNone.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
@@ -2531,15 +2839,6 @@
   <data name="EditScreenCenter.Text" xml:space="preserve">
     <value>Center</value>
   </data>
-  <data name="MenuitemScreenPosition.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="MenuitemScreenPosition.Size" type="System.Drawing.Size, System.Drawing">
-    <value>221, 22</value>
-  </data>
-  <data name="MenuitemScreenPosition.Text" xml:space="preserve">
-    <value>Screen position</value>
-  </data>
   <data name="ActionResetWinSettings.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
   </data>
@@ -2581,52 +2880,6 @@
   </data>
   <data name="EditConfirmClosing.Text" xml:space="preserve">
     <value>Confirm application closing</value>
-  </data>
-  <data name="MenuSettings.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-</value>
-  </data>
-  <data name="MenuSettings.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="MenuSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 46</value>
   </data>
   <data name="ActionViewSearch.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2753,6 +3006,51 @@
   </data>
   <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
     <value>6, 49</value>
+  </data>
+  <data name="MenuTools.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
+  </data>
+  <data name="MenuTools.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="MenuTools.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 46</value>
   </data>
   <data name="ActionShowGrammarGuide.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2928,49 +3226,50 @@
   <data name="toolStripMenuItem9.Text" xml:space="preserve">
     <value>Lexilogos - Dictionnaire hébreu moderne</value>
   </data>
-  <data name="MenuTools.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="MenuWebLinks.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         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
-        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
+        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
 </value>
   </data>
-  <data name="MenuTools.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+  <data name="MenuWebLinks.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
     <value>Magenta</value>
   </data>
-  <data name="MenuTools.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="MenuWebLinks.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 46</value>
   </data>
   <data name="ActionOpenWebLinkTemplateFolder.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -3030,79 +3329,6 @@
   </data>
   <data name="ActionOpenWebLinkTemplateLink.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
-  </data>
-  <data name="MenuWebLinks.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-</value>
-  </data>
-  <data name="MenuWebLinks.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="MenuWebLinks.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 46</value>
-  </data>
-  <data name="ToolStrip.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="ToolStrip.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>5, 5, 5, 0</value>
-  </data>
-  <data name="ToolStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>667, 54</value>
-  </data>
-  <data name="ToolStrip.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="ToolStrip.Text" xml:space="preserve">
-    <value>toolStrip1</value>
-  </data>
-  <data name="&gt;&gt;ToolStrip.Name" xml:space="preserve">
-    <value>ToolStrip</value>
-  </data>
-  <data name="&gt;&gt;ToolStrip.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ToolStrip.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;ToolStrip.ZOrder" xml:space="preserve">
-    <value>2</value>
   </data>
   <metadata name="LettersTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>497, 17</value>
