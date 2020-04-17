@@ -30,10 +30,10 @@ namespace Ordisoftware.HebrewLetters
       switch ( keyData )
       {
         case Keys.F1:
-          ActionViewSearch.PerformClick();
+          ActionViewAnalysis.PerformClick();
           return true;
         case Keys.F2:
-          ActionViewSettings.PerformClick();
+          ActionViewLetters.PerformClick();
           return true;
         case Keys.F3:
           ActionSearchTerm.PerformClick();

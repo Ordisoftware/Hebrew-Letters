@@ -99,6 +99,9 @@
     <Compile Include="Source\Classes\Translations.cs" />
     <Compile Include="Source\Common\Localizer.cs" />
     <Compile Include="Source\Classes\SettingsHelper.cs" />
+    <Compile Include="Source\Forms\MainForm\MainForm.Search.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Source\Forms\MainForm\MainForm.DB.CreateSchema.cs">
       <SubType>Form</SubType>
     </Compile>

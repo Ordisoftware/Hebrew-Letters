@@ -71,7 +71,7 @@ namespace Ordisoftware.HebrewLetters
           ViewMode.Analyse,
           new ViewConnector
           {
-            MenuItem = ActionViewSearch,
+            MenuItem = ActionViewAnalysis,
             Panel = PanelViewSearch,
             Focused = EditLetters.Input
           }
@@ -80,7 +80,7 @@ namespace Ordisoftware.HebrewLetters
           ViewMode.Settings,
           new ViewConnector
           {
-            MenuItem = ActionViewSettings,
+            MenuItem = ActionViewLetters,
             Panel = PanelViewSettings,
             Focused = EditMeanings
           }

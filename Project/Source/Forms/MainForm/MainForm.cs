@@ -288,22 +288,28 @@ namespace Ordisoftware.HebrewLetters
     }
 
     /// <summary>
-    /// Event handler. Called by ActionViewSearch for click events.
+    /// Event handler. Called by ActionViewAnalysis for click events.
     /// </summary>
     /// <param name="sender">Source of the event.</param>
     /// <param name="e">Event information.</param>
-    private void ActionViewSearch_Click(object sender, EventArgs e)
+    private void ActionViewAnalysis_Click(object sender, EventArgs e)
     {
       if ( DataSet.HasChanges() ) TableAdapterManager.UpdateAll(DataSet);
       SetView(ViewMode.Analyse);
     }
 
+    private void ActionSearchTerm_Click(object sender, EventArgs e)
+    {
+      ActionViewLetters.PerformClick();
+      DoSearch();
+    }
+
     /// <summary>
-    /// Event handler. Called by ActionViewSettings for click events.
+    /// Event handler. Called by ActionViewLetters for click events.
     /// </summary>
     /// <param name="sender">Source of the event.</param>
     /// <param name="e">Event information.</param>
-    private void ActionViewSettings_Click(object sender, EventArgs e)
+    private void ActionViewLetters_Click(object sender, EventArgs e)
     {
       if ( DataSet.HasChanges() ) TableAdapterManager.UpdateAll(DataSet);
       SetView(ViewMode.Settings);
@@ -411,20 +417,22 @@ namespace Ordisoftware.HebrewLetters
       Close();
     }
 
+    private void ProcessHTMLBrowser(HTMLBrowserForm form)
+    {
+      if ( form.WindowState == FormWindowState.Minimized )
+        form.WindowState = FormWindowState.Normal;
+      form.Show();
+      form.BringToFront();
+    }
+
     private void ActionShowMethodNotice_Click(object sender, EventArgs e)
     {
-      if ( Program.MethodNoticeForm.WindowState == FormWindowState.Minimized )
-        Program.MethodNoticeForm.WindowState = FormWindowState.Normal;
-      Program.MethodNoticeForm.Show();
-      Program.MethodNoticeForm.BringToFront();
+      ProcessHTMLBrowser(Program.MethodNoticeForm);
     }
 
     private void ActionShowGrammarGuide_Click(object sender, EventArgs e)
     {
-      if ( Program.GrammarGuideForm.WindowState == FormWindowState.Minimized )
-        Program.GrammarGuideForm.WindowState = FormWindowState.Normal;
-      Program.GrammarGuideForm.Show();
-      Program.GrammarGuideForm.BringToFront();
+      ProcessHTMLBrowser(Program.GrammarGuideForm);
     }
 
     private void ActionOpenWebsiteURL_Click(object sender, EventArgs e)
@@ -593,7 +601,7 @@ namespace Ordisoftware.HebrewLetters
     private void BindingSource_DataError(object sender, BindingManagerDataErrorEventArgs e)
     {
       if ( e.Exception is ArgumentOutOfRangeException ) return; // ?
-      DisplayManager.ShowError(e.Exception.Message);
+      e.Exception.Manage();
       DataSet.RejectChanges();
     }
 
@@ -608,7 +616,7 @@ namespace Ordisoftware.HebrewLetters
         Application.Exit();
       }
       else
-        DisplayManager.ShowError(e.Exception.Message);
+        e.Exception.Manage();
     }
 
     private void ActionOpenHebrewAlphabet_Click(object sender, EventArgs e)
@@ -620,53 +628,6 @@ namespace Ordisoftware.HebrewLetters
     private void ActionSearchOnline_Click(object sender, EventArgs e)
     {
       ContextMenuSearchOnline.Show(ActionSearchOnline, new Point(0, ActionSearchOnline.Height));
-    }
-
-    private string LastTermSearched;
-
-    private void ActionSearchTerm_Click(object sender, EventArgs e)
-    {
-      ActionViewSettings.PerformClick();
-      string letterName = "";
-      var formSearch = new SearchMeaningBox();
-      formSearch.EditTerm.Text = LastTermSearched;
-      if ( formSearch.ShowDialog() != DialogResult.OK )
-        return;
-      Func<Data.DataSet.MeaningsRow[], string, bool> contains = (rows, str) =>
-      {
-        foreach ( var row in rows )
-          if ( row.Meaning.ToLower().Contains(str) )
-            return true;
-        return false;
-      };
-      LastTermSearched = formSearch.EditTerm.Text;
-      string term = LastTermSearched.ToLower();
-      var query = from letter in DataSet.Letters
-                  where letter.Function.ToLower().Contains(term)
-                     || letter.Verb.ToLower().Contains(term)
-                     || letter.Structure.ToLower().Contains(term)
-                     || letter.Positive.ToLower().Contains(term)
-                     || letter.Negative.ToLower().Contains(term)
-                     || contains(letter.GetMeaningsRows(), term)
-                  select letter;
-      if ( query.Count() == 0 )
-      {
-        MessageBox.Show(Translations.TermNotFound.GetLang(formSearch.EditTerm.Text));
-        return;
-      }
-      if ( query.Count() > 1 )
-      {
-        var formResults = new SearchTermResultsBox();
-        foreach ( var row in query )
-          formResults.Listbox.Items.Add(row.Name);
-        formResults.Listbox.SelectedItem = formResults.Listbox.Items[0];
-        if ( formResults.ShowDialog() == DialogResult.Cancel )
-          return;
-        letterName = formResults.Listbox.SelectedItem.ToString();
-      }
-      else
-        letterName = query.First().Name;
-      LettersBindingSource.Position = LettersBindingSource.Find("Name", letterName);
     }
 
   }

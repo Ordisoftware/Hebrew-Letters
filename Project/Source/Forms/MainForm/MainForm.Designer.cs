@@ -126,8 +126,8 @@
       this.EditShowTips = new System.Windows.Forms.ToolStripMenuItem();
       this.EditESCtoExit = new System.Windows.Forms.ToolStripMenuItem();
       this.EditConfirmClosing = new System.Windows.Forms.ToolStripMenuItem();
-      this.ActionViewSearch = new System.Windows.Forms.ToolStripButton();
-      this.ActionViewSettings = new System.Windows.Forms.ToolStripButton();
+      this.ActionViewAnalysis = new System.Windows.Forms.ToolStripButton();
+      this.ActionViewLetters = new System.Windows.Forms.ToolStripButton();
       this.ActionSearchTerm = new System.Windows.Forms.ToolStripButton();
       this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
       this.MenuTools = new System.Windows.Forms.ToolStripDropDownButton();
@@ -661,8 +661,8 @@
             this.Sep6,
             this.ActionPreferences,
             this.MenuSettings,
-            this.ActionViewSearch,
-            this.ActionViewSettings,
+            this.ActionViewAnalysis,
+            this.ActionViewLetters,
             this.ActionSearchTerm,
             this.toolStripSeparator1,
             this.MenuTools,
@@ -947,25 +947,25 @@
       this.EditConfirmClosing.CheckOnClick = true;
       this.EditConfirmClosing.Name = "EditConfirmClosing";
       // 
-      // ActionViewSearch
+      // ActionViewAnalysis
       // 
-      this.ActionViewSearch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      resources.ApplyResources(this.ActionViewSearch, "ActionViewSearch");
-      this.ActionViewSearch.Name = "ActionViewSearch";
-      this.ActionViewSearch.Padding = new System.Windows.Forms.Padding(5);
-      this.ActionViewSearch.Click += new System.EventHandler(this.ActionViewSearch_Click);
-      this.ActionViewSearch.MouseEnter += new System.EventHandler(this.ShowToolTipOnMouseEnter);
-      this.ActionViewSearch.MouseLeave += new System.EventHandler(this.ShowToolTipOnMouseLeave);
+      this.ActionViewAnalysis.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      resources.ApplyResources(this.ActionViewAnalysis, "ActionViewAnalysis");
+      this.ActionViewAnalysis.Name = "ActionViewAnalysis";
+      this.ActionViewAnalysis.Padding = new System.Windows.Forms.Padding(5);
+      this.ActionViewAnalysis.Click += new System.EventHandler(this.ActionViewAnalysis_Click);
+      this.ActionViewAnalysis.MouseEnter += new System.EventHandler(this.ShowToolTipOnMouseEnter);
+      this.ActionViewAnalysis.MouseLeave += new System.EventHandler(this.ShowToolTipOnMouseLeave);
       // 
-      // ActionViewSettings
+      // ActionViewLetters
       // 
-      this.ActionViewSettings.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      resources.ApplyResources(this.ActionViewSettings, "ActionViewSettings");
-      this.ActionViewSettings.Name = "ActionViewSettings";
-      this.ActionViewSettings.Padding = new System.Windows.Forms.Padding(5);
-      this.ActionViewSettings.Click += new System.EventHandler(this.ActionViewSettings_Click);
-      this.ActionViewSettings.MouseEnter += new System.EventHandler(this.ShowToolTipOnMouseEnter);
-      this.ActionViewSettings.MouseLeave += new System.EventHandler(this.ShowToolTipOnMouseLeave);
+      this.ActionViewLetters.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      resources.ApplyResources(this.ActionViewLetters, "ActionViewLetters");
+      this.ActionViewLetters.Name = "ActionViewLetters";
+      this.ActionViewLetters.Padding = new System.Windows.Forms.Padding(5);
+      this.ActionViewLetters.Click += new System.EventHandler(this.ActionViewLetters_Click);
+      this.ActionViewLetters.MouseEnter += new System.EventHandler(this.ShowToolTipOnMouseEnter);
+      this.ActionViewLetters.MouseLeave += new System.EventHandler(this.ShowToolTipOnMouseLeave);
       // 
       // ActionSearchTerm
       // 
@@ -1166,8 +1166,8 @@
     private System.Windows.Forms.Panel PanelViewSearch;
     private System.Windows.Forms.TabPage TabPageMonth;
     private System.Windows.Forms.Panel PanelViewSettings;
-    private System.Windows.Forms.ToolStripButton ActionViewSearch;
-    private System.Windows.Forms.ToolStripButton ActionViewSettings;
+    private System.Windows.Forms.ToolStripButton ActionViewAnalysis;
+    private System.Windows.Forms.ToolStripButton ActionViewLetters;
     private Data.DataSet DataSet;
     private System.Windows.Forms.BindingSource LettersBindingSource;
     private Data.DataSetTableAdapters.LettersTableAdapter LettersTableAdapter;
