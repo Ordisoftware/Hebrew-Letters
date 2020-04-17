@@ -172,4 +172,7 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Préférences</value>
   </data>
+  <data name="EditAutoSortAnalysisMeanings.Text" xml:space="preserve">
+    <value>Trier automatiquement les significations</value>
+  </data>
 </root>

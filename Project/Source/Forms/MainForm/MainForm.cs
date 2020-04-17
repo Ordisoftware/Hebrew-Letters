@@ -147,7 +147,7 @@ namespace Ordisoftware.HebrewLetters
       {
         ActionReset.Visible = true;
         EditLetters.Input.Text = Program.StartupWord;
-        ActionAnalyse.PerformClick();
+        DoAnalyse();
       }
       if ( IsDBUpgraded && DisplayManager.QueryYesNo(Translations.AskToCheckLettersAfterDatabaseChanged.GetLang()) )
         SetView(ViewMode.Settings, true);
@@ -338,6 +338,7 @@ namespace Ordisoftware.HebrewLetters
     private void ActionPreferences_Click(object sender, EventArgs e)
     {
       PreferencesForm.Run();
+      DoAnalyse();
     }
 
     /// <summary>
@@ -520,17 +521,17 @@ namespace Ordisoftware.HebrewLetters
 
     private void EditLetters_KeyPress(object sender, KeyPressEventArgs e)
     {
-      if ( e.KeyChar == '\r' ) ActionAnalyse.PerformClick();
+      if ( e.KeyChar == '\r' ) DoAnalyse();
     }
 
     private void EditLetters_InputTextChanged(object sender, EventArgs e)
     {
-      ActionAnalyse.Enabled = EditLetters.Input.Text != "";
+      var enabled = EditLetters.Input.Text != "";
       ActionDelFirst.Enabled = EditLetters.Input.Text.Length > 1;
       ActionDelLast.Enabled = ActionDelFirst.Enabled;
-      ActionClear.Enabled = ActionAnalyse.Enabled;
-      ActionCopyToUnicode.Enabled = ActionAnalyse.Enabled;
-      ActionSearchOnline.Enabled = ActionAnalyse.Enabled;
+      ActionClear.Enabled = enabled;
+      ActionCopyToUnicode.Enabled = enabled;
+      ActionSearchOnline.Enabled = enabled;
       DoAnalyse();
     }
 

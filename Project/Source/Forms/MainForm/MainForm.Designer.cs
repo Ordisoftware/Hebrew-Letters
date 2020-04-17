@@ -51,7 +51,6 @@
       this.ActionDelFirst = new System.Windows.Forms.Button();
       this.SelectCloseApp = new System.Windows.Forms.CheckBox();
       this.EditAnalyze = new System.Windows.Forms.Panel();
-      this.ActionAnalyse = new System.Windows.Forms.Button();
       this.ActionSearchOnline = new System.Windows.Forms.Button();
       this.ContextMenuSearchOnline = new System.Windows.Forms.ContextMenuStrip(this.components);
       this.ActionOpenWordOnline = new System.Windows.Forms.ToolStripMenuItem();
@@ -275,7 +274,6 @@
       this.PanelViewSearch.Controls.Add(this.ActionDelFirst);
       this.PanelViewSearch.Controls.Add(this.SelectCloseApp);
       this.PanelViewSearch.Controls.Add(this.EditAnalyze);
-      this.PanelViewSearch.Controls.Add(this.ActionAnalyse);
       this.PanelViewSearch.Controls.Add(this.ActionSearchOnline);
       this.PanelViewSearch.Controls.Add(this.ActionPasteFromUnicode);
       this.PanelViewSearch.Controls.Add(this.ActionCopyToUnicode);
@@ -327,14 +325,6 @@
       this.EditAnalyze.BackColor = System.Drawing.Color.MintCream;
       this.EditAnalyze.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.EditAnalyze.Name = "EditAnalyze";
-      // 
-      // ActionAnalyse
-      // 
-      resources.ApplyResources(this.ActionAnalyse, "ActionAnalyse");
-      this.ActionAnalyse.FlatAppearance.BorderSize = 0;
-      this.ActionAnalyse.Name = "ActionAnalyse";
-      this.ActionAnalyse.UseVisualStyleBackColor = true;
-      this.ActionAnalyse.Click += new System.EventHandler(this.ActionAnalyse_Click);
       // 
       // ActionSearchOnline
       // 
@@ -1194,7 +1184,6 @@
     private System.Windows.Forms.Button ActionDeleteMeaning;
     private System.Windows.Forms.Button ActionAddMeaning;
     private System.Windows.Forms.Button ActionCopyToClipboardResult;
-    private System.Windows.Forms.Button ActionAnalyse;
     private System.Windows.Forms.Button ActionClear;
     private System.Windows.Forms.TextBox verbTextBox;
     private System.Windows.Forms.Panel EditAnalyze;

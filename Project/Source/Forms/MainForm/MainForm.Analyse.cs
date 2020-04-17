@@ -13,6 +13,7 @@
 /// <created> 2016-04 </created>
 /// <edited> 2020-04 </edited>
 using System;
+using System.Linq;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
@@ -37,11 +38,11 @@ namespace Ordisoftware.HebrewLetters
         SelectedMeanings = "";
         for ( int pos = word.Length - 1; pos >= 0; pos-- )
         {
-          var l = DataSet.Letters.FindByCode(Convert.ToString(word[pos]));
-          if ( l == null ) continue;
-          sum += l.ValueSimple;
+          var letter = DataSet.Letters.FindByCode(Convert.ToString(word[pos]));
+          if ( letter == null ) continue;
+          sum += letter.ValueSimple;
           var label = new Label();
-          label.Text = l.Name;
+          label.Text = letter.Name;
           label.AutoSize = false;
           label.Size = new Size(50, 13);
           label.Location = new Point(100, 20 + dy);
@@ -53,18 +54,21 @@ namespace Ordisoftware.HebrewLetters
           combobox.Location = new Point(155, 16 + dy);
           combobox.SelectedIndexChanged += MeaningComboBox_SelectedIndexChanged;
           EditAnalyze.Controls.Add(combobox);
-          combobox.Items.Add(l.Positive.Trim());
-          combobox.Items.Add(l.Negative.Trim());
-          combobox.Items.Add(l.Verb.Trim());
-          combobox.Items.Add(l.Structure.Trim());
-          combobox.Items.Add(l.Function.Trim());
-          SelectedMeanings += l.Name.Trim() + ": ";
-          SelectedMeanings += l.Positive.Trim() + ", ";
-          SelectedMeanings += l.Negative.Trim() + ", ";
-          SelectedMeanings += l.Verb.Trim() + ", ";
-          SelectedMeanings += l.Structure.Trim() + ", ";
-          SelectedMeanings += l.Function.Trim() + ", ";
-          foreach ( var meaning in l.GetMeaningsRows() )
+          combobox.Items.Add(letter.Positive.Trim());
+          combobox.Items.Add(letter.Negative.Trim());
+          combobox.Items.Add(letter.Verb.Trim());
+          combobox.Items.Add(letter.Structure.Trim());
+          combobox.Items.Add(letter.Function.Trim());
+          SelectedMeanings += letter.Name.Trim() + ": ";
+          SelectedMeanings += letter.Positive.Trim() + ", ";
+          SelectedMeanings += letter.Negative.Trim() + ", ";
+          SelectedMeanings += letter.Verb.Trim() + ", ";
+          SelectedMeanings += letter.Structure.Trim() + ", ";
+          SelectedMeanings += letter.Function.Trim() + ", ";
+          var list = letter.GetMeaningsRows().ToList();
+          if (Program.Settings.AutoSortAnalysisMeanings)
+            list = list.OrderBy(m => m.Meaning).ToList();
+          foreach ( var meaning in list )
           {
             var str = meaning.Meaning.Trim();
             combobox.Items.Add(str);

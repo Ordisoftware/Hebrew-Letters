@@ -39,8 +39,9 @@
       this.ActionSelectLangFR = new System.Windows.Forms.Button();
       this.LabelFontSize = new System.Windows.Forms.Label();
       this.EditFontSize = new System.Windows.Forms.NumericUpDown();
-      this.EditCheckUpdateAtStartup = new System.Windows.Forms.CheckBox();
+      this.EditAutoSortAnalysisMeanings = new System.Windows.Forms.CheckBox();
       this.EditVacuumAtStartup = new System.Windows.Forms.CheckBox();
+      this.EditCheckUpdateAtStartup = new System.Windows.Forms.CheckBox();
       this.PanelButtons.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.EditFontSize)).BeginInit();
       this.SuspendLayout();
@@ -115,14 +116,14 @@
             0});
       this.EditFontSize.ValueChanged += new System.EventHandler(this.EditFontSize_ValueChanged);
       // 
-      // EditCheckUpdateAtStartup
+      // EditAutoSortAnalysisMeanings
       // 
-      resources.ApplyResources(this.EditCheckUpdateAtStartup, "EditCheckUpdateAtStartup");
-      this.EditCheckUpdateAtStartup.Checked = global::Ordisoftware.HebrewLetters.Properties.Settings.Default.CheckUpdateAtStartup;
-      this.EditCheckUpdateAtStartup.CheckState = System.Windows.Forms.CheckState.Checked;
-      this.EditCheckUpdateAtStartup.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Ordisoftware.HebrewLetters.Properties.Settings.Default, "CheckUpdateAtStartup", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-      this.EditCheckUpdateAtStartup.Name = "EditCheckUpdateAtStartup";
-      this.EditCheckUpdateAtStartup.UseVisualStyleBackColor = true;
+      resources.ApplyResources(this.EditAutoSortAnalysisMeanings, "EditAutoSortAnalysisMeanings");
+      this.EditAutoSortAnalysisMeanings.Checked = global::Ordisoftware.HebrewLetters.Properties.Settings.Default.AutoSortAnalysisMeanings;
+      this.EditAutoSortAnalysisMeanings.CheckState = System.Windows.Forms.CheckState.Checked;
+      this.EditAutoSortAnalysisMeanings.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Ordisoftware.HebrewLetters.Properties.Settings.Default, "AutoSortAnalysisMeanings", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+      this.EditAutoSortAnalysisMeanings.Name = "EditAutoSortAnalysisMeanings";
+      this.EditAutoSortAnalysisMeanings.UseVisualStyleBackColor = true;
       // 
       // EditVacuumAtStartup
       // 
@@ -133,12 +134,22 @@
       this.EditVacuumAtStartup.Name = "EditVacuumAtStartup";
       this.EditVacuumAtStartup.UseVisualStyleBackColor = true;
       // 
+      // EditCheckUpdateAtStartup
+      // 
+      resources.ApplyResources(this.EditCheckUpdateAtStartup, "EditCheckUpdateAtStartup");
+      this.EditCheckUpdateAtStartup.Checked = global::Ordisoftware.HebrewLetters.Properties.Settings.Default.CheckUpdateAtStartup;
+      this.EditCheckUpdateAtStartup.CheckState = System.Windows.Forms.CheckState.Checked;
+      this.EditCheckUpdateAtStartup.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Ordisoftware.HebrewLetters.Properties.Settings.Default, "CheckUpdateAtStartup", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+      this.EditCheckUpdateAtStartup.Name = "EditCheckUpdateAtStartup";
+      this.EditCheckUpdateAtStartup.UseVisualStyleBackColor = true;
+      // 
       // PreferencesForm
       // 
       this.AcceptButton = this.ActionClose;
       resources.ApplyResources(this, "$this");
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.CancelButton = this.ActionClose;
+      this.Controls.Add(this.EditAutoSortAnalysisMeanings);
       this.Controls.Add(this.EditVacuumAtStartup);
       this.Controls.Add(this.EditFontSize);
       this.Controls.Add(this.LabelFontSize);
@@ -172,5 +183,6 @@
     private System.Windows.Forms.NumericUpDown EditFontSize;
     private System.Windows.Forms.Label LabelFontSize;
     private System.Windows.Forms.CheckBox EditVacuumAtStartup;
+    private System.Windows.Forms.CheckBox EditAutoSortAnalysisMeanings;
   }
 }

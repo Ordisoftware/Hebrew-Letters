@@ -272,5 +272,17 @@ namespace Ordisoftware.HebrewLetters.Properties {
                 this["MethodNoticeFormSize"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool AutoSortAnalysisMeanings {
+            get {
+                return ((bool)(this["AutoSortAnalysisMeanings"]));
+            }
+            set {
+                this["AutoSortAnalysisMeanings"] = value;
+            }
+        }
     }
 }

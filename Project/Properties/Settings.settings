@@ -70,5 +70,8 @@
     <Setting Name="MethodNoticeFormSize" Type="System.Drawing.Point" Scope="User">
       <Value Profile="(Default)">392, 466</Value>
     </Setting>
+    <Setting Name="AutoSortAnalysisMeanings" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
