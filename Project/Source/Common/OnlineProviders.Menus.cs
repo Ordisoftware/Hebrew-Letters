@@ -22,7 +22,7 @@ namespace Ordisoftware.HebrewCommon
 {
 
   /// <summary>
-  /// Online providers list.
+  /// Provide opnline providers list.
   /// </summary>
   public partial class OnlineProviders
   {
