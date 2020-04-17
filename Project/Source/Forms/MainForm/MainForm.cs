@@ -76,21 +76,13 @@ namespace Ordisoftware.HebrewLetters
       try { Icon = Icon.ExtractAssociatedIcon(Globals.IconFilename); }
       catch { }
       ClipboardViewerNext = SetClipboardViewer(Handle);
-      EventHandler action = (sender, e) =>
+      OnlineProviders.CreateProvidersMenuItems(Globals.OnlineWordProviders, ContextMenuSearchOnline, (sender, e) =>
       {
         var menuitem = (ToolStripMenuItem)sender;
         var control = ( (ContextMenuStrip)menuitem.Owner ).SourceControl;
         string str = HebrewAlphabet.ConvertToUnicode(EditLetters.Input.Text);
         Program.RunShell(( (string)menuitem.Tag ).Replace("%WORD%", str));
-      };
-      int index = 1;
-      foreach ( var item in Globals.OnlineWordProviders.Items )
-      {
-        if ( item.Name == "-" )
-          ContextMenuSearchOnline.Items.Insert(index++, new ToolStripSeparator());
-        else
-          ContextMenuSearchOnline.Items.Insert(index++, item.CreateMenuItem(action));
-      }
+      });
     }
 
     /// <summary>
@@ -98,7 +90,9 @@ namespace Ordisoftware.HebrewLetters
     /// </summary>
     internal void CreateWebLinks()
     {
-      Program.CreateWebLinks(MenuWebLinks, ActionOpenWebLinkTemplateFolder.Image, ActionOpenWebLinkTemplateLink.Image);
+      OnlineProviders.CreateWebLinksMenuItems(MenuWebLinks, 
+                                              ActionOpenWebLinkTemplateFolder.Image, 
+                                              ActionOpenWebLinkTemplateLink.Image);
     }
 
     /// <summary>
