@@ -1042,21 +1042,6 @@
         fGxALIIzwec432LZ6TnC/xL5o8YBcLp5zfn5bQL6f9qsWf8BNLi7QPU+SnEAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="ActionShowGrammarGuide.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsAAAA7AAWrWiQkAAAIISURBVDhPpZBbTxNRFIXPD/LNxD9hTIwQDA+aqHiBUEt5
-        8T9gqaKBYqjQy0xhQDFGILWll8HW0CqJilJqgU4v0AECkiBRosNi7wNpImiiuJM168yc/a2z54hLdx6m
-        Ljruo97u+icxw6xocNwD189vX6Ws76ydP+uwj4tZUW/vpOUeOrRpqbvDaXSOpOEayfxWvNehpWUAs6JO
-        Bli0kUG1XIS5XMKD0Rl8Wa+i+/m7Y765VkXX07eSYbYW0PVsBhurK7LBPfYBbS3X4QnPw9F6gzyL9tYm
-        eF7Owd58Dd0v3h8P6BmbRe/EJ7jHP8ITysEbMeCNGeifMuBL5KHG5+GLzKEvRD3UeyRgj6AsbLeu0iVt
-        wxdewvk+gcBUFRkhEEwVIM6EoUazsHa28IgOYeYg4DYHAP3hHPyxRQxE8ghMGhiMmQgkKvDqBnkewXiO
-        AvLwRwp4HPosGWZrAf7YAmw3r9DqBzWXcM5NJ5PD2oVvMkcH7h5876XJokXJ/BIQSBQwmCxBIVfjBjVX
-        yAvwRxekD+nL0FKr0NKb9GsVyRwGOOVLUC+ipemyXCvxRXpaUGgqdo3gsz0CT95sIUl3orxekX3M1iZQ
-        6bZ5AnZVX6JJSOSqTqe/KmM4aWJo2kQwY0JJlSUjJ2hwuOTLSYpZ0djuLPKizubEhb8U9zLDrKA6RTp9
-        QjH7PyXEPs4au7xKiM4+AAAAAElFTkSuQmCC
-</value>
-  </data>
   <data name="ActionShowGrammarGuide.Text" xml:space="preserve">
     <value>Guide de grammaire</value>
   </data>
