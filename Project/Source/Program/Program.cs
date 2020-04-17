@@ -71,6 +71,7 @@ namespace Ordisoftware.HebrewLetters
       Infralution.Localization.CultureManager.ApplicationUICulture = culture;
       AboutBox.Instance.AboutBox_Shown(null, null);
       GrammarGuideForm.HTMLBrowserForm_Shown(null, null);
+      MethodNoticeForm.HTMLBrowserForm_Shown(null, null);
       MainForm.Instance.LabelGematria.Location = new Point(MainForm.Instance.LabelGematria.Location.X,
                                                            MainForm.Instance.EditGematria.Location.Y - 19);
       MainForm.Instance.CreateWebLinks();

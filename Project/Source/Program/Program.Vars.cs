@@ -62,7 +62,7 @@ namespace Ordisoftware.HebrewLetters
     /// <summary>
     /// Indicate the method notice form.
     /// </summary>
-    static public HTMLBrowserForm MethodGuideForm
+    static public HTMLBrowserForm MethodNoticeForm
     {
       get
       {
