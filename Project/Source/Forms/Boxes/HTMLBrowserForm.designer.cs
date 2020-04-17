@@ -28,33 +28,36 @@
     /// </summary>
     private void InitializeComponent()
     {
-      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HTMLBrowserForm));
       this.WebBrowser = new System.Windows.Forms.WebBrowser();
       this.SuspendLayout();
       // 
       // WebBrowser
       // 
       this.WebBrowser.AllowWebBrowserDrop = false;
-      resources.ApplyResources(this.WebBrowser, "WebBrowser");
+      this.WebBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
       this.WebBrowser.IsWebBrowserContextMenuEnabled = false;
+      this.WebBrowser.Location = new System.Drawing.Point(0, 0);
+      this.WebBrowser.MinimumSize = new System.Drawing.Size(20, 20);
       this.WebBrowser.Name = "WebBrowser";
       this.WebBrowser.ScriptErrorsSuppressed = true;
+      this.WebBrowser.Size = new System.Drawing.Size(342, 466);
+      this.WebBrowser.TabIndex = 0;
       this.WebBrowser.WebBrowserShortcutsEnabled = false;
       // 
       // HTMLBrowserForm
       // 
-      resources.ApplyResources(this, "$this");
+      this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = global::Ordisoftware.HebrewLetters.Properties.Settings.Default.GrammarGuideFormSize;
+      this.ClientSize = new System.Drawing.Size(342, 466);
       this.Controls.Add(this.WebBrowser);
-      this.DataBindings.Add(new System.Windows.Forms.Binding("Location", global::Ordisoftware.HebrewLetters.Properties.Settings.Default, "GrammarGuideFormLocation", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-      this.DataBindings.Add(new System.Windows.Forms.Binding("ClientSize", global::Ordisoftware.HebrewLetters.Properties.Settings.Default, "GrammarGuideFormSize", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-      this.Location = global::Ordisoftware.HebrewLetters.Properties.Settings.Default.GrammarGuideFormLocation;
       this.MaximizeBox = false;
+      this.MinimumSize = new System.Drawing.Size(350, 500);
       this.Name = "HTMLBrowserForm";
-      this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GrammarGuideForm_FormClosing);
-      this.Load += new System.EventHandler(this.GrammarGuideForm_Load);
-      this.Shown += new System.EventHandler(this.GrammarGuideForm_Shown);
+      this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+      this.Text = "Browser";
+      this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.HTMLBrowserForm_FormClosing);
+      this.Load += new System.EventHandler(this.HTMLBrowserForm_Load);
+      this.Shown += new System.EventHandler(this.HTMLBrowserForm_Shown);
       this.ResumeLayout(false);
 
     }

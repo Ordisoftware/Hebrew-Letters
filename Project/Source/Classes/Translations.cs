@@ -146,6 +146,13 @@ namespace Ordisoftware.HebrewLetters
         { "fr", "Guide de grammaire" }
       };
 
+    static public readonly Dictionary<string, string> MethodNoticeTitle
+      = new Dictionary<string, string>()
+      {
+        { "en", "Lettriq analysis method notice" },
+        { "fr", "Notice de la méthode d'analyse lettrique" }
+      };
+
   }
 
 }

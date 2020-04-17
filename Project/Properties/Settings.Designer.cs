@@ -248,5 +248,29 @@ namespace Ordisoftware.HebrewLetters.Properties {
                 this["VacuumAtStartup"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("-1, -1")]
+        public global::System.Drawing.Point MethodNoticeFormLocation {
+            get {
+                return ((global::System.Drawing.Point)(this["MethodNoticeFormLocation"]));
+            }
+            set {
+                this["MethodNoticeFormLocation"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("392, 466")]
+        public global::System.Drawing.Point MethodNoticeFormSize {
+            get {
+                return ((global::System.Drawing.Point)(this["MethodNoticeFormSize"]));
+            }
+            set {
+                this["MethodNoticeFormSize"] = value;
+            }
+        }
     }
 }

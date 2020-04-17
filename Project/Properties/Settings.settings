@@ -64,5 +64,11 @@
     <Setting Name="VacuumAtStartup" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="MethodNoticeFormLocation" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">-1, -1</Value>
+    </Setting>
+    <Setting Name="MethodNoticeFormSize" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">392, 466</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -412,7 +412,10 @@ namespace Ordisoftware.HebrewLetters
 
     private void ActionShowMethodNotice_Click(object sender, EventArgs e)
     {
-
+      if ( Program.MethodGuideForm.WindowState == FormWindowState.Minimized )
+        Program.MethodGuideForm.WindowState = FormWindowState.Normal;
+      Program.MethodGuideForm.Show();
+      Program.MethodGuideForm.BringToFront();
     }
 
     private void ActionShowGrammarGuide_Click(object sender, EventArgs e)

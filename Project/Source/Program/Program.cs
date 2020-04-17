@@ -70,7 +70,7 @@ namespace Ordisoftware.HebrewLetters
       new Infralution.Localization.CultureManager().ManagedControl = AboutBox.Instance;
       Infralution.Localization.CultureManager.ApplicationUICulture = culture;
       AboutBox.Instance.AboutBox_Shown(null, null);
-      GrammarGuideForm.GrammarGuideForm_Shown(null, null);
+      GrammarGuideForm.HTMLBrowserForm_Shown(null, null);
       MainForm.Instance.LabelGematria.Location = new Point(MainForm.Instance.LabelGematria.Location.X,
                                                            MainForm.Instance.EditGematria.Location.Y - 19);
       MainForm.Instance.CreateWebLinks();

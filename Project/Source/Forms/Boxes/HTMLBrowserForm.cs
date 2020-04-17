@@ -13,6 +13,7 @@
 /// <created> 2019-09 </created>
 /// <edited> 2020-04 </edited>
 using System;
+using System.Drawing;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Ordisoftware.HebrewCommon;
@@ -23,38 +24,48 @@ namespace Ordisoftware.HebrewLetters
   public partial class HTMLBrowserForm : Form
   {
 
-    static public HTMLBrowserForm Create(Dictionary<string, string> Title, string filename)
-    {
-      var form = new HTMLBrowserForm();
-      form.Title = Title;
-      form.Filename = filename;
-      return form;
-    }
-
     private Dictionary<string, string> Title;
     private string Filename;
 
-    private HTMLBrowserForm()
+    public HTMLBrowserForm()
     {
       InitializeComponent();
       Icon = MainForm.Instance.Icon;
       ActiveControl = WebBrowser;
     }
 
-    private void GrammarGuideForm_Load(object sender, EventArgs e)
+    public HTMLBrowserForm(Dictionary<string, string> title,
+                           string filename,
+                           string locationPropertyName,
+                           string clientSizePropertyName)
+    {
+      InitializeComponent();
+      Title = title;
+      Filename = filename;
+      ClientSize = Properties.Settings.Default.GrammarGuideFormSize;
+      DataBindings.Add(new Binding("Location", Properties.Settings.Default, locationPropertyName, true,
+                       DataSourceUpdateMode.OnPropertyChanged));
+      DataBindings.Add(new Binding("ClientSize", Properties.Settings.Default, clientSizePropertyName, true,
+                       DataSourceUpdateMode.OnPropertyChanged));
+      Location = (Point)Properties.Settings.Default[locationPropertyName];
+      Icon = MainForm.Instance.Icon;
+      ActiveControl = WebBrowser;
+    }
+
+    private void HTMLBrowserForm_Load(object sender, EventArgs e)
     {
       if ( Location.X == -1 && Location.Y == -1 )
         this.CenterToMainForm();
     }
 
-    internal void GrammarGuideForm_Shown(object sender, EventArgs e)
+    internal void HTMLBrowserForm_Shown(object sender, EventArgs e)
     {
       Text = Title.GetLang();
       if ( Filename != "" )
         WebBrowser.Navigate(Filename.Replace("%LANG%", Localizer.Language));
     }
 
-    private void GrammarGuideForm_FormClosing(object sender, FormClosingEventArgs e)
+    private void HTMLBrowserForm_FormClosing(object sender, FormClosingEventArgs e)
     {
       e.Cancel = true;
       Hide();

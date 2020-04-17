@@ -45,11 +45,35 @@ namespace Ordisoftware.HebrewLetters
       get
       {
         if ( _GrammarGuideForm == null )
-          _GrammarGuideForm = HTMLBrowserForm.Create(Translations.GrammarGuideTitle, GrammarGuideFilename);
+          _GrammarGuideForm = new HTMLBrowserForm(Translations.GrammarGuideTitle, GrammarGuideFilename,
+                                                  nameof(Settings.GrammarGuideFormLocation),
+                                                  nameof(Settings.GrammarGuideFormSize));
         return _GrammarGuideForm;
       }
     }
     static public HTMLBrowserForm _GrammarGuideForm;
+
+    /// <summary>
+    /// Indicate filename of the method notice.
+    /// </summary>
+    static public string MethodNoticeFilename
+      = Globals.HelpFolderPath + $"method-%LANG%.htm";
+
+    /// <summary>
+    /// Indicate the method notice form.
+    /// </summary>
+    static public HTMLBrowserForm MethodGuideForm
+    {
+      get
+      {
+        if ( _MethodGuideForm == null )
+          _MethodGuideForm = new HTMLBrowserForm(Translations.MethodNoticeTitle, MethodNoticeFilename,
+                                                 nameof(Settings.MethodNoticeFormLocation),
+                                                 nameof(Settings.MethodNoticeFormSize));
+        return _MethodGuideForm;
+      }
+    }
+    static public HTMLBrowserForm _MethodGuideForm;
 
     /// <summary>
     /// Indicate the command line argument for word used at startup.
