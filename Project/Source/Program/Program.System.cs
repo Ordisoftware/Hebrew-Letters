@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Hebrew Letters.
-/// Copyright 2012-2019 Olivier Rogier.
+/// Copyright 2012-2020 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at 
@@ -185,7 +185,7 @@ namespace Ordisoftware.HebrewLetters
           else
           if ( DisplayManager.QueryYesNo(Translations.NewVersionAvailable.GetLang(version) + Environment.NewLine +
                                          Environment.NewLine +
-                                         Translations.AskDownloadNewVersion.GetLang()) )
+                                         Translations.AskToDownloadNewVersion.GetLang()) )
           {
             SystemManager.OpenWebLink(Globals.DownloadApplicationURL);
             if ( auto )

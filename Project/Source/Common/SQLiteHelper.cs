@@ -25,6 +25,9 @@ namespace Ordisoftware.HebrewCommon
   static public class SQLiteHelper
   {
 
+    /// <summary>
+    ///  Vacuum the database
+    /// </summary>
     static public void Vacuum(this OdbcConnection connection)
     {
       try
@@ -32,7 +35,7 @@ namespace Ordisoftware.HebrewCommon
         using ( var sql = connection.CreateCommand() )
         {
           sql.CommandText = "VACUUM;";
-          int result = sql.ExecuteNonQuery();
+          sql.ExecuteNonQuery();
         }
       }
       catch ( Exception ex )

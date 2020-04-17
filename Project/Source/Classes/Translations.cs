@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Hebrew Letters.
-/// Copyright 2012-2019 Olivier Rogier.
+/// Copyright 2012-2020 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at 
@@ -21,10 +21,17 @@ namespace Ordisoftware.HebrewLetters
   /// <summary>
   /// Localization strings.
   /// </summary>
-  static public class Translations
+  static public partial class Translations
   {
 
-    static public readonly string NewLine = Environment.NewLine;
+    static public string NewLine { get { return Environment.NewLine; } }
+
+    static public readonly Dictionary<string, string> ApplicationDescription
+      = new Dictionary<string, string>()
+      {
+        { "en", "Lettriq letter-by-letter study of hebrew words" },
+        { "fr", "Étude lettrique lettre-par-lettre des mots hébreux" }
+      };
 
     static public readonly Dictionary<string, string> AboutBoxTitle
       = new Dictionary<string, string>()
@@ -40,14 +47,14 @@ namespace Ordisoftware.HebrewLetters
         { "fr", "Version {0}" }
       };
 
-    static public readonly Dictionary<string, string> ApplicationDescription
+    static public readonly Dictionary<string, string> NotYetAvailable
       = new Dictionary<string, string>()
       {
-        { "en", "Lettriq letter-by-letter study of hebrew words" },
-        { "fr", "Étude lettrique lettre-par-lettre des mots hébreux" }
+        { "en", "Not yet available." },
+        { "fr", "Pas encore disponible." }
       };
 
-    static public readonly Dictionary<string, string> ExitApplication
+    static public readonly Dictionary<string, string> AskToExitApplication
       = new Dictionary<string, string>()
       {
         { "en", "Exit application?" },
@@ -68,19 +75,26 @@ namespace Ordisoftware.HebrewLetters
         { "fr", "Une nouvelle version est disponible : {0}" }
       };
 
-    static public readonly Dictionary<string, string> AskDownloadNewVersion
+    static public readonly Dictionary<string, string> AskToDownloadNewVersion
       = new Dictionary<string, string>()
       {
         { "en", "Do you want to open the download page?" },
         { "fr", "Voulez-vous ouvrir la page de téléchargement ?" }
       };
 
-    static public readonly Dictionary<string, string> RestoreWindowPosition
+    static public readonly Dictionary<string, string> FileNotFound
+      = new Dictionary<string, string>()
+      {
+        { "en", "File not found: " + NewLine + NewLine + "{0}" },
+        { "fr", "Fichier non trouvé :" + NewLine + NewLine + "{0}" }
+      };
+
+    static public readonly Dictionary<string, string> AskToRestoreWindowPosition
       = new Dictionary<string, string>()
       {
         { "en", "This action will restore windows position." + NewLine + NewLine +
                 "Do you want to continue?" },
-        { "fr", "Cette action va restaurer la position de la fenêtre"  + NewLine + NewLine +
+        { "fr", "Cette action va restaurer la position de la fenêtre."  + NewLine + NewLine +
                 "Voulez-vous continuer ?" }
       };
 
@@ -91,7 +105,16 @@ namespace Ordisoftware.HebrewLetters
         { "fr", "Voulez-vous ouvrir tous les liens de \"{0}\" ?" }
       };
 
-    static public readonly Dictionary<string, string> DatabaseChanged
+    static public readonly Dictionary<string, string> AskToResetPreferences
+      = new Dictionary<string, string>()
+      {
+        { "en", "Preferences will be reseted to their default values." + NewLine + NewLine +
+                "Do you want to continue?" },
+        { "fr", "Les préférences vont être réinitialisées à leurs valeurs par défaut." + NewLine + NewLine +
+                "Voulez-vous continuer ?" }
+      };
+
+    static public readonly Dictionary<string, string> AskToResetLettersAfterDatabaseChanged
       = new Dictionary<string, string>()
       {
         { "en", "Database upgraded." + NewLine + NewLine +
@@ -100,7 +123,7 @@ namespace Ordisoftware.HebrewLetters
                 "Voulez-vous ouvrir la page des paramètres pour les réinitialiser ?" }
       };
 
-    static public readonly Dictionary<string, string> RestoreLettersDefault
+    static public readonly Dictionary<string, string> AskToRestoreLettersDefaults
       = new Dictionary<string, string>()
       {
         { "en", "Letters will be restored to their default values." + NewLine + NewLine +
