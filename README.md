@@ -64,6 +64,9 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 - F1 : Analyse view
 - F2 : Settings view
 - F3 : Search a term
+- Ctrl+M : Open the lettriq analysis method notice
+- Ctrl+G : Open the grammar guide
+- Ctrl+L : Open Shorashon web page
 - F8 : Preferences
 - F11 : Help
 - F12 : About
