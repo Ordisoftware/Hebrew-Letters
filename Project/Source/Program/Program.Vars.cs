@@ -26,26 +26,30 @@ namespace Ordisoftware.HebrewLetters
   {
 
     /// <summary>
-    /// Indicate filename of the grammar guide.
-    /// </summary>
-    static public string GrammarGuideFilename
-    {
-      get
-      {
-        return Globals.HelpFolderPath + $"grammar-{Localizer.Language}.htm";
-      }
-    }
-
-    /// <summary>
     /// Indicate filename of the letters meanings.
     /// </summary>
     static public string MeaningsFilename
+      = Globals.DocumentsFolderPath + "Alphabet-%LANG%.txt";
+
+    /// <summary>
+    /// Indicate filename of the grammar guide.
+    /// </summary>
+    static public string GrammarGuideFilename
+      = Globals.HelpFolderPath + $"grammar-%LANG%.htm";
+
+    /// <summary>
+    /// Indicate the grammar guide form.
+    /// </summary>
+    static public HTMLBrowserForm GrammarGuideForm
     {
       get
       {
-        return Globals.DocumentsFolderPath + "Alphabet-" + Localizer.Language + ".txt";
+        if ( _GrammarGuideForm == null )
+          _GrammarGuideForm = HTMLBrowserForm.Create(Translations.GrammarGuideTitle, GrammarGuideFilename);
+        return _GrammarGuideForm;
       }
     }
+    static public HTMLBrowserForm _GrammarGuideForm;
 
     /// <summary>
     /// Indicate the command line argument for word used at startup.

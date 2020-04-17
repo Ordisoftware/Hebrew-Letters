@@ -139,6 +139,13 @@ namespace Ordisoftware.HebrewLetters
         { "fr", "{0} non trouvé." }
       };
 
+    static public readonly Dictionary<string, string> GrammarGuideTitle
+      = new Dictionary<string, string>()
+      {
+        { "en", "Grammar guide" },
+        { "fr", "Guide de grammaire" }
+      };
+
   }
 
 }

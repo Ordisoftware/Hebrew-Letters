@@ -11,24 +11,30 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-09 </created>
-/// <edited> 2019-09 </edited>
+/// <edited> 2020-04 </edited>
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
+using Ordisoftware.HebrewCommon;
 
 namespace Ordisoftware.HebrewLetters
 {
 
-  public partial class GrammarGuideForm : Form
+  public partial class HTMLBrowserForm : Form
   {
 
-    static internal GrammarGuideForm Instance;
-
-    static GrammarGuideForm()
+    static public HTMLBrowserForm Create(Dictionary<string, string> Title, string filename)
     {
-      Instance = new GrammarGuideForm();
+      var form = new HTMLBrowserForm();
+      form.Title = Title;
+      form.Filename = filename;
+      return form;
     }
 
-    private GrammarGuideForm()
+    private Dictionary<string, string> Title;
+    private string Filename;
+
+    private HTMLBrowserForm()
     {
       InitializeComponent();
       Icon = MainForm.Instance.Icon;
@@ -43,7 +49,9 @@ namespace Ordisoftware.HebrewLetters
 
     internal void GrammarGuideForm_Shown(object sender, EventArgs e)
     {
-      WebBrowser.Navigate(Program.GrammarGuideFilename);
+      Text = Title.GetLang();
+      if ( Filename != "" )
+        WebBrowser.Navigate(Filename.Replace("%LANG%", Localizer.Language));
     }
 
     private void GrammarGuideForm_FormClosing(object sender, FormClosingEventArgs e)

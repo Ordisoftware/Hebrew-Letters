@@ -1,6 +1,6 @@
 ﻿namespace Ordisoftware.HebrewLetters
 {
-  partial class GrammarGuideForm
+  partial class HTMLBrowserForm
   {
     /// <summary>
     /// Required designer variable.
@@ -28,7 +28,7 @@
     /// </summary>
     private void InitializeComponent()
     {
-      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GrammarGuideForm));
+      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HTMLBrowserForm));
       this.WebBrowser = new System.Windows.Forms.WebBrowser();
       this.SuspendLayout();
       // 
@@ -41,7 +41,7 @@
       this.WebBrowser.ScriptErrorsSuppressed = true;
       this.WebBrowser.WebBrowserShortcutsEnabled = false;
       // 
-      // GrammarGuideForm
+      // HTMLBrowserForm
       // 
       resources.ApplyResources(this, "$this");
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -51,7 +51,7 @@
       this.DataBindings.Add(new System.Windows.Forms.Binding("ClientSize", global::Ordisoftware.HebrewLetters.Properties.Settings.Default, "GrammarGuideFormSize", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
       this.Location = global::Ordisoftware.HebrewLetters.Properties.Settings.Default.GrammarGuideFormLocation;
       this.MaximizeBox = false;
-      this.Name = "GrammarGuideForm";
+      this.Name = "HTMLBrowserForm";
       this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GrammarGuideForm_FormClosing);
       this.Load += new System.EventHandler(this.GrammarGuideForm_Load);
       this.Shown += new System.EventHandler(this.GrammarGuideForm_Shown);

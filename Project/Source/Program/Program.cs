@@ -61,7 +61,7 @@ namespace Ordisoftware.HebrewLetters
       Thread.CurrentThread.CurrentUICulture = culture;
       AboutBox.Instance.Hide();
       foreach ( Form form in Application.OpenForms )
-        if ( form != AboutBox.Instance )
+        if ( form != AboutBox.Instance && form != GrammarGuideForm )
         {
           new Infralution.Localization.CultureManager().ManagedControl = form;
           ComponentResourceManager resources = new ComponentResourceManager(form.GetType());
@@ -70,6 +70,7 @@ namespace Ordisoftware.HebrewLetters
       new Infralution.Localization.CultureManager().ManagedControl = AboutBox.Instance;
       Infralution.Localization.CultureManager.ApplicationUICulture = culture;
       AboutBox.Instance.AboutBox_Shown(null, null);
+      GrammarGuideForm.GrammarGuideForm_Shown(null, null);
       MainForm.Instance.LabelGematria.Location = new Point(MainForm.Instance.LabelGematria.Location.X,
                                                            MainForm.Instance.EditGematria.Location.Y - 19);
       MainForm.Instance.CreateWebLinks();

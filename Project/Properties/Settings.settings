@@ -59,7 +59,7 @@
       <Value Profile="(Default)">-1, -1</Value>
     </Setting>
     <Setting Name="GrammarGuideFormSize" Type="System.Drawing.Size" Scope="User">
-      <Value Profile="(Default)">342, 466</Value>
+      <Value Profile="(Default)">392, 466</Value>
     </Setting>
     <Setting Name="VacuumAtStartup" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>

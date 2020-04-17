@@ -417,10 +417,10 @@ namespace Ordisoftware.HebrewLetters
 
     private void ActionShowGrammarGuide_Click(object sender, EventArgs e)
     {
-      if ( GrammarGuideForm.Instance.WindowState == FormWindowState.Minimized )
-        GrammarGuideForm.Instance.WindowState = FormWindowState.Normal;
-      GrammarGuideForm.Instance.Show();
-      GrammarGuideForm.Instance.BringToFront();
+      if ( Program.GrammarGuideForm.WindowState == FormWindowState.Minimized )
+        Program.GrammarGuideForm.WindowState = FormWindowState.Normal;
+      Program.GrammarGuideForm.Show();
+      Program.GrammarGuideForm.BringToFront();
     }
 
     private void ActionOpenWebsiteURL_Click(object sender, EventArgs e)
