@@ -11,8 +11,9 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2012-10 </created>
-/// <edited> 2020-03 </edited>
+/// <edited> 2020-04 </edited>
 using System;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace Ordisoftware.HebrewCommon
@@ -77,6 +78,18 @@ namespace Ordisoftware.HebrewCommon
       foreach ( var v in FinalDisable )
         str = str.Replace(v.Key, v.Value);
       return str;
+    }
+
+    /// <summary>
+    /// Returns only allowed chars for hebrew font.
+    /// </summary>
+    static public string OnlyHebrewFont(string str)
+    {
+      string result = "";
+      foreach ( char c in str.RemoveDiacritics() )
+        if ( Codes.Contains(c.ToString()) )
+          result = c + result;
+      return result;
     }
 
     /// <summary>

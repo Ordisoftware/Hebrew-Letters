@@ -1,6 +1,6 @@
 ﻿/// <license>
-/// This file is part of Ordisoftware Hebrew Letters.
-/// Copyright 2012-2019 Olivier Rogier.
+/// This file is part of Ordisoftware Hebrew Letters/Words.
+/// Copyright 2012-2020 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at 
@@ -11,15 +11,14 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2012-10 </created>
-/// <edited> 2019-01 </edited>
+/// <edited> 2020-04 </edited>
 using System;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using Ordisoftware.HebrewCommon;
 using Ordisoftware.Core;
 
-namespace Ordisoftware.HebrewLetters
+namespace Ordisoftware.HebrewCommon
 {
 
   /// <summary>
@@ -77,13 +76,10 @@ namespace Ordisoftware.HebrewLetters
       try
       {
         int dy = 45;
-        int dx = -45;
+        int dx = -dy;
         int x = 500 + dx;
         int y = 5;
         int n = 1;
-        Label labelValue;
-        Label labelKey;
-        Button buttonLetter;
         var colorLabel = Color.DimGray;
         var sizeLabelValue = new Size(45, 8);
         var sizeLabelKey = new Size(45, 13);
@@ -91,14 +87,7 @@ namespace Ordisoftware.HebrewLetters
         var fontValue = new Font("Microsoft Sans Serif", 6.25F);
         for ( int index = 0; index < HebrewAlphabet.Codes.Length; index++ )
         {
-          string letter = HebrewAlphabet.Codes[index];
-          labelKey = new Label();
-          labelValue = new Label();
-          buttonLetter = new Button();
-          Panel.Controls.Add(labelValue);
-          Panel.Controls.Add(labelKey);
-          Panel.Controls.Add(buttonLetter);
-
+          var labelValue = new Label();
           labelValue.Location = new Point(x, y + dy);
           labelValue.Size = sizeLabelKey;
           labelValue.Font = fontValue;
@@ -106,21 +95,25 @@ namespace Ordisoftware.HebrewLetters
           labelValue.BackColor = Color.Transparent;
           labelValue.Text = HebrewAlphabet.ValuesSimple[index].ToString();
           labelValue.TextAlign = ContentAlignment.MiddleCenter;
-
+          Panel.Controls.Add(labelValue);
+          //
+          var labelKey = new Label();
           labelKey.Location = new Point(x, y + dy + labelValue.Height + 2);
           labelKey.Size = sizeLabelKey;
-          labelKey.Text = letter;
+          labelKey.Text = HebrewAlphabet.Codes[index];
           labelKey.ForeColor = colorLabel;
           labelKey.BackColor = Color.Transparent;
           labelKey.TextAlign = ContentAlignment.MiddleCenter;
-
+          Panel.Controls.Add(labelKey);
+          //
+          var buttonLetter = new Button();
           buttonLetter.Location = new Point(x, y);
           buttonLetter.Size = new Size(Math.Abs(dx), dy);
           buttonLetter.FlatStyle = FlatStyle.Flat;
           buttonLetter.FlatAppearance.BorderSize = 0;
           buttonLetter.FlatAppearance.BorderColor = SystemColors.Control;
           buttonLetter.Font = fontLetter;
-          buttonLetter.Text = letter;
+          buttonLetter.Text = HebrewAlphabet.Codes[index];
           buttonLetter.BackColor = Color.Transparent;
           buttonLetter.TabStop = false;
           buttonLetter.Click += delegate (object sender, EventArgs e)
@@ -128,6 +121,8 @@ namespace Ordisoftware.HebrewLetters
             Input.Text = ( (Button)sender ).Text + Input.Text;
             OnClick(new LetterEventArgs(( (Button)sender ).Text));
           };
+          Panel.Controls.Add(buttonLetter);
+          //
           n += 1;
           if ( n != 12 )
             x += dx;
@@ -149,11 +144,10 @@ namespace Ordisoftware.HebrewLetters
     /// </summary>
     private void Input_KeyPress(object sender, KeyPressEventArgs e)
     {
-      OnKeyPress(e);
-      if ( !HebrewAlphabet.Codes.Contains(Convert.ToString(e.KeyChar)) )
-        e.KeyChar = '\x0';
-      else
+      if ( HebrewAlphabet.Codes.Contains(e.KeyChar.ToString()) )
         KeyProcessed = true;
+      else
+        e.KeyChar = '\x0';
     }
 
     /// <summary>
@@ -164,29 +158,36 @@ namespace Ordisoftware.HebrewLetters
       if ( KeyProcessed )
       {
         KeyProcessed = false;
-        if ( Input.SelectionStart != 0 )
-          Input.SelectionStart = Input.SelectionStart - 1;
+        Input.SelectionStart--;
       }
     }
 
+    /// <summary>
+    /// KeyDown event.
+    /// </summary>
     private void Input_KeyDown(object sender, KeyEventArgs e)
     {
-      if ( e.Control && e.KeyCode == Keys.X )
+      if ( Input.SelectedText != "" )
       {
-        Clipboard.SetText(Input.SelectedText);
-        Input.Text = Input.Text.Remove(Input.SelectionStart, Input.SelectionLength);
+        if ( e.Control && e.KeyCode == Keys.X )
+        {
+          Clipboard.SetText(Input.SelectedText);
+          int selectionStart = Input.SelectionStart;
+          Input.Text = Input.Text.Remove(selectionStart, Input.SelectionLength);
+          Input.SelectionStart = selectionStart;
+        }
+        else
+        if ( e.Control && e.KeyCode == Keys.C )
+          Clipboard.SetText(Input.SelectedText);
       }
-      if ( e.Control && e.KeyCode == Keys.C )
-      {
-        Clipboard.SetText(Input.SelectedText);
-      }
+      else
       if ( e.Control && e.KeyCode == Keys.V )
       {
+        string str = HebrewAlphabet.OnlyHebrewFont(Clipboard.GetText());
+        int selectionStart = Input.SelectionStart;
         Input.SelectedText = "";
-        string insertText = Clipboard.GetText();
-        int selectionIndex = Input.SelectionStart;
-        Input.Text = Input.Text.Insert(selectionIndex, insertText);
-        Input.SelectionStart = selectionIndex + insertText.Length;
+        Input.Text = Input.Text.Insert(selectionStart, str);
+        Input.SelectionStart = selectionStart;
       }
     }
 

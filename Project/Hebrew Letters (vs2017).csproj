@@ -131,10 +131,10 @@
     <Compile Include="Source\Forms\MainForm\MainForm.Location.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Source\Controls\LettersControl.cs">
+    <Compile Include="Source\Common\LettersControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Source\Controls\LettersControl.Designer.cs">
+    <Compile Include="Source\Common\LettersControl.Designer.cs">
       <DependentUpon>LettersControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Forms\Config\PreferencesForm.cs">
@@ -186,7 +186,7 @@
     <EmbeddedResource Include="Source\Forms\MainForm\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Source\Controls\LettersControl.resx">
+    <EmbeddedResource Include="Source\Common\LettersControl.resx">
       <DependentUpon>LettersControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\Config\PreferencesForm.resx">

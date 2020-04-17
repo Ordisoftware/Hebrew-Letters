@@ -63,7 +63,7 @@
       this.EditSentence = new System.Windows.Forms.TextBox();
       this.EditGematria = new System.Windows.Forms.TextBox();
       this.LabelGematria = new System.Windows.Forms.Label();
-      this.EditLetters = new Ordisoftware.HebrewLetters.LettersControl();
+      this.EditLetters = new Ordisoftware.HebrewCommon.LettersControl();
       this.TabPageMonth = new System.Windows.Forms.TabPage();
       this.PanelViewSettings = new System.Windows.Forms.Panel();
       this.PanelSettingsDetails = new System.Windows.Forms.Panel();
@@ -1162,7 +1162,7 @@
     private System.Windows.Forms.PictureBox moonPhaseImagePictureBox;
     private System.Windows.Forms.Panel PanelMainCenter;
     private System.Windows.Forms.Timer TimerTooltip;
-    private LettersControl EditLetters;
+    private Ordisoftware.HebrewCommon.LettersControl EditLetters;
     private System.Windows.Forms.TabControl TabControl;
     private System.Windows.Forms.TabPage TabPageText;
     private System.Windows.Forms.Panel PanelViewSearch;
