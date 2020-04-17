@@ -127,8 +127,10 @@ namespace Ordisoftware.HebrewLetters
       = new Dictionary<string, string>()
       {
         { "en", "Letters will be restored to their default values." + NewLine + NewLine +
+                "All additions will be lost." + NewLine + NewLine +
                 "Do you want to continue?" },
         { "fr", "Les lettres vont être restaurées à leurs valeurs par défaut." + NewLine + NewLine +
+                "Tous les ajouts seront perdus." + NewLine + NewLine +
                 "Voulez-vous continuer ?" }
       };
 
