@@ -15,7 +15,7 @@ URL = https://www.youtube.com/playlist?list=PLSn7yTHwEx-Dkv3zE0tAo494c64BBGTwz
 Name = (FR) Rav Menahem Altabe
 URL = https://www.youtube.com/playlist?list=PLSn7yTHwEx-B8WqPCwLWyBC0gDQAoA2OZ
 
-Name = (FR) Rav Chlomo Amar
+Name = (FR) Rav Shlomoh Amar
 URL = https://www.youtube.com/playlist?list=PLSn7yTHwEx-DP-nvpbjUq-Bjlug7TjxgU
 
 Name = (FR) Rav Yehia Benchetrit
@@ -42,7 +42,7 @@ URL = https://www.youtube.com/playlist?list=PLSn7yTHwEx-DL6u9qWpRtF1vEAEVxe1Hk
 
 -
 
-Name = (FR) Science - Biologie, musique, informatique
+Name = (FR) Science - Biologie, musique, astronomie
 URL = https://www.youtube.com/playlist?list=PLSn7yTHwEx-BEv_KNGXktzeF8oBTXGoKR
 
 Name = (FR) Science - Mentalisme
@@ -53,5 +53,5 @@ URL = https://www.youtube.com/playlist?list=PLSn7yTHwEx-BEAk_k9s5tCMG5ZPwK6KVz
 
 -
 
-Name = (FR) Documentaires divers
+Name = (FR) Documentaires sujets de société
 URL = https://www.youtube.com/playlist?list=PLSn7yTHwEx-DfPB3GAU-e6hLSzJIjVc18
