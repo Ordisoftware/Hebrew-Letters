@@ -88,7 +88,7 @@ namespace Ordisoftware.HebrewCommon
       string result = "";
       foreach ( char c in str.RemoveDiacritics() )
         if ( Codes.Contains(c.ToString()) )
-          result = c + result;
+          result = result + c;
       return result;
     }
 
