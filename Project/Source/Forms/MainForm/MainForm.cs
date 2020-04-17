@@ -410,6 +410,11 @@ namespace Ordisoftware.HebrewLetters
       Close();
     }
 
+    private void ActionShowMethodNotice_Click(object sender, EventArgs e)
+    {
+
+    }
+
     private void ActionShowGrammarGuide_Click(object sender, EventArgs e)
     {
       if ( GrammarGuideForm.Instance.WindowState == FormWindowState.Minimized )

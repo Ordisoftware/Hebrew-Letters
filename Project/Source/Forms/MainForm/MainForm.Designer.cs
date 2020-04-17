@@ -132,6 +132,7 @@
       this.ActionSearchTerm = new System.Windows.Forms.ToolStripButton();
       this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
       this.MenuTools = new System.Windows.Forms.ToolStripDropDownButton();
+      this.ActionShowMethodNotice = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionShowGrammarGuide = new System.Windows.Forms.ToolStripMenuItem();
       this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
       this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
@@ -995,6 +996,7 @@
       // 
       this.MenuTools.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
       this.MenuTools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ActionShowMethodNotice,
             this.ActionShowGrammarGuide,
             this.toolStripSeparator4,
             this.toolStripMenuItem11,
@@ -1005,6 +1007,12 @@
             this.toolStripMenuItem9});
       resources.ApplyResources(this.MenuTools, "MenuTools");
       this.MenuTools.Name = "MenuTools";
+      // 
+      // ActionShowMethodNotice
+      // 
+      resources.ApplyResources(this.ActionShowMethodNotice, "ActionShowMethodNotice");
+      this.ActionShowMethodNotice.Name = "ActionShowMethodNotice";
+      this.ActionShowMethodNotice.Click += new System.EventHandler(this.ActionShowMethodNotice_Click);
       // 
       // ActionShowGrammarGuide
       // 
@@ -1243,6 +1251,7 @@
     private System.Windows.Forms.ToolStripMenuItem ActionShowGrammarGuide;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
     private System.Windows.Forms.ToolStripMenuItem ActionOpenWebLinkTemplateLink;
+    private System.Windows.Forms.ToolStripMenuItem ActionShowMethodNotice;
   }
 }
 
