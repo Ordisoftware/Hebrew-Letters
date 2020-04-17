@@ -83,8 +83,10 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 - Add option to auto sort meanings combobox items.
 - Add option to use Esc key to close app.
 - Fix paste from clipboard to overwrite the selected text.
+- Improve UI/UX.
 - Code refactoring.
 - Move online providers values from code to files in the application documents folder.
+- Update help.
 
 #### 2020.04.07 - Version 3.1
 
