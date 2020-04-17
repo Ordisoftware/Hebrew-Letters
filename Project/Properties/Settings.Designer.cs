@@ -264,9 +264,9 @@ namespace Ordisoftware.HebrewLetters.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("392, 466")]
-        public global::System.Drawing.Point MethodNoticeFormSize {
+        public global::System.Drawing.Size MethodNoticeFormSize {
             get {
-                return ((global::System.Drawing.Point)(this["MethodNoticeFormSize"]));
+                return ((global::System.Drawing.Size)(this["MethodNoticeFormSize"]));
             }
             set {
                 this["MethodNoticeFormSize"] = value;

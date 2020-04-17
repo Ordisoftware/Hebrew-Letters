@@ -40,16 +40,16 @@ namespace Ordisoftware.HebrewLetters
                            string clientSizePropertyName)
     {
       InitializeComponent();
+      ActiveControl = WebBrowser;
+      Icon = MainForm.Instance.Icon;
       Title = title;
       Filename = filename;
-      ClientSize = Properties.Settings.Default.GrammarGuideFormSize;
+      Location = (Point)Properties.Settings.Default[locationPropertyName];
+      ClientSize = (Size)Properties.Settings.Default[clientSizePropertyName];
       DataBindings.Add(new Binding("Location", Properties.Settings.Default, locationPropertyName, true,
                        DataSourceUpdateMode.OnPropertyChanged));
       DataBindings.Add(new Binding("ClientSize", Properties.Settings.Default, clientSizePropertyName, true,
                        DataSourceUpdateMode.OnPropertyChanged));
-      Location = (Point)Properties.Settings.Default[locationPropertyName];
-      Icon = MainForm.Instance.Icon;
-      ActiveControl = WebBrowser;
     }
 
     private void HTMLBrowserForm_Load(object sender, EventArgs e)
