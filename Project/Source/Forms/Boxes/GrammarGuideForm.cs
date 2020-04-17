@@ -37,7 +37,8 @@ namespace Ordisoftware.HebrewLetters
 
     private void GrammarGuideForm_Load(object sender, EventArgs e)
     {
-      if ( Location.X == -1 && Location.Y == -1 ) this.CenterToMainForm();
+      if ( Location.X == -1 && Location.Y == -1 )
+        this.CenterToMainForm();
     }
 
     internal void GrammarGuideForm_Shown(object sender, EventArgs e)

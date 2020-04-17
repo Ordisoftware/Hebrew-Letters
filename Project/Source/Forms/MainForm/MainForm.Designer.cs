@@ -576,7 +576,7 @@
       this.ActionRestoreDefaults.LinkColor = System.Drawing.Color.Navy;
       this.ActionRestoreDefaults.Name = "ActionRestoreDefaults";
       this.ActionRestoreDefaults.TabStop = true;
-      this.ActionRestoreDefaults.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ActionReset_LinkClicked);
+      this.ActionRestoreDefaults.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ActionRestoreDefaults_LinkClicked);
       // 
       // ActionDeleteMeaning
       // 

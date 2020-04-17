@@ -114,13 +114,13 @@ namespace Ordisoftware.HebrewLetters
                 "Voulez-vous continuer ?" }
       };
 
-    static public readonly Dictionary<string, string> AskToResetLettersAfterDatabaseChanged
+    static public readonly Dictionary<string, string> AskToCheckLettersAfterDatabaseChanged
       = new Dictionary<string, string>()
       {
         { "en", "Database upgraded." + NewLine + NewLine +
-                "Do you want to open the parameters page to reset them?" },
+                "Do you want to open the parameters page to check them?" },
         { "fr", "La base de données a été mise à jour." + NewLine + NewLine +
-                "Voulez-vous ouvrir la page des paramètres pour les réinitialiser ?" }
+                "Voulez-vous ouvrir la page des paramètres pour les vérifier ?" }
       };
 
     static public readonly Dictionary<string, string> AskToRestoreLettersDefaults

@@ -73,15 +73,17 @@ namespace Ordisoftware.HebrewLetters
       InitializeComponent();
       Text = Globals.AssemblyTitle;
       SystemEvents.SessionEnding += SessionEnding;
+      try { Icon = Icon.ExtractAssociatedIcon(Globals.IconFilename); }
+      catch { }
       ClipboardViewerNext = SetClipboardViewer(Handle);
-      Globals.AllowClose = true;
-      int index = 1;
       EventHandler action = (sender, e) =>
       {
         var menuitem = (ToolStripMenuItem)sender;
         var control = ( (ContextMenuStrip)menuitem.Owner ).SourceControl;
-        Program.RunShell(( (string)menuitem.Tag ).Replace("%WORD%", HebrewAlphabet.ConvertToUnicode(EditLetters.Input.Text)));
+        string str = HebrewAlphabet.ConvertToUnicode(EditLetters.Input.Text);
+        Program.RunShell(( (string)menuitem.Tag ).Replace("%WORD%", str));
       };
+      int index = 1;
       foreach ( var item in Globals.OnlineWordProviders.Items )
       {
         if ( item.Name == "-" )
@@ -89,15 +91,11 @@ namespace Ordisoftware.HebrewLetters
         else
           ContextMenuSearchOnline.Items.Insert(index++, item.CreateMenuItem(action));
       }
-      try
-      {
-        Icon = Icon.ExtractAssociatedIcon(Globals.IconFilename);
-      }
-      catch
-      {
-      }
     }
 
+    /// <summary>
+    /// Create web links menu items.
+    /// </summary>
     internal void CreateWebLinks()
     {
       Program.CreateWebLinks(MenuWebLinks, ActionOpenWebLinkTemplateFolder.Image, ActionOpenWebLinkTemplateLink.Image);
@@ -116,9 +114,9 @@ namespace Ordisoftware.HebrewLetters
         Application.Exit();
         return;
       }
-      EditSentence.Font = new Font("Microsoft Sans Serif", (float)Program.Settings.FontSizeSentence);
       try
       {
+        EditSentence.Font = new Font("Microsoft Sans Serif", (float)Program.Settings.FontSizeSentence);
         IsDBUpgraded = CreateSchemaIfNotExists();
         CreateDataIfNotExists(false);
         LettersTableAdapter.Fill(DataSet.Letters);
@@ -128,7 +126,7 @@ namespace Ordisoftware.HebrewLetters
       }
       catch ( OdbcException ex )
       {
-        DisplayManager.ShowError(ex.Message);
+        ex.Manage();
         Application.Exit();
       }
       catch ( Exception ex )
@@ -147,16 +145,14 @@ namespace Ordisoftware.HebrewLetters
       if ( Globals.IsExiting ) return;
       if ( Program.StartupWord != null && Program.StartupWord != "" )
       {
+        ActionReset.Visible = true;
         EditLetters.Input.Text = Program.StartupWord;
         ActionAnalyse.PerformClick();
-        SetView(ViewMode.Analyse, true);
-        ActionReset.Visible = true;
       }
+      if ( IsDBUpgraded && DisplayManager.QueryYesNo(Translations.AskToCheckLettersAfterDatabaseChanged.GetLang()) )
+        SetView(ViewMode.Settings, true);
       else
         SetView(ViewMode.Analyse, true);
-      if ( IsDBUpgraded )
-        if ( DisplayManager.QueryYesNo(Translations.AskToResetLettersAfterDatabaseChanged.GetLang()) )
-          SetView(ViewMode.Settings);
     }
 
     /// <summary>
@@ -183,6 +179,7 @@ namespace Ordisoftware.HebrewLetters
         if ( !DisplayManager.QueryYesNo(Translations.AskToExitApplication.GetLang()) )
         {
           e.Cancel = true;
+          Globals.IsExiting = true;
           return;
         }
     }
@@ -204,6 +201,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Form closing event information.</param>
     private void MainForm_WindowsChanged(object sender, EventArgs e)
     {
+      if ( Globals.IsExiting ) return;
       if ( !Globals.IsReady ) return;
       if ( !Visible ) return;
       if ( WindowState != FormWindowState.Normal ) return;
@@ -217,12 +215,19 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Session ending event information.</param>
     private void SessionEnding(object sender, SessionEndingEventArgs e)
     {
+      Globals.IsExiting = true;
+      Globals.IsSessionEnding = true;
+      Globals.AllowClose = true;
       foreach ( Form form in Application.OpenForms )
         if ( form != this && form.Visible )
-          form.Close();
+          try { form.Close(); }
+          catch { }
       Close();
     }
 
+    /// <summary>
+    /// Clipboard monitoring.
+    /// </summary>
     protected override void WndProc(ref Message m)
     {
       const int WM_DRAWCLIPBOARD = 0x308;
@@ -405,13 +410,21 @@ namespace Ordisoftware.HebrewLetters
       Close();
     }
 
+    private void ActionShowGrammarGuide_Click(object sender, EventArgs e)
+    {
+      if ( GrammarGuideForm.Instance.WindowState == FormWindowState.Minimized )
+        GrammarGuideForm.Instance.WindowState = FormWindowState.Normal;
+      GrammarGuideForm.Instance.Show();
+      GrammarGuideForm.Instance.BringToFront();
+    }
+
     private void ActionOpenWebsiteURL_Click(object sender, EventArgs e)
     {
       string url = (string)( (ToolStripItem)sender ).Tag;
       SystemManager.OpenWebLink(url);
     }
 
-    private void ActionReset_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    private void ActionRestoreDefaults_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
       if ( DisplayManager.QueryYesNo(Translations.AskToRestoreLettersDefaults.GetLang()) )
       {
@@ -645,14 +658,6 @@ namespace Ordisoftware.HebrewLetters
       else
         letterName = query.First().Name;
       LettersBindingSource.Position = LettersBindingSource.Find("Name", letterName);
-    }
-
-    private void ActionShowGrammarGuide_Click(object sender, EventArgs e)
-    {
-      if ( GrammarGuideForm.Instance.WindowState == FormWindowState.Minimized )
-        GrammarGuideForm.Instance.WindowState = FormWindowState.Normal;
-      GrammarGuideForm.Instance.Show();
-      GrammarGuideForm.Instance.BringToFront();
     }
 
   }

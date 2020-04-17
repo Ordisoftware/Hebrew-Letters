@@ -11,11 +11,12 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2020-03 </edited>
+/// <edited> 2020-04 </edited>
 using System;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
+using Ordisoftware.Core;
 
 namespace Ordisoftware.HebrewLetters
 {
@@ -25,53 +26,60 @@ namespace Ordisoftware.HebrewLetters
 
     private void DoAnalyse()
     {
-      string word = EditLetters.Input.Text;
-      EditSentence.Text = "";
-      EditGematria.Text = "";
-      EditAnalyze.Controls.Clear();
-      int sum = 0;
-      int dy = 0;
-      SelectedMeanings = "";
-      for ( int pos = word.Length - 1; pos >= 0; pos-- )
+      try
       {
-        var l = DataSet.Letters.FindByCode(Convert.ToString(word[pos]));
-        if ( l == null ) continue;
-        sum += l.ValueSimple;
-        var label = new Label();
-        label.Text = l.Name;
-        label.AutoSize = false;
-        label.Size = new Size(50, 13);
-        label.Location = new Point(100, 20 + dy);
-        label.TextAlign = ContentAlignment.TopRight;
-        EditAnalyze.Controls.Add(label);
-        var combobox = new ComboBox();
-        combobox.DropDownStyle = ComboBoxStyle.DropDownList;
-        combobox.Size = new Size(200, 21);
-        combobox.Location = new Point(155, 16 + dy);
-        combobox.SelectedIndexChanged += MeaningComboBox_SelectedIndexChanged;
-        EditAnalyze.Controls.Add(combobox);
-        combobox.Items.Add(l.Positive.Trim());
-        combobox.Items.Add(l.Negative.Trim());
-        combobox.Items.Add(l.Verb.Trim());
-        combobox.Items.Add(l.Structure.Trim());
-        combobox.Items.Add(l.Function.Trim());
-        SelectedMeanings += l.Name.Trim() + ": ";
-        SelectedMeanings += l.Positive.Trim() + ", ";
-        SelectedMeanings += l.Negative.Trim() + ", ";
-        SelectedMeanings += l.Verb.Trim() + ", ";
-        SelectedMeanings += l.Structure.Trim() + ", ";
-        SelectedMeanings += l.Function.Trim() + ", ";
-        foreach ( var meaning in l.GetMeaningsRows() )
+        string word = EditLetters.Input.Text;
+        EditSentence.Text = "";
+        EditGematria.Text = "";
+        EditAnalyze.Controls.Clear();
+        int sum = 0;
+        int dy = 0;
+        SelectedMeanings = "";
+        for ( int pos = word.Length - 1; pos >= 0; pos-- )
         {
-          var str = meaning.Meaning.Trim();
-          combobox.Items.Add(str);
-          SelectedMeanings += str + ", ";
+          var l = DataSet.Letters.FindByCode(Convert.ToString(word[pos]));
+          if ( l == null ) continue;
+          sum += l.ValueSimple;
+          var label = new Label();
+          label.Text = l.Name;
+          label.AutoSize = false;
+          label.Size = new Size(50, 13);
+          label.Location = new Point(100, 20 + dy);
+          label.TextAlign = ContentAlignment.TopRight;
+          EditAnalyze.Controls.Add(label);
+          var combobox = new ComboBox();
+          combobox.DropDownStyle = ComboBoxStyle.DropDownList;
+          combobox.Size = new Size(200, 21);
+          combobox.Location = new Point(155, 16 + dy);
+          combobox.SelectedIndexChanged += MeaningComboBox_SelectedIndexChanged;
+          EditAnalyze.Controls.Add(combobox);
+          combobox.Items.Add(l.Positive.Trim());
+          combobox.Items.Add(l.Negative.Trim());
+          combobox.Items.Add(l.Verb.Trim());
+          combobox.Items.Add(l.Structure.Trim());
+          combobox.Items.Add(l.Function.Trim());
+          SelectedMeanings += l.Name.Trim() + ": ";
+          SelectedMeanings += l.Positive.Trim() + ", ";
+          SelectedMeanings += l.Negative.Trim() + ", ";
+          SelectedMeanings += l.Verb.Trim() + ", ";
+          SelectedMeanings += l.Structure.Trim() + ", ";
+          SelectedMeanings += l.Function.Trim() + ", ";
+          foreach ( var meaning in l.GetMeaningsRows() )
+          {
+            var str = meaning.Meaning.Trim();
+            combobox.Items.Add(str);
+            SelectedMeanings += str + ", ";
+          }
+          dy += 30;
+          SelectedMeanings = SelectedMeanings.TrimEnd().TrimEnd(',') + Environment.NewLine;
         }
-        dy += 30;
-        SelectedMeanings = SelectedMeanings.TrimEnd().TrimEnd(',') + Environment.NewLine;
+        EditGematria.Text = sum.ToString();
+        ActionCopyToClipboardMeanings.Enabled = EditAnalyze.Controls.Count > 0;
       }
-      EditGematria.Text = sum.ToString();
-      ActionCopyToClipboardMeanings.Enabled = EditAnalyze.Controls.Count > 0;
+      catch ( Exception ex )
+      {
+        ex.Manage();
+      }
     }
 
   }
