@@ -49,7 +49,7 @@ namespace Ordisoftware.HebrewLetters
           return true;
         case Keys.Escape:
           if ( EditESCtoExit.Checked )
-            Close();
+            ActionExit.PerformClick();
           return true;
       }
       return base.ProcessCmdKey(ref msg, keyData);

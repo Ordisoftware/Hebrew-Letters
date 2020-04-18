@@ -406,7 +406,8 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void ActionExit_Click(object sender, EventArgs e)
     {
-      Close();
+      if ( Globals.AllowClose )
+        Close();
     }
 
     private void ProcessHTMLBrowser(HTMLBrowserForm form)
@@ -497,6 +498,16 @@ namespace Ordisoftware.HebrewLetters
         else
           meaningsBindingSource.Position = pos;
       UpdateButtons();
+    }
+
+    private void EditMeanings_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+    {
+      Globals.AllowClose = false;
+    }
+
+    private void EditMeanings_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+    {
+      Globals.AllowClose = true;
     }
 
     private void EditMeanings_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
