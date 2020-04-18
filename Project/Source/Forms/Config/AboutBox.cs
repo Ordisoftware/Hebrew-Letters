@@ -58,17 +58,17 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void AboutBox_Load(object sender, EventArgs e)
     {
-      editLicense.Rtf = Properties.Resources.MPL_2_0;
+      EditLicense.Rtf = Properties.Resources.MPL_2_0;
     }
 
     internal void AboutBox_Shown(object sender, EventArgs e)
     {
       Text = Globals.AboutBoxTitle.GetLang(Globals.AssemblyTitle);
-      labelTitle.Text = Globals.AssemblyTitle;
-      labelDescription.Text = Translations.ApplicationDescription.GetLang();
-      labelVersion.Text = Globals.AboutBoxVersion.GetLang(Globals.AssemblyVersion);
-      labelCopyright.Text = Globals.AssemblyCopyright;
-      labelTrademark.Text = Globals.AssemblyTrademark;
+      LabelTitle.Text = Globals.AssemblyTitle;
+      LabelDescription.Text = Translations.ApplicationDescription.GetLang();
+      LabelVersion.Text = Globals.AboutBoxVersion.GetLang(Globals.AssemblyVersion);
+      LabelCopyright.Text = Globals.AssemblyCopyright;
+      LabelTrademark.Text = Globals.AssemblyTrademark;
       TopMost = MainForm.Instance.TopMost;
       BringToFront();
     }
