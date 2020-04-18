@@ -73,7 +73,7 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 ## Changelog
 
-#### 2020.05.__ - Version 4.0
+#### 2020.04.__ - Version 4.0
 
 - Exit application at startup if user choose to download a newer version.
 - Add lettriq analysis method notice.
@@ -81,8 +81,9 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 - Add menu for web links about judaism.
 - Add option to auto vacuum database at startup.
 - Add option to auto sort meanings combobox items.
-- Add option to use Esc key to close app.
+- Add option to use Escape key to close app.
 - Fix paste from clipboard to overwrite the selected text.
+- Fix selected row in meanings array when the last item is deleted.
 - Improve UI/UX.
 - Code refactoring.
 - Move online providers values from code to files in the application documents folder.
