@@ -29,7 +29,7 @@ namespace Ordisoftware.HebrewCommon
     /// <summary>
     /// Indicate letters keyboard codes.
     /// </summary>
-    static public readonly string[] Codes = 
+    static public readonly string[] Codes =
     {
       "a", "b", "g", "d", "h", "v", "z", "x", "u", "y", "k",
       "l", "m", "n", "c", "i", "p", "j", "q", "r", ">", "t"
