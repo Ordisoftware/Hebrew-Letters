@@ -1090,7 +1090,6 @@
       this.Controls.Add(this.ToolStrip);
       this.KeyPreview = true;
       this.MaximizeBox = false;
-      this.MinimizeBox = false;
       this.Name = "MainForm";
       this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
       this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
