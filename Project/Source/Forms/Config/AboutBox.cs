@@ -63,10 +63,10 @@ namespace Ordisoftware.HebrewLetters
 
     internal void AboutBox_Shown(object sender, EventArgs e)
     {
-      Text = Translations.AboutBoxTitle.GetLang(Globals.AssemblyTitle);
+      Text = Globals.AboutBoxTitle.GetLang(Globals.AssemblyTitle);
       labelTitle.Text = Globals.AssemblyTitle;
       labelDescription.Text = Translations.ApplicationDescription.GetLang();
-      labelVersion.Text = Translations.AboutBoxVersion.GetLang(Globals.AssemblyVersion);
+      labelVersion.Text = Globals.AboutBoxVersion.GetLang(Globals.AssemblyVersion);
       labelCopyright.Text = Globals.AssemblyCopyright;
       labelTrademark.Text = Globals.AssemblyTrademark;
       TopMost = MainForm.Instance.TopMost;
@@ -90,7 +90,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Link label link clicked event information.</param>
     private void labelTrademarkName_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
-      Program.OpenAuthorHome();
+      SystemHelper.OpenAuthorHome();
     }
 
     /// <summary>

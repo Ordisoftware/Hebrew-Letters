@@ -81,7 +81,7 @@ namespace Ordisoftware.HebrewLetters
         var menuitem = (ToolStripMenuItem)sender;
         var control = ( (ContextMenuStrip)menuitem.Owner ).SourceControl;
         string str = HebrewAlphabet.ConvertToUnicode(EditLetters.Input.Text);
-        Program.RunShell(( (string)menuitem.Tag ).Replace("%WORD%", str));
+        SystemHelper.RunShell(( (string)menuitem.Tag ).Replace("%WORD%", str));
       });
     }
 
@@ -101,7 +101,7 @@ namespace Ordisoftware.HebrewLetters
     private void MainForm_Load(object sender, EventArgs e)
     {
       Program.Settings.Retrieve();
-      if ( Program.CheckUpdate(true) )
+      if ( SystemHelper.CheckUpdate(Program.Settings.CheckUpdateAtStartup, true) )
       {
         Application.Exit();
         return;
@@ -141,7 +141,7 @@ namespace Ordisoftware.HebrewLetters
         EditLetters.Input.Text = Program.StartupWord;
         DoAnalyse();
       }
-      if ( IsDBUpgraded && DisplayManager.QueryYesNo(Translations.AskToCheckLettersAfterDatabaseChanged.GetLang()) )
+      if ( IsDBUpgraded && DisplayManager.QueryYesNo(Globals.AskToCheckParametersAfterDatabaseUpgraded.GetLang()) )
         SetView(ViewMode.Settings, true);
       else
         SetView(ViewMode.Analyse, true);
@@ -168,7 +168,7 @@ namespace Ordisoftware.HebrewLetters
           ex.Manage();
         }
       if ( EditConfirmClosing.Checked )
-        if ( !DisplayManager.QueryYesNo(Translations.AskToExitApplication.GetLang()) )
+        if ( !DisplayManager.QueryYesNo(Globals.AskToExitApplication.GetLang()) )
         {
           e.Cancel = true;
           Globals.IsExiting = true;
@@ -314,7 +314,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void ActionResetWinSettings_Click(object sender, EventArgs e)
     {
-      if ( DisplayManager.QueryYesNo(Translations.AskToRestoreWindowPosition.GetLang()) )
+      if ( DisplayManager.QueryYesNo(Globals.AskToRestoreWindowPosition.GetLang()) )
         Program.Settings.RestoreMainForm();
     }
 
@@ -356,7 +356,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void ActionHelp_Click(object sender, EventArgs e)
     {
-      Program.RunShell(Globals.HelpFilename);
+      SystemHelper.RunShell(Globals.HelpFilename);
     }
 
     /// <summary>
@@ -366,7 +366,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void ActionApplicationHome_Click(object sender, EventArgs e)
     {
-      Program.OpenApplicationHome();
+      SystemHelper.OpenApplicationHome();
     }
 
     /// <summary>
@@ -376,7 +376,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void ActionContact_Click(object sender, EventArgs e)
     {
-      Program.OpenContactPage();
+      SystemHelper.OpenContactPage();
     }
 
     /// <summary>
@@ -386,7 +386,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void ActionCreateGitHubIssue_Click(object sender, EventArgs e)
     {
-      Program.OpenGitHibIssuesPage();
+      SystemHelper.OpenGitHibIssuesPage();
     }
 
     /// <summary>
@@ -396,7 +396,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void ActionCheckUpdate_Click(object sender, EventArgs e)
     {
-      Program.CheckUpdate(false);
+      SystemHelper.CheckUpdate(Program.Settings.CheckUpdateAtStartup, false);
     }
 
     /// <summary>

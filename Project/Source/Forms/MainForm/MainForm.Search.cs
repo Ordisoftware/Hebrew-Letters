@@ -52,7 +52,7 @@ namespace Ordisoftware.HebrewLetters
                   select letter;
       if ( query.Count() == 0 )
       {
-        MessageBox.Show(Translations.TermNotFound.GetLang(formSearch.EditTerm.Text));
+        MessageBox.Show(Globals.TermNotFound.GetLang(formSearch.EditTerm.Text));
         return;
       }
       if ( query.Count() > 1 )

@@ -45,7 +45,7 @@ namespace Ordisoftware.HebrewLetters
       get
       {
         if ( _GrammarGuideForm == null )
-          _GrammarGuideForm = new HTMLBrowserForm(Translations.GrammarGuideTitle, GrammarGuideFilename,
+          _GrammarGuideForm = new HTMLBrowserForm(Globals.GrammarGuideTitle, GrammarGuideFilename,
                                                   nameof(Settings.GrammarGuideFormLocation),
                                                   nameof(Settings.GrammarGuideFormSize));
         return _GrammarGuideForm;
@@ -85,9 +85,9 @@ namespace Ordisoftware.HebrewLetters
         if ( _StartupWord == null )
         {
           string word = "";
-          if ( CommandLineArguments != null && CommandLineArguments.Length == 1 )
+          if ( SystemHelper.CommandLineArguments != null && SystemHelper.CommandLineArguments.Length == 1 )
           {
-            string str = Localizer.RemoveDiacritics(CommandLineArguments[0]);
+            string str = Localizer.RemoveDiacritics(SystemHelper.CommandLineArguments[0]);
             foreach ( char c in str )
             {
               string @char = Convert.ToString(c);

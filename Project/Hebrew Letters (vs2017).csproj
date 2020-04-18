@@ -76,7 +76,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source\Common\Globals.cs" />
     <Compile Include="Source\Common\OnlineProviderItem.cs" />
-    <Compile Include="Source\Common\OnlineProviders.Translations.cs" />
+    <Compile Include="Source\Common\Globals.Translations.cs" />
     <Compile Include="Source\Common\SQLiteHelper.cs" />
     <Compile Include="Source\Forms\Boxes\HTMLBrowserForm.cs">
       <SubType>Form</SubType>
@@ -150,7 +150,7 @@
     </Compile>
     <Compile Include="Source\Program\Program.cs" />
     <Compile Include="Source\Common\OnlineProviders.Menus.cs" />
-    <Compile Include="Source\Program\Program.System.cs" />
+    <Compile Include="Source\Common\SystemHelper.cs" />
     <Compile Include="Source\Program\Program.Vars.cs" />
     <EmbeddedResource Include="Dependencies\Core Library\Diagnostics\ExceptionForm.resx">
       <DependentUpon>ExceptionForm.cs</DependentUpon>

@@ -18,6 +18,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Threading;
 using System.Windows.Forms;
+using Ordisoftware.HebrewCommon;
 
 namespace Ordisoftware.HebrewLetters
 {
@@ -40,11 +41,15 @@ namespace Ordisoftware.HebrewLetters
     [STAThread]
     static void Main(string[] args)
     {
-      CheckSettingsUpgrade();
+      bool upgrade = Settings.UpgradeRequired;
+      SystemHelper.CheckSettingsUpgrade(Settings, ref upgrade);
+      Settings.UpgradeRequired = upgrade;
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
       Core.Diagnostics.Debugger.Active = true;
-      CheckCommandLineArguments(args);
+      string lang = Settings.Language;
+      SystemHelper.CheckCommandLineArguments(args, ref lang, Settings);
+      Settings.Language = lang;
       UpdateLocalization();
       Application.Run(MainForm.Instance);
     }
@@ -65,7 +70,7 @@ namespace Ordisoftware.HebrewLetters
         {
           new Infralution.Localization.CultureManager().ManagedControl = form;
           ComponentResourceManager resources = new ComponentResourceManager(form.GetType());
-          ApplyResources(resources, form.Controls);
+          SystemHelper.ApplyResources(resources, form.Controls);
         }
       new Infralution.Localization.CultureManager().ManagedControl = AboutBox.Instance;
       Infralution.Localization.CultureManager.ApplicationUICulture = culture;
