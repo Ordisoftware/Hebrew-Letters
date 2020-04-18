@@ -69,6 +69,8 @@
       resources.ApplyResources(this.ListBoxMeanings, "ListBoxMeanings");
       this.ListBoxMeanings.FormattingEnabled = true;
       this.ListBoxMeanings.Name = "ListBoxMeanings";
+      this.ListBoxMeanings.SelectedIndexChanged += new System.EventHandler(this.ListBoxMeanings_SelectedIndexChanged);
+      this.ListBoxMeanings.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ListBoxMeanings_MouseDoubleClick);
       // 
       // SearchTermResultsBox
       // 

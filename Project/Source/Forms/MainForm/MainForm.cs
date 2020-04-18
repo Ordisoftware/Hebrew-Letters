@@ -39,6 +39,11 @@ namespace Ordisoftware.HebrewLetters
     static public MainForm Instance { get; private set; }
 
     /// <summary>
+    /// Last term searched.
+    /// </summary>
+    private string LastTermSearched;
+
+    /// <summary>
     /// Static constructor.
     /// </summary>
     static MainForm()
@@ -163,7 +168,7 @@ namespace Ordisoftware.HebrewLetters
       if ( Globals.IsExiting ) return;
       if ( !Globals.IsReady ) return;
       LettersBindingSource.EndEdit();
-      meaningsBindingSource.EndEdit();
+      MeaningsBindingSource.EndEdit();
       if ( DataSet.HasChanges() )
         try
         {
@@ -296,10 +301,40 @@ namespace Ordisoftware.HebrewLetters
       SetView(ViewMode.Analyse);
     }
 
+    /// <summary>
+    /// Event handler. Called by ActionSearchTerm for click events.
+    /// </summary>
+    /// <param name="sender">Source of the event.</param>
+    /// <param name="e">Event information.</param>
     private void ActionSearchTerm_Click(object sender, EventArgs e)
     {
       ActionViewLetters.PerformClick();
-      DoSearch();
+      var formSearch = new SearchTermBox();
+      formSearch.EditTerm.Text = LastTermSearched;
+      if ( formSearch.ShowDialog() != DialogResult.OK ) return;
+      LastTermSearched = formSearch.EditTerm.Text.ToLower().RemoveDiacritics();
+      if ( !SearchTermResultsBox.Run(LastTermSearched, out var code, out var meaning) ) return;
+
+      LettersBindingSource.Position = LettersBindingSource.Find("Code", code);
+      var prop = MeaningsBindingSource.GetItemProperties(null).Find("Meaning", true);
+      int pos = MeaningsBindingSource.Find(prop, meaning);
+      if ( pos >= 0 )
+      {
+        MeaningsBindingSource.Position = pos;
+        EditMeanings.Focus();
+      }
+      else
+      {
+        Action<TextBox> check = textbox =>
+        {
+          if ( textbox.Text == meaning ) textbox.Focus();
+        };
+        check(Instance.positiveTextBox);
+        check(Instance.negativeTextBox);
+        check(Instance.verbTextBox);
+        check(Instance.structureTextBox);
+        check(Instance.functionTextBox);
+      }
     }
 
     /// <summary>
@@ -479,8 +514,8 @@ namespace Ordisoftware.HebrewLetters
       row.LetterCode = ComboBoxCode.Text;
       row.Meaning = "";
       DataSet.Meanings.AddMeaningsRow(row);
-      meaningsBindingSource.ResetBindings(false);
-      meaningsBindingSource.MoveLast();
+      MeaningsBindingSource.ResetBindings(false);
+      MeaningsBindingSource.MoveLast();
       EditMeanings.BeginEdit(false);
       ActionAddMeaning.Enabled = false;
       ActionDeleteMeaning.Enabled = false;
@@ -490,19 +525,19 @@ namespace Ordisoftware.HebrewLetters
 
     private void ActionDeleteMeaning_Click(object sender, EventArgs e)
     {
-      if ( meaningsBindingSource.Count < 1 ) return;
-      int pos = meaningsBindingSource.Position;
-      meaningsBindingSource.RemoveCurrent();
+      if ( MeaningsBindingSource.Count < 1 ) return;
+      int pos = MeaningsBindingSource.Position;
+      MeaningsBindingSource.RemoveCurrent();
       EditMeanings.EndEdit();
-      int count = meaningsBindingSource.Count;
+      int count = MeaningsBindingSource.Count;
       if (count > 1)
         if ( pos >= count )
         {
-          meaningsBindingSource.MoveFirst();
-          meaningsBindingSource.MoveLast();
+          MeaningsBindingSource.MoveFirst();
+          MeaningsBindingSource.MoveLast();
         }
         else
-          meaningsBindingSource.Position = pos;
+          MeaningsBindingSource.Position = pos;
       UpdateButtons();
     }
 

@@ -84,7 +84,7 @@
       this.ActionAddMeaning = new System.Windows.Forms.Button();
       this.EditMeanings = new System.Windows.Forms.DataGridView();
       this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.meaningsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+      this.MeaningsBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.PanelSepTop = new System.Windows.Forms.Panel();
       this.PanelTitle = new System.Windows.Forms.Panel();
       this.LabelTitle = new System.Windows.Forms.Label();
@@ -169,7 +169,7 @@
       ((System.ComponentModel.ISupportInitialize)(this.LettersBindingSource)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.DataSet)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.EditMeanings)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.meaningsBindingSource)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.MeaningsBindingSource)).BeginInit();
       this.PanelTitle.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.moonPhaseImagePictureBox)).BeginInit();
       this.ToolStrip.SuspendLayout();
@@ -595,7 +595,7 @@
       this.EditMeanings.ColumnHeadersVisible = false;
       this.EditMeanings.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn2});
-      this.EditMeanings.DataSource = this.meaningsBindingSource;
+      this.EditMeanings.DataSource = this.MeaningsBindingSource;
       this.EditMeanings.MultiSelect = false;
       this.EditMeanings.Name = "EditMeanings";
       this.EditMeanings.RowHeadersVisible = false;
@@ -611,12 +611,12 @@
       resources.ApplyResources(this.dataGridViewTextBoxColumn2, "dataGridViewTextBoxColumn2");
       this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
       // 
-      // meaningsBindingSource
+      // MeaningsBindingSource
       // 
-      this.meaningsBindingSource.AllowNew = true;
-      this.meaningsBindingSource.DataMember = "Letters_Meanings";
-      this.meaningsBindingSource.DataSource = this.LettersBindingSource;
-      this.meaningsBindingSource.DataError += new System.Windows.Forms.BindingManagerDataErrorEventHandler(this.BindingSource_DataError);
+      this.MeaningsBindingSource.AllowNew = true;
+      this.MeaningsBindingSource.DataMember = "Letters_Meanings";
+      this.MeaningsBindingSource.DataSource = this.LettersBindingSource;
+      this.MeaningsBindingSource.DataError += new System.Windows.Forms.BindingManagerDataErrorEventHandler(this.BindingSource_DataError);
       // 
       // PanelSepTop
       // 
@@ -1115,7 +1115,7 @@
       ((System.ComponentModel.ISupportInitialize)(this.LettersBindingSource)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.DataSet)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.EditMeanings)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.meaningsBindingSource)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.MeaningsBindingSource)).EndInit();
       this.PanelTitle.ResumeLayout(false);
       ((System.ComponentModel.ISupportInitialize)(this.moonPhaseImagePictureBox)).EndInit();
       this.ToolStrip.ResumeLayout(false);
@@ -1160,28 +1160,22 @@
     private System.Windows.Forms.Panel PanelViewSettings;
     private System.Windows.Forms.ToolStripButton ActionViewAnalysis;
     private System.Windows.Forms.ToolStripButton ActionViewLetters;
-    private Data.DataSet DataSet;
-    private System.Windows.Forms.BindingSource LettersBindingSource;
+    internal Data.DataSet DataSet;
+    internal System.Windows.Forms.BindingSource LettersBindingSource;
     private Data.DataSetTableAdapters.LettersTableAdapter LettersTableAdapter;
     private Data.DataSetTableAdapters.TableAdapterManager TableAdapterManager;
     private System.Windows.Forms.TextBox nameTextBox;
-    private System.Windows.Forms.TextBox structureTextBox;
-    private System.Windows.Forms.TextBox functionTextBox;
     private System.Windows.Forms.TextBox valueSimpleTextBox;
     private System.Windows.Forms.TextBox valueFullTextBox;
     private Data.DataSetTableAdapters.MeaningsTableAdapter MeaningsTableAdapter;
-    private System.Windows.Forms.BindingSource meaningsBindingSource;
     private System.Windows.Forms.Panel PanelSettingsDetails;
     private System.Windows.Forms.LinkLabel ActionRestoreDefaults;
     private System.Windows.Forms.Button ActionDeleteMeaning;
     private System.Windows.Forms.Button ActionAddMeaning;
     private System.Windows.Forms.Button ActionCopyToClipboardResult;
     private System.Windows.Forms.Button ActionClear;
-    private System.Windows.Forms.TextBox verbTextBox;
     private System.Windows.Forms.Panel EditAnalyze;
     internal System.Windows.Forms.CheckBox SelectCloseApp;
-    private System.Windows.Forms.TextBox negativeTextBox;
-    private System.Windows.Forms.TextBox positiveTextBox;
     private System.Windows.Forms.Button ActionCopyToClipboardMeanings;
     private System.Windows.Forms.ToolStripButton ActionPreferences;
     internal System.Windows.Forms.Label LabelGematria;
@@ -1232,5 +1226,11 @@
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
     private System.Windows.Forms.ToolStripMenuItem ActionOpenWebLinkTemplateLink;
     private System.Windows.Forms.ToolStripMenuItem ActionShowMethodNotice;
+    internal System.Windows.Forms.BindingSource MeaningsBindingSource;
+    internal System.Windows.Forms.TextBox structureTextBox;
+    internal System.Windows.Forms.TextBox functionTextBox;
+    internal System.Windows.Forms.TextBox verbTextBox;
+    internal System.Windows.Forms.TextBox negativeTextBox;
+    internal System.Windows.Forms.TextBox positiveTextBox;
   }
 }
