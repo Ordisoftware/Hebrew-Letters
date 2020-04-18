@@ -604,14 +604,15 @@ namespace Ordisoftware.HebrewLetters
 
     private void BindingSource_DataError(object sender, BindingManagerDataErrorEventArgs e)
     {
-      if ( e.Exception is ArgumentOutOfRangeException ) return; // ?
+      if ( !Globals.IsReady ) return;
       e.Exception.Manage();
       DataSet.RejectChanges();
     }
 
     private void EditMeanings_DataError(object sender, DataGridViewDataErrorEventArgs e)
     {
-      if ( e.Exception is ArgumentOutOfRangeException || e.Exception is IndexOutOfRangeException ) // ?
+      if ( !Globals.IsReady ) return;
+      if ( e.Exception is ArgumentOutOfRangeException || e.Exception is IndexOutOfRangeException )
       {
         DisplayManager.ShowError("Internal index error." + Environment.NewLine +
                                  "Application will exit." + Environment.NewLine + Environment.NewLine +
