@@ -1086,6 +1086,7 @@
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.Controls.Add(this.PanelMain);
       this.Controls.Add(this.ToolStrip);
+      this.KeyPreview = true;
       this.MaximizeBox = false;
       this.MinimizeBox = false;
       this.Name = "MainForm";

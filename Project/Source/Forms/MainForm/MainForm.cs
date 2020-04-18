@@ -437,9 +437,11 @@ namespace Ordisoftware.HebrewLetters
     {
       if ( DisplayManager.QueryYesNo(Translations.AskToRestoreLettersDefaults.GetLang()) )
       {
+        string word = EditLetters.Input.Text;
         CreateDataIfNotExists(true);
         ActionClear.PerformClick();
         ActionReset.PerformClick();
+        EditLetters.Input.Text = word;
       }
     }
 
@@ -482,8 +484,18 @@ namespace Ordisoftware.HebrewLetters
     private void ActionDeleteMeaning_Click(object sender, EventArgs e)
     {
       if ( meaningsBindingSource.Count < 1 ) return;
+      int pos = meaningsBindingSource.Position;
       meaningsBindingSource.RemoveCurrent();
       EditMeanings.EndEdit();
+      int count = meaningsBindingSource.Count;
+      if (count > 1)
+        if ( pos >= count )
+        {
+          meaningsBindingSource.MoveFirst();
+          meaningsBindingSource.MoveLast();
+        }
+        else
+          meaningsBindingSource.Position = pos;
       UpdateButtons();
     }
 
