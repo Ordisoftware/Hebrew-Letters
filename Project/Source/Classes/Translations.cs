@@ -24,7 +24,7 @@ namespace Ordisoftware.HebrewLetters
   static public partial class Translations
   {
 
-    static public string NewLine = HebrewCommon.Globals.NewLine;
+    static public string NewLine { get { return Environment.NewLine; } }
 
     static public readonly Dictionary<string, string> ApplicationDescription
       = new Dictionary<string, string>()
