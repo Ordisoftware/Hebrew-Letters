@@ -16,9 +16,8 @@ using System;
 using System.Drawing;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using Ordisoftware.HebrewCommon;
 
-namespace Ordisoftware.HebrewLetters
+namespace Ordisoftware.HebrewCommon
 {
 
   public partial class HTMLBrowserForm : Form
@@ -30,7 +29,7 @@ namespace Ordisoftware.HebrewLetters
     public HTMLBrowserForm()
     {
       InitializeComponent();
-      Icon = MainForm.Instance.Icon;
+      Icon = SystemHelper.MainForm.Icon;
       ActiveControl = WebBrowser;
     }
 
@@ -41,14 +40,14 @@ namespace Ordisoftware.HebrewLetters
     {
       InitializeComponent();
       ActiveControl = WebBrowser;
-      Icon = MainForm.Instance.Icon;
+      Icon = SystemHelper.MainForm.Icon;
       Title = title;
       Filename = filename;
-      Location = (Point)Properties.Settings.Default[locationPropertyName];
-      ClientSize = (Size)Properties.Settings.Default[clientSizePropertyName];
-      DataBindings.Add(new Binding("Location", Properties.Settings.Default, locationPropertyName, true,
+      Location = (Point)SystemHelper.Settings[locationPropertyName];
+      ClientSize = (Size)SystemHelper.Settings[clientSizePropertyName];
+      DataBindings.Add(new Binding("Location", SystemHelper.Settings, locationPropertyName, true,
                        DataSourceUpdateMode.OnPropertyChanged));
-      DataBindings.Add(new Binding("ClientSize", Properties.Settings.Default, clientSizePropertyName, true,
+      DataBindings.Add(new Binding("ClientSize", SystemHelper.Settings, clientSizePropertyName, true,
                        DataSourceUpdateMode.OnPropertyChanged));
     }
 

@@ -78,10 +78,10 @@
     <Compile Include="Source\Common\OnlineProviderItem.cs" />
     <Compile Include="Source\Common\Globals.Translations.cs" />
     <Compile Include="Source\Common\SQLiteHelper.cs" />
-    <Compile Include="Source\Forms\Boxes\HTMLBrowserForm.cs">
+    <Compile Include="Source\Common\HTMLBrowserForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Source\Forms\Boxes\HTMLBrowserForm.Designer.cs">
+    <Compile Include="Source\Common\HTMLBrowserForm.Designer.cs">
       <DependentUpon>HTMLBrowserForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Forms\Boxes\SearchTermResultsBox.cs">
@@ -162,7 +162,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Source\Forms\Boxes\HTMLBrowserForm.resx">
+    <EmbeddedResource Include="Source\Common\HTMLBrowserForm.resx">
       <DependentUpon>HTMLBrowserForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\Boxes\SearchTermResultsBox.fr.resx">

@@ -1,4 +1,4 @@
-﻿namespace Ordisoftware.HebrewLetters
+﻿namespace Ordisoftware.HebrewCommon
 {
   partial class HTMLBrowserForm
   {
