@@ -329,11 +329,11 @@ namespace Ordisoftware.HebrewLetters
         {
           if ( textbox.Text == meaning ) textbox.Focus();
         };
-        check(Instance.positiveTextBox);
-        check(Instance.negativeTextBox);
-        check(Instance.verbTextBox);
-        check(Instance.structureTextBox);
-        check(Instance.functionTextBox);
+        check(Instance.TextBoxPositive);
+        check(Instance.TextBoxNegative);
+        check(Instance.TextBoxVerb);
+        check(Instance.TextBoxStructure);
+        check(Instance.TextBoxFunction);
       }
     }
 

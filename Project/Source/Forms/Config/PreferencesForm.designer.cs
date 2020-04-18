@@ -31,7 +31,7 @@
       this.components = new System.ComponentModel.Container();
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PreferencesForm));
       this.ActionClose = new System.Windows.Forms.Button();
-      this.PanelButtons = new System.Windows.Forms.Panel();
+      this.PanelBottom = new System.Windows.Forms.Panel();
       this.OpenFileDialog = new System.Windows.Forms.OpenFileDialog();
       this.FolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
       this.MenuSelectOnlineVerseURL = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -42,7 +42,7 @@
       this.EditAutoSortAnalysisMeanings = new System.Windows.Forms.CheckBox();
       this.EditVacuumAtStartup = new System.Windows.Forms.CheckBox();
       this.EditCheckUpdateAtStartup = new System.Windows.Forms.CheckBox();
-      this.PanelButtons.SuspendLayout();
+      this.PanelBottom.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.EditFontSize)).BeginInit();
       this.SuspendLayout();
       // 
@@ -53,11 +53,11 @@
       this.ActionClose.Name = "ActionClose";
       this.ActionClose.UseVisualStyleBackColor = true;
       // 
-      // PanelButtons
+      // PanelBottom
       // 
-      this.PanelButtons.Controls.Add(this.ActionClose);
-      resources.ApplyResources(this.PanelButtons, "PanelButtons");
-      this.PanelButtons.Name = "PanelButtons";
+      this.PanelBottom.Controls.Add(this.ActionClose);
+      resources.ApplyResources(this.PanelBottom, "PanelBottom");
+      this.PanelBottom.Name = "PanelBottom";
       // 
       // OpenFileDialog
       // 
@@ -156,7 +156,7 @@
       this.Controls.Add(this.ActionSelectLangFR);
       this.Controls.Add(this.ActionSelectLangEN);
       this.Controls.Add(this.EditCheckUpdateAtStartup);
-      this.Controls.Add(this.PanelButtons);
+      this.Controls.Add(this.PanelBottom);
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
       this.MaximizeBox = false;
       this.MinimizeBox = false;
@@ -164,7 +164,7 @@
       this.ShowInTaskbar = false;
       this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PreferencesForm_FormClosed);
       this.Shown += new System.EventHandler(this.PreferencesForm_Shown);
-      this.PanelButtons.ResumeLayout(false);
+      this.PanelBottom.ResumeLayout(false);
       ((System.ComponentModel.ISupportInitialize)(this.EditFontSize)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
@@ -173,7 +173,7 @@
 
     #endregion
     private System.Windows.Forms.Button ActionClose;
-    private System.Windows.Forms.Panel PanelButtons;
+    private System.Windows.Forms.Panel PanelBottom;
     private System.Windows.Forms.OpenFileDialog OpenFileDialog;
     private System.Windows.Forms.FolderBrowserDialog FolderBrowserDialog;
     private System.Windows.Forms.ContextMenuStrip MenuSelectOnlineVerseURL;
