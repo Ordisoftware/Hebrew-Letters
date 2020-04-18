@@ -107,7 +107,7 @@ namespace Ordisoftware.HebrewLetters.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool ConfirmClosing {
             get {
                 return ((bool)(this["ConfirmClosing"]));
@@ -282,6 +282,18 @@ namespace Ordisoftware.HebrewLetters.Properties {
             }
             set {
                 this["AutoSortAnalysisMeanings"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool FirstLaunchV4 {
+            get {
+                return ((bool)(this["FirstLaunchV4"]));
+            }
+            set {
+                this["FirstLaunchV4"] = value;
             }
         }
     }

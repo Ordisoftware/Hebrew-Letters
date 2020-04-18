@@ -29,7 +29,7 @@
       <Value Profile="(Default)">Normal</Value>
     </Setting>
     <Setting Name="ConfirmClosing" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="ShowTips" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
@@ -71,6 +71,9 @@
       <Value Profile="(Default)">392, 466</Value>
     </Setting>
     <Setting Name="AutoSortAnalysisMeanings" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="FirstLaunchV4" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>

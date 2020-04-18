@@ -145,6 +145,12 @@ namespace Ordisoftware.HebrewLetters
         SetView(ViewMode.Settings, true);
       else
         SetView(ViewMode.Analyse, true);
+      if ( Program.Settings.FirstLaunchV4 )
+      {
+        Program.Settings.FirstLaunchV4 = false;
+        Program.Settings.Save();
+        ActionShowMethodNotice.PerformClick();
+      }
     }
 
     /// <summary>
