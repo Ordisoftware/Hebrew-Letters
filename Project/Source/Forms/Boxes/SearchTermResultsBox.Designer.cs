@@ -32,15 +32,16 @@
       this.panel1 = new System.Windows.Forms.Panel();
       this.ActionSearch = new System.Windows.Forms.Button();
       this.ActionCancel = new System.Windows.Forms.Button();
-      this.Listbox = new System.Windows.Forms.ListBox();
+      this.ListBoxLetters = new System.Windows.Forms.ListBox();
+      this.ListBoxMeanings = new System.Windows.Forms.ListBox();
       this.panel1.SuspendLayout();
       this.SuspendLayout();
       // 
       // panel1
       // 
-      resources.ApplyResources(this.panel1, "panel1");
       this.panel1.Controls.Add(this.ActionSearch);
       this.panel1.Controls.Add(this.ActionCancel);
+      resources.ApplyResources(this.panel1, "panel1");
       this.panel1.Name = "panel1";
       // 
       // ActionSearch
@@ -55,25 +56,33 @@
       this.ActionCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
       this.ActionCancel.Name = "ActionCancel";
       // 
-      // Listbox
+      // ListBoxLetters
       // 
-      resources.ApplyResources(this.Listbox, "Listbox");
-      this.Listbox.FormattingEnabled = true;
-      this.Listbox.Name = "Listbox";
-      this.Listbox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.Listbox_MouseDoubleClick);
+      resources.ApplyResources(this.ListBoxLetters, "ListBoxLetters");
+      this.ListBoxLetters.FormattingEnabled = true;
+      this.ListBoxLetters.Name = "ListBoxLetters";
+      this.ListBoxLetters.SelectedIndexChanged += new System.EventHandler(this.ListBoxLetters_SelectedIndexChanged);
+      this.ListBoxLetters.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ListBoxLetters_MouseDoubleClick);
       // 
-      // SearchTermResults
+      // ListBoxMeanings
+      // 
+      resources.ApplyResources(this.ListBoxMeanings, "ListBoxMeanings");
+      this.ListBoxMeanings.FormattingEnabled = true;
+      this.ListBoxMeanings.Name = "ListBoxMeanings";
+      // 
+      // SearchTermResultsBox
       // 
       this.AcceptButton = this.ActionSearch;
       resources.ApplyResources(this, "$this");
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.CancelButton = this.ActionCancel;
-      this.Controls.Add(this.Listbox);
+      this.Controls.Add(this.ListBoxMeanings);
+      this.Controls.Add(this.ListBoxLetters);
       this.Controls.Add(this.panel1);
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
       this.MaximizeBox = false;
       this.MinimizeBox = false;
-      this.Name = "SearchTermResults";
+      this.Name = "SearchTermResultsBox";
       this.panel1.ResumeLayout(false);
       this.ResumeLayout(false);
 
@@ -84,6 +93,7 @@
     private System.Windows.Forms.Panel panel1;
     private System.Windows.Forms.Button ActionCancel;
     private System.Windows.Forms.Button ActionSearch;
-    internal System.Windows.Forms.ListBox Listbox;
+    internal System.Windows.Forms.ListBox ListBoxLetters;
+    internal System.Windows.Forms.ListBox ListBoxMeanings;
   }
 }

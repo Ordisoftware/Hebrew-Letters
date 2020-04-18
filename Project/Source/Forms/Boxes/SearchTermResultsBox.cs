@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2020-03 </created>
-/// <edited> 2020-03 </edited>
+/// <edited> 2020-04 </edited>
 using System;
 using System.Windows.Forms;
 
@@ -21,16 +21,24 @@ namespace Ordisoftware.HebrewLetters
   public partial class SearchTermResultsBox : Form
   {
 
+    static public Run(string term)
+    {
+    }
+
     public SearchTermResultsBox()
     {
       InitializeComponent();
     }
 
-    private void Listbox_MouseDoubleClick(object sender, MouseEventArgs e)
+    private void ListBoxLetters_MouseDoubleClick(object sender, MouseEventArgs e)
     {
       ActionSearch.PerformClick();
     }
 
+    private void ListBoxLetters_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
   }
 
 }

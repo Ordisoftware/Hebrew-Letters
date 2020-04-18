@@ -29,7 +29,7 @@ namespace Ordisoftware.HebrewLetters
     private void DoSearch()
     {
       string letterName = "";
-      var formSearch = new SearchMeaningBox();
+      var formSearch = new SearchTermBox();
       formSearch.EditTerm.Text = LastTermSearched;
       if ( formSearch.ShowDialog() != DialogResult.OK )
         return;
@@ -59,11 +59,11 @@ namespace Ordisoftware.HebrewLetters
       {
         var formResults = new SearchTermResultsBox();
         foreach ( var row in query )
-          formResults.Listbox.Items.Add(row.Name);
-        formResults.Listbox.SelectedItem = formResults.Listbox.Items[0];
+          formResults.ListBoxLetters.Items.Add(row.Name);
+        formResults.ListBoxLetters.SelectedItem = formResults.ListBoxLetters.Items[0];
         if ( formResults.ShowDialog() == DialogResult.Cancel )
           return;
-        letterName = formResults.Listbox.SelectedItem.ToString();
+        letterName = formResults.ListBoxLetters.SelectedItem.ToString();
       }
       else
         letterName = query.First().Name;
