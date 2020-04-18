@@ -201,7 +201,10 @@
     <EmbeddedResource Include="Source\Forms\Boxes\SearchTermBox.resx">
       <DependentUpon>SearchTermBox.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="app.config" />
+    <None Include="..\README.md">
+      <Link>README.md</Link>
+    </None>
+    <None Include="App.config" />
     <None Include="Data\DataSet.xsc">
       <DependentUpon>DataSet.xsd</DependentUpon>
     </None>
