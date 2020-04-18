@@ -414,6 +414,7 @@
       this.EditLetters.LettersBackground = System.Drawing.Color.LightYellow;
       resources.ApplyResources(this.EditLetters, "EditLetters");
       this.EditLetters.Name = "EditLetters";
+      this.EditLetters.ShowValues = true;
       this.EditLetters.InputTextChanged += new System.EventHandler(this.EditLetters_InputTextChanged);
       this.EditLetters.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EditLetters_KeyPress);
       // 
