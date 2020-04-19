@@ -46,7 +46,7 @@ namespace Ordisoftware.HebrewLetters
       Settings.UpgradeRequired = upgrade;
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
-      Core.Diagnostics.Debugger.Active = true;
+      Core.Diagnostics.Debugger.Active = Settings.DebuggerEnabled;
       Globals.Settings = Settings;
       Globals.MainForm = MainForm.Instance;
       string lang = Settings.Language;

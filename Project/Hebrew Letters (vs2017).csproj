@@ -56,7 +56,6 @@
       <DependentUpon>DataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Dependencies\Core Library\AbortException.cs" />
-    <Compile Include="Dependencies\Core Library\Core.Diagnostics.cs" />
     <Compile Include="Dependencies\Core Library\Diagnostics\Debugger.cs" />
     <Compile Include="Dependencies\Core Library\Diagnostics\ExceptionForm.cs">
       <SubType>Form</SubType>
@@ -150,6 +149,9 @@
     <Compile Include="Source\Common\OnlineProviders.Menus.cs" />
     <Compile Include="Source\Common\SystemHelper.cs" />
     <Compile Include="Source\Program\Program.Vars.cs" />
+    <EmbeddedResource Include="Dependencies\Core Library\Diagnostics\ExceptionForm.fr.resx">
+      <DependentUpon>ExceptionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dependencies\Core Library\Diagnostics\ExceptionForm.resx">
       <DependentUpon>ExceptionForm.cs</DependentUpon>
     </EmbeddedResource>
