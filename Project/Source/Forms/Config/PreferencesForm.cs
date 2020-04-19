@@ -78,6 +78,7 @@ namespace Ordisoftware.HebrewLetters
 
     private void ActionSelectLangEN_Click(object sender, EventArgs e)
     {
+      MainForm.Instance.ActionClear.PerformClick();
       Program.Settings.Language = "en";
       Program.UpdateLocalization();
       UpdateLanguagesButtons();
@@ -87,6 +88,7 @@ namespace Ordisoftware.HebrewLetters
 
     private void ActionSelectLangFR_Click(object sender, EventArgs e)
     {
+      MainForm.Instance.ActionClear.PerformClick();
       Program.Settings.Language = "fr";
       Program.UpdateLocalization();
       UpdateLanguagesButtons();

@@ -1154,7 +1154,6 @@
     private System.Windows.Forms.Button ActionDeleteMeaning;
     private System.Windows.Forms.Button ActionAddMeaning;
     private System.Windows.Forms.Button ActionCopyToClipboardResult;
-    private System.Windows.Forms.Button ActionClear;
     private System.Windows.Forms.Panel EditAnalyze;
     internal System.Windows.Forms.CheckBox SelectCloseApp;
     private System.Windows.Forms.Button ActionCopyToClipboardMeanings;
@@ -1212,5 +1211,6 @@
     internal System.Windows.Forms.TextBox TextBoxVerb;
     internal System.Windows.Forms.TextBox TextBoxNegative;
     internal System.Windows.Forms.TextBox TextBoxPositive;
+    internal System.Windows.Forms.Button ActionClear;
   }
 }
