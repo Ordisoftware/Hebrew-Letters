@@ -46,9 +46,9 @@ namespace Ordisoftware.HebrewLetters
       Settings.UpgradeRequired = upgrade;
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
-      Core.Diagnostics.Debugger.Active = Settings.DebuggerEnabled;
       Globals.Settings = Settings;
       Globals.MainForm = MainForm.Instance;
+      Core.Diagnostics.Debugger.Active = Settings.DebuggerEnabled;
       string lang = Settings.Language;
       SystemHelper.CheckCommandLineArguments(args, ref lang, Settings);
       Settings.Language = lang;
@@ -67,15 +67,17 @@ namespace Ordisoftware.HebrewLetters
       Thread.CurrentThread.CurrentCulture = culture;
       Thread.CurrentThread.CurrentUICulture = culture;
       AboutBox.Instance.Hide();
+      Action<Form> update = form =>
+      {
+        new Infralution.Localization.CultureManager().ManagedControl = form;
+        ComponentResourceManager resources = new ComponentResourceManager(form.GetType());
+        SystemHelper.ApplyResources(resources, form.Controls);
+      };
+      update(Globals.MainForm);
       foreach ( Form form in Application.OpenForms )
-        if ( form != AboutBox.Instance && form != GrammarGuideForm && form != MethodNoticeForm )
-        {
-          new Infralution.Localization.CultureManager().ManagedControl = form;
-          ComponentResourceManager resources = new ComponentResourceManager(form.GetType());
-          SystemHelper.ApplyResources(resources, form.Controls);
-        }
+        if ( form != Globals.MainForm && form != AboutBox.Instance && form != GrammarGuideForm && form != MethodNoticeForm )
+          update(form);
       new Infralution.Localization.CultureManager().ManagedControl = AboutBox.Instance;
-
       Infralution.Localization.CultureManager.ApplicationUICulture = culture;
       AboutBox.Instance.AboutBox_Shown(null, null);
       GrammarGuideForm.HTMLBrowserForm_Shown(null, null);
