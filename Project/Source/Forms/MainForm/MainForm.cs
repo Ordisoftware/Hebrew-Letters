@@ -146,6 +146,8 @@ namespace Ordisoftware.HebrewLetters
         EditLetters.Input.Text = Program.StartupWord;
         DoAnalyse();
       }
+      else
+        ActionReset.Visible = false;
       if ( IsDBUpgraded && DisplayManager.QueryYesNo(Globals.AskToCheckParametersAfterDatabaseUpgraded.GetLang()) )
         SetView(ViewMode.Settings, true);
       else
