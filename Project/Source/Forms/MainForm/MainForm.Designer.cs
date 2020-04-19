@@ -1133,7 +1133,7 @@
     private System.Windows.Forms.Panel PanelMainInner;
     private System.Windows.Forms.Panel PanelMainCenter;
     private System.Windows.Forms.Timer TimerTooltip;
-    private Ordisoftware.HebrewCommon.LettersControl EditLetters;
+    internal Ordisoftware.HebrewCommon.LettersControl EditLetters;
     private System.Windows.Forms.TabControl TabControl;
     private System.Windows.Forms.TabPage TabPageText;
     private System.Windows.Forms.Panel PanelViewSearch;
