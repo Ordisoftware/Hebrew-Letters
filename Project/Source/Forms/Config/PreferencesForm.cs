@@ -100,6 +100,7 @@ namespace Ordisoftware.HebrewLetters
       if ( !DisplayManager.QueryYesNo(Globals.AskToResetPreferences.GetLang()) ) return;
       Program.Settings.Reset();
       Program.Settings.Reload();
+      Program.Settings.Language = Localizer.Language;
       Program.Settings.Save();
       PreferencesForm_Shown(null, null);
       MainForm.Instance.EditSentence.Font = new Font("Microsoft Sans Serif", (float)Program.Settings.FontSizeSentence);
