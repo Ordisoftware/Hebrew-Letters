@@ -191,7 +191,7 @@ namespace Ordisoftware.HebrewLetters.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("11")]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
         public decimal FontSizeSentence {
             get {
                 return ((decimal)(this["FontSizeSentence"]));

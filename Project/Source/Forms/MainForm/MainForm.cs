@@ -377,7 +377,6 @@ namespace Ordisoftware.HebrewLetters
     private void ActionPreferences_Click(object sender, EventArgs e)
     {
       PreferencesForm.Run();
-      DoAnalyse();
     }
 
     /// <summary>
