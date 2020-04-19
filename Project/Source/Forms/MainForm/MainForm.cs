@@ -84,7 +84,7 @@ namespace Ordisoftware.HebrewLetters
     }
 
     /// <summary>
-    /// Create web links menu items.
+    /// Create providers and web links menu items.
     /// </summary>
     internal void CreateProvidersAndWebLinks()
     {
