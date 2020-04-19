@@ -32,6 +32,7 @@
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PreferencesForm));
       this.ActionClose = new System.Windows.Forms.Button();
       this.PanelBottom = new System.Windows.Forms.Panel();
+      this.ActionResetSettings = new System.Windows.Forms.LinkLabel();
       this.OpenFileDialog = new System.Windows.Forms.OpenFileDialog();
       this.FolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
       this.MenuSelectOnlineVerseURL = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -39,10 +40,10 @@
       this.ActionSelectLangFR = new System.Windows.Forms.Button();
       this.LabelFontSize = new System.Windows.Forms.Label();
       this.EditFontSize = new System.Windows.Forms.NumericUpDown();
+      this.EditEnableDebugger = new System.Windows.Forms.CheckBox();
       this.EditAutoSortAnalysisMeanings = new System.Windows.Forms.CheckBox();
       this.EditVacuumAtStartup = new System.Windows.Forms.CheckBox();
       this.EditCheckUpdateAtStartup = new System.Windows.Forms.CheckBox();
-      this.ActionResetSettings = new System.Windows.Forms.LinkLabel();
       this.PanelBottom.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.EditFontSize)).BeginInit();
       this.SuspendLayout();
@@ -60,6 +61,15 @@
       this.PanelBottom.Controls.Add(this.ActionClose);
       resources.ApplyResources(this.PanelBottom, "PanelBottom");
       this.PanelBottom.Name = "PanelBottom";
+      // 
+      // ActionResetSettings
+      // 
+      this.ActionResetSettings.ActiveLinkColor = System.Drawing.Color.MediumBlue;
+      resources.ApplyResources(this.ActionResetSettings, "ActionResetSettings");
+      this.ActionResetSettings.LinkColor = System.Drawing.Color.Navy;
+      this.ActionResetSettings.Name = "ActionResetSettings";
+      this.ActionResetSettings.TabStop = true;
+      this.ActionResetSettings.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ActionResetSettings_LinkClicked);
       // 
       // OpenFileDialog
       // 
@@ -97,8 +107,8 @@
       // 
       // EditFontSize
       // 
-      this.EditFontSize.BackColor = System.Drawing.SystemColors.Window;
       resources.ApplyResources(this.EditFontSize, "EditFontSize");
+      this.EditFontSize.BackColor = System.Drawing.SystemColors.Window;
       this.EditFontSize.Maximum = new decimal(new int[] {
             14,
             0,
@@ -117,6 +127,16 @@
             0,
             0});
       this.EditFontSize.ValueChanged += new System.EventHandler(this.EditFontSize_ValueChanged);
+      // 
+      // EditEnableDebugger
+      // 
+      resources.ApplyResources(this.EditEnableDebugger, "EditEnableDebugger");
+      this.EditEnableDebugger.Checked = global::Ordisoftware.HebrewLetters.Properties.Settings.Default.DebuggerEnabled;
+      this.EditEnableDebugger.CheckState = System.Windows.Forms.CheckState.Checked;
+      this.EditEnableDebugger.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Ordisoftware.HebrewLetters.Properties.Settings.Default, "DebuggerEnabled", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+      this.EditEnableDebugger.Name = "EditEnableDebugger";
+      this.EditEnableDebugger.UseVisualStyleBackColor = true;
+      this.EditEnableDebugger.CheckedChanged += new System.EventHandler(this.EditEnableDebugger_CheckedChanged);
       // 
       // EditAutoSortAnalysisMeanings
       // 
@@ -145,21 +165,13 @@
       this.EditCheckUpdateAtStartup.Name = "EditCheckUpdateAtStartup";
       this.EditCheckUpdateAtStartup.UseVisualStyleBackColor = true;
       // 
-      // ActionResetSettings
-      // 
-      this.ActionResetSettings.ActiveLinkColor = System.Drawing.Color.MediumBlue;
-      resources.ApplyResources(this.ActionResetSettings, "ActionResetSettings");
-      this.ActionResetSettings.LinkColor = System.Drawing.Color.Navy;
-      this.ActionResetSettings.Name = "ActionResetSettings";
-      this.ActionResetSettings.TabStop = true;
-      this.ActionResetSettings.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ActionResetSettings_LinkClicked);
-      // 
       // PreferencesForm
       // 
       this.AcceptButton = this.ActionClose;
       resources.ApplyResources(this, "$this");
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.CancelButton = this.ActionClose;
+      this.Controls.Add(this.EditEnableDebugger);
       this.Controls.Add(this.EditAutoSortAnalysisMeanings);
       this.Controls.Add(this.EditVacuumAtStartup);
       this.Controls.Add(this.EditFontSize);
@@ -197,5 +209,6 @@
     private System.Windows.Forms.CheckBox EditVacuumAtStartup;
     private System.Windows.Forms.CheckBox EditAutoSortAnalysisMeanings;
     private System.Windows.Forms.LinkLabel ActionResetSettings;
+    private System.Windows.Forms.CheckBox EditEnableDebugger;
   }
 }
