@@ -78,6 +78,8 @@ namespace Ordisoftware.HebrewLetters
         if ( form != Globals.MainForm && form != AboutBox.Instance && form != GrammarGuideForm && form != MethodNoticeForm )
           update(form);
       new Infralution.Localization.CultureManager().ManagedControl = AboutBox.Instance;
+      new Infralution.Localization.CultureManager().ManagedControl = GrammarGuideForm;
+      new Infralution.Localization.CultureManager().ManagedControl = MethodNoticeForm;
       Infralution.Localization.CultureManager.ApplicationUICulture = culture;
       AboutBox.Instance.AboutBox_Shown(null, null);
       GrammarGuideForm.HTMLBrowserForm_Shown(null, null);
