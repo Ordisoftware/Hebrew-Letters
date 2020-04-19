@@ -81,13 +81,6 @@ namespace Ordisoftware.HebrewLetters
       try { Icon = Icon.ExtractAssociatedIcon(Globals.IconFilename); }
       catch { }
       ClipboardViewerNext = SetClipboardViewer(Handle);
-      OnlineProviders.CreateProvidersMenuItems(Globals.OnlineWordProviders, ContextMenuSearchOnline, (sender, e) =>
-      {
-        var menuitem = (ToolStripMenuItem)sender;
-        var control = ( (ContextMenuStrip)menuitem.Owner ).SourceControl;
-        string str = HebrewAlphabet.ConvertToUnicode(EditLetters.Input.Text);
-        SystemHelper.RunShell(( (string)menuitem.Tag ).Replace("%WORD%", str));
-      });
     }
 
     /// <summary>
@@ -96,6 +89,13 @@ namespace Ordisoftware.HebrewLetters
     internal void CreateWebLinks()
     {
       OnlineProviders.CreateWebLinksMenuItems(MenuWebLinks, ActionOpenWebLinkTemplateFolder.Image);
+      OnlineProviders.CreateProvidersMenuItems(Globals.OnlineWordProviders, ContextMenuSearchOnline, (sender, e) =>
+      {
+        var menuitem = (ToolStripMenuItem)sender;
+        var control = ( (ContextMenuStrip)menuitem.Owner ).SourceControl;
+        string str = HebrewAlphabet.ConvertToUnicode(EditLetters.Input.Text);
+        SystemHelper.RunShell(( (string)menuitem.Tag ).Replace("%WORD%", str));
+      });
     }
 
     /// <summary>
