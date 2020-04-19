@@ -46,7 +46,9 @@ namespace Ordisoftware.HebrewCommon
     /// </summary>
     public OnlineProviders(string filename, bool showFileNotFound = true)
     {
-      var separator = new string[] { " = " };
+      string tagName = "Name = ";
+      string tagURL = "URL = ";
+      //var separator = new string[] { " = " };
       Items = new List<OnlineProviderItem>();
       if ( !File.Exists(filename) )
       {
@@ -76,37 +78,25 @@ namespace Ordisoftware.HebrewCommon
           else
           if ( line.StartsWith("Lang/") )
           {
-            var parts = line.Split(new string[] { "/", " = " }, StringSplitOptions.None);
+            var parts = line.Split('/', '=');
             if ( parts.Length == 3 )
               Title.Add(parts[1].Trim().ToLower(), parts[2].Trim());
             else
               showError();
           }
           else
-          if ( line.StartsWith("Name") )
+          if ( line.StartsWith(tagName) )
           {
-            var parts = line.Split(separator, StringSplitOptions.None);
-            if ( parts.Length == 2 )
+            string name = line.Substring(tagName.Length);
+            index++;
+            if ( index >= lines.Length )
             {
-              string name = parts[1].Trim();
-              index++;
-              if ( index >= lines.Length )
-              {
-                showError();
-                break;
-              }
-              line = lines[index].Trim();
-              if ( line.StartsWith("URL") )
-              {
-                parts = line.Split(separator, StringSplitOptions.None);
-                if ( parts.Length == 2 )
-                  Items.Add(new OnlineProviderItem(name, parts[1].Trim()));
-                else
-                  showError();
-              }
-              else
-                showError();
+              showError();
+              break;
             }
+            line = lines[index].Trim();
+            if ( line.StartsWith(tagURL) )
+              Items.Add(new OnlineProviderItem(name, line.Substring(tagURL.Length)));
             else
               showError();
           }

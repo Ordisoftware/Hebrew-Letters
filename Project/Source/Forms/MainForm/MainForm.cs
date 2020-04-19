@@ -84,9 +84,9 @@ namespace Ordisoftware.HebrewLetters
     }
 
     /// <summary>
-    /// Create web links menu items.
+    /// Create providers and web links menu items.
     /// </summary>
-    internal void CreateWebLinks()
+    internal void CreateProvidersAndWebLinks()
     {
       OnlineProviders.CreateWebLinksMenuItems(MenuWebLinks, ActionOpenWebLinkTemplateFolder.Image);
       OnlineProviders.CreateProvidersMenuItems(Globals.OnlineWordProviders, ContextMenuSearchOnline, (sender, e) =>
@@ -94,7 +94,7 @@ namespace Ordisoftware.HebrewLetters
         var menuitem = (ToolStripMenuItem)sender;
         var control = ( (ContextMenuStrip)menuitem.Owner ).SourceControl;
         string str = HebrewAlphabet.ConvertToUnicode(EditLetters.Input.Text);
-        SystemHelper.RunShell(( (string)menuitem.Tag ).Replace("%WORD%", str));
+        SystemManager.OpenWebLink(( (string)menuitem.Tag ).Replace("%WORD%", str));
       });
     }
 

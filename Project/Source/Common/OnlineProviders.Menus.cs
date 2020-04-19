@@ -30,12 +30,12 @@ namespace Ordisoftware.HebrewCommon
     /// <summary>
     /// Create submenu items for providers menu.
     /// </summary>
-    static public void CreateProvidersMenuItems(OnlineProviders items, ContextMenuStrip menu, EventHandler action)
+    static public void CreateProvidersMenuItems(OnlineProviders items, ContextMenuStrip menuRoot, EventHandler action)
     {
-      menu.Items.Clear();
+      menuRoot.Items.Clear();
       int index = 0;
       foreach ( var item in items.Items )
-        menu.Items.Insert(index++, item.CreateMenuItem(action));
+        menuRoot.Items.Insert(index++, item.CreateMenuItem(action));
     }
 
     /// <summary>

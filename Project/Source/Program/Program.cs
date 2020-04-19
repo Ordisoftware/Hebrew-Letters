@@ -74,6 +74,8 @@ namespace Ordisoftware.HebrewLetters
         SystemHelper.ApplyResources(resources, form.Controls);
       };
       update(Globals.MainForm);
+      MainForm.Instance.LabelGematria.Location = new Point(MainForm.Instance.LabelGematria.Location.X,
+                                                           MainForm.Instance.EditGematria.Location.Y - 19);
       foreach ( Form form in Application.OpenForms )
         if ( form != Globals.MainForm && form != AboutBox.Instance && form != GrammarGuideForm && form != MethodNoticeForm )
           update(form);
@@ -84,9 +86,7 @@ namespace Ordisoftware.HebrewLetters
       AboutBox.Instance.AboutBox_Shown(null, null);
       GrammarGuideForm.HTMLBrowserForm_Shown(null, null);
       MethodNoticeForm.HTMLBrowserForm_Shown(null, null);
-      MainForm.Instance.CreateWebLinks();
-      MainForm.Instance.LabelGematria.Location = new Point(MainForm.Instance.LabelGematria.Location.X,
-                                                           MainForm.Instance.EditGematria.Location.Y - 19);
+      MainForm.Instance.CreateProvidersAndWebLinks();
     }
 
   }
