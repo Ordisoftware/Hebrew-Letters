@@ -94,7 +94,7 @@ namespace Ordisoftware.HebrewLetters
         var menuitem = (ToolStripMenuItem)sender;
         var control = ( (ContextMenuStrip)menuitem.Owner ).SourceControl;
         string str = HebrewAlphabet.ConvertToUnicode(EditLetters.Input.Text);
-        SystemHelper.RunShell(( (string)menuitem.Tag ).Replace("%WORD%", str));
+        SystemManager.OpenWebLink(( (string)menuitem.Tag ).Replace("%WORD%", str));
       });
     }
 
