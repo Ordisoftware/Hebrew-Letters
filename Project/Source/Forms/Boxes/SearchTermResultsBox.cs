@@ -16,6 +16,7 @@ using System;
 using System.Linq;
 using System.Windows.Forms;
 using Ordisoftware.HebrewCommon;
+using Ordisoftware.Core;
 
 namespace Ordisoftware.HebrewLetters
 {
@@ -44,7 +45,7 @@ namespace Ordisoftware.HebrewLetters
                   select letter;
       if ( query.Count() < 1 )
       {
-        MessageBox.Show(Globals.TermNotFound.GetLang(term));
+        DisplayManager.ShowInfo(Globals.TermNotFound.GetLang(term));
         return false;
       }
       var form = new SearchTermResultsBox();

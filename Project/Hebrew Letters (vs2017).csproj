@@ -162,6 +162,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Source\Common\HTMLBrowserForm.fr.resx">
+      <DependentUpon>HTMLBrowserForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Source\Common\HTMLBrowserForm.resx">
       <DependentUpon>HTMLBrowserForm.cs</DependentUpon>
     </EmbeddedResource>
