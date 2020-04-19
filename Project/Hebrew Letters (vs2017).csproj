@@ -74,6 +74,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Source\Common\EnumHelper.cs" />
     <Compile Include="Source\Common\Globals.cs" />
     <Compile Include="Source\Common\OnlineProviderItem.cs" />
     <Compile Include="Source\Common\Globals.Translations.cs" />

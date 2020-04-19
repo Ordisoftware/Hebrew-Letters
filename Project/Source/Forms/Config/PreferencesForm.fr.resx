@@ -175,4 +175,7 @@
   <data name="EditAutoSortAnalysisMeanings.Text" xml:space="preserve">
     <value>Trier automatiquement les significations</value>
   </data>
+  <data name="ActionResetSettings.Text" xml:space="preserve">
+    <value>Restaurer les valeurs par défaut</value>
+  </data>
 </root>

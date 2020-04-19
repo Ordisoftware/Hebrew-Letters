@@ -47,11 +47,11 @@ namespace Ordisoftware.HebrewLetters
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
       Core.Diagnostics.Debugger.Active = true;
+      Globals.Settings = Settings;
+      Globals.MainForm = MainForm.Instance;
       string lang = Settings.Language;
       SystemHelper.CheckCommandLineArguments(args, ref lang, Settings);
       Settings.Language = lang;
-      SystemHelper.Settings = Settings;
-      SystemHelper.MainForm = MainForm.Instance;
       UpdateLocalization();
       Application.Run(MainForm.Instance);
     }
@@ -68,20 +68,21 @@ namespace Ordisoftware.HebrewLetters
       Thread.CurrentThread.CurrentUICulture = culture;
       AboutBox.Instance.Hide();
       foreach ( Form form in Application.OpenForms )
-        if ( form != AboutBox.Instance && form != GrammarGuideForm )
+        if ( form != AboutBox.Instance && form != GrammarGuideForm && form != MethodNoticeForm )
         {
           new Infralution.Localization.CultureManager().ManagedControl = form;
           ComponentResourceManager resources = new ComponentResourceManager(form.GetType());
           SystemHelper.ApplyResources(resources, form.Controls);
         }
       new Infralution.Localization.CultureManager().ManagedControl = AboutBox.Instance;
+
       Infralution.Localization.CultureManager.ApplicationUICulture = culture;
       AboutBox.Instance.AboutBox_Shown(null, null);
       GrammarGuideForm.HTMLBrowserForm_Shown(null, null);
       MethodNoticeForm.HTMLBrowserForm_Shown(null, null);
+      MainForm.Instance.CreateWebLinks();
       MainForm.Instance.LabelGematria.Location = new Point(MainForm.Instance.LabelGematria.Location.X,
                                                            MainForm.Instance.EditGematria.Location.Y - 19);
-      MainForm.Instance.CreateWebLinks();
     }
 
   }

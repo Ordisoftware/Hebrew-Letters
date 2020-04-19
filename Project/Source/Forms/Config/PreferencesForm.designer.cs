@@ -42,6 +42,7 @@
       this.EditAutoSortAnalysisMeanings = new System.Windows.Forms.CheckBox();
       this.EditVacuumAtStartup = new System.Windows.Forms.CheckBox();
       this.EditCheckUpdateAtStartup = new System.Windows.Forms.CheckBox();
+      this.ActionResetSettings = new System.Windows.Forms.LinkLabel();
       this.PanelBottom.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.EditFontSize)).BeginInit();
       this.SuspendLayout();
@@ -55,6 +56,7 @@
       // 
       // PanelBottom
       // 
+      this.PanelBottom.Controls.Add(this.ActionResetSettings);
       this.PanelBottom.Controls.Add(this.ActionClose);
       resources.ApplyResources(this.PanelBottom, "PanelBottom");
       this.PanelBottom.Name = "PanelBottom";
@@ -143,6 +145,15 @@
       this.EditCheckUpdateAtStartup.Name = "EditCheckUpdateAtStartup";
       this.EditCheckUpdateAtStartup.UseVisualStyleBackColor = true;
       // 
+      // ActionResetSettings
+      // 
+      this.ActionResetSettings.ActiveLinkColor = System.Drawing.Color.MediumBlue;
+      resources.ApplyResources(this.ActionResetSettings, "ActionResetSettings");
+      this.ActionResetSettings.LinkColor = System.Drawing.Color.Navy;
+      this.ActionResetSettings.Name = "ActionResetSettings";
+      this.ActionResetSettings.TabStop = true;
+      this.ActionResetSettings.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ActionResetSettings_LinkClicked);
+      // 
       // PreferencesForm
       // 
       this.AcceptButton = this.ActionClose;
@@ -165,6 +176,7 @@
       this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PreferencesForm_FormClosed);
       this.Shown += new System.EventHandler(this.PreferencesForm_Shown);
       this.PanelBottom.ResumeLayout(false);
+      this.PanelBottom.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.EditFontSize)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
@@ -184,5 +196,6 @@
     private System.Windows.Forms.Label LabelFontSize;
     private System.Windows.Forms.CheckBox EditVacuumAtStartup;
     private System.Windows.Forms.CheckBox EditAutoSortAnalysisMeanings;
+    private System.Windows.Forms.LinkLabel ActionResetSettings;
   }
 }
