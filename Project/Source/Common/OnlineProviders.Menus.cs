@@ -32,6 +32,7 @@ namespace Ordisoftware.HebrewCommon
     /// </summary>
     static public void CreateProvidersMenuItems(OnlineProviders items, ContextMenuStrip menu, EventHandler action)
     {
+      menu.Items.Clear();
       int index = 0;
       foreach ( var item in items.Items )
         menu.Items.Insert(index++, item.CreateMenuItem(action));
@@ -52,7 +53,6 @@ namespace Ordisoftware.HebrewCommon
     /// </summary>
     static public void CreateWebLinksMenuItems(ToolStripDropDownButton menuRoot, Image imageFolder)
     {
-      Globals.LoadWebLinks();
       menuRoot.DropDownItems.Clear();
       foreach ( var items in Globals.OnlineLinksProviders )
         if ( items.Items.Count > 0 )
