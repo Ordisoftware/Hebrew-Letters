@@ -86,7 +86,7 @@ namespace Ordisoftware.HebrewLetters
     /// <summary>
     /// Create web links menu items.
     /// </summary>
-    internal void CreateWebLinks()
+    internal void CreateProvidersAndWebLinks()
     {
       OnlineProviders.CreateWebLinksMenuItems(MenuWebLinks, ActionOpenWebLinkTemplateFolder.Image);
       OnlineProviders.CreateProvidersMenuItems(Globals.OnlineWordProviders, ContextMenuSearchOnline, (sender, e) =>
