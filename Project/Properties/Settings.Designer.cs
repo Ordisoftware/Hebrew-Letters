@@ -296,5 +296,17 @@ namespace Ordisoftware.HebrewLetters.Properties {
                 this["FirstLaunchV4"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool DebuggerEnabled {
+            get {
+                return ((bool)(this["DebuggerEnabled"]));
+            }
+            set {
+                this["DebuggerEnabled"] = value;
+            }
+        }
     }
 }

@@ -82,6 +82,8 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 - Add option to auto vacuum database at startup.
 - Add option to auto sort meanings combobox items.
 - Add option to use Escape key to close app.
+- Add option to enable debugger.
+- Add debugger (exception information form).
 - Fix paste from clipboard to overwrite the selected text.
 - Fix selected row in meanings array when the last item is deleted.
 - Improve search term result dialog box.

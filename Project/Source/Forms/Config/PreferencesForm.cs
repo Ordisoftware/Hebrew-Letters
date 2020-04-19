@@ -57,6 +57,11 @@ namespace Ordisoftware.HebrewLetters
       Program.Settings.Store();
     }
 
+    private void EditEnableDebugger_CheckedChanged(object sender, EventArgs e)
+    {
+      Core.Diagnostics.Debugger.Active = EditEnableDebugger.Checked;
+    }
+
     private void UpdateLanguagesButtons()
     {
       if ( Program.Settings.Language == "en" )
