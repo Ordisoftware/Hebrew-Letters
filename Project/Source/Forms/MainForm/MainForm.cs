@@ -20,6 +20,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using Microsoft.Win32;
 using System.Runtime.InteropServices;
+using Ordisoftware.HebrewCommon;
 using Ordisoftware.Core;
 
 namespace Ordisoftware.HebrewLetters
@@ -35,7 +36,12 @@ namespace Ordisoftware.HebrewLetters
     /// <summary>
     /// Indicate the singleton instance.
     /// </summary>
-    static public readonly MainForm Instance;
+    static public MainForm Instance { get; private set; }
+
+    /// <summary>
+    /// Last term searched.
+    /// </summary>
+    private string LastTermSearched;
 
     /// <summary>
     /// Static constructor.
@@ -56,11 +62,6 @@ namespace Ordisoftware.HebrewLetters
     private bool IsDBUpgraded;
 
     /// <summary>
-    /// Indicate if the application is ready for the user.
-    /// </summary>
-    public bool IsReady { get; private set; }
-
-    /// <summary>
     /// Indicate the selected meanings text.
     /// </summary>
     private string SelectedMeanings;
@@ -75,23 +76,26 @@ namespace Ordisoftware.HebrewLetters
     private MainForm()
     {
       InitializeComponent();
-      Text = AboutBox.Instance.AssemblyTitle;
+      Text = Globals.AssemblyTitle;
       SystemEvents.SessionEnding += SessionEnding;
+      try { Icon = Icon.ExtractAssociatedIcon(Globals.IconFilename); }
+      catch { }
       ClipboardViewerNext = SetClipboardViewer(Handle);
-      int index = 1;
-      EventHandler action = (sender, e) =>
+      OnlineProviders.CreateProvidersMenuItems(Globals.OnlineWordProviders, ContextMenuSearchOnline, (sender, e) =>
       {
         var menuitem = (ToolStripMenuItem)sender;
         var control = ( (ContextMenuStrip)menuitem.Owner ).SourceControl;
-        Program.RunShell(((string)menuitem.Tag).Replace("%WORD%", HebrewLetters.ConvertToUnicode(EditLetters.Input.Text)));
-      };
-      foreach ( var item in OnlineWordProviders.Items )
-      {
-        if (item.Name == "-")
-          ContextMenuSearchOnline.Items.Insert(index++, new ToolStripSeparator());
-        else
-          ContextMenuSearchOnline.Items.Insert(index++, item.CreateMenuItem(action));
-      }
+        string str = HebrewAlphabet.ConvertToUnicode(EditLetters.Input.Text);
+        SystemHelper.RunShell(( (string)menuitem.Tag ).Replace("%WORD%", str));
+      });
+    }
+
+    /// <summary>
+    /// Create web links menu items.
+    /// </summary>
+    internal void CreateWebLinks()
+    {
+      OnlineProviders.CreateWebLinksMenuItems(MenuWebLinks, ActionOpenWebLinkTemplateFolder.Image);
     }
 
     /// <summary>
@@ -102,19 +106,24 @@ namespace Ordisoftware.HebrewLetters
     private void MainForm_Load(object sender, EventArgs e)
     {
       Program.Settings.Retrieve();
-      EditSentence.Font = new Font("Microsoft Sans Serif", (float)Program.Settings.FontSizeSentence);
+      if ( SystemHelper.CheckUpdate(Program.Settings.CheckUpdateAtStartup, true) )
+      {
+        Application.Exit();
+        return;
+      }
       try
       {
+        EditSentence.Font = new Font("Microsoft Sans Serif", (float)Program.Settings.FontSizeSentence);
         IsDBUpgraded = CreateSchemaIfNotExists();
         CreateDataIfNotExists(false);
         LettersTableAdapter.Fill(DataSet.Letters);
         MeaningsTableAdapter.Fill(DataSet.Meanings);
         ComboBoxCode_SelectedIndexChanged(null, null);
-        IsReady = true;
+        Globals.IsReady = true;
       }
       catch ( OdbcException ex )
       {
-        DisplayManager.ShowError(ex.Message);
+        ex.Manage();
         Application.Exit();
       }
       catch ( Exception ex )
@@ -130,19 +139,23 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Form closing event information.</param>
     private void MainForm_Shown(object sender, EventArgs e)
     {
-      Program.CheckUpdate(true);
-      if ( Program.StartupWord != "" )
+      if ( Globals.IsExiting ) return;
+      if ( Program.StartupWord != null && Program.StartupWord != "" )
       {
-        EditLetters.Input.Text = Program.StartupWord;
-        ActionAnalyse.PerformClick();
-        SetView(ViewModeType.Analyse, true);
         ActionReset.Visible = true;
+        EditLetters.Input.Text = Program.StartupWord;
+        DoAnalyse();
       }
+      if ( IsDBUpgraded && DisplayManager.QueryYesNo(Globals.AskToCheckParametersAfterDatabaseUpgraded.GetLang()) )
+        SetView(ViewMode.Settings, true);
       else
-        SetView(ViewModeType.Analyse, true);
-      if ( IsDBUpgraded )
-        if ( DisplayManager.QueryYesNo(Translations.DatabaseChanged.GetLang()) )
-          SetView(ViewModeType.Settings);
+        SetView(ViewMode.Analyse, true);
+      if ( Program.Settings.FirstLaunchV4 )
+      {
+        Program.Settings.FirstLaunchV4 = false;
+        Program.Settings.Save();
+        ActionShowMethodNotice.PerformClick();
+      }
     }
 
     /// <summary>
@@ -152,9 +165,10 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Form closing event information.</param>
     private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
     {
-      if ( !IsReady ) return;
+      if ( Globals.IsExiting ) return;
+      if ( !Globals.IsReady ) return;
       LettersBindingSource.EndEdit();
-      meaningsBindingSource.EndEdit();
+      MeaningsBindingSource.EndEdit();
       if ( DataSet.HasChanges() )
         try
         {
@@ -165,9 +179,10 @@ namespace Ordisoftware.HebrewLetters
           ex.Manage();
         }
       if ( EditConfirmClosing.Checked )
-        if ( !DisplayManager.QueryYesNo(Translations.ExitApplication.GetLang()) )
+        if ( !DisplayManager.QueryYesNo(Globals.AskToExitApplication.GetLang()) )
         {
           e.Cancel = true;
+          Globals.IsExiting = true;
           return;
         }
     }
@@ -189,7 +204,10 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Form closing event information.</param>
     private void MainForm_WindowsChanged(object sender, EventArgs e)
     {
-      if ( !IsReady ) return;
+      if ( Globals.IsExiting ) return;
+      if ( !Globals.IsReady ) return;
+      if ( !Visible ) return;
+      if ( WindowState != FormWindowState.Normal ) return;
       EditScreenNone.PerformClick();
     }
 
@@ -200,12 +218,19 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Session ending event information.</param>
     private void SessionEnding(object sender, SessionEndingEventArgs e)
     {
+      Globals.IsExiting = true;
+      Globals.IsSessionEnding = true;
+      Globals.AllowClose = true;
       foreach ( Form form in Application.OpenForms )
         if ( form != this && form.Visible )
-          form.Close();
+          try { form.Close(); }
+          catch { }
       Close();
     }
 
+    /// <summary>
+    /// Clipboard monitoring.
+    /// </summary>
     protected override void WndProc(ref Message m)
     {
       const int WM_DRAWCLIPBOARD = 0x308;
@@ -215,7 +240,7 @@ namespace Ordisoftware.HebrewLetters
           string str = Clipboard.GetText();
           bool isValid = false;
           foreach ( char c in str )
-            if ( c != ' ' && HebrewLetters.ConvertToKey(c) != ' ' )
+            if ( c != ' ' && HebrewAlphabet.ConvertToKey(c) != ' ' )
             {
               isValid = true;
               break;
@@ -266,25 +291,61 @@ namespace Ordisoftware.HebrewLetters
     }
 
     /// <summary>
-    /// Event handler. Called by ActionViewSearch for click events.
+    /// Event handler. Called by ActionViewAnalysis for click events.
     /// </summary>
     /// <param name="sender">Source of the event.</param>
     /// <param name="e">Event information.</param>
-    private void ActionViewSearch_Click(object sender, EventArgs e)
+    private void ActionViewAnalysis_Click(object sender, EventArgs e)
     {
       if ( DataSet.HasChanges() ) TableAdapterManager.UpdateAll(DataSet);
-      SetView(ViewModeType.Analyse);
+      SetView(ViewMode.Analyse);
     }
 
     /// <summary>
-    /// Event handler. Called by ActionViewSettings for click events.
+    /// Event handler. Called by ActionSearchTerm for click events.
     /// </summary>
     /// <param name="sender">Source of the event.</param>
     /// <param name="e">Event information.</param>
-    private void ActionViewSettings_Click(object sender, EventArgs e)
+    private void ActionSearchTerm_Click(object sender, EventArgs e)
+    {
+      ActionViewLetters.PerformClick();
+      var formSearch = new SearchTermBox();
+      formSearch.EditTerm.Text = LastTermSearched;
+      if ( formSearch.ShowDialog() != DialogResult.OK ) return;
+      LastTermSearched = formSearch.EditTerm.Text.ToLower().RemoveDiacritics();
+      if ( !SearchTermResultsBox.Run(LastTermSearched, out var code, out var meaning) ) return;
+
+      LettersBindingSource.Position = LettersBindingSource.Find("Code", code);
+      var prop = MeaningsBindingSource.GetItemProperties(null).Find("Meaning", true);
+      int pos = MeaningsBindingSource.Find(prop, meaning);
+      if ( pos >= 0 )
+      {
+        MeaningsBindingSource.Position = pos;
+        EditMeanings.Focus();
+      }
+      else
+      {
+        Action<TextBox> check = textbox =>
+        {
+          if ( textbox.Text == meaning ) textbox.Focus();
+        };
+        check(Instance.TextBoxPositive);
+        check(Instance.TextBoxNegative);
+        check(Instance.TextBoxVerb);
+        check(Instance.TextBoxStructure);
+        check(Instance.TextBoxFunction);
+      }
+    }
+
+    /// <summary>
+    /// Event handler. Called by ActionViewLetters for click events.
+    /// </summary>
+    /// <param name="sender">Source of the event.</param>
+    /// <param name="e">Event information.</param>
+    private void ActionViewLetters_Click(object sender, EventArgs e)
     {
       if ( DataSet.HasChanges() ) TableAdapterManager.UpdateAll(DataSet);
-      SetView(ViewModeType.Settings);
+      SetView(ViewMode.Settings);
     }
 
     /// <summary>
@@ -294,7 +355,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void ActionResetWinSettings_Click(object sender, EventArgs e)
     {
-      if ( DisplayManager.QueryYesNo(Translations.RestoreWindowPosition.GetLang()) )
+      if ( DisplayManager.QueryYesNo(Globals.AskToRestoreWindowPosition.GetLang()) )
         Program.Settings.RestoreMainForm();
     }
 
@@ -303,7 +364,7 @@ namespace Ordisoftware.HebrewLetters
     /// </summary>
     /// <param name="sender">Source of the event.</param>
     /// <param name="e">Event information.</param>
-    internal void SelectScreenPosition_Click(object sender, EventArgs e)
+    internal void EditScreenPosition_Click(object sender, EventArgs e)
     {
       DoScreenPosition(sender, e);
     }
@@ -325,10 +386,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void ActionAbout_Click(object sender, EventArgs e)
     {
-      if ( AboutBox.Instance.Visible )
-        AboutBox.Instance.BringToFront();
-      else
-        AboutBox.Instance.ShowDialog();
+      AboutBox.Instance.ShowDialog();
     }
 
     /// <summary>
@@ -338,7 +396,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void ActionHelp_Click(object sender, EventArgs e)
     {
-      Program.RunShell(Program.HelpFilename);
+      SystemHelper.RunShell(Globals.HelpFilename);
     }
 
     /// <summary>
@@ -348,7 +406,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void ActionApplicationHome_Click(object sender, EventArgs e)
     {
-      AboutBox.Instance.OpenApplicationHome();
+      SystemHelper.OpenApplicationHome();
     }
 
     /// <summary>
@@ -358,7 +416,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void ActionContact_Click(object sender, EventArgs e)
     {
-      AboutBox.Instance.OpenContactPage();
+      SystemHelper.OpenContactPage();
     }
 
     /// <summary>
@@ -368,7 +426,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void ActionCreateGitHubIssue_Click(object sender, EventArgs e)
     {
-      SystemManager.OpenWebLink(Program.GitHubRepositoryURL + "/issues");
+      SystemHelper.OpenGitHibIssuesPage();
     }
 
     /// <summary>
@@ -378,7 +436,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void ActionCheckUpdate_Click(object sender, EventArgs e)
     {
-      Program.CheckUpdate(false);
+      SystemHelper.CheckUpdate(Program.Settings.CheckUpdateAtStartup, false);
     }
 
     /// <summary>
@@ -388,7 +446,26 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void ActionExit_Click(object sender, EventArgs e)
     {
-      Close();
+      if ( Globals.AllowClose )
+        Close();
+    }
+
+    private void ProcessHTMLBrowser(HTMLBrowserForm form)
+    {
+      if ( form.WindowState == FormWindowState.Minimized )
+        form.WindowState = FormWindowState.Normal;
+      form.Show();
+      form.BringToFront();
+    }
+
+    private void ActionShowMethodNotice_Click(object sender, EventArgs e)
+    {
+      ProcessHTMLBrowser(Program.MethodNoticeForm);
+    }
+
+    private void ActionShowGrammarGuide_Click(object sender, EventArgs e)
+    {
+      ProcessHTMLBrowser(Program.GrammarGuideForm);
     }
 
     private void ActionOpenWebsiteURL_Click(object sender, EventArgs e)
@@ -397,13 +474,15 @@ namespace Ordisoftware.HebrewLetters
       SystemManager.OpenWebLink(url);
     }
 
-    private void ActionReset_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    private void ActionRestoreDefaults_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
-      if ( DisplayManager.QueryYesNo(Translations.RestoreLettersDefault.GetLang()) )
+      if ( DisplayManager.QueryYesNo(Translations.AskToRestoreLettersDefaults.GetLang()) )
       {
+        string word = EditLetters.Input.Text;
         CreateDataIfNotExists(true);
         ActionClear.PerformClick();
         ActionReset.PerformClick();
+        EditLetters.Input.Text = word;
       }
     }
 
@@ -434,8 +513,8 @@ namespace Ordisoftware.HebrewLetters
       row.LetterCode = ComboBoxCode.Text;
       row.Meaning = "";
       DataSet.Meanings.AddMeaningsRow(row);
-      meaningsBindingSource.ResetBindings(false);
-      meaningsBindingSource.MoveLast();
+      MeaningsBindingSource.ResetBindings(false);
+      MeaningsBindingSource.MoveLast();
       EditMeanings.BeginEdit(false);
       ActionAddMeaning.Enabled = false;
       ActionDeleteMeaning.Enabled = false;
@@ -445,15 +524,35 @@ namespace Ordisoftware.HebrewLetters
 
     private void ActionDeleteMeaning_Click(object sender, EventArgs e)
     {
-      if ( meaningsBindingSource.Count < 1 ) return;
-      meaningsBindingSource.RemoveCurrent();
+      if ( MeaningsBindingSource.Count < 1 ) return;
+      int pos = MeaningsBindingSource.Position;
+      MeaningsBindingSource.RemoveCurrent();
       EditMeanings.EndEdit();
+      int count = MeaningsBindingSource.Count;
+      if (count > 1)
+        if ( pos >= count )
+        {
+          MeaningsBindingSource.MoveFirst();
+          MeaningsBindingSource.MoveLast();
+        }
+        else
+          MeaningsBindingSource.Position = pos;
       UpdateButtons();
+    }
+
+    private void EditMeanings_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+    {
+      Globals.AllowClose = false;
+    }
+
+    private void EditMeanings_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+    {
+      Globals.AllowClose = true;
     }
 
     private void EditMeanings_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
     {
-      if ( e.FormattedValue == DBNull.Value || e.FormattedValue == "" )
+      if ( e.FormattedValue == DBNull.Value || (string)e.FormattedValue == "" )
       {
         e.Cancel = true;
         EditMeanings.BeginEdit(false);
@@ -485,17 +584,17 @@ namespace Ordisoftware.HebrewLetters
 
     private void EditLetters_KeyPress(object sender, KeyPressEventArgs e)
     {
-      if ( e.KeyChar == '\r' ) ActionAnalyse.PerformClick();
+      if ( e.KeyChar == '\r' ) DoAnalyse();
     }
 
     private void EditLetters_InputTextChanged(object sender, EventArgs e)
     {
-      ActionAnalyse.Enabled = EditLetters.Input.Text != "";
+      var enabled = EditLetters.Input.Text != "";
       ActionDelFirst.Enabled = EditLetters.Input.Text.Length > 1;
       ActionDelLast.Enabled = ActionDelFirst.Enabled;
-      ActionClear.Enabled = ActionAnalyse.Enabled;
-      ActionCopyToUnicode.Enabled = ActionAnalyse.Enabled;
-      ActionSearchOnline.Enabled = ActionAnalyse.Enabled;
+      ActionClear.Enabled = enabled;
+      ActionCopyToUnicode.Enabled = enabled;
+      ActionSearchOnline.Enabled = enabled;
       DoAnalyse();
     }
 
@@ -512,14 +611,14 @@ namespace Ordisoftware.HebrewLetters
     private void ActionPasteFromUnicode_Click(object sender, EventArgs e)
     {
       string str = Clipboard.GetText();
-      EditLetters.Input.Text = HebrewLetters.ConvertToHebrewFont(new string(str.ToArray())).Replace(" ", "");
+      EditLetters.Input.Text = HebrewAlphabet.ConvertToHebrewFont(new string(str.ToArray())).Replace(" ", "");
       EditLetters.Input.Focus();
     }
 
     private void ActionCopyToUnicode_Click(object sender, EventArgs e)
     {
       if ( EditLetters.Input.Text != "" )
-        Clipboard.SetText(HebrewLetters.ConvertToUnicode(EditLetters.Input.Text));
+        Clipboard.SetText(HebrewAlphabet.ConvertToUnicode(EditLetters.Input.Text));
       EditLetters.Input.Focus();
     }
 
@@ -556,14 +655,15 @@ namespace Ordisoftware.HebrewLetters
 
     private void BindingSource_DataError(object sender, BindingManagerDataErrorEventArgs e)
     {
-      if ( e.Exception is ArgumentOutOfRangeException ) return; // ?
-      DisplayManager.ShowError(e.Exception.Message);
+      if ( !Globals.IsReady ) return;
+      e.Exception.Manage();
       DataSet.RejectChanges();
     }
 
     private void EditMeanings_DataError(object sender, DataGridViewDataErrorEventArgs e)
     {
-      if ( e.Exception is ArgumentOutOfRangeException || e.Exception is IndexOutOfRangeException ) // ?
+      if ( !Globals.IsReady ) return;
+      if ( e.Exception is ArgumentOutOfRangeException || e.Exception is IndexOutOfRangeException )
       {
         DisplayManager.ShowError("Internal index error." + Environment.NewLine +
                                  "Application will exit." + Environment.NewLine + Environment.NewLine +
@@ -572,7 +672,7 @@ namespace Ordisoftware.HebrewLetters
         Application.Exit();
       }
       else
-        DisplayManager.ShowError(e.Exception.Message);
+        e.Exception.Manage();
     }
 
     private void ActionOpenHebrewAlphabet_Click(object sender, EventArgs e)
@@ -584,53 +684,6 @@ namespace Ordisoftware.HebrewLetters
     private void ActionSearchOnline_Click(object sender, EventArgs e)
     {
       ContextMenuSearchOnline.Show(ActionSearchOnline, new Point(0, ActionSearchOnline.Height));
-    }
-
-    private string LastTermSearched;
-
-    private void ActionSearchTerm_Click(object sender, EventArgs e)
-    {
-      ActionViewSettings.PerformClick();
-      string letterName = "";
-      var formSearch = new SearchMeaning();
-      formSearch.EditTerm.Text = LastTermSearched;
-      if ( formSearch.ShowDialog() != DialogResult.OK )
-        return;
-      Func<Data.DataSet.MeaningsRow[], string, bool> contains = (rows, str) =>
-      {
-        foreach ( var row in rows )
-          if ( row.Meaning.ToLower().Contains(str) )
-            return true;
-        return false;
-      };
-      LastTermSearched = formSearch.EditTerm.Text;
-      string term = LastTermSearched.ToLower();
-      var query = from letter in DataSet.Letters
-                  where letter.Function.ToLower().Contains(term)
-                     || letter.Verb.ToLower().Contains(term)
-                     || letter.Structure.ToLower().Contains(term)
-                     || letter.Positive.ToLower().Contains(term)
-                     || letter.Negative.ToLower().Contains(term)
-                     || contains(letter.GetMeaningsRows(), term)
-                  select letter;
-      if ( query.Count() == 0 )
-      {
-        MessageBox.Show(Translations.TermNotFound.GetLang(formSearch.EditTerm.Text));
-        return;
-      }
-      if ( query.Count() > 1 )
-      {
-        var formResults = new SearchTermResults();
-        foreach ( var row in query )
-          formResults.Listbox.Items.Add(row.Name);
-        formResults.Listbox.SelectedItem = formResults.Listbox.Items[0];
-        if ( formResults.ShowDialog() == DialogResult.Cancel )
-          return;
-        letterName = formResults.Listbox.SelectedItem.ToString();
-      }
-      else
-        letterName = query.First().Name;
-      LettersBindingSource.Position = LettersBindingSource.Find("Name", letterName);
     }
 
   }

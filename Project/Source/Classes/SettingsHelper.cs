@@ -26,7 +26,7 @@ namespace Ordisoftware.HebrewLetters
   {
 
     /// <summary>
-    /// Indicate the main form.
+    /// Indicate the main form instance.
     /// </summary>
     static private readonly MainForm MainForm = MainForm.Instance;
 
@@ -46,9 +46,10 @@ namespace Ordisoftware.HebrewLetters
       MainForm.EditScreenBottomLeft.Checked = false;
       MainForm.EditScreenBottomRight.Checked = false;
       MainForm.EditScreenCenter.Checked = true;
-      MainForm.EditConfirmClosing.Checked = true;
+      MainForm.EditConfirmClosing.Checked = false;
       MainForm.EditShowTips.Checked = true;
-      MainForm.SetView(ViewModeType.Analyse);
+      MainForm.EditESCtoExit.Checked = false;
+      MainForm.SetView(ViewMode.Analyse);
       settings.Store();
     }
 
@@ -81,10 +82,11 @@ namespace Ordisoftware.HebrewLetters
       MainForm.EditScreenBottomLeft.Checked = settings.MainFormPosition == ControlLocation.BottomLeft;
       MainForm.EditScreenBottomRight.Checked = settings.MainFormPosition == ControlLocation.BottomRight;
       MainForm.EditScreenCenter.Checked = settings.MainFormPosition == ControlLocation.Center;
-      MainForm.SelectScreenPosition_Click(null, null);
+      MainForm.EditScreenPosition_Click(null, null);
       MainForm.WindowState = settings.MainFormState;
       MainForm.EditConfirmClosing.Checked = settings.ConfirmClosing;
       MainForm.EditShowTips.Checked = settings.ShowTips;
+      MainForm.EditESCtoExit.Checked = settings.ESCtoExit;
       MainForm.SelectCloseApp.Checked = settings.CopyToClipboardCloseApp;
     }
 
@@ -112,6 +114,7 @@ namespace Ordisoftware.HebrewLetters
       if ( MainForm.EditScreenCenter.Checked ) settings.MainFormPosition = ControlLocation.Center;
       settings.ConfirmClosing = MainForm.EditConfirmClosing.Checked;
       settings.ShowTips = MainForm.EditShowTips.Checked;
+      settings.ESCtoExit = MainForm.EditESCtoExit.Checked;
       settings.CopyToClipboardCloseApp = MainForm.SelectCloseApp.Checked;
       settings.Save();
     }

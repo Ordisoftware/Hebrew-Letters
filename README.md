@@ -64,11 +64,31 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 - F1 : Analyse view
 - F2 : Settings view
 - F3 : Search a term
+- Ctrl+M : Open the lettriq analysis method notice
+- Ctrl+G : Open the grammar guide
+- Ctrl+L : Open Shorashon web page
 - F8 : Preferences
 - F11 : Help
 - F12 : About
 
 ## Changelog
+
+#### 2020.04.19 - Version 4.0
+
+- Exit application at startup if user choose to download a newer version.
+- Add lettriq analysis method notice.
+- Add grammar guide from Hebrew Words.
+- Add menu for web links about judaism.
+- Add option to auto vacuum database at startup.
+- Add option to auto sort meanings combobox items.
+- Add option to use Escape key to close app.
+- Fix paste from clipboard to overwrite the selected text.
+- Fix selected row in meanings array when the last item is deleted.
+- Improve search term result dialog box.
+- Improve UI/UX.
+- Code refactoring.
+- Move online providers values from code to files in the application documents folder.
+- Update help.
 
 #### 2020.04.07 - Version 3.1
 

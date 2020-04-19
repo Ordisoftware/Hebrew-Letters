@@ -107,7 +107,7 @@ namespace Ordisoftware.HebrewLetters.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool ConfirmClosing {
             get {
                 return ((bool)(this["ConfirmClosing"]));
@@ -144,9 +144,9 @@ namespace Ordisoftware.HebrewLetters.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Analyse")]
-        public global::Ordisoftware.HebrewLetters.ViewModeType CurrentView {
+        public global::Ordisoftware.HebrewLetters.ViewMode CurrentView {
             get {
-                return ((global::Ordisoftware.HebrewLetters.ViewModeType)(this["CurrentView"]));
+                return ((global::Ordisoftware.HebrewLetters.ViewMode)(this["CurrentView"]));
             }
             set {
                 this["CurrentView"] = value;
@@ -191,13 +191,109 @@ namespace Ordisoftware.HebrewLetters.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("11")]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
         public decimal FontSizeSentence {
             get {
                 return ((decimal)(this["FontSizeSentence"]));
             }
             set {
                 this["FontSizeSentence"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ESCtoExit {
+            get {
+                return ((bool)(this["ESCtoExit"]));
+            }
+            set {
+                this["ESCtoExit"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("-1, -1")]
+        public global::System.Drawing.Point GrammarGuideFormLocation {
+            get {
+                return ((global::System.Drawing.Point)(this["GrammarGuideFormLocation"]));
+            }
+            set {
+                this["GrammarGuideFormLocation"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("392, 466")]
+        public global::System.Drawing.Size GrammarGuideFormSize {
+            get {
+                return ((global::System.Drawing.Size)(this["GrammarGuideFormSize"]));
+            }
+            set {
+                this["GrammarGuideFormSize"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool VacuumAtStartup {
+            get {
+                return ((bool)(this["VacuumAtStartup"]));
+            }
+            set {
+                this["VacuumAtStartup"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("-1, -1")]
+        public global::System.Drawing.Point MethodNoticeFormLocation {
+            get {
+                return ((global::System.Drawing.Point)(this["MethodNoticeFormLocation"]));
+            }
+            set {
+                this["MethodNoticeFormLocation"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("392, 466")]
+        public global::System.Drawing.Size MethodNoticeFormSize {
+            get {
+                return ((global::System.Drawing.Size)(this["MethodNoticeFormSize"]));
+            }
+            set {
+                this["MethodNoticeFormSize"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool AutoSortAnalysisMeanings {
+            get {
+                return ((bool)(this["AutoSortAnalysisMeanings"]));
+            }
+            set {
+                this["AutoSortAnalysisMeanings"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool FirstLaunchV4 {
+            get {
+                return ((bool)(this["FirstLaunchV4"]));
+            }
+            set {
+                this["FirstLaunchV4"] = value;
             }
         }
     }

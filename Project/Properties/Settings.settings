@@ -29,7 +29,7 @@
       <Value Profile="(Default)">Normal</Value>
     </Setting>
     <Setting Name="ConfirmClosing" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="ShowTips" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
@@ -37,7 +37,7 @@
     <Setting Name="UpgradeRequired" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="CurrentView" Type="Ordisoftware.HebrewLetters.ViewModeType" Scope="User">
+    <Setting Name="CurrentView" Type="Ordisoftware.HebrewLetters.ViewMode" Scope="User">
       <Value Profile="(Default)">Analyse</Value>
     </Setting>
     <Setting Name="CopyToClipboardCloseApp" Type="System.Boolean" Scope="User">
@@ -50,7 +50,31 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="FontSizeSentence" Type="System.Decimal" Scope="User">
-      <Value Profile="(Default)">11</Value>
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="ESCtoExit" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="GrammarGuideFormLocation" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">-1, -1</Value>
+    </Setting>
+    <Setting Name="GrammarGuideFormSize" Type="System.Drawing.Size" Scope="User">
+      <Value Profile="(Default)">392, 466</Value>
+    </Setting>
+    <Setting Name="VacuumAtStartup" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="MethodNoticeFormLocation" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">-1, -1</Value>
+    </Setting>
+    <Setting Name="MethodNoticeFormSize" Type="System.Drawing.Size" Scope="User">
+      <Value Profile="(Default)">392, 466</Value>
+    </Setting>
+    <Setting Name="AutoSortAnalysisMeanings" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="FirstLaunchV4" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
 </SettingsFile>

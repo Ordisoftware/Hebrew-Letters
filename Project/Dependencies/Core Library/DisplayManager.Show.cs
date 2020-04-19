@@ -2,7 +2,6 @@
 /// This file is part of Ordisoftware Core Library.
 /// Copyright 2004-2019 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
-/// Project is registered at Depotnumerique.com (Agence des Depots Numeriques).
 /// This program is free software: you can redistribute it and/or modify it under the terms of
 /// the GNU Lesser General Public License (LGPL v3) as published by the Free Software Foundation,
 /// either version 3 of the License, or (at your option) any later version.
@@ -99,9 +98,9 @@ namespace Ordisoftware.Core
       {
         res = ShowWinForm(title, text, buttons, icon);
       }
-      catch ( Exception ex )
+      catch ( Exception except )
       {
-        ex.Manage();
+        except.Manage();
       }
       return res;
     }
@@ -141,6 +140,15 @@ namespace Ordisoftware.Core
     }
 
     /// <summary>
+    /// Show an information box.
+    /// </summary>
+    /// <param name="text">The text.</param>
+    static public void ShowInfo(string text)
+    {
+      Show(Title, text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+    }
+
+    /// <summary>
     /// Show an error message.
     /// </summary>
     /// <param name="text">The text.</param>
@@ -157,6 +165,16 @@ namespace Ordisoftware.Core
     static public void ShowError(string title, string text)
     {
       Show(title, text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+    }
+
+    /// <summary>
+    /// Show an warning message.
+    /// </summary>
+    /// <param name="title">The title.</param>
+    /// <param name="text">The text.</param>
+    static public void ShowWarning(string title, string text)
+    {
+      Show(title, text, MessageBoxButtons.OK, MessageBoxIcon.Warning);
     }
 
     /// <summary>

@@ -30,10 +30,10 @@ namespace Ordisoftware.HebrewLetters
       switch ( keyData )
       {
         case Keys.F1:
-          ActionViewSearch.PerformClick();
+          ActionViewAnalysis.PerformClick();
           return true;
         case Keys.F2:
-          ActionViewSettings.PerformClick();
+          ActionViewLetters.PerformClick();
           return true;
         case Keys.F3:
           ActionSearchTerm.PerformClick();
@@ -46,6 +46,10 @@ namespace Ordisoftware.HebrewLetters
           return true;
         case Keys.F12:
           ActionAbout.PerformClick();
+          return true;
+        case Keys.Escape:
+          if ( EditESCtoExit.Checked )
+            ActionExit.PerformClick();
           return true;
       }
       return base.ProcessCmdKey(ref msg, keyData);

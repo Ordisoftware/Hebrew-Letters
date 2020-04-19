@@ -26,13 +26,14 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
+    <DebugType>full</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>..\Bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -55,31 +56,51 @@
       <DependentUpon>DataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Dependencies\Core Library\AbortException.cs" />
-    <Compile Include="Dependencies\Core Library\Core.DIagnostics.cs" />
+    <Compile Include="Dependencies\Core Library\Core.Diagnostics.cs" />
+    <Compile Include="Dependencies\Core Library\Diagnostics\Debugger.cs" />
+    <Compile Include="Dependencies\Core Library\Diagnostics\ExceptionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dependencies\Core Library\Diagnostics\ExceptionForm.designer.cs">
+      <DependentUpon>ExceptionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dependencies\Core Library\Diagnostics\ExceptionInfo.cs" />
     <Compile Include="Dependencies\Core Library\DisplayManager.ManageException.cs" />
     <Compile Include="Dependencies\Core Library\DisplayManager.QueryBox.cs" />
     <Compile Include="Dependencies\Core Library\DisplayManager.Show.cs" />
+    <Compile Include="Dependencies\Core Library\DisplayManager.SyncUI.cs" />
     <Compile Include="Dependencies\Core Library\SystemManager.Url.cs" />
     <Compile Include="Dependencies\CultureManager\CultureManager.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Source\Forms\Boxes\SearchTermResults.cs">
+    <Compile Include="Source\Common\EnumHelper.cs" />
+    <Compile Include="Source\Common\Globals.cs" />
+    <Compile Include="Source\Common\OnlineProviderItem.cs" />
+    <Compile Include="Source\Common\Globals.Translations.cs" />
+    <Compile Include="Source\Common\SQLiteHelper.cs" />
+    <Compile Include="Source\Common\HTMLBrowserForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Source\Forms\Boxes\SearchTermResults.Designer.cs">
-      <DependentUpon>SearchTermResults.cs</DependentUpon>
+    <Compile Include="Source\Common\HTMLBrowserForm.Designer.cs">
+      <DependentUpon>HTMLBrowserForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\Forms\Boxes\SearchTerm.cs">
+    <Compile Include="Source\Forms\Boxes\SearchTermResultsBox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Source\Forms\Boxes\SearchTerm.Designer.cs">
-      <DependentUpon>SearchTerm.cs</DependentUpon>
+    <Compile Include="Source\Forms\Boxes\SearchTermResultsBox.Designer.cs">
+      <DependentUpon>SearchTermResultsBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\Classes\HebrewLetters.cs" />
-    <Compile Include="Source\Classes\OnlineWordProvider.cs" />
-    <Compile Include="Source\Enums\Translations.cs" />
-    <Compile Include="Source\Classes\Localizer.cs" />
+    <Compile Include="Source\Forms\Boxes\SearchTermBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Forms\Boxes\SearchTermBox.Designer.cs">
+      <DependentUpon>SearchTermBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Common\HebrewAlphabet.cs" />
+    <Compile Include="Source\Common\OnlineProviders.cs" />
+    <Compile Include="Source\Classes\Translations.cs" />
+    <Compile Include="Source\Common\Localizer.cs" />
     <Compile Include="Source\Classes\SettingsHelper.cs" />
     <Compile Include="Source\Forms\MainForm\MainForm.DB.CreateSchema.cs">
       <SubType>Form</SubType>
@@ -88,7 +109,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Source\Enums\ControlLocation.cs" />
-    <Compile Include="Source\Enums\ViewModeType.cs" />
+    <Compile Include="Source\Enums\ViewMode.cs" />
     <Compile Include="Source\Forms\Config\AboutBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,13 +131,13 @@
     <Compile Include="Source\Forms\MainForm\MainForm.SetView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Source\Forms\MainForm\MainForm.Screen.cs">
+    <Compile Include="Source\Forms\MainForm\MainForm.Location.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Source\Controls\LettersControl.cs">
+    <Compile Include="Source\Common\LettersControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Source\Controls\LettersControl.Designer.cs">
+    <Compile Include="Source\Common\LettersControl.Designer.cs">
       <DependentUpon>LettersControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Forms\Config\PreferencesForm.cs">
@@ -125,10 +146,13 @@
     <Compile Include="Source\Forms\Config\PreferencesForm.designer.cs">
       <DependentUpon>PreferencesForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\Program\Program.Init.cs" />
     <Compile Include="Source\Program\Program.cs" />
-    <Compile Include="Source\Program\Program.System.cs" />
+    <Compile Include="Source\Common\OnlineProviders.Menus.cs" />
+    <Compile Include="Source\Common\SystemHelper.cs" />
     <Compile Include="Source\Program\Program.Vars.cs" />
+    <EmbeddedResource Include="Dependencies\Core Library\Diagnostics\ExceptionForm.resx">
+      <DependentUpon>ExceptionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -139,11 +163,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Source\Forms\Boxes\SearchTermResults.fr.resx">
-      <DependentUpon>SearchTermResults.cs</DependentUpon>
+    <EmbeddedResource Include="Source\Common\HTMLBrowserForm.fr.resx">
+      <DependentUpon>HTMLBrowserForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Source\Forms\Boxes\SearchTermResults.resx">
-      <DependentUpon>SearchTermResults.cs</DependentUpon>
+    <EmbeddedResource Include="Source\Common\HTMLBrowserForm.resx">
+      <DependentUpon>HTMLBrowserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Forms\Boxes\SearchTermResultsBox.fr.resx">
+      <DependentUpon>SearchTermResultsBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Forms\Boxes\SearchTermResultsBox.resx">
+      <DependentUpon>SearchTermResultsBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\Config\AboutBox.fr.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
@@ -160,19 +190,22 @@
     <EmbeddedResource Include="Source\Forms\MainForm\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Source\Controls\LettersControl.resx">
+    <EmbeddedResource Include="Source\Common\LettersControl.resx">
       <DependentUpon>LettersControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\Config\PreferencesForm.resx">
       <DependentUpon>PreferencesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Source\Forms\Boxes\SearchTerm.fr.resx">
-      <DependentUpon>SearchTerm.cs</DependentUpon>
+    <EmbeddedResource Include="Source\Forms\Boxes\SearchTermBox.fr.resx">
+      <DependentUpon>SearchTermBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Source\Forms\Boxes\SearchTerm.resx">
-      <DependentUpon>SearchTerm.cs</DependentUpon>
+    <EmbeddedResource Include="Source\Forms\Boxes\SearchTermBox.resx">
+      <DependentUpon>SearchTermBox.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="app.config" />
+    <None Include="..\README.md">
+      <Link>README.md</Link>
+    </None>
+    <None Include="App.config" />
     <None Include="Data\DataSet.xsc">
       <DependentUpon>DataSet.xsd</DependentUpon>
     </None>
@@ -194,6 +227,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="License\MPL 2.0.htm" />
+    <Content Include="License\MPL 2.0.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

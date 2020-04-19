@@ -3,7 +3,7 @@
 
 #define MyAppName "Hebrew Letters"
 #define MyAppNameNoSpace "HebrewLetters"
-#define MyAppVersion "3.1"
+#define MyAppVersion "4.0"
 #define MyAppPublisher "Ordisoftware"
 #define MyAppURL "http://www.ordisoftware.com/projects/hebrew-letters"
 #define MyAppExeName "Ordisoftware.HebrewLetters.exe"
@@ -22,7 +22,7 @@ AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 UninstallFilesDir={app}\Uninstall
-DefaultDirName={pf}\{#MyAppPublisher}\{#MyAppName}
+DefaultDirName={commonpf}\{#MyAppPublisher}\{#MyAppName}
 DefaultGroupName={#MyAppPublisher}
 AllowNoIcons=true
 LicenseFile=..\Project\License\MPL 2.0.rtf
@@ -143,7 +143,6 @@ var
     key, versionKey: string;
     install, release, serviceCount, versionRelease: cardinal;
     success: boolean;
-var reqNetVer : string;
 begin
     versionKey := version;
     versionRelease := 0;

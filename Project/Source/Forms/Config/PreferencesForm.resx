@@ -126,7 +126,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="ActionClose.Location" type="System.Drawing.Point, System.Drawing">
-    <value>116, 3</value>
+    <value>176, 3</value>
   </data>
   <data name="ActionClose.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -145,34 +145,67 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ActionClose.Parent" xml:space="preserve">
-    <value>PanelButtons</value>
+    <value>PanelBottom</value>
   </data>
   <data name="&gt;&gt;ActionClose.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="ActionResetSettings.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ActionResetSettings.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="ActionResetSettings.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ActionResetSettings.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 8</value>
+  </data>
+  <data name="ActionResetSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>113, 13</value>
+  </data>
+  <data name="ActionResetSettings.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="ActionResetSettings.Text" xml:space="preserve">
+    <value>Restore default values</value>
+  </data>
+  <data name="&gt;&gt;ActionResetSettings.Name" xml:space="preserve">
+    <value>ActionResetSettings</value>
+  </data>
+  <data name="&gt;&gt;ActionResetSettings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ActionResetSettings.Parent" xml:space="preserve">
+    <value>PanelBottom</value>
+  </data>
+  <data name="&gt;&gt;ActionResetSettings.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="PanelButtons.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="PanelBottom.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Bottom</value>
   </data>
-  <data name="PanelButtons.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 145</value>
+  <data name="PanelBottom.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 180</value>
   </data>
-  <data name="PanelButtons.Size" type="System.Drawing.Size, System.Drawing">
-    <value>194, 28</value>
+  <data name="PanelBottom.Size" type="System.Drawing.Size, System.Drawing">
+    <value>254, 28</value>
   </data>
-  <data name="PanelButtons.TabIndex" type="System.Int32, mscorlib">
+  <data name="PanelBottom.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
   </data>
-  <data name="&gt;&gt;PanelButtons.Name" xml:space="preserve">
-    <value>PanelButtons</value>
+  <data name="&gt;&gt;PanelBottom.Name" xml:space="preserve">
+    <value>PanelBottom</value>
   </data>
-  <data name="&gt;&gt;PanelButtons.Type" xml:space="preserve">
+  <data name="&gt;&gt;PanelBottom.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;PanelButtons.Parent" xml:space="preserve">
+  <data name="&gt;&gt;PanelBottom.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;PanelButtons.ZOrder" xml:space="preserve">
-    <value>6</value>
+  <data name="&gt;&gt;PanelBottom.ZOrder" xml:space="preserve">
+    <value>8</value>
   </data>
   <metadata name="OpenFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -216,7 +249,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionSelectLangEN.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 18</value>
+    <value>20, 18</value>
   </data>
   <data name="ActionSelectLangEN.Size" type="System.Drawing.Size, System.Drawing">
     <value>28, 28</value>
@@ -234,7 +267,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ActionSelectLangEN.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="ActionSelectLangFR.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -259,7 +292,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionSelectLangFR.Location" type="System.Drawing.Point, System.Drawing">
-    <value>61, 18</value>
+    <value>60, 18</value>
   </data>
   <data name="ActionSelectLangFR.Size" type="System.Drawing.Size, System.Drawing">
     <value>28, 28</value>
@@ -277,7 +310,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ActionSelectLangFR.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="LabelFontSize.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -289,7 +322,7 @@
     <value>NoControl</value>
   </data>
   <data name="LabelFontSize.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 90</value>
+    <value>18, 134</value>
   </data>
   <data name="LabelFontSize.Size" type="System.Drawing.Size, System.Drawing">
     <value>95, 13</value>
@@ -310,13 +343,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;LabelFontSize.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="EditFontSize.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 8.25pt</value>
   </data>
   <data name="EditFontSize.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 108</value>
+    <value>21, 152</value>
   </data>
   <data name="EditFontSize.Size" type="System.Drawing.Size, System.Drawing">
     <value>37, 20</value>
@@ -334,7 +367,73 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;EditFontSize.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="EditAutoSortAnalysisMeanings.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="EditAutoSortAnalysisMeanings.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="EditAutoSortAnalysisMeanings.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="EditAutoSortAnalysisMeanings.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 106</value>
+  </data>
+  <data name="EditAutoSortAnalysisMeanings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>116, 17</value>
+  </data>
+  <data name="EditAutoSortAnalysisMeanings.TabIndex" type="System.Int32, mscorlib">
+    <value>80</value>
+  </data>
+  <data name="EditAutoSortAnalysisMeanings.Text" xml:space="preserve">
+    <value>Auto sort meanings</value>
+  </data>
+  <data name="&gt;&gt;EditAutoSortAnalysisMeanings.Name" xml:space="preserve">
+    <value>EditAutoSortAnalysisMeanings</value>
+  </data>
+  <data name="&gt;&gt;EditAutoSortAnalysisMeanings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;EditAutoSortAnalysisMeanings.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;EditAutoSortAnalysisMeanings.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="EditVacuumAtStartup.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="EditVacuumAtStartup.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="EditVacuumAtStartup.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="EditVacuumAtStartup.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 83</value>
+  </data>
+  <data name="EditVacuumAtStartup.Size" type="System.Drawing.Size, System.Drawing">
+    <value>160, 17</value>
+  </data>
+  <data name="EditVacuumAtStartup.TabIndex" type="System.Int32, mscorlib">
+    <value>79</value>
+  </data>
+  <data name="EditVacuumAtStartup.Text" xml:space="preserve">
+    <value>Optimize database at startup</value>
+  </data>
+  <data name="&gt;&gt;EditVacuumAtStartup.Name" xml:space="preserve">
+    <value>EditVacuumAtStartup</value>
+  </data>
+  <data name="&gt;&gt;EditVacuumAtStartup.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;EditVacuumAtStartup.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;EditVacuumAtStartup.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="EditCheckUpdateAtStartup.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -364,7 +463,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;EditCheckUpdateAtStartup.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -373,7 +472,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>214, 183</value>
+    <value>274, 218</value>
   </data>
   <data name="$this.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>10, 10, 10, 10</value>

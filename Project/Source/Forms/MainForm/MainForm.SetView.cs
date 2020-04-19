@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Hebrew Lettriq.
-/// Copyright 2012-2019 Olivier Rogier.
+/// Copyright 2012-2020 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at 
@@ -53,7 +53,7 @@ namespace Ordisoftware.HebrewLetters
     /// Set the view panel.
     /// </summary>
     /// <param name="view">The view mode.</param>
-    internal void SetView(ViewModeType view)
+    internal void SetView(ViewMode view)
     {
       SetView(view, false);
     }
@@ -63,24 +63,24 @@ namespace Ordisoftware.HebrewLetters
     /// </summary>
     /// <param name="view">The view mode.</param>
     /// <param name="first">true to first.</param>
-    internal void SetView(ViewModeType view, bool first)
+    internal void SetView(ViewMode view, bool first)
     {
-      var ViewPanels = new Dictionary<ViewModeType, ViewConnector>()
+      var ViewPanels = new Dictionary<ViewMode, ViewConnector>()
       {
         {
-          ViewModeType.Analyse,
+          ViewMode.Analyse,
           new ViewConnector
           {
-            MenuItem = ActionViewSearch,
+            MenuItem = ActionViewAnalysis,
             Panel = PanelViewSearch,
             Focused = EditLetters.Input
           }
         },
         {
-          ViewModeType.Settings,
+          ViewMode.Settings,
           new ViewConnector
           {
-            MenuItem = ActionViewSettings,
+            MenuItem = ActionViewLetters,
             Panel = PanelViewSettings,
             Focused = EditMeanings
           }

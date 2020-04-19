@@ -31,7 +31,7 @@
       this.components = new System.ComponentModel.Container();
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PreferencesForm));
       this.ActionClose = new System.Windows.Forms.Button();
-      this.PanelButtons = new System.Windows.Forms.Panel();
+      this.PanelBottom = new System.Windows.Forms.Panel();
       this.OpenFileDialog = new System.Windows.Forms.OpenFileDialog();
       this.FolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
       this.MenuSelectOnlineVerseURL = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -39,8 +39,11 @@
       this.ActionSelectLangFR = new System.Windows.Forms.Button();
       this.LabelFontSize = new System.Windows.Forms.Label();
       this.EditFontSize = new System.Windows.Forms.NumericUpDown();
+      this.EditAutoSortAnalysisMeanings = new System.Windows.Forms.CheckBox();
+      this.EditVacuumAtStartup = new System.Windows.Forms.CheckBox();
       this.EditCheckUpdateAtStartup = new System.Windows.Forms.CheckBox();
-      this.PanelButtons.SuspendLayout();
+      this.ActionResetSettings = new System.Windows.Forms.LinkLabel();
+      this.PanelBottom.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.EditFontSize)).BeginInit();
       this.SuspendLayout();
       // 
@@ -51,11 +54,12 @@
       this.ActionClose.Name = "ActionClose";
       this.ActionClose.UseVisualStyleBackColor = true;
       // 
-      // PanelButtons
+      // PanelBottom
       // 
-      this.PanelButtons.Controls.Add(this.ActionClose);
-      resources.ApplyResources(this.PanelButtons, "PanelButtons");
-      this.PanelButtons.Name = "PanelButtons";
+      this.PanelBottom.Controls.Add(this.ActionResetSettings);
+      this.PanelBottom.Controls.Add(this.ActionClose);
+      resources.ApplyResources(this.PanelBottom, "PanelBottom");
+      this.PanelBottom.Name = "PanelBottom";
       // 
       // OpenFileDialog
       // 
@@ -114,6 +118,24 @@
             0});
       this.EditFontSize.ValueChanged += new System.EventHandler(this.EditFontSize_ValueChanged);
       // 
+      // EditAutoSortAnalysisMeanings
+      // 
+      resources.ApplyResources(this.EditAutoSortAnalysisMeanings, "EditAutoSortAnalysisMeanings");
+      this.EditAutoSortAnalysisMeanings.Checked = global::Ordisoftware.HebrewLetters.Properties.Settings.Default.AutoSortAnalysisMeanings;
+      this.EditAutoSortAnalysisMeanings.CheckState = System.Windows.Forms.CheckState.Checked;
+      this.EditAutoSortAnalysisMeanings.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Ordisoftware.HebrewLetters.Properties.Settings.Default, "AutoSortAnalysisMeanings", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+      this.EditAutoSortAnalysisMeanings.Name = "EditAutoSortAnalysisMeanings";
+      this.EditAutoSortAnalysisMeanings.UseVisualStyleBackColor = true;
+      // 
+      // EditVacuumAtStartup
+      // 
+      resources.ApplyResources(this.EditVacuumAtStartup, "EditVacuumAtStartup");
+      this.EditVacuumAtStartup.Checked = global::Ordisoftware.HebrewLetters.Properties.Settings.Default.VacuumAtStartup;
+      this.EditVacuumAtStartup.CheckState = System.Windows.Forms.CheckState.Checked;
+      this.EditVacuumAtStartup.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Ordisoftware.HebrewLetters.Properties.Settings.Default, "VacuumAtStartup", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+      this.EditVacuumAtStartup.Name = "EditVacuumAtStartup";
+      this.EditVacuumAtStartup.UseVisualStyleBackColor = true;
+      // 
       // EditCheckUpdateAtStartup
       // 
       resources.ApplyResources(this.EditCheckUpdateAtStartup, "EditCheckUpdateAtStartup");
@@ -123,18 +145,29 @@
       this.EditCheckUpdateAtStartup.Name = "EditCheckUpdateAtStartup";
       this.EditCheckUpdateAtStartup.UseVisualStyleBackColor = true;
       // 
+      // ActionResetSettings
+      // 
+      this.ActionResetSettings.ActiveLinkColor = System.Drawing.Color.MediumBlue;
+      resources.ApplyResources(this.ActionResetSettings, "ActionResetSettings");
+      this.ActionResetSettings.LinkColor = System.Drawing.Color.Navy;
+      this.ActionResetSettings.Name = "ActionResetSettings";
+      this.ActionResetSettings.TabStop = true;
+      this.ActionResetSettings.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ActionResetSettings_LinkClicked);
+      // 
       // PreferencesForm
       // 
       this.AcceptButton = this.ActionClose;
       resources.ApplyResources(this, "$this");
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.CancelButton = this.ActionClose;
+      this.Controls.Add(this.EditAutoSortAnalysisMeanings);
+      this.Controls.Add(this.EditVacuumAtStartup);
       this.Controls.Add(this.EditFontSize);
       this.Controls.Add(this.LabelFontSize);
       this.Controls.Add(this.ActionSelectLangFR);
       this.Controls.Add(this.ActionSelectLangEN);
       this.Controls.Add(this.EditCheckUpdateAtStartup);
-      this.Controls.Add(this.PanelButtons);
+      this.Controls.Add(this.PanelBottom);
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
       this.MaximizeBox = false;
       this.MinimizeBox = false;
@@ -142,7 +175,8 @@
       this.ShowInTaskbar = false;
       this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PreferencesForm_FormClosed);
       this.Shown += new System.EventHandler(this.PreferencesForm_Shown);
-      this.PanelButtons.ResumeLayout(false);
+      this.PanelBottom.ResumeLayout(false);
+      this.PanelBottom.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.EditFontSize)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
@@ -151,7 +185,7 @@
 
     #endregion
     private System.Windows.Forms.Button ActionClose;
-    private System.Windows.Forms.Panel PanelButtons;
+    private System.Windows.Forms.Panel PanelBottom;
     private System.Windows.Forms.OpenFileDialog OpenFileDialog;
     private System.Windows.Forms.FolderBrowserDialog FolderBrowserDialog;
     private System.Windows.Forms.ContextMenuStrip MenuSelectOnlineVerseURL;
@@ -160,5 +194,8 @@
     private System.Windows.Forms.Button ActionSelectLangFR;
     private System.Windows.Forms.NumericUpDown EditFontSize;
     private System.Windows.Forms.Label LabelFontSize;
+    private System.Windows.Forms.CheckBox EditVacuumAtStartup;
+    private System.Windows.Forms.CheckBox EditAutoSortAnalysisMeanings;
+    private System.Windows.Forms.LinkLabel ActionResetSettings;
   }
 }

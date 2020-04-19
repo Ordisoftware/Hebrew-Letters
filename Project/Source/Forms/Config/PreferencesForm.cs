@@ -15,6 +15,8 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using Ordisoftware.HebrewCommon;
+using Ordisoftware.Core;
 
 namespace Ordisoftware.HebrewLetters
 {
@@ -45,6 +47,8 @@ namespace Ordisoftware.HebrewLetters
 
     private void PreferencesForm_Shown(object sender, EventArgs e)
     {
+      TopMost = MainForm.Instance.TopMost;
+      BringToFront();
       UpdateLanguagesButtons();
     }
 
@@ -70,7 +74,7 @@ namespace Ordisoftware.HebrewLetters
     private void ActionSelectLangEN_Click(object sender, EventArgs e)
     {
       Program.Settings.Language = "en";
-      Program.ApplyCurrentLanguage();
+      Program.UpdateLocalization();
       UpdateLanguagesButtons();
       LanguageChanged = true;
       Close();
@@ -79,7 +83,7 @@ namespace Ordisoftware.HebrewLetters
     private void ActionSelectLangFR_Click(object sender, EventArgs e)
     {
       Program.Settings.Language = "fr";
-      Program.ApplyCurrentLanguage();
+      Program.UpdateLocalization();
       UpdateLanguagesButtons();
       LanguageChanged = true;
       Close();
@@ -89,6 +93,20 @@ namespace Ordisoftware.HebrewLetters
     {
       Program.Settings.FontSizeSentence = EditFontSize.Value;
       MainForm.Instance.EditSentence.Font = new Font("Microsoft Sans Serif", (float)Program.Settings.FontSizeSentence);
+    }
+
+    private void ActionResetSettings_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      if ( !DisplayManager.QueryYesNo(Globals.AskToResetPreferences.GetLang()) ) return;
+      Program.Settings.Reset();
+      Program.Settings.Reload();
+      Program.Settings.Language = Localizer.Language;
+      Program.Settings.Save();
+      PreferencesForm_Shown(null, null);
+      MainForm.Instance.EditSentence.Font = new Font("Microsoft Sans Serif", (float)Program.Settings.FontSizeSentence);
+      Program.GrammarGuideForm.CenterToMainForm();
+      Program.MethodNoticeForm.CenterToMainForm();
+      Close();
     }
 
   }
