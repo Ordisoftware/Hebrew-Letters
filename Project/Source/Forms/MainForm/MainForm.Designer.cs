@@ -134,7 +134,6 @@
       this.ActionShowGrammarGuide = new System.Windows.Forms.ToolStripMenuItem();
       this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
       this.ActionOpenShorashon = new System.Windows.Forms.ToolStripMenuItem();
-      this.ActionOpenHebrewGematria = new System.Windows.Forms.ToolStripMenuItem();
       this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
       this.ActionOpenLexilogosOld = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionOpenLexilogosModern = new System.Windows.Forms.ToolStripMenuItem();
@@ -982,7 +981,6 @@
             this.ActionShowGrammarGuide,
             this.toolStripSeparator4,
             this.ActionOpenShorashon,
-            this.ActionOpenHebrewGematria,
             this.toolStripSeparator3,
             this.ActionOpenLexilogosOld,
             this.ActionOpenLexilogosModern});
@@ -1012,13 +1010,6 @@
       this.ActionOpenShorashon.Name = "ActionOpenShorashon";
       this.ActionOpenShorashon.Tag = "http://shorashon.free.fr/online/";
       this.ActionOpenShorashon.Click += new System.EventHandler(this.ActionOpenWebsiteURL_Click);
-      // 
-      // ActionOpenHebrewGematria
-      // 
-      resources.ApplyResources(this.ActionOpenHebrewGematria, "ActionOpenHebrewGematria");
-      this.ActionOpenHebrewGematria.Name = "ActionOpenHebrewGematria";
-      this.ActionOpenHebrewGematria.Tag = "http://www.billheidrick.com/works/hgemat.htm";
-      this.ActionOpenHebrewGematria.Click += new System.EventHandler(this.ActionOpenWebsiteURL_Click);
       // 
       // toolStripSeparator3
       // 
@@ -1195,7 +1186,6 @@
     private System.Windows.Forms.ToolStripButton ActionSearchTerm;
     private System.Windows.Forms.ToolStripDropDownButton MenuTools;
     private System.Windows.Forms.ToolStripMenuItem ActionOpenShorashon;
-    private System.Windows.Forms.ToolStripMenuItem ActionOpenHebrewGematria;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
     private System.Windows.Forms.ToolStripMenuItem ActionOpenLexilogosOld;
     private System.Windows.Forms.ToolStripMenuItem ActionOpenLexilogosModern;
