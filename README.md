@@ -73,7 +73,7 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 ## Changelog
 
-#### 2020.04.__ - Version 4.0
+#### 2020.04.19 - Version 4.0
 
 - Exit application at startup if user choose to download a newer version.
 - Add lettriq analysis method notice.
