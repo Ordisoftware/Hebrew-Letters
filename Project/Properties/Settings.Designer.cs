@@ -239,7 +239,7 @@ namespace Ordisoftware.HebrewLetters.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool VacuumAtStartup {
             get {
                 return ((bool)(this["VacuumAtStartup"]));
