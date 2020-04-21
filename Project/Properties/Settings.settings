@@ -10,7 +10,7 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Dsn=Hebrew-Letters</Value>
     </Setting>
-    <Setting Name="MainFormPosition" Type="Ordisoftware.HebrewLetters.ControlLocation" Scope="User">
+    <Setting Name="MainFormPosition" Type="Ordisoftware.HebrewCommon.ControlLocation" Scope="User">
       <Value Profile="(Default)">Center</Value>
     </Setting>
     <Setting Name="MainFormLeft" Type="System.Int32" Scope="User">

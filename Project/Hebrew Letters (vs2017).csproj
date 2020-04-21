@@ -107,17 +107,17 @@
     </Compile>
     <Compile Include="Source\Common\HebrewAlphabet.cs" />
     <Compile Include="Source\Common\OnlineProviders.cs" />
-    <Compile Include="Source\Classes\Translations.cs" />
+    <Compile Include="Source\Program\Translations.cs" />
     <Compile Include="Source\Common\Localizer.cs" />
-    <Compile Include="Source\Classes\SettingsHelper.cs" />
+    <Compile Include="Source\Program\SettingsHelper.cs" />
     <Compile Include="Source\Forms\MainForm\MainForm.DB.CreateSchema.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Source\Forms\MainForm\MainForm.DB.CreateData.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Source\Enums\ControlLocation.cs" />
-    <Compile Include="Source\Enums\ViewMode.cs" />
+    <Compile Include="Source\Common\ControlLocation.cs" />
+    <Compile Include="Source\Forms\MainForm\ViewMode.cs" />
     <Compile Include="Source\Forms\Config\AboutBox.cs">
       <SubType>Form</SubType>
     </Compile>
