@@ -73,6 +73,15 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 ## Changelog
 
+#### 2020.04.__ - Version 4.1
+
+- Add undo edit meanings mist of a letter.
+- Add context menu "copy/cut/paste" for text boxes to replace system default.
+- Add backspace key management in hebrew input box.
+- Add select all and undo support in hebrew input box.
+- Improve/fix edit word using copy/cut/paste in hebrew input box.
+- Optimize code.
+
 #### 2020.04.19 - Version 4.0
 
 - Exit application at startup if user choose to download a newer version.
