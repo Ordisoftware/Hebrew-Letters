@@ -588,16 +588,16 @@
   <data name="&gt;&gt;EditAnalyze.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <metadata name="ContextMenuStripSearchOnline.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="ContextMenuSearchOnline.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>26, 48</value>
   </metadata>
-  <data name="ContextMenuStripSearchOnline.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="ContextMenuSearchOnline.Size" type="System.Drawing.Size, System.Drawing">
     <value>140, 26</value>
   </data>
-  <data name="&gt;&gt;ContextMenuStripSearchOnline.Name" xml:space="preserve">
-    <value>ContextMenuStripSearchOnline</value>
+  <data name="&gt;&gt;ContextMenuSearchOnline.Name" xml:space="preserve">
+    <value>ContextMenuSearchOnline</value>
   </data>
-  <data name="&gt;&gt;ContextMenuStripSearchOnline.Type" xml:space="preserve">
+  <data name="&gt;&gt;ContextMenuSearchOnline.Type" xml:space="preserve">
     <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="ActionSearchOnline.Enabled" type="System.Boolean, mscorlib">
@@ -947,7 +947,7 @@
   <data name="EditSentence.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
   </data>
-  <metadata name="ContextMenuStripSentence.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="ContextMenuSentence.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>249, 48</value>
   </metadata>
   <data name="ActionCopy.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -966,7 +966,7 @@
 </value>
   </data>
   <data name="ActionCopy.Size" type="System.Drawing.Size, System.Drawing">
-    <value>102, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="ActionCopy.Text" xml:space="preserve">
     <value>Copy</value>
@@ -974,7 +974,7 @@
   <data name="ActionCut.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADr8AAA6/ATgFUyQAAAFjSURBVDhPY8AFtu3Y9QfKJA9cvHj5/+q1619BuYTB1m07
+        YQUAAAAJcEhZcwAADrwAAA68AZW8ckkAAAFjSURBVDhPY8AFtu3Y9QfKJA9cvHj5/+q1619BuYTB1m07
         LkOZYHDt+s3/Bw4d+g/lEgaXr1z5f/3mrddQLsPFS1f+79q9l3gDJk+eOvf1q9f/r1y99hjEP3X67P+j
         x08QbwAQSC9ZvvLt69ev/1+8eOny4cNH/h87dpwkA0BAf9as2Tvfv33zf8WWvf8vnDlFsgEgoLRw9vRt
         sjWX/8d17yTLABBQzOhc/b9v6rz/vrMfkGdI7oTN/wsKCmp1K/dttWg989+q6dgz64ZD123q9uE30LTt
@@ -984,7 +984,7 @@
 </value>
   </data>
   <data name="ActionCut.Size" type="System.Drawing.Size, System.Drawing">
-    <value>102, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="ActionCut.Text" xml:space="preserve">
     <value>Cut</value>
@@ -992,7 +992,7 @@
   <data name="ActionPaste.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADr8AAA6/ATgFUyQAAAJ3SURBVDhPhZLZT1NBFMb7v/iuJryZUBSjPrDIoq3CA09G
+        YQUAAAAJcEhZcwAADrwAAA68AZW8ckkAAAJ3SURBVDhPhZLZT1NBFMb7v/iuJryZUBSjPrDIoq3CA09G
         gmtcosRYaS22IkKwhZYawAUj9Pau7b0IjSJpghVRAe2jBqFCEZFayibL58yAJEXEL/nl3HuWb04mo9ss
         040KmEwm0Lie2l6Pyw9Kj67uR+uVdJRX2KFpnVDVDhbpP83TOu1bH0lVy+VMJIZEzAy0w1bjQrjvHXrD
         b0h8C9vdBiQH2pAY5NF8MX3rjZou6DE//hEf7hvQ8ICHu8ULd/NTNDa3wtX0BBF3Lhai/fCU7drawHM+
@@ -1007,18 +1007,18 @@
 </value>
   </data>
   <data name="ActionPaste.Size" type="System.Drawing.Size, System.Drawing">
-    <value>102, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="ActionPaste.Text" xml:space="preserve">
     <value>Paste</value>
   </data>
-  <data name="ContextMenuStripSentence.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="ContextMenuSentence.Size" type="System.Drawing.Size, System.Drawing">
     <value>103, 70</value>
   </data>
-  <data name="&gt;&gt;ContextMenuStripSentence.Name" xml:space="preserve">
-    <value>ContextMenuStripSentence</value>
+  <data name="&gt;&gt;ContextMenuSentence.Name" xml:space="preserve">
+    <value>ContextMenuSentence</value>
   </data>
-  <data name="&gt;&gt;ContextMenuStripSentence.Type" xml:space="preserve">
+  <data name="&gt;&gt;ContextMenuSentence.Type" xml:space="preserve">
     <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="EditSentence.Font" type="System.Drawing.Font, System.Drawing">
@@ -2529,22 +2529,22 @@
   <data name="ActionWebLinkedIn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        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
+        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
 </value>
   </data>
   <data name="ActionWebLinkedIn.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
@@ -2585,14 +2585,14 @@
   <data name="ActionWebYouTube.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGnSURBVDhPnVNLSwJRFD7jC/U3iCHmD9AQIWghoiCJYIsK
-        H9DPqVUuDWqluyQCaV2R/QMjKHBaFC17jOZjHl9z52gmDRkd+Dj3nvOdb86dey4JM7a21vRyuWbiSC+V
-        DheiUjkwNjeTXByNbstEKhwOXJtbEGEhmKsjFtshdWnpTgRll0vteDyaBbdb67hc8xCxSV5wRc04EHig
-        vs/3bqlKkv3X7DDhKl5vTwi8iY3VfrEIHB8DZ2fA+TlweQm028DFBceaTaBc/hLq+f3KrINwGBgMYJlh
-        sP9u09hoBEQiNgKpFBOGQ/aPj0CrxWtRrGlcLCyTsRHI5zmpquxlGXC7gUQCuLnh2HjMfmPjDwLdLuDz
-        AbkccH/PsWmuULARSCY5OT3C8zNwdcVrcQRRPD1COm0jEAwCisKE335ivw+EQnMCs2vMZoFaDWg0+MpO
-        ToDTU17X65xbX7eKf3bwj0Hqeb0KacvLHbF5kqRxx+nksRXeDpOcLEnWKKuBwC0Zq6v5V6KPvz4mi2Ny
-        X4gGRjxe4BdJFDXb2tWJqib2F6CqS9KeKbZCRPQJMS14RNXSkp0AAAAASUVORK5CYII=
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGqSURBVDhPnVNNSwJRFL1TKtpvGIwof4CGCEILiYRIBFto
+        6Aj9nFrl0qBWuisiCHeBhv4EIyhwWhgt+xjNcj5O8+ZqFg0pXTjc9+4998x98+4jYVYut2YqStnGsVko
+        HE1FsXhoZbMJLg6Hd1QiHXNzuLS3IMJU2Nw6kYlIZJf0xcVbEVQ9Hr3t8xkOvF6j7fH8hIiN8oIraoay
+        fE/9QODVUZUk96+5YcTV/P6eEHgRG6f9fB44OQFqNaBeB66ugFYLaDQ4dnoKKMqXUG9hQZt0sLwMDAZw
+        zLLYf7dx7OMDCIVcBNbXmfD+zr7bBS4ueC2KDYOLhSWTLgLpNCd1nb2qAl4vEIsB19ccGw7Zb2/PINDp
+        AIEAkEoBd3ccG+cyGReBRIKT4yM8PgLNJq/FEUTx+AgbGy4CwSCgaUz46yf2+8DS0g+ByTVubgLlMlCt
+        8pWdnQHn57yuVDi3teUU/+7gH4PU8/s1MlZW2mLzIEnD9vw8j63wbhjlVElyRlmX5Ruy4vH0M9HbrI/J
+        4djcJ6KBFY1m+EUShe229kyiko2DKSiZkrRvi60SEX0CzJt4EcPTCMYAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="ActionWebYouTube.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
@@ -3329,6 +3329,24 @@
   <data name="&gt;&gt;ActionOpenWordOnline.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;ActionCopy.Name" xml:space="preserve">
+    <value>ActionCopy</value>
+  </data>
+  <data name="&gt;&gt;ActionCopy.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ActionCut.Name" xml:space="preserve">
+    <value>ActionCut</value>
+  </data>
+  <data name="&gt;&gt;ActionCut.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ActionPaste.Name" xml:space="preserve">
+    <value>ActionPaste</value>
+  </data>
+  <data name="&gt;&gt;ActionPaste.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;LettersBindingSource.Name" xml:space="preserve">
     <value>LettersBindingSource</value>
   </data>
@@ -3676,24 +3694,6 @@
   </data>
   <data name="&gt;&gt;MeaningsTableAdapter.Type" xml:space="preserve">
     <value>Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.MeaningsTableAdapter, Ordisoftware.HebrewLetters, Version=4.1.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;ActionCopy.Name" xml:space="preserve">
-    <value>ActionCopy</value>
-  </data>
-  <data name="&gt;&gt;ActionCopy.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ActionCut.Name" xml:space="preserve">
-    <value>ActionCut</value>
-  </data>
-  <data name="&gt;&gt;ActionCut.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ActionPaste.Name" xml:space="preserve">
-    <value>ActionPaste</value>
-  </data>
-  <data name="&gt;&gt;ActionPaste.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainForm</value>

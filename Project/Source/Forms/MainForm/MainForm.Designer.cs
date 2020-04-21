@@ -52,7 +52,7 @@
       this.SelectCloseApp = new System.Windows.Forms.CheckBox();
       this.EditAnalyze = new System.Windows.Forms.Panel();
       this.ActionSearchOnline = new System.Windows.Forms.Button();
-      this.ContextMenuStripSearchOnline = new System.Windows.Forms.ContextMenuStrip(this.components);
+      this.ContextMenuSearchOnline = new System.Windows.Forms.ContextMenuStrip(this.components);
       this.ActionOpenWordOnline = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionPasteFromUnicode = new System.Windows.Forms.Button();
       this.ActionCopyToUnicode = new System.Windows.Forms.Button();
@@ -60,6 +60,10 @@
       this.ActionCopyToClipboardMeanings = new System.Windows.Forms.Button();
       this.ActionCopyToClipboardResult = new System.Windows.Forms.Button();
       this.EditSentence = new System.Windows.Forms.TextBox();
+      this.ContextMenuSentence = new System.Windows.Forms.ContextMenuStrip(this.components);
+      this.ActionCopy = new System.Windows.Forms.ToolStripMenuItem();
+      this.ActionCut = new System.Windows.Forms.ToolStripMenuItem();
+      this.ActionPaste = new System.Windows.Forms.ToolStripMenuItem();
       this.EditGematria = new System.Windows.Forms.TextBox();
       this.LabelGematria = new System.Windows.Forms.Label();
       this.EditLetters = new Ordisoftware.HebrewCommon.LettersControl();
@@ -143,10 +147,6 @@
       this.LettersTableAdapter = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.LettersTableAdapter();
       this.TableAdapterManager = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.TableAdapterManager();
       this.MeaningsTableAdapter = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.MeaningsTableAdapter();
-      this.ContextMenuStripSentence = new System.Windows.Forms.ContextMenuStrip(this.components);
-      this.ActionCopy = new System.Windows.Forms.ToolStripMenuItem();
-      this.ActionCut = new System.Windows.Forms.ToolStripMenuItem();
-      this.ActionPaste = new System.Windows.Forms.ToolStripMenuItem();
       LabelName = new System.Windows.Forms.Label();
       LabelStructure = new System.Windows.Forms.Label();
       LabelFunction = new System.Windows.Forms.Label();
@@ -163,7 +163,8 @@
       this.TabControl.SuspendLayout();
       this.TabPageText.SuspendLayout();
       this.PanelViewSearch.SuspendLayout();
-      this.ContextMenuStripSearchOnline.SuspendLayout();
+      this.ContextMenuSearchOnline.SuspendLayout();
+      this.ContextMenuSentence.SuspendLayout();
       this.TabPageMonth.SuspendLayout();
       this.PanelViewSettings.SuspendLayout();
       this.PanelSettingsDetails.SuspendLayout();
@@ -174,7 +175,6 @@
       ((System.ComponentModel.ISupportInitialize)(this.MeaningsBindingSource)).BeginInit();
       this.PanelTitle.SuspendLayout();
       this.ToolStrip.SuspendLayout();
-      this.ContextMenuStripSentence.SuspendLayout();
       this.SuspendLayout();
       // 
       // LabelName
@@ -329,7 +329,7 @@
       // 
       // ActionSearchOnline
       // 
-      this.ActionSearchOnline.ContextMenuStrip = this.ContextMenuStripSearchOnline;
+      this.ActionSearchOnline.ContextMenuStrip = this.ContextMenuSearchOnline;
       this.ActionSearchOnline.Cursor = System.Windows.Forms.Cursors.Default;
       resources.ApplyResources(this.ActionSearchOnline, "ActionSearchOnline");
       this.ActionSearchOnline.FlatAppearance.BorderSize = 0;
@@ -337,12 +337,12 @@
       this.ActionSearchOnline.UseVisualStyleBackColor = true;
       this.ActionSearchOnline.Click += new System.EventHandler(this.ActionSearchOnline_Click);
       // 
-      // ContextMenuStripSearchOnline
+      // ContextMenuSearchOnline
       // 
-      this.ContextMenuStripSearchOnline.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+      this.ContextMenuSearchOnline.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ActionOpenWordOnline});
-      this.ContextMenuStripSearchOnline.Name = "ContextMenuSearchOnline";
-      resources.ApplyResources(this.ContextMenuStripSearchOnline, "ContextMenuStripSearchOnline");
+      this.ContextMenuSearchOnline.Name = "ContextMenuSearchOnline";
+      resources.ApplyResources(this.ContextMenuSearchOnline, "ContextMenuSearchOnline");
       // 
       // ActionOpenWordOnline
       // 
@@ -394,9 +394,37 @@
       resources.ApplyResources(this.EditSentence, "EditSentence");
       this.EditSentence.BackColor = System.Drawing.SystemColors.Window;
       this.EditSentence.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.EditSentence.ContextMenuStrip = this.ContextMenuStripSentence;
+      this.EditSentence.ContextMenuStrip = this.ContextMenuSentence;
       this.EditSentence.Name = "EditSentence";
       this.EditSentence.TextChanged += new System.EventHandler(this.EditSentence_TextChanged);
+      // 
+      // ContextMenuSentence
+      // 
+      this.ContextMenuSentence.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ActionCopy,
+            this.ActionCut,
+            this.ActionPaste});
+      this.ContextMenuSentence.Name = "ContextMenuStrip";
+      resources.ApplyResources(this.ContextMenuSentence, "ContextMenuSentence");
+      this.ContextMenuSentence.Opened += new System.EventHandler(this.ContextMenuStripSentence_Opened);
+      // 
+      // ActionCopy
+      // 
+      resources.ApplyResources(this.ActionCopy, "ActionCopy");
+      this.ActionCopy.Name = "ActionCopy";
+      this.ActionCopy.Click += new System.EventHandler(this.ActionCopy_Click);
+      // 
+      // ActionCut
+      // 
+      resources.ApplyResources(this.ActionCut, "ActionCut");
+      this.ActionCut.Name = "ActionCut";
+      this.ActionCut.Click += new System.EventHandler(this.ActionCut_Click);
+      // 
+      // ActionPaste
+      // 
+      resources.ApplyResources(this.ActionPaste, "ActionPaste");
+      this.ActionPaste.Name = "ActionPaste";
+      this.ActionPaste.Click += new System.EventHandler(this.ActionPaste_Click);
       // 
       // EditGematria
       // 
@@ -415,11 +443,15 @@
       // EditLetters
       // 
       this.EditLetters.BackColor = System.Drawing.Color.Transparent;
+      this.EditLetters.FontSizeInput = 24F;
+      this.EditLetters.FontSizeLabels = 6F;
+      this.EditLetters.FontSizeLetters = 20F;
       this.EditLetters.InputBackColor = System.Drawing.Color.AliceBlue;
       this.EditLetters.LettersBackground = System.Drawing.Color.LightYellow;
       resources.ApplyResources(this.EditLetters, "EditLetters");
       this.EditLetters.MaxLength = 20;
       this.EditLetters.Name = "EditLetters";
+      this.EditLetters.ShowKeys = true;
       this.EditLetters.ShowValues = true;
       this.EditLetters.TextChanged += new System.EventHandler(this.EditLetters_InputTextChanged);
       // 
@@ -1071,34 +1103,6 @@
       // 
       this.MeaningsTableAdapter.ClearBeforeFill = true;
       // 
-      // ContextMenuStripSentence
-      // 
-      this.ContextMenuStripSentence.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ActionCopy,
-            this.ActionCut,
-            this.ActionPaste});
-      this.ContextMenuStripSentence.Name = "ContextMenuStrip";
-      resources.ApplyResources(this.ContextMenuStripSentence, "ContextMenuStripSentence");
-      this.ContextMenuStripSentence.Opened += new System.EventHandler(this.ContextMenuStripSentence_Opened);
-      // 
-      // ActionCopy
-      // 
-      resources.ApplyResources(this.ActionCopy, "ActionCopy");
-      this.ActionCopy.Name = "ActionCopy";
-      this.ActionCopy.Click += new System.EventHandler(this.ActionCopy_Click);
-      // 
-      // ActionCut
-      // 
-      resources.ApplyResources(this.ActionCut, "ActionCut");
-      this.ActionCut.Name = "ActionCut";
-      this.ActionCut.Click += new System.EventHandler(this.ActionCut_Click);
-      // 
-      // ActionPaste
-      // 
-      resources.ApplyResources(this.ActionPaste, "ActionPaste");
-      this.ActionPaste.Name = "ActionPaste";
-      this.ActionPaste.Click += new System.EventHandler(this.ActionPaste_Click);
-      // 
       // MainForm
       // 
       resources.ApplyResources(this, "$this");
@@ -1122,7 +1126,8 @@
       this.TabPageText.ResumeLayout(false);
       this.PanelViewSearch.ResumeLayout(false);
       this.PanelViewSearch.PerformLayout();
-      this.ContextMenuStripSearchOnline.ResumeLayout(false);
+      this.ContextMenuSearchOnline.ResumeLayout(false);
+      this.ContextMenuSentence.ResumeLayout(false);
       this.TabPageMonth.ResumeLayout(false);
       this.PanelViewSettings.ResumeLayout(false);
       this.PanelSettingsDetails.ResumeLayout(false);
@@ -1136,7 +1141,6 @@
       this.PanelTitle.ResumeLayout(false);
       this.ToolStrip.ResumeLayout(false);
       this.ToolStrip.PerformLayout();
-      this.ContextMenuStripSentence.ResumeLayout(false);
       this.ResumeLayout(false);
 
     }
@@ -1214,7 +1218,7 @@
     private System.Windows.Forms.Panel PanelLetter;
     private System.Windows.Forms.Button ActionCopyToUnicode;
     private System.Windows.Forms.Button ActionSearchOnline;
-    private System.Windows.Forms.ContextMenuStrip ContextMenuStripSearchOnline;
+    private System.Windows.Forms.ContextMenuStrip ContextMenuSearchOnline;
     private System.Windows.Forms.Button ActionPasteFromUnicode;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     private System.Windows.Forms.ToolStripButton ActionSearchTerm;
@@ -1247,7 +1251,7 @@
     internal System.Windows.Forms.TextBox TextBoxNegative;
     internal System.Windows.Forms.TextBox TextBoxPositive;
     internal System.Windows.Forms.Button ActionClear;
-    private System.Windows.Forms.ContextMenuStrip ContextMenuStripSentence;
+    private System.Windows.Forms.ContextMenuStrip ContextMenuSentence;
     private System.Windows.Forms.ToolStripMenuItem ActionCopy;
     private System.Windows.Forms.ToolStripMenuItem ActionCut;
     private System.Windows.Forms.ToolStripMenuItem ActionPaste;

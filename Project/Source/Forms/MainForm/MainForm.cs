@@ -89,7 +89,7 @@ namespace Ordisoftware.HebrewLetters
     internal void CreateProvidersAndWebLinks()
     {
       OnlineProviders.CreateWebLinksMenuItems(MenuWebLinks, ActionOpenWebLinkTemplateFolder.Image);
-      OnlineProviders.CreateProvidersMenuItems(Globals.OnlineWordProviders, ContextMenuStripSearchOnline, (sender, e) =>
+      OnlineProviders.CreateProvidersMenuItems(Globals.OnlineWordProviders, ContextMenuSearchOnline, (sender, e) =>
       {
         var menuitem = (ToolStripMenuItem)sender;
         var control = ( (ContextMenuStrip)menuitem.Owner ).SourceControl;
@@ -327,10 +327,7 @@ namespace Ordisoftware.HebrewLetters
       }
       else
       {
-        Action<TextBox> check = textbox =>
-        {
-          if ( textbox.Text == meaning ) textbox.Focus();
-        };
+        Action<TextBox> check = textbox => { if ( textbox.Text == meaning ) textbox.Focus(); };
         check(Instance.TextBoxPositive);
         check(Instance.TextBoxNegative);
         check(Instance.TextBoxVerb);
@@ -606,7 +603,7 @@ namespace Ordisoftware.HebrewLetters
 
     private void ActionSearchOnline_Click(object sender, EventArgs e)
     {
-      ContextMenuStripSearchOnline.Show(ActionSearchOnline, new Point(0, ActionSearchOnline.Height));
+      ContextMenuSearchOnline.Show(ActionSearchOnline, new Point(0, ActionSearchOnline.Height));
     }
 
     private void ActionClear_Click(object sender, EventArgs e)

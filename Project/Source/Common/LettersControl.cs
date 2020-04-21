@@ -40,8 +40,8 @@ namespace Ordisoftware.HebrewCommon
     /// </summary>
     public Color LettersBackground
     {
-      get { return Panel.BackColor; }
-      set { Panel.BackColor = value; }
+      get { return PanelLetters.BackColor; }
+      set { PanelLetters.BackColor = value; }
     }
 
     /// <summary>
@@ -54,7 +54,48 @@ namespace Ordisoftware.HebrewCommon
     }
 
     /// <summary>
-    /// Indicate if values must be shown.
+    /// Indicate 
+    /// </summary>
+    public float FontSizeLetters
+    {
+      get { return _FontSizeLetters; }
+      set
+      {
+        _FontSizeLetters = value;
+        CreateLetters();
+      }
+    }
+    private float _FontSizeLetters = 20.25F;
+
+    /// <summary>
+    /// Indicate 
+    /// </summary>
+    public float FontSizeLabels
+    {
+      get { return _FontSizeLabels; }
+      set
+      {
+        _FontSizeLabels = value;
+        CreateLetters();
+      }
+    }
+    private float _FontSizeLabels = 6.25F;
+
+    /// <summary>
+    /// Indicate 
+    /// </summary>
+    public float FontSizeInput
+    {
+      get { return Input.Font.Size; }
+      set
+      {
+        Input.Font = new Font(Input.Font.FontFamily, value, Input.Font.Style);
+        CreateLetters();
+      }
+    }
+
+    /// <summary>
+    /// Indicate if letters values must be shown.
     /// </summary>
     public bool ShowValues
     {
@@ -67,6 +108,21 @@ namespace Ordisoftware.HebrewCommon
       }
     }
     private bool _ShowValues = true;
+
+    /// <summary>
+    /// Indicate if keys codes must be shown.
+    /// </summary>
+    public bool ShowKeys
+    {
+      get { return _ShowKeys; }
+      set
+      {
+        if ( _ShowKeys == value ) return;
+        _ShowKeys = value;
+        CreateLetters();
+      }
+    }
+    private bool _ShowKeys = true;
 
     /// <summary>
     /// Text property.
@@ -97,8 +153,12 @@ namespace Ordisoftware.HebrewCommon
     public LettersControl()
     {
       InitializeComponent();
-      CreateLetters();
       MaxLength = 20;
+    }
+
+    private void LettersControl_Load(object sender, EventArgs e)
+    {
+      CreateLetters();
     }
 
     /// <summary>

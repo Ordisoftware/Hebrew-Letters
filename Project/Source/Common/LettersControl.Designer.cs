@@ -29,21 +29,28 @@
     private void InitializeComponent()
     {
       this.components = new System.ComponentModel.Container();
-      this.Panel = new System.Windows.Forms.Panel();
+      this.PanelLetters = new System.Windows.Forms.Panel();
+      this.PanelSeparator = new System.Windows.Forms.Panel();
       this.Input = new Ordisoftware.HebrewCommon.UndoRedoTextBox();
       this.SuspendLayout();
       // 
-      // Panel
+      // PanelLetters
       // 
-      this.Panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-      this.Panel.BackColor = System.Drawing.SystemColors.Window;
-      this.Panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.Panel.Location = new System.Drawing.Point(0, 0);
-      this.Panel.Name = "Panel";
-      this.Panel.Size = new System.Drawing.Size(510, 180);
-      this.Panel.TabIndex = 1;
+      this.PanelLetters.BackColor = System.Drawing.SystemColors.Window;
+      this.PanelLetters.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.PanelLetters.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.PanelLetters.Location = new System.Drawing.Point(0, 0);
+      this.PanelLetters.Name = "PanelLetters";
+      this.PanelLetters.Size = new System.Drawing.Size(510, 179);
+      this.PanelLetters.TabIndex = 1;
+      // 
+      // PanelSeparator
+      // 
+      this.PanelSeparator.Dock = System.Windows.Forms.DockStyle.Bottom;
+      this.PanelSeparator.Location = new System.Drawing.Point(0, 179);
+      this.PanelSeparator.Name = "PanelSeparator";
+      this.PanelSeparator.Size = new System.Drawing.Size(510, 8);
+      this.PanelSeparator.TabIndex = 3;
       // 
       // Input
       // 
@@ -62,17 +69,20 @@
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+      this.Controls.Add(this.PanelLetters);
+      this.Controls.Add(this.PanelSeparator);
       this.Controls.Add(this.Input);
-      this.Controls.Add(this.Panel);
       this.Name = "LettersControl";
       this.Size = new System.Drawing.Size(510, 240);
+      this.Load += new System.EventHandler(this.LettersControl_Load);
       this.ResumeLayout(false);
       this.PerformLayout();
 
     }
 
     #endregion
-    public System.Windows.Forms.Panel Panel;
+    public System.Windows.Forms.Panel PanelLetters;
     public UndoRedoTextBox Input;
+    private System.Windows.Forms.Panel PanelSeparator;
   }
 }
