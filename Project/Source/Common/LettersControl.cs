@@ -158,7 +158,11 @@ namespace Ordisoftware.HebrewCommon
             if ( Input.Text.Length < MaxLength )
             {
               Previous.Set(Input.Text, Input.SelectionStart);
-              Input.Text = ( (Button)sender ).Text + Input.Text;
+              int temp = Input.SelectionStart;
+              Input.Text = Input.Text.Insert(Input.SelectionStart, ( (Button)sender ).Text);
+              Input.Focus();
+              Input.SelectionLength = 0;
+              Input.SelectionStart = temp;
             }
             OnClick(new LetterEventArgs(( (Button)sender ).Text));
           };
