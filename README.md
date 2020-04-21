@@ -73,14 +73,13 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 ## Changelog
 
-#### 2020.04.__ - Version 4.1
+#### 2020.04.22 - Version 4.1
 
-- Add undo edit meanings mist of a letter.
-- Add context menu "copy/cut/paste" for text boxes to replace system default.
-- Add backspace key management in hebrew input box.
-- Add select all and undo support in hebrew input box.
-- Improve/fix edit word using copy/cut/paste in hebrew input box.
-- Fix inserting letter at the caret position when clicking on letters icons.
+- Add "undo/redo & copy/cut/paste" context menu for input panel and sentence text boxes.
+- Add select all and undo support in textbox of the hebrew input panel.
+- Add backspace key management in textbox of hebrew input panel.
+- Improve/fix edit word using copy/cut/paste in textbox of hebrew input panel.
+- Fix inserting letter at the caret position when clicking on letters buttons.
 - Optimize code.
 
 #### 2020.04.19 - Version 4.0
