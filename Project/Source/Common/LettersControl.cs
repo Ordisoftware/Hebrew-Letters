@@ -13,7 +13,6 @@
 /// <created> 2012-10 </created>
 /// <edited> 2020-04 </edited>
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -26,6 +25,15 @@ namespace Ordisoftware.HebrewCommon
   /// </summary>
   public partial class LettersControl : UserControl
   {
+
+    /// <summary>
+    /// Indicate max length of the input text.
+    /// </summary>
+    public int MaxLength
+    {
+      get { return Input.MaxLength; }
+      set { Input.MaxLength = value; }
+    }
 
     /// <summary>
     /// Indicate the background color of letters panel.
@@ -61,35 +69,27 @@ namespace Ordisoftware.HebrewCommon
     private bool _ShowValues = true;
 
     /// <summary>
-    /// Indicate max length of the input text.
+    /// Text property.
     /// </summary>
-    public int MaxLength
+    public new string Text
     {
-      get { return _MaxLength; }
-      set { _MaxLength = value; }
+      get { return Input.Text; }
+      set { Input.Text = value; }
     }
-    private int _MaxLength = 20;
 
     /// <summary>
-    /// Input textbox text changed event.
+    /// Text changed event.
     /// </summary>
-    public event EventHandler InputTextChanged
+    public new event EventHandler TextChanged
     {
       add { Input.TextChanged += value; }
       remove { Input.TextChanged -= value; }
     }
 
     /// <summary>
-    /// Indicates if a key is being processed.
+    /// Indicate if an input key is processed.
     /// </summary>
-    private bool KeyProcessed = false;
-
-    private Stack<UndoRedoItem> UndoStack = new Stack<UndoRedoItem>();
-    private Stack<UndoRedoItem> RedoStack = new Stack<UndoRedoItem>();
-
-    private UndoRedoItem Previous = new UndoRedoItem();
-
-    private bool UndoRedoMutex;
+    private bool KeyProcessed;
 
     /// <summary>
     /// Constructor
@@ -98,45 +98,50 @@ namespace Ordisoftware.HebrewCommon
     {
       InitializeComponent();
       CreateLetters();
+      MaxLength = 20;
     }
 
     /// <summary>
-    /// Update menu items.
+    /// Focus.
     /// </summary>
-    private void ContextMenuStripInput_Opened(object sender, EventArgs e)
+    public new void Focus()
     {
-      ActionCopy.Enabled = Input.SelectedText != "";
-      ActionCut.Enabled = ActionCopy.Enabled;
-      ActionPaste.Enabled = Clipboard.GetText() != "";
-      ActionUndo.Enabled = UndoStack.Count != 0;
-      ActionRedo.Enabled = RedoStack.Count != 0;
+      Input.Focus();
+      Input.SelectionLength = 0;
     }
 
     /// <summary>
-    /// Letter icon click event
+    /// Letter icon click event.
     /// </summary>
     private void ButtonLetter_Click(object sender, EventArgs e)
     {
       if ( Input.Text.Length < MaxLength )
       {
-        Previous.Set(Input.Text, Input.SelectionStart);
         int pos = Input.SelectionStart;
         Input.Text = Input.Text.Insert(Input.SelectionStart, ( (Button)sender ).Text);
-        Input.Focus();
-        Input.SelectionLength = 0;
         Input.SelectionStart = pos;
+        Input.Focus();
       }
       OnClick(new LetterEventArgs(( (Button)sender ).Text));
     }
 
     /// <summary>
-    /// TextChanged event.
+    /// TextChanging event.
     /// </summary>
-    private void Input_TextChanged(object sender, EventArgs e)
+    private void Input_TextChanging(object sender, ref string text)
     {
-      if ( UndoRedoMutex ) return;
-      UndoStack.Push(Previous);
-      RedoStack.Clear();
+      text = HebrewAlphabet.OnlyHebrewFont(text).Replace(" ", "");
+    }
+
+    /// <summary>
+    /// KeyPress event.
+    /// </summary>
+    private void Input_KeyPress(object sender, KeyPressEventArgs e)
+    {
+      if ( HebrewAlphabet.Codes.Contains(e.KeyChar.ToString()) )
+        KeyProcessed = true;
+      else
+        e.KeyChar = '\x0';
     }
 
     /// <summary>
@@ -152,146 +157,6 @@ namespace Ordisoftware.HebrewCommon
       }
     }
 
-    /// <summary>
-    /// KeyPress event.
-    /// </summary>
-    private void Input_KeyPress(object sender, KeyPressEventArgs e)
-    {
-      if ( HebrewAlphabet.Codes.Contains(e.KeyChar.ToString()) )
-        KeyProcessed = true;
-      else
-      if ( e.KeyChar == '\b' ) // Back Space
-      {
-        int selectionStart = Input.SelectionStart;
-        if ( selectionStart > 0 )
-        {
-          Input.Text = Input.Text.Remove(selectionStart - 1, 1);
-          Input.SelectionStart = selectionStart - 1;
-          e.Handled = true;
-        }
-      }
-      else
-      if ( Input.SelectedText != "" )
-      {
-        if ( e.KeyChar == '\u0018' ) // Ctrl+X
-        {
-          ActionCut.PerformClick();
-          e.Handled = true;
-        }
-        else
-        if ( e.KeyChar == '\u0003' ) // Ctrl+C
-        {
-          ActionCopy.PerformClick();
-          e.Handled = true;
-        }
-      }
-      else
-      if ( e.KeyChar == '\u0016' ) // Ctrl+V
-      {
-        ActionPaste.PerformClick();
-        e.Handled = true;
-      }
-      else
-        e.KeyChar = '\x0';
-    }
-
-    /// <summary>
-    /// KeyDown event.
-    /// </summary>
-    private void Input_KeyDown(object sender, KeyEventArgs e)
-    {
-      if ( e.Control && e.KeyCode == Keys.Z )
-      {
-        e.SuppressKeyPress = true;
-        ActionUndo.PerformClick();
-      }
-      else
-      if ( e.Control && e.KeyCode == Keys.Y )
-      {
-        e.SuppressKeyPress = true;
-        ActionRedo.PerformClick();
-      }
-      else
-      if ( e.Control && e.KeyCode == Keys.A )
-      {
-        e.SuppressKeyPress = true;
-        Input.SelectAll();
-      }
-      else
-      if ( e.Shift && e.KeyCode == Keys.Delete )
-      {
-        e.SuppressKeyPress = true;
-        ActionCut.PerformClick();
-      }
-      else
-      if ( e.Shift && e.KeyCode == Keys.Insert )
-      {
-        e.SuppressKeyPress = true;
-        ActionPaste.PerformClick();
-      }
-      else
-      if ( e.Control && e.KeyCode == Keys.Insert )
-      {
-        e.SuppressKeyPress = true;
-        ActionCopy.PerformClick();
-      }
-      else
-      if ( e.Control && e.KeyCode == Keys.Delete )
-        e.SuppressKeyPress = true;
-    }
-
-    private void ActionCopy_Click(object sender, EventArgs e)
-    {
-      if ( Input.SelectedText == "" ) return;
-      Clipboard.SetText(Input.SelectedText);
-    }
-
-    private void ActionCut_Click(object sender, EventArgs e)
-    {
-      if ( Input.SelectedText == "" ) return;
-      Clipboard.SetText(Input.SelectedText);
-      int selectionStart = Input.SelectionStart;
-      Input.Text = Input.Text.Remove(selectionStart, Input.SelectionLength);
-      Input.SelectionStart = selectionStart;
-    }
-
-    private void ActionPaste_Click(object sender, EventArgs e)
-    {
-      string str = Clipboard.GetText();
-      if ( str == "" ) return;
-      str = HebrewAlphabet.OnlyHebrewFont(str).Replace(" ", "");
-      if ( Input.Text.Length + str.Length <= MaxLength )
-      {
-        int selectionStart = Input.SelectionStart;
-        Input.SelectedText = str;
-        Input.SelectionStart = selectionStart;
-      }
-    }
-
-    private void ActionUndo_Click(object sender, EventArgs e)
-    {
-      if ( UndoStack.Count == 0 ) return;
-      UndoRedoMutex = true;
-      Previous.Set(Input.Text, Input.SelectionStart);
-      RedoStack.Push(new UndoRedoItem().Set(Input.Text, Input.SelectionStart));
-      var item = UndoStack.Pop();
-      Input.Text = item.Text;
-      Input.SelectionStart = item.SelectionStart;
-      UndoRedoMutex = false;
-    }
-
-    private void ActionRedo_Click(object sender, EventArgs e)
-    {
-      if ( RedoStack.Count == 0 ) return;
-      UndoRedoMutex = true;
-      UndoStack.Push(new UndoRedoItem().Set(Input.Text, Input.SelectionStart));
-      var item = RedoStack.Pop();
-      Input.Text = item.Text;
-      Input.SelectionStart = item.SelectionStart;
-      Previous.Set(Input.Text, Input.SelectionStart);
-      UndoRedoMutex = false;
-    }
-
   }
 
   /// <summary>
@@ -301,21 +166,6 @@ namespace Ordisoftware.HebrewCommon
   {
     public string LetterCode { get; private set; }
     public LetterEventArgs(string lettercode) { LetterCode = lettercode; }
-  }
-
-  /// <summary>
-  ///  Provide undo or redo item
-  /// </summary>
-  public struct UndoRedoItem
-  {
-    public string Text;
-    public int SelectionStart;
-    public UndoRedoItem Set(string text, int selectionStart)
-    {
-      Text = text;
-      SelectionStart = selectionStart;
-      return this;
-    }
   }
 
 }

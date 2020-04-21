@@ -421,8 +421,7 @@
       this.EditLetters.MaxLength = 20;
       this.EditLetters.Name = "EditLetters";
       this.EditLetters.ShowValues = true;
-      this.EditLetters.InputTextChanged += new System.EventHandler(this.EditLetters_InputTextChanged);
-      this.EditLetters.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EditLetters_KeyPress);
+      this.EditLetters.TextChanged += new System.EventHandler(this.EditLetters_InputTextChanged);
       // 
       // TabPageMonth
       // 

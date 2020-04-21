@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2019-01 </edited>
+/// <edited> 2020-04 </edited>
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -92,11 +92,6 @@ namespace Ordisoftware.HebrewLetters
       ViewPanels[view].MenuItem.Checked = true;
       ViewPanels[view].Panel.Parent = PanelMainCenter;
       ViewPanels[view].Focused.Focus();
-      if ( ViewPanels[view].Focused == EditLetters.Input )
-      {
-        EditLetters.Input.SelectionStart = 0;
-        EditLetters.Input.SelectionLength = 0;
-      }
       Program.Settings.CurrentView = view;
     }
 

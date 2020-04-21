@@ -79,19 +79,7 @@ namespace Ordisoftware.HebrewCommon
           buttonLetter.Text = HebrewAlphabet.Codes[index];
           buttonLetter.BackColor = Color.Transparent;
           buttonLetter.TabStop = false;
-          buttonLetter.Click += delegate (object sender, EventArgs e)
-          {
-            if ( Input.Text.Length < MaxLength )
-            {
-              Previous.Set(Input.Text, Input.SelectionStart);
-              int pos = Input.SelectionStart;
-              Input.Text = Input.Text.Insert(Input.SelectionStart, ( (Button)sender ).Text);
-              Input.Focus();
-              Input.SelectionLength = 0;
-              Input.SelectionStart = pos;
-            }
-            OnClick(new LetterEventArgs(( (Button)sender ).Text));
-          };
+          buttonLetter.Click += ButtonLetter_Click;
           Panel.Controls.Add(buttonLetter);
           // Loop
           n += 1;
