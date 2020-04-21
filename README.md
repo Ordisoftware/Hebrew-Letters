@@ -80,6 +80,7 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 - Add backspace key management in hebrew input box.
 - Add select all and undo support in hebrew input box.
 - Improve/fix edit word using copy/cut/paste in hebrew input box.
+- Fix inserting letter at the caret position when clicking on letters icons.
 - Optimize code.
 
 #### 2020.04.19 - Version 4.0
