@@ -32,12 +32,6 @@ namespace Ordisoftware.HebrewLetters
       = Globals.DocumentsFolderPath + "Alphabet-%LANG%.txt";
 
     /// <summary>
-    /// Indicate filename of the grammar guide.
-    /// </summary>
-    static public string GrammarGuideFilename
-      = Globals.HelpFolderPath + $"grammar-%LANG%.htm";
-
-    /// <summary>
     /// Indicate the grammar guide form.
     /// </summary>
     static public HTMLBrowserForm GrammarGuideForm
@@ -45,19 +39,13 @@ namespace Ordisoftware.HebrewLetters
       get
       {
         if ( _GrammarGuideForm == null )
-          _GrammarGuideForm = new HTMLBrowserForm(Globals.GrammarGuideTitle, GrammarGuideFilename,
+          _GrammarGuideForm = new HTMLBrowserForm(Globals.GrammarGuideTitle, Globals.GrammarGuideFilename,
                                                   nameof(Settings.GrammarGuideFormLocation),
                                                   nameof(Settings.GrammarGuideFormSize));
         return _GrammarGuideForm;
       }
     }
     static public HTMLBrowserForm _GrammarGuideForm;
-
-    /// <summary>
-    /// Indicate filename of the method notice.
-    /// </summary>
-    static public string MethodNoticeFilename
-      = Globals.HelpFolderPath + $"method-%LANG%.htm";
 
     /// <summary>
     /// Indicate the method notice form.
@@ -67,7 +55,7 @@ namespace Ordisoftware.HebrewLetters
       get
       {
         if ( _MethodGuideForm == null )
-          _MethodGuideForm = new HTMLBrowserForm(Translations.MethodNoticeTitle, MethodNoticeFilename,
+          _MethodGuideForm = new HTMLBrowserForm(Globals.MethodNoticeTitle, Globals.MethodNoticeFilename,
                                                  nameof(Settings.MethodNoticeFormLocation),
                                                  nameof(Settings.MethodNoticeFormSize));
         return _MethodGuideForm;
