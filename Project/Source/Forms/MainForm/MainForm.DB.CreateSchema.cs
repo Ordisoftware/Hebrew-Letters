@@ -33,7 +33,10 @@ namespace Ordisoftware.HebrewLetters
       var connection = new OdbcConnection(Program.Settings.ConnectionString);
       connection.Open();
       if ( Program.Settings.VacuumAtStartup )
+      {
+        connection.CheckIntegrity();
         connection.Vacuum();
+      }
       try
       {
         void checkTable(string table, string sql)
