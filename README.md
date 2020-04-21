@@ -73,14 +73,14 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 ## Changelog
 
-#### 2020.04.22 - Version 4.1
+#### 2020.04.23 - Version 4.1
 
-- Add "undo/redo & copy/cut/paste" context menu for input panel and sentence text boxes.
 - Add select all and undo support in textbox of the hebrew input panel.
+- Add undo/redo & copy/cut/paste context menu for input panel and sentence text boxes.
 - Add backspace key management in textbox of hebrew input panel.
 - Improve/fix edit word using copy/cut/paste in textbox of hebrew input panel.
 - Fix inserting letter at the caret position when clicking on letters buttons.
-- Optimize code.
+- Optimize startup.
 
 #### 2020.04.19 - Version 4.0
 
