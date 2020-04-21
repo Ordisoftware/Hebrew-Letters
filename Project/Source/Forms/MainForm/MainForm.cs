@@ -89,7 +89,7 @@ namespace Ordisoftware.HebrewLetters
     internal void CreateProvidersAndWebLinks()
     {
       OnlineProviders.CreateWebLinksMenuItems(MenuWebLinks, ActionOpenWebLinkTemplateFolder.Image);
-      OnlineProviders.CreateProvidersMenuItems(Globals.OnlineWordProviders, ContextMenuSearchOnline, (sender, e) =>
+      OnlineProviders.CreateProvidersMenuItems(Globals.OnlineWordProviders, ContextMenuStripSearchOnline, (sender, e) =>
       {
         var menuitem = (ToolStripMenuItem)sender;
         var control = ( (ContextMenuStrip)menuitem.Owner ).SourceControl;
@@ -470,6 +470,12 @@ namespace Ordisoftware.HebrewLetters
       ProcessHTMLBrowser(Program.GrammarGuideForm);
     }
 
+    private void ActionOpenHebrewAlphabet_Click(object sender, EventArgs e)
+    {
+      string url = (string)( (ToolStripItem)sender ).Tag;
+      SystemManager.OpenWebLink(url);
+    }
+
     private void ActionOpenWebsiteURL_Click(object sender, EventArgs e)
     {
       string url = (string)( (ToolStripItem)sender ).Tag;
@@ -531,7 +537,7 @@ namespace Ordisoftware.HebrewLetters
       MeaningsBindingSource.RemoveCurrent();
       EditMeanings.EndEdit();
       int count = MeaningsBindingSource.Count;
-      if (count > 1)
+      if ( count > 1 )
         if ( pos >= count )
         {
           MeaningsBindingSource.MoveFirst();
@@ -600,6 +606,11 @@ namespace Ordisoftware.HebrewLetters
       DoAnalyse();
     }
 
+    private void ActionSearchOnline_Click(object sender, EventArgs e)
+    {
+      ContextMenuStripSearchOnline.Show(ActionSearchOnline, new Point(0, ActionSearchOnline.Height));
+    }
+
     private void ActionClear_Click(object sender, EventArgs e)
     {
       EditLetters.Input.Text = "";
@@ -655,6 +666,28 @@ namespace Ordisoftware.HebrewLetters
       ActionCopyToClipboardResult.Enabled = EditSentence.Text != "";
     }
 
+    private void ContextMenuStripSentence_Opened(object sender, EventArgs e)
+    {
+      ActionCopy.Enabled = EditSentence.SelectedText != "";
+      ActionCut.Enabled = ActionCopy.Enabled;
+      ActionPaste.Enabled = Clipboard.GetText() != "";
+    }
+
+    private void ActionCopy_Click(object sender, EventArgs e)
+    {
+      EditSentence.Copy();
+    }
+
+    private void ActionCut_Click(object sender, EventArgs e)
+    {
+      EditSentence.Cut();
+    }
+
+    private void ActionPaste_Click(object sender, EventArgs e)
+    {
+      EditSentence.Paste();
+    }
+
     private void BindingSource_DataError(object sender, BindingManagerDataErrorEventArgs e)
     {
       if ( !Globals.IsReady ) return;
@@ -675,17 +708,6 @@ namespace Ordisoftware.HebrewLetters
       }
       else
         e.Exception.Manage();
-    }
-
-    private void ActionOpenHebrewAlphabet_Click(object sender, EventArgs e)
-    {
-      string url = (string)( (ToolStripItem)sender ).Tag;
-      SystemManager.OpenWebLink(url);
-    }
-
-    private void ActionSearchOnline_Click(object sender, EventArgs e)
-    {
-      ContextMenuSearchOnline.Show(ActionSearchOnline, new Point(0, ActionSearchOnline.Height));
     }
 
   }
