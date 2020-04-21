@@ -89,7 +89,7 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 - Add lettriq analysis method notice.
 - Add grammar guide from Hebrew Words.
 - Add menu for web links about judaism.
-- Add option to auto vacuum database at startup.
+- Add option to auto optimize database at startup.
 - Add option to auto sort meanings combobox items.
 - Add option to use Escape key to close app.
 - Add option to enable debugger.
