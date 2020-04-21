@@ -59,11 +59,7 @@
       this.ActionClear = new System.Windows.Forms.Button();
       this.ActionCopyToClipboardMeanings = new System.Windows.Forms.Button();
       this.ActionCopyToClipboardResult = new System.Windows.Forms.Button();
-      this.EditSentence = new System.Windows.Forms.TextBox();
-      this.ContextMenuSentence = new System.Windows.Forms.ContextMenuStrip(this.components);
-      this.ActionCopy = new System.Windows.Forms.ToolStripMenuItem();
-      this.ActionCut = new System.Windows.Forms.ToolStripMenuItem();
-      this.ActionPaste = new System.Windows.Forms.ToolStripMenuItem();
+      this.EditSentence = new Ordisoftware.HebrewCommon.UndoRedoTextBox();
       this.EditGematria = new System.Windows.Forms.TextBox();
       this.LabelGematria = new System.Windows.Forms.Label();
       this.EditLetters = new Ordisoftware.HebrewCommon.LettersControl();
@@ -164,7 +160,6 @@
       this.TabPageText.SuspendLayout();
       this.PanelViewSearch.SuspendLayout();
       this.ContextMenuSearchOnline.SuspendLayout();
-      this.ContextMenuSentence.SuspendLayout();
       this.TabPageMonth.SuspendLayout();
       this.PanelViewSettings.SuspendLayout();
       this.PanelSettingsDetails.SuspendLayout();
@@ -394,37 +389,8 @@
       resources.ApplyResources(this.EditSentence, "EditSentence");
       this.EditSentence.BackColor = System.Drawing.SystemColors.Window;
       this.EditSentence.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.EditSentence.ContextMenuStrip = this.ContextMenuSentence;
       this.EditSentence.Name = "EditSentence";
       this.EditSentence.TextChanged += new System.EventHandler(this.EditSentence_TextChanged);
-      // 
-      // ContextMenuSentence
-      // 
-      this.ContextMenuSentence.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ActionCopy,
-            this.ActionCut,
-            this.ActionPaste});
-      this.ContextMenuSentence.Name = "ContextMenuStrip";
-      resources.ApplyResources(this.ContextMenuSentence, "ContextMenuSentence");
-      this.ContextMenuSentence.Opened += new System.EventHandler(this.ContextMenuStripSentence_Opened);
-      // 
-      // ActionCopy
-      // 
-      resources.ApplyResources(this.ActionCopy, "ActionCopy");
-      this.ActionCopy.Name = "ActionCopy";
-      this.ActionCopy.Click += new System.EventHandler(this.ActionCopy_Click);
-      // 
-      // ActionCut
-      // 
-      resources.ApplyResources(this.ActionCut, "ActionCut");
-      this.ActionCut.Name = "ActionCut";
-      this.ActionCut.Click += new System.EventHandler(this.ActionCut_Click);
-      // 
-      // ActionPaste
-      // 
-      resources.ApplyResources(this.ActionPaste, "ActionPaste");
-      this.ActionPaste.Name = "ActionPaste";
-      this.ActionPaste.Click += new System.EventHandler(this.ActionPaste_Click);
       // 
       // EditGematria
       // 
@@ -1127,7 +1093,6 @@
       this.PanelViewSearch.ResumeLayout(false);
       this.PanelViewSearch.PerformLayout();
       this.ContextMenuSearchOnline.ResumeLayout(false);
-      this.ContextMenuSentence.ResumeLayout(false);
       this.TabPageMonth.ResumeLayout(false);
       this.PanelViewSettings.ResumeLayout(false);
       this.PanelSettingsDetails.ResumeLayout(false);
@@ -1228,7 +1193,7 @@
     private System.Windows.Forms.ToolStripMenuItem ActionOpenLexilogosOld;
     private System.Windows.Forms.ToolStripMenuItem ActionOpenLexilogosModern;
     private System.Windows.Forms.ToolStripMenuItem ActionOpenWordOnline;
-    internal System.Windows.Forms.TextBox EditSentence;
+    internal Ordisoftware.HebrewCommon.UndoRedoTextBox EditSentence;
     internal System.Windows.Forms.ToolStripMenuItem EditESCtoExit;
     private System.Windows.Forms.ToolStripMenuItem ActionWebTwitter;
     private System.Windows.Forms.ToolStripMenuItem ActionWebYouTube;
@@ -1251,9 +1216,5 @@
     internal System.Windows.Forms.TextBox TextBoxNegative;
     internal System.Windows.Forms.TextBox TextBoxPositive;
     internal System.Windows.Forms.Button ActionClear;
-    private System.Windows.Forms.ContextMenuStrip ContextMenuSentence;
-    private System.Windows.Forms.ToolStripMenuItem ActionCopy;
-    private System.Windows.Forms.ToolStripMenuItem ActionCut;
-    private System.Windows.Forms.ToolStripMenuItem ActionPaste;
   }
 }

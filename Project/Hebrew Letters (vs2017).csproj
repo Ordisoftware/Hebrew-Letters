@@ -180,6 +180,9 @@
     <EmbeddedResource Include="Source\Common\HTMLBrowserForm.resx">
       <DependentUpon>HTMLBrowserForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Source\Common\UndoRedoTextBox.fr.resx">
+      <DependentUpon>UndoRedoTextBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Source\Common\UndoRedoTextBox.resx">
       <DependentUpon>UndoRedoTextBox.cs</DependentUpon>
     </EmbeddedResource>

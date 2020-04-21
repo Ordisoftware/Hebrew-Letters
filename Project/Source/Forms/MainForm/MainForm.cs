@@ -661,28 +661,6 @@ namespace Ordisoftware.HebrewLetters
       ActionCopyToClipboardResult.Enabled = EditSentence.Text != "";
     }
 
-    private void ContextMenuStripSentence_Opened(object sender, EventArgs e)
-    {
-      ActionCopy.Enabled = EditSentence.SelectedText != "";
-      ActionCut.Enabled = ActionCopy.Enabled;
-      ActionPaste.Enabled = Clipboard.GetText() != "";
-    }
-
-    private void ActionCopy_Click(object sender, EventArgs e)
-    {
-      EditSentence.Copy();
-    }
-
-    private void ActionCut_Click(object sender, EventArgs e)
-    {
-      EditSentence.Cut();
-    }
-
-    private void ActionPaste_Click(object sender, EventArgs e)
-    {
-      EditSentence.Paste();
-    }
-
     private void BindingSource_DataError(object sender, BindingManagerDataErrorEventArgs e)
     {
       if ( !Globals.IsReady ) return;
