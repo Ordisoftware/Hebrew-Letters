@@ -436,17 +436,17 @@
       // EditLetters
       // 
       this.EditLetters.BackColor = System.Drawing.Color.Transparent;
-      this.EditLetters.FontSizeInput = 24F;
-      this.EditLetters.FontSizeLabels = 6F;
-      this.EditLetters.FontSizeLetters = 20F;
+      this.EditLetters.InputFontSize = 24F;
+      this.EditLetters.LabelsFontSize = 6F;
+      this.EditLetters.LettersFontSize = 20F;
       this.EditLetters.InputBackColor = System.Drawing.Color.AliceBlue;
       this.EditLetters.LettersBackground = System.Drawing.Color.LightYellow;
       resources.ApplyResources(this.EditLetters, "EditLetters");
-      this.EditLetters.MaxLength = 20;
+      this.EditLetters.InputMaxLength = 20;
       this.EditLetters.Name = "EditLetters";
       this.EditLetters.ShowKeys = true;
       this.EditLetters.ShowValues = true;
-      this.EditLetters.TextChanged += new System.EventHandler(this.EditLetters_InputTextChanged);
+      this.EditLetters.InputTextChanged += new System.EventHandler(this.EditLetters_InputTextChanged);
       // 
       // TabPageMonth
       // 

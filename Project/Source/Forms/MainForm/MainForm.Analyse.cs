@@ -29,7 +29,7 @@ namespace Ordisoftware.HebrewLetters
     {
       try
       {
-        string word = EditLetters.Text;
+        string word = EditLetters.InputText;
         EditSentence.Text = "";
         EditGematriaSimple.Text = "";
         EditAnalyze.Controls.Clear();
