@@ -53,7 +53,14 @@ namespace Ordisoftware.HebrewLetters
       SystemHelper.CheckCommandLineArguments(args, ref lang);
       Settings.Language = lang;
       UpdateLocalization();
-      Application.Run(MainForm.Instance);
+      try
+      {
+        Application.Run(MainForm.Instance);
+      }
+      catch (Exception ex)
+      {
+        throw new Exception("test", ex);
+      }
     }
 
     /// <summary>

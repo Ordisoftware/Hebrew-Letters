@@ -623,6 +623,8 @@ namespace Ordisoftware.HebrewLetters
 
     private void ActionClear_Click(object sender, EventArgs e)
     {
+      throw new Exception();
+
       EditLetters.TextInput = "";
       EditSentence.Text = "";
       EditGematriaSimple.Text = "";
