@@ -13,7 +13,6 @@
 /// <created> 2016-04 </created>
 /// <edited> 2020-04 </edited>
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.Odbc;
 using System.Drawing;
@@ -103,8 +102,8 @@ namespace Ordisoftware.HebrewLetters
     /// Create providers and web links menu items.
     /// </summary>
     internal void CreateWebLinks()
-  {
-    MenuWebLinks.InitializeFromWebLinks();
+    {
+      MenuWebLinks.InitializeFromWebLinks();
     }
 
     /// <summary>
