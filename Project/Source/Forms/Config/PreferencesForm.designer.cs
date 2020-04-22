@@ -41,14 +41,14 @@
       this.LabelFontSize = new System.Windows.Forms.Label();
       this.EditFontSize = new System.Windows.Forms.NumericUpDown();
       this.LabelMaxLength = new System.Windows.Forms.Label();
-      this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+      this.EditMaxLength = new System.Windows.Forms.NumericUpDown();
       this.EditEnableDebugger = new System.Windows.Forms.CheckBox();
       this.EditAutoSortAnalysisMeanings = new System.Windows.Forms.CheckBox();
       this.EditVacuumAtStartup = new System.Windows.Forms.CheckBox();
       this.EditCheckUpdateAtStartup = new System.Windows.Forms.CheckBox();
       this.PanelBottom.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.EditFontSize)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.EditMaxLength)).BeginInit();
       this.SuspendLayout();
       // 
       // ActionClose
@@ -136,31 +136,26 @@
       resources.ApplyResources(this.LabelMaxLength, "LabelMaxLength");
       this.LabelMaxLength.Name = "LabelMaxLength";
       // 
-      // numericUpDown1
+      // EditMaxLength
       // 
-      this.numericUpDown1.BackColor = System.Drawing.SystemColors.Window;
-      this.numericUpDown1.DataBindings.Add(new System.Windows.Forms.Binding("Value", global::Ordisoftware.HebrewLetters.Properties.Settings.Default, "HebrewTextBoxMaxLength", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-      resources.ApplyResources(this.numericUpDown1, "numericUpDown1");
-      this.numericUpDown1.Maximum = new decimal(new int[] {
+      this.EditMaxLength.BackColor = System.Drawing.SystemColors.Window;
+      resources.ApplyResources(this.EditMaxLength, "EditMaxLength");
+      this.EditMaxLength.Maximum = new decimal(new int[] {
             50,
             0,
             0,
             0});
-      this.numericUpDown1.Minimum = new decimal(new int[] {
+      this.EditMaxLength.Minimum = new decimal(new int[] {
             10,
             0,
             0,
             0});
-      this.numericUpDown1.Name = "numericUpDown1";
-      this.numericUpDown1.ReadOnly = true;
-      this.numericUpDown1.Value = global::Ordisoftware.HebrewLetters.Properties.Settings.Default.HebrewTextBoxMaxLength;
+      this.EditMaxLength.Name = "EditMaxLength";
+      this.EditMaxLength.ReadOnly = true;
       // 
       // EditEnableDebugger
       // 
       resources.ApplyResources(this.EditEnableDebugger, "EditEnableDebugger");
-      this.EditEnableDebugger.Checked = global::Ordisoftware.HebrewLetters.Properties.Settings.Default.DebuggerEnabled;
-      this.EditEnableDebugger.CheckState = System.Windows.Forms.CheckState.Checked;
-      this.EditEnableDebugger.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Ordisoftware.HebrewLetters.Properties.Settings.Default, "DebuggerEnabled", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
       this.EditEnableDebugger.Name = "EditEnableDebugger";
       this.EditEnableDebugger.UseVisualStyleBackColor = true;
       this.EditEnableDebugger.CheckedChanged += new System.EventHandler(this.EditEnableDebugger_CheckedChanged);
@@ -168,27 +163,18 @@
       // EditAutoSortAnalysisMeanings
       // 
       resources.ApplyResources(this.EditAutoSortAnalysisMeanings, "EditAutoSortAnalysisMeanings");
-      this.EditAutoSortAnalysisMeanings.Checked = global::Ordisoftware.HebrewLetters.Properties.Settings.Default.AutoSortAnalysisMeanings;
-      this.EditAutoSortAnalysisMeanings.CheckState = System.Windows.Forms.CheckState.Checked;
-      this.EditAutoSortAnalysisMeanings.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Ordisoftware.HebrewLetters.Properties.Settings.Default, "AutoSortAnalysisMeanings", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
       this.EditAutoSortAnalysisMeanings.Name = "EditAutoSortAnalysisMeanings";
       this.EditAutoSortAnalysisMeanings.UseVisualStyleBackColor = true;
       // 
       // EditVacuumAtStartup
       // 
       resources.ApplyResources(this.EditVacuumAtStartup, "EditVacuumAtStartup");
-      this.EditVacuumAtStartup.Checked = global::Ordisoftware.HebrewLetters.Properties.Settings.Default.VacuumAtStartup;
-      this.EditVacuumAtStartup.CheckState = System.Windows.Forms.CheckState.Checked;
-      this.EditVacuumAtStartup.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Ordisoftware.HebrewLetters.Properties.Settings.Default, "VacuumAtStartup", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
       this.EditVacuumAtStartup.Name = "EditVacuumAtStartup";
       this.EditVacuumAtStartup.UseVisualStyleBackColor = true;
       // 
       // EditCheckUpdateAtStartup
       // 
       resources.ApplyResources(this.EditCheckUpdateAtStartup, "EditCheckUpdateAtStartup");
-      this.EditCheckUpdateAtStartup.Checked = global::Ordisoftware.HebrewLetters.Properties.Settings.Default.CheckUpdateAtStartup;
-      this.EditCheckUpdateAtStartup.CheckState = System.Windows.Forms.CheckState.Checked;
-      this.EditCheckUpdateAtStartup.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Ordisoftware.HebrewLetters.Properties.Settings.Default, "CheckUpdateAtStartup", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
       this.EditCheckUpdateAtStartup.Name = "EditCheckUpdateAtStartup";
       this.EditCheckUpdateAtStartup.UseVisualStyleBackColor = true;
       // 
@@ -198,7 +184,7 @@
       resources.ApplyResources(this, "$this");
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.CancelButton = this.ActionClose;
-      this.Controls.Add(this.numericUpDown1);
+      this.Controls.Add(this.EditMaxLength);
       this.Controls.Add(this.LabelMaxLength);
       this.Controls.Add(this.EditEnableDebugger);
       this.Controls.Add(this.EditAutoSortAnalysisMeanings);
@@ -219,7 +205,7 @@
       this.PanelBottom.ResumeLayout(false);
       this.PanelBottom.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.EditFontSize)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.EditMaxLength)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -240,7 +226,7 @@
     private System.Windows.Forms.CheckBox EditAutoSortAnalysisMeanings;
     private System.Windows.Forms.LinkLabel ActionResetSettings;
     private System.Windows.Forms.CheckBox EditEnableDebugger;
-    private System.Windows.Forms.NumericUpDown numericUpDown1;
+    private System.Windows.Forms.NumericUpDown EditMaxLength;
     private System.Windows.Forms.Label LabelMaxLength;
   }
 }

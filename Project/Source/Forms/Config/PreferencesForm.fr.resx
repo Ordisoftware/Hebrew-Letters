@@ -190,4 +190,7 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Préférences</value>
   </data>
+  <data name="LabelMaxLength.Text" xml:space="preserve">
+    <value>Nombre max. de caractères hébreux</value>
+  </data>
 </root>

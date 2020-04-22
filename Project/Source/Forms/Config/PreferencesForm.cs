@@ -42,7 +42,6 @@ namespace Ordisoftware.HebrewLetters
     {
       InitializeComponent();
       Icon = MainForm.Instance.Icon;
-      EditFontSize.Value = Program.Settings.FontSizeSentence;
     }
 
     private void PreferencesForm_Shown(object sender, EventArgs e)
@@ -50,17 +49,23 @@ namespace Ordisoftware.HebrewLetters
       TopMost = MainForm.Instance.TopMost;
       BringToFront();
       UpdateLanguagesButtons();
-
-      // TODO don't use bindings...
-
+      EditVacuumAtStartup.Checked = Program.Settings.VacuumAtStartup;
+      EditEnableDebugger.Checked = Program.Settings.DebuggerEnabled;
+      EditCheckUpdateAtStartup.Checked = Program.Settings.CheckUpdateAtStartup;
+      EditAutoSortAnalysisMeanings.Checked = Program.Settings.AutoSortAnalysisMeanings;
+      EditFontSize.Value = Program.Settings.FontSizeSentence;
+      EditMaxLength.Value = Program.Settings.HebrewTextBoxMaxLength;
     }
 
     private void PreferencesForm_FormClosed(object sender, FormClosedEventArgs e)
     {
-
-      // TODO don't use bindings...
-
-      Program.Settings.Store();
+      Program.Settings.VacuumAtStartup = EditVacuumAtStartup.Checked;
+      Program.Settings.DebuggerEnabled = EditEnableDebugger.Checked;
+      Program.Settings.CheckUpdateAtStartup = EditCheckUpdateAtStartup.Checked;
+      Program.Settings.AutoSortAnalysisMeanings = EditAutoSortAnalysisMeanings.Checked;
+      Program.Settings.FontSizeSentence = EditFontSize.Value;
+      Program.Settings.HebrewTextBoxMaxLength = EditMaxLength.Value;
+      Program.Settings.Save();
     }
 
     private void EditEnableDebugger_CheckedChanged(object sender, EventArgs e)
@@ -108,8 +113,7 @@ namespace Ordisoftware.HebrewLetters
 
     private void EditFontSize_ValueChanged(object sender, EventArgs e)
     {
-      Program.Settings.FontSizeSentence = EditFontSize.Value;
-      MainForm.Instance.EditSentence.Font = new Font("Microsoft Sans Serif", (float)Program.Settings.FontSizeSentence);
+      MainForm.Instance.EditSentence.Font = new Font("Microsoft Sans Serif", (float)EditFontSize.Value);
     }
 
     private void ActionResetSettings_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
