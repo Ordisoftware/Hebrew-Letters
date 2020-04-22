@@ -46,6 +46,9 @@
       this.TabControl = new System.Windows.Forms.TabControl();
       this.TabPageText = new System.Windows.Forms.TabPage();
       this.PanelViewSearch = new System.Windows.Forms.Panel();
+      this.EditGematriaFull = new System.Windows.Forms.TextBox();
+      this.LabelGematriaFull = new System.Windows.Forms.Label();
+      this.LabelGematriaSimple = new System.Windows.Forms.Label();
       this.ActionReset = new System.Windows.Forms.Button();
       this.ActionDelLast = new System.Windows.Forms.Button();
       this.ActionDelFirst = new System.Windows.Forms.Button();
@@ -60,7 +63,7 @@
       this.ActionCopyToClipboardMeanings = new System.Windows.Forms.Button();
       this.ActionCopyToClipboardResult = new System.Windows.Forms.Button();
       this.EditSentence = new Ordisoftware.HebrewCommon.UndoRedoTextBox();
-      this.EditGematria = new System.Windows.Forms.TextBox();
+      this.EditGematriaSimple = new System.Windows.Forms.TextBox();
       this.LabelGematria = new System.Windows.Forms.Label();
       this.EditLetters = new Ordisoftware.HebrewCommon.LettersControl();
       this.TabPageMonth = new System.Windows.Forms.TabPage();
@@ -265,6 +268,9 @@
       // 
       resources.ApplyResources(this.PanelViewSearch, "PanelViewSearch");
       this.PanelViewSearch.BackColor = System.Drawing.SystemColors.Control;
+      this.PanelViewSearch.Controls.Add(this.EditGematriaFull);
+      this.PanelViewSearch.Controls.Add(this.LabelGematriaFull);
+      this.PanelViewSearch.Controls.Add(this.LabelGematriaSimple);
       this.PanelViewSearch.Controls.Add(this.ActionReset);
       this.PanelViewSearch.Controls.Add(this.ActionDelLast);
       this.PanelViewSearch.Controls.Add(this.ActionDelFirst);
@@ -277,10 +283,31 @@
       this.PanelViewSearch.Controls.Add(this.ActionCopyToClipboardMeanings);
       this.PanelViewSearch.Controls.Add(this.ActionCopyToClipboardResult);
       this.PanelViewSearch.Controls.Add(this.EditSentence);
-      this.PanelViewSearch.Controls.Add(this.EditGematria);
+      this.PanelViewSearch.Controls.Add(this.EditGematriaSimple);
       this.PanelViewSearch.Controls.Add(this.LabelGematria);
       this.PanelViewSearch.Controls.Add(this.EditLetters);
       this.PanelViewSearch.Name = "PanelViewSearch";
+      // 
+      // EditGematriaFull
+      // 
+      resources.ApplyResources(this.EditGematriaFull, "EditGematriaFull");
+      this.EditGematriaFull.BackColor = System.Drawing.Color.LavenderBlush;
+      this.EditGematriaFull.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.EditGematriaFull.Name = "EditGematriaFull";
+      this.EditGematriaFull.ReadOnly = true;
+      this.EditGematriaFull.TabStop = false;
+      // 
+      // LabelGematriaFull
+      // 
+      resources.ApplyResources(this.LabelGematriaFull, "LabelGematriaFull");
+      this.LabelGematriaFull.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+      this.LabelGematriaFull.Name = "LabelGematriaFull";
+      // 
+      // LabelGematriaSimple
+      // 
+      resources.ApplyResources(this.LabelGematriaSimple, "LabelGematriaSimple");
+      this.LabelGematriaSimple.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+      this.LabelGematriaSimple.Name = "LabelGematriaSimple";
       // 
       // ActionReset
       // 
@@ -392,14 +419,14 @@
       this.EditSentence.Name = "EditSentence";
       this.EditSentence.TextChanged += new System.EventHandler(this.EditSentence_TextChanged);
       // 
-      // EditGematria
+      // EditGematriaSimple
       // 
-      resources.ApplyResources(this.EditGematria, "EditGematria");
-      this.EditGematria.BackColor = System.Drawing.Color.LavenderBlush;
-      this.EditGematria.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.EditGematria.Name = "EditGematria";
-      this.EditGematria.ReadOnly = true;
-      this.EditGematria.TabStop = false;
+      resources.ApplyResources(this.EditGematriaSimple, "EditGematriaSimple");
+      this.EditGematriaSimple.BackColor = System.Drawing.Color.LavenderBlush;
+      this.EditGematriaSimple.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.EditGematriaSimple.Name = "EditGematriaSimple";
+      this.EditGematriaSimple.ReadOnly = true;
+      this.EditGematriaSimple.TabStop = false;
       // 
       // LabelGematria
       // 
@@ -1163,7 +1190,7 @@
     private System.Windows.Forms.Button ActionCopyToClipboardMeanings;
     private System.Windows.Forms.ToolStripButton ActionPreferences;
     internal System.Windows.Forms.Label LabelGematria;
-    internal System.Windows.Forms.TextBox EditGematria;
+    internal System.Windows.Forms.TextBox EditGematriaSimple;
     private System.Windows.Forms.Button ActionReset;
     private System.Windows.Forms.Button ActionDelLast;
     private System.Windows.Forms.Button ActionDelFirst;
@@ -1216,5 +1243,8 @@
     internal System.Windows.Forms.TextBox TextBoxNegative;
     internal System.Windows.Forms.TextBox TextBoxPositive;
     internal System.Windows.Forms.Button ActionClear;
+    internal System.Windows.Forms.Label LabelGematriaSimple;
+    internal System.Windows.Forms.TextBox EditGematriaFull;
+    internal System.Windows.Forms.Label LabelGematriaFull;
   }
 }

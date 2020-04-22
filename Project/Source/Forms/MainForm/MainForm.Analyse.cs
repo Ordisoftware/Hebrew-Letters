@@ -31,16 +31,18 @@ namespace Ordisoftware.HebrewLetters
       {
         string word = EditLetters.Text;
         EditSentence.Text = "";
-        EditGematria.Text = "";
+        EditGematriaSimple.Text = "";
         EditAnalyze.Controls.Clear();
-        int sum = 0;
+        int sumSimple = 0;
+        int sumFull = 0;
         int dy = 0;
         SelectedMeanings = "";
         for ( int pos = word.Length - 1; pos >= 0; pos-- )
         {
           var letter = DataSet.Letters.FindByCode(Convert.ToString(word[pos]));
           if ( letter == null ) continue;
-          sum += letter.ValueSimple;
+          sumSimple += letter.ValueSimple;
+          sumFull += letter.ValueFull;
           var label = new Label();
           label.Text = letter.Name;
           label.AutoSize = false;
@@ -77,7 +79,8 @@ namespace Ordisoftware.HebrewLetters
           dy += 30;
           SelectedMeanings = SelectedMeanings.TrimEnd().TrimEnd(',') + Environment.NewLine;
         }
-        EditGematria.Text = sum.ToString();
+        EditGematriaSimple.Text = sumSimple.ToString();
+        EditGematriaFull.Text = sumFull.ToString();
         ActionCopyToClipboardMeanings.Enabled = EditAnalyze.Controls.Count > 0;
       }
       catch ( Exception ex )

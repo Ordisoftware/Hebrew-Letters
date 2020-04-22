@@ -78,7 +78,7 @@ namespace Ordisoftware.HebrewLetters
       InitializeComponent();
       Text = Globals.AssemblyTitle;
       SystemEvents.SessionEnding += SessionEnding;
-      try { Icon = Icon.ExtractAssociatedIcon(Globals.IconFilename); }
+      try { Icon = Icon.ExtractAssociatedIcon(Globals.ApplicationIconFilename); }
       catch { }
       ClipboardViewerNext = SetClipboardViewer(Handle);
     }
@@ -94,7 +94,7 @@ namespace Ordisoftware.HebrewLetters
         var menuitem = (ToolStripMenuItem)sender;
         var control = ( (ContextMenuStrip)menuitem.Owner ).SourceControl;
         string str = HebrewAlphabet.ConvertToUnicode(EditLetters.Text);
-        SystemManager.OpenWebLink(( (string)menuitem.Tag ).Replace("%WORD%", str));
+        SystemHelper.OpenWebLink(( (string)menuitem.Tag ).Replace("%WORD%", str));
       });
     }
 
@@ -470,13 +470,13 @@ namespace Ordisoftware.HebrewLetters
     private void ActionOpenHebrewAlphabet_Click(object sender, EventArgs e)
     {
       string url = (string)( (ToolStripItem)sender ).Tag;
-      SystemManager.OpenWebLink(url);
+      SystemHelper.OpenWebLink(url);
     }
 
     private void ActionOpenWebsiteURL_Click(object sender, EventArgs e)
     {
       string url = (string)( (ToolStripItem)sender ).Tag;
-      SystemManager.OpenWebLink(url);
+      SystemHelper.OpenWebLink(url);
     }
 
     private void ActionRestoreDefaults_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -504,6 +504,12 @@ namespace Ordisoftware.HebrewLetters
       {
         ex.Manage();
       }
+    }
+
+    private void EditGematriaSimple_TextChanged(object sender, EventArgs e)
+    {
+      var textbox = sender as TextBox;
+      if ( textbox.Text == "0" ) textbox.Text = "";
     }
 
     private void ComboBoxCode_SelectedIndexChanged(object sender, EventArgs e)
@@ -610,7 +616,8 @@ namespace Ordisoftware.HebrewLetters
     {
       EditLetters.Text = "";
       EditSentence.Text = "";
-      EditGematria.Text = "";
+      EditGematriaSimple.Text = "";
+      EditGematriaFull.Text = "";
       EditAnalyze.Controls.Clear();
       ActionCopyToClipboardMeanings.Enabled = false;
       EditLetters.Focus();
