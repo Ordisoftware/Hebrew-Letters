@@ -12,7 +12,6 @@
 /// </license>
 /// <created> 2019-01 </created>
 /// <edited> 2020-03 </edited>
-using System;
 using System.Windows.Forms;
 
 namespace Ordisoftware.HebrewLetters
