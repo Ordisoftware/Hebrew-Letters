@@ -33,17 +33,7 @@ namespace Ordisoftware.HebrewLetters
       var connection = new OdbcConnection(Program.Settings.ConnectionString);
       connection.Open();
       if ( Program.Settings.VacuumAtStartup )
-      {
-        bool doVacuum = true;
-        if ( Program.Settings.VacuumLastDone !=  null )
-          doVacuum = Program.Settings.VacuumLastDone.AddDays(7) <= DateTime.Now;
-        if ( doVacuum )
-        {
-          connection.CheckIntegrity();
-          connection.Vacuum();
-          Program.Settings.VacuumLastDone = DateTime.Now;
-        }
-      }
+        Program.Settings.VacuumLastDone = connection.Optimize(Program.Settings.VacuumLastDone);
       try
       {
         void checkTable(string table, string sql)
