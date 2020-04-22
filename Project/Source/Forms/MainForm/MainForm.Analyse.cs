@@ -13,6 +13,7 @@
 /// <created> 2016-04 </created>
 /// <edited> 2020-04 </edited>
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -36,13 +37,15 @@ namespace Ordisoftware.HebrewLetters
         int sumSimple = 0;
         int sumFull = 0;
         int dy = 0;
-        SelectedMeanings = "";
+        WordMeanings.Clear();
         for ( int pos = word.Length - 1; pos >= 0; pos-- )
         {
+          // Letter
           var letter = DataSet.Letters.FindByCode(Convert.ToString(word[pos]));
           if ( letter == null ) continue;
           sumSimple += letter.ValueSimple;
           sumFull += letter.ValueFull;
+          // Label
           var label = new Label();
           label.Text = letter.Name;
           label.AutoSize = false;
@@ -50,6 +53,7 @@ namespace Ordisoftware.HebrewLetters
           label.Location = new Point(100, 20 + dy);
           label.TextAlign = ContentAlignment.TopRight;
           EditAnalyze.Controls.Add(label);
+          // Combobox
           var combobox = new ComboBox();
           combobox.DropDownStyle = ComboBoxStyle.DropDownList;
           combobox.Size = new Size(200, 21);
@@ -61,12 +65,14 @@ namespace Ordisoftware.HebrewLetters
           combobox.Items.Add(letter.Verb.Trim());
           combobox.Items.Add(letter.Structure.Trim());
           combobox.Items.Add(letter.Function.Trim());
-          SelectedMeanings += letter.Name.Trim() + ": ";
-          SelectedMeanings += letter.Positive.Trim() + ", ";
-          SelectedMeanings += letter.Negative.Trim() + ", ";
-          SelectedMeanings += letter.Verb.Trim() + ", ";
-          SelectedMeanings += letter.Structure.Trim() + ", ";
-          SelectedMeanings += letter.Function.Trim() + ", ";
+          var meanings = new List<string>();
+          meanings.Add(letter.Name.Trim());
+          meanings.Add(letter.Positive.Trim());
+          meanings.Add(letter.Negative.Trim());
+          meanings.Add(letter.Verb.Trim());
+          meanings.Add(letter.Structure.Trim());
+          meanings.Add(letter.Function.Trim());
+          // Meanings
           var list = letter.GetMeaningsRows().ToList();
           if (Program.Settings.AutoSortAnalysisMeanings)
             list = list.OrderBy(m => m.Meaning).ToList();
@@ -74,10 +80,11 @@ namespace Ordisoftware.HebrewLetters
           {
             var str = meaning.Meaning.Trim();
             combobox.Items.Add(str);
-            SelectedMeanings += str + ", ";
+            meanings.Add(str);
           }
+          // Loop
           dy += 30;
-          SelectedMeanings = SelectedMeanings.TrimEnd().TrimEnd(',') + Environment.NewLine;
+          WordMeanings.Add(string.Join(", ", meanings));
         }
         EditGematriaSimple.Text = sumSimple.ToString();
         EditGematriaFull.Text = sumFull.ToString();

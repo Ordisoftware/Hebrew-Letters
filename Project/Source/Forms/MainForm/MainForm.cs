@@ -13,6 +13,7 @@
 /// <created> 2016-04 </created>
 /// <edited> 2020-04 </edited>
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.Odbc;
 using System.Drawing;
@@ -64,7 +65,7 @@ namespace Ordisoftware.HebrewLetters
     /// <summary>
     /// Indicate the selected meanings text.
     /// </summary>
-    private string SelectedMeanings;
+    private List<string> WordMeanings = new List<string>();
 
     [DllImport("User32.dll", CharSet = CharSet.Auto)]
     public static extern IntPtr SetClipboardViewer(IntPtr hWndNewViewer);
@@ -648,7 +649,8 @@ namespace Ordisoftware.HebrewLetters
 
     private void ActionCopyToClipboardMeanings_Click(object sender, EventArgs e)
     {
-      if ( EditLetters.InputText != "" ) Clipboard.SetText(SelectedMeanings);
+      if ( EditLetters.InputText != "" )
+        Clipboard.SetText(string.Join(Environment.NewLine, WordMeanings));
     }
 
     private void ActionCopyToClipboardResults_Click(object sender, EventArgs e)
