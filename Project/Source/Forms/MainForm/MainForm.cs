@@ -94,7 +94,7 @@ namespace Ordisoftware.HebrewLetters
       {
         var menuitem = (ToolStripMenuItem)sender;
         var control = ( (ContextMenuStrip)menuitem.Owner ).SourceControl;
-        string str = HebrewAlphabet.ConvertToUnicode(EditLetters.InputText);
+        string str = HebrewAlphabet.ConvertToUnicode(EditLetters.TextInput);
         SystemHelper.OpenWebLink(( (string)menuitem.Tag ).Replace("%WORD%", str));
       });
     }
@@ -152,7 +152,7 @@ namespace Ordisoftware.HebrewLetters
       if ( Program.StartupWord != null && Program.StartupWord != "" )
       {
         ActionReset.Visible = true;
-        EditLetters.InputText = Program.StartupWord;
+        EditLetters.TextInput = Program.StartupWord;
         DoAnalyse();
       }
       else
@@ -385,7 +385,7 @@ namespace Ordisoftware.HebrewLetters
     private void ActionPreferences_Click(object sender, EventArgs e)
     {
       PreferencesForm.Run();
-      EditLetters.InputMaxLength = (int)Program.Settings.HebrewTextBoxMaxLength;
+      EditLetters.MaxLengthInput = (int)Program.Settings.HebrewTextBoxMaxLength;
     }
 
     /// <summary>
@@ -493,11 +493,11 @@ namespace Ordisoftware.HebrewLetters
     {
       if ( DisplayManager.QueryYesNo(Translations.AskToRestoreLettersDefaults.GetLang()) )
       {
-        string word = EditLetters.InputText;
+        string word = EditLetters.TextInput;
         CreateDataIfNotExists(true);
         ActionClear.PerformClick();
         ActionReset.PerformClick();
-        EditLetters.InputText = word;
+        EditLetters.TextInput = word;
       }
     }
 
@@ -588,28 +588,28 @@ namespace Ordisoftware.HebrewLetters
 
     private void ActionDelFirst_Click(object sender, EventArgs e)
     {
-      if ( EditLetters.InputText.Length <= 1 ) return;
-      EditLetters.InputText = EditLetters.InputText.Remove(EditLetters.InputText.Length - 1, 1);
+      if ( EditLetters.TextInput.Length <= 1 ) return;
+      EditLetters.TextInput = EditLetters.TextInput.Remove(EditLetters.TextInput.Length - 1, 1);
       EditLetters.Focus();
     }
 
     private void ActionDelLast_Click(object sender, EventArgs e)
     {
-      if ( EditLetters.InputText.Length <= 1 ) return;
-      EditLetters.InputText = EditLetters.InputText.Remove(0, 1);
+      if ( EditLetters.TextInput.Length <= 1 ) return;
+      EditLetters.TextInput = EditLetters.TextInput.Remove(0, 1);
       EditLetters.Focus();
     }
 
     private void ActionReset_Click(object sender, EventArgs e)
     {
-      EditLetters.InputText = Program.StartupWord;
+      EditLetters.TextInput = Program.StartupWord;
       EditLetters.Focus();
     }
 
     private void EditLetters_InputTextChanged(object sender, EventArgs e)
     {
-      var enabled = EditLetters.InputText != "";
-      ActionDelFirst.Enabled = EditLetters.InputText.Length > 1;
+      var enabled = EditLetters.TextInput != "";
+      ActionDelFirst.Enabled = EditLetters.TextInput.Length > 1;
       ActionDelLast.Enabled = ActionDelFirst.Enabled;
       ActionClear.Enabled = enabled;
       ActionCopyToUnicode.Enabled = enabled;
@@ -624,7 +624,7 @@ namespace Ordisoftware.HebrewLetters
 
     private void ActionClear_Click(object sender, EventArgs e)
     {
-      EditLetters.InputText = "";
+      EditLetters.TextInput = "";
       EditSentence.Text = "";
       EditGematriaSimple.Text = "";
       EditGematriaFull.Text = "";
@@ -636,20 +636,20 @@ namespace Ordisoftware.HebrewLetters
     private void ActionPasteFromUnicode_Click(object sender, EventArgs e)
     {
       string str = Clipboard.GetText();
-      EditLetters.InputText = HebrewAlphabet.ConvertToHebrewFont(new string(str.ToArray())).Replace(" ", "");
+      EditLetters.TextInput = HebrewAlphabet.ConvertToHebrewFont(new string(str.ToArray())).Replace(" ", "");
       EditLetters.Focus();
     }
 
     private void ActionCopyToUnicode_Click(object sender, EventArgs e)
     {
-      if ( EditLetters.InputText != "" )
-        Clipboard.SetText(HebrewAlphabet.ConvertToUnicode(EditLetters.InputText));
+      if ( EditLetters.TextInput != "" )
+        Clipboard.SetText(HebrewAlphabet.ConvertToUnicode(EditLetters.TextInput));
       EditLetters.Focus();
     }
 
     private void ActionCopyToClipboardMeanings_Click(object sender, EventArgs e)
     {
-      if ( EditLetters.InputText != "" )
+      if ( EditLetters.TextInput != "" )
         Clipboard.SetText(WordMeanings);
     }
 

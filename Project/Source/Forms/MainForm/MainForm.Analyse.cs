@@ -35,7 +35,7 @@ namespace Ordisoftware.HebrewLetters
         EditGematriaFull.Text = "";
         EditAnalyze.Controls.Clear();
         List<string> meaningsWord = new List<string>();
-        string word = EditLetters.InputText;
+        string word = EditLetters.TextInput;
         int sumSimple = 0;
         int sumFull = 0;
         int dy = 0;

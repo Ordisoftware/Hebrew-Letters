@@ -2309,14 +2309,14 @@
   <data name="ActionWebYouTube.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGoSURBVDhPnVNNSwJRFL2TGupvECO0H6AhgtBCpCAUQRcV
-        atDPqVUuDWpluySCcG2iP0EJEpwWhcs+RtOcj9O8uZpJQ0oXDve9e889c9+8+0iYsb+/pRcKJRMXej5/
-        vhCHh2fG3l6ci0OhA5lIxcoKquYWRFgIk1sj0hEOH5G6tvYggrLTqbZWVzULLpfWcjrnIWKTvOCKmrHP
-        90gDj+fdUpUk+6/ZYcJV3O6+EHgTG6v9XA64ugKqVaBWA+p1oNkE7u44VqkAhcK3UN/rVWYdBALAcAjL
-        DIP9T5vGPj+BjQ0bgUSCCaMR+6cn4PaW16JY07hY2M6OjUA6zUlVZS/LgMsFRKNAu82x8Zh9NruEQLcL
-        eDxAKgV0Ohyb5jIZG4F4nJPTI/R6QKPBa3EEUTw9wva2jYDfDygKE/76iYMBsL4+JzC7xt1doFQCLi/5
-        yq6vgZsbXpfLnEsmreLfHfxjkPput0JaMNgSm2dJGrccDh5b4e0wycmSZI2y6vPdkxGLpV+JPpZ9TBbH
-        5L4QDY1IJMMvkihktnWsExVNnC5AUZekE1Nsk4joC48qd+7STAINAAAAAElFTkSuQmCC
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGoSURBVDhPnVNNSwJRFL3jR6i/QZTIfoCGCEILkQIpBFtk
+        qEE/p1a5NKiV7hIJxLWF/gQlSGhaGC77GM1yPk7z5moWDSldONz37j33zH3z7iNhRja7qRcKJRMXej5/
+        vhCHh2fG/n6Ci8PhA5lIhcOBurkFERbC5DaJdEQiR6QGg3ciKLtcamdlRbPgdmsdl+snRGyaF1xRM/H7
+        H2jk9b5aqpJk/zU7TLmKxzMUAi9iY7WfywGXl0CjATSbwM0N0G4D19ccq1aBQuFLaOjzKfMO1taA8RiW
+        GQb77zaLfXwA6+s2AskkE97f2ff7QL3Oa1GsaVwsbHvbRiCd5qSqspdlwO0GYjGg2+XYZMJ+b28Jgft7
+        wOsFdneBXo9js1wmYyOQSHBydoTBAGi1eC2OIIpnR9jashEIBABFYcJfP3E0AlZXfwjMrzGVAkoloFLh
+        K6vVgKsrXpfLnNvZsYp/d/CPQRp6PAppoVBHbB4ladJxOnlshbfDNCdLkjXKqt9/S0Y8nn4melv2MVkc
+        k/tENDai0Qy/SKKw2daxTlQ0cboARV2STkyxDSKiT32cd+TTY4A/AAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="ActionWebYouTube.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">

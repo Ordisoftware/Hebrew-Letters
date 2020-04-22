@@ -414,6 +414,7 @@
       resources.ApplyResources(this.EditSentence, "EditSentence");
       this.EditSentence.BackColor = System.Drawing.SystemColors.Window;
       this.EditSentence.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.EditSentence.CaretAfterPaste = Ordisoftware.HebrewCommon.TextBoxCaretAfterPaste.End;
       this.EditSentence.Name = "EditSentence";
       this.EditSentence.TextChanged += new System.EventHandler(this.EditSentence_TextChanged);
       // 
@@ -434,17 +435,10 @@
       // EditLetters
       // 
       this.EditLetters.BackColor = System.Drawing.Color.Transparent;
-      this.EditLetters.InputBackColor = System.Drawing.Color.AliceBlue;
-      this.EditLetters.InputFontSize = 24F;
-      this.EditLetters.InputMaxLength = 20;
-      this.EditLetters.InputText = "";
-      this.EditLetters.LabelsFontSize = 6F;
-      this.EditLetters.LettersBackground = System.Drawing.Color.LightYellow;
-      this.EditLetters.LettersFontSize = 20F;
+      this.EditLetters.BackColorInput = System.Drawing.Color.AliceBlue;
+      this.EditLetters.BackColorLetters = System.Drawing.Color.LightYellow;
       resources.ApplyResources(this.EditLetters, "EditLetters");
       this.EditLetters.Name = "EditLetters";
-      this.EditLetters.ShowKeys = true;
-      this.EditLetters.ShowValues = true;
       this.EditLetters.InputTextChanged += new System.EventHandler(this.EditLetters_InputTextChanged);
       // 
       // TabPageMonth
