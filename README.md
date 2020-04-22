@@ -75,13 +75,14 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 #### 2020.04.23 - Version 4.1
 
-- Add select all and undo support in textbox of the hebrew input panel.
-- Add undo/redo & copy/cut/paste context menu for input panel and sentence text boxes.
-- Add backspace key management in textbox of hebrew input panel.
-- Improve/fix edit word using copy/cut/paste in textbox of hebrew input panel.
-- Fix inserting letter at the caret position when clicking on letters buttons.
-- Add option to set the max length of the textbox of hebrew input panel.
-- Optimize startup.
+- Add select all (Ctrl+A) and undo/redo support for textboxes.
+- Add undo/redo & copy/cut/paste context menu for text boxes.
+- Add backspace key management for textboxes.
+- Fix copy/cut/paste of  hebrew textbox.
+- Fix inserting a letter at the caret when clicking on letters buttons.
+- Add option to set the max length of the textbox of the hebrew input panel.
+- Improve auto optimize database at startup that is done once a week.
+- Optimize startup time.
 
 #### 2020.04.19 - Version 4.0
 
