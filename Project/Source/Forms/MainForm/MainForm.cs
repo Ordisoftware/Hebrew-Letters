@@ -65,7 +65,7 @@ namespace Ordisoftware.HebrewLetters
     /// <summary>
     /// Indicate the selected meanings text.
     /// </summary>
-    private List<string> WordMeanings = new List<string>();
+    private string WordMeanings = "";
 
     [DllImport("User32.dll", CharSet = CharSet.Auto)]
     public static extern IntPtr SetClipboardViewer(IntPtr hWndNewViewer);
@@ -650,7 +650,7 @@ namespace Ordisoftware.HebrewLetters
     private void ActionCopyToClipboardMeanings_Click(object sender, EventArgs e)
     {
       if ( EditLetters.InputText != "" )
-        Clipboard.SetText(string.Join(Environment.NewLine, WordMeanings));
+        Clipboard.SetText(WordMeanings);
     }
 
     private void ActionCopyToClipboardResults_Click(object sender, EventArgs e)

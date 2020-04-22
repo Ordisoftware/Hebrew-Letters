@@ -37,7 +37,7 @@ namespace Ordisoftware.HebrewLetters
         int sumSimple = 0;
         int sumFull = 0;
         int dy = 0;
-        WordMeanings.Clear();
+        List<string> meaningsWord = new List<string>();
         for ( int pos = word.Length - 1; pos >= 0; pos-- )
         {
           // Letter
@@ -60,19 +60,18 @@ namespace Ordisoftware.HebrewLetters
           combobox.Location = new Point(155, 16 + dy);
           combobox.SelectedIndexChanged += MeaningComboBox_SelectedIndexChanged;
           EditAnalyze.Controls.Add(combobox);
+          // Meanings
+          var meaningsLetter = new List<string>();
+          meaningsLetter.Add(letter.Positive.Trim());
+          meaningsLetter.Add(letter.Negative.Trim());
+          meaningsLetter.Add(letter.Verb.Trim());
+          meaningsLetter.Add(letter.Structure.Trim());
+          meaningsLetter.Add(letter.Function.Trim());
           combobox.Items.Add(letter.Positive.Trim());
           combobox.Items.Add(letter.Negative.Trim());
           combobox.Items.Add(letter.Verb.Trim());
           combobox.Items.Add(letter.Structure.Trim());
           combobox.Items.Add(letter.Function.Trim());
-          var meanings = new List<string>();
-          meanings.Add(letter.Name.Trim());
-          meanings.Add(letter.Positive.Trim());
-          meanings.Add(letter.Negative.Trim());
-          meanings.Add(letter.Verb.Trim());
-          meanings.Add(letter.Structure.Trim());
-          meanings.Add(letter.Function.Trim());
-          // Meanings
           var list = letter.GetMeaningsRows().ToList();
           if (Program.Settings.AutoSortAnalysisMeanings)
             list = list.OrderBy(m => m.Meaning).ToList();
@@ -80,12 +79,13 @@ namespace Ordisoftware.HebrewLetters
           {
             var str = meaning.Meaning.Trim();
             combobox.Items.Add(str);
-            meanings.Add(str);
+            meaningsLetter.Add(str);
           }
           // Loop
           dy += 30;
-          WordMeanings.Add(string.Join(", ", meanings));
+          meaningsWord.Add(letter.Name.Trim() + " : " + string.Join(", ", meaningsLetter));
         }
+        WordMeanings = string.Join(Environment.NewLine, meaningsWord);
         EditGematriaSimple.Text = sumSimple.ToString();
         EditGematriaFull.Text = sumFull.ToString();
         ActionCopyToClipboardMeanings.Enabled = EditAnalyze.Controls.Count > 0;
