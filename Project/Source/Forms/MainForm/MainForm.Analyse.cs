@@ -30,14 +30,15 @@ namespace Ordisoftware.HebrewLetters
     {
       try
       {
-        string word = EditLetters.InputText;
         EditSentence.Text = "";
         EditGematriaSimple.Text = "";
+        EditGematriaFull.Text = "";
         EditAnalyze.Controls.Clear();
+        List<string> meaningsWord = new List<string>();
+        string word = EditLetters.InputText;
         int sumSimple = 0;
         int sumFull = 0;
         int dy = 0;
-        List<string> meaningsWord = new List<string>();
         for ( int pos = word.Length - 1; pos >= 0; pos-- )
         {
           // Letter
@@ -62,32 +63,28 @@ namespace Ordisoftware.HebrewLetters
           EditAnalyze.Controls.Add(combobox);
           // Meanings
           var meaningsLetter = new List<string>();
-          meaningsLetter.Add(letter.Positive.Trim());
-          meaningsLetter.Add(letter.Negative.Trim());
-          meaningsLetter.Add(letter.Verb.Trim());
-          meaningsLetter.Add(letter.Structure.Trim());
-          meaningsLetter.Add(letter.Function.Trim());
-          combobox.Items.Add(letter.Positive.Trim());
-          combobox.Items.Add(letter.Negative.Trim());
-          combobox.Items.Add(letter.Verb.Trim());
-          combobox.Items.Add(letter.Structure.Trim());
-          combobox.Items.Add(letter.Function.Trim());
+          Action<string> processMeaning = str =>
+          {
+            combobox.Items.Add(str);
+            meaningsLetter.Add(str);
+          };
+          processMeaning(letter.Positive.Trim());
+          processMeaning(letter.Negative.Trim());
+          processMeaning(letter.Verb.Trim());
+          processMeaning(letter.Structure.Trim());
+          processMeaning(letter.Function.Trim());
           var list = letter.GetMeaningsRows().ToList();
           if (Program.Settings.AutoSortAnalysisMeanings)
             list = list.OrderBy(m => m.Meaning).ToList();
           foreach ( var meaning in list )
-          {
-            var str = meaning.Meaning.Trim();
-            combobox.Items.Add(str);
-            meaningsLetter.Add(str);
-          }
+            processMeaning(meaning.Meaning.Trim());
           // Loop
           dy += 30;
-          meaningsWord.Add(letter.Name.Trim() + " : " + string.Join(", ", meaningsLetter));
+          meaningsWord.Add(letter.Name + " : " + string.Join(", ", meaningsLetter));
         }
-        WordMeanings = string.Join(Environment.NewLine, meaningsWord);
         EditGematriaSimple.Text = sumSimple.ToString();
         EditGematriaFull.Text = sumFull.ToString();
+        WordMeanings = string.Join(Environment.NewLine, meaningsWord);
         ActionCopyToClipboardMeanings.Enabled = EditAnalyze.Controls.Count > 0;
       }
       catch ( Exception ex )
