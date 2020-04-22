@@ -77,7 +77,7 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 - Add context menu on letters buttons to open details of letter.
 - Add online search a word providers editor form.
-- optimize comboboxes creation.
+- Optimize comboboxes creation.
 
 #### 2020.04.23 - Version 4.1
 
