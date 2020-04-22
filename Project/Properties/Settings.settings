@@ -83,7 +83,7 @@
       <Value Profile="(Default)">20</Value>
     </Setting>
     <Setting Name="VacuumLastDone" Type="System.DateTime" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">2020-01-01</Value>
     </Setting>
   </Settings>
 </SettingsFile>
