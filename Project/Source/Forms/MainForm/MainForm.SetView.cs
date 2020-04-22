@@ -72,7 +72,7 @@ namespace Ordisoftware.HebrewLetters
           {
             MenuItem = ActionViewAnalysis,
             Panel = PanelViewSearch,
-            Focused = EditLetters.Input
+            Focused = EditLetters
           }
         },
         {

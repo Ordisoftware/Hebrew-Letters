@@ -89,7 +89,7 @@ namespace Ordisoftware.HebrewLetters
       new Infralution.Localization.CultureManager().ManagedControl = GrammarGuideForm;
       new Infralution.Localization.CultureManager().ManagedControl = MethodNoticeForm;
       Infralution.Localization.CultureManager.ApplicationUICulture = culture;
-      MainForm.Instance.CreateProvidersAndWebLinks();
+      MainForm.Instance.CreateWebLinks();
       AboutBox.Instance.AboutBox_Shown(null, null);
       GrammarGuideForm.HTMLBrowserForm_Shown(null, null);
       MethodNoticeForm.HTMLBrowserForm_Shown(null, null);

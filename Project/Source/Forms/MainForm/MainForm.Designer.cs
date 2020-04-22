@@ -141,8 +141,6 @@
       this.ActionOpenLexilogosOld = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionOpenLexilogosModern = new System.Windows.Forms.ToolStripMenuItem();
       this.MenuWebLinks = new System.Windows.Forms.ToolStripDropDownButton();
-      this.ActionOpenWebLinkTemplateFolder = new System.Windows.Forms.ToolStripMenuItem();
-      this.ActionOpenWebLinkTemplateLink = new System.Windows.Forms.ToolStripMenuItem();
       this.LettersTableAdapter = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.LettersTableAdapter();
       this.TableAdapterManager = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.TableAdapterManager();
       this.MeaningsTableAdapter = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.MeaningsTableAdapter();
@@ -436,13 +434,14 @@
       // EditLetters
       // 
       this.EditLetters.BackColor = System.Drawing.Color.Transparent;
-      this.EditLetters.InputFontSize = 24F;
-      this.EditLetters.LabelsFontSize = 6F;
-      this.EditLetters.LettersFontSize = 20F;
       this.EditLetters.InputBackColor = System.Drawing.Color.AliceBlue;
-      this.EditLetters.LettersBackground = System.Drawing.Color.LightYellow;
-      resources.ApplyResources(this.EditLetters, "EditLetters");
+      this.EditLetters.InputFontSize = 24F;
       this.EditLetters.InputMaxLength = 20;
+      this.EditLetters.InputText = "";
+      this.EditLetters.LabelsFontSize = 6F;
+      this.EditLetters.LettersBackground = System.Drawing.Color.LightYellow;
+      this.EditLetters.LettersFontSize = 20F;
+      resources.ApplyResources(this.EditLetters, "EditLetters");
       this.EditLetters.Name = "EditLetters";
       this.EditLetters.ShowKeys = true;
       this.EditLetters.ShowValues = true;
@@ -1064,22 +1063,8 @@
       // MenuWebLinks
       // 
       this.MenuWebLinks.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      this.MenuWebLinks.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ActionOpenWebLinkTemplateFolder,
-            this.ActionOpenWebLinkTemplateLink});
       resources.ApplyResources(this.MenuWebLinks, "MenuWebLinks");
       this.MenuWebLinks.Name = "MenuWebLinks";
-      // 
-      // ActionOpenWebLinkTemplateFolder
-      // 
-      resources.ApplyResources(this.ActionOpenWebLinkTemplateFolder, "ActionOpenWebLinkTemplateFolder");
-      this.ActionOpenWebLinkTemplateFolder.Name = "ActionOpenWebLinkTemplateFolder";
-      // 
-      // ActionOpenWebLinkTemplateLink
-      // 
-      resources.ApplyResources(this.ActionOpenWebLinkTemplateLink, "ActionOpenWebLinkTemplateLink");
-      this.ActionOpenWebLinkTemplateLink.Name = "ActionOpenWebLinkTemplateLink";
-      this.ActionOpenWebLinkTemplateLink.Tag = "";
       // 
       // LettersTableAdapter
       // 
@@ -1231,10 +1216,8 @@
     private System.Windows.Forms.ToolStripMenuItem ActionAbout;
     private System.Windows.Forms.ToolStripMenuItem ActionWebQA;
     private System.Windows.Forms.ToolStripDropDownButton MenuWebLinks;
-    private System.Windows.Forms.ToolStripMenuItem ActionOpenWebLinkTemplateFolder;
     private System.Windows.Forms.ToolStripMenuItem ActionShowGrammarGuide;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-    private System.Windows.Forms.ToolStripMenuItem ActionOpenWebLinkTemplateLink;
     private System.Windows.Forms.ToolStripMenuItem ActionShowMethodNotice;
     internal System.Windows.Forms.BindingSource MeaningsBindingSource;
     internal System.Windows.Forms.TextBox TextBoxStructure;

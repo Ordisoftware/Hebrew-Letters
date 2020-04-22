@@ -81,21 +81,29 @@ namespace Ordisoftware.HebrewLetters
       try { Icon = Icon.ExtractAssociatedIcon(Globals.ApplicationIconFilename); }
       catch { }
       ClipboardViewerNext = SetClipboardViewer(Handle);
+      CreateProvidersLinks();
     }
 
     /// <summary>
-    /// Create providers and web links menu items.
+    /// Create providers links menu items.
     /// </summary>
-    internal void CreateProvidersAndWebLinks()
+    internal void CreateProvidersLinks()
     {
-      OnlineProviders.CreateWebLinksMenuItems(MenuWebLinks, ActionOpenWebLinkTemplateFolder.Image);
-      OnlineProviders.CreateProvidersMenuItems(Globals.OnlineWordProviders, ContextMenuSearchOnline, (sender, e) =>
+      ContextMenuSearchOnline.InitializeFromProviders(Globals.OnlineWordProviders, (sender, e) =>
       {
         var menuitem = (ToolStripMenuItem)sender;
         var control = ( (ContextMenuStrip)menuitem.Owner ).SourceControl;
         string str = HebrewAlphabet.ConvertToUnicode(EditLetters.InputText);
         SystemHelper.OpenWebLink(( (string)menuitem.Tag ).Replace("%WORD%", str));
       });
+    }
+
+    /// <summary>
+    /// Create providers and web links menu items.
+    /// </summary>
+    internal void CreateWebLinks()
+  {
+    MenuWebLinks.InitializeFromWebLinks();
     }
 
     /// <summary>

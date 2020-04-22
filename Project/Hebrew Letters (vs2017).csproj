@@ -154,7 +154,7 @@
       <DependentUpon>PreferencesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Program\Program.cs" />
-    <Compile Include="Source\Common\OnlineProviders.Menus.cs" />
+    <Compile Include="Source\Common\OnlineProvidersHelper.cs" />
     <Compile Include="Source\Common\SystemHelper.cs" />
     <Compile Include="Source\Program\Program.Vars.cs" />
     <EmbeddedResource Include="Dependencies\Core Library\Diagnostics\ExceptionForm.fr.resx">
