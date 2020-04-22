@@ -50,10 +50,16 @@ namespace Ordisoftware.HebrewLetters
       TopMost = MainForm.Instance.TopMost;
       BringToFront();
       UpdateLanguagesButtons();
+
+      // TODO don't use bindings...
+
     }
 
     private void PreferencesForm_FormClosed(object sender, FormClosedEventArgs e)
     {
+
+      // TODO don't use bindings...
+
       Program.Settings.Store();
     }
 

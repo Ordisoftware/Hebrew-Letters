@@ -8,11 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Ordisoftware.HebrewLetters.Properties
-{
-
-
-  [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+namespace Ordisoftware.HebrewLetters.Properties {
+    
+    
+    [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.9.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
@@ -307,6 +306,29 @@ namespace Ordisoftware.HebrewLetters.Properties
             }
             set {
                 this["DebuggerEnabled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("20")]
+        public decimal HebrewTextBoxMaxLength {
+            get {
+                return ((decimal)(this["HebrewTextBoxMaxLength"]));
+            }
+            set {
+                this["HebrewTextBoxMaxLength"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.DateTime VacuumLastDone {
+            get {
+                return ((global::System.DateTime)(this["VacuumLastDone"]));
+            }
+            set {
+                this["VacuumLastDone"] = value;
             }
         }
     }

@@ -384,6 +384,7 @@ namespace Ordisoftware.HebrewLetters
     private void ActionPreferences_Click(object sender, EventArgs e)
     {
       PreferencesForm.Run();
+      EditLetters.InputMaxLength = (int)Program.Settings.HebrewTextBoxMaxLength;
     }
 
     /// <summary>

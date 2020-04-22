@@ -40,12 +40,15 @@
       this.ActionSelectLangFR = new System.Windows.Forms.Button();
       this.LabelFontSize = new System.Windows.Forms.Label();
       this.EditFontSize = new System.Windows.Forms.NumericUpDown();
+      this.LabelMaxLength = new System.Windows.Forms.Label();
+      this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
       this.EditEnableDebugger = new System.Windows.Forms.CheckBox();
       this.EditAutoSortAnalysisMeanings = new System.Windows.Forms.CheckBox();
       this.EditVacuumAtStartup = new System.Windows.Forms.CheckBox();
       this.EditCheckUpdateAtStartup = new System.Windows.Forms.CheckBox();
       this.PanelBottom.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.EditFontSize)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
       this.SuspendLayout();
       // 
       // ActionClose
@@ -57,15 +60,15 @@
       // 
       // PanelBottom
       // 
-      resources.ApplyResources(this.PanelBottom, "PanelBottom");
       this.PanelBottom.Controls.Add(this.ActionResetSettings);
       this.PanelBottom.Controls.Add(this.ActionClose);
+      resources.ApplyResources(this.PanelBottom, "PanelBottom");
       this.PanelBottom.Name = "PanelBottom";
       // 
       // ActionResetSettings
       // 
-      resources.ApplyResources(this.ActionResetSettings, "ActionResetSettings");
       this.ActionResetSettings.ActiveLinkColor = System.Drawing.Color.MediumBlue;
+      resources.ApplyResources(this.ActionResetSettings, "ActionResetSettings");
       this.ActionResetSettings.LinkColor = System.Drawing.Color.Navy;
       this.ActionResetSettings.Name = "ActionResetSettings";
       this.ActionResetSettings.TabStop = true;
@@ -75,20 +78,16 @@
       // 
       resources.ApplyResources(this.OpenFileDialog, "OpenFileDialog");
       // 
-      // FolderBrowserDialog
-      // 
-      resources.ApplyResources(this.FolderBrowserDialog, "FolderBrowserDialog");
-      // 
       // MenuSelectOnlineVerseURL
       // 
-      resources.ApplyResources(this.MenuSelectOnlineVerseURL, "MenuSelectOnlineVerseURL");
       this.MenuSelectOnlineVerseURL.Name = "MenuSelectOnlineVerseURL";
+      resources.ApplyResources(this.MenuSelectOnlineVerseURL, "MenuSelectOnlineVerseURL");
       // 
       // ActionSelectLangEN
       // 
-      resources.ApplyResources(this.ActionSelectLangEN, "ActionSelectLangEN");
       this.ActionSelectLangEN.AllowDrop = true;
       this.ActionSelectLangEN.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+      resources.ApplyResources(this.ActionSelectLangEN, "ActionSelectLangEN");
       this.ActionSelectLangEN.Name = "ActionSelectLangEN";
       this.ActionSelectLangEN.TabStop = false;
       this.ActionSelectLangEN.UseVisualStyleBackColor = true;
@@ -96,9 +95,9 @@
       // 
       // ActionSelectLangFR
       // 
-      resources.ApplyResources(this.ActionSelectLangFR, "ActionSelectLangFR");
       this.ActionSelectLangFR.AllowDrop = true;
       this.ActionSelectLangFR.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+      resources.ApplyResources(this.ActionSelectLangFR, "ActionSelectLangFR");
       this.ActionSelectLangFR.Name = "ActionSelectLangFR";
       this.ActionSelectLangFR.TabStop = false;
       this.ActionSelectLangFR.UseVisualStyleBackColor = true;
@@ -111,8 +110,8 @@
       // 
       // EditFontSize
       // 
-      resources.ApplyResources(this.EditFontSize, "EditFontSize");
       this.EditFontSize.BackColor = System.Drawing.SystemColors.Window;
+      resources.ApplyResources(this.EditFontSize, "EditFontSize");
       this.EditFontSize.Maximum = new decimal(new int[] {
             14,
             0,
@@ -131,6 +130,30 @@
             0,
             0});
       this.EditFontSize.ValueChanged += new System.EventHandler(this.EditFontSize_ValueChanged);
+      // 
+      // LabelMaxLength
+      // 
+      resources.ApplyResources(this.LabelMaxLength, "LabelMaxLength");
+      this.LabelMaxLength.Name = "LabelMaxLength";
+      // 
+      // numericUpDown1
+      // 
+      this.numericUpDown1.BackColor = System.Drawing.SystemColors.Window;
+      this.numericUpDown1.DataBindings.Add(new System.Windows.Forms.Binding("Value", global::Ordisoftware.HebrewLetters.Properties.Settings.Default, "HebrewTextBoxMaxLength", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+      resources.ApplyResources(this.numericUpDown1, "numericUpDown1");
+      this.numericUpDown1.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+      this.numericUpDown1.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+      this.numericUpDown1.Name = "numericUpDown1";
+      this.numericUpDown1.ReadOnly = true;
+      this.numericUpDown1.Value = global::Ordisoftware.HebrewLetters.Properties.Settings.Default.HebrewTextBoxMaxLength;
       // 
       // EditEnableDebugger
       // 
@@ -175,6 +198,8 @@
       resources.ApplyResources(this, "$this");
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.CancelButton = this.ActionClose;
+      this.Controls.Add(this.numericUpDown1);
+      this.Controls.Add(this.LabelMaxLength);
       this.Controls.Add(this.EditEnableDebugger);
       this.Controls.Add(this.EditAutoSortAnalysisMeanings);
       this.Controls.Add(this.EditVacuumAtStartup);
@@ -194,6 +219,7 @@
       this.PanelBottom.ResumeLayout(false);
       this.PanelBottom.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.EditFontSize)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -214,5 +240,7 @@
     private System.Windows.Forms.CheckBox EditAutoSortAnalysisMeanings;
     private System.Windows.Forms.LinkLabel ActionResetSettings;
     private System.Windows.Forms.CheckBox EditEnableDebugger;
+    private System.Windows.Forms.NumericUpDown numericUpDown1;
+    private System.Windows.Forms.Label LabelMaxLength;
   }
 }
