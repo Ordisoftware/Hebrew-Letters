@@ -16,7 +16,6 @@ using System;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using Ordisoftware.Core;
 
 namespace Ordisoftware.HebrewCommon
 {
@@ -28,12 +27,89 @@ namespace Ordisoftware.HebrewCommon
   {
 
     /// <summary>
-    /// Indicates if a key is being processed.
+    /// Indicate max length of the input text.
     /// </summary>
-    private bool KeyProcessed = false;
+    public int MaxLengthInput
+    {
+      get { return Input.MaxLength; }
+      set { Input.MaxLength = value; }
+    }
 
     /// <summary>
-    /// Indicate if values must be shown.
+    /// Indicate the background color of letters panel.
+    /// </summary>
+    public Color BackColorLetters
+    {
+      get { return PanelLetters.BackColor; }
+      set { PanelLetters.BackColor = value; }
+    }
+
+    /// <summary>
+    /// Indicate the background color of input textbox.
+    /// </summary>
+    public Color BackColorInput
+    {
+      get { return Input.BackColor; }
+      set { Input.BackColor = value; }
+    }
+
+    /// <summary>
+    /// Indicate hebrew letters font size
+    /// </summary>
+    public float FontSizeLetters
+    {
+      get { return _FontSizeLetters; }
+      set
+      {
+        _FontSizeLetters = value;
+        CreateLetters();
+      }
+    }
+    private float _FontSizeLetters = 20.25F;
+
+    /// <summary>
+    /// Indicate values font size.
+    /// </summary>
+    public float FontSizeValues
+    {
+      get { return _FontSizeValues; }
+      set
+      {
+        _FontSizeValues = value;
+        CreateLetters();
+      }
+    }
+    private float _FontSizeValues = 6.25F;
+
+    /// <summary>
+    /// Indicate keys font size.
+    /// </summary>
+    public float FontSizeKeys
+    {
+      get { return _FontSizeKeys; }
+      set
+      {
+        _FontSizeKeys = value;
+        CreateLetters();
+      }
+    }
+    private float _FontSizeKeys = 8.25F;
+
+    /// <summary>
+    /// Indicate Input font size.
+    /// </summary>
+    public float FontSizeInput
+    {
+      get { return Input.Font.Size; }
+      set
+      {
+        Input.Font = new Font(Input.Font.FontFamily, value, Input.Font.Style);
+        CreateLetters();
+      }
+    }
+
+    /// <summary>
+    /// Indicate if letters values must be shown.
     /// </summary>
     public bool ShowValues
     {
@@ -48,25 +124,40 @@ namespace Ordisoftware.HebrewCommon
     private bool _ShowValues = true;
 
     /// <summary>
-    /// Indicate the background color of letters panel.
+    /// Indicate if keys codes must be shown.
     /// </summary>
-    public Color LettersBackground
+    public bool ShowKeys
     {
-      get { return Panel.BackColor; }
-      set { Panel.BackColor = value; }
+      get { return _ShowKeys; }
+      set
+      {
+        if ( _ShowKeys == value ) return;
+        _ShowKeys = value;
+        CreateLetters();
+      }
+    }
+    private bool _ShowKeys = true;
+
+    /// <summary>
+    /// Input Text property.
+    /// </summary>
+    public string TextInput
+    {
+      get { return Input.Text; }
+      set { Input.Text = value; }
     }
 
     /// <summary>
-    /// Indicate the background color of input textbox.
+    /// Input Text property.
     /// </summary>
-    public Color InputBackColor
+    public int SelectionStartInput
     {
-      get { return Input.BackColor; }
-      set { Input.BackColor = value; }
+      get { return Input.SelectionStart; }
+      set { Input.SelectionStart = value; }
     }
 
     /// <summary>
-    /// Input textbox text changed event.
+    /// Input Text changed event.
     /// </summary>
     public event EventHandler InputTextChanged
     {
@@ -75,87 +166,49 @@ namespace Ordisoftware.HebrewCommon
     }
 
     /// <summary>
+    /// Indicate if an input key is processed.
+    /// </summary>
+    private bool KeyProcessed;
+
+    /// <summary>
     /// Constructor
     /// </summary>
     public LettersControl()
     {
       InitializeComponent();
+      Input.CaretAfterPaste = TextBoxCaretAfterPaste.Start;
+      Input.MaxLength = 20;
+    }
+
+    private void LettersControl_Load(object sender, EventArgs e)
+    {
       CreateLetters();
     }
 
     /// <summary>
-    /// Create letters buttons.
+    /// Focus.
     /// </summary>
-    private void CreateLetters()
+    public new void Focus()
     {
-      try
-      {
-        Panel.Controls.Clear();
-        int dy = 45;
-        int dx = -dy;
-        int x = 500 + dx;
-        int y = 5;
-        int n = 1;
-        var colorLabel = Color.DimGray;
-        var sizeLabelValue = new Size(45, 8);
-        var sizeLabelKey = new Size(45, 13);
-        var fontLetter = new Font("Hebrew", 20.25F, FontStyle.Bold);
-        var fontValue = new Font("Microsoft Sans Serif", 6.25F);
-        for ( int index = 0; index < HebrewAlphabet.Codes.Length; index++ )
-        {
-          var labelValue = new Label();
-          if ( _ShowValues )
-          {
-            labelValue.Location = new Point(x, y + dy);
-            labelValue.Size = sizeLabelKey;
-            labelValue.Font = fontValue;
-            labelValue.ForeColor = colorLabel;
-            labelValue.BackColor = Color.Transparent;
-            labelValue.Text = HebrewAlphabet.ValuesSimple[index].ToString();
-            labelValue.TextAlign = ContentAlignment.MiddleCenter;
-            Panel.Controls.Add(labelValue);
-          }
-          //
-          var labelKey = new Label();
-          labelKey.Location = new Point(x, y + dy + ( _ShowValues ? labelValue.Height : -2 ) + 2);
-          labelKey.Size = sizeLabelKey;
-          labelKey.Text = HebrewAlphabet.Codes[index];
-          labelKey.ForeColor = colorLabel;
-          labelKey.BackColor = Color.Transparent;
-          labelKey.TextAlign = ContentAlignment.MiddleCenter;
-          Panel.Controls.Add(labelKey);
-          //
-          var buttonLetter = new Button();
-          buttonLetter.Location = new Point(x, y);
-          buttonLetter.Size = new Size(Math.Abs(dx), dy);
-          buttonLetter.FlatStyle = FlatStyle.Flat;
-          buttonLetter.FlatAppearance.BorderSize = 0;
-          buttonLetter.FlatAppearance.BorderColor = SystemColors.Control;
-          buttonLetter.Font = fontLetter;
-          buttonLetter.Text = HebrewAlphabet.Codes[index];
-          buttonLetter.BackColor = Color.Transparent;
-          buttonLetter.TabStop = false;
-          buttonLetter.Click += delegate (object sender, EventArgs e)
-          {
-            Input.Text = ( (Button)sender ).Text + Input.Text;
-            OnClick(new LetterEventArgs(( (Button)sender ).Text));
-          };
-          Panel.Controls.Add(buttonLetter);
-          //
-          n += 1;
-          if ( n != 12 )
-            x += dx;
-          else
-          {
-            x = 500 + dx;
-            y += dy + ( _ShowValues ? labelValue.Height : -2 ) + labelKey.Height + 15;
-          }
-        }
-      }
-      catch ( Exception ex )
-      {
-        ex.Manage(this);
-      }
+      Input.Focus();
+      Input.SelectionLength = 0;
+    }
+
+    /// <summary>
+    /// Letter icon click event.
+    /// </summary>
+    private void ButtonLetter_Click(object sender, EventArgs e)
+    {
+      Input.SelectedText = ( (Button)sender ).Text;
+      Input.Focus();
+    }
+
+    /// <summary>
+    /// TextChanging event.
+    /// </summary>
+    private void Input_TextChanging(object sender, ref string text)
+    {
+      text = HebrewAlphabet.OnlyHebrewFont(text).Replace(" ", "");
     }
 
     /// <summary>
@@ -177,36 +230,8 @@ namespace Ordisoftware.HebrewCommon
       if ( KeyProcessed )
       {
         KeyProcessed = false;
-        Input.SelectionStart--;
-      }
-    }
-
-    /// <summary>
-    /// KeyDown event.
-    /// </summary>
-    private void Input_KeyDown(object sender, KeyEventArgs e)
-    {
-      if ( Input.SelectedText != "" )
-      {
-        if ( e.Control && e.KeyCode == Keys.X )
-        {
-          Clipboard.SetText(Input.SelectedText);
-          int selectionStart = Input.SelectionStart;
-          Input.Text = Input.Text.Remove(selectionStart, Input.SelectionLength);
-          Input.SelectionStart = selectionStart;
-        }
-        else
-        if ( e.Control && e.KeyCode == Keys.C )
-          Clipboard.SetText(Input.SelectedText);
-      }
-      else
-      if ( e.Control && e.KeyCode == Keys.V )
-      {
-        string str = HebrewAlphabet.OnlyHebrewFont(Clipboard.GetText());
-        int selectionStart = Input.SelectionStart;
-        Input.SelectedText = "";
-        Input.Text = Input.Text.Insert(selectionStart, str);
-        Input.SelectionStart = selectionStart;
+        if ( Input.SelectionStart > 0 )
+          Input.SelectionStart--;
       }
     }
 

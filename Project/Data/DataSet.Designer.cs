@@ -10,13 +10,14 @@
 
 #pragma warning disable 1591
 
-namespace Ordisoftware.HebrewLetters.Data {
-    
-    
-    /// <summary>
-    ///Represents a strongly typed in-memory cache of data.
-    ///</summary>
-    [global::System.Serializable()]
+namespace Ordisoftware.HebrewLetters.Data
+{
+
+
+  /// <summary>
+  ///Represents a strongly typed in-memory cache of data.
+  ///</summary>
+  [global::System.Serializable()]
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
@@ -1321,13 +1322,14 @@ namespace Ordisoftware.HebrewLetters.Data {
         }
     }
 }
-namespace Ordisoftware.HebrewLetters.Data.DataSetTableAdapters {
-    
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+namespace Ordisoftware.HebrewLetters.Data.DataSetTableAdapters
+{
+
+
+  /// <summary>
+  ///Represents the connection and commands used to retrieve and save data.
+  ///</summary>
+  [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.ComponentModel.DataObjectAttribute(true)]
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +

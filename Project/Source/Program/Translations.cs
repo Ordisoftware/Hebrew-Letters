@@ -33,13 +33,6 @@ namespace Ordisoftware.HebrewLetters
         { "fr", "Étude lettrique lettre-par-lettre des mots hébreux" }
       };
 
-    static public readonly Dictionary<string, string> MethodNoticeTitle
-      = new Dictionary<string, string>()
-      {
-        { "en", "Lettriq analysis method notice" },
-        { "fr", "Notice de la méthode d'analyse lettrique" }
-      };
-
     static public readonly Dictionary<string, string> AskToRestoreLettersDefaults
       = new Dictionary<string, string>()
       {

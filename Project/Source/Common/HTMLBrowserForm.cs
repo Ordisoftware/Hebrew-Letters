@@ -13,9 +13,9 @@
 /// <created> 2019-09 </created>
 /// <edited> 2020-04 </edited>
 using System;
-using System.IO;
-using System.Drawing;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 using Ordisoftware.Core;
 
@@ -61,6 +61,7 @@ namespace Ordisoftware.HebrewCommon
     internal void HTMLBrowserForm_Shown(object sender, EventArgs e)
     {
       if ( Title != null ) Text = Title.GetLang();
+      if ( FilenameTemplate == null ) return;
       string filename = FilenameTemplate.Replace("%LANG%", Localizer.Language);
       if ( File.Exists(filename) )
         WebBrowser.Navigate(filename);

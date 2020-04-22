@@ -24,15 +24,16 @@ namespace Ordisoftware.HebrewCommon
   /// <summary>
   /// Provide online providers list.
   /// </summary>
-  public partial class OnlineProviders
+  static public class OnlineProvidersHelper
   {
 
     /// <summary>
     /// Create submenu items for providers menu.
     /// </summary>
-    static public void CreateProvidersMenuItems(OnlineProviders items, ContextMenuStrip menuRoot, EventHandler action)
+    static public void InitializeFromProviders(this ContextMenuStrip menuRoot, 
+                                               OnlineProviders items,
+                                               EventHandler action)
     {
-      menuRoot.Items.Clear();
       int index = 0;
       foreach ( var item in items.Items )
         menuRoot.Items.Insert(index++, item.CreateMenuItem(action));
@@ -41,7 +42,9 @@ namespace Ordisoftware.HebrewCommon
     /// <summary>
     /// Create submenu items for providers menu.
     /// </summary>
-    static public void CreateProvidersMenuItems(OnlineProviders items, ToolStripMenuItem menu, EventHandler action)
+    static public void InitializeFromProviders(this ToolStripMenuItem menu, 
+                                               OnlineProviders items,
+                                               EventHandler action)
     {
       int index = 0;
       foreach ( var item in items.Items )
@@ -51,10 +54,10 @@ namespace Ordisoftware.HebrewCommon
     /// <summary>
     /// Create submenu items for web links menu.
     /// </summary>
-    static public void CreateWebLinksMenuItems(ToolStripDropDownButton menuRoot, Image imageFolder)
+    static public void InitializeFromWebLinks(this ToolStripDropDownButton menuRoot)
     {
       menuRoot.DropDownItems.Clear();
-      foreach ( var items in Globals.OnlineLinksProviders )
+      foreach ( var items in Globals.WebLinksProviders )
         if ( items.Items.Count > 0 )
         {
           string title = items.Title.GetLang();
@@ -66,7 +69,7 @@ namespace Ordisoftware.HebrewCommon
             menu = new ToolStripMenuItem(title);
             menuRoot.DropDownItems.Add(menu);
             menu.ImageScaling = ToolStripItemImageScaling.None;
-            menu.Image = imageFolder;
+            menu.Image = OnlineProviderItem.FolderImage;
             menu.MouseUp += (sender, e) =>
             {
               if ( e.Button != MouseButtons.Right ) return;
@@ -75,8 +78,8 @@ namespace Ordisoftware.HebrewCommon
               foreach ( ToolStripItem item in ( (ToolStripMenuItem)sender ).DropDownItems )
                 if ( item.Tag != null )
                 {
-                  SystemManager.OpenWebLink((string)item.Tag);
-                  Thread.Sleep(1000);
+                  SystemHelper.OpenWebLink((string)item.Tag);
+                  Thread.Sleep(2000);
                 }
             };
           }
@@ -86,7 +89,7 @@ namespace Ordisoftware.HebrewCommon
             menu.DropDownItems.Add(item.CreateMenuItem((sender, e) =>
             {
               string url = (string)( (ToolStripItem)sender ).Tag;
-              SystemManager.OpenWebLink(url);
+              SystemHelper.OpenWebLink(url);
             }));
         }
     }

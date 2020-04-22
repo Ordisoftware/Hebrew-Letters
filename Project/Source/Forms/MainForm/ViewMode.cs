@@ -10,49 +10,27 @@
 /// relevant directory) where a recipient would be likely to look for such a notice.
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
-/// <created> 2016-04 </created>
-/// <edited> 2016-04 </edited>
-using System;
+/// <created> 2019-01 </created>
+/// <edited> 2019-01 </edited>
 
 namespace Ordisoftware.HebrewLetters
 {
 
   /// <summary>
-  /// Indicate the location of a control.
+  /// Provide view mode type.
   /// </summary>
-  [Serializable]
-  public enum ControlLocation
+  public enum ViewMode
   {
 
     /// <summary>
-    /// Loose position.
+    /// Analyse view mode.
     /// </summary>
-    Loose,
+    Analyse,
 
     /// <summary>
-    /// Top-left corner.
+    /// Settings view mode.
     /// </summary>
-    TopLeft,
-
-    /// <summary>
-    /// Top-right corner.
-    /// </summary>
-    TopRight,
-
-    /// <summary>
-    /// Bottom-left corner.
-    /// </summary>
-    BottomLeft,
-
-    /// <summary>
-    /// Bottom-right corner.
-    /// </summary>
-    BottomRight,
-
-    /// <summary>
-    /// Centered on the screen.
-    /// </summary>
-    Center
+    Settings
 
   }
 

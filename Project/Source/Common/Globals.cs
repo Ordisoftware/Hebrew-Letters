@@ -13,8 +13,8 @@
 /// <created> 2016-04 </created>
 /// <edited> 2020-04 </edited>
 using System;
-using System.Configuration;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
@@ -104,7 +104,7 @@ namespace Ordisoftware.HebrewCommon
     /// Indicate the GitHub issues page.
     /// </summary>
     static public string GitHubIssuesURL
-      = GitHubRepositoryURL + "/issues";
+      = GitHubRepositoryURL + "/issues/new";
 
     /// <summary>
     /// Indicate the extension of database files.
@@ -127,8 +127,14 @@ namespace Ordisoftware.HebrewCommon
     /// <summary>
     /// Indicate the filename of the application's icon.
     /// </summary>
-    static public readonly string IconFilename
+    static public readonly string ApplicationIconFilename
       = RootFolderPath + "Application.ico";
+
+    /// <summary>
+    /// Indicate the filename of the help.
+    /// </summary>
+    static public readonly string HelpFolderPath
+      = RootFolderPath + "Help" + Path.DirectorySeparatorChar;
 
     /// <summary>
     /// Indicate the application documents folder.
@@ -143,16 +149,28 @@ namespace Ordisoftware.HebrewCommon
       = DocumentsFolderPath + "WebLinks" + Path.DirectorySeparatorChar;
 
     /// <summary>
-    /// Indicate the application online providers folder.
+    /// Indicate the application web providers folder.
     /// </summary>
-    static public readonly string OnlineProvidersFolderPath
+    static public readonly string WebProvidersFolderPath
       = DocumentsFolderPath + "WebProviders" + Path.DirectorySeparatorChar;
 
     /// <summary>
-    /// Indicate the filename of the help.
+    /// Indicate the application web links folder.
     /// </summary>
-    static public readonly string HelpFolderPath
-      = RootFolderPath + "Help" + Path.DirectorySeparatorChar;
+    static public readonly string GuidesFolderPath
+      = DocumentsFolderPath + "Guides" + Path.DirectorySeparatorChar;
+
+    /// <summary>
+    /// Indicate filename of the grammar guide.
+    /// </summary>
+    static public string GrammarGuideFilename
+      = GuidesFolderPath + $"grammar-%LANG%.htm";
+
+    /// <summary>
+    /// Indicate filename of the method notice.
+    /// </summary>
+    static public string MethodNoticeFilename
+      = GuidesFolderPath + $"method-%LANG%.htm";
 
     /// <summary>
     /// Indicate the filename of the help.
@@ -205,7 +223,13 @@ namespace Ordisoftware.HebrewCommon
     /// Indicate the filename of the online search word providers.
     /// </summary>
     static public readonly string OnlineWordProvidersFileName
-      = OnlineProvidersFolderPath + "OnlineWordProviders.txt";
+      = WebProvidersFolderPath + "OnlineWordProviders.txt";
+
+    /// <summary>
+    /// Indicate the filename of the online search word providers.
+    /// </summary>
+    static public readonly string OnlineBibleProvidersFileName
+      = WebProvidersFolderPath + "OnlineBibleProviders.txt";
 
     /// <summary>
     /// Indicate the online search a word providers.
@@ -213,20 +237,14 @@ namespace Ordisoftware.HebrewCommon
     static public OnlineProviders OnlineWordProviders { get; private set; }
 
     /// <summary>
-    /// Indicate the filename of the online search word providers.
-    /// </summary>
-    static public readonly string OnlineBibleProvidersFileName
-      = OnlineProvidersFolderPath + "OnlineBibleProviders.txt";
-
-    /// <summary>
     /// Indicate the online bible verse providers.
     /// </summary>
     static public OnlineProviders OnlineBibleProviders { get; private set; }
 
     /// <summary>
-    /// Indicate the online links providers.
+    /// Indicate the web links providers.
     /// </summary>
-    static public readonly List<OnlineProviders> OnlineLinksProviders
+    static public readonly List<OnlineProviders> WebLinksProviders
       = new List<OnlineProviders>();
 
     /// <summary>
@@ -237,13 +255,23 @@ namespace Ordisoftware.HebrewCommon
     {
       OnlineWordProviders = new OnlineProviders(OnlineWordProvidersFileName);
       OnlineBibleProviders = new OnlineProviders(OnlineBibleProvidersFileName);
-      OnlineLinksProviders.Clear();
       if ( Directory.Exists(WebLinksFolderPath) )
         foreach ( var file in Directory.GetFiles(WebLinksFolderPath, "WebLinks*.txt") )
-          OnlineLinksProviders.Add(new OnlineProviders(file));
+          WebLinksProviders.Add(new OnlineProviders(file));
     }
 
     #region Assembly information
+
+    /// <summary>
+    /// Get the assembly title with version.
+    /// </summary>
+    static public string AssemblyTitleWithVersion
+    {
+      get
+      {
+        return AssemblyTitle + " " + AssemblyVersion;
+      }
+    }
 
     /// <summary>
     /// Get the assembly title.

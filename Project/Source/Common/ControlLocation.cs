@@ -1,5 +1,5 @@
 ﻿/// <license>
-/// This file is part of Ordisoftware Hebrew Letters.
+/// This file is part of Ordisoftware Hebrew Calendar/Letters/Words.
 /// Copyright 2012-2020 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
@@ -10,28 +10,49 @@
 /// relevant directory) where a recipient would be likely to look for such a notice.
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
-/// <created> 2019-01 </created>
-/// <edited> 2019-01 </edited>
+/// <created> 2020-03 </created>
+/// <edited> 2016-04 </edited>
 using System;
 
-namespace Ordisoftware.HebrewLetters
+namespace Ordisoftware.HebrewCommon
 {
 
   /// <summary>
-  /// Provide view mode type.
+  /// Indicate the location of a control.
   /// </summary>
-  public enum ViewMode
+  [Serializable]
+  public enum ControlLocation
   {
 
     /// <summary>
-    /// Analyse view mode.
+    /// Loose position.
     /// </summary>
-    Analyse,
+    Loose,
 
     /// <summary>
-    /// Settings view mode.
+    /// Top-left corner.
     /// </summary>
-    Settings
+    TopLeft,
+
+    /// <summary>
+    /// Top-right corner.
+    /// </summary>
+    TopRight,
+
+    /// <summary>
+    /// Bottom-left corner.
+    /// </summary>
+    BottomLeft,
+
+    /// <summary>
+    /// Bottom-right corner.
+    /// </summary>
+    BottomRight,
+
+    /// <summary>
+    /// Centered on the screen.
+    /// </summary>
+    Center
 
   }
 

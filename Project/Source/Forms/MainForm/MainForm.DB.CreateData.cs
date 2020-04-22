@@ -13,12 +13,12 @@
 /// <created> 2019-01 </created>
 /// <edited> 2020-04 </edited>
 using System;
-using System.IO;
 using System.Data.Odbc;
 using System.Globalization;
+using System.IO;
 using System.Windows.Forms;
-using Ordisoftware.HebrewCommon;
 using Ordisoftware.Core;
+using Ordisoftware.HebrewCommon;
 
 namespace Ordisoftware.HebrewLetters
 {

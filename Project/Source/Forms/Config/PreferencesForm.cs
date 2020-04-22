@@ -15,8 +15,8 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using Ordisoftware.HebrewCommon;
 using Ordisoftware.Core;
+using Ordisoftware.HebrewCommon;
 
 namespace Ordisoftware.HebrewLetters
 {
@@ -42,7 +42,6 @@ namespace Ordisoftware.HebrewLetters
     {
       InitializeComponent();
       Icon = MainForm.Instance.Icon;
-      EditFontSize.Value = Program.Settings.FontSizeSentence;
     }
 
     private void PreferencesForm_Shown(object sender, EventArgs e)
@@ -50,11 +49,23 @@ namespace Ordisoftware.HebrewLetters
       TopMost = MainForm.Instance.TopMost;
       BringToFront();
       UpdateLanguagesButtons();
+      EditVacuumAtStartup.Checked = Program.Settings.VacuumAtStartup;
+      EditEnableDebugger.Checked = Program.Settings.DebuggerEnabled;
+      EditCheckUpdateAtStartup.Checked = Program.Settings.CheckUpdateAtStartup;
+      EditAutoSortAnalysisMeanings.Checked = Program.Settings.AutoSortAnalysisMeanings;
+      EditFontSize.Value = Program.Settings.FontSizeSentence;
+      EditMaxLength.Value = Program.Settings.HebrewTextBoxMaxLength;
     }
 
     private void PreferencesForm_FormClosed(object sender, FormClosedEventArgs e)
     {
-      Program.Settings.Store();
+      Program.Settings.VacuumAtStartup = EditVacuumAtStartup.Checked;
+      Program.Settings.DebuggerEnabled = EditEnableDebugger.Checked;
+      Program.Settings.CheckUpdateAtStartup = EditCheckUpdateAtStartup.Checked;
+      Program.Settings.AutoSortAnalysisMeanings = EditAutoSortAnalysisMeanings.Checked;
+      Program.Settings.FontSizeSentence = EditFontSize.Value;
+      Program.Settings.HebrewTextBoxMaxLength = EditMaxLength.Value;
+      Program.Settings.Save();
     }
 
     private void EditEnableDebugger_CheckedChanged(object sender, EventArgs e)
@@ -78,32 +89,31 @@ namespace Ordisoftware.HebrewLetters
 
     private void ActionSelectLangEN_Click(object sender, EventArgs e)
     {
-      string temp = MainForm.Instance.EditLetters.Input.Text;
+      string temp = MainForm.Instance.EditLetters.TextInput;
       MainForm.Instance.ActionClear.PerformClick();
       Program.Settings.Language = "en";
       Program.UpdateLocalization();
       UpdateLanguagesButtons();
       LanguageChanged = true;
-      MainForm.Instance.EditLetters.Input.Text = temp;
+      MainForm.Instance.EditLetters.TextInput = temp;
       Close();
     }
 
     private void ActionSelectLangFR_Click(object sender, EventArgs e)
     {
-      string temp = MainForm.Instance.EditLetters.Input.Text;
+      string temp = MainForm.Instance.EditLetters.TextInput;
       MainForm.Instance.ActionClear.PerformClick();
       Program.Settings.Language = "fr";
       Program.UpdateLocalization();
       UpdateLanguagesButtons();
       LanguageChanged = true;
-      MainForm.Instance.EditLetters.Input.Text = temp;
+      MainForm.Instance.EditLetters.TextInput = temp;
       Close();
     }
 
     private void EditFontSize_ValueChanged(object sender, EventArgs e)
     {
-      Program.Settings.FontSizeSentence = EditFontSize.Value;
-      MainForm.Instance.EditSentence.Font = new Font("Microsoft Sans Serif", (float)Program.Settings.FontSizeSentence);
+      MainForm.Instance.EditSentence.Font = new Font("Microsoft Sans Serif", (float)EditFontSize.Value);
     }
 
     private void ActionResetSettings_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -112,7 +122,7 @@ namespace Ordisoftware.HebrewLetters
       Program.Settings.Reset();
       Program.Settings.Reload();
       Program.Settings.Language = Localizer.Language;
-      Program.Settings.Save();
+      Program.Settings.Store();
       PreferencesForm_Shown(null, null);
       MainForm.Instance.EditSentence.Font = new Font("Microsoft Sans Serif", (float)Program.Settings.FontSizeSentence);
       Program.GrammarGuideForm.CenterToMainForm();

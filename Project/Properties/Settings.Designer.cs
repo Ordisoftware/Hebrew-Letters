@@ -36,9 +36,9 @@ namespace Ordisoftware.HebrewLetters.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Center")]
-        public global::Ordisoftware.HebrewLetters.ControlLocation MainFormPosition {
+        public global::Ordisoftware.HebrewCommon.ControlLocation MainFormPosition {
             get {
-                return ((global::Ordisoftware.HebrewLetters.ControlLocation)(this["MainFormPosition"]));
+                return ((global::Ordisoftware.HebrewCommon.ControlLocation)(this["MainFormPosition"]));
             }
             set {
                 this["MainFormPosition"] = value;
@@ -306,6 +306,29 @@ namespace Ordisoftware.HebrewLetters.Properties {
             }
             set {
                 this["DebuggerEnabled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("20")]
+        public decimal HebrewTextBoxMaxLength {
+            get {
+                return ((decimal)(this["HebrewTextBoxMaxLength"]));
+            }
+            set {
+                this["HebrewTextBoxMaxLength"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.DateTime VacuumLastDone {
+            get {
+                return ((global::System.DateTime)(this["VacuumLastDone"]));
+            }
+            set {
+                this["VacuumLastDone"] = value;
             }
         }
     }

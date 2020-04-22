@@ -10,7 +10,7 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Dsn=Hebrew-Letters</Value>
     </Setting>
-    <Setting Name="MainFormPosition" Type="Ordisoftware.HebrewLetters.ControlLocation" Scope="User">
+    <Setting Name="MainFormPosition" Type="Ordisoftware.HebrewCommon.ControlLocation" Scope="User">
       <Value Profile="(Default)">Center</Value>
     </Setting>
     <Setting Name="MainFormLeft" Type="System.Int32" Scope="User">
@@ -78,6 +78,12 @@
     </Setting>
     <Setting Name="DebuggerEnabled" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="HebrewTextBoxMaxLength" Type="System.Decimal" Scope="User">
+      <Value Profile="(Default)">20</Value>
+    </Setting>
+    <Setting Name="VacuumLastDone" Type="System.DateTime" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

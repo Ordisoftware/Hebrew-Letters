@@ -11,12 +11,10 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2019-09 </edited>
+/// <edited> 2020-04 </edited>
 using System;
-using System.Diagnostics;
 using System.Windows.Forms;
 using Ordisoftware.HebrewCommon;
-using Ordisoftware.Core;
 
 namespace Ordisoftware.HebrewLetters
 {
@@ -80,7 +78,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Link label link clicked event information.</param>
     private void labelIconsProvider_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
-      SystemManager.OpenWebLink(((LinkLabel)sender).Text);
+      SystemHelper.OpenWebLink(((LinkLabel)sender).Text);
     }
 
     /// <summary>
@@ -100,7 +98,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Link clicked event information.</param>
     private void editLicense_LinkClicked(object sender, LinkClickedEventArgs e)
     {
-      Process.Start(e.LinkText);
+      SystemHelper.OpenWebLink(e.LinkText);
     }
 
   }

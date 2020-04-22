@@ -288,7 +288,7 @@ namespace Ordisoftware.Core
       _TypeText = t.ToString();
       t = t.BaseType;
       _InheritsFrom += t.ToString();
-      while ( (t = t.BaseType) != null ) _InheritsFrom += " > " + t.ToString();
+      while ( ( t = t.BaseType ) != null ) _InheritsFrom += " > " + t.ToString();
     }
 
     /// <summary>
@@ -326,7 +326,11 @@ namespace Ordisoftware.Core
               _LineNumber = ln;
             }
             s2 += "." + m.Name;
-            if ( ln != 0 ) s2 = s3 + " line " + ln + ": " + Environment.NewLine + s2;
+            if ( ln != 0 )
+            {
+              s2 = s3 + " line " + ln + ": " + Environment.NewLine + s2 + Environment.NewLine;
+              if ( s1 != "" ) s2 = Environment.NewLine + s2;
+            }
             _StackList.Add(s2);
             if ( s1 != "" ) s1 += Environment.NewLine;
             s1 += s2;
@@ -352,11 +356,11 @@ namespace Ordisoftware.Core
       //int indent = SystemSettings.Instance.LogIndent;
 
       _FullText = "Thread: " + _ThreadName + nl
-                + "Exception Type: " + nl 
+                + "Exception Type: " + nl
                 + _TypeText + nl
-                + "Error Message: " + nl 
+                + "Error Message: " + nl
                 + _Message;
-               
+
       if ( Diagnostics.Debugger.UseStack )
         _FullText = _FullText + nl
                   + "StackList: " + nl
@@ -386,24 +390,24 @@ namespace Ordisoftware.Core
       try
       {
         _Emitter = _Sender is Windows.Forms.ExceptionForm
-                 ? ((Windows.Forms.ExceptionForm)_Sender).Text
+                 ? ( (Windows.Forms.ExceptionForm)_Sender ).Text
                  : DisplayManager.MainForm != null
                    ? DisplayManager.MainForm.Text
                    : except.Source;
         ExtractInherits();
-        try 
-        { 
-          ExtractStack(); 
+        try
+        {
+          ExtractStack();
         }
-        finally 
-        { 
-          InitText(); 
+        finally
+        {
+          InitText();
         }
-        if ( except.InnerException != null ) 
+        if ( except.InnerException != null )
           _InnerInfo = new ExceptionInfo(sender, except.InnerException);
       }
       catch
-      { 
+      {
       }
     }
 

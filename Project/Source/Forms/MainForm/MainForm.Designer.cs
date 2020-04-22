@@ -46,6 +46,9 @@
       this.TabControl = new System.Windows.Forms.TabControl();
       this.TabPageText = new System.Windows.Forms.TabPage();
       this.PanelViewSearch = new System.Windows.Forms.Panel();
+      this.EditGematriaFull = new System.Windows.Forms.TextBox();
+      this.LabelGematriaFull = new System.Windows.Forms.Label();
+      this.LabelGematriaSimple = new System.Windows.Forms.Label();
       this.ActionReset = new System.Windows.Forms.Button();
       this.ActionDelLast = new System.Windows.Forms.Button();
       this.ActionDelFirst = new System.Windows.Forms.Button();
@@ -59,8 +62,8 @@
       this.ActionClear = new System.Windows.Forms.Button();
       this.ActionCopyToClipboardMeanings = new System.Windows.Forms.Button();
       this.ActionCopyToClipboardResult = new System.Windows.Forms.Button();
-      this.EditSentence = new System.Windows.Forms.TextBox();
-      this.EditGematria = new System.Windows.Forms.TextBox();
+      this.EditSentence = new Ordisoftware.HebrewCommon.UndoRedoTextBox();
+      this.EditGematriaSimple = new System.Windows.Forms.TextBox();
       this.LabelGematria = new System.Windows.Forms.Label();
       this.EditLetters = new Ordisoftware.HebrewCommon.LettersControl();
       this.TabPageMonth = new System.Windows.Forms.TabPage();
@@ -138,8 +141,6 @@
       this.ActionOpenLexilogosOld = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionOpenLexilogosModern = new System.Windows.Forms.ToolStripMenuItem();
       this.MenuWebLinks = new System.Windows.Forms.ToolStripDropDownButton();
-      this.ActionOpenWebLinkTemplateFolder = new System.Windows.Forms.ToolStripMenuItem();
-      this.ActionOpenWebLinkTemplateLink = new System.Windows.Forms.ToolStripMenuItem();
       this.LettersTableAdapter = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.LettersTableAdapter();
       this.TableAdapterManager = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.TableAdapterManager();
       this.MeaningsTableAdapter = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.MeaningsTableAdapter();
@@ -265,6 +266,9 @@
       // 
       resources.ApplyResources(this.PanelViewSearch, "PanelViewSearch");
       this.PanelViewSearch.BackColor = System.Drawing.SystemColors.Control;
+      this.PanelViewSearch.Controls.Add(this.EditGematriaFull);
+      this.PanelViewSearch.Controls.Add(this.LabelGematriaFull);
+      this.PanelViewSearch.Controls.Add(this.LabelGematriaSimple);
       this.PanelViewSearch.Controls.Add(this.ActionReset);
       this.PanelViewSearch.Controls.Add(this.ActionDelLast);
       this.PanelViewSearch.Controls.Add(this.ActionDelFirst);
@@ -277,10 +281,31 @@
       this.PanelViewSearch.Controls.Add(this.ActionCopyToClipboardMeanings);
       this.PanelViewSearch.Controls.Add(this.ActionCopyToClipboardResult);
       this.PanelViewSearch.Controls.Add(this.EditSentence);
-      this.PanelViewSearch.Controls.Add(this.EditGematria);
+      this.PanelViewSearch.Controls.Add(this.EditGematriaSimple);
       this.PanelViewSearch.Controls.Add(this.LabelGematria);
       this.PanelViewSearch.Controls.Add(this.EditLetters);
       this.PanelViewSearch.Name = "PanelViewSearch";
+      // 
+      // EditGematriaFull
+      // 
+      resources.ApplyResources(this.EditGematriaFull, "EditGematriaFull");
+      this.EditGematriaFull.BackColor = System.Drawing.Color.LavenderBlush;
+      this.EditGematriaFull.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.EditGematriaFull.Name = "EditGematriaFull";
+      this.EditGematriaFull.ReadOnly = true;
+      this.EditGematriaFull.TabStop = false;
+      // 
+      // LabelGematriaFull
+      // 
+      resources.ApplyResources(this.LabelGematriaFull, "LabelGematriaFull");
+      this.LabelGematriaFull.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+      this.LabelGematriaFull.Name = "LabelGematriaFull";
+      // 
+      // LabelGematriaSimple
+      // 
+      resources.ApplyResources(this.LabelGematriaSimple, "LabelGematriaSimple");
+      this.LabelGematriaSimple.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+      this.LabelGematriaSimple.Name = "LabelGematriaSimple";
       // 
       // ActionReset
       // 
@@ -389,17 +414,18 @@
       resources.ApplyResources(this.EditSentence, "EditSentence");
       this.EditSentence.BackColor = System.Drawing.SystemColors.Window;
       this.EditSentence.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.EditSentence.CaretAfterPaste = Ordisoftware.HebrewCommon.TextBoxCaretAfterPaste.End;
       this.EditSentence.Name = "EditSentence";
       this.EditSentence.TextChanged += new System.EventHandler(this.EditSentence_TextChanged);
       // 
-      // EditGematria
+      // EditGematriaSimple
       // 
-      resources.ApplyResources(this.EditGematria, "EditGematria");
-      this.EditGematria.BackColor = System.Drawing.Color.LavenderBlush;
-      this.EditGematria.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.EditGematria.Name = "EditGematria";
-      this.EditGematria.ReadOnly = true;
-      this.EditGematria.TabStop = false;
+      resources.ApplyResources(this.EditGematriaSimple, "EditGematriaSimple");
+      this.EditGematriaSimple.BackColor = System.Drawing.Color.LavenderBlush;
+      this.EditGematriaSimple.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.EditGematriaSimple.Name = "EditGematriaSimple";
+      this.EditGematriaSimple.ReadOnly = true;
+      this.EditGematriaSimple.TabStop = false;
       // 
       // LabelGematria
       // 
@@ -409,13 +435,11 @@
       // EditLetters
       // 
       this.EditLetters.BackColor = System.Drawing.Color.Transparent;
-      this.EditLetters.InputBackColor = System.Drawing.Color.AliceBlue;
-      this.EditLetters.LettersBackground = System.Drawing.Color.LightYellow;
+      this.EditLetters.BackColorInput = System.Drawing.Color.AliceBlue;
+      this.EditLetters.BackColorLetters = System.Drawing.Color.LightYellow;
       resources.ApplyResources(this.EditLetters, "EditLetters");
       this.EditLetters.Name = "EditLetters";
-      this.EditLetters.ShowValues = true;
       this.EditLetters.InputTextChanged += new System.EventHandler(this.EditLetters_InputTextChanged);
-      this.EditLetters.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EditLetters_KeyPress);
       // 
       // TabPageMonth
       // 
@@ -1033,22 +1057,8 @@
       // MenuWebLinks
       // 
       this.MenuWebLinks.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      this.MenuWebLinks.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ActionOpenWebLinkTemplateFolder,
-            this.ActionOpenWebLinkTemplateLink});
       resources.ApplyResources(this.MenuWebLinks, "MenuWebLinks");
       this.MenuWebLinks.Name = "MenuWebLinks";
-      // 
-      // ActionOpenWebLinkTemplateFolder
-      // 
-      resources.ApplyResources(this.ActionOpenWebLinkTemplateFolder, "ActionOpenWebLinkTemplateFolder");
-      this.ActionOpenWebLinkTemplateFolder.Name = "ActionOpenWebLinkTemplateFolder";
-      // 
-      // ActionOpenWebLinkTemplateLink
-      // 
-      resources.ApplyResources(this.ActionOpenWebLinkTemplateLink, "ActionOpenWebLinkTemplateLink");
-      this.ActionOpenWebLinkTemplateLink.Name = "ActionOpenWebLinkTemplateLink";
-      this.ActionOpenWebLinkTemplateLink.Tag = "";
       // 
       // LettersTableAdapter
       // 
@@ -1159,7 +1169,7 @@
     private System.Windows.Forms.Button ActionCopyToClipboardMeanings;
     private System.Windows.Forms.ToolStripButton ActionPreferences;
     internal System.Windows.Forms.Label LabelGematria;
-    internal System.Windows.Forms.TextBox EditGematria;
+    internal System.Windows.Forms.TextBox EditGematriaSimple;
     private System.Windows.Forms.Button ActionReset;
     private System.Windows.Forms.Button ActionDelLast;
     private System.Windows.Forms.Button ActionDelFirst;
@@ -1189,7 +1199,7 @@
     private System.Windows.Forms.ToolStripMenuItem ActionOpenLexilogosOld;
     private System.Windows.Forms.ToolStripMenuItem ActionOpenLexilogosModern;
     private System.Windows.Forms.ToolStripMenuItem ActionOpenWordOnline;
-    internal System.Windows.Forms.TextBox EditSentence;
+    internal Ordisoftware.HebrewCommon.UndoRedoTextBox EditSentence;
     internal System.Windows.Forms.ToolStripMenuItem EditESCtoExit;
     private System.Windows.Forms.ToolStripMenuItem ActionWebTwitter;
     private System.Windows.Forms.ToolStripMenuItem ActionWebYouTube;
@@ -1200,10 +1210,8 @@
     private System.Windows.Forms.ToolStripMenuItem ActionAbout;
     private System.Windows.Forms.ToolStripMenuItem ActionWebQA;
     private System.Windows.Forms.ToolStripDropDownButton MenuWebLinks;
-    private System.Windows.Forms.ToolStripMenuItem ActionOpenWebLinkTemplateFolder;
     private System.Windows.Forms.ToolStripMenuItem ActionShowGrammarGuide;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-    private System.Windows.Forms.ToolStripMenuItem ActionOpenWebLinkTemplateLink;
     private System.Windows.Forms.ToolStripMenuItem ActionShowMethodNotice;
     internal System.Windows.Forms.BindingSource MeaningsBindingSource;
     internal System.Windows.Forms.TextBox TextBoxStructure;
@@ -1212,5 +1220,8 @@
     internal System.Windows.Forms.TextBox TextBoxNegative;
     internal System.Windows.Forms.TextBox TextBoxPositive;
     internal System.Windows.Forms.Button ActionClear;
+    internal System.Windows.Forms.Label LabelGematriaSimple;
+    internal System.Windows.Forms.TextBox EditGematriaFull;
+    internal System.Windows.Forms.Label LabelGematriaFull;
   }
 }

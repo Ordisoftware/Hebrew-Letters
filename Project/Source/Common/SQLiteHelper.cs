@@ -13,6 +13,7 @@
 /// <created> 2019-01 </created>
 /// <edited> 2020-04 </edited>
 using System;
+using System.Collections.Generic;
 using System.Data.Odbc;
 using Ordisoftware.Core;
 
@@ -25,9 +26,102 @@ namespace Ordisoftware.HebrewCommon
   static public class SQLiteHelper
   {
 
+    static public int DefaultOptimizeDaysInterval = 7;
+
+    /// <summary>
+    /// Optimize the database.
+    /// </summary>
+    /// <param name="connection">The connection.</param>
+    /// <param name="lastdone">The last done date.</param>
+    /// <param name="days">The days interval.</param>
+    /// <returns>The new date if done else the same.</returns>
+    static public DateTime Optimize(this OdbcConnection connection, 
+                                    DateTime lastdone, 
+                                    bool force = false, 
+                                    int days = -1)
+    {
+      try
+      {
+        if ( days == -1 ) days = DefaultOptimizeDaysInterval;
+        if ( force || lastdone.AddDays(days) < DateTime.Now )
+        {
+          connection.CheckIntegrity();
+          connection.Vacuum();
+          lastdone = DateTime.Now;
+        }
+      }
+      catch ( Exception ex )
+      {
+        ex.Manage();
+      }
+      return lastdone;
+    }
+
     /// <summary>
     ///  Vacuum the database.
     /// </summary>
+    /// <param name="connection">The connection.</param>
+    static public void CheckIntegrity(this OdbcConnection connection)
+    {
+      try
+      {
+        using ( var sql = connection.CreateCommand() )
+        {
+          sql.CommandText = "SELECT integrity_check FROM pragma_integrity_check()";
+          var errors = new List<string>();
+          using ( var reader = sql.ExecuteReader() )
+            while ( reader.Read() )
+            {
+              string str = reader.GetString(0);
+              if ( str != "ok" ) errors.Add(str);
+            }
+          if ( errors.Count > 0 )
+            DisplayManager.ShowError("SQLite database has errors:" + Environment.NewLine + 
+                                     Environment.NewLine +
+                                     string.Join(Environment.NewLine, errors));
+        }
+      }
+      catch ( Exception ex )
+      {
+        ex.Manage();
+      }
+    }
+
+    static public bool CheckTable(this OdbcConnection connection, string table, string sql)
+    {
+      var command = new OdbcCommand("SELECT count(*) FROM sqlite_master " +
+                                    "WHERE type = 'table' AND name = '" + table + "'", connection);
+      if ( (int)command.ExecuteScalar() != 0 ) return false;
+      if ( sql != "" )
+        new OdbcCommand(sql, connection).ExecuteNonQuery();
+      return true;
+    }
+
+    static public bool CheckColumn(this OdbcConnection connection, string table, string column, string sql)
+    {
+      var command = new OdbcCommand("PRAGMA table_info(" + table + ")", connection);
+      var reader = command.ExecuteReader();
+      int nameIndex = reader.GetOrdinal("Name");
+      bool found = false;
+      while ( reader.Read() )
+        if ( reader.GetString(nameIndex).Equals(column) )
+        {
+          found = true;
+          break;
+        }
+      if ( found ) return false;
+      if ( sql != "" )
+      {
+        sql = sql.Replace("%TABLE%", table).Replace("%COLUMN%", column);
+        new OdbcCommand(sql, connection).ExecuteNonQuery();
+      }
+      return true;
+    }
+
+    /// <summary>
+    ///  Vacuum the database.
+    /// </summary>
+    /// <param name="connection">The connection.</param>
     static public void Vacuum(this OdbcConnection connection)
     {
       try
@@ -35,7 +129,8 @@ namespace Ordisoftware.HebrewCommon
         using ( var sql = connection.CreateCommand() )
         {
           sql.CommandText = "VACUUM;";
-          sql.ExecuteNonQuery();
+          if ( sql.ExecuteNonQuery() != 0 )
+            DisplayManager.ShowError("SQLite database vacuum failed.");
         }
       }
       catch ( Exception ex )
@@ -50,6 +145,7 @@ namespace Ordisoftware.HebrewCommon
     /// <param name="date">The date.</param>
     static public string GetDate(DateTime date)
     {
+      if ( date == null ) return "";
       return $"{date.Year.ToString("0000")}-{date.Month.ToString("00")}-{date.Day.ToString("00")}";
     }
 
@@ -70,6 +166,7 @@ namespace Ordisoftware.HebrewCommon
     /// <param name="date">The date.</param>
     static public DateTime GetDate(string date)
     {
+      if ( string.IsNullOrEmpty(date) ) return DateTime.Now;
       string[] items = date.Split('-');
       return new DateTime(Convert.ToInt32(items[0]), Convert.ToInt32(items[1]), Convert.ToInt32(items[2]));
     }

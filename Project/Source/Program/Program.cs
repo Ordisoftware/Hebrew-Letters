@@ -50,7 +50,7 @@ namespace Ordisoftware.HebrewLetters
       Globals.MainForm = MainForm.Instance;
       Core.Diagnostics.Debugger.Active = Settings.DebuggerEnabled;
       string lang = Settings.Language;
-      SystemHelper.CheckCommandLineArguments(args, ref lang, Settings);
+      SystemHelper.CheckCommandLineArguments(args, ref lang);
       Settings.Language = lang;
       UpdateLocalization();
       Application.Run(MainForm.Instance);
@@ -61,32 +61,38 @@ namespace Ordisoftware.HebrewLetters
     /// </summary>
     static internal void UpdateLocalization()
     {
+      Action<Label, TextBox, int> updateLabel = (label, textbox, dy) =>
+      {
+        label.Location = new Point(label.Location.X, textbox.Location.Y + dy);
+      };
+      Action<Form> updateForm = form =>
+      {
+        new Infralution.Localization.CultureManager().ManagedControl = form;
+        ComponentResourceManager resources = new ComponentResourceManager(form.GetType());
+        SystemHelper.ApplyResources(resources, form.Controls);
+      };
       string lang = "en-US";
       if ( Settings.Language == "fr" ) lang = "fr-FR";
       var culture = new CultureInfo(lang);
       Thread.CurrentThread.CurrentCulture = culture;
       Thread.CurrentThread.CurrentUICulture = culture;
       AboutBox.Instance.Hide();
-      Action<Form> update = form =>
-      {
-        new Infralution.Localization.CultureManager().ManagedControl = form;
-        ComponentResourceManager resources = new ComponentResourceManager(form.GetType());
-        SystemHelper.ApplyResources(resources, form.Controls);
-      };
-      update(Globals.MainForm);
-      MainForm.Instance.LabelGematria.Location = new Point(MainForm.Instance.LabelGematria.Location.X,
-                                                           MainForm.Instance.EditGematria.Location.Y - 19);
+      updateForm(Globals.MainForm);
+      updateLabel(MainForm.Instance.LabelGematria, MainForm.Instance.EditGematriaSimple, -19);
+      updateLabel(MainForm.Instance.LabelGematriaSimple, MainForm.Instance.EditGematriaSimple, 3);
+      updateLabel(MainForm.Instance.LabelGematriaFull, MainForm.Instance.EditGematriaFull, 3);
       foreach ( Form form in Application.OpenForms )
-        if ( form != Globals.MainForm && form != AboutBox.Instance && form != GrammarGuideForm && form != MethodNoticeForm )
-          update(form);
+        if ( form != Globals.MainForm && form != AboutBox.Instance 
+          && form != GrammarGuideForm && form != MethodNoticeForm )
+          updateForm(form);
       new Infralution.Localization.CultureManager().ManagedControl = AboutBox.Instance;
       new Infralution.Localization.CultureManager().ManagedControl = GrammarGuideForm;
       new Infralution.Localization.CultureManager().ManagedControl = MethodNoticeForm;
       Infralution.Localization.CultureManager.ApplicationUICulture = culture;
+      MainForm.Instance.CreateWebLinks();
       AboutBox.Instance.AboutBox_Shown(null, null);
       GrammarGuideForm.HTMLBrowserForm_Shown(null, null);
       MethodNoticeForm.HTMLBrowserForm_Shown(null, null);
-      MainForm.Instance.CreateProvidersAndWebLinks();
     }
 
   }

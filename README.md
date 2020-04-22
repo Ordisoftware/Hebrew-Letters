@@ -73,13 +73,31 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 ## Changelog
 
+#### Future improvements
+
+- Add context menu on letters buttons to open details of letter.
+- Add online search a word providers editor form.
+- optimize comboboxes creation.
+
+#### 2020.04.23 - Version 4.1
+
+- Add select all (Ctrl+A) and undo/redo support for textboxes.
+- Add undo/redo & copy/cut/paste context menu for text boxes.
+- Add backspace key management for textboxes.
+- Fix copy/cut/paste of  hebrew textbox.
+- Fix inserting a letter at the caret when clicking on letters buttons.
+- Add option to set the max length of the textbox of the hebrew input panel.
+- Improve auto optimize database at startup that is done once a week.
+- Improve debugger to create a GitHub issue.
+- Optimize startup time.
+
 #### 2020.04.19 - Version 4.0
 
 - Exit application at startup if user choose to download a newer version.
 - Add lettriq analysis method notice.
 - Add grammar guide from Hebrew Words.
 - Add menu for web links about judaism.
-- Add option to auto vacuum database at startup.
+- Add option to auto optimize database at startup.
 - Add option to auto sort meanings combobox items.
 - Add option to use Escape key to close app.
 - Add option to enable debugger.

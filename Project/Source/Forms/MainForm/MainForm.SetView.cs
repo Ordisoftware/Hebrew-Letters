@@ -1,5 +1,5 @@
 ﻿/// <license>
-/// This file is part of Ordisoftware Hebrew Lettriq.
+/// This file is part of Ordisoftware Hebrew Letters.
 /// Copyright 2012-2020 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
@@ -11,8 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2019-01 </edited>
-using System;
+/// <edited> 2020-04 </edited>
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -73,7 +72,7 @@ namespace Ordisoftware.HebrewLetters
           {
             MenuItem = ActionViewAnalysis,
             Panel = PanelViewSearch,
-            Focused = EditLetters.Input
+            Focused = EditLetters
           }
         },
         {
@@ -92,11 +91,6 @@ namespace Ordisoftware.HebrewLetters
       ViewPanels[view].MenuItem.Checked = true;
       ViewPanels[view].Panel.Parent = PanelMainCenter;
       ViewPanels[view].Focused.Focus();
-      if ( ViewPanels[view].Focused == EditLetters.Input )
-      {
-        EditLetters.Input.SelectionStart = 0;
-        EditLetters.Input.SelectionLength = 0;
-      }
       Program.Settings.CurrentView = view;
     }
 
