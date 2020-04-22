@@ -30,112 +30,75 @@ namespace Ordisoftware.HebrewLetters
     public bool CreateSchemaIfNotExists()
     {
       bool upgraded = false;
-      var connection = new OdbcConnection(Program.Settings.ConnectionString);
-      connection.Open();
-      if ( Program.Settings.VacuumAtStartup )
-        Program.Settings.VacuumLastDone = connection.Optimize(Program.Settings.VacuumLastDone);
-      try
-      {
-        void checkTable(string table, string sql)
+      using ( var connection = new OdbcConnection(Program.Settings.ConnectionString) )
+        try
         {
-          var command = new OdbcCommand("SELECT count(*) FROM sqlite_master " +
-                                        "WHERE type = 'table' AND name = '" + table + "'", connection);
-          int result = (int)command.ExecuteScalar();
-          if ( result == 0 )
-          {
-            var cmdCreateTable = new OdbcCommand(sql, connection);
-            cmdCreateTable.ExecuteNonQuery();
-          }
-        }
-        void checkColumn(string table, string column, string sql)
-        {
-          var command = new OdbcCommand("PRAGMA table_info(" + table + ")", connection);
-          var reader = command.ExecuteReader();
-          int nameIndex = reader.GetOrdinal("Name");
-          bool b = false;
-          while ( reader.Read() )
-            if ( reader.GetString(nameIndex).Equals(column) )
-            {
-              b = true;
-              break;
-            }
-          if ( !b )
-          {
-            if ( sql != "" )
-            {
-              var cmdCreateColumn = new OdbcCommand(sql, connection);
-              cmdCreateColumn.ExecuteNonQuery();
-            }
-            upgraded = true;
-          }
-        }
-        checkTable("Letters", @"CREATE TABLE Letters
-                                ( 
-                                  Code TEXT NOT NULL, 
-                                  Name TEXT NOT NULL, 
-                                  Hebrew TEXT NOT NULL, 
-                                  Negative TEXT NOT NULL, 
-                                  Positive TEXT NOT NULL, 
-                                  Structure TEXT NOT NULL, 
-                                  Function TEXT NOT NULL, 
-                                  Verb TEXT NOT NULL,
-                                  ValueSimple INTEGER NOT NULL, 
-                                  ValueFull INTEGER NOT NULL, 
-                                  CONSTRAINT Pk_Letter_Code PRIMARY KEY (Code) 
-                                )");
-        string sqlCreateMeanings = @"CREATE TABLE Meanings
-                                     (
-                                       ID TEXT NOT NULL, 
-                                       LetterCode TEXT NOT NULL,
-                                       Meaning TEXT DEFAULT '' NOT NULL,
-                                       FOREIGN KEY(LetterCode) REFERENCES Letters(Code)
-                                       CONSTRAINT Pk_Meaning_ID PRIMARY KEY ( ID ) 
-                                     )";
-        checkTable("Meanings", sqlCreateMeanings);
-        checkColumn("Meanings", "ID", "");
-        if ( upgraded )
-          try
-          {
-            OdbcCommand command;
+          connection.Open();
+          if ( Program.Settings.VacuumAtStartup )
+            Program.Settings.VacuumLastDone = connection.Optimize(Program.Settings.VacuumLastDone);
+          connection.CheckTable("Letters",
+                                @"CREATE TABLE Letters
+                                  ( 
+                                    Code TEXT NOT NULL, 
+                                    Name TEXT NOT NULL, 
+                                    Hebrew TEXT NOT NULL, 
+                                    Positive TEXT NOT NULL, 
+                                    Negative TEXT NOT NULL, 
+                                    Structure TEXT NOT NULL, 
+                                    Function TEXT NOT NULL, 
+                                    Verb TEXT NOT NULL,
+                                    ValueSimple INTEGER NOT NULL, 
+                                    ValueFull INTEGER NOT NULL, 
+                                    CONSTRAINT Pk_Letter_Code PRIMARY KEY (Code) 
+                                  )");
+          string sqlMeanings = @"CREATE TABLE Meanings
+                                 (
+                                   ID TEXT NOT NULL, 
+                                   LetterCode TEXT NOT NULL,
+                                   Meaning TEXT DEFAULT '' NOT NULL,
+                                   FOREIGN KEY(LetterCode) REFERENCES Letters(Code)
+                                   CONSTRAINT Pk_Meaning_ID PRIMARY KEY ( ID ) 
+                                 )";
+          connection.CheckTable("Meanings", sqlMeanings);
+          if ( connection.CheckColumn("Meanings", "ID", "") )
             try
             {
-              command = new OdbcCommand("ALTER TABLE Meanings RENAME TO Meanings_Temp", connection);
-              command.ExecuteNonQuery();
-              checkTable("Meanings", sqlCreateMeanings);
-              command = new OdbcCommand("SELECT * FROM Meanings_Temp", connection);
-              var reader = command.ExecuteReader();
+              if ( !connection.CheckTable("Meanings_Temp", "") )
+                new OdbcCommand("DROP TABLE Meanings_Temp", connection).ExecuteNonQuery();
+              new OdbcCommand("ALTER TABLE Meanings RENAME TO Meanings_Temp", connection).ExecuteNonQuery();
+              connection.CheckTable("Meanings", sqlMeanings);
+              var reader = new OdbcCommand("SELECT * FROM Meanings_Temp", connection).ExecuteReader();
               while ( reader.Read() )
               {
-                var cmd = new OdbcCommand("INSERT INTO Meanings (ID, LetterCode, Meaning) " +
-                                          "VALUES (?,?,?)", connection);
-                cmd.Parameters.Add("@ID", OdbcType.Text).Value = Guid.NewGuid().ToString();
-                cmd.Parameters.Add("@LetterCode", OdbcType.Text).Value = (string)reader["LetterCode"];
-                cmd.Parameters.Add("@Meaning", OdbcType.Text).Value = (string)reader["Meaning"];
-                cmd.ExecuteNonQuery();
+                var command = new OdbcCommand("INSERT INTO Meanings (ID, LetterCode, Meaning) " +
+                                              "VALUES (?,?,?)", connection);
+                command.Parameters.Add("@ID", OdbcType.Text).Value = Guid.NewGuid().ToString();
+                command.Parameters.Add("@LetterCode", OdbcType.Text).Value = (string)reader["LetterCode"];
+                command.Parameters.Add("@Meaning", OdbcType.Text).Value = (string)reader["Meaning"];
+                command.ExecuteNonQuery();
               }
+            }
+            catch ( Exception ex )
+            {
+              ex.Manage();
             }
             finally
             {
               new OdbcCommand("DROP TABLE Meanings_Temp", connection).ExecuteNonQuery();
             }
-          }
-          catch (Exception ex)
-          {
-            ex.Manage();
-          }
-        upgraded = false;
-        checkColumn("Letters", "Hebrew", "ALTER TABLE Letters ADD COLUMN Hebrew TEXT DEFAULT '' NOT NULL");
-        checkColumn("Letters", "Positive", "ALTER TABLE Letters ADD COLUMN Positive TEXT DEFAULT '' NOT NULL");
-        checkColumn("Letters", "Negative", "ALTER TABLE Letters ADD COLUMN Negative TEXT DEFAULT '' NOT NULL");
-      }
-      catch (Exception ex)
-      {
-        ex.Manage();
-      }
-      finally
-      {
-        connection.Close();
-      }
+          string sqlColumn = "ALTER TABLE %TABLE% ADD COLUMN %COLUMN% TEXT DEFAULT '' NOT NULL";
+          upgraded = connection.CheckColumn("Letters", "Hebrew", sqlColumn) || upgraded;
+          upgraded = connection.CheckColumn("Letters", "Positive", sqlColumn) || upgraded;
+          upgraded = connection.CheckColumn("Letters", "Negative", sqlColumn) || upgraded;
+        }
+        catch ( Exception ex )
+        {
+          ex.Manage();
+        }
+        finally
+        {
+          connection.Close();
+        }
       return upgraded;
     }
 
