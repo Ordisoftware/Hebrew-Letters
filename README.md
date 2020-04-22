@@ -82,6 +82,7 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 - Fix inserting a letter at the caret when clicking on letters buttons.
 - Add option to set the max length of the textbox of the hebrew input panel.
 - Improve auto optimize database at startup that is done once a week.
+- Improve debugger to create a GitHub issue.
 - Optimize startup time.
 
 #### 2020.04.19 - Version 4.0
