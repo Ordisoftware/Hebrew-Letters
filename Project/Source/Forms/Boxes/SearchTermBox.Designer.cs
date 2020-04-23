@@ -32,7 +32,7 @@
       this.PanelBottom = new System.Windows.Forms.Panel();
       this.ActionSearch = new System.Windows.Forms.Button();
       this.ActionCancel = new System.Windows.Forms.Button();
-      this.EditTerm = new System.Windows.Forms.TextBox();
+      this.EditTerm = new Ordisoftware.HebrewCommon.UndoRedoTextBox();
       this.PanelBottom.SuspendLayout();
       this.SuspendLayout();
       // 
@@ -84,6 +84,6 @@
     private System.Windows.Forms.Panel PanelBottom;
     private System.Windows.Forms.Button ActionSearch;
     private System.Windows.Forms.Button ActionCancel;
-    internal System.Windows.Forms.TextBox EditTerm;
+    internal Ordisoftware.HebrewCommon.UndoRedoTextBox EditTerm;
   }
 }
