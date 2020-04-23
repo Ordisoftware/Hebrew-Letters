@@ -32,10 +32,6 @@ namespace Ordisoftware.HebrewLetters
       ActionSearch.Enabled = EditTerm.Text.Length >= 2;
     }
 
-    private void EditTerm_Enter(object sender, EventArgs e)
-    {
-      EditTerm.SelectAll();
-    }
   }
 
 }

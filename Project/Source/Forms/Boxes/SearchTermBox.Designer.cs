@@ -62,7 +62,6 @@
       this.EditTerm.CaretAfterPaste = Ordisoftware.HebrewCommon.TextBoxCaretAfterPaste.End;
       this.EditTerm.Name = "EditTerm";
       this.EditTerm.TextChanged += new System.EventHandler(this.EditTerm_TextChanged);
-      this.EditTerm.Enter += new System.EventHandler(this.EditTerm_Enter);
       // 
       // SearchTermBox
       // 
