@@ -436,7 +436,7 @@
     <value>NoControl</value>
   </data>
   <data name="EditEnableDebugger.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 80</value>
+    <value>20, 57</value>
   </data>
   <data name="EditEnableDebugger.Size" type="System.Drawing.Size, System.Drawing">
     <value>107, 17</value>
@@ -502,7 +502,7 @@
     <value>NoControl</value>
   </data>
   <data name="EditVacuumAtStartup.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 57</value>
+    <value>20, 80</value>
   </data>
   <data name="EditVacuumAtStartup.Size" type="System.Drawing.Size, System.Drawing">
     <value>218, 17</value>
