@@ -28,6 +28,7 @@
     /// </summary>
     private void InitializeComponent()
     {
+      this.components = new System.ComponentModel.Container();
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SearchTermBox));
       this.PanelBottom = new System.Windows.Forms.Panel();
       this.ActionSearch = new System.Windows.Forms.Button();
@@ -58,8 +59,10 @@
       // EditTerm
       // 
       resources.ApplyResources(this.EditTerm, "EditTerm");
+      this.EditTerm.CaretAfterPaste = Ordisoftware.HebrewCommon.TextBoxCaretAfterPaste.End;
       this.EditTerm.Name = "EditTerm";
       this.EditTerm.TextChanged += new System.EventHandler(this.EditTerm_TextChanged);
+      this.EditTerm.Enter += new System.EventHandler(this.EditTerm_Enter);
       // 
       // SearchTermBox
       // 
