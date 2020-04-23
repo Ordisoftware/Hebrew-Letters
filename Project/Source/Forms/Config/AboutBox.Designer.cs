@@ -58,6 +58,7 @@
       // 
       this.LabelTrademark.ActiveLinkColor = System.Drawing.Color.MediumBlue;
       resources.ApplyResources(this.LabelTrademark, "LabelTrademark");
+      this.LabelTrademark.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
       this.LabelTrademark.LinkColor = System.Drawing.Color.Navy;
       this.LabelTrademark.Name = "LabelTrademark";
       this.LabelTrademark.TabStop = true;
