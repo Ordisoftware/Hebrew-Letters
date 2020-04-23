@@ -24,6 +24,7 @@ namespace Ordisoftware.HebrewLetters
     public SearchTermBox()
     {
       InitializeComponent();
+      Icon = MainForm.Instance.Icon;
     }
 
     private void EditTerm_TextChanged(object sender, EventArgs e)

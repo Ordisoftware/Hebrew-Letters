@@ -76,6 +76,7 @@
       this.MaximizeBox = false;
       this.MinimizeBox = false;
       this.Name = "SearchTermBox";
+      this.ShowInTaskbar = false;
       this.PanelBottom.ResumeLayout(false);
       this.ResumeLayout(false);
       this.PerformLayout();
