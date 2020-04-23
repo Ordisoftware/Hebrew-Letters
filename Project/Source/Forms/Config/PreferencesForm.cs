@@ -47,6 +47,7 @@ namespace Ordisoftware.HebrewLetters
     private void PreferencesForm_Shown(object sender, EventArgs e)
     {
       TopMost = MainForm.Instance.TopMost;
+      ActiveControl = ActionClose;
       BringToFront();
       UpdateLanguagesButtons();
       EditVacuumAtStartup.Checked = Program.Settings.VacuumAtStartup;

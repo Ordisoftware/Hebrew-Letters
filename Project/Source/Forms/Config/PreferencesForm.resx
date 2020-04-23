@@ -126,14 +126,14 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="ActionClose.Location" type="System.Drawing.Point, System.Drawing">
-    <value>166, 3</value>
+    <value>176, 3</value>
   </data>
   <data name="ActionClose.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="ActionClose.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="ActionClose.Text" xml:space="preserve">
     <value>Close</value>
@@ -149,6 +149,27 @@
   </data>
   <data name="&gt;&gt;ActionClose.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="ActionResetSettings.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ActionResetSettings.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="ActionResetSettings.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ActionResetSettings.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 8</value>
+  </data>
+  <data name="ActionResetSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>113, 13</value>
+  </data>
+  <data name="ActionResetSettings.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="ActionResetSettings.Text" xml:space="preserve">
+    <value>Restore default values</value>
   </data>
   <data name="&gt;&gt;ActionResetSettings.Name" xml:space="preserve">
     <value>ActionResetSettings</value>
@@ -169,7 +190,7 @@
     <value>10, 245</value>
   </data>
   <data name="PanelBottom.Size" type="System.Drawing.Size, System.Drawing">
-    <value>244, 28</value>
+    <value>254, 28</value>
   </data>
   <data name="PanelBottom.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
@@ -185,39 +206,6 @@
   </data>
   <data name="&gt;&gt;PanelBottom.ZOrder" xml:space="preserve">
     <value>11</value>
-  </data>
-  <data name="ActionResetSettings.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="ActionResetSettings.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt</value>
-  </data>
-  <data name="ActionResetSettings.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="ActionResetSettings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 8</value>
-  </data>
-  <data name="ActionResetSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>113, 13</value>
-  </data>
-  <data name="ActionResetSettings.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="ActionResetSettings.Text" xml:space="preserve">
-    <value>Restore default values</value>
-  </data>
-  <data name="&gt;&gt;ActionResetSettings.Name" xml:space="preserve">
-    <value>ActionResetSettings</value>
-  </data>
-  <data name="&gt;&gt;ActionResetSettings.Type" xml:space="preserve">
-    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ActionResetSettings.Parent" xml:space="preserve">
-    <value>PanelBottom</value>
-  </data>
-  <data name="&gt;&gt;ActionResetSettings.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <metadata name="OpenFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -367,7 +355,7 @@
     <value>37, 20</value>
   </data>
   <data name="EditFontSize.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+    <value>5</value>
   </data>
   <data name="&gt;&gt;EditFontSize.Name" xml:space="preserve">
     <value>EditFontSize</value>
@@ -397,7 +385,7 @@
     <value>125, 13</value>
   </data>
   <data name="LabelMaxLength.TabIndex" type="System.Int32, mscorlib">
-    <value>83</value>
+    <value>4</value>
   </data>
   <data name="LabelMaxLength.Text" xml:space="preserve">
     <value>Hebrew chars max count</value>
@@ -424,7 +412,7 @@
     <value>37, 20</value>
   </data>
   <data name="EditMaxLength.TabIndex" type="System.Int32, mscorlib">
-    <value>82</value>
+    <value>4</value>
   </data>
   <data name="&gt;&gt;EditMaxLength.Name" xml:space="preserve">
     <value>EditMaxLength</value>
@@ -454,7 +442,7 @@
     <value>107, 17</value>
   </data>
   <data name="EditEnableDebugger.TabIndex" type="System.Int32, mscorlib">
-    <value>81</value>
+    <value>1</value>
   </data>
   <data name="EditEnableDebugger.Text" xml:space="preserve">
     <value>Enable debugger</value>
@@ -487,7 +475,7 @@
     <value>116, 17</value>
   </data>
   <data name="EditAutoSortAnalysisMeanings.TabIndex" type="System.Int32, mscorlib">
-    <value>80</value>
+    <value>3</value>
   </data>
   <data name="EditAutoSortAnalysisMeanings.Text" xml:space="preserve">
     <value>Auto sort meanings</value>
@@ -520,7 +508,7 @@
     <value>218, 17</value>
   </data>
   <data name="EditVacuumAtStartup.TabIndex" type="System.Int32, mscorlib">
-    <value>79</value>
+    <value>0</value>
   </data>
   <data name="EditVacuumAtStartup.Text" xml:space="preserve">
     <value>Optimize database at startup every week</value>
@@ -550,7 +538,7 @@
     <value>140, 17</value>
   </data>
   <data name="EditCheckUpdateAtStartup.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="EditCheckUpdateAtStartup.Text" xml:space="preserve">
     <value>Check update at startup</value>
@@ -574,10 +562,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>264, 283</value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+    <value>274, 283</value>
   </data>
   <data name="$this.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>10, 10, 10, 10</value>

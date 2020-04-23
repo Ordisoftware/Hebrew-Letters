@@ -69,6 +69,7 @@
       // 
       this.ActionResetSettings.ActiveLinkColor = System.Drawing.Color.MediumBlue;
       resources.ApplyResources(this.ActionResetSettings, "ActionResetSettings");
+      this.ActionResetSettings.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
       this.ActionResetSettings.LinkColor = System.Drawing.Color.Navy;
       this.ActionResetSettings.Name = "ActionResetSettings";
       this.ActionResetSettings.TabStop = true;
@@ -152,6 +153,11 @@
             0});
       this.EditMaxLength.Name = "EditMaxLength";
       this.EditMaxLength.ReadOnly = true;
+      this.EditMaxLength.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
       // 
       // EditEnableDebugger
       // 
