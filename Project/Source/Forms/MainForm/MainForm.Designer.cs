@@ -293,7 +293,6 @@
       this.EditGematriaFull.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.EditGematriaFull.Name = "EditGematriaFull";
       this.EditGematriaFull.ReadOnly = true;
-      this.EditGematriaFull.TabStop = false;
       // 
       // LabelGematriaFull
       // 
@@ -312,7 +311,6 @@
       this.ActionReset.FlatAppearance.BorderSize = 0;
       resources.ApplyResources(this.ActionReset, "ActionReset");
       this.ActionReset.Name = "ActionReset";
-      this.ActionReset.TabStop = false;
       this.ActionReset.UseVisualStyleBackColor = true;
       this.ActionReset.Click += new System.EventHandler(this.ActionReset_Click);
       // 
@@ -321,7 +319,6 @@
       resources.ApplyResources(this.ActionDelLast, "ActionDelLast");
       this.ActionDelLast.FlatAppearance.BorderSize = 0;
       this.ActionDelLast.Name = "ActionDelLast";
-      this.ActionDelLast.TabStop = false;
       this.ActionDelLast.UseVisualStyleBackColor = true;
       this.ActionDelLast.Click += new System.EventHandler(this.ActionDelLast_Click);
       // 
@@ -330,7 +327,6 @@
       resources.ApplyResources(this.ActionDelFirst, "ActionDelFirst");
       this.ActionDelFirst.FlatAppearance.BorderSize = 0;
       this.ActionDelFirst.Name = "ActionDelFirst";
-      this.ActionDelFirst.TabStop = false;
       this.ActionDelFirst.UseVisualStyleBackColor = true;
       this.ActionDelFirst.Click += new System.EventHandler(this.ActionDelFirst_Click);
       // 
@@ -425,7 +421,6 @@
       this.EditGematriaSimple.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.EditGematriaSimple.Name = "EditGematriaSimple";
       this.EditGematriaSimple.ReadOnly = true;
-      this.EditGematriaSimple.TabStop = false;
       // 
       // LabelGematria
       // 
@@ -437,8 +432,17 @@
       this.EditLetters.BackColor = System.Drawing.Color.Transparent;
       this.EditLetters.BackColorInput = System.Drawing.Color.AliceBlue;
       this.EditLetters.BackColorLetters = System.Drawing.Color.LightYellow;
+      this.EditLetters.FontSizeInput = 24F;
+      this.EditLetters.FontSizeKeys = 8.25F;
+      this.EditLetters.FontSizeLetters = 20.25F;
+      this.EditLetters.FontSizeValues = 6.25F;
       resources.ApplyResources(this.EditLetters, "EditLetters");
+      this.EditLetters.MaxLengthInput = 20;
       this.EditLetters.Name = "EditLetters";
+      this.EditLetters.SelectionStartInput = 0;
+      this.EditLetters.ShowKeys = true;
+      this.EditLetters.ShowValues = true;
+      this.EditLetters.TextInput = "";
       this.EditLetters.InputTextChanged += new System.EventHandler(this.EditLetters_InputTextChanged);
       // 
       // TabPageMonth
