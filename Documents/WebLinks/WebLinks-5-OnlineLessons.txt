@@ -66,16 +66,5 @@ URL = https://www.chabad.org
 
 -
 
-Name = (FR) Breslev
-URL = https://www.breslev.co.il/default.aspx?language=french
-
-Name = (EN) Breslev
-URL = https://www.breslev.co.il/default.aspx?language=english
-
-Name = (IW) Breslev
-URL = https://www.breslev.co.il/default.aspx?language=hebrew
-
--
-
 Name = (FR) Lamed.fr
 URL = https://www.lamed.fr
