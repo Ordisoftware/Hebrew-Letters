@@ -75,9 +75,12 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 #### Future improvements
 
-- Add context menu on letters buttons to open details of letter.
 - Add online search a word providers editor form.
 - Optimize comboboxes creation.
+
+#### 2020.05.__ - Version 4.2
+
+- Add context menu on letters buttons to open details of letter.
 
 #### 2020.04.23 - Version 4.1
 
