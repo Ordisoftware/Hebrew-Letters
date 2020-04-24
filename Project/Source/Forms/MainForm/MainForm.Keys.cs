@@ -35,6 +35,7 @@ namespace Ordisoftware.HebrewLetters
           ActionViewLetters.PerformClick();
           return true;
         case Keys.F3:
+        case Keys.Control | Keys.F:
           ActionSearchTerm.PerformClick();
           return true;
         case Keys.F8:
