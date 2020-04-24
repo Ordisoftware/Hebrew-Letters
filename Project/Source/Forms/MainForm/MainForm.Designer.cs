@@ -410,7 +410,7 @@
       resources.ApplyResources(this.EditSentence, "EditSentence");
       this.EditSentence.BackColor = System.Drawing.SystemColors.Window;
       this.EditSentence.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.EditSentence.CaretAfterPaste = Ordisoftware.HebrewCommon.TextBoxCaretAfterPaste.End;
+      this.EditSentence.CaretAfterPaste = Ordisoftware.HebrewCommon.CaretPositionAfterPaste.End;
       this.EditSentence.Name = "EditSentence";
       this.EditSentence.TextChanged += new System.EventHandler(this.EditSentence_TextChanged);
       // 

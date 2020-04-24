@@ -59,7 +59,7 @@
       // EditTerm
       // 
       resources.ApplyResources(this.EditTerm, "EditTerm");
-      this.EditTerm.CaretAfterPaste = Ordisoftware.HebrewCommon.TextBoxCaretAfterPaste.End;
+      this.EditTerm.CaretAfterPaste = Ordisoftware.HebrewCommon.CaretPositionAfterPaste.End;
       this.EditTerm.Name = "EditTerm";
       this.EditTerm.TextChanged += new System.EventHandler(this.EditTerm_TextChanged);
       // 
