@@ -119,7 +119,7 @@ namespace Ordisoftware.HebrewCommon
       ActionCopy.Enabled = !string.IsNullOrEmpty(SelectedText);
       ActionCut.Enabled = ActionCopy.Enabled;
       ActionPaste.Enabled = !string.IsNullOrEmpty(Clipboard.GetText());
-      ActionSelectAll.Enabled = !string.IsNullOrEmpty(base.Text);
+      ActionSelectAll.Enabled = !string.IsNullOrEmpty(base.Text) && SelectionLength != TextLength;
     }
 
     private void ContextMenuEdit_Opened(object sender, EventArgs e)
