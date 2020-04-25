@@ -179,7 +179,7 @@
     <value>233, 17</value>
   </data>
   <data name="EditVacuumAtStartup.Text" xml:space="preserve">
-    <value>Optimiser BD au démarrage chaque semaine</value>
+    <value>Optimiser données au démarrage chaque semaine</value>
   </data>
   <data name="EditCheckUpdateAtStartup.Size" type="System.Drawing.Size, System.Drawing">
     <value>179, 17</value>
