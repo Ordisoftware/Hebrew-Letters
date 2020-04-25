@@ -117,4 +117,214 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="PanelLetters.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="PanelLetters.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="PanelLetters.Size" type="System.Drawing.Size, System.Drawing">
+    <value>510, 179</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="PanelLetters.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;PanelLetters.Name" xml:space="preserve">
+    <value>PanelLetters</value>
+  </data>
+  <data name="&gt;&gt;PanelLetters.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PanelLetters.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;PanelLetters.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="PanelSeparator.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="PanelSeparator.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 179</value>
+  </data>
+  <data name="PanelSeparator.Size" type="System.Drawing.Size, System.Drawing">
+    <value>510, 8</value>
+  </data>
+  <data name="PanelSeparator.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;PanelSeparator.Name" xml:space="preserve">
+    <value>PanelSeparator</value>
+  </data>
+  <data name="&gt;&gt;PanelSeparator.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PanelSeparator.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;PanelSeparator.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="Input.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="Input.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Hebrew, 24pt, style=Bold</value>
+  </data>
+  <data name="Input.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 187</value>
+  </data>
+  <data name="Input.Size" type="System.Drawing.Size, System.Drawing">
+    <value>510, 53</value>
+  </data>
+  <data name="Input.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="Input.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="&gt;&gt;Input.Name" xml:space="preserve">
+    <value>Input</value>
+  </data>
+  <data name="&gt;&gt;Input.Type" xml:space="preserve">
+    <value>Ordisoftware.HebrewCommon.UndoRedoTextBox, Ordisoftware.HebrewLetters, Version=4.2.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;Input.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Input.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <metadata name="ContextMenuLetter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="ActionLetterAddAtCaret.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADr8AAA6/ATgFUyQAAACASURBVDhPYxgFNABZWVnH09LS/icnJ/9PSkoCYxAbJAaS
+        gyrDDdLT0//fun3n/5OnL/4/fPQUjEFskBhIDqoMLzBOBtq6b/+B/5u2bgdjEBskBpKDKCEMjEHOXrtu
+        PRiD2CAxiBTxwBjkZBC2srKKgYqRDEC2gjAXmDcKaAEYGACOXU1+KQ04tAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="ActionLetterAddAtCaret.Size" type="System.Drawing.Size, System.Drawing">
+    <value>263, 22</value>
+  </data>
+  <data name="ActionLetterAddAtCaret.Text" xml:space="preserve">
+    <value>Add at the caret or replace selection</value>
+  </data>
+  <data name="ActionLetterAddAtBegin.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADr8AAA6/ATgFUyQAAADgSURBVDhPYxgF2MGmzVs2t7R1/odywaC+vu5/fX39BygX
+        P1i3YdP/+sYWuAFVVVX/Hz1+8r+urg7FUJxg9dr1/6tr6sGKKysr/j97/vz/wsVL/9fW1hJnwIrVa/+X
+        VdT8r6mu/v/h46f/q4AGbti0hXgDlq1Y9b+4pPx/TU3N/7fv3v7fuWfv/70HD4H5UCX4weKly//nFxSD
+        FBuDvPDg0eP/5y9eIt6ABUuW/s/OLYQpNgYF4tFjx4kPxAmTpxzKyMxBVmwMjEJQGHyG8gkCFSA2hjDh
+        AMQ3gDCHEWBgAAB24HuN8v1TVwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="ActionLetterAddAtBegin.Size" type="System.Drawing.Size, System.Drawing">
+    <value>296, 22</value>
+  </data>
+  <data name="ActionLetterAddAtBegin.Text" xml:space="preserve">
+    <value>Add at the beginning</value>
+  </data>
+  <data name="ActionLetterAddAtEnd.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADr8AAA6/ATgFUyQAAADgSURBVDhPYxgF2EF9ff0HIP4P5YJBS1vn/02bt2yGcvGD
+        urq6//fvP/hfVVUFN6S+seX/ug2bUAzFCWpra/8vXLz0/6PHT/5XVlaANVXX1P9fvXY98QZs2LQFrOHt
+        u/f/a6qr/5dV1PxfsXotcQbU1NT833fw0P+de/f9f/X69X8Qv7ik/P+yFauIN+D8xUv/7967D/RCJUiT
+        cX5B8f/FS5cTZwAoEA8cOvS/GhKIxiCx7NzC/wuWLCXOgNLS0oPQaARrBoGMzJz/EyZPOQTlEgQqQAzX
+        DAUgPkh8eAEGBgARQXr+Bic9tQAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="ActionLetterAddAtEnd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>296, 22</value>
+  </data>
+  <data name="ActionLetterAddAtEnd.Text" xml:space="preserve">
+    <value>Add at the ending</value>
+  </data>
+  <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>293, 6</value>
+  </data>
+  <data name="ActionLetterViewDetails.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADr8AAA6/ATgFUyQAAAJzSURBVDhPlZLfS5NRGMdfKJgjCIICR9Af0EW/vIjoopso
+        qv+lK7vRIVliUEiIaLXN6cylW+ZW7H3d5kxrm2v+LOfe953th2Nr9mtqK8tV9u05p/lqUBd+4ct5zuF5
+        Ps9zDkdgsjrcHZ0OFyz9g5qtjkH0Dbhaj9+UjuxvCpww3PDVbPoQ+WCz72Sl2BX3h6ehZN/h9ZuiZpX2
+        o+NTuGpzY3e9FzqjhKp6kSxBT/HeBgnVTb6iYKHO6aUVRGMphGdVzdFYEpnCCiwPHuF/YhAOUNJ5LH9Z
+        R6m8geJaGaX1DdqXoWQKuGN3AdELQOQ8GsQcMH4OCJ3lAL1RhGB1uiGNRTD24hUmY2nI6beYkbMITs3D
+        F5yAiSa45s3hurSI5qE0GsUMjE9SfwB0JcH68DG8z6J4PhnDdDwDdfE9Xqo5hGdk+EOTMNmdSP8AMt+B
+        W6KC1DqgrvF6eg8PhC4CsE4h6sg6J7IfMLeQR2RWQSA8BbPdgcIGUCDI7SEZeQJlvm0DmHqdKYfHi+BE
+        DHOJPJK5ZcSTSwjSRHa3CNOAhDb/Atq8Ctr9KloJ0uKJbwFIh1s674fM/S6Yex1ot/WhvacPFvoHw5Fp
+        3B1WUKLkT+QOv4LVX8DHn7xeAwi7Ll2+KNRJ/JBNx0xXBU0Ly0iCx8wmgn2l9TNBmDTAvlrbKV2dyA9N
+        fpkSZZjJ1hEFtlGVr5txZ0DGPd88z9UAB2q7TlfVefghvRfYhGxl6n6qVKKtuDIAWI0G0BPtX+oZkSvR
+        3zETq+GA6iu2M+xb7lT8K1e0x9AorrIDRtXRaMxsRHZPvm6LWQ7LNTQOlSr1XEfJNTuzcOw3vNTgoglY
+        GUsAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="ActionLetterViewDetails.Size" type="System.Drawing.Size, System.Drawing">
+    <value>296, 22</value>
+  </data>
+  <data name="ActionLetterViewDetails.Text" xml:space="preserve">
+    <value>View parameters</value>
+  </data>
+  <data name="ContextMenuLetter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>264, 120</value>
+  </data>
+  <data name="&gt;&gt;ContextMenuLetter.Name" xml:space="preserve">
+    <value>ContextMenuLetter</value>
+  </data>
+  <data name="&gt;&gt;ContextMenuLetter.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
+    <value>510, 240</value>
+  </data>
+  <data name="&gt;&gt;ActionLetterAddAtCaret.Name" xml:space="preserve">
+    <value>ActionLetterAddAtCaret</value>
+  </data>
+  <data name="&gt;&gt;ActionLetterAddAtCaret.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ActionLetterAddAtBegin.Name" xml:space="preserve">
+    <value>ActionLetterAddAtBegin</value>
+  </data>
+  <data name="&gt;&gt;ActionLetterAddAtBegin.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ActionLetterAddAtEnd.Name" xml:space="preserve">
+    <value>ActionLetterAddAtEnd</value>
+  </data>
+  <data name="&gt;&gt;ActionLetterAddAtEnd.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem1.Name" xml:space="preserve">
+    <value>toolStripMenuItem1</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ActionLetterViewDetails.Name" xml:space="preserve">
+    <value>ActionLetterViewDetails</value>
+  </data>
+  <data name="&gt;&gt;ActionLetterViewDetails.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>LettersControl</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.UserControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>
