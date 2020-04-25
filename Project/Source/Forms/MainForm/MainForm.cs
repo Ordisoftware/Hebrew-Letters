@@ -700,6 +700,12 @@ namespace Ordisoftware.HebrewLetters
         e.Exception.Manage();
     }
 
+    private void EditLetters_ViewLetterDetails(string code)
+    {
+      ActionViewLetters.PerformClick();
+      ComboBoxCode.SelectedIndex = ComboBoxCode.FindStringExact(code);
+    }
+
   }
 
 }

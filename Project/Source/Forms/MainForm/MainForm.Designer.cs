@@ -443,6 +443,7 @@
       this.EditLetters.ShowKeys = true;
       this.EditLetters.ShowValues = true;
       this.EditLetters.TextInput = "";
+      this.EditLetters.ViewLetterDetails += new Ordisoftware.HebrewCommon.ViewLetterDetails(this.EditLetters_ViewLetterDetails);
       this.EditLetters.InputTextChanged += new System.EventHandler(this.EditLetters_InputTextChanged);
       // 
       // TabPageMonth
