@@ -89,7 +89,7 @@ namespace Ordisoftware.HebrewLetters
     /// </summary>
     internal void CreateProvidersLinks()
     {
-      ContextMenuSearchOnline.InitializeFromProviders(Globals.OnlineWordProviders, true, (sender, e) =>
+      ContextMenuSearchOnline.InitializeFromProviders(Globals.OnlineWordProviders, (sender, e) =>
       {
         var menuitem = (ToolStripMenuItem)sender;
         var control = ( (ContextMenuStrip)menuitem.Owner ).SourceControl;
@@ -103,7 +103,7 @@ namespace Ordisoftware.HebrewLetters
     /// </summary>
     internal void CreateWebLinks()
     {
-      MenuWebLinks.InitializeFromWebLinks(false);
+      MenuWebLinks.InitializeFromWebLinks();
     }
 
     /// <summary>
