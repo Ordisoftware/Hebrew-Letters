@@ -32,9 +32,9 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 
 ## Screenshots
 
-![Analyse Tab](http://www.ordisoftware.com/uploads/2019/09/hebrew-letters-analyse-en.png)
+![Analyse](http://www.ordisoftware.com/uploads/2020/04/hebrew-letters-analyse-en.png)
 
-![Settings Tab](http://www.ordisoftware.com/uploads/2019/09/hebrew-letters-settings-en.png)
+![Parameters](http://www.ordisoftware.com/uploads/2020/04/hebrew-letters-settings-en.png)
 
 ## Videos
 
