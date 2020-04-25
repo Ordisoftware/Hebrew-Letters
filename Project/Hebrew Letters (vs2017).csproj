@@ -182,6 +182,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Source\Common\EditProvidersForm.fr.resx">
+      <DependentUpon>EditProvidersForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Source\Common\EditProvidersForm.resx">
       <DependentUpon>EditProvidersForm.cs</DependentUpon>
     </EmbeddedResource>
