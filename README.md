@@ -32,9 +32,9 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 
 ## Screenshots
 
-![Analyse Tab](http://www.ordisoftware.com/uploads/2019/09/hebrew-letters-analyse-en.png)
+![Analyse](http://www.ordisoftware.com/uploads/2020/04/hebrew-letters-analyse-en.png)
 
-![Settings Tab](http://www.ordisoftware.com/uploads/2019/09/hebrew-letters-settings-en.png)
+![Parameters](http://www.ordisoftware.com/uploads/2020/04/hebrew-letters-settings-en.png)
 
 ## Videos
 
@@ -80,7 +80,8 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 #### 2020.05.__ - Version 4.2
 
-- Add context menu on letters buttons to open details of letter.
+- Add context menu on letters buttons to insert a letter or open its parameters.
+- Improve and fix UndoRedoTextBox.
 
 #### 2020.04.23 - Version 4.1
 
