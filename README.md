@@ -73,16 +73,6 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 ## Changelog
 
-#### Future improvements
-
-- Add online search a word providers editor form.
-- Optimize comboboxes creation.
-
-#### 2020.05.__ - Version 4.2
-
-- Add context menu on letters buttons to insert a letter or open its parameters.
-- Improve and fix UndoRedoTextBox.
-
 #### 2020.04.23 - Version 4.1
 
 - Add select all (Ctrl+A) and undo/redo support for text boxes.
