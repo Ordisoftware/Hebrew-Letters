@@ -86,6 +86,9 @@
     <Compile Include="Source\Common\OnlineProviderItem.cs" />
     <Compile Include="Source\Common\Globals.Translations.cs" />
     <Compile Include="Source\Common\DataFile.cs" />
+    <Compile Include="Source\Common\RichTextBoxEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Source\Common\SQLiteHelper.cs" />
     <Compile Include="Source\Common\HTMLBrowserForm.cs">
       <SubType>Form</SubType>
