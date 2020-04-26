@@ -77,14 +77,19 @@ namespace Ordisoftware.HebrewLetters
       Thread.CurrentThread.CurrentCulture = culture;
       Thread.CurrentThread.CurrentUICulture = culture;
       AboutBox.Instance.Hide();
-      updateForm(Globals.MainForm);
       updateLabel(MainForm.Instance.LabelGematria, MainForm.Instance.EditGematriaSimple, -19);
       updateLabel(MainForm.Instance.LabelGematriaSimple, MainForm.Instance.EditGematriaSimple, 3);
       updateLabel(MainForm.Instance.LabelGematriaFull, MainForm.Instance.EditGematriaFull, 3);
       foreach ( Form form in Application.OpenForms )
-        if ( form != Globals.MainForm && form != AboutBox.Instance 
+        if ( form != MainForm.Instance && form != AboutBox.Instance
           && form != GrammarGuideForm && form != MethodNoticeForm )
           updateForm(form);
+      var temp = Settings.CurrentView;
+      MainForm.Instance.SetView(ViewMode.Analyse);
+      updateForm(MainForm.Instance);
+      MainForm.Instance.SetView(ViewMode.Settings);
+      updateForm(MainForm.Instance);
+      MainForm.Instance.SetView(temp);
       new Infralution.Localization.CultureManager().ManagedControl = AboutBox.Instance;
       new Infralution.Localization.CultureManager().ManagedControl = GrammarGuideForm;
       new Infralution.Localization.CultureManager().ManagedControl = MethodNoticeForm;
