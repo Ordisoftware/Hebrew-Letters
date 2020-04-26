@@ -83,6 +83,7 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 - Add context menu on letters buttons to insert a letter or open its parameters.
 - Add data file editor form.
 - Improve and fix UndoRedoTextBox.
+- Fix changing language not done on preference panel until next launch when analyse panel is current.
 
 #### 2020.04.23 - Version 4.1
 
