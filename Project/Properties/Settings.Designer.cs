@@ -227,7 +227,7 @@ namespace Ordisoftware.HebrewLetters.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("392, 466")]
+        [global::System.Configuration.DefaultSettingValueAttribute("492, 566")]
         public global::System.Drawing.Size GrammarGuideFormSize {
             get {
                 return ((global::System.Drawing.Size)(this["GrammarGuideFormSize"]));
@@ -263,7 +263,7 @@ namespace Ordisoftware.HebrewLetters.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("392, 466")]
+        [global::System.Configuration.DefaultSettingValueAttribute("492, 566")]
         public global::System.Drawing.Size MethodNoticeFormSize {
             get {
                 return ((global::System.Drawing.Size)(this["MethodNoticeFormSize"]));
