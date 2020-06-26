@@ -67,8 +67,8 @@ namespace Ordisoftware.HebrewLetters
     private string WordMeanings = "";
 
     [DllImport("User32.dll", CharSet = CharSet.Auto)]
-    public static extern IntPtr SetClipboardViewer(IntPtr hWndNewViewer);
-    private IntPtr ClipboardViewerNext;
+    private static extern IntPtr SetClipboardViewer(IntPtr hWndNewViewer);
+    //private IntPtr ClipboardViewerNext;
 
     /// <summary>
     /// Default constructor.
@@ -80,7 +80,7 @@ namespace Ordisoftware.HebrewLetters
       SystemEvents.SessionEnding += SessionEnding;
       try { Icon = Icon.ExtractAssociatedIcon(Globals.ApplicationIconFilename); }
       catch { }
-      ClipboardViewerNext = SetClipboardViewer(Handle);
+      //ClipboardViewerNext = SetClipboardViewer(Handle);
       CreateProvidersLinks();
     }
 
@@ -92,7 +92,7 @@ namespace Ordisoftware.HebrewLetters
       ContextMenuSearchOnline.InitializeFromProviders(Globals.OnlineWordProviders, (sender, e) =>
       {
         var menuitem = (ToolStripMenuItem)sender;
-        var control = ( (ContextMenuStrip)menuitem.Owner ).SourceControl;
+        //var control = ( (ContextMenuStrip)menuitem.Owner ).SourceControl;
         string str = HebrewAlphabet.ConvertToUnicode(EditLetters.TextInput);
         SystemHelper.OpenWebLink(( (string)menuitem.Tag ).Replace("%WORD%", str));
       });
@@ -188,13 +188,11 @@ namespace Ordisoftware.HebrewLetters
         {
           ex.Manage();
         }
-      if ( EditConfirmClosing.Checked )
-        if ( !DisplayManager.QueryYesNo(Globals.AskToExitApplication.GetLang()) )
-        {
-          e.Cancel = true;
-          Globals.IsExiting = true;
-          return;
-        }
+      if ( EditConfirmClosing.Checked && !DisplayManager.QueryYesNo(Globals.AskToExitApplication.GetLang()) )
+      {
+        e.Cancel = true;
+        Globals.IsExiting = true;
+      }
     }
 
     /// <summary>
@@ -474,12 +472,6 @@ namespace Ordisoftware.HebrewLetters
     private void ActionShowGrammarGuide_Click(object sender, EventArgs e)
     {
       ProcessHTMLBrowser(Program.GrammarGuideForm);
-    }
-
-    private void ActionOpenHebrewAlphabet_Click(object sender, EventArgs e)
-    {
-      string url = (string)( (ToolStripItem)sender ).Tag;
-      SystemHelper.OpenWebLink(url);
     }
 
     private void ActionOpenWebsiteURL_Click(object sender, EventArgs e)
