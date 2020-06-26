@@ -23,6 +23,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <NoWarn>IDE0039,S2696,S3973,S108,S2486</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -102,7 +103,10 @@
     <Compile Include="Source\Common\UndoRedoTextBox.Designer.cs">
       <DependentUpon>UndoRedoTextBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\Common\UndoRedoTextBox.Static.cs">
+    <Compile Include="Source\Common\UndoRedoTextBox.Static.Init.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Source\Common\UndoRedoTextBox.Static.Actions.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Source\Forms\Boxes\SearchTermResultsBox.cs">
