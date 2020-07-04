@@ -75,15 +75,14 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 #### Future improvements
 
-- Improve data and config text file editor form.
+- Fix the UndoRedoTextBox.
 - Optimize comboboxes creation.
 
-#### 2020.05.__ - Version 4.2
+#### 2020.07.__ - Version 4.2
 
 - Add context menu on letters buttons to insert a letter or open its parameters.
-- Add data file editor form.
-- Improve and fix UndoRedoTextBox.
 - Fix changing language not done on preference panel until next launch when analyse panel is current.
+- Remove UndoRedoTextBox due to a problem with an undo/redo case that requires a complete rewrite to have cursor not misplaced.
 
 #### 2020.04.23 - Version 4.1
 
