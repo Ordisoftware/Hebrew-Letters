@@ -59,7 +59,7 @@
       <Value Profile="(Default)">-1, -1</Value>
     </Setting>
     <Setting Name="GrammarGuideFormSize" Type="System.Drawing.Size" Scope="User">
-      <Value Profile="(Default)">492, 566</Value>
+      <Value Profile="(Default)">542, 666</Value>
     </Setting>
     <Setting Name="VacuumAtStartup" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
@@ -68,7 +68,7 @@
       <Value Profile="(Default)">-1, -1</Value>
     </Setting>
     <Setting Name="MethodNoticeFormSize" Type="System.Drawing.Size" Scope="User">
-      <Value Profile="(Default)">492, 566</Value>
+      <Value Profile="(Default)">542, 666</Value>
     </Setting>
     <Setting Name="AutoSortAnalysisMeanings" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
