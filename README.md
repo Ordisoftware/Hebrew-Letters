@@ -6,7 +6,7 @@
 >[Project Website](http://www.ordisoftware.com/projects/hebrew-letters)<br/>
 >[Twitter](https://twitter.com/ordisoftware)<br/>
 
-A tool for Windows written in C# that allows the lettriq letter-by-letter study of hebrew words.
+A tool for Windows written in C# that allows the lettriq letter-by-letter study and analysis of hebrew words.
 
 ## Functionalities
 
@@ -75,14 +75,14 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 #### Future improvements
 
-- Fix the UndoRedoTextBox.
+- Fix advanced undo/redo.
 - Optimize comboboxes creation.
 
 #### 2020.07.__ - Version 4.2
 
-- Add context menu on letters buttons to insert a letter or open its parameters.
+- Add context menu for buttons of letters to insert a letter or open its parameters.
 - Fix changing language not done on preference panel until next launch when analyse panel is current.
-- Remove UndoRedoTextBox due to a problem with an undo/redo case that requires a complete rewrite to have cursor not misplaced.
+- Remove advanced undo/redo due to a problem that requires a complete rewrite to have the cursor not misplaced in certain cases.
 
 #### 2020.04.23 - Version 4.1
 
