@@ -97,16 +97,16 @@
     <Compile Include="Source\Common\HTMLBrowserForm.Designer.cs">
       <DependentUpon>HTMLBrowserForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Source\Common\UndoRedoTextBox.Actions.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Source\Common\UndoRedoTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Source\Common\UndoRedoTextBox.Designer.cs">
       <DependentUpon>UndoRedoTextBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\Common\UndoRedoTextBox.Static.Init.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Source\Common\UndoRedoTextBox.Static.Actions.cs">
+    <Compile Include="Source\Common\UndoRedoTextBox.Initialize.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Source\Forms\Boxes\SearchTermResultsBox.cs">
