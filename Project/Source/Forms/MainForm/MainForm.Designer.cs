@@ -46,7 +46,7 @@
       this.TabControl = new System.Windows.Forms.TabControl();
       this.TabPageText = new System.Windows.Forms.TabPage();
       this.PanelViewSearch = new System.Windows.Forms.Panel();
-      this.EditGematriaFull = new System.Windows.Forms.TextBox();
+      this.EditGematriaFull = new Ordisoftware.HebrewCommon.UndoRedoTextBox();
       this.LabelGematriaFull = new System.Windows.Forms.Label();
       this.LabelGematriaSimple = new System.Windows.Forms.Label();
       this.ActionReset = new System.Windows.Forms.Button();
@@ -63,7 +63,7 @@
       this.ActionCopyToClipboardMeanings = new System.Windows.Forms.Button();
       this.ActionCopyToClipboardResult = new System.Windows.Forms.Button();
       this.EditSentence = new Ordisoftware.HebrewCommon.UndoRedoTextBox();
-      this.EditGematriaSimple = new System.Windows.Forms.TextBox();
+      this.EditGematriaSimple = new Ordisoftware.HebrewCommon.UndoRedoTextBox();
       this.LabelGematria = new System.Windows.Forms.Label();
       this.EditLetters = new Ordisoftware.HebrewCommon.LettersControl();
       this.TabPageMonth = new System.Windows.Forms.TabPage();
@@ -73,15 +73,15 @@
       this.ComboBoxCode = new System.Windows.Forms.ComboBox();
       this.LettersBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.DataSet = new Ordisoftware.HebrewLetters.Data.DataSet();
-      this.TextBoxStructure = new System.Windows.Forms.TextBox();
+      this.TextBoxStructure = new Ordisoftware.HebrewCommon.UndoRedoTextBox();
       this.LabelHebrew = new System.Windows.Forms.Label();
-      this.TextBoxNegative = new System.Windows.Forms.TextBox();
-      this.TextBoxName = new System.Windows.Forms.TextBox();
-      this.TextBoxFunction = new System.Windows.Forms.TextBox();
-      this.TextBoxPositive = new System.Windows.Forms.TextBox();
-      this.TextBoxVerb = new System.Windows.Forms.TextBox();
-      this.TextBoxValueSimple = new System.Windows.Forms.TextBox();
-      this.TextBoxValueFull = new System.Windows.Forms.TextBox();
+      this.TextBoxNegative = new Ordisoftware.HebrewCommon.UndoRedoTextBox();
+      this.TextBoxName = new Ordisoftware.HebrewCommon.UndoRedoTextBox();
+      this.TextBoxFunction = new Ordisoftware.HebrewCommon.UndoRedoTextBox();
+      this.TextBoxPositive = new Ordisoftware.HebrewCommon.UndoRedoTextBox();
+      this.TextBoxVerb = new Ordisoftware.HebrewCommon.UndoRedoTextBox();
+      this.TextBoxValueSimple = new Ordisoftware.HebrewCommon.UndoRedoTextBox();
+      this.TextBoxValueFull = new Ordisoftware.HebrewCommon.UndoRedoTextBox();
       this.ActionRestoreDefaults = new System.Windows.Forms.LinkLabel();
       this.ActionDeleteMeaning = new System.Windows.Forms.Button();
       this.ActionAddMeaning = new System.Windows.Forms.Button();
@@ -1160,9 +1160,9 @@
     internal System.Windows.Forms.BindingSource LettersBindingSource;
     private Data.DataSetTableAdapters.LettersTableAdapter LettersTableAdapter;
     private Data.DataSetTableAdapters.TableAdapterManager TableAdapterManager;
-    private System.Windows.Forms.TextBox TextBoxName;
-    private System.Windows.Forms.TextBox TextBoxValueSimple;
-    private System.Windows.Forms.TextBox TextBoxValueFull;
+    private Ordisoftware.HebrewCommon.UndoRedoTextBox TextBoxName;
+    private Ordisoftware.HebrewCommon.UndoRedoTextBox TextBoxValueSimple;
+    private Ordisoftware.HebrewCommon.UndoRedoTextBox TextBoxValueFull;
     private Data.DataSetTableAdapters.MeaningsTableAdapter MeaningsTableAdapter;
     private System.Windows.Forms.Panel PanelSettingsDetails;
     private System.Windows.Forms.LinkLabel ActionRestoreDefaults;
@@ -1174,7 +1174,7 @@
     private System.Windows.Forms.Button ActionCopyToClipboardMeanings;
     private System.Windows.Forms.ToolStripButton ActionPreferences;
     internal System.Windows.Forms.Label LabelGematria;
-    internal System.Windows.Forms.TextBox EditGematriaSimple;
+    internal Ordisoftware.HebrewCommon.UndoRedoTextBox EditGematriaSimple;
     private System.Windows.Forms.Button ActionReset;
     private System.Windows.Forms.Button ActionDelLast;
     private System.Windows.Forms.Button ActionDelFirst;
@@ -1219,14 +1219,14 @@
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
     private System.Windows.Forms.ToolStripMenuItem ActionShowMethodNotice;
     internal System.Windows.Forms.BindingSource MeaningsBindingSource;
-    internal System.Windows.Forms.TextBox TextBoxStructure;
-    internal System.Windows.Forms.TextBox TextBoxFunction;
-    internal System.Windows.Forms.TextBox TextBoxVerb;
-    internal System.Windows.Forms.TextBox TextBoxNegative;
-    internal System.Windows.Forms.TextBox TextBoxPositive;
+    internal Ordisoftware.HebrewCommon.UndoRedoTextBox TextBoxStructure;
+    internal Ordisoftware.HebrewCommon.UndoRedoTextBox TextBoxFunction;
+    internal Ordisoftware.HebrewCommon.UndoRedoTextBox TextBoxVerb;
+    internal Ordisoftware.HebrewCommon.UndoRedoTextBox TextBoxNegative;
+    internal Ordisoftware.HebrewCommon.UndoRedoTextBox TextBoxPositive;
     internal System.Windows.Forms.Button ActionClear;
     internal System.Windows.Forms.Label LabelGematriaSimple;
-    internal System.Windows.Forms.TextBox EditGematriaFull;
+    internal Ordisoftware.HebrewCommon.UndoRedoTextBox EditGematriaFull;
     internal System.Windows.Forms.Label LabelGematriaFull;
   }
 }

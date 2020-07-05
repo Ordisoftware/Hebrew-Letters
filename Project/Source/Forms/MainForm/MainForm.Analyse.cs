@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2020-04 </edited>
+/// <edited> 2020-07 </edited>
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -30,6 +30,7 @@ namespace Ordisoftware.HebrewLetters
     {
       try
       {
+        Cursor = Cursors.WaitCursor;
         EditSentence.Text = "";
         EditGematriaSimple.Text = "";
         EditGematriaFull.Text = "";
@@ -74,7 +75,7 @@ namespace Ordisoftware.HebrewLetters
           processMeaning(letter.Structure.Trim());
           processMeaning(letter.Function.Trim());
           var list = letter.GetMeaningsRows().ToList();
-          if (Program.Settings.AutoSortAnalysisMeanings)
+          if ( Program.Settings.AutoSortAnalysisMeanings )
             list = list.OrderBy(m => m.Meaning).ToList();
           foreach ( var meaning in list )
             processMeaning(meaning.Meaning.Trim());
@@ -90,6 +91,10 @@ namespace Ordisoftware.HebrewLetters
       catch ( Exception ex )
       {
         ex.Manage();
+      }
+      finally
+      {
+        Cursor = Cursors.Default;
       }
     }
 
