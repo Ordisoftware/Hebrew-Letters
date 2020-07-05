@@ -298,13 +298,13 @@
       // LabelGematriaFull
       // 
       resources.ApplyResources(this.LabelGematriaFull, "LabelGematriaFull");
-      this.LabelGematriaFull.ForeColor = System.Drawing.SystemColors.GrayText;
+      this.LabelGematriaFull.ForeColor = System.Drawing.SystemColors.ControlText;
       this.LabelGematriaFull.Name = "LabelGematriaFull";
       // 
       // LabelGematriaSimple
       // 
       resources.ApplyResources(this.LabelGematriaSimple, "LabelGematriaSimple");
-      this.LabelGematriaSimple.ForeColor = System.Drawing.SystemColors.GrayText;
+      this.LabelGematriaSimple.ForeColor = System.Drawing.SystemColors.ControlText;
       this.LabelGematriaSimple.Name = "LabelGematriaSimple";
       // 
       // ActionReset

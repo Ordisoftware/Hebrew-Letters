@@ -424,7 +424,7 @@
     <value>Bottom, Left</value>
   </data>
   <data name="EditGematriaFull.Location" type="System.Drawing.Point, System.Drawing">
-    <value>538, 473</value>
+    <value>538, 456</value>
   </data>
   <data name="EditGematriaFull.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 20</value>
@@ -457,7 +457,7 @@
     <value>NoControl</value>
   </data>
   <data name="LabelGematriaFull.Location" type="System.Drawing.Point, System.Drawing">
-    <value>587, 476</value>
+    <value>587, 459</value>
   </data>
   <data name="LabelGematriaFull.Size" type="System.Drawing.Size, System.Drawing">
     <value>23, 13</value>
@@ -493,7 +493,7 @@
     <value>NoControl</value>
   </data>
   <data name="LabelGematriaSimple.Location" type="System.Drawing.Point, System.Drawing">
-    <value>587, 450</value>
+    <value>587, 433</value>
   </data>
   <data name="LabelGematriaSimple.Size" type="System.Drawing.Size, System.Drawing">
     <value>38, 13</value>
@@ -631,7 +631,7 @@
     <value>NoControl</value>
   </data>
   <data name="SelectCloseApp.Location" type="System.Drawing.Point, System.Drawing">
-    <value>572, 520</value>
+    <value>572, 503</value>
   </data>
   <data name="SelectCloseApp.Size" type="System.Drawing.Size, System.Drawing">
     <value>52, 17</value>
@@ -667,7 +667,7 @@
     <value>10, 10, 10, 10</value>
   </data>
   <data name="EditAnalyze.Size" type="System.Drawing.Size, System.Drawing">
-    <value>510, 206</value>
+    <value>510, 189</value>
   </data>
   <data name="EditAnalyze.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1046,7 +1046,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionCopyToClipboardResult.Location" type="System.Drawing.Point, System.Drawing">
-    <value>529, 499</value>
+    <value>529, 482</value>
   </data>
   <data name="ActionCopyToClipboardResult.Size" type="System.Drawing.Size, System.Drawing">
     <value>42, 42</value>
@@ -1073,7 +1073,7 @@
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="EditSentence.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 508</value>
+    <value>13, 491</value>
   </data>
   <data name="EditSentence.Size" type="System.Drawing.Size, System.Drawing">
     <value>510, 26</value>
@@ -1097,7 +1097,7 @@
     <value>Bottom, Left</value>
   </data>
   <data name="EditGematriaSimple.Location" type="System.Drawing.Point, System.Drawing">
-    <value>538, 447</value>
+    <value>538, 430</value>
   </data>
   <data name="EditGematriaSimple.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 20</value>
@@ -1127,7 +1127,7 @@
     <value>NoControl</value>
   </data>
   <data name="LabelGematria.Location" type="System.Drawing.Point, System.Drawing">
-    <value>537, 426</value>
+    <value>537, 409</value>
   </data>
   <data name="LabelGematria.Size" type="System.Drawing.Size, System.Drawing">
     <value>49, 13</value>
@@ -1542,7 +1542,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionDeleteMeaning.Location" type="System.Drawing.Point, System.Drawing">
-    <value>558, 82</value>
+    <value>550, 82</value>
   </data>
   <data name="ActionDeleteMeaning.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 45</value>
@@ -1597,7 +1597,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionAddMeaning.Location" type="System.Drawing.Point, System.Drawing">
-    <value>558, 31</value>
+    <value>550, 31</value>
   </data>
   <data name="ActionAddMeaning.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 45</value>
@@ -1630,7 +1630,7 @@
     <value>222, 34</value>
   </data>
   <data name="EditMeanings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>330, 502</value>
+    <value>322, 502</value>
   </data>
   <data name="EditMeanings.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1657,7 +1657,7 @@
     <value>20, 20, 20, 20</value>
   </data>
   <data name="PanelSettingsDetails.Size" type="System.Drawing.Size, System.Drawing">
-    <value>626, 564</value>
+    <value>618, 564</value>
   </data>
   <data name="PanelSettingsDetails.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -1681,7 +1681,7 @@
     <value>3, 3</value>
   </data>
   <data name="PanelViewSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>626, 564</value>
+    <value>618, 564</value>
   </data>
   <data name="PanelViewSettings.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1705,7 +1705,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="TabPageMonth.Size" type="System.Drawing.Size, System.Drawing">
-    <value>632, 570</value>
+    <value>624, 570</value>
   </data>
   <data name="TabPageMonth.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -2308,14 +2308,14 @@
   <data name="ActionWebYouTube.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGpSURBVDhPnVNNSwJRFL1TKtpvGAwpf4CGCEILiYJIBFto
-        6Aj9nFrl0qBWuisqkNYa+hOMoMBpYbTsYzTL+TjNm6tZNKR04XDfu/fcM/fNu4+EWbncqqkoZRvHZqFw
-        NBXF4qGVzSa5OBLZUYl0zM3h3N6CCFNhc+tEJqLRXdIXF29FUPV49LbPZzjweo22x/MTIjbKC66oGcry
-        PfUDgVdHVZLcv+aGEVfz+3tC4EVsnPbzeeDkBLi8BOp14OoKaLWARoNjp6eAonwJ9RYWtEkHS0vAYADH
-        LIv9dxvHPj6AcNhFYG2NCe/v7LtdoFbjtSg2DC4WtrHhIpBOc1LX2asq4PUC8Thwfc2x4ZD99vYMAp0O
-        EAgAqRRwd8excS6TcRFIJjk5PsLjI9Bs8locQRSPj7C+7iIQDAKaxoS/fmK/D4RCPwQm17i5CZTLQLXK
-        V3Z2Blxc8LpS4dzWllP8u4N/DFLP79fIWF5ui82DJA3b8/M8tsK7YZRTJckZZV2Wb8hKJNLPRG+zPiaH
-        Y3OfiAZWLJbhF0kUsdvaM4lKNg6moGRK0r4ttkJE9AlagHfQgjZX1QAAAABJRU5ErkJggg==
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGpSURBVDhPnVNLSwJRFD7jI7TfIIpkP0AjBKGFRIIYgi4y
+        fEA/p1a5NKiV7RIJxLVK/QQlSHBaGC17jGY6j6+5c7QHDRkd+Dj3nvOdb86dey4JM3K5Lb1YrJg40wuF
+        06UolU6Mvb04F4fD+zKRCocDdXMLIiyFyW0R6YhEDkgNBG5FUHa51O7KimbB7da6Ltd3iNg8L7iiZubz
+        3dHY632xVCXJ/mt2mHMVj2ckBJ7Fxmo/nwcuLoBmE2i1gE4HuL4G2m2O1WpAsfghNFpdVT47WFsDJhNY
+        Zhjsv9oiNp0C6+s2AtvbTHh7Yz8cAo0Gr0WxpnGxsETCRiCd5qSqspdlwO0GolGg1+PYbMY+m/2DwGAA
+        eL3A7i7Q73NskctkbATicU4ujvDwAFxd8VocQRQvjrCzYyPg9wOKwoTffuJ4DASD3wQ+rzGZBCoV4Pyc
+        r6xeBy4veV2tci6Vsop/dvCPQRp5PAppoVBXbO4ladZ1OnlshbfDPCdLkjXKqs93Q0Ysln4iev3rY7I4
+        JveRaGJsbmb4RRKFzbYOdaKyieMlKOuSdGSKbRARvQNRuXfLM5JffAAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="ActionWebYouTube.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
