@@ -291,19 +291,20 @@
       resources.ApplyResources(this.EditGematriaFull, "EditGematriaFull");
       this.EditGematriaFull.BackColor = System.Drawing.Color.LavenderBlush;
       this.EditGematriaFull.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.EditGematriaFull.CaretAfterPaste = Ordisoftware.HebrewCommon.CaretPositionAfterPaste.Ending;
       this.EditGematriaFull.Name = "EditGematriaFull";
       this.EditGematriaFull.ReadOnly = true;
       // 
       // LabelGematriaFull
       // 
       resources.ApplyResources(this.LabelGematriaFull, "LabelGematriaFull");
-      this.LabelGematriaFull.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+      this.LabelGematriaFull.ForeColor = System.Drawing.SystemColors.GrayText;
       this.LabelGematriaFull.Name = "LabelGematriaFull";
       // 
       // LabelGematriaSimple
       // 
       resources.ApplyResources(this.LabelGematriaSimple, "LabelGematriaSimple");
-      this.LabelGematriaSimple.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+      this.LabelGematriaSimple.ForeColor = System.Drawing.SystemColors.GrayText;
       this.LabelGematriaSimple.Name = "LabelGematriaSimple";
       // 
       // ActionReset
@@ -419,6 +420,7 @@
       resources.ApplyResources(this.EditGematriaSimple, "EditGematriaSimple");
       this.EditGematriaSimple.BackColor = System.Drawing.Color.LavenderBlush;
       this.EditGematriaSimple.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.EditGematriaSimple.CaretAfterPaste = Ordisoftware.HebrewCommon.CaretPositionAfterPaste.Ending;
       this.EditGematriaSimple.Name = "EditGematriaSimple";
       this.EditGematriaSimple.ReadOnly = true;
       // 
@@ -520,6 +522,7 @@
       // TextBoxStructure
       // 
       this.TextBoxStructure.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.TextBoxStructure.CaretAfterPaste = Ordisoftware.HebrewCommon.CaretPositionAfterPaste.Ending;
       this.TextBoxStructure.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Structure", true));
       resources.ApplyResources(this.TextBoxStructure, "TextBoxStructure");
       this.TextBoxStructure.Name = "TextBoxStructure";
@@ -533,6 +536,7 @@
       // TextBoxNegative
       // 
       this.TextBoxNegative.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.TextBoxNegative.CaretAfterPaste = Ordisoftware.HebrewCommon.CaretPositionAfterPaste.Ending;
       this.TextBoxNegative.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Negative", true));
       resources.ApplyResources(this.TextBoxNegative, "TextBoxNegative");
       this.TextBoxNegative.Name = "TextBoxNegative";
@@ -541,6 +545,7 @@
       // 
       this.TextBoxName.BackColor = System.Drawing.Color.LightYellow;
       this.TextBoxName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.TextBoxName.CaretAfterPaste = Ordisoftware.HebrewCommon.CaretPositionAfterPaste.Ending;
       this.TextBoxName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Name", true));
       resources.ApplyResources(this.TextBoxName, "TextBoxName");
       this.TextBoxName.Name = "TextBoxName";
@@ -549,6 +554,7 @@
       // TextBoxFunction
       // 
       this.TextBoxFunction.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.TextBoxFunction.CaretAfterPaste = Ordisoftware.HebrewCommon.CaretPositionAfterPaste.Ending;
       this.TextBoxFunction.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Function", true));
       resources.ApplyResources(this.TextBoxFunction, "TextBoxFunction");
       this.TextBoxFunction.Name = "TextBoxFunction";
@@ -556,6 +562,7 @@
       // TextBoxPositive
       // 
       this.TextBoxPositive.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.TextBoxPositive.CaretAfterPaste = Ordisoftware.HebrewCommon.CaretPositionAfterPaste.Ending;
       this.TextBoxPositive.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Positive", true));
       resources.ApplyResources(this.TextBoxPositive, "TextBoxPositive");
       this.TextBoxPositive.Name = "TextBoxPositive";
@@ -563,6 +570,7 @@
       // TextBoxVerb
       // 
       this.TextBoxVerb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.TextBoxVerb.CaretAfterPaste = Ordisoftware.HebrewCommon.CaretPositionAfterPaste.Ending;
       this.TextBoxVerb.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Verb", true));
       resources.ApplyResources(this.TextBoxVerb, "TextBoxVerb");
       this.TextBoxVerb.Name = "TextBoxVerb";
@@ -571,6 +579,7 @@
       // 
       this.TextBoxValueSimple.BackColor = System.Drawing.Color.LavenderBlush;
       this.TextBoxValueSimple.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.TextBoxValueSimple.CaretAfterPaste = Ordisoftware.HebrewCommon.CaretPositionAfterPaste.Ending;
       this.TextBoxValueSimple.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "ValueSimple", true));
       resources.ApplyResources(this.TextBoxValueSimple, "TextBoxValueSimple");
       this.TextBoxValueSimple.Name = "TextBoxValueSimple";
@@ -580,6 +589,7 @@
       // 
       this.TextBoxValueFull.BackColor = System.Drawing.Color.LavenderBlush;
       this.TextBoxValueFull.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.TextBoxValueFull.CaretAfterPaste = Ordisoftware.HebrewCommon.CaretPositionAfterPaste.Ending;
       this.TextBoxValueFull.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "ValueFull", true));
       resources.ApplyResources(this.TextBoxValueFull, "TextBoxValueFull");
       this.TextBoxValueFull.Name = "TextBoxValueFull";
