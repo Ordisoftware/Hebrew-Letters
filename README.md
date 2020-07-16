@@ -21,7 +21,7 @@ A tool for Windows written in C# that allows the lettriq letter-by-letter study 
 
 _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 
-![Note](http://www.ordisoftware.com/uploads/2019/10/softpedia4.5-1.png)
+![Note](https://www.ordisoftware.com/uploads/2019/10/softpedia4.5-1.png)
 
 ## Requirements
 
@@ -32,9 +32,9 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 
 ## Screenshots
 
-![Analyse](http://www.ordisoftware.com/uploads/2020/04/hebrew-letters-analyse-en.png)
+![Analyse](https://www.ordisoftware.com/uploads/2020/04/hebrew-letters-analyse-en.png)
 
-![Parameters](http://www.ordisoftware.com/uploads/2020/04/hebrew-letters-settings-en.png)
+![Parameters](https://www.ordisoftware.com/uploads/2020/04/hebrew-letters-settings-en.png)
 
 ## Videos
 

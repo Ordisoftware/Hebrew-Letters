@@ -220,4 +220,4 @@ Negative: Fail
 Verb: Support
 Structure: Sign
 Function: Offering
-Meanings: Material,Substance,Synthesis,Union,Fusion,Goal,Outcome,Perfection,Grace,Music,Mark,Symbol
+Meanings: Material,Substance,Synthesis,Union,Fusion,Goal,Outcome,Achievement,Purpose,Perfection,Grace,Music,Mark,Symbol

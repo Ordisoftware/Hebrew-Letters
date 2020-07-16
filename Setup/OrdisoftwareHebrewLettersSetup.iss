@@ -5,7 +5,7 @@
 #define MyAppNameNoSpace "HebrewLetters"
 #define MyAppVersion "4.2"
 #define MyAppPublisher "Ordisoftware"
-#define MyAppURL "http://www.ordisoftware.com/projects/hebrew-letters"
+#define MyAppURL "https://www.ordisoftware.com/projects/hebrew-letters"
 #define MyAppExeName "Ordisoftware.HebrewLetters.exe"
 
 [Setup]
