@@ -78,10 +78,11 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 - Rewrite advanced undo/redo.
 - Optimize ComboBoxes creation (much slower on Windows 10 than 7).
 
-#### 2020.07.__ - Version 4.2
+#### 2020.__.__ - Version 4.2
 
 - Add context menu on letters' buttons to allow inserting a letter or open its parameters.
-- Fix changing language not done on preference panel until next launch when analyse panel is current.
+- Fix pasting unicode chars does not decode special final letters.
+- Fix changing language not done on preference panel until next launch when analysis panel is current.
 - Fix UI colors.
 - Change all TextBox for UndoRedoTextBox to have the new context menu.
 - Remove advanced undo/redo due to a problem that requires a complete rewrite to have the cursor not misplaced in certain cases.
