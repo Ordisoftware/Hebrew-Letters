@@ -82,6 +82,8 @@
     </Compile>
     <Compile Include="Source\Common\System\EnumHelper.cs" />
     <Compile Include="Source\Common\System\Globals.cs" />
+    <Compile Include="Source\Common\System\NullSafeDictionary.cs" />
+    <Compile Include="Source\Common\System\NullSafeList.cs" />
     <Compile Include="Source\Common\UI\LettersControl.CreateLetters.cs">
       <SubType>UserControl</SubType>
     </Compile>
