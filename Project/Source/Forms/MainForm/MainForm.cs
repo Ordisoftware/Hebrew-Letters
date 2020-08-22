@@ -103,7 +103,7 @@ namespace Ordisoftware.HebrewLetters
     /// </summary>
     internal void CreateWebLinks()
     {
-      MenuWebLinks.InitializeFromWebLinks();
+      MenuWebLinks.InitializeFromWebLinks(CreateWebLinks);
     }
 
     /// <summary>
