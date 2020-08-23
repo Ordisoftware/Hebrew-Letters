@@ -68,7 +68,6 @@ namespace Ordisoftware.HebrewLetters
 
     [DllImport("User32.dll", CharSet = CharSet.Auto)]
     private static extern IntPtr SetClipboardViewer(IntPtr hWndNewViewer);
-    //private IntPtr ClipboardViewerNext;
 
     /// <summary>
     /// Default constructor.
@@ -80,7 +79,6 @@ namespace Ordisoftware.HebrewLetters
       SystemEvents.SessionEnding += SessionEnding;
       try { Icon = Icon.ExtractAssociatedIcon(Globals.ApplicationIconFilename); }
       catch { }
-      //ClipboardViewerNext = SetClipboardViewer(Handle);
       CreateProvidersLinks();
     }
 
@@ -92,7 +90,6 @@ namespace Ordisoftware.HebrewLetters
       ContextMenuSearchOnline.InitializeFromProviders(Globals.OnlineWordProviders, (sender, e) =>
       {
         var menuitem = (ToolStripMenuItem)sender;
-        //var control = ( (ContextMenuStrip)menuitem.Owner ).SourceControl;
         string str = HebrewAlphabet.ConvertToUnicode(EditLetters.TextInput);
         SystemHelper.OpenWebLink(( (string)menuitem.Tag ).Replace("%WORD%", str));
       });
@@ -413,6 +410,16 @@ namespace Ordisoftware.HebrewLetters
     private void ActionApplicationHome_Click(object sender, EventArgs e)
     {
       SystemHelper.OpenApplicationHome();
+    }
+
+    /// <summary>
+    /// Event handler. Called by ActionWebReleaseNotes for click events.
+    /// </summary>
+    /// <param name="sender">Source of the event.</param>
+    /// <param name="e">Event information.</param>
+    private void ActionWebReleaseNotes_Click(object sender, EventArgs e)
+    {
+      SystemHelper.OpenWebLink(Globals.ApplicationHomeURL + "/#ChangeLog" + Globals.AssemblyVersion);
     }
 
     /// <summary>

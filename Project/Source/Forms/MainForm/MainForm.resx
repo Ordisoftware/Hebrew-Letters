@@ -424,7 +424,7 @@
     <value>Bottom, Left</value>
   </data>
   <data name="EditGematriaFull.Location" type="System.Drawing.Point, System.Drawing">
-    <value>538, 456</value>
+    <value>538, 493</value>
   </data>
   <data name="EditGematriaFull.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 20</value>
@@ -451,13 +451,13 @@
     <value>True</value>
   </data>
   <data name="LabelGematriaFull.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
+    <value>Microsoft Sans Serif, 8.25pt</value>
   </data>
   <data name="LabelGematriaFull.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="LabelGematriaFull.Location" type="System.Drawing.Point, System.Drawing">
-    <value>587, 459</value>
+    <value>587, 496</value>
   </data>
   <data name="LabelGematriaFull.Size" type="System.Drawing.Size, System.Drawing">
     <value>23, 13</value>
@@ -487,13 +487,13 @@
     <value>True</value>
   </data>
   <data name="LabelGematriaSimple.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
+    <value>Microsoft Sans Serif, 8.25pt</value>
   </data>
   <data name="LabelGematriaSimple.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="LabelGematriaSimple.Location" type="System.Drawing.Point, System.Drawing">
-    <value>587, 433</value>
+    <value>587, 470</value>
   </data>
   <data name="LabelGematriaSimple.Size" type="System.Drawing.Size, System.Drawing">
     <value>38, 13</value>
@@ -631,7 +631,7 @@
     <value>NoControl</value>
   </data>
   <data name="SelectCloseApp.Location" type="System.Drawing.Point, System.Drawing">
-    <value>572, 503</value>
+    <value>572, 540</value>
   </data>
   <data name="SelectCloseApp.Size" type="System.Drawing.Size, System.Drawing">
     <value>52, 17</value>
@@ -667,7 +667,7 @@
     <value>10, 10, 10, 10</value>
   </data>
   <data name="EditAnalyze.Size" type="System.Drawing.Size, System.Drawing">
-    <value>510, 189</value>
+    <value>510, 226</value>
   </data>
   <data name="EditAnalyze.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1046,7 +1046,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionCopyToClipboardResult.Location" type="System.Drawing.Point, System.Drawing">
-    <value>529, 482</value>
+    <value>529, 519</value>
   </data>
   <data name="ActionCopyToClipboardResult.Size" type="System.Drawing.Size, System.Drawing">
     <value>42, 42</value>
@@ -1073,7 +1073,7 @@
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="EditSentence.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 491</value>
+    <value>13, 528</value>
   </data>
   <data name="EditSentence.Size" type="System.Drawing.Size, System.Drawing">
     <value>510, 26</value>
@@ -1097,7 +1097,7 @@
     <value>Bottom, Left</value>
   </data>
   <data name="EditGematriaSimple.Location" type="System.Drawing.Point, System.Drawing">
-    <value>538, 430</value>
+    <value>538, 467</value>
   </data>
   <data name="EditGematriaSimple.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 20</value>
@@ -1123,14 +1123,17 @@
   <data name="LabelGematria.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="LabelGematria.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
+  </data>
   <data name="LabelGematria.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="LabelGematria.Location" type="System.Drawing.Point, System.Drawing">
-    <value>537, 409</value>
+    <value>537, 446</value>
   </data>
   <data name="LabelGematria.Size" type="System.Drawing.Size, System.Drawing">
-    <value>49, 13</value>
+    <value>57, 13</value>
   </data>
   <data name="LabelGematria.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -2080,6 +2083,37 @@
   <data name="ActionAbout.Text" xml:space="preserve">
     <value>About</value>
   </data>
+  <data name="toolStripSeparator8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>295, 6</value>
+  </data>
+  <data name="ActionWebReleaseNotes.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIvSURBVDhPjVNLaxNRFJ4f4F9QkG7cu+hCBCtWRdEobsSF
+        S6Eboe2iLaWpdFPs0kUNpOOjMWO188hY0yQ0aMSiUIsuREx8ENMoyUxSY2qS5v31njsz0aBiP/i455w5
+        57vnnntH0JeWCkogAFlVsdhFha+KpkENBEzhX6CE/8EwDMiKItkl3aCdCamNNDbSXznJTn5J8fi838/X
+        bCYDWdP+FHEERFFEJBLhDIdCiMcTPH5PklBvNLht5kzIQd3zbjqGtzNPwAXonIRsLg8jv8mZzW3im2Hy
+        +Nr6Ovz3FyAtPOD+iHsCST2FF7Ov8HpCRUfAKFVglMswf5ZgVKrIlLdRbLb4NwfDY9eQzhiYmrkOaVzG
+        2oCHCdhD/CAIwOmjyDWBj2SfOwmc6kO+2oYo6Xg5tBeFhILJ6RuIPH2Gq+OjdISDHYEiK9xiLDZa+MH8
+        7zYLuThWh/YDq4eAh/vwPjCFwRG3VUxwhjh35y5C0SiCK1Gkt0pWR+ddyGtHmIoPraQX8OzB7SsHfhUT
+        nA5q1TpqjSa26w1U2NkrLFZnvOm+AG1uGKXYKGYv90BfeW5N34EjkKAdXcfRPtuPtqsfOHMM7U+fMXCp
+        D2MXe/FmspfnqY+CfxegebMR8F1rjFVG6/a7wR5TtwAFCF72kB6Hw9yOUzesE5w4zH2veAvB5WVu08zs
+        UgvsR+EfdgvKt0stzPt8MQpSJ6RO6yLzOcn+LU55lG+XdtDDSNeyW1K+DUHYAegcnKJ0BHB2AAAAAElF
+        TkSuQmCC
+</value>
+  </data>
+  <data name="ActionWebReleaseNotes.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="ActionWebReleaseNotes.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="ActionWebReleaseNotes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>298, 22</value>
+  </data>
+  <data name="ActionWebReleaseNotes.Text" xml:space="preserve">
+    <value>Release notes</value>
+  </data>
   <data name="ActionWebCheckUpdate.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -2308,14 +2342,14 @@
   <data name="ActionWebYouTube.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGpSURBVDhPnVNLSwJRFD7jI7TfIIpkP0AjBKGFRIIYgi4y
-        fEA/p1a5NKiV7RIJxLVK/QQlSHBaGC17jGY6j6+5c7QHDRkd+Dj3nvOdb86dey4JM3K5Lb1YrJg40wuF
-        06UolU6Mvb04F4fD+zKRCocDdXMLIiyFyW0R6YhEDkgNBG5FUHa51O7KimbB7da6Ltd3iNg8L7iiZubz
-        3dHY632xVCXJ/mt2mHMVj2ckBJ7Fxmo/nwcuLoBmE2i1gE4HuL4G2m2O1WpAsfghNFpdVT47WFsDJhNY
-        Zhjsv9oiNp0C6+s2AtvbTHh7Yz8cAo0Gr0WxpnGxsETCRiCd5qSqspdlwO0GolGg1+PYbMY+m/2DwGAA
-        eL3A7i7Q73NskctkbATicU4ujvDwAFxd8VocQRQvjrCzYyPg9wOKwoTffuJ4DASD3wQ+rzGZBCoV4Pyc
-        r6xeBy4veV2tci6Vsop/dvCPQRp5PAppoVBXbO4ladZ1OnlshbfDPCdLkjXKqs93Q0Ysln4iev3rY7I4
-        JveRaGJsbmb4RRKFzbYOdaKyieMlKOuSdGSKbRARvQNRuXfLM5JffAAAAABJRU5ErkJggg==
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGpSURBVDhPnVNLSwJRFD7jI7TfIIpUP0AjBKGFRIIYgi4y
+        fEA/p1a5NKhV7owQxLVK/QQlKHBaGC17jOZjHl9z52glDRkd+Dj3nvOdb86dey4JM7LZbb1QKJs41/P5
+        s6UoFk+N/f0YF4dCBzKRCocDVXMLIiyFyW0S6QiHD0kNBO5EUHa51M7KimbB7dY6LtciRGyWF1xRM/X5
+        Hmjo9b5ZqpJk/zU7zLiKxzMQAq9iY7WfywHVKtBoAM0m0G4DNzdAq8Wxy0ugUPgUGqyuKl8drK0BoxEs
+        Mwz2320em0yAjQ0bgZ0dJozH7Pt9oF7ntSjWNC4WFo/bCKRSnFRV9rIMuN1AJAJ0uxybTtlnMn8Q6PUA
+        rxfY2wPu7zk2z6XTNgKxGCfnR3h6Aq6veS2OIIrnR9jdtRHw+wFFYcJvP3E4BILBBYGva0wkgHIZqFT4
+        yq6ugFqN1xcXnEsmreKfHfxjkAYej0La+npHbB4ladpxOnlshbfDLCdLkjXKqs93S0Y0mnohev/rY7I4
+        JveZaGRsbaX5RRKFzLaOdKKSiZMlKOmSdGyKbRIRfQA3ZHe80+uhzgAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="ActionWebYouTube.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
@@ -3124,6 +3158,18 @@
     <value>ActionAbout</value>
   </data>
   <data name="&gt;&gt;ActionAbout.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator8.Name" xml:space="preserve">
+    <value>toolStripSeparator8</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ActionWebReleaseNotes.Name" xml:space="preserve">
+    <value>ActionWebReleaseNotes</value>
+  </data>
+  <data name="&gt;&gt;ActionWebReleaseNotes.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ActionWebCheckUpdate.Name" xml:space="preserve">

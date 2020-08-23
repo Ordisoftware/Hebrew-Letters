@@ -98,6 +98,8 @@
       this.ActionHelp = new System.Windows.Forms.ToolStripButton();
       this.MenuWeb = new System.Windows.Forms.ToolStripDropDownButton();
       this.ActionAbout = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+      this.ActionWebReleaseNotes = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionWebCheckUpdate = new System.Windows.Forms.ToolStripMenuItem();
       this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
       this.ActionCreateGitHubIssue = new System.Windows.Forms.ToolStripMenuItem();
@@ -734,6 +736,8 @@
       this.MenuWeb.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
       this.MenuWeb.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ActionAbout,
+            this.toolStripSeparator8,
+            this.ActionWebReleaseNotes,
             this.ActionWebCheckUpdate,
             this.toolStripSeparator7,
             this.ActionCreateGitHubIssue,
@@ -758,6 +762,18 @@
       resources.ApplyResources(this.ActionAbout, "ActionAbout");
       this.ActionAbout.Name = "ActionAbout";
       this.ActionAbout.Click += new System.EventHandler(this.ActionAbout_Click);
+      // 
+      // toolStripSeparator8
+      // 
+      this.toolStripSeparator8.Name = "toolStripSeparator8";
+      resources.ApplyResources(this.toolStripSeparator8, "toolStripSeparator8");
+      // 
+      // ActionWebReleaseNotes
+      // 
+      this.ActionWebReleaseNotes.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+      resources.ApplyResources(this.ActionWebReleaseNotes, "ActionWebReleaseNotes");
+      this.ActionWebReleaseNotes.Name = "ActionWebReleaseNotes";
+      this.ActionWebReleaseNotes.Click += new System.EventHandler(this.ActionWebReleaseNotes_Click);
       // 
       // ActionWebCheckUpdate
       // 
@@ -1238,5 +1254,7 @@
     internal System.Windows.Forms.Label LabelGematriaSimple;
     internal Ordisoftware.HebrewCommon.UndoRedoTextBox EditGematriaFull;
     internal System.Windows.Forms.Label LabelGematriaFull;
+    private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
+    private System.Windows.Forms.ToolStripMenuItem ActionWebReleaseNotes;
   }
 }
