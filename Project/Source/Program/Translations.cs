@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2004-08 </edited>
+/// <edited> 2020-08 </edited>
 using System;
 using System.Collections.Generic;
 using Ordisoftware.HebrewCommon;
@@ -25,27 +25,22 @@ namespace Ordisoftware.HebrewLetters
   static public partial class Translations
   {
 
-    public const string LangEN = "en";
-    public const string LangFR = "fr";
-
-    static public string NewLine { get { return Environment.NewLine; } }
-
     static public readonly Dictionary<string, string> ApplicationDescription
       = new Dictionary<string, string>()
       {
-        { LangEN, "Lettriq letter-by-letter study and analysis of Hebrew words" },
-        { LangFR, "Étude et analyse lettrique lettre-par-lettre des mots hébreux" }
+        { Localizer.EN, "Lettriq letter-by-letter study and analysis of Hebrew words" },
+        { Localizer.FR, "Étude et analyse lettrique lettre-par-lettre des mots hébreux" }
       };
 
     static public readonly Dictionary<string, string> AskToRestoreLettersDefaults
       = new Dictionary<string, string>()
       {
-        { LangEN, "Letters will be restored to their default values." + NewLine + NewLine +
-                "All additions will be lost." + NewLine + NewLine +
-                Globals.DoYouWantToContinue[LangEN] },
-        { LangFR, "Les lettres vont être restaurées à leurs valeurs par défaut." + NewLine + NewLine +
-                "Tous les ajouts seront perdus." + NewLine + NewLine +
-                Globals.DoYouWantToContinue[LangFR] }
+        { Localizer.EN, "Letters will be restored to their default values." + Localizer.NL + Localizer.NL +
+                        "All additions will be lost." + Localizer.NL + Localizer.NL +
+                        Globals.DoYouWantToContinue[Localizer.EN] },
+        { Localizer.FR, "Les lettres vont être restaurées à leurs valeurs par défaut." + Localizer.NL + Localizer.NL +
+                        "Tous les ajouts seront perdus." + Localizer.NL + Localizer.NL +
+                        Globals.DoYouWantToContinue[Localizer.FR] }
       };
 
   }

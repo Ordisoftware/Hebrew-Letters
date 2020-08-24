@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-09 </created>
-/// <edited> 2020-04 </edited>
+/// <edited> 2020-08 </edited>
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -76,12 +76,12 @@ namespace Ordisoftware.HebrewLetters
 
     private void UpdateLanguagesButtons()
     {
-      if ( Program.Settings.Language == "en" )
+      if ( Program.Settings.Language == Localizer.EN )
       {
         ActionSelectLangEN.BackColor = SystemColors.ControlLightLight;
         ActionSelectLangFR.BackColor = SystemColors.Control;
       }
-      if ( Program.Settings.Language == "fr" )
+      if ( Program.Settings.Language == Localizer.FR )
       {
         ActionSelectLangFR.BackColor = SystemColors.ControlLightLight;
         ActionSelectLangEN.BackColor = SystemColors.Control;
@@ -92,7 +92,7 @@ namespace Ordisoftware.HebrewLetters
     {
       string temp = MainForm.Instance.EditLetters.TextInput;
       MainForm.Instance.ActionClear.PerformClick();
-      Program.Settings.Language = "en";
+      Program.Settings.Language = Localizer.EN;
       Program.UpdateLocalization();
       UpdateLanguagesButtons();
       LanguageChanged = true;
@@ -104,7 +104,7 @@ namespace Ordisoftware.HebrewLetters
     {
       string temp = MainForm.Instance.EditLetters.TextInput;
       MainForm.Instance.ActionClear.PerformClick();
-      Program.Settings.Language = "fr";
+      Program.Settings.Language = Localizer.FR;
       Program.UpdateLocalization();
       UpdateLanguagesButtons();
       LanguageChanged = true;
@@ -122,7 +122,7 @@ namespace Ordisoftware.HebrewLetters
       if ( !DisplayManager.QueryYesNo(Globals.AskToResetPreferences.GetLang()) ) return;
       Program.Settings.Reset();
       Program.Settings.Reload();
-      Program.Settings.Language = Localizer.Language;
+      Program.Settings.Language = Localizer.Current;
       Program.Settings.Store();
       PreferencesForm_Shown(null, null);
       MainForm.Instance.EditSentence.Font = new Font("Microsoft Sans Serif", (float)Program.Settings.FontSizeSentence);

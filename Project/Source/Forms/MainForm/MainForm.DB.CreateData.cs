@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-01 </created>
-/// <edited> 2020-04 </edited>
+/// <edited> 2020-08 </edited>
 using System;
 using System.Data.Odbc;
 using System.Globalization;
@@ -51,8 +51,8 @@ namespace Ordisoftware.HebrewLetters
           MeaningsTableAdapter.Fill(DataSet.Meanings);
           LettersTableAdapter.Fill(DataSet.Letters);
           string lang = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
-          if ( lang != "fr" && lang != "en" ) lang = "en";
-          string data = File.ReadAllText(Program.MeaningsFilename.Replace("%LANG%", Localizer.Language),
+          if ( lang != Localizer.FR && lang != Localizer.EN ) lang = Localizer.EN;
+          string data = File.ReadAllText(Program.MeaningsFilename.Replace("%LANG%", Localizer.Current),
                                          System.Text.Encoding.Default);
           int indexStart = 0;
           Func<string, string> getStrValue = (name) =>
