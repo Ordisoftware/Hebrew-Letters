@@ -98,9 +98,11 @@ namespace Ordisoftware.HebrewLetters
     /// <summary>
     /// Create providers and web links menu items.
     /// </summary>
-    internal void CreateWebLinks()
+    internal void InitializeSpecialMenus()
     {
-      MenuWebLinks.InitializeFromWebLinks(CreateWebLinks);
+      ActionWebLinks.Visible = Program.Settings.WebLinksMenuEnabled;
+      if ( Program.Settings.WebLinksMenuEnabled )
+        ActionWebLinks.InitializeFromWebLinks(InitializeSpecialMenus);
     }
 
     /// <summary>
@@ -185,11 +187,15 @@ namespace Ordisoftware.HebrewLetters
         {
           ex.Manage();
         }
-      if ( EditConfirmClosing.Checked && !DisplayManager.QueryYesNo(Globals.AskToExitApplication.GetLang()) )
+      if ( e.CloseReason != CloseReason.None && e.CloseReason != CloseReason.UserClosing )
       {
-        e.Cancel = true;
         Globals.IsExiting = true;
+        return;
       }
+      if ( EditConfirmClosing.Checked && !DisplayManager.QueryYesNo(Globals.AskToExitApplication.GetLang()) )
+        e.Cancel = true;
+      else
+        Globals.IsExiting = true;
     }
 
     /// <summary>
@@ -378,10 +384,18 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void ActionPreferences_Click(object sender, EventArgs e)
     {
-      PreferencesForm.Run();
-      EditLetters.MaxLengthInput = (int)Program.Settings.HebrewTextBoxMaxLength;
+      try
+      {
+        PreferencesForm.Run();
+        EditLetters.MaxLengthInput = (int)Program.Settings.HebrewTextBoxMaxLength;
+        InitializeSpecialMenus();
+      }
+      catch ( Exception ex )
+      {
+        ex.Manage();
+      }
     }
-
+    
     /// <summary>
     /// Event handler. Called by ActionAbout for click events.
     /// </summary>

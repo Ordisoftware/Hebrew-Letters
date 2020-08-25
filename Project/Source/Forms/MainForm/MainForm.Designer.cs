@@ -96,7 +96,7 @@
       this.ActionExit = new System.Windows.Forms.ToolStripButton();
       this.Sep4 = new System.Windows.Forms.ToolStripSeparator();
       this.ActionHelp = new System.Windows.Forms.ToolStripButton();
-      this.MenuWeb = new System.Windows.Forms.ToolStripDropDownButton();
+      this.ActionInformation = new System.Windows.Forms.ToolStripDropDownButton();
       this.ActionAbout = new System.Windows.Forms.ToolStripMenuItem();
       this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
       this.ActionWebReleaseNotes = new System.Windows.Forms.ToolStripMenuItem();
@@ -117,7 +117,7 @@
       this.ActionDownloadHebrewWords = new System.Windows.Forms.ToolStripMenuItem();
       this.Sep6 = new System.Windows.Forms.ToolStripSeparator();
       this.ActionPreferences = new System.Windows.Forms.ToolStripButton();
-      this.MenuSettings = new System.Windows.Forms.ToolStripDropDownButton();
+      this.ActionSettings = new System.Windows.Forms.ToolStripDropDownButton();
       this.MenuitemScreenPosition = new System.Windows.Forms.ToolStripMenuItem();
       this.EditScreenNone = new System.Windows.Forms.ToolStripMenuItem();
       this.EditScreenTopLeft = new System.Windows.Forms.ToolStripMenuItem();
@@ -134,7 +134,7 @@
       this.ActionViewLetters = new System.Windows.Forms.ToolStripButton();
       this.ActionSearchTerm = new System.Windows.Forms.ToolStripButton();
       this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-      this.MenuTools = new System.Windows.Forms.ToolStripDropDownButton();
+      this.ActionTools = new System.Windows.Forms.ToolStripDropDownButton();
       this.ActionShowMethodNotice = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionShowGrammarGuide = new System.Windows.Forms.ToolStripMenuItem();
       this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
@@ -142,7 +142,7 @@
       this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
       this.ActionOpenLexilogosOld = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionOpenLexilogosModern = new System.Windows.Forms.ToolStripMenuItem();
-      this.MenuWebLinks = new System.Windows.Forms.ToolStripDropDownButton();
+      this.ActionWebLinks = new System.Windows.Forms.ToolStripDropDownButton();
       this.LettersTableAdapter = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.LettersTableAdapter();
       this.TableAdapterManager = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.TableAdapterManager();
       this.MeaningsTableAdapter = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.MeaningsTableAdapter();
@@ -689,16 +689,16 @@
             this.ActionExit,
             this.Sep4,
             this.ActionHelp,
-            this.MenuWeb,
+            this.ActionInformation,
             this.Sep6,
             this.ActionPreferences,
-            this.MenuSettings,
+            this.ActionSettings,
             this.ActionViewAnalysis,
             this.ActionViewLetters,
             this.ActionSearchTerm,
             this.toolStripSeparator1,
-            this.MenuTools,
-            this.MenuWebLinks});
+            this.ActionTools,
+            this.ActionWebLinks});
       this.ToolStrip.Name = "ToolStrip";
       this.ToolStrip.ShowItemToolTips = false;
       // 
@@ -730,11 +730,11 @@
       this.ActionHelp.MouseEnter += new System.EventHandler(this.ShowToolTipOnMouseEnter);
       this.ActionHelp.MouseLeave += new System.EventHandler(this.ShowToolTipOnMouseLeave);
       // 
-      // MenuWeb
+      // ActionInformation
       // 
-      this.MenuWeb.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-      this.MenuWeb.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      this.MenuWeb.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+      this.ActionInformation.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+      this.ActionInformation.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      this.ActionInformation.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ActionAbout,
             this.toolStripSeparator8,
             this.ActionWebReleaseNotes,
@@ -753,8 +753,8 @@
             this.toolStripSeparator6,
             this.ActionDownloadHebrewCalendar,
             this.ActionDownloadHebrewWords});
-      resources.ApplyResources(this.MenuWeb, "MenuWeb");
-      this.MenuWeb.Name = "MenuWeb";
+      resources.ApplyResources(this.ActionInformation, "ActionInformation");
+      this.ActionInformation.Name = "ActionInformation";
       // 
       // ActionAbout
       // 
@@ -894,19 +894,19 @@
       this.ActionPreferences.MouseEnter += new System.EventHandler(this.ShowToolTipOnMouseEnter);
       this.ActionPreferences.MouseLeave += new System.EventHandler(this.ShowToolTipOnMouseLeave);
       // 
-      // MenuSettings
+      // ActionSettings
       // 
-      this.MenuSettings.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-      this.MenuSettings.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      this.MenuSettings.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+      this.ActionSettings.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+      this.ActionSettings.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      this.ActionSettings.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MenuitemScreenPosition,
             this.ActionResetWinSettings,
             this.Sep7,
             this.EditShowTips,
             this.EditESCtoExit,
             this.EditConfirmClosing});
-      resources.ApplyResources(this.MenuSettings, "MenuSettings");
-      this.MenuSettings.Name = "MenuSettings";
+      resources.ApplyResources(this.ActionSettings, "ActionSettings");
+      this.ActionSettings.Name = "ActionSettings";
       // 
       // MenuitemScreenPosition
       // 
@@ -1028,10 +1028,10 @@
       this.toolStripSeparator1.Name = "toolStripSeparator1";
       resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
       // 
-      // MenuTools
+      // ActionTools
       // 
-      this.MenuTools.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      this.MenuTools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+      this.ActionTools.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      this.ActionTools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ActionShowMethodNotice,
             this.ActionShowGrammarGuide,
             this.toolStripSeparator4,
@@ -1039,8 +1039,8 @@
             this.toolStripSeparator3,
             this.ActionOpenLexilogosOld,
             this.ActionOpenLexilogosModern});
-      resources.ApplyResources(this.MenuTools, "MenuTools");
-      this.MenuTools.Name = "MenuTools";
+      resources.ApplyResources(this.ActionTools, "ActionTools");
+      this.ActionTools.Name = "ActionTools";
       // 
       // ActionShowMethodNotice
       // 
@@ -1085,11 +1085,11 @@
       this.ActionOpenLexilogosModern.Tag = "https://www.lexilogos.com/hebreu_moderne_dictionnaire.htm";
       this.ActionOpenLexilogosModern.Click += new System.EventHandler(this.ActionOpenWebsiteURL_Click);
       // 
-      // MenuWebLinks
+      // ActionWebLinks
       // 
-      this.MenuWebLinks.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      resources.ApplyResources(this.MenuWebLinks, "MenuWebLinks");
-      this.MenuWebLinks.Name = "MenuWebLinks";
+      this.ActionWebLinks.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      resources.ApplyResources(this.ActionWebLinks, "ActionWebLinks");
+      this.ActionWebLinks.Name = "ActionWebLinks";
       // 
       // LettersTableAdapter
       // 
@@ -1152,7 +1152,7 @@
     private System.Windows.Forms.ToolStrip ToolStrip;
     private System.Windows.Forms.ToolStripButton ActionExit;
     private System.Windows.Forms.ToolStripSeparator Sep4;
-    private System.Windows.Forms.ToolStripDropDownButton MenuSettings;
+    private System.Windows.Forms.ToolStripDropDownButton ActionSettings;
     private System.Windows.Forms.ToolStripMenuItem MenuitemScreenPosition;
     private System.Windows.Forms.ToolStripButton ActionHelp;
     private System.Windows.Forms.ToolStripSeparator Sep7;
@@ -1204,7 +1204,7 @@
     private System.Windows.Forms.Button ActionReset;
     private System.Windows.Forms.Button ActionDelLast;
     private System.Windows.Forms.Button ActionDelFirst;
-    private System.Windows.Forms.ToolStripDropDownButton MenuWeb;
+    private System.Windows.Forms.ToolStripDropDownButton ActionInformation;
     private System.Windows.Forms.ToolStripMenuItem ActionWebHome;
     private System.Windows.Forms.ToolStripMenuItem ActionWebContact;
     private System.Windows.Forms.ToolStripMenuItem ActionCreateGitHubIssue;
@@ -1224,7 +1224,7 @@
     private System.Windows.Forms.Button ActionPasteFromUnicode;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     private System.Windows.Forms.ToolStripButton ActionSearchTerm;
-    private System.Windows.Forms.ToolStripDropDownButton MenuTools;
+    private System.Windows.Forms.ToolStripDropDownButton ActionTools;
     private System.Windows.Forms.ToolStripMenuItem ActionOpenShorashon;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
     private System.Windows.Forms.ToolStripMenuItem ActionOpenLexilogosOld;
@@ -1240,7 +1240,7 @@
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
     private System.Windows.Forms.ToolStripMenuItem ActionAbout;
     private System.Windows.Forms.ToolStripMenuItem ActionWebQA;
-    private System.Windows.Forms.ToolStripDropDownButton MenuWebLinks;
+    private System.Windows.Forms.ToolStripDropDownButton ActionWebLinks;
     private System.Windows.Forms.ToolStripMenuItem ActionShowGrammarGuide;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
     private System.Windows.Forms.ToolStripMenuItem ActionShowMethodNotice;

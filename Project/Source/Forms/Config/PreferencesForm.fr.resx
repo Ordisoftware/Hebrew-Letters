@@ -193,4 +193,7 @@
   <data name="LabelMaxLength.Text" xml:space="preserve">
     <value>Nombre max. de caractères hébreux</value>
   </data>
+  <data name="EditWebLinksMenuEnabled.Text" xml:space="preserve">
+    <value>Activer le menu des liens web</value>
+  </data>
 </root>

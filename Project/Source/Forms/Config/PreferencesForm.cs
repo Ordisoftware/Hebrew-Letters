@@ -56,6 +56,7 @@ namespace Ordisoftware.HebrewLetters
       EditAutoSortAnalysisMeanings.Checked = Program.Settings.AutoSortAnalysisMeanings;
       EditFontSize.Value = Program.Settings.FontSizeSentence;
       EditMaxLength.Value = Program.Settings.HebrewTextBoxMaxLength;
+      EditWebLinksMenuEnabled.Checked = Program.Settings.WebLinksMenuEnabled;
     }
 
     private void PreferencesForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -66,6 +67,7 @@ namespace Ordisoftware.HebrewLetters
       Program.Settings.AutoSortAnalysisMeanings = EditAutoSortAnalysisMeanings.Checked;
       Program.Settings.FontSizeSentence = EditFontSize.Value;
       Program.Settings.HebrewTextBoxMaxLength = EditMaxLength.Value;
+      Program.Settings.WebLinksMenuEnabled = EditWebLinksMenuEnabled.Checked;
       Program.Settings.Save();
     }
 
@@ -90,6 +92,7 @@ namespace Ordisoftware.HebrewLetters
 
     private void ActionSelectLangEN_Click(object sender, EventArgs e)
     {
+      if ( Program.Settings.Language == Localizer.EN ) return;
       string temp = MainForm.Instance.EditLetters.TextInput;
       MainForm.Instance.ActionClear.PerformClick();
       Program.Settings.Language = Localizer.EN;
@@ -102,6 +105,7 @@ namespace Ordisoftware.HebrewLetters
 
     private void ActionSelectLangFR_Click(object sender, EventArgs e)
     {
+      if ( Program.Settings.Language == Localizer.FR ) return;
       string temp = MainForm.Instance.EditLetters.TextInput;
       MainForm.Instance.ActionClear.PerformClick();
       Program.Settings.Language = Localizer.FR;
