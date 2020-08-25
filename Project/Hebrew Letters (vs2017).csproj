@@ -74,31 +74,59 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Source\Common\Data\DataFile.cs" />
     <Compile Include="Source\Common\Data\DataFileEditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Source\Common\Data\DataFileEditorForm.Designer.cs">
       <DependentUpon>DataFileEditorForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Source\Common\Data\OnlineProviderItem.cs" />
+    <Compile Include="Source\Common\Data\OnlineProviders.cs" />
+    <Compile Include="Source\Common\Data\OnlineProvidersHelper.cs" />
+    <Compile Include="Source\Common\System\ControlLocation.cs" />
     <Compile Include="Source\Common\System\EnumHelper.cs" />
+    <Compile Include="Source\Common\System\Extensions.cs" />
     <Compile Include="Source\Common\System\Globals.cs" />
+    <Compile Include="Source\Common\System\Globals.Translations.cs" />
+    <Compile Include="Source\Common\System\HebrewAlphabet.cs" />
+    <Compile Include="Source\Common\System\Localizer.cs" />
     <Compile Include="Source\Common\System\NullSafeDictionary.cs" />
     <Compile Include="Source\Common\System\NullSafeList.cs" />
-    <Compile Include="Source\Common\UI\LettersControl.CreateLetters.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Source\Common\Data\OnlineProviderItem.cs" />
-    <Compile Include="Source\Common\System\Globals.Translations.cs" />
-    <Compile Include="Source\Common\Data\DataFile.cs" />
-    <Compile Include="Source\Common\UI\RichTextBoxEx.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Source\Common\System\SQLiteHelper.cs" />
+    <Compile Include="Source\Common\System\SystemHelper.CheckUpdate.cs" />
+    <Compile Include="Source\Common\System\SystemHelper.cs" />
+    <Compile Include="Source\Common\System\SystemHelper.Forms.cs" />
+    <Compile Include="Source\Common\System\SystemHelper.Shell.cs" />
     <Compile Include="Source\Common\UI\HTMLBrowserForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Source\Common\UI\HTMLBrowserForm.Designer.cs">
       <DependentUpon>HTMLBrowserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Common\UI\LettersControl.CreateLetters.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Source\Common\UI\LettersControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Source\Common\UI\LettersControl.Designer.cs">
+      <DependentUpon>LettersControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Common\UI\LoadingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Common\UI\LoadingForm.designer.cs">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Common\UI\RichTextBoxEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Source\Common\UI\ShowTextForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Common\UI\ShowTextForm.Designer.cs">
+      <DependentUpon>ShowTextForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Common\UI\UndoRedoTextBox.Actions.cs">
       <SubType>Component</SubType>
@@ -112,6 +140,12 @@
     <Compile Include="Source\Common\UI\UndoRedoTextBox.Initialize.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Source\Common\UI\WebUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Common\UI\WebUpdateForm.Designer.cs">
+      <DependentUpon>WebUpdateForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Source\Forms\Boxes\SearchTermResultsBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,10 +158,7 @@
     <Compile Include="Source\Forms\Boxes\SearchTermBox.Designer.cs">
       <DependentUpon>SearchTermBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\Common\System\HebrewAlphabet.cs" />
-    <Compile Include="Source\Common\Data\OnlineProviders.cs" />
     <Compile Include="Source\Program\Translations.cs" />
-    <Compile Include="Source\Common\System\Localizer.cs" />
     <Compile Include="Source\Program\SettingsHelper.cs" />
     <Compile Include="Source\Forms\MainForm\MainForm.DB.CreateSchema.cs">
       <SubType>Form</SubType>
@@ -135,7 +166,6 @@
     <Compile Include="Source\Forms\MainForm\MainForm.DB.CreateData.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Source\Common\System\ControlLocation.cs" />
     <Compile Include="Source\Forms\MainForm\ViewMode.cs" />
     <Compile Include="Source\Forms\Config\AboutBox.cs">
       <SubType>Form</SubType>
@@ -161,12 +191,6 @@
     <Compile Include="Source\Forms\MainForm\MainForm.Location.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Source\Common\UI\LettersControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Source\Common\UI\LettersControl.Designer.cs">
-      <DependentUpon>LettersControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Source\Forms\Config\PreferencesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,8 +198,6 @@
       <DependentUpon>PreferencesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Program\Program.cs" />
-    <Compile Include="Source\Common\Data\OnlineProvidersHelper.cs" />
-    <Compile Include="Source\Common\System\SystemHelper.cs" />
     <Compile Include="Source\Program\Program.Vars.cs" />
     <EmbeddedResource Include="Dependencies\Core Library\ExceptionForm.fr.resx">
       <DependentUpon>ExceptionForm.cs</DependentUpon>
@@ -208,6 +230,21 @@
     <EmbeddedResource Include="Source\Common\UI\LettersControl.fr.resx">
       <DependentUpon>LettersControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Source\Common\UI\LettersControl.resx">
+      <DependentUpon>LettersControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Common\UI\LoadingForm.fr.resx">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Common\UI\LoadingForm.resx">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Common\UI\ShowTextForm.fr.resx">
+      <DependentUpon>ShowTextForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Common\UI\ShowTextForm.resx">
+      <DependentUpon>ShowTextForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Source\Common\UI\UndoRedoTextBox.en.resx">
       <DependentUpon>UndoRedoTextBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -216,6 +253,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Common\UI\UndoRedoTextBox.resx">
       <DependentUpon>UndoRedoTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Common\UI\WebUpdateForm.fr.resx">
+      <DependentUpon>WebUpdateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Common\UI\WebUpdateForm.resx">
+      <DependentUpon>WebUpdateForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\Boxes\SearchTermResultsBox.fr.resx">
       <DependentUpon>SearchTermResultsBox.cs</DependentUpon>
@@ -237,9 +280,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\MainForm\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Source\Common\UI\LettersControl.resx">
-      <DependentUpon>LettersControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\Config\PreferencesForm.resx">
       <DependentUpon>PreferencesForm.cs</DependentUpon>
