@@ -91,7 +91,7 @@ namespace Ordisoftware.HebrewLetters
       {
         var menuitem = (ToolStripMenuItem)sender;
         string str = HebrewAlphabet.ConvertToUnicode(EditLetters.TextInput);
-        SystemHelper.OpenWebLink(( (string)menuitem.Tag ).Replace("%WORD%", str));
+        Shell.OpenWebLink(( (string)menuitem.Tag ).Replace("%WORD%", str));
       });
     }
 
@@ -111,7 +111,7 @@ namespace Ordisoftware.HebrewLetters
     private void MainForm_Load(object sender, EventArgs e)
     {
       Program.Settings.Retrieve();
-      if ( SystemHelper.CheckUpdate(Program.Settings.CheckUpdateAtStartup, true) )
+      if ( WebCheckUpdate.Run(Program.Settings.CheckUpdateAtStartup, true) )
       {
         Application.Exit();
         return;
@@ -399,7 +399,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void ActionHelp_Click(object sender, EventArgs e)
     {
-      SystemHelper.RunShell(Globals.HelpFilename);
+      Shell.Run(Globals.HelpFilename);
     }
 
     /// <summary>
@@ -409,7 +409,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void ActionApplicationHome_Click(object sender, EventArgs e)
     {
-      SystemHelper.OpenApplicationHome();
+      Shell.OpenApplicationHome();
     }
 
     /// <summary>
@@ -419,7 +419,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void ActionWebReleaseNotes_Click(object sender, EventArgs e)
     {
-      SystemHelper.OpenWebLink(Globals.ApplicationHomeURL + "/#ChangeLog" + Globals.AssemblyVersion);
+      Shell.OpenWebLink(Globals.ApplicationHomeURL + "/#ChangeLog" + Globals.AssemblyVersion);
     }
 
     /// <summary>
@@ -429,7 +429,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void ActionContact_Click(object sender, EventArgs e)
     {
-      SystemHelper.OpenContactPage();
+      Shell.OpenContactPage();
     }
 
     /// <summary>
@@ -439,7 +439,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void ActionCreateGitHubIssue_Click(object sender, EventArgs e)
     {
-      SystemHelper.CreateGitHubIssue();
+      Shell.CreateGitHubIssue();
     }
 
     /// <summary>
@@ -449,7 +449,8 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void ActionCheckUpdate_Click(object sender, EventArgs e)
     {
-      SystemHelper.CheckUpdate(Program.Settings.CheckUpdateAtStartup, false);
+      if ( WebCheckUpdate.Run(Program.Settings.CheckUpdateAtStartup, false) )
+        Close();
     }
 
     /// <summary>
@@ -484,7 +485,7 @@ namespace Ordisoftware.HebrewLetters
     private void ActionOpenWebsiteURL_Click(object sender, EventArgs e)
     {
       string url = (string)( (ToolStripItem)sender ).Tag;
-      SystemHelper.OpenWebLink(url);
+      Shell.OpenWebLink(url);
     }
 
     private void ActionRestoreDefaults_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
