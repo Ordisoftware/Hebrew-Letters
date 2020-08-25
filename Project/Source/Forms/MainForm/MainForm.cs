@@ -192,10 +192,11 @@ namespace Ordisoftware.HebrewLetters
         Globals.IsExiting = true;
         return;
       }
-      if ( EditConfirmClosing.Checked && !DisplayManager.QueryYesNo(Globals.AskToExitApplication.GetLang()) )
-        e.Cancel = true;
-      else
-        Globals.IsExiting = true;
+      if ( EditConfirmClosing.Checked && !Globals.IsSessionEnding )
+        if ( !DisplayManager.QueryYesNo(Globals.AskToExitApplication.GetLang()) )
+          e.Cancel = true;
+        else
+          Globals.IsExiting = true;
     }
 
     /// <summary>
