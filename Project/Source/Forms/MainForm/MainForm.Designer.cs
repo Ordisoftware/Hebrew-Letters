@@ -146,6 +146,7 @@
       this.LettersTableAdapter = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.LettersTableAdapter();
       this.TableAdapterManager = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.TableAdapterManager();
       this.MeaningsTableAdapter = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.MeaningsTableAdapter();
+      this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
       LabelName = new System.Windows.Forms.Label();
       LabelStructure = new System.Windows.Forms.Label();
       LabelFunction = new System.Windows.Forms.Label();
@@ -745,11 +746,12 @@
             this.toolStripSeparator2,
             this.ActionWebHome,
             this.ActionWebContact,
-            this.ActionWebTipeee,
             this.toolStripSeparator5,
-            this.ActionWebLinkedIn,
             this.ActionWebTwitter,
             this.ActionWebYouTube,
+            this.toolStripSeparator9,
+            this.ActionWebTipeee,
+            this.ActionWebLinkedIn,
             this.toolStripSeparator6,
             this.ActionDownloadHebrewCalendar,
             this.ActionDownloadHebrewWords});
@@ -1106,6 +1108,11 @@
       // 
       this.MeaningsTableAdapter.ClearBeforeFill = true;
       // 
+      // toolStripSeparator9
+      // 
+      this.toolStripSeparator9.Name = "toolStripSeparator9";
+      resources.ApplyResources(this.toolStripSeparator9, "toolStripSeparator9");
+      // 
       // MainForm
       // 
       resources.ApplyResources(this, "$this");
@@ -1256,5 +1263,6 @@
     internal System.Windows.Forms.Label LabelGematriaFull;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
     private System.Windows.Forms.ToolStripMenuItem ActionWebReleaseNotes;
+    private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
   }
 }
