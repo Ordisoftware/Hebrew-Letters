@@ -112,12 +112,9 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void MainForm_Load(object sender, EventArgs e)
     {
+      if ( Globals.IsExiting ) return;
       Program.Settings.Retrieve();
-      if ( WebCheckUpdate.Run(Program.Settings.CheckUpdateAtStartup, true) )
-      {
-        Application.Exit();
-        return;
-      }
+      if ( WebCheckUpdate.Run(Program.Settings.CheckUpdateAtStartup, true) ) return;
       try
       {
         EditSentence.Font = new Font("Microsoft Sans Serif", (float)Program.Settings.FontSizeSentence);
