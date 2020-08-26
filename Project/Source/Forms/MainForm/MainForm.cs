@@ -83,19 +83,6 @@ namespace Ordisoftware.HebrewLetters
     }
 
     /// <summary>
-    /// Create providers links menu items.
-    /// </summary>
-    internal void CreateProvidersLinks()
-    {
-      ContextMenuSearchOnline.InitializeFromProviders(Globals.OnlineWordProviders, (sender, e) =>
-      {
-        var menuitem = (ToolStripMenuItem)sender;
-        string str = HebrewAlphabet.ConvertToUnicode(EditLetters.TextInput);
-        Shell.OpenWebLink(( (string)menuitem.Tag ).Replace("%WORD%", str));
-      });
-    }
-
-    /// <summary>
     /// Create providers and web links menu items.
     /// </summary>
     internal void InitializeSpecialMenus()
@@ -103,6 +90,19 @@ namespace Ordisoftware.HebrewLetters
       ActionWebLinks.Visible = Program.Settings.WebLinksMenuEnabled;
       if ( Program.Settings.WebLinksMenuEnabled )
         ActionWebLinks.InitializeFromWebLinks(InitializeSpecialMenus);
+    }
+
+    /// <summary>
+    /// Create providers links menu items.
+    /// </summary>
+    private void CreateProvidersLinks()
+    {
+      ContextMenuSearchOnline.InitializeFromProviders(Globals.OnlineWordProviders, (sender, e) =>
+      {
+        var menuitem = (ToolStripMenuItem)sender;
+        string str = HebrewAlphabet.ConvertToUnicode(EditLetters.TextInput);
+        Shell.OpenWebLink(( (string)menuitem.Tag ).Replace("%WORD%", str));
+      });
     }
 
     /// <summary>
