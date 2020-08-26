@@ -44,6 +44,11 @@ namespace Ordisoftware.HebrewLetters
       Icon = MainForm.Instance.Icon;
     }
 
+    private void PreferencesForm_Load(object sender, EventArgs e)
+    {
+      this.CenterToMainFormElseScreen();
+    }
+
     private void PreferencesForm_Shown(object sender, EventArgs e)
     {
       TopMost = MainForm.Instance.TopMost;
@@ -130,8 +135,8 @@ namespace Ordisoftware.HebrewLetters
       Program.Settings.Store();
       PreferencesForm_Shown(null, null);
       MainForm.Instance.EditSentence.Font = new Font("Microsoft Sans Serif", (float)Program.Settings.FontSizeSentence);
-      Program.GrammarGuideForm.CenterToMainForm();
-      Program.MethodNoticeForm.CenterToMainForm();
+      Program.GrammarGuideForm.CenterToMainFormElseScreen();
+      Program.MethodNoticeForm.CenterToMainFormElseScreen();
       Close();
     }
 

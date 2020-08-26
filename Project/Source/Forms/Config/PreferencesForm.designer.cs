@@ -215,6 +215,7 @@
       this.Name = "PreferencesForm";
       this.ShowInTaskbar = false;
       this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PreferencesForm_FormClosed);
+      this.Load += new System.EventHandler(this.PreferencesForm_Load);
       this.Shown += new System.EventHandler(this.PreferencesForm_Shown);
       this.PanelBottom.ResumeLayout(false);
       this.PanelBottom.PerformLayout();
