@@ -37,10 +37,10 @@ namespace Ordisoftware.HebrewLetters
       {
         { Localizer.EN, "Letters will be restored to their default values." + Localizer.NL + Localizer.NL +
                         "All additions will be lost." + Localizer.NL + Localizer.NL +
-                        Globals.DoYouWantToContinue[Localizer.EN] },
+                        Localizer.AskToContinue[Localizer.EN] },
         { Localizer.FR, "Les lettres vont être restaurées à leurs valeurs par défaut." + Localizer.NL + Localizer.NL +
                         "Tous les ajouts seront perdus." + Localizer.NL + Localizer.NL +
-                        Globals.DoYouWantToContinue[Localizer.FR] }
+                        Localizer.AskToContinue[Localizer.FR] }
       };
 
   }

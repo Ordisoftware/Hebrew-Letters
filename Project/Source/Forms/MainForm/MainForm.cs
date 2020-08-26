@@ -152,7 +152,7 @@ namespace Ordisoftware.HebrewLetters
       }
       else
         ActionReset.Visible = false;
-      if ( IsDBUpgraded && DisplayManager.QueryYesNo(Globals.AskToCheckParametersAfterDatabaseUpgraded.GetLang()) )
+      if ( IsDBUpgraded && DisplayManager.QueryYesNo(Localizer.AskToCheckParametersAfterDatabaseUpgraded.GetLang()) )
         SetView(ViewMode.Settings, true);
       else
         SetView(ViewMode.Analyse, true);
@@ -190,7 +190,7 @@ namespace Ordisoftware.HebrewLetters
         return;
       }
       if ( EditConfirmClosing.Checked && !Globals.IsSessionEnding )
-        if ( !DisplayManager.QueryYesNo(Globals.AskToExitApplication.GetLang()) )
+        if ( !DisplayManager.QueryYesNo(Localizer.AskToExitApplication.GetLang()) )
           e.Cancel = true;
         else
           Globals.IsExiting = true;
@@ -361,7 +361,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void ActionResetWinSettings_Click(object sender, EventArgs e)
     {
-      if ( DisplayManager.QueryYesNo(Globals.AskToRestoreWindowPosition.GetLang()) )
+      if ( DisplayManager.QueryYesNo(Localizer.AskToRestoreWindowPosition.GetLang()) )
         Program.Settings.RestoreMainForm();
     }
 

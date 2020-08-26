@@ -45,7 +45,7 @@ namespace Ordisoftware.HebrewLetters
                   select letter;
       if ( query.Count() < 1 )
       {
-        DisplayManager.ShowInfo(Globals.TermNotFound.GetLang(term));
+        DisplayManager.ShowInfo(Localizer.TermNotFound.GetLang(term));
         return false;
       }
       var form = new SearchTermResultsBox();
