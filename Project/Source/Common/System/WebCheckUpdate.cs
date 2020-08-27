@@ -54,7 +54,6 @@ namespace Ordisoftware.HebrewCommon
         LoadingForm.Instance.DoProgress();
         using ( WebClient client = new WebClient() )
         {
-          Thread.Sleep(5000);
           string[] content = client.DownloadString(Globals.CheckUpdateURL).Split(Environment.NewLine.ToCharArray(),
                                                    StringSplitOptions.RemoveEmptyEntries);
           LoadingForm.Instance.DoProgress();
