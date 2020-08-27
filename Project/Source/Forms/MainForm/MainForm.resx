@@ -424,7 +424,7 @@
     <value>Bottom, Left</value>
   </data>
   <data name="EditGematriaFull.Location" type="System.Drawing.Point, System.Drawing">
-    <value>538, 460</value>
+    <value>538, 474</value>
   </data>
   <data name="EditGematriaFull.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 20</value>
@@ -457,7 +457,7 @@
     <value>NoControl</value>
   </data>
   <data name="LabelGematriaFull.Location" type="System.Drawing.Point, System.Drawing">
-    <value>587, 463</value>
+    <value>587, 477</value>
   </data>
   <data name="LabelGematriaFull.Size" type="System.Drawing.Size, System.Drawing">
     <value>23, 13</value>
@@ -493,7 +493,7 @@
     <value>NoControl</value>
   </data>
   <data name="LabelGematriaSimple.Location" type="System.Drawing.Point, System.Drawing">
-    <value>587, 437</value>
+    <value>587, 451</value>
   </data>
   <data name="LabelGematriaSimple.Size" type="System.Drawing.Size, System.Drawing">
     <value>38, 13</value>
@@ -631,7 +631,7 @@
     <value>NoControl</value>
   </data>
   <data name="SelectCloseApp.Location" type="System.Drawing.Point, System.Drawing">
-    <value>572, 505</value>
+    <value>572, 519</value>
   </data>
   <data name="SelectCloseApp.Size" type="System.Drawing.Size, System.Drawing">
     <value>52, 17</value>
@@ -667,7 +667,7 @@
     <value>10, 10, 10, 10</value>
   </data>
   <data name="EditAnalyze.Size" type="System.Drawing.Size, System.Drawing">
-    <value>510, 193</value>
+    <value>510, 207</value>
   </data>
   <data name="EditAnalyze.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1046,7 +1046,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionCopyToClipboardResult.Location" type="System.Drawing.Point, System.Drawing">
-    <value>529, 484</value>
+    <value>529, 498</value>
   </data>
   <data name="ActionCopyToClipboardResult.Size" type="System.Drawing.Size, System.Drawing">
     <value>42, 42</value>
@@ -1073,7 +1073,7 @@
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="EditSentence.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 493</value>
+    <value>13, 507</value>
   </data>
   <data name="EditSentence.Size" type="System.Drawing.Size, System.Drawing">
     <value>510, 26</value>
@@ -1097,7 +1097,7 @@
     <value>Bottom, Left</value>
   </data>
   <data name="EditGematriaSimple.Location" type="System.Drawing.Point, System.Drawing">
-    <value>538, 434</value>
+    <value>538, 448</value>
   </data>
   <data name="EditGematriaSimple.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 20</value>
@@ -1130,7 +1130,7 @@
     <value>NoControl</value>
   </data>
   <data name="LabelGematria.Location" type="System.Drawing.Point, System.Drawing">
-    <value>537, 413</value>
+    <value>537, 427</value>
   </data>
   <data name="LabelGematria.Size" type="System.Drawing.Size, System.Drawing">
     <value>57, 13</value>
@@ -2282,13 +2282,13 @@
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGpSURBVDhPnVNNSwJRFL3jR2i/QZRIf4CFCEILEYNIBF1U
-        pEI/p1a5NKiVLgIlgmhtoT9BCRKcFobLPkbTnI/TvLmaRUNGFw73vXvPPXPfvPtImLG7u6Hn8yUTZ3ou
-        d7oQhcKJsbMT5+JweE8mUuFw4NzcgggLYXLrRDrW1g5IDQTuRVB2udTW0pJmwe3WWi7Xd4jYNC+4ombi
-        8z3Q0Ot9tVQlyf5rdphyFY9nIARexMZqf38fqFaB62ugXgdub4FmE7i54VitBuTzn0KD5WVl3sHqKjAa
-        wTLDYP/VZrH3dyAUshFIJJgwHrPv9YCrK16LYk3jYmGbmzYC6TQnVZW9LANuNxCNAu02xyYT9tnsHwS6
-        XcDrBVIpoNPh2CyXydgIxOOcnB2h3wcaDV6LI4ji2RGSSRsBvx9QFCb89hOHQ2Bl5ZvA/Bq3toBSCahU
-        +MouLoDLS16Xy5zb3raKf3bwj0EaeDwKacFgS2weJWnScjp5bIW3wzQnS5I1yqrPd0dGLJZ+Jnr762Oy
-        OCb3iWhkRCIZfpFEYbOtQ52oaOJ4AYq6JB2ZYutERB8dD3etuvU/cAAAAABJRU5ErkJggg==
+        pEI/p1a5NKiVtlIiiNYW+hOUIMFpYbjsYzTN+TjNm6tZNGR04XDfu/fcM/fNu4+EGbu7G3o+XzJxpudy
+        pwtRKJwYOztxLg6H92QiFQ4Hzs0tiLAQJrdOpGNt7YDUQOBeBGWXS20tLWkW3G6t5XJ9h4hN84IraiY+
+        3wMNvd5XS1WS7L9mhylX8XgGQuBFbKz29/eBahW4vgbqdeD2Fmg2gZsbjtVqQD7/KTRYXlbmHayuAqMR
+        LDMM9l9tFnt/B0IhG4FEggnjMfteD7i64rUo1jQuFra5aSOQTnNSVdnLMuB2A9Eo0G5zbDJhn83+QaDb
+        BbxeIJUCOh2OzXKZjI1APM7J2RH6faDR4LU4giieHSGZtBHw+wFFYcJvP3E4BFZWvgnMr3FrCyiVgEqF
+        r+ziAri85HW5zLntbav4Zwf/GKSBx6OQFgy2xOZRkiYtp5PHVng7THOyJFmjrPp8d2TEYulnore/PiaL
+        Y3KfiEZGJJLhF0kUNts61ImKJo4XoKhL0pEptk5E9AECuneezTMjhgAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="ActionWebYouTube.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
@@ -3217,23 +3217,11 @@
   <data name="&gt;&gt;ActionWebContact.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ActionWebTipeee.Name" xml:space="preserve">
-    <value>ActionWebTipeee</value>
-  </data>
-  <data name="&gt;&gt;ActionWebTipeee.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;toolStripSeparator5.Name" xml:space="preserve">
     <value>toolStripSeparator5</value>
   </data>
   <data name="&gt;&gt;toolStripSeparator5.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ActionWebLinkedIn.Name" xml:space="preserve">
-    <value>ActionWebLinkedIn</value>
-  </data>
-  <data name="&gt;&gt;ActionWebLinkedIn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ActionWebTwitter.Name" xml:space="preserve">
     <value>ActionWebTwitter</value>
@@ -3245,6 +3233,24 @@
     <value>ActionWebYouTube</value>
   </data>
   <data name="&gt;&gt;ActionWebYouTube.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator9.Name" xml:space="preserve">
+    <value>toolStripSeparator9</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ActionWebTipeee.Name" xml:space="preserve">
+    <value>ActionWebTipeee</value>
+  </data>
+  <data name="&gt;&gt;ActionWebTipeee.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ActionWebLinkedIn.Name" xml:space="preserve">
+    <value>ActionWebLinkedIn</value>
+  </data>
+  <data name="&gt;&gt;ActionWebLinkedIn.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripSeparator6.Name" xml:space="preserve">
@@ -3450,12 +3456,6 @@
   </data>
   <data name="&gt;&gt;MeaningsTableAdapter.Type" xml:space="preserve">
     <value>Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.MeaningsTableAdapter, Ordisoftware.HebrewLetters, Version=4.2.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator9.Name" xml:space="preserve">
-    <value>toolStripSeparator9</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator9.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainForm</value>
