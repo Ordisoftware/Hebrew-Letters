@@ -434,7 +434,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void ActionWebReleaseNotes_Click(object sender, EventArgs e)
     {
-      Shell.OpenWebLink(Globals.ApplicationChangeLogURL);
+      Shell.OpenApplicationReleaseNotes();
     }
 
     /// <summary>

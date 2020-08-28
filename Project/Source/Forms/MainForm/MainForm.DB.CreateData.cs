@@ -52,7 +52,7 @@ namespace Ordisoftware.HebrewLetters
           LettersTableAdapter.Fill(DataSet.Letters);
           string lang = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
           if ( lang != Languages.FR && lang != Languages.EN ) lang = Languages.EN;
-          string data = File.ReadAllText(Program.MeaningsFilename.Replace("%LANG%", Languages.Current),
+          string data = File.ReadAllText(string.Format(Program.MeaningsFilename, Languages.Current),
                                          System.Text.Encoding.Default);
           int indexStart = 0;
           Func<string, string> getStrValue = (name) =>

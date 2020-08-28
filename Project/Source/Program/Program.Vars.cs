@@ -29,7 +29,7 @@ namespace Ordisoftware.HebrewLetters
     /// Indicate filename of the letters meanings.
     /// </summary>
     static public string MeaningsFilename
-      = Globals.DocumentsFolderPath + "Alphabet-%LANG%.txt";
+      = Globals.DocumentsFolderPath + "Alphabet-{0}.txt";
 
     /// <summary>
     /// Indicate the grammar guide form.
