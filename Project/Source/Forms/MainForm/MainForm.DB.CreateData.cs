@@ -51,8 +51,8 @@ namespace Ordisoftware.HebrewLetters
           MeaningsTableAdapter.Fill(DataSet.Meanings);
           LettersTableAdapter.Fill(DataSet.Letters);
           string lang = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
-          if ( lang != Localizer.FR && lang != Localizer.EN ) lang = Localizer.EN;
-          string data = File.ReadAllText(Program.MeaningsFilename.Replace("%LANG%", Localizer.Current),
+          if ( lang != Languages.FR && lang != Languages.EN ) lang = Languages.EN;
+          string data = File.ReadAllText(Program.MeaningsFilename.Replace("%LANG%", Languages.Current),
                                          System.Text.Encoding.Default);
           int indexStart = 0;
           Func<string, string> getStrValue = (name) =>

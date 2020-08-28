@@ -28,19 +28,19 @@ namespace Ordisoftware.HebrewLetters
     static public readonly Dictionary<string, string> ApplicationDescription
       = new Dictionary<string, string>()
       {
-        { Localizer.EN, "Lettriq letter-by-letter study and analysis of Hebrew words" },
-        { Localizer.FR, "Étude et analyse lettrique lettre-par-lettre des mots hébreux" }
+        { Languages.EN, "Lettriq letter-by-letter study and analysis of Hebrew words" },
+        { Languages.FR, "Étude et analyse lettrique lettre-par-lettre des mots hébreux" }
       };
 
     static public readonly Dictionary<string, string> AskToRestoreLettersDefaults
       = new Dictionary<string, string>()
       {
-        { Localizer.EN, "Letters will be restored to their default values." + Localizer.NL + Localizer.NL +
-                        "All additions will be lost." + Localizer.NL + Localizer.NL +
-                        Localizer.AskToContinue[Localizer.EN] },
-        { Localizer.FR, "Les lettres vont être restaurées à leurs valeurs par défaut." + Localizer.NL + Localizer.NL +
-                        "Tous les ajouts seront perdus." + Localizer.NL + Localizer.NL +
-                        Localizer.AskToContinue[Localizer.FR] }
+        { Languages.EN, "Letters will be restored to their default values." + Globals.NL + Globals.NL +
+                        "All additions will be lost." + Globals.NL + Globals.NL +
+                        Localizer.AskToContinue[Languages.EN] },
+        { Languages.FR, "Les lettres vont être restaurées à leurs valeurs par défaut." + Globals.NL + Globals.NL +
+                        "Tous les ajouts seront perdus." + Globals.NL + Globals.NL +
+                        Localizer.AskToContinue[Languages.FR] }
       };
 
   }

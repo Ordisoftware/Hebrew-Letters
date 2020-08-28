@@ -83,10 +83,13 @@
       <Value Profile="(Default)">20</Value>
     </Setting>
     <Setting Name="VacuumLastDone" Type="System.DateTime" Scope="User">
-      <Value Profile="(Default)">2020-01-01</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="WebLinksMenuEnabled" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="CheckUpdateLastDone" Type="System.DateTime" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

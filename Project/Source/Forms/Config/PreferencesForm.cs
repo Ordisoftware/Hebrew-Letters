@@ -83,12 +83,12 @@ namespace Ordisoftware.HebrewLetters
 
     private void UpdateLanguagesButtons()
     {
-      if ( Program.Settings.Language == Localizer.EN )
+      if ( Program.Settings.Language == Languages.EN )
       {
         ActionSelectLangEN.BackColor = SystemColors.ControlLightLight;
         ActionSelectLangFR.BackColor = SystemColors.Control;
       }
-      if ( Program.Settings.Language == Localizer.FR )
+      if ( Program.Settings.Language == Languages.FR )
       {
         ActionSelectLangFR.BackColor = SystemColors.ControlLightLight;
         ActionSelectLangEN.BackColor = SystemColors.Control;
@@ -97,10 +97,10 @@ namespace Ordisoftware.HebrewLetters
 
     private void ActionSelectLangEN_Click(object sender, EventArgs e)
     {
-      if ( Program.Settings.Language == Localizer.EN ) return;
+      if ( Program.Settings.Language == Languages.EN ) return;
       string temp = MainForm.Instance.EditLetters.TextInput;
       MainForm.Instance.ActionClear.PerformClick();
-      Program.Settings.Language = Localizer.EN;
+      Program.Settings.Language = Languages.EN;
       Program.UpdateLocalization();
       UpdateLanguagesButtons();
       LanguageChanged = true;
@@ -110,10 +110,10 @@ namespace Ordisoftware.HebrewLetters
 
     private void ActionSelectLangFR_Click(object sender, EventArgs e)
     {
-      if ( Program.Settings.Language == Localizer.FR ) return;
+      if ( Program.Settings.Language == Languages.FR ) return;
       string temp = MainForm.Instance.EditLetters.TextInput;
       MainForm.Instance.ActionClear.PerformClick();
-      Program.Settings.Language = Localizer.FR;
+      Program.Settings.Language = Languages.FR;
       Program.UpdateLocalization();
       UpdateLanguagesButtons();
       LanguageChanged = true;
@@ -131,7 +131,7 @@ namespace Ordisoftware.HebrewLetters
       if ( !DisplayManager.QueryYesNo(Localizer.AskToResetPreferences.GetLang()) ) return;
       Program.Settings.Reset();
       Program.Settings.Reload();
-      Program.Settings.Language = Localizer.Current;
+      Program.Settings.Language = Languages.Current;
       Program.Settings.Store();
       PreferencesForm_Shown(null, null);
       MainForm.Instance.EditSentence.Font = new Font("Microsoft Sans Serif", (float)Program.Settings.FontSizeSentence);

@@ -133,7 +133,7 @@ namespace Ordisoftware.HebrewLetters
         }
         EditGematriaSimple.Text = sumSimple.ToString();
         EditGematriaFull.Text = sumFull.ToString();
-        WordMeanings = string.Join(Localizer.NL, AnalysisItems.Meanings);
+        WordMeanings = string.Join(Globals.NL, AnalysisItems.Meanings);
         ActionCopyToClipboardMeanings.Enabled = EditAnalyze.Controls.Count > 0;
 
         EditAnalyze.Controls.AddRange(AnalysisItems.Labels.ToArray());

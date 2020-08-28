@@ -185,7 +185,7 @@
     <value>179, 17</value>
   </data>
   <data name="EditCheckUpdateAtStartup.Text" xml:space="preserve">
-    <value>Vérifier mise à jour au démarrage</value>
+    <value>Vérifier mise à jour au démarrage chaque semaine</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Préférences</value>

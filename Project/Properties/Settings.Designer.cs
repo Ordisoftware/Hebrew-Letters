@@ -323,7 +323,6 @@ namespace Ordisoftware.HebrewLetters.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2020-01-01")]
         public global::System.DateTime VacuumLastDone {
             get {
                 return ((global::System.DateTime)(this["VacuumLastDone"]));
@@ -342,6 +341,17 @@ namespace Ordisoftware.HebrewLetters.Properties {
             }
             set {
                 this["WebLinksMenuEnabled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.DateTime CheckUpdateLastDone {
+            get {
+                return ((global::System.DateTime)(this["CheckUpdateLastDone"]));
+            }
+            set {
+                this["CheckUpdateLastDone"] = value;
             }
         }
     }

@@ -114,7 +114,10 @@ namespace Ordisoftware.HebrewLetters
     {
       if ( Globals.IsExiting ) return;
       Program.Settings.Retrieve();
-      if ( WebCheckUpdate.Run(Program.Settings.CheckUpdateAtStartup, true) ) return;
+      var lastdone = Program.Settings.CheckUpdateLastDone;
+      bool exit = WebCheckUpdate.Run(Program.Settings.CheckUpdateAtStartup, ref lastdone, true);
+      Program.Settings.CheckUpdateLastDone = lastdone;
+      if ( exit ) return;
       try
       {
         EditSentence.Font = new Font("Microsoft Sans Serif", (float)Program.Settings.FontSizeSentence);
@@ -461,8 +464,10 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void ActionCheckUpdate_Click(object sender, EventArgs e)
     {
-      if ( WebCheckUpdate.Run(Program.Settings.CheckUpdateAtStartup, false) )
-        Close();
+      var lastdone = Program.Settings.CheckUpdateLastDone;
+      bool exit = WebCheckUpdate.Run(Program.Settings.CheckUpdateAtStartup, ref lastdone, e == null);
+      Program.Settings.CheckUpdateLastDone = lastdone;
+      if ( exit ) Close();
     }
 
     /// <summary>
