@@ -90,6 +90,8 @@
     <Compile Include="Source\Common\System\NullSafeList.cs" />
     <Compile Include="Source\Common\System\Shell.cs" />
     <Compile Include="Source\Common\System\SystemHelper.cs" />
+    <Compile Include="Source\Common\System\SystemHelper.Format.cs" />
+    <Compile Include="Source\Common\System\SystemHelper.OS.cs" />
     <Compile Include="Source\Common\System\WebCheckUpdate.cs" />
     <Compile Include="Source\Common\UI\ControlLocation.cs" />
     <Compile Include="Source\Common\UI\DataFileEditorForm.cs">
