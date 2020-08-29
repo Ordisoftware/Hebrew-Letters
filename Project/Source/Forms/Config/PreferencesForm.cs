@@ -15,7 +15,6 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using Ordisoftware.Core;
 using Ordisoftware.HebrewCommon;
 
 namespace Ordisoftware.HebrewLetters
@@ -78,7 +77,7 @@ namespace Ordisoftware.HebrewLetters
 
     private void EditEnableDebugger_CheckedChanged(object sender, EventArgs e)
     {
-      Core.Diagnostics.Debugger.Active = EditEnableDebugger.Checked;
+      Debugger.Active = EditEnableDebugger.Checked;
     }
 
     private void UpdateLanguagesButtons()

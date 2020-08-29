@@ -20,7 +20,6 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Microsoft.Win32;
-using Ordisoftware.Core;
 using Ordisoftware.HebrewCommon;
 
 namespace Ordisoftware.HebrewLetters
@@ -479,6 +478,17 @@ namespace Ordisoftware.HebrewLetters
     {
       if ( Globals.AllowClose )
         Close();
+    }
+
+    /// <summary>
+    /// Event handler. Called by ActionExit for mouse up events.
+    /// </summary>
+    /// <param name="sender">Source of the event.</param>
+    /// <param name="e">Event information.</param>
+    private void ActionExit_MouseUp(object sender, MouseEventArgs e)
+    {
+      if ( e.Button == MouseButtons.Right )
+        ActionExit_Click(ActionExit, null);
     }
 
     private void ProcessHTMLBrowser(HTMLBrowserForm form)

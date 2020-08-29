@@ -713,6 +713,7 @@
       this.ActionExit.Click += new System.EventHandler(this.ActionExit_Click);
       this.ActionExit.MouseEnter += new System.EventHandler(this.ShowToolTipOnMouseEnter);
       this.ActionExit.MouseLeave += new System.EventHandler(this.ShowToolTipOnMouseLeave);
+      this.ActionExit.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ActionExit_MouseUp);
       // 
       // Sep4
       // 

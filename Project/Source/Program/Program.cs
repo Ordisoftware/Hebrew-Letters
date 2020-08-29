@@ -42,13 +42,13 @@ namespace Ordisoftware.HebrewLetters
     static void Main(string[] args)
     {
       bool upgrade = Settings.UpgradeRequired;
-      Settings.CheckUpgrade(ref upgrade);
+      Settings.UpgradeIfRequired(ref upgrade);
       Settings.UpgradeRequired = upgrade;
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
       Globals.Settings = Settings;
       Globals.MainForm = MainForm.Instance;
-      Core.Diagnostics.Debugger.Active = Settings.DebuggerEnabled;
+      Debugger.Active = Settings.DebuggerEnabled;
       string lang = Settings.Language;
       Shell.CheckCommandLineArguments(args, ref lang);
       Settings.Language = lang;

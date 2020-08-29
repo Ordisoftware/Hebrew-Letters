@@ -15,7 +15,6 @@
 using System;
 using System.Linq;
 using System.Windows.Forms;
-using Ordisoftware.Core;
 using Ordisoftware.HebrewCommon;
 
 namespace Ordisoftware.HebrewLetters
