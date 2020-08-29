@@ -13,7 +13,6 @@
 /// <created> 2016-04 </created>
 /// <edited> 2020-08 </edited>
 using System;
-using System.Collections.Generic;
 using Ordisoftware.HebrewCommon;
 
 namespace Ordisoftware.HebrewLetters
@@ -25,15 +24,15 @@ namespace Ordisoftware.HebrewLetters
   static public partial class Translations
   {
 
-    static public readonly Dictionary<string, string> ApplicationDescription
-      = new Dictionary<string, string>()
+    static public readonly NullSafeStringDictionary ApplicationDescription
+      = new NullSafeStringDictionary()
       {
         { Languages.EN, "Lettriq letter-by-letter study and analysis of Hebrew words" },
         { Languages.FR, "Étude et analyse lettrique lettre-par-lettre des mots hébreux" }
       };
 
-    static public readonly Dictionary<string, string> AskToRestoreLettersDefaults
-      = new Dictionary<string, string>()
+    static public readonly NullSafeStringDictionary AskToRestoreLettersDefaults
+      = new NullSafeStringDictionary()
       {
         { Languages.EN, "Letters will be restored to their default values." + Globals.NL + Globals.NL +
                         "All additions will be lost." + Globals.NL + Globals.NL +

@@ -19,18 +19,15 @@ namespace Ordisoftware.HebrewCommon
 {
 
   /// <summary>
-  /// Provide null safe dictionary.
+  /// Provide out of range safe dictionary.
   /// </summary>
-  public class NullSafeDictionary<TKey, TValue> : Dictionary<TKey, TValue> where TValue : new()
+  public class OutOfRangeSafeDictionary<TKey, TValue> : Dictionary<TKey, TValue>
   {
     public new TValue this[TKey key]
     {
       get
       {
-        if ( ContainsKey(key) ) return base[key];
-        var value = new TValue();
-        Add(key, value);
-        return value;
+        return ContainsKey(key) ? base[key] : default(TValue);
       }
       set
       {

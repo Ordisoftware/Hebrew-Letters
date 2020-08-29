@@ -13,31 +13,33 @@
 /// <created> 2020-08 </created>
 /// <edited> 2020-08 </edited>
 using System;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace Ordisoftware.HebrewCommon
 {
 
   /// <summary>
-  /// Provide null safe dictionary.
+  /// Provide out of range safe list.
   /// </summary>
-  public class NullSafeDictionary<TKey, TValue> : Dictionary<TKey, TValue> where TValue : new()
+  public class OutOfRangeSafeList<T> : List<T>
   {
-    public new TValue this[TKey key]
+    public new T this[int index]
     {
       get
       {
-        if ( ContainsKey(key) ) return base[key];
-        var value = new TValue();
-        Add(key, value);
-        return value;
+        return index < Count ? base[index] : default(T);
       }
       set
       {
-        if ( ContainsKey(key) )
-          base[key] = value;
+        if ( index < Count )
+          base[index] = value;
         else
-          Add(key, value);
+        {
+          Capacity = index + 1;
+          AddRange(Enumerable.Repeat(default(T), index + 1 - Count));
+          base[index] = value;
+        }
       }
     }
   }

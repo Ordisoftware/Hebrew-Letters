@@ -21,14 +21,14 @@ namespace Ordisoftware.HebrewCommon
   /// <summary>
   /// Provide null safe dictionary.
   /// </summary>
-  public class NullSafeDictionary<TKey, TValue> : Dictionary<TKey, TValue> where TValue : new()
+  public class NullSafeStringDictionary : Dictionary<string, string>
   {
-    public new TValue this[TKey key]
+    public new string this[string key]
     {
       get
       {
         if ( ContainsKey(key) ) return base[key];
-        var value = new TValue();
+        var value = "";
         Add(key, value);
         return value;
       }

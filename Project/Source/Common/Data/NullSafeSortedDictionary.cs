@@ -21,7 +21,7 @@ namespace Ordisoftware.HebrewCommon
   /// <summary>
   /// Provide null safe dictionary.
   /// </summary>
-  public class NullSafeDictionary<TKey, TValue> : Dictionary<TKey, TValue> where TValue : new()
+  public class NullSafeSortedDictionary<TKey, TValue> : SortedDictionary<TKey, TValue> where TValue : new()
   {
     public new TValue this[TKey key]
     {
