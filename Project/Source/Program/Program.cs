@@ -42,7 +42,7 @@ namespace Ordisoftware.HebrewLetters
     static void Main(string[] args)
     {
       bool upgrade = Settings.UpgradeRequired;
-      Settings.UpgradeIfRequired(ref upgrade);
+      Settings.CheckUpgradeRequired(ref upgrade);
       Settings.UpgradeRequired = upgrade;
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
