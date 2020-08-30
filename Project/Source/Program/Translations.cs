@@ -34,12 +34,14 @@ namespace Ordisoftware.HebrewLetters
     static public readonly NullSafeStringDictionary AskToRestoreLettersDefaults
       = new NullSafeStringDictionary()
       {
-        { Languages.EN, "Letters will be restored to their default values." + Globals.NL + Globals.NL +
-                        "All additions will be lost." + Globals.NL + Globals.NL +
-                        Localizer.AskToContinue[Languages.EN] },
-        { Languages.FR, "Les lettres vont être restaurées à leurs valeurs par défaut." + Globals.NL + Globals.NL +
-                        "Tous les ajouts seront perdus." + Globals.NL + Globals.NL +
-                        Localizer.AskToContinue[Languages.FR] }
+        { Languages.EN, "Letters will be restored to their default values." + Globals.NL2 +
+                        "All additions will be lost." + Globals.NL2 +
+                        Localizer.AskToContinue[Languages.EN]
+        },
+        { Languages.FR, "Les lettres vont être restaurées à leurs valeurs par défaut." + Globals.NL2 +
+                        "Tous les ajouts seront perdus." + Globals.NL2 +
+                        Localizer.AskToContinue[Languages.FR]
+        }
       };
 
   }
