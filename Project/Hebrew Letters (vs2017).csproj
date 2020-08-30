@@ -67,7 +67,7 @@
     <Compile Include="Source\Common\Controls\LettersControl.Designer.cs">
       <DependentUpon>LettersControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\Common\Controls\LettersControl.Prepare.cs">
+    <Compile Include="Source\Common\Controls\LettersControl.Redraw.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Source\Common\Controls\UndoRedoTextBox.Actions.cs">
@@ -83,6 +83,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Source\Common\Core\AbortException.cs" />
+    <Compile Include="Source\Common\Core\Chronometer.cs" />
     <Compile Include="Source\Common\Core\Debugger.cs" />
     <Compile Include="Source\Common\Core\DisplayManager.cs" />
     <Compile Include="Source\Common\Core\DisplayManager.Query.cs" />
