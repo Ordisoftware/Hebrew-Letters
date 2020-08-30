@@ -88,6 +88,7 @@
     <Compile Include="Source\Common\Core\DisplayManager.Query.cs" />
     <Compile Include="Source\Common\Core\DisplayManager.Show.cs" />
     <Compile Include="Source\Common\Core\ExceptionInfo.cs" />
+    <Compile Include="Source\Common\Core\SQLiteException.cs" />
     <Compile Include="Source\Common\Data\DataFile.cs" />
     <Compile Include="Source\Common\Data\DataFileFolder.cs" />
     <Compile Include="Source\Common\Data\HebrewAlphabet.cs" />
