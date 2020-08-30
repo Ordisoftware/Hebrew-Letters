@@ -301,13 +301,13 @@
       // LabelGematriaFull
       // 
       resources.ApplyResources(this.LabelGematriaFull, "LabelGematriaFull");
-      this.LabelGematriaFull.ForeColor = System.Drawing.SystemColors.ControlText;
+      this.LabelGematriaFull.ForeColor = System.Drawing.SystemColors.GrayText;
       this.LabelGematriaFull.Name = "LabelGematriaFull";
       // 
       // LabelGematriaSimple
       // 
       resources.ApplyResources(this.LabelGematriaSimple, "LabelGematriaSimple");
-      this.LabelGematriaSimple.ForeColor = System.Drawing.SystemColors.ControlText;
+      this.LabelGematriaSimple.ForeColor = System.Drawing.SystemColors.GrayText;
       this.LabelGematriaSimple.Name = "LabelGematriaSimple";
       // 
       // ActionReset
@@ -435,18 +435,9 @@
       // EditLetters
       // 
       this.EditLetters.BackColor = System.Drawing.Color.Transparent;
-      this.EditLetters.BackColorInput = System.Drawing.Color.AliceBlue;
-      this.EditLetters.BackColorLetters = System.Drawing.Color.LightYellow;
-      this.EditLetters.FontSizeInput = 24F;
-      this.EditLetters.FontSizeKeys = 8.25F;
-      this.EditLetters.FontSizeLetters = 20.25F;
-      this.EditLetters.FontSizeValues = 6.25F;
       resources.ApplyResources(this.EditLetters, "EditLetters");
-      this.EditLetters.MaxLengthInput = 20;
       this.EditLetters.Name = "EditLetters";
       this.EditLetters.SelectionStartInput = 0;
-      this.EditLetters.ShowKeys = true;
-      this.EditLetters.ShowValues = true;
       this.EditLetters.TextInput = "";
       this.EditLetters.ViewLetterDetails += new Ordisoftware.HebrewCommon.ViewLetterDetails(this.EditLetters_ViewLetterDetails);
       this.EditLetters.InputTextChanged += new System.EventHandler(this.EditLetters_InputTextChanged);

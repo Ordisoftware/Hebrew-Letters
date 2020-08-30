@@ -336,13 +336,13 @@ namespace Ordisoftware.HebrewLetters
       }
       else
       {
-        Action<TextBox> check = textbox => { if ( textbox.Text == meaning ) textbox.Focus(); };
         check(Instance.TextBoxPositive);
         check(Instance.TextBoxNegative);
         check(Instance.TextBoxVerb);
         check(Instance.TextBoxStructure);
         check(Instance.TextBoxFunction);
       }
+      void check(TextBox textbox) { if ( textbox.Text == meaning ) textbox.Focus(); }
     }
 
     /// <summary>
