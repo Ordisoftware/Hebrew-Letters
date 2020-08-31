@@ -25,22 +25,18 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 
 ## Requirements
 
-- Windows Vista x32/x64 or higher
+- Windows 7 SP1 x32/x64 or higher
 - Screen 1024x768 or higher
-- Framework .NET 4.5
+- Framework .NET 4.7.2
 - SQLite ODBC Driver
 
 ## Screenshots
 
-![Analyse](https://www.ordisoftware.com/uploads/2020/04/hebrew-letters-analyse-en.png)
-
-![Parameters](https://www.ordisoftware.com/uploads/2020/04/hebrew-letters-settings-en.png)
+[![Analyse](https://i0.wp.com/www.ordisoftware.com/uploads/2020/04/hebrew-letters-analyse-en.png?resize=300%2C292&ssl=1)](http://www.ordisoftware.com/uploads/2020/04/hebrew-letters-analyse-en.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Parameters](https://i1.wp.com/www.ordisoftware.com/uploads/2020/04/hebrew-letters-settings-en.png?resize=272%2C300&ssl=1)](http://www.ordisoftware.com/uploads/2020/04/hebrew-letters-settings-en.png)
 
 ## Videos
 
-[![Showing video](https://img.youtube.com/vi/rs7l-wvVt-I/0.jpg)](https://www.youtube.com/watch?v=rs7l-wvVt-I)
-
-[![Showing video](https://img.youtube.com/vi/Wc5SdiASvCg/0.jpg)](https://www.youtube.com/watch?v=Wc5SdiASvCg)
+[![Showing video](https://img.youtube.com/vi/rs7l-wvVt-I/mqdefault.jpg)](https://www.youtube.com/watch?v=rs7l-wvVt-I)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Showing video](https://img.youtube.com/vi/Wc5SdiASvCg/mqdefault.jpg)](https://www.youtube.com/watch?v=Wc5SdiASvCg)
 
 ## Frequently asked questions
 
