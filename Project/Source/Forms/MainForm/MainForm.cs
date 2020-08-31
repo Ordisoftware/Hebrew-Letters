@@ -727,7 +727,7 @@ namespace Ordisoftware.HebrewLetters
         e.Exception.Manage();
     }
 
-    private void EditLetters_ViewLetterDetails(string code)
+    private void EditLetters_ViewLetterDetails(LettersControl sender, string code)
     {
       ActionViewLetters.PerformClick();
       ComboBoxCode.SelectedIndex = ComboBoxCode.FindStringExact(code);
