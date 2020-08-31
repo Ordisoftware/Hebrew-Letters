@@ -66,6 +66,8 @@ english.StartWithWindows_msg=Start with Windows
 french.StartWithWindows_msg=Démarrer avec Windows
 english.OpenSQLiteODBC_msg=Install or update SQLite ODBC Driver
 french.OpenSQLiteODBC_msg=Installer ou mettre à jour SQLite ODBC Driver
+english.SQLiteODBCInstalling_msg=SQLite ODBC Driver is being installed. Please wait...
+french.SQLiteODBCInstalling_msg=SQLite ODBC Driver est en cours d'installation. Veuillez patienter...
 
 [Tasks]
 Name: desktopicon; Description: {cm:CreateDesktopIcon}; GroupDescription: {cm:AdditionalIcons}; Flags: unchecked
@@ -113,7 +115,7 @@ Name: {group}\{#MyAppName}\Register {#MyAppName} ODBC Datasource; Filename: {app
 
 [Run]
 Filename: {app}\Setup\.NET\NDP472-KB4054531-Web.exe; Check: CheckForFramework; StatusMsg: {cm:DotNetInstalling_msg}; Parameters: /q /norestart
-Filename: {app}\Setup\SQLiteODBCInstaller\SQLiteODBCInstaller.exe
+Filename: {app}\Setup\SQLiteODBCInstaller\SQLiteODBCInstaller.exe; StatusMsg: {cm:SQLiteODBCInstalling_msg}
 Filename: c:\Windows\regedit.exe; Parameters: "/s ""{app}\Register ODBC.reg"""
 Filename: {app}\Bin\{#MyAppExeName}; Description: {cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}; Flags: nowait postinstall
 
