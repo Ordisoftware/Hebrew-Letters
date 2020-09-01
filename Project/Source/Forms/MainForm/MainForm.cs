@@ -124,18 +124,16 @@ namespace Ordisoftware.HebrewLetters
         CreateDataIfNotExists(false);
         LettersTableAdapter.Fill(DataSet.Letters);
         MeaningsTableAdapter.Fill(DataSet.Meanings);
-        ComboBoxCode_SelectedIndexChanged(null, null);
-        Globals.IsReady = true;
-      }
-      catch ( OdbcException ex )
-      {
-        ex.Manage();
-        Application.Exit();
       }
       catch ( Exception ex )
       {
+        DisplayManager.ShowError(Localizer.ApplicationMustExit[Languages.FR] + Globals.NL2 +
+                                 Localizer.ContactSupport[Languages.FR]);
         ex.Manage();
+        Environment.Exit(-1);
       }
+      ComboBoxCode_SelectedIndexChanged(null, null);
+      Globals.IsReady = true;
     }
 
     /// <summary>

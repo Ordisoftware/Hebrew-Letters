@@ -28,8 +28,8 @@ namespace Ordisoftware.HebrewLetters
     /// </summary>
     public bool CreateSchemaIfNotExists()
     {
-      bool upgraded = false;
       OdbcSQLiteHelper.CreateDSNIfNotExists();
+      bool upgraded = false;
       using ( var connection = new OdbcConnection(Program.Settings.ConnectionString) )
         try
         {
