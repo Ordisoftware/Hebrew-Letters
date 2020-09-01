@@ -76,16 +76,23 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 - Rewrite advanced undo/redo.
 - Optimize ComboBoxes creation (the old system was really much slower on Windows 10 than 7).
 
-#### 2020.08.__ - Version 4.2
+#### 2020.09.__ - Version 5.0
 
 - Add context menu on letters' buttons to allow inserting a letter or open its parameters.
 - Add option to enable or disable the web links menu.
 - Improve check update to allow auto update or direct download or open app web page.
-- Fix app not responding on windows logoff or system shutdown.
 - Fix UI colors.
 - Change all TextBox for UndoRedoTextBox to have the new context menu.
 - Remove advanced undo/redo due to a problem that requires a complete rewrite to have the cursor not misplaced in certain cases.
+- Add usage statistics form in tools menu.
+- Improve check update to allow auto update or direct download or open app web page.
+- Fix app not responding on windows logoff or system shutdown.
+- Some UI/UX improvements.
 - Some code refactorings.
+- Update help.
+- Update to SQLite 3.32.3 ODBC Driver.
+- Update Framework .NET version to 4.7.2 for only Windows 7 SP1 or higher.
+- Improve setup.
 
 #### 2020.04.23 - Version 4.1
 
