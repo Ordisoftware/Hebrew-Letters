@@ -87,7 +87,7 @@
     </Compile>
     <Compile Include="Source\Common\Core\AbortException.cs" />
     <Compile Include="Source\Common\Core\Chronometer.cs" />
-    <Compile Include="Source\Common\Core\Debugger.cs" />
+    <Compile Include="Source\Common\Core\ExceptionManager.cs" />
     <Compile Include="Source\Common\Core\DisplayManager.cs" />
     <Compile Include="Source\Common\Core\DisplayManager.Query.cs" />
     <Compile Include="Source\Common\Core\DisplayManager.Show.cs" />
