@@ -88,7 +88,7 @@
     <Compile Include="Source\Common\Core\AbortException.cs" />
     <Compile Include="Source\Common\Core\Chronometer.cs" />
     <Compile Include="Source\Common\Core\DebugManager.Trace.cs" />
-    <Compile Include="Source\Common\Core\LogEvent.cs" />
+    <Compile Include="Source\Common\Core\TraceEvent.cs" />
     <Compile Include="Source\Common\Core\RollOverTextWriterTraceListener.cs" />
     <Compile Include="Source\Common\Core\DebugManager.cs" />
     <Compile Include="Source\Common\Core\DisplayManager.cs" />
@@ -134,11 +134,11 @@
     <Compile Include="Source\Common\Forms\LoadingForm.designer.cs">
       <DependentUpon>LoadingForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\Common\Forms\LogForm.cs">
+    <Compile Include="Source\Common\Forms\TraceForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Source\Common\Forms\LogForm.Designer.cs">
-      <DependentUpon>LogForm.cs</DependentUpon>
+    <Compile Include="Source\Common\Forms\TraceForm.Designer.cs">
+      <DependentUpon>TraceForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Common\Forms\ShowTextForm.cs">
       <SubType>Form</SubType>
@@ -270,11 +270,11 @@
     <EmbeddedResource Include="Source\Common\Forms\LoadingForm.resx">
       <DependentUpon>LoadingForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Source\Common\Forms\LogForm.fr.resx">
-      <DependentUpon>LogForm.cs</DependentUpon>
+    <EmbeddedResource Include="Source\Common\Forms\TraceForm.fr.resx">
+      <DependentUpon>TraceForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Source\Common\Forms\LogForm.resx">
-      <DependentUpon>LogForm.cs</DependentUpon>
+    <EmbeddedResource Include="Source\Common\Forms\TraceForm.resx">
+      <DependentUpon>TraceForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Common\Forms\ShowTextForm.fr.resx">
       <DependentUpon>ShowTextForm.cs</DependentUpon>
