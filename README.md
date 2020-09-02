@@ -86,6 +86,8 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 - Remove advanced undo/redo due to a problem that requires a complete rewrite to have the cursor not misplaced in certain cases.
 - Add usage statistics form in tools menu.
 - Improve check update to allow auto update or direct download or open app web page.
+- Improve debugger to support logging.
+- Improve exception form to view log and send mail in addition to create a GitHub issue.
 - Fix app not responding on windows logoff or system shutdown.
 - Some UI/UX improvements.
 - Some code refactorings.
