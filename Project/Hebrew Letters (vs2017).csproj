@@ -134,6 +134,12 @@
     <Compile Include="Source\Common\Forms\LoadingForm.designer.cs">
       <DependentUpon>LoadingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Source\Common\Forms\LogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Common\Forms\LogForm.Designer.cs">
+      <DependentUpon>LogForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Source\Common\Forms\ShowTextForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -263,6 +269,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Common\Forms\LoadingForm.resx">
       <DependentUpon>LoadingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Common\Forms\LogForm.fr.resx">
+      <DependentUpon>LogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Common\Forms\LogForm.resx">
+      <DependentUpon>LogForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Common\Forms\ShowTextForm.fr.resx">
       <DependentUpon>ShowTextForm.cs</DependentUpon>

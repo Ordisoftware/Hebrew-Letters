@@ -77,7 +77,7 @@ namespace Ordisoftware.HebrewLetters
 
     private void EditEnableDebugger_CheckedChanged(object sender, EventArgs e)
     {
-      DebugManager.Active = EditEnableDebugger.Checked;
+      DebugManager.Enabled = EditEnableDebugger.Checked;
     }
 
     private void UpdateLanguagesButtons()
