@@ -13,6 +13,7 @@
 /// <created> 2016-04 </created>
 /// <edited> 2020-04 </edited>
 using System;
+using System.IO;
 using System.Linq;
 using Ordisoftware.HebrewCommon;
 
@@ -29,7 +30,7 @@ namespace Ordisoftware.HebrewLetters
     /// Indicate filename of the letters meanings.
     /// </summary>
     static public string MeaningsFilename
-      => Globals.DocumentsFolderPath + "Alphabet-{0}.txt";
+      => Path.Combine(Globals.DocumentsFolderPath, "Alphabet-{0}.txt");
 
     /// <summary>
     /// Indicate the grammar guide form.

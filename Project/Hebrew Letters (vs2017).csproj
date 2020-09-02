@@ -147,6 +147,7 @@
       <DependentUpon>WebUpdateForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Common\System\EnumHelper.cs" />
+    <Compile Include="Source\Common\System\Globals.Assembly.cs" />
     <Compile Include="Source\Common\System\Globals.cs" />
     <Compile Include="Source\Common\System\Languages.cs" />
     <Compile Include="Source\Common\System\Localizer.cs" />
