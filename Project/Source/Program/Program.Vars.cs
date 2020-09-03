@@ -79,9 +79,9 @@ namespace Ordisoftware.HebrewLetters
             string str = Localizer.RemoveDiacritics(SystemManager.CommandLineArguments[0]);
             foreach ( char c in str )
             {
-              string @char = Convert.ToString(c);
-              if ( HebrewAlphabet.Codes.Contains(@char) )
-                word += HebrewAlphabet.SetFinal(@char, false);
+              string letter = Convert.ToString(c);
+              if ( HebrewAlphabet.Codes.Contains(letter) )
+                word += HebrewAlphabet.SetFinal(letter, false);
             }
           }
           _StartupWord = word;

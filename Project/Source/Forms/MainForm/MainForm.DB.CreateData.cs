@@ -49,9 +49,9 @@ namespace Ordisoftware.HebrewLetters
           connection.Close();
           MeaningsTableAdapter.Fill(DataSet.Meanings);
           LettersTableAdapter.Fill(DataSet.Letters);
-          string lang = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
-          if ( lang != Languages.FR && lang != Languages.EN ) lang = Languages.EN;
-          string data = File.ReadAllText(string.Format(Program.MeaningsFilename, Languages.Current),
+          //string lang = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
+          //if ( !Languages.Names.ContainsValue(lang) ) lang = Languages.EN;
+          string data = File.ReadAllText(string.Format(Program.MeaningsFilename, Languages.CurrentCode.ToUpper()),
                                          System.Text.Encoding.Default);
           int indexStart = 0;
           Func<string, string> getStrValue = (name) =>

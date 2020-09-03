@@ -179,13 +179,13 @@ namespace Ordisoftware.HebrewLetters.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Language {
+        [global::System.Configuration.DefaultSettingValueAttribute("NotDefined")]
+        public global::Ordisoftware.HebrewCommon.Language LanguageSelected {
             get {
-                return ((string)(this["Language"]));
+                return ((global::Ordisoftware.HebrewCommon.Language)(this["LanguageSelected"]));
             }
             set {
-                this["Language"] = value;
+                this["LanguageSelected"] = value;
             }
         }
         
