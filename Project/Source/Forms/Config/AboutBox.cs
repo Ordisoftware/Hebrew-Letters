@@ -79,7 +79,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Link label link clicked event information.</param>
     private void labelIconsProvider_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
-      Shell.OpenWebLink(((LinkLabel)sender).Text);
+      SystemManager.OpenWebLink(((LinkLabel)sender).Text);
     }
 
     /// <summary>
@@ -89,7 +89,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Link label link clicked event information.</param>
     private void labelTrademarkName_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
-      Shell.OpenAuthorHome();
+      SystemManager.OpenAuthorHome();
     }
 
     /// <summary>
@@ -99,7 +99,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Link clicked event information.</param>
     private void editLicense_LinkClicked(object sender, LinkClickedEventArgs e)
     {
-      Shell.OpenWebLink(e.LinkText);
+      SystemManager.OpenWebLink(e.LinkText);
     }
 
   }

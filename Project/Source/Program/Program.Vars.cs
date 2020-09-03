@@ -74,9 +74,9 @@ namespace Ordisoftware.HebrewLetters
         if ( _StartupWord == null )
         {
           string word = "";
-          if ( Shell.CommandLineArguments != null && Shell.CommandLineArguments.Length == 1 )
+          if ( SystemManager.CommandLineArguments != null && SystemManager.CommandLineArguments.Length == 1 )
           {
-            string str = Localizer.RemoveDiacritics(Shell.CommandLineArguments[0]);
+            string str = Localizer.RemoveDiacritics(SystemManager.CommandLineArguments[0]);
             foreach ( char c in str )
             {
               string @char = Convert.ToString(c);

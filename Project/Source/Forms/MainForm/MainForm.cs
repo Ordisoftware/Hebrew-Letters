@@ -100,7 +100,7 @@ namespace Ordisoftware.HebrewLetters
       {
         var menuitem = (ToolStripMenuItem)sender;
         string str = HebrewAlphabet.ConvertToUnicode(EditLetters.TextInput);
-        Shell.OpenWebLink(( (string)menuitem.Tag ).Replace("%WORD%", str));
+        SystemManager.OpenWebLink(( (string)menuitem.Tag ).Replace("%WORD%", str));
       });
     }
 
@@ -411,7 +411,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void ActionHelp_Click(object sender, EventArgs e)
     {
-      Shell.Run(Globals.HelpFilename);
+      SystemManager.Run(Globals.HelpFilename);
     }
 
     /// <summary>
@@ -421,7 +421,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void ActionApplicationHome_Click(object sender, EventArgs e)
     {
-      Shell.OpenApplicationHome();
+      SystemManager.OpenApplicationHome();
     }
 
     /// <summary>
@@ -431,7 +431,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void ActionWebReleaseNotes_Click(object sender, EventArgs e)
     {
-      Shell.OpenApplicationReleaseNotes();
+      SystemManager.OpenApplicationReleaseNotes();
     }
 
     /// <summary>
@@ -441,7 +441,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void ActionContact_Click(object sender, EventArgs e)
     {
-      Shell.OpenContactPage();
+      SystemManager.OpenContactPage();
     }
 
     /// <summary>
@@ -451,7 +451,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void ActionCreateGitHubIssue_Click(object sender, EventArgs e)
     {
-      Shell.CreateGitHubIssue();
+      SystemManager.CreateGitHubIssue();
     }
 
     /// <summary>
@@ -510,7 +510,7 @@ namespace Ordisoftware.HebrewLetters
     private void ActionOpenWebsiteURL_Click(object sender, EventArgs e)
     {
       string url = (string)( (ToolStripItem)sender ).Tag;
-      Shell.OpenWebLink(url);
+      SystemManager.OpenWebLink(url);
     }
 
     private void ActionRestoreDefaults_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

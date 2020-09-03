@@ -50,7 +50,7 @@ namespace Ordisoftware.HebrewLetters
       Globals.MainForm = MainForm.Instance;
       DebugManager.Enabled = Settings.DebuggerEnabled;
       string lang = Settings.Language;
-      Shell.CheckCommandLineArguments(args, ref lang);
+      SystemManager.CheckCommandLineArguments(args, ref lang);
       Settings.Language = lang;
       UpdateLocalization();
       Application.Run(MainForm.Instance);
