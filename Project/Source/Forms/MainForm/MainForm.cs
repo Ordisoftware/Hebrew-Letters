@@ -411,7 +411,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     private void ActionHelp_Click(object sender, EventArgs e)
     {
-      SystemManager.Run(Globals.HelpFilename);
+      SystemManager.RunShell(Globals.HelpFilename);
     }
 
     /// <summary>
