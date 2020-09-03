@@ -25,6 +25,7 @@
     <Prefer32Bit>false</Prefer32Bit>
     <NoWarn>1587, 1591</NoWarn>
     <DocumentationFile>..\Bin\Debug\Ordisoftware.HebrewLetters.xml</DocumentationFile>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -37,7 +38,7 @@
     <Prefer32Bit>false</Prefer32Bit>
     <DebugSymbols>true</DebugSymbols>
     <NoWarn>1587, 1591</NoWarn>
-    <LangVersion>default</LangVersion>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
