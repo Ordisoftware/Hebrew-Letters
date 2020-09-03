@@ -88,7 +88,6 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 - Improve check update to allow auto update or direct download or open app web page.
 - Improve debugger to support logging.
 - Improve exception form to view log and send mail in addition to create a GitHub issue.
-- Fix app not responding on windows logoff or system shutdown.
 - Some UI/UX improvements.
 - Some code refactorings.
 - Update help.
