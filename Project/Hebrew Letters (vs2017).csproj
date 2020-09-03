@@ -85,18 +85,18 @@
     <Compile Include="Source\Common\Controls\UndoRedoTextBox.Initialize.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Source\Common\Core\AbortException.cs" />
-    <Compile Include="Source\Common\Core\Chronometer.cs" />
-    <Compile Include="Source\Common\Core\DebugManager.Trace.cs" />
-    <Compile Include="Source\Common\Core\TraceEvent.cs" />
-    <Compile Include="Source\Common\Core\RollOverTextWriterTraceListener.cs" />
-    <Compile Include="Source\Common\Core\DebugManager.cs" />
-    <Compile Include="Source\Common\Core\DisplayManager.cs" />
-    <Compile Include="Source\Common\Core\DisplayManager.Query.cs" />
-    <Compile Include="Source\Common\Core\DisplayManager.Show.cs" />
-    <Compile Include="Source\Common\Core\ExceptionInfo.cs" />
-    <Compile Include="Source\Common\Core\NotImplementedExceptionEx.cs" />
-    <Compile Include="Source\Common\Core\SQLiteException.cs" />
+    <Compile Include="Source\Common\Managers\AbortException.cs" />
+    <Compile Include="Source\Common\Managers\Chronometer.cs" />
+    <Compile Include="Source\Common\Managers\DebugManager.Trace.cs" />
+    <Compile Include="Source\Common\Managers\TraceEvent.cs" />
+    <Compile Include="Source\Common\Managers\RollOverTextWriterTraceListener.cs" />
+    <Compile Include="Source\Common\Managers\DebugManager.cs" />
+    <Compile Include="Source\Common\Managers\DisplayManager.cs" />
+    <Compile Include="Source\Common\Managers\DisplayManager.Query.cs" />
+    <Compile Include="Source\Common\Managers\DisplayManager.Show.cs" />
+    <Compile Include="Source\Common\Managers\ExceptionInfo.cs" />
+    <Compile Include="Source\Common\Managers\NotImplementedExceptionEx.cs" />
+    <Compile Include="Source\Common\Data\SQLiteException.cs" />
     <Compile Include="Source\Common\Data\DataFile.cs" />
     <Compile Include="Source\Common\Data\DataFileFolder.cs" />
     <Compile Include="Source\Common\Data\HebrewAlphabet.cs" />
@@ -159,17 +159,18 @@
     <Compile Include="Source\Common\System\Localizer.cs" />
     <Compile Include="Source\Common\System\Localizer.Translations.cs" />
     <Compile Include="Source\Common\System\Shell.cs" />
+    <Compile Include="Source\Common\System\StringHelper.cs" />
     <Compile Include="Source\Common\System\SystemHelper.cs" />
     <Compile Include="Source\Common\System\SystemHelper.Format.cs" />
     <Compile Include="Source\Common\System\SystemHelper.OS.cs" />
     <Compile Include="Source\Common\System\SystemStatistics.cs" />
     <Compile Include="Source\Common\System\WebCheckUpdate.cs" />
-    <Compile Include="Source\Common\UI\ControlLocation.cs" />
-    <Compile Include="Source\Common\UI\FormsHelper.cs" />
-    <Compile Include="Source\Common\UI\RichTextBoxEx.cs">
+    <Compile Include="Source\Common\Controls\ControlLocation.cs" />
+    <Compile Include="Source\Common\Controls\FormsHelper.cs" />
+    <Compile Include="Source\Common\Controls\RichTextBoxEx.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Source\Common\UI\ToolStripMenuItemHelper.cs" />
+    <Compile Include="Source\Common\Controls\ToolStripMenuItemHelper.cs" />
     <Compile Include="Source\Forms\Boxes\SearchTermResultsBox.cs">
       <SubType>Form</SubType>
     </Compile>
