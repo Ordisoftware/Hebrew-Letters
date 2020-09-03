@@ -24,15 +24,15 @@ namespace Ordisoftware.HebrewLetters
   static public partial class Translations
   {
 
-    static public readonly NullSafeOfStringDictionary<Language> ApplicationDescription
-      = new NullSafeOfStringDictionary<Language>
+    static public readonly TranslationsDictionary ApplicationDescription
+      = new TranslationsDictionary
       {
         { Languages.EN, "Lettriq letter-by-letter study and analysis of Hebrew words" },
         { Languages.FR, "Étude et analyse lettrique lettre-par-lettre des mots hébreux" }
       };
 
-    static public readonly NullSafeOfStringDictionary<Language> AskToRestoreLettersDefaults
-      = new NullSafeOfStringDictionary<Language>
+    static public readonly TranslationsDictionary AskToRestoreLettersDefaults
+      = new TranslationsDictionary
       {
         { Languages.EN, "Letters will be restored to their default values." + Globals.NL2 +
                         "All additions will be lost." + Globals.NL2 +
