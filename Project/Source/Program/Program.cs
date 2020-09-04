@@ -13,6 +13,7 @@
 /// <created> 2016-04 </created>
 /// <edited> 2020-08 </edited>
 using System;
+using System.Linq;
 using System.ComponentModel;
 using System.Drawing;
 using System.Globalization;
@@ -44,6 +45,7 @@ namespace Ordisoftware.HebrewLetters
       bool upgrade = Settings.UpgradeRequired;
       Settings.CheckUpgradeRequired(ref upgrade);
       Settings.UpgradeRequired = upgrade;
+      CheckSettingsReset();
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
       Globals.Settings = Settings;
@@ -54,6 +56,24 @@ namespace Ordisoftware.HebrewLetters
       Settings.LanguageSelected = lang;
       UpdateLocalization();
       Application.Run(MainForm.Instance);
+    }
+
+    /// <summary>
+    /// Check if settings must be reseted.
+    /// </summary>
+    private static void CheckSettingsReset()
+    {
+      if ( !Languages.Managed.Contains(Settings.LanguageSelected) )
+      {
+        string langCode = Settings.Language;
+        var langValue = Languages.Values[langCode];
+        if ( langValue != Language.None )
+          Settings.LanguageSelected = langValue;
+        else
+          Settings.LanguageSelected = Languages.Current;
+      }
+      else
+        Settings.LanguageSelected = Languages.Current;
     }
 
     /// <summary>
@@ -72,7 +92,7 @@ namespace Ordisoftware.HebrewLetters
         resources.Apply(form.Controls);
       };
       string lang = "en-US";
-      if ( Settings.LanguageSelected == Language.EN ) lang = "fr-FR";
+      if ( Settings.LanguageSelected == Language.FR ) lang = "fr-FR";
       var culture = new CultureInfo(lang);
       Thread.CurrentThread.CurrentCulture = culture;
       Thread.CurrentThread.CurrentUICulture = culture;
