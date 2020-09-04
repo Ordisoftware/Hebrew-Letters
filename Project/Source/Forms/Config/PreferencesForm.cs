@@ -82,12 +82,12 @@ namespace Ordisoftware.HebrewLetters
 
     private void UpdateLanguagesButtons()
     {
-      if ( Program.Settings.LanguageSelected == Languages.EN )
+      if ( Program.Settings.LanguageSelected == Language.EN )
       {
         ActionSelectLangEN.BackColor = SystemColors.ControlLightLight;
         ActionSelectLangFR.BackColor = SystemColors.Control;
       }
-      if ( Program.Settings.LanguageSelected == Languages.FR )
+      if ( Program.Settings.LanguageSelected == Language.FR )
       {
         ActionSelectLangFR.BackColor = SystemColors.ControlLightLight;
         ActionSelectLangEN.BackColor = SystemColors.Control;
@@ -96,10 +96,10 @@ namespace Ordisoftware.HebrewLetters
 
     private void ActionSelectLangEN_Click(object sender, EventArgs e)
     {
-      if ( Program.Settings.LanguageSelected == Languages.EN ) return;
+      if ( Program.Settings.LanguageSelected == Language.EN ) return;
       string temp = MainForm.Instance.EditLetters.TextInput;
       MainForm.Instance.ActionClear.PerformClick();
-      Program.Settings.LanguageSelected = Languages.EN;
+      Program.Settings.LanguageSelected = Language.EN;
       Program.UpdateLocalization();
       UpdateLanguagesButtons();
       LanguageChanged = true;
@@ -109,10 +109,10 @@ namespace Ordisoftware.HebrewLetters
 
     private void ActionSelectLangFR_Click(object sender, EventArgs e)
     {
-      if ( Program.Settings.LanguageSelected == Languages.FR ) return;
+      if ( Program.Settings.LanguageSelected == Language.FR ) return;
       string temp = MainForm.Instance.EditLetters.TextInput;
       MainForm.Instance.ActionClear.PerformClick();
-      Program.Settings.LanguageSelected = Languages.FR;
+      Program.Settings.LanguageSelected = Language.FR;
       Program.UpdateLocalization();
       UpdateLanguagesButtons();
       LanguageChanged = true;

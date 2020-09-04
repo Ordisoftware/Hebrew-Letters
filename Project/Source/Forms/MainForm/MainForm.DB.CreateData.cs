@@ -50,7 +50,7 @@ namespace Ordisoftware.HebrewLetters
           MeaningsTableAdapter.Fill(DataSet.Meanings);
           LettersTableAdapter.Fill(DataSet.Letters);
           //string lang = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
-          //if ( !Languages.Names.ContainsValue(lang) ) lang = Languages.EN;
+          //if ( !Languages.Names.ContainsValue(lang) ) lang = Language.EN;
           string data = File.ReadAllText(string.Format(Program.MeaningsFilename, Languages.CurrentCode.ToUpper()),
                                          System.Text.Encoding.Default);
           int indexStart = 0;

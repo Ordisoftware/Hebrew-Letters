@@ -72,7 +72,7 @@ namespace Ordisoftware.HebrewLetters
         resources.Apply(form.Controls);
       };
       string lang = "en-US";
-      if ( Settings.LanguageSelected == Language.French ) lang = "fr-FR";
+      if ( Settings.LanguageSelected == Language.EN ) lang = "fr-FR";
       var culture = new CultureInfo(lang);
       Thread.CurrentThread.CurrentCulture = culture;
       Thread.CurrentThread.CurrentUICulture = culture;
