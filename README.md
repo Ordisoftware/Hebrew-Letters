@@ -76,7 +76,7 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 - Rewrite advanced undo/redo.
 - Optimize ComboBoxes creation (the old system was really much slower on Windows 10 than 7).
 
-#### 2020.09.__ - Version 5.0
+#### 2020.__.__ - Version 5.0
 
 - Add context menu on letters' buttons to allow inserting a letter or open its parameters.
 - Add option to enable or disable the web links menu.
@@ -94,7 +94,7 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 - Update to SQLite 3.32.3 ODBC Driver.
 - Update Framework .NET version to 4.7.2 and supported Windows only 7 SP1 or higher.
 - Improve setup.
-- The application now automatically creates the DSN in the Windows registry.
+- The application now automatically creates the ODBC DSN in the Windows registry.
 
 #### 2020.04.23 - Version 4.1
 
