@@ -87,12 +87,12 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 - Add usage statistics form in tools menu.
 - Improve check update to allow auto update or direct download or open app web page.
 - Improve debugger to support logging.
-- Improve exception form to view log and send mail in addition to create a GitHub issue.
+- Improve exception form to view log.
 - Some UI/UX improvements.
-- Some code refactorings.
+- Massive code refactoring.
 - Update help.
 - Update to SQLite 3.32.3 ODBC Driver.
-- Update Framework .NET version to 4.7.2 for only Windows 7 SP1 or higher.
+- Update Framework .NET version to 4.7.2 and supported Windows only 7 SP1 or higher.
 - Improve setup.
 
 #### 2020.04.23 - Version 4.1
