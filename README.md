@@ -94,6 +94,7 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 - Update to SQLite 3.32.3 ODBC Driver.
 - Update Framework .NET version to 4.7.2 and supported Windows only 7 SP1 or higher.
 - Improve setup.
+- The application now automatically creates the DSN in the Windows registry.
 
 #### 2020.04.23 - Version 4.1
 
