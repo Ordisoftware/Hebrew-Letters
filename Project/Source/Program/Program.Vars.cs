@@ -40,7 +40,7 @@ namespace Ordisoftware.HebrewLetters
       get
       {
         if ( _GrammarGuideForm == null )
-          _GrammarGuideForm = new HTMLBrowserForm(Localizer.GrammarGuideTitle, Globals.GrammarGuideFilename,
+          _GrammarGuideForm = new HTMLBrowserForm(Localizer.GrammarGuideTitle, Globals.HebrewGrammarGuideFilename,
                                                   nameof(Settings.GrammarGuideFormLocation),
                                                   nameof(Settings.GrammarGuideFormSize));
         return _GrammarGuideForm;
@@ -56,7 +56,7 @@ namespace Ordisoftware.HebrewLetters
       get
       {
         if ( _MethodGuideForm == null )
-          _MethodGuideForm = new HTMLBrowserForm(Localizer.MethodNoticeTitle, Globals.MethodNoticeFilename,
+          _MethodGuideForm = new HTMLBrowserForm(Localizer.MethodNoticeTitle, Globals.LettriqMethodNoticeFilename,
                                                  nameof(Settings.MethodNoticeFormLocation),
                                                  nameof(Settings.MethodNoticeFormSize));
         return _MethodGuideForm;

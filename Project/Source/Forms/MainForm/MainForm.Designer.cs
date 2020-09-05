@@ -437,8 +437,8 @@
       this.EditLetters.BackColor = System.Drawing.Color.Transparent;
       resources.ApplyResources(this.EditLetters, "EditLetters");
       this.EditLetters.Name = "EditLetters";
-      this.EditLetters.SelectionStartInput = 0;
-      this.EditLetters.TextInput = "";
+      this.EditLetters.InputSelectionStart = 0;
+      this.EditLetters.InputText = "";
       this.EditLetters.ViewLetterDetails += new Ordisoftware.HebrewCommon.ViewLetterDetails(this.EditLetters_ViewLetterDetails);
       this.EditLetters.InputTextChanged += new System.EventHandler(this.EditLetters_InputTextChanged);
       // 

@@ -76,7 +76,7 @@ namespace Ordisoftware.HebrewLetters
 
         EditAnalyze.Controls.Clear();
 
-        string word = EditLetters.TextInput;
+        string word = EditLetters.InputText;
         int sumSimple = 0;
         int sumFull = 0;
         int dy = 0;
