@@ -14,7 +14,6 @@
 /// <edited> 2020-08 </edited>
 using System;
 using System.Data;
-using System.Data.Odbc;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -393,16 +392,6 @@ namespace Ordisoftware.HebrewLetters
         ex.Manage();
       }
     }
-    
-    /// <summary>
-    /// Event handler. Called by ActionAbout for click events.
-    /// </summary>
-    /// <param name="sender">Source of the event.</param>
-    /// <param name="e">Event information.</param>
-    private void ActionAbout_Click(object sender, EventArgs e)
-    {
-      AboutBox.Instance.ShowDialog();
-    }
 
     /// <summary>
     /// Event handler. Called by ActionHelp for click events.
@@ -415,51 +404,21 @@ namespace Ordisoftware.HebrewLetters
     }
 
     /// <summary>
-    /// Event handler. Called by ActionApplicationHome for click events.
+    /// Event handler. Called by ActionAbout for click events.
     /// </summary>
     /// <param name="sender">Source of the event.</param>
     /// <param name="e">Event information.</param>
-    private void ActionApplicationHome_Click(object sender, EventArgs e)
+    internal void ActionAbout_Click(object sender, EventArgs e)
     {
-      SystemManager.OpenApplicationHome();
+      AboutBox.Instance.ShowDialog();
     }
 
     /// <summary>
-    /// Event handler. Called by ActionWebReleaseNotes for click events.
+    /// Event handler. Called by ActionWebCheckUpdate for click events.
     /// </summary>
     /// <param name="sender">Source of the event.</param>
     /// <param name="e">Event information.</param>
-    private void ActionWebReleaseNotes_Click(object sender, EventArgs e)
-    {
-      SystemManager.OpenApplicationReleaseNotes();
-    }
-
-    /// <summary>
-    /// Event handler. Called by ActionContact for click events.
-    /// </summary>
-    /// <param name="sender">Source of the event.</param>
-    /// <param name="e">Event information.</param>
-    private void ActionContact_Click(object sender, EventArgs e)
-    {
-      SystemManager.OpenContactPage();
-    }
-
-    /// <summary>
-    /// Event handler. Called by ActionCreateGitHubIssue for click events.
-    /// </summary>
-    /// <param name="sender">Source of the event.</param>
-    /// <param name="e">Event information.</param>
-    private void ActionCreateGitHubIssue_Click(object sender, EventArgs e)
-    {
-      SystemManager.CreateGitHubIssue();
-    }
-
-    /// <summary>
-    /// Event handler. Called by ActionCheckUpdate for click events.
-    /// </summary>
-    /// <param name="sender">Source of the event.</param>
-    /// <param name="e">Event information.</param>
-    private void ActionCheckUpdate_Click(object sender, EventArgs e)
+    internal void ActionWebCheckUpdate_Click(object sender, EventArgs e)
     {
       var lastdone = Program.Settings.CheckUpdateLastDone;
       bool exit = WebCheckUpdate.Run(Program.Settings.CheckUpdateAtStartup, ref lastdone, e == null);

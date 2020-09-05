@@ -45,7 +45,7 @@ namespace Ordisoftware.HebrewLetters
           ActionHelp.PerformClick();
           return true;
         case Keys.F12:
-          ActionAbout.PerformClick();
+          ActionAbout_Click(null, null);
           return true;
         case Keys.Escape:
           if ( EditESCtoExit.Checked )
