@@ -85,6 +85,8 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 - Change all TextBox for UndoRedoTextBox to have the new context menu.
 - Remove advanced undo/redo due to a problem that requires a complete rewrite to have the cursor not misplaced in certain cases.
 - Add usage statistics form in tools menu.
+- Add option to enable or disable message boxes sounds.
+- Improve message boxes.
 - Improve check update to allow auto update or direct download or open app web page.
 - Improve debugger to support logging.
 - Improve exception form to view log.
