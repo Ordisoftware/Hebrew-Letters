@@ -85,6 +85,7 @@
     <Compile Include="Source\Common\Controls\RichTextBoxEx.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Source\Common\Controls\SystemIcons.cs" />
     <Compile Include="Source\Common\Controls\ToolStripMenuItemHelper.cs" />
     <Compile Include="Source\Common\Controls\UndoRedoTextBox.Actions.cs">
       <SubType>Component</SubType>
@@ -141,6 +142,12 @@
     </Compile>
     <Compile Include="Source\Common\Forms\LoadingForm.designer.cs">
       <DependentUpon>LoadingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Common\Forms\MessageBoxEx.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Common\Forms\MessageBoxEx.Designer.cs">
+      <DependentUpon>MessageBoxEx.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Common\Forms\ShowTextForm.cs">
       <SubType>Form</SubType>
@@ -290,6 +297,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Common\Forms\LoadingForm.resx">
       <DependentUpon>LoadingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Common\Forms\MessageBoxEx.fr.resx">
+      <DependentUpon>MessageBoxEx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Common\Forms\MessageBoxEx.resx">
+      <DependentUpon>MessageBoxEx.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Common\Forms\ShowTextForm.fr.resx">
       <DependentUpon>ShowTextForm.cs</DependentUpon>
