@@ -52,7 +52,7 @@
       this.ActionReset = new System.Windows.Forms.Button();
       this.ActionDelLast = new System.Windows.Forms.Button();
       this.ActionDelFirst = new System.Windows.Forms.Button();
-      this.SelectCloseApp = new System.Windows.Forms.CheckBox();
+      this.EditCopyToClipboardCloseApp = new System.Windows.Forms.CheckBox();
       this.EditAnalyze = new System.Windows.Forms.Panel();
       this.ActionSearchOnline = new System.Windows.Forms.Button();
       this.ContextMenuSearchOnline = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -128,6 +128,9 @@
       this.LettersTableAdapter = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.LettersTableAdapter();
       this.TableAdapterManager = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.TableAdapterManager();
       this.MeaningsTableAdapter = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.MeaningsTableAdapter();
+      this.EditUseAdvancedDialogBoxes = new System.Windows.Forms.ToolStripMenuItem();
+      this.EditSoundsEnabled = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
       LabelName = new System.Windows.Forms.Label();
       LabelStructure = new System.Windows.Forms.Label();
       LabelFunction = new System.Windows.Forms.Label();
@@ -256,7 +259,7 @@
       this.PanelViewSearch.Controls.Add(this.ActionReset);
       this.PanelViewSearch.Controls.Add(this.ActionDelLast);
       this.PanelViewSearch.Controls.Add(this.ActionDelFirst);
-      this.PanelViewSearch.Controls.Add(this.SelectCloseApp);
+      this.PanelViewSearch.Controls.Add(this.EditCopyToClipboardCloseApp);
       this.PanelViewSearch.Controls.Add(this.EditAnalyze);
       this.PanelViewSearch.Controls.Add(this.ActionSearchOnline);
       this.PanelViewSearch.Controls.Add(this.ActionPasteFromUnicode);
@@ -317,9 +320,9 @@
       // 
       // SelectCloseApp
       // 
-      resources.ApplyResources(this.SelectCloseApp, "SelectCloseApp");
-      this.SelectCloseApp.Name = "SelectCloseApp";
-      this.SelectCloseApp.UseVisualStyleBackColor = true;
+      resources.ApplyResources(this.EditCopyToClipboardCloseApp, "SelectCloseApp");
+      this.EditCopyToClipboardCloseApp.Name = "SelectCloseApp";
+      this.EditCopyToClipboardCloseApp.UseVisualStyleBackColor = true;
       // 
       // EditAnalyze
       // 
@@ -736,7 +739,10 @@
             this.MenuitemScreenPosition,
             this.ActionResetWinSettings,
             this.Sep7,
+            this.EditUseAdvancedDialogBoxes,
+            this.EditSoundsEnabled,
             this.EditShowTips,
+            this.toolStripSeparator2,
             this.EditESCtoExit,
             this.EditConfirmClosing});
       resources.ApplyResources(this.ActionSettings, "ActionSettings");
@@ -940,6 +946,29 @@
       // 
       this.MeaningsTableAdapter.ClearBeforeFill = true;
       // 
+      // EditUseAdvancedDialogBoxes
+      // 
+      this.EditUseAdvancedDialogBoxes.Checked = true;
+      this.EditUseAdvancedDialogBoxes.CheckOnClick = true;
+      this.EditUseAdvancedDialogBoxes.CheckState = System.Windows.Forms.CheckState.Checked;
+      resources.ApplyResources(this.EditUseAdvancedDialogBoxes, "EditUseAdvancedDialogBoxes");
+      this.EditUseAdvancedDialogBoxes.Name = "EditUseAdvancedDialogBoxes";
+      this.EditUseAdvancedDialogBoxes.CheckedChanged += new System.EventHandler(this.EditDialogBoxesSettings_CheckedChanged);
+      // 
+      // EditSoundsEnabled
+      // 
+      this.EditSoundsEnabled.Checked = true;
+      this.EditSoundsEnabled.CheckOnClick = true;
+      this.EditSoundsEnabled.CheckState = System.Windows.Forms.CheckState.Checked;
+      resources.ApplyResources(this.EditSoundsEnabled, "EditSoundsEnabled");
+      this.EditSoundsEnabled.Name = "EditSoundsEnabled";
+      this.EditSoundsEnabled.CheckedChanged += new System.EventHandler(this.EditDialogBoxesSettings_CheckedChanged);
+      // 
+      // toolStripSeparator2
+      // 
+      this.toolStripSeparator2.Name = "toolStripSeparator2";
+      resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
+      // 
       // MainForm
       // 
       resources.ApplyResources(this, "$this");
@@ -1030,7 +1059,7 @@
     private System.Windows.Forms.Button ActionAddMeaning;
     private System.Windows.Forms.Button ActionCopyToClipboardResult;
     private System.Windows.Forms.Panel EditAnalyze;
-    internal System.Windows.Forms.CheckBox SelectCloseApp;
+    internal System.Windows.Forms.CheckBox EditCopyToClipboardCloseApp;
     private System.Windows.Forms.Button ActionCopyToClipboardMeanings;
     private System.Windows.Forms.ToolStripButton ActionPreferences;
     internal System.Windows.Forms.Label LabelGematria;
@@ -1072,5 +1101,8 @@
     internal Ordisoftware.HebrewCommon.UndoRedoTextBox EditGematriaFull;
     internal System.Windows.Forms.Label LabelGematriaFull;
     internal System.Windows.Forms.ToolStripDropDownButton ActionInformation;
+    internal System.Windows.Forms.ToolStripMenuItem EditUseAdvancedDialogBoxes;
+    internal System.Windows.Forms.ToolStripMenuItem EditSoundsEnabled;
+    private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
   }
 }

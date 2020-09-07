@@ -36,6 +36,8 @@ namespace Ordisoftware.HebrewLetters
     /// </summary>
     static public MainForm Instance { get; private set; }
 
+    private readonly Properties.Settings Settings = Program.Settings;
+
     /// <summary>
     /// Last term searched.
     /// </summary>
@@ -85,8 +87,8 @@ namespace Ordisoftware.HebrewLetters
     /// </summary>
     internal void InitializeSpecialMenus()
     {
-      ActionWebLinks.Visible = Program.Settings.WebLinksMenuEnabled;
-      if ( Program.Settings.WebLinksMenuEnabled )
+      ActionWebLinks.Visible = Settings.WebLinksMenuEnabled;
+      if ( Settings.WebLinksMenuEnabled )
         ActionWebLinks.InitializeFromWebLinks(InitializeSpecialMenus);
     }
 
@@ -111,14 +113,14 @@ namespace Ordisoftware.HebrewLetters
     private void MainForm_Load(object sender, EventArgs e)
     {
       if ( Globals.IsExiting ) return;
-      Program.Settings.Retrieve();
-      var lastdone = Program.Settings.CheckUpdateLastDone;
-      bool exit = WebCheckUpdate.Run(Program.Settings.CheckUpdateAtStartup, ref lastdone, true);
-      Program.Settings.CheckUpdateLastDone = lastdone;
+      Settings.Retrieve();
+      var lastdone = Settings.CheckUpdateLastDone;
+      bool exit = WebCheckUpdate.Run(Settings.CheckUpdateAtStartup, ref lastdone, true);
+      Settings.CheckUpdateLastDone = lastdone;
       if ( exit ) return;
       try
       {
-        EditSentence.Font = new Font("Microsoft Sans Serif", (float)Program.Settings.FontSizeSentence);
+        EditSentence.Font = new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence);
         IsDBUpgraded = CreateSchemaIfNotExists();
         CreateDataIfNotExists(false);
         LettersTableAdapter.Fill(DataSet.Letters);
@@ -155,10 +157,10 @@ namespace Ordisoftware.HebrewLetters
         SetView(ViewMode.Settings, true);
       else
         SetView(ViewMode.Analyse, true);
-      if ( Program.Settings.FirstLaunchV4 )
+      if ( Settings.FirstLaunchV4 )
       {
-        Program.Settings.FirstLaunchV4 = false;
-        Program.Settings.Save();
+        Settings.FirstLaunchV4 = false;
+        Settings.Save();
         ActionShowMethodNotice.PerformClick();
       }
     }
@@ -202,7 +204,7 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Form closing event information.</param>
     private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
     {
-      Program.Settings.Store();
+      Settings.Store();
     }
 
     /// <summary>
@@ -361,7 +363,7 @@ namespace Ordisoftware.HebrewLetters
     private void ActionResetWinSettings_Click(object sender, EventArgs e)
     {
       if ( DisplayManager.QueryYesNo(Localizer.AskToRestoreWindowPosition.GetLang()) )
-        Program.Settings.RestoreMainForm();
+        Settings.RestoreMainForm();
     }
 
     /// <summary>
@@ -384,7 +386,7 @@ namespace Ordisoftware.HebrewLetters
       try
       {
         PreferencesForm.Run();
-        EditLetters.InputMaxLength = (int)Program.Settings.HebrewTextBoxMaxLength;
+        EditLetters.InputMaxLength = (int)Settings.HebrewTextBoxMaxLength;
         InitializeSpecialMenus();
       }
       catch ( Exception ex )
@@ -420,10 +422,14 @@ namespace Ordisoftware.HebrewLetters
     /// <param name="e">Event information.</param>
     internal void ActionWebCheckUpdate_Click(object sender, EventArgs e)
     {
-      var lastdone = Program.Settings.CheckUpdateLastDone;
-      bool exit = WebCheckUpdate.Run(Program.Settings.CheckUpdateAtStartup, ref lastdone, e == null);
-      Program.Settings.CheckUpdateLastDone = lastdone;
-      if ( exit ) Close();
+      var lastdone = Settings.CheckUpdateLastDone;
+      bool exit = WebCheckUpdate.Run(Settings.CheckUpdateAtStartup, ref lastdone, e == null);
+      Settings.CheckUpdateLastDone = lastdone;
+      if ( exit )
+        Close();
+      else
+      if ( Visible )
+        BringToFront();
     }
 
     /// <summary>
@@ -639,7 +645,7 @@ namespace Ordisoftware.HebrewLetters
     private void ActionCopyToClipboardResults_Click(object sender, EventArgs e)
     {
       if ( EditSentence.Text != "" ) Clipboard.SetText(EditSentence.Text);
-      if ( SelectCloseApp.Checked ) Close();
+      if ( EditCopyToClipboardCloseApp.Checked ) Close();
     }
 
     private void ActionAnalyse_Click(object sender, EventArgs e)
@@ -690,6 +696,25 @@ namespace Ordisoftware.HebrewLetters
       ComboBoxCode.SelectedIndex = ComboBoxCode.FindStringExact(code);
     }
 
+    internal void EditDialogBoxesSettings_CheckedChanged(object sender, EventArgs e)
+    {
+      DisplayManager.AdvancedFormUseSounds = EditSoundsEnabled.Checked;
+      DisplayManager.FormStyle = EditUseAdvancedDialogBoxes.Checked
+                                 ? MessageBoxFormStyle.Advanced
+                                 : MessageBoxFormStyle.System;
+      switch ( DisplayManager.FormStyle )
+      {
+        case MessageBoxFormStyle.System:
+          DisplayManager.IconStyle = EditSoundsEnabled.Checked
+                                     ? MessageBoxIconStyle.ForceInformation
+                                     : MessageBoxIconStyle.ForceNone;
+          break;
+        case MessageBoxFormStyle.Advanced:
+          DisplayManager.IconStyle = MessageBoxIconStyle.ForceInformation;
+          break;
+      }
+
+    }
   }
 
 }

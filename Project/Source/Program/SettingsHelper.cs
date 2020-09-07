@@ -49,6 +49,8 @@ namespace Ordisoftware.HebrewLetters
       MainForm.EditConfirmClosing.Checked = false;
       MainForm.EditShowTips.Checked = true;
       MainForm.EditESCtoExit.Checked = false;
+      MainForm.EditSoundsEnabled.Checked = true;
+      MainForm.EditUseAdvancedDialogBoxes.Checked = true;
       MainForm.SetView(ViewMode.Analyse);
       settings.Store();
     }
@@ -84,10 +86,14 @@ namespace Ordisoftware.HebrewLetters
       MainForm.EditScreenCenter.Checked = settings.MainFormPosition == ControlLocation.Center;
       MainForm.EditScreenPosition_Click(null, null);
       MainForm.WindowState = settings.MainFormState;
+      //
       MainForm.EditConfirmClosing.Checked = settings.ConfirmClosing;
       MainForm.EditShowTips.Checked = settings.ShowTips;
       MainForm.EditESCtoExit.Checked = settings.ESCtoExit;
-      MainForm.SelectCloseApp.Checked = settings.CopyToClipboardCloseApp;
+      MainForm.EditCopyToClipboardCloseApp.Checked = settings.CopyToClipboardCloseApp;
+      MainForm.EditSoundsEnabled.Checked = settings.SoundsEnabled;
+      MainForm.EditUseAdvancedDialogBoxes.Checked = settings.AdvancedDialogBoxes;
+      MainForm.EditDialogBoxesSettings_CheckedChanged(null, null);
     }
 
     /// <summary>
@@ -112,10 +118,13 @@ namespace Ordisoftware.HebrewLetters
       if ( MainForm.EditScreenBottomLeft.Checked ) settings.MainFormPosition = ControlLocation.BottomLeft;
       if ( MainForm.EditScreenBottomRight.Checked ) settings.MainFormPosition = ControlLocation.BottomRight;
       if ( MainForm.EditScreenCenter.Checked ) settings.MainFormPosition = ControlLocation.Center;
+      //
       settings.ConfirmClosing = MainForm.EditConfirmClosing.Checked;
       settings.ShowTips = MainForm.EditShowTips.Checked;
       settings.ESCtoExit = MainForm.EditESCtoExit.Checked;
-      settings.CopyToClipboardCloseApp = MainForm.SelectCloseApp.Checked;
+      settings.CopyToClipboardCloseApp = MainForm.EditCopyToClipboardCloseApp.Checked;
+      settings.SoundsEnabled = MainForm.EditSoundsEnabled.Checked;
+      settings.AdvancedDialogBoxes = MainForm.EditUseAdvancedDialogBoxes.Checked;
       settings.Save();
     }
 

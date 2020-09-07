@@ -166,7 +166,7 @@
   <data name="SelectCloseApp.Size" type="System.Drawing.Size, System.Drawing">
     <value>58, 17</value>
   </data>
-  <data name="SelectCloseApp.Text" xml:space="preserve">
+  <data name="EditCopyToClipboardCloseApp.Text" xml:space="preserve">
     <value>Fermer</value>
   </data>
   <data name="ActionAnalyse.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -1211,5 +1211,11 @@
   </data>
   <data name="ActionWebReleaseNotes.Text" xml:space="preserve">
     <value>Notes de version</value>
+  </data>
+  <data name="EditSoundsEnabled.Text" xml:space="preserve">
+    <value>Activer les sons</value>
+  </data>
+  <data name="EditUseAdvancedDialogBoxes.Text" xml:space="preserve">
+    <value>Boites de dialogues avancées</value>
   </data>
 </root>
