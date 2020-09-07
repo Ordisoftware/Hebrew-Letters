@@ -19,9 +19,9 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
-using Ordisoftware.HebrewCommon;
+using Ordisoftware.Core;
 
-namespace Ordisoftware.HebrewLetters
+namespace Ordisoftware.Hebrew.Letters
 {
 
   public class AnalysisItem

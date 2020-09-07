@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Ordisoftware.HebrewLetters.Properties {
+namespace Ordisoftware.Hebrew.Letters.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -36,9 +36,9 @@ namespace Ordisoftware.HebrewLetters.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Center")]
-        public global::Ordisoftware.HebrewCommon.ControlLocation MainFormPosition {
+        public global::Ordisoftware.Core.ControlLocation MainFormPosition {
             get {
-                return ((global::Ordisoftware.HebrewCommon.ControlLocation)(this["MainFormPosition"]));
+                return ((global::Ordisoftware.Core.ControlLocation)(this["MainFormPosition"]));
             }
             set {
                 this["MainFormPosition"] = value;
@@ -144,9 +144,9 @@ namespace Ordisoftware.HebrewLetters.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Analyse")]
-        public global::Ordisoftware.HebrewLetters.ViewMode CurrentView {
+        public global::Ordisoftware.Hebrew.Letters.ViewMode CurrentView {
             get {
-                return ((global::Ordisoftware.HebrewLetters.ViewMode)(this["CurrentView"]));
+                return ((global::Ordisoftware.Hebrew.Letters.ViewMode)(this["CurrentView"]));
             }
             set {
                 this["CurrentView"] = value;
@@ -180,9 +180,9 @@ namespace Ordisoftware.HebrewLetters.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("None")]
-        public global::Ordisoftware.HebrewCommon.Language LanguageSelected {
+        public global::Ordisoftware.Core.Language LanguageSelected {
             get {
-                return ((global::Ordisoftware.HebrewCommon.Language)(this["LanguageSelected"]));
+                return ((global::Ordisoftware.Core.Language)(this["LanguageSelected"]));
             }
             set {
                 this["LanguageSelected"] = value;
@@ -438,6 +438,18 @@ namespace Ordisoftware.HebrewLetters.Properties {
             }
             set {
                 this["AdvancedDialogBoxes"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool FirstLaunch {
+            get {
+                return ((bool)(this["FirstLaunch"]));
+            }
+            set {
+                this["FirstLaunch"] = value;
             }
         }
     }

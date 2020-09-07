@@ -13,9 +13,9 @@
 /// <created> 2016-04 </created>
 /// <edited> 2020-08 </edited>
 using System;
-using Ordisoftware.HebrewCommon;
+using Ordisoftware.Core;
 
-namespace Ordisoftware.HebrewLetters
+namespace Ordisoftware.Hebrew.Letters
 {
 
   /// <summary>

@@ -1,4 +1,4 @@
-﻿namespace Ordisoftware.HebrewLetters
+﻿namespace Ordisoftware.Hebrew.Letters
 {
   partial class PreferencesForm
   {

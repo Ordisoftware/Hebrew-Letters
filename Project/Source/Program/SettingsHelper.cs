@@ -13,10 +13,10 @@
 /// <created> 2016-04 </created>
 /// <edited> 2020-09 </edited>
 using System.Windows.Forms;
-using Ordisoftware.HebrewCommon;
-using Ordisoftware.HebrewLetters.Properties;
+using Ordisoftware.Core;
+using Ordisoftware.Hebrew.Letters.Properties;
 
-namespace Ordisoftware.HebrewLetters
+namespace Ordisoftware.Hebrew.Letters
 {
 
   /// <summary>

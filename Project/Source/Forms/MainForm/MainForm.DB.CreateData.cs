@@ -14,12 +14,11 @@
 /// <edited> 2020-08 </edited>
 using System;
 using System.Data.Odbc;
-using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
-using Ordisoftware.HebrewCommon;
+using Ordisoftware.Core;
 
-namespace Ordisoftware.HebrewLetters
+namespace Ordisoftware.Hebrew.Letters
 {
 
   public partial class MainForm : Form

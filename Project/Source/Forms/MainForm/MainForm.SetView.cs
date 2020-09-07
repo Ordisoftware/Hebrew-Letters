@@ -15,7 +15,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace Ordisoftware.HebrewLetters
+namespace Ordisoftware.Hebrew.Letters
 {
 
   /// <summary>

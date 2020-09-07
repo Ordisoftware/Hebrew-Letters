@@ -14,7 +14,7 @@
 /// <edited> 2020-03 </edited>
 using System.Windows.Forms;
 
-namespace Ordisoftware.HebrewLetters
+namespace Ordisoftware.Hebrew.Letters
 {
 
   public partial class MainForm

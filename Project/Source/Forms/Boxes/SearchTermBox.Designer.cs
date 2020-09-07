@@ -1,4 +1,4 @@
-﻿namespace Ordisoftware.HebrewLetters
+﻿namespace Ordisoftware.Hebrew.Letters
 {
   partial class SearchTermBox
   {
@@ -33,7 +33,7 @@
       this.PanelBottom = new System.Windows.Forms.Panel();
       this.ActionSearch = new System.Windows.Forms.Button();
       this.ActionCancel = new System.Windows.Forms.Button();
-      this.EditTerm = new Ordisoftware.HebrewCommon.UndoRedoTextBox();
+      this.EditTerm = new Ordisoftware.Core.UndoRedoTextBox();
       this.PanelBottom.SuspendLayout();
       this.SuspendLayout();
       // 
@@ -59,7 +59,7 @@
       // EditTerm
       // 
       resources.ApplyResources(this.EditTerm, "EditTerm");
-      this.EditTerm.CaretAfterPaste = Ordisoftware.HebrewCommon.CaretPositionAfterPaste.Ending;
+      this.EditTerm.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
       this.EditTerm.Name = "EditTerm";
       this.EditTerm.TextChanged += new System.EventHandler(this.EditTerm_TextChanged);
       // 
@@ -87,6 +87,6 @@
     private System.Windows.Forms.Panel PanelBottom;
     private System.Windows.Forms.Button ActionSearch;
     private System.Windows.Forms.Button ActionCancel;
-    internal Ordisoftware.HebrewCommon.UndoRedoTextBox EditTerm;
+    internal Ordisoftware.Core.UndoRedoTextBox EditTerm;
   }
 }

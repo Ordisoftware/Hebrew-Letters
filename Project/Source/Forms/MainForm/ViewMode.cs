@@ -13,7 +13,7 @@
 /// <created> 2019-01 </created>
 /// <edited> 2019-01 </edited>
 
-namespace Ordisoftware.HebrewLetters
+namespace Ordisoftware.Hebrew.Letters
 {
 
   /// <summary>

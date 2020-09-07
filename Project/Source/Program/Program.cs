@@ -20,9 +20,9 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Threading;
 using System.Windows.Forms;
-using Ordisoftware.HebrewCommon;
+using Ordisoftware.Core;
 
-namespace Ordisoftware.HebrewLetters
+namespace Ordisoftware.Hebrew.Letters
 {
 
   /// <summary>
@@ -52,8 +52,8 @@ namespace Ordisoftware.HebrewLetters
       Globals.Settings = Settings;
       Globals.MainForm = MainForm.Instance;
       UpdateLocalization(true);
-      DebugManager.TraceEnabled = Settings.TraceEnabled;
       DebugManager.Enabled = Settings.DebuggerEnabled;
+      DebugManager.TraceEnabled = Settings.TraceEnabled;
       DebugManager.DeaultShowExceptionMode = ShowExceptionMode.Advanced;
       Language lang = Settings.LanguageSelected;
       SystemManager.CheckCommandLineArguments(args, ref lang);
@@ -67,6 +67,8 @@ namespace Ordisoftware.HebrewLetters
     /// </summary>
     private static void CheckSettingsReset()
     {
+      if ( Settings.FirstLaunch )
+        Settings.LanguageSelected = Languages.Current;
       if ( !Languages.Managed.Contains(Settings.LanguageSelected) )
       {
         string langCode = Settings.Language;
@@ -76,6 +78,8 @@ namespace Ordisoftware.HebrewLetters
         else
           Settings.LanguageSelected = Languages.Current;
       }
+      Settings.FirstLaunch = false;
+      Settings.Save();
     }
 
     /// <summary>

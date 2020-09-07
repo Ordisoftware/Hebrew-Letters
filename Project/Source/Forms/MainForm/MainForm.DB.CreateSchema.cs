@@ -15,9 +15,9 @@
 using System;
 using System.Data.Odbc;
 using System.Windows.Forms;
-using Ordisoftware.HebrewCommon;
+using Ordisoftware.Core;
 
-namespace Ordisoftware.HebrewLetters
+namespace Ordisoftware.Hebrew.Letters
 {
 
   public partial class MainForm : Form

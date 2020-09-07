@@ -1,4 +1,4 @@
-﻿namespace Ordisoftware.HebrewLetters
+﻿namespace Ordisoftware.Hebrew.Letters
 {
   partial class MainForm
   {
@@ -46,7 +46,7 @@
       this.TabControl = new System.Windows.Forms.TabControl();
       this.TabPageText = new System.Windows.Forms.TabPage();
       this.PanelViewSearch = new System.Windows.Forms.Panel();
-      this.EditGematriaFull = new Ordisoftware.HebrewCommon.UndoRedoTextBox();
+      this.EditGematriaFull = new Ordisoftware.Core.UndoRedoTextBox();
       this.LabelGematriaFull = new System.Windows.Forms.Label();
       this.LabelGematriaSimple = new System.Windows.Forms.Label();
       this.ActionReset = new System.Windows.Forms.Button();
@@ -62,26 +62,26 @@
       this.ActionClear = new System.Windows.Forms.Button();
       this.ActionCopyToClipboardMeanings = new System.Windows.Forms.Button();
       this.ActionCopyToClipboardResult = new System.Windows.Forms.Button();
-      this.EditSentence = new Ordisoftware.HebrewCommon.UndoRedoTextBox();
-      this.EditGematriaSimple = new Ordisoftware.HebrewCommon.UndoRedoTextBox();
+      this.EditSentence = new Ordisoftware.Core.UndoRedoTextBox();
+      this.EditGematriaSimple = new Ordisoftware.Core.UndoRedoTextBox();
       this.LabelGematria = new System.Windows.Forms.Label();
-      this.EditLetters = new Ordisoftware.HebrewCommon.LettersControl();
+      this.EditLetters = new Ordisoftware.Hebrew.LettersControl();
       this.TabPageMonth = new System.Windows.Forms.TabPage();
       this.PanelViewSettings = new System.Windows.Forms.Panel();
       this.PanelSettingsDetails = new System.Windows.Forms.Panel();
       this.PanelLetter = new System.Windows.Forms.Panel();
       this.ComboBoxCode = new System.Windows.Forms.ComboBox();
       this.LettersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-      this.DataSet = new Ordisoftware.HebrewLetters.Data.DataSet();
-      this.TextBoxStructure = new Ordisoftware.HebrewCommon.UndoRedoTextBox();
+      this.DataSet = new Ordisoftware.Hebrew.Letters.Data.DataSet();
+      this.TextBoxStructure = new Ordisoftware.Core.UndoRedoTextBox();
       this.LabelHebrew = new System.Windows.Forms.Label();
-      this.TextBoxNegative = new Ordisoftware.HebrewCommon.UndoRedoTextBox();
-      this.TextBoxName = new Ordisoftware.HebrewCommon.UndoRedoTextBox();
-      this.TextBoxFunction = new Ordisoftware.HebrewCommon.UndoRedoTextBox();
-      this.TextBoxPositive = new Ordisoftware.HebrewCommon.UndoRedoTextBox();
-      this.TextBoxVerb = new Ordisoftware.HebrewCommon.UndoRedoTextBox();
-      this.TextBoxValueSimple = new Ordisoftware.HebrewCommon.UndoRedoTextBox();
-      this.TextBoxValueFull = new Ordisoftware.HebrewCommon.UndoRedoTextBox();
+      this.TextBoxNegative = new Ordisoftware.Core.UndoRedoTextBox();
+      this.TextBoxName = new Ordisoftware.Core.UndoRedoTextBox();
+      this.TextBoxFunction = new Ordisoftware.Core.UndoRedoTextBox();
+      this.TextBoxPositive = new Ordisoftware.Core.UndoRedoTextBox();
+      this.TextBoxVerb = new Ordisoftware.Core.UndoRedoTextBox();
+      this.TextBoxValueSimple = new Ordisoftware.Core.UndoRedoTextBox();
+      this.TextBoxValueFull = new Ordisoftware.Core.UndoRedoTextBox();
       this.ActionRestoreDefaults = new System.Windows.Forms.LinkLabel();
       this.ActionDeleteMeaning = new System.Windows.Forms.Button();
       this.ActionAddMeaning = new System.Windows.Forms.Button();
@@ -125,9 +125,9 @@
       this.ActionOpenLexilogosOld = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionOpenLexilogosModern = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionWebLinks = new System.Windows.Forms.ToolStripDropDownButton();
-      this.LettersTableAdapter = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.LettersTableAdapter();
-      this.TableAdapterManager = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.TableAdapterManager();
-      this.MeaningsTableAdapter = new Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.MeaningsTableAdapter();
+      this.LettersTableAdapter = new Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.LettersTableAdapter();
+      this.TableAdapterManager = new Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.TableAdapterManager();
+      this.MeaningsTableAdapter = new Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.MeaningsTableAdapter();
       this.EditUseAdvancedDialogBoxes = new System.Windows.Forms.ToolStripMenuItem();
       this.EditSoundsEnabled = new System.Windows.Forms.ToolStripMenuItem();
       this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -278,7 +278,7 @@
       resources.ApplyResources(this.EditGematriaFull, "EditGematriaFull");
       this.EditGematriaFull.BackColor = System.Drawing.Color.LavenderBlush;
       this.EditGematriaFull.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.EditGematriaFull.CaretAfterPaste = Ordisoftware.HebrewCommon.CaretPositionAfterPaste.Ending;
+      this.EditGematriaFull.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
       this.EditGematriaFull.Name = "EditGematriaFull";
       this.EditGematriaFull.ReadOnly = true;
       // 
@@ -398,7 +398,7 @@
       resources.ApplyResources(this.EditSentence, "EditSentence");
       this.EditSentence.BackColor = System.Drawing.SystemColors.Window;
       this.EditSentence.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.EditSentence.CaretAfterPaste = Ordisoftware.HebrewCommon.CaretPositionAfterPaste.Ending;
+      this.EditSentence.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
       this.EditSentence.Name = "EditSentence";
       this.EditSentence.TextChanged += new System.EventHandler(this.EditSentence_TextChanged);
       // 
@@ -407,7 +407,7 @@
       resources.ApplyResources(this.EditGematriaSimple, "EditGematriaSimple");
       this.EditGematriaSimple.BackColor = System.Drawing.Color.LavenderBlush;
       this.EditGematriaSimple.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.EditGematriaSimple.CaretAfterPaste = Ordisoftware.HebrewCommon.CaretPositionAfterPaste.Ending;
+      this.EditGematriaSimple.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
       this.EditGematriaSimple.Name = "EditGematriaSimple";
       this.EditGematriaSimple.ReadOnly = true;
       // 
@@ -423,7 +423,7 @@
       this.EditLetters.InputText = "";
       resources.ApplyResources(this.EditLetters, "EditLetters");
       this.EditLetters.Name = "EditLetters";
-      this.EditLetters.ViewLetterDetails += new Ordisoftware.HebrewCommon.ViewLetterDetails(this.EditLetters_ViewLetterDetails);
+      this.EditLetters.ViewLetterDetails += new Ordisoftware.Hebrew.ViewLetterDetails(this.EditLetters_ViewLetterDetails);
       this.EditLetters.InputTextChanged += new System.EventHandler(this.EditLetters_InputTextChanged);
       // 
       // TabPageMonth
@@ -500,7 +500,7 @@
       // TextBoxStructure
       // 
       this.TextBoxStructure.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.TextBoxStructure.CaretAfterPaste = Ordisoftware.HebrewCommon.CaretPositionAfterPaste.Ending;
+      this.TextBoxStructure.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
       this.TextBoxStructure.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Structure", true));
       resources.ApplyResources(this.TextBoxStructure, "TextBoxStructure");
       this.TextBoxStructure.Name = "TextBoxStructure";
@@ -514,7 +514,7 @@
       // TextBoxNegative
       // 
       this.TextBoxNegative.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.TextBoxNegative.CaretAfterPaste = Ordisoftware.HebrewCommon.CaretPositionAfterPaste.Ending;
+      this.TextBoxNegative.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
       this.TextBoxNegative.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Negative", true));
       resources.ApplyResources(this.TextBoxNegative, "TextBoxNegative");
       this.TextBoxNegative.Name = "TextBoxNegative";
@@ -523,7 +523,7 @@
       // 
       this.TextBoxName.BackColor = System.Drawing.Color.LightYellow;
       this.TextBoxName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.TextBoxName.CaretAfterPaste = Ordisoftware.HebrewCommon.CaretPositionAfterPaste.Ending;
+      this.TextBoxName.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
       this.TextBoxName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Name", true));
       resources.ApplyResources(this.TextBoxName, "TextBoxName");
       this.TextBoxName.Name = "TextBoxName";
@@ -532,7 +532,7 @@
       // TextBoxFunction
       // 
       this.TextBoxFunction.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.TextBoxFunction.CaretAfterPaste = Ordisoftware.HebrewCommon.CaretPositionAfterPaste.Ending;
+      this.TextBoxFunction.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
       this.TextBoxFunction.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Function", true));
       resources.ApplyResources(this.TextBoxFunction, "TextBoxFunction");
       this.TextBoxFunction.Name = "TextBoxFunction";
@@ -540,7 +540,7 @@
       // TextBoxPositive
       // 
       this.TextBoxPositive.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.TextBoxPositive.CaretAfterPaste = Ordisoftware.HebrewCommon.CaretPositionAfterPaste.Ending;
+      this.TextBoxPositive.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
       this.TextBoxPositive.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Positive", true));
       resources.ApplyResources(this.TextBoxPositive, "TextBoxPositive");
       this.TextBoxPositive.Name = "TextBoxPositive";
@@ -548,7 +548,7 @@
       // TextBoxVerb
       // 
       this.TextBoxVerb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.TextBoxVerb.CaretAfterPaste = Ordisoftware.HebrewCommon.CaretPositionAfterPaste.Ending;
+      this.TextBoxVerb.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
       this.TextBoxVerb.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Verb", true));
       resources.ApplyResources(this.TextBoxVerb, "TextBoxVerb");
       this.TextBoxVerb.Name = "TextBoxVerb";
@@ -557,7 +557,7 @@
       // 
       this.TextBoxValueSimple.BackColor = System.Drawing.Color.LavenderBlush;
       this.TextBoxValueSimple.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.TextBoxValueSimple.CaretAfterPaste = Ordisoftware.HebrewCommon.CaretPositionAfterPaste.Ending;
+      this.TextBoxValueSimple.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
       this.TextBoxValueSimple.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "ValueSimple", true));
       resources.ApplyResources(this.TextBoxValueSimple, "TextBoxValueSimple");
       this.TextBoxValueSimple.Name = "TextBoxValueSimple";
@@ -567,7 +567,7 @@
       // 
       this.TextBoxValueFull.BackColor = System.Drawing.Color.LavenderBlush;
       this.TextBoxValueFull.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.TextBoxValueFull.CaretAfterPaste = Ordisoftware.HebrewCommon.CaretPositionAfterPaste.Ending;
+      this.TextBoxValueFull.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
       this.TextBoxValueFull.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "ValueFull", true));
       resources.ApplyResources(this.TextBoxValueFull, "TextBoxValueFull");
       this.TextBoxValueFull.Name = "TextBoxValueFull";
@@ -940,7 +940,7 @@
       this.TableAdapterManager.BackupDataSetBeforeUpdate = false;
       this.TableAdapterManager.LettersTableAdapter = this.LettersTableAdapter;
       this.TableAdapterManager.MeaningsTableAdapter = this.MeaningsTableAdapter;
-      this.TableAdapterManager.UpdateOrder = Ordisoftware.HebrewLetters.Data.DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+      this.TableAdapterManager.UpdateOrder = Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
       // 
       // MeaningsTableAdapter
       // 
@@ -1037,7 +1037,7 @@
     private System.Windows.Forms.Panel PanelMainInner;
     private System.Windows.Forms.Panel PanelMainCenter;
     private System.Windows.Forms.Timer TimerTooltip;
-    internal Ordisoftware.HebrewCommon.LettersControl EditLetters;
+    internal Ordisoftware.Hebrew.LettersControl EditLetters;
     private System.Windows.Forms.TabControl TabControl;
     private System.Windows.Forms.TabPage TabPageText;
     private System.Windows.Forms.Panel PanelViewSearch;
@@ -1049,9 +1049,9 @@
     internal System.Windows.Forms.BindingSource LettersBindingSource;
     private Data.DataSetTableAdapters.LettersTableAdapter LettersTableAdapter;
     private Data.DataSetTableAdapters.TableAdapterManager TableAdapterManager;
-    private Ordisoftware.HebrewCommon.UndoRedoTextBox TextBoxName;
-    private Ordisoftware.HebrewCommon.UndoRedoTextBox TextBoxValueSimple;
-    private Ordisoftware.HebrewCommon.UndoRedoTextBox TextBoxValueFull;
+    private Ordisoftware.Core.UndoRedoTextBox TextBoxName;
+    private Ordisoftware.Core.UndoRedoTextBox TextBoxValueSimple;
+    private Ordisoftware.Core.UndoRedoTextBox TextBoxValueFull;
     private Data.DataSetTableAdapters.MeaningsTableAdapter MeaningsTableAdapter;
     private System.Windows.Forms.Panel PanelSettingsDetails;
     private System.Windows.Forms.LinkLabel ActionRestoreDefaults;
@@ -1063,7 +1063,7 @@
     private System.Windows.Forms.Button ActionCopyToClipboardMeanings;
     private System.Windows.Forms.ToolStripButton ActionPreferences;
     internal System.Windows.Forms.Label LabelGematria;
-    internal Ordisoftware.HebrewCommon.UndoRedoTextBox EditGematriaSimple;
+    internal Ordisoftware.Core.UndoRedoTextBox EditGematriaSimple;
     private System.Windows.Forms.Button ActionReset;
     private System.Windows.Forms.Button ActionDelLast;
     private System.Windows.Forms.Button ActionDelFirst;
@@ -1084,21 +1084,21 @@
     private System.Windows.Forms.ToolStripMenuItem ActionOpenLexilogosOld;
     private System.Windows.Forms.ToolStripMenuItem ActionOpenLexilogosModern;
     private System.Windows.Forms.ToolStripMenuItem ActionOpenWordOnline;
-    internal Ordisoftware.HebrewCommon.UndoRedoTextBox EditSentence;
+    internal Ordisoftware.Core.UndoRedoTextBox EditSentence;
     internal System.Windows.Forms.ToolStripMenuItem EditESCtoExit;
     private System.Windows.Forms.ToolStripDropDownButton ActionWebLinks;
     private System.Windows.Forms.ToolStripMenuItem ActionShowGrammarGuide;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
     private System.Windows.Forms.ToolStripMenuItem ActionShowMethodNotice;
     internal System.Windows.Forms.BindingSource MeaningsBindingSource;
-    internal Ordisoftware.HebrewCommon.UndoRedoTextBox TextBoxStructure;
-    internal Ordisoftware.HebrewCommon.UndoRedoTextBox TextBoxFunction;
-    internal Ordisoftware.HebrewCommon.UndoRedoTextBox TextBoxVerb;
-    internal Ordisoftware.HebrewCommon.UndoRedoTextBox TextBoxNegative;
-    internal Ordisoftware.HebrewCommon.UndoRedoTextBox TextBoxPositive;
+    internal Ordisoftware.Core.UndoRedoTextBox TextBoxStructure;
+    internal Ordisoftware.Core.UndoRedoTextBox TextBoxFunction;
+    internal Ordisoftware.Core.UndoRedoTextBox TextBoxVerb;
+    internal Ordisoftware.Core.UndoRedoTextBox TextBoxNegative;
+    internal Ordisoftware.Core.UndoRedoTextBox TextBoxPositive;
     internal System.Windows.Forms.Button ActionClear;
     internal System.Windows.Forms.Label LabelGematriaSimple;
-    internal Ordisoftware.HebrewCommon.UndoRedoTextBox EditGematriaFull;
+    internal Ordisoftware.Core.UndoRedoTextBox EditGematriaFull;
     internal System.Windows.Forms.Label LabelGematriaFull;
     internal System.Windows.Forms.ToolStripDropDownButton ActionInformation;
     internal System.Windows.Forms.ToolStripMenuItem EditUseAdvancedDialogBoxes;

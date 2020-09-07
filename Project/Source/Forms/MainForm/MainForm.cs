@@ -19,9 +19,9 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Microsoft.Win32;
-using Ordisoftware.HebrewCommon;
+using Ordisoftware.Core;
 
-namespace Ordisoftware.HebrewLetters
+namespace Ordisoftware.Hebrew.Letters
 {
 
   /// <summary>
@@ -97,7 +97,7 @@ namespace Ordisoftware.HebrewLetters
     /// </summary>
     private void CreateProvidersLinks()
     {
-      ContextMenuSearchOnline.InitializeFromProviders(Globals.OnlineWordProviders, (sender, e) =>
+      ContextMenuSearchOnline.InitializeFromProviders(ProvidersCollection.OnlineWordProviders, (sender, e) =>
       {
         var menuitem = (ToolStripMenuItem)sender;
         string str = HebrewAlphabet.ConvertToUnicode(EditLetters.InputText);

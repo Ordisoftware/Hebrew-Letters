@@ -15,7 +15,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace Ordisoftware.HebrewLetters
+namespace Ordisoftware.Hebrew.Letters
 {
 
   public partial class SearchTermBox : Form
