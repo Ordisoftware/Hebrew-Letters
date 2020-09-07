@@ -27,21 +27,20 @@ namespace Ordisoftware.HebrewLetters
     static public readonly TranslationsDictionary ApplicationDescription
       = new TranslationsDictionary
       {
-        { Language.EN, "Lettriq letter-by-letter study and analysis of Hebrew words" },
-        { Language.FR, "Étude et analyse lettrique lettre-par-lettre des mots hébreux" }
+        [Language.EN] = "Lettriq letter-by-letter study and analysis of Hebrew words",
+        [Language.FR] = "Étude et analyse lettrique lettre-par-lettre des mots hébreux"
       };
 
     static public readonly TranslationsDictionary AskToRestoreLettersDefaults
       = new TranslationsDictionary
       {
-        { Language.EN, "Letters will be restored to their default values." + Globals.NL2 +
+        [Language.EN] = "Letters will be restored to their default values." + Globals.NL2 +
                         "All additions will be lost." + Globals.NL2 +
-                        Localizer.AskToContinue[Language.EN]
-        },
-        { Language.FR, "Les lettres vont être restaurées à leurs valeurs par défaut." + Globals.NL2 +
+                        Localizer.AskToContinue[Language.EN],
+
+        [Language.FR] = "Les lettres vont être restaurées à leurs valeurs par défaut." + Globals.NL2 +
                         "Tous les ajouts seront perdus." + Globals.NL2 +
                         Localizer.AskToContinue[Language.FR]
-        }
       };
 
   }
