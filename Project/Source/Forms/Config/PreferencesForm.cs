@@ -56,6 +56,7 @@ namespace Ordisoftware.Hebrew.Letters
       UpdateLanguagesButtons();
       EditVacuumAtStartup.Checked = Program.Settings.VacuumAtStartup;
       EditEnableDebugger.Checked = Program.Settings.DebuggerEnabled;
+      EditLogEnabled.Checked = Program.Settings.TraceEnabled;
       EditCheckUpdateAtStartup.Checked = Program.Settings.CheckUpdateAtStartup;
       EditAutoSortAnalysisMeanings.Checked = Program.Settings.AutoSortAnalysisMeanings;
       EditFontSize.Value = Program.Settings.FontSizeSentence;
@@ -67,6 +68,7 @@ namespace Ordisoftware.Hebrew.Letters
     {
       Program.Settings.VacuumAtStartup = EditVacuumAtStartup.Checked;
       Program.Settings.DebuggerEnabled = EditEnableDebugger.Checked;
+      Program.Settings.TraceEnabled = EditLogEnabled.Checked;
       Program.Settings.CheckUpdateAtStartup = EditCheckUpdateAtStartup.Checked;
       Program.Settings.AutoSortAnalysisMeanings = EditAutoSortAnalysisMeanings.Checked;
       Program.Settings.FontSizeSentence = EditFontSize.Value;
@@ -77,7 +79,15 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void EditEnableDebugger_CheckedChanged(object sender, EventArgs e)
     {
+      if ( !EditEnableDebugger.Checked ) DebugManager.ClearTraces(true);
       DebugManager.Enabled = EditEnableDebugger.Checked;
+      MainForm.Instance.ActionViewLog.Enabled = DebugManager.Enabled;
+      EditLogEnabled.Enabled = DebugManager.Enabled;
+    }
+
+    private void EditLogEnabled_CheckedChanged(object sender, EventArgs e)
+    {
+      DebugManager.TraceEnabled = EditLogEnabled.Checked;
     }
 
     private void UpdateLanguagesButtons()

@@ -134,6 +134,8 @@ namespace Ordisoftware.Hebrew.Letters
         Environment.Exit(-1);
       }
       ComboBoxCode_SelectedIndexChanged(null, null);
+      ActionViewLog.Enabled = DebugManager.TraceEnabled;
+      DebugManager.TraceEnabledChanged += value => ActionViewLog.Enabled = value;
       Globals.IsReady = true;
     }
 
@@ -307,7 +309,12 @@ namespace Ordisoftware.Hebrew.Letters
     /// <param name="e">Event information.</param>
     private void ActionViewAnalysis_Click(object sender, EventArgs e)
     {
-      if ( DataSet.HasChanges() ) TableAdapterManager.UpdateAll(DataSet);
+      if ( DataSet.HasChanges() )
+      {
+        TableAdapterManager.UpdateAll(DataSet);
+        ApplicationStatistics.UpdateDBFileSizeRequired = true;
+        ApplicationStatistics.UpdateDBMemorySizeRequired = true;
+      }
       SetView(ViewMode.Analyse);
     }
 
@@ -351,7 +358,12 @@ namespace Ordisoftware.Hebrew.Letters
     /// <param name="e">Event information.</param>
     private void ActionViewLetters_Click(object sender, EventArgs e)
     {
-      if ( DataSet.HasChanges() ) TableAdapterManager.UpdateAll(DataSet);
+      if ( DataSet.HasChanges() )
+      {
+        TableAdapterManager.UpdateAll(DataSet);
+        ApplicationStatistics.UpdateDBFileSizeRequired = true;
+        ApplicationStatistics.UpdateDBMemorySizeRequired = true;
+      }
       SetView(ViewMode.Settings);
     }
 
@@ -454,6 +466,16 @@ namespace Ordisoftware.Hebrew.Letters
         ActionExit_Click(ActionExit, null);
     }
 
+    internal void ActionViewLog_Click(object sender, EventArgs e)
+    {
+      DebugManager.TraceForm.Popup();
+    }
+
+    private void ActionViewStats_Click(object sender, EventArgs e)
+    {
+      StatisticsForm.Run();
+    }
+
     private void ProcessHTMLBrowser(HTMLBrowserForm form)
     {
       if ( form.WindowState == FormWindowState.Minimized )
@@ -487,6 +509,8 @@ namespace Ordisoftware.Hebrew.Letters
         ActionClear.PerformClick();
         ActionReset.PerformClick();
         EditLetters.InputText = word;
+        ApplicationStatistics.UpdateDBFileSizeRequired = true;
+        ApplicationStatistics.UpdateDBMemorySizeRequired = true;
       }
     }
 
@@ -715,6 +739,7 @@ namespace Ordisoftware.Hebrew.Letters
       }
 
     }
+
   }
 
 }

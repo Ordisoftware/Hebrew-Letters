@@ -440,5 +440,29 @@ namespace Ordisoftware.Hebrew.Letters.Properties {
                 this["FirstLaunch"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool StatisticsFormAlwaysOnTop {
+            get {
+                return ((bool)(this["StatisticsFormAlwaysOnTop"]));
+            }
+            set {
+                this["StatisticsFormAlwaysOnTop"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("-1, -1")]
+        public global::System.Drawing.Point StatisticsFormLocation {
+            get {
+                return ((global::System.Drawing.Point)(this["StatisticsFormLocation"]));
+            }
+            set {
+                this["StatisticsFormLocation"] = value;
+            }
+        }
     }
 }

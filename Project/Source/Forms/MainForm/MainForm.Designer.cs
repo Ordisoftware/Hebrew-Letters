@@ -109,7 +109,10 @@
       this.EditScreenCenter = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionResetWinSettings = new System.Windows.Forms.ToolStripMenuItem();
       this.Sep7 = new System.Windows.Forms.ToolStripSeparator();
+      this.EditUseAdvancedDialogBoxes = new System.Windows.Forms.ToolStripMenuItem();
+      this.EditSoundsEnabled = new System.Windows.Forms.ToolStripMenuItem();
       this.EditShowTips = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
       this.EditESCtoExit = new System.Windows.Forms.ToolStripMenuItem();
       this.EditConfirmClosing = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionViewAnalysis = new System.Windows.Forms.ToolStripButton();
@@ -124,13 +127,13 @@
       this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
       this.ActionOpenLexilogosOld = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionOpenLexilogosModern = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+      this.ActionViewLog = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionWebLinks = new System.Windows.Forms.ToolStripDropDownButton();
       this.LettersTableAdapter = new Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.LettersTableAdapter();
       this.TableAdapterManager = new Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.TableAdapterManager();
       this.MeaningsTableAdapter = new Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.MeaningsTableAdapter();
-      this.EditUseAdvancedDialogBoxes = new System.Windows.Forms.ToolStripMenuItem();
-      this.EditSoundsEnabled = new System.Windows.Forms.ToolStripMenuItem();
-      this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+      this.ActionViewStats = new System.Windows.Forms.ToolStripMenuItem();
       LabelName = new System.Windows.Forms.Label();
       LabelStructure = new System.Windows.Forms.Label();
       LabelFunction = new System.Windows.Forms.Label();
@@ -318,10 +321,10 @@
       this.ActionDelFirst.UseVisualStyleBackColor = true;
       this.ActionDelFirst.Click += new System.EventHandler(this.ActionDelFirst_Click);
       // 
-      // SelectCloseApp
+      // EditCopyToClipboardCloseApp
       // 
-      resources.ApplyResources(this.EditCopyToClipboardCloseApp, "SelectCloseApp");
-      this.EditCopyToClipboardCloseApp.Name = "SelectCloseApp";
+      resources.ApplyResources(this.EditCopyToClipboardCloseApp, "EditCopyToClipboardCloseApp");
+      this.EditCopyToClipboardCloseApp.Name = "EditCopyToClipboardCloseApp";
       this.EditCopyToClipboardCloseApp.UseVisualStyleBackColor = true;
       // 
       // EditAnalyze
@@ -813,6 +816,24 @@
       this.Sep7.Name = "Sep7";
       resources.ApplyResources(this.Sep7, "Sep7");
       // 
+      // EditUseAdvancedDialogBoxes
+      // 
+      this.EditUseAdvancedDialogBoxes.Checked = true;
+      this.EditUseAdvancedDialogBoxes.CheckOnClick = true;
+      this.EditUseAdvancedDialogBoxes.CheckState = System.Windows.Forms.CheckState.Checked;
+      resources.ApplyResources(this.EditUseAdvancedDialogBoxes, "EditUseAdvancedDialogBoxes");
+      this.EditUseAdvancedDialogBoxes.Name = "EditUseAdvancedDialogBoxes";
+      this.EditUseAdvancedDialogBoxes.CheckedChanged += new System.EventHandler(this.EditDialogBoxesSettings_CheckedChanged);
+      // 
+      // EditSoundsEnabled
+      // 
+      this.EditSoundsEnabled.Checked = true;
+      this.EditSoundsEnabled.CheckOnClick = true;
+      this.EditSoundsEnabled.CheckState = System.Windows.Forms.CheckState.Checked;
+      resources.ApplyResources(this.EditSoundsEnabled, "EditSoundsEnabled");
+      this.EditSoundsEnabled.Name = "EditSoundsEnabled";
+      this.EditSoundsEnabled.CheckedChanged += new System.EventHandler(this.EditDialogBoxesSettings_CheckedChanged);
+      // 
       // EditShowTips
       // 
       this.EditShowTips.Checked = true;
@@ -820,6 +841,11 @@
       this.EditShowTips.CheckState = System.Windows.Forms.CheckState.Checked;
       resources.ApplyResources(this.EditShowTips, "EditShowTips");
       this.EditShowTips.Name = "EditShowTips";
+      // 
+      // toolStripSeparator2
+      // 
+      this.toolStripSeparator2.Name = "toolStripSeparator2";
+      resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
       // 
       // EditESCtoExit
       // 
@@ -878,7 +904,10 @@
             this.ActionOpenShorashon,
             this.toolStripSeparator3,
             this.ActionOpenLexilogosOld,
-            this.ActionOpenLexilogosModern});
+            this.ActionOpenLexilogosModern,
+            this.toolStripSeparator5,
+            this.ActionViewLog,
+            this.ActionViewStats});
       resources.ApplyResources(this.ActionTools, "ActionTools");
       this.ActionTools.Name = "ActionTools";
       // 
@@ -925,6 +954,17 @@
       this.ActionOpenLexilogosModern.Tag = "https://www.lexilogos.com/hebreu_moderne_dictionnaire.htm";
       this.ActionOpenLexilogosModern.Click += new System.EventHandler(this.ActionOpenWebsiteURL_Click);
       // 
+      // toolStripSeparator5
+      // 
+      this.toolStripSeparator5.Name = "toolStripSeparator5";
+      resources.ApplyResources(this.toolStripSeparator5, "toolStripSeparator5");
+      // 
+      // ActionViewLog
+      // 
+      resources.ApplyResources(this.ActionViewLog, "ActionViewLog");
+      this.ActionViewLog.Name = "ActionViewLog";
+      this.ActionViewLog.Click += new System.EventHandler(this.ActionViewLog_Click);
+      // 
       // ActionWebLinks
       // 
       this.ActionWebLinks.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -946,28 +986,11 @@
       // 
       this.MeaningsTableAdapter.ClearBeforeFill = true;
       // 
-      // EditUseAdvancedDialogBoxes
+      // ActionViewStats
       // 
-      this.EditUseAdvancedDialogBoxes.Checked = true;
-      this.EditUseAdvancedDialogBoxes.CheckOnClick = true;
-      this.EditUseAdvancedDialogBoxes.CheckState = System.Windows.Forms.CheckState.Checked;
-      resources.ApplyResources(this.EditUseAdvancedDialogBoxes, "EditUseAdvancedDialogBoxes");
-      this.EditUseAdvancedDialogBoxes.Name = "EditUseAdvancedDialogBoxes";
-      this.EditUseAdvancedDialogBoxes.CheckedChanged += new System.EventHandler(this.EditDialogBoxesSettings_CheckedChanged);
-      // 
-      // EditSoundsEnabled
-      // 
-      this.EditSoundsEnabled.Checked = true;
-      this.EditSoundsEnabled.CheckOnClick = true;
-      this.EditSoundsEnabled.CheckState = System.Windows.Forms.CheckState.Checked;
-      resources.ApplyResources(this.EditSoundsEnabled, "EditSoundsEnabled");
-      this.EditSoundsEnabled.Name = "EditSoundsEnabled";
-      this.EditSoundsEnabled.CheckedChanged += new System.EventHandler(this.EditDialogBoxesSettings_CheckedChanged);
-      // 
-      // toolStripSeparator2
-      // 
-      this.toolStripSeparator2.Name = "toolStripSeparator2";
-      resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
+      resources.ApplyResources(this.ActionViewStats, "ActionViewStats");
+      this.ActionViewStats.Name = "ActionViewStats";
+      this.ActionViewStats.Click += new System.EventHandler(this.ActionViewStats_Click);
       // 
       // MainForm
       // 
@@ -1104,5 +1127,8 @@
     internal System.Windows.Forms.ToolStripMenuItem EditUseAdvancedDialogBoxes;
     internal System.Windows.Forms.ToolStripMenuItem EditSoundsEnabled;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+    private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+    internal System.Windows.Forms.ToolStripMenuItem ActionViewLog;
+    private System.Windows.Forms.ToolStripMenuItem ActionViewStats;
   }
 }

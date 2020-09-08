@@ -47,6 +47,7 @@
       this.EditVacuumAtStartup = new System.Windows.Forms.CheckBox();
       this.EditCheckUpdateAtStartup = new System.Windows.Forms.CheckBox();
       this.EditWebLinksMenuEnabled = new System.Windows.Forms.CheckBox();
+      this.EditLogEnabled = new System.Windows.Forms.CheckBox();
       this.PanelBottom.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.EditFontSize)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.EditMaxLength)).BeginInit();
@@ -191,12 +192,20 @@
       this.EditWebLinksMenuEnabled.Name = "EditWebLinksMenuEnabled";
       this.EditWebLinksMenuEnabled.UseVisualStyleBackColor = true;
       // 
+      // EditLogEnabled
+      // 
+      resources.ApplyResources(this.EditLogEnabled, "EditLogEnabled");
+      this.EditLogEnabled.Name = "EditLogEnabled";
+      this.EditLogEnabled.UseVisualStyleBackColor = true;
+      this.EditLogEnabled.CheckedChanged += new System.EventHandler(this.EditLogEnabled_CheckedChanged);
+      // 
       // PreferencesForm
       // 
       this.AcceptButton = this.ActionClose;
       resources.ApplyResources(this, "$this");
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.CancelButton = this.ActionClose;
+      this.Controls.Add(this.EditLogEnabled);
       this.Controls.Add(this.EditWebLinksMenuEnabled);
       this.Controls.Add(this.EditMaxLength);
       this.Controls.Add(this.LabelMaxLength);
@@ -244,5 +253,6 @@
     private System.Windows.Forms.NumericUpDown EditMaxLength;
     private System.Windows.Forms.Label LabelMaxLength;
     private System.Windows.Forms.CheckBox EditWebLinksMenuEnabled;
+    private System.Windows.Forms.CheckBox EditLogEnabled;
   }
 }
