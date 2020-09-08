@@ -195,7 +195,7 @@
     <Compile Include="Source\Common\Hebrew\OnlineProviders.cs" />
     <Compile Include="Source\Common\Hebrew\OnlineProvidersHelper.cs" />
     <Compile Include="Source\Common\Hebrew\ProvidersCollection.cs" />
-    <Compile Include="Source\Common\Hebrew\Tools.cs" />
+    <Compile Include="Source\Common\Hebrew\HebrewTools.cs" />
     <Compile Include="Source\Forms\Boxes\SearchTermResultsBox.cs">
       <SubType>Form</SubType>
     </Compile>
