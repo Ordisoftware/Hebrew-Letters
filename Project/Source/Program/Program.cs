@@ -13,7 +13,6 @@
 /// <created> 2016-04 </created>
 /// <edited> 2020-08 </edited>
 using System;
-using System.Linq;
 using System.Drawing;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -68,9 +67,11 @@ namespace Ordisoftware.Hebrew.Letters
     private static void CheckSettingsReset()
     {
       if ( Settings.FirstLaunch )
+      {
         Settings.LanguageSelected = Languages.Current;
-      Settings.FirstLaunch = false;
-      Settings.Save();
+        Settings.FirstLaunch = false;
+        Settings.Save();
+      }
     }
 
     /// <summary>
