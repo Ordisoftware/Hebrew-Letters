@@ -191,6 +191,7 @@
     <Compile Include="Source\Common\Hebrew\LettersControl.Redraw.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Source\Common\Hebrew\HebrewTranslations.cs" />
     <Compile Include="Source\Common\Hebrew\OnlineProviderItem.cs" />
     <Compile Include="Source\Common\Hebrew\OnlineProviders.cs" />
     <Compile Include="Source\Common\Hebrew\OnlineProvidersHelper.cs" />
