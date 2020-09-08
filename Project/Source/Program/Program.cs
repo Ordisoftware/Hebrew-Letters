@@ -69,15 +69,6 @@ namespace Ordisoftware.Hebrew.Letters
     {
       if ( Settings.FirstLaunch )
         Settings.LanguageSelected = Languages.Current;
-      if ( !Languages.Managed.Contains(Settings.LanguageSelected) )
-      {
-        string langCode = Settings.Language;
-        var langValue = Languages.Values[langCode];
-        if ( langValue != Language.None )
-          Settings.LanguageSelected = langValue;
-        else
-          Settings.LanguageSelected = Languages.Current;
-      }
       Settings.FirstLaunch = false;
       Settings.Save();
     }
