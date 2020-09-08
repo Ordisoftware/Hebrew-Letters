@@ -97,10 +97,6 @@ namespace Ordisoftware.Hebrew.Letters
       if ( initonly ) return;
       MessageBoxEx.CloseAll();
       AboutBox.Instance.Hide();
-      /*foreach ( Form form in Application.OpenForms )
-        if ( form != MainForm.Instance && form != AboutBox.Instance
-          && form != GrammarGuideForm && form != MethodNoticeForm )
-          updateForm(form);*/
       var temp = Settings.CurrentView;
       MainForm.Instance.SetView(ViewMode.Analyse);
       updateForm(MainForm.Instance);

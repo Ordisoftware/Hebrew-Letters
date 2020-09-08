@@ -12,6 +12,7 @@
 /// </license>
 /// <created> 2016-04 </created>
 /// <edited> 2020-09 </edited>
+using System;
 using System.Windows.Forms;
 using Ordisoftware.Core;
 using Ordisoftware.Hebrew.Letters.Properties;
@@ -90,10 +91,10 @@ namespace Ordisoftware.Hebrew.Letters
       MainForm.EditConfirmClosing.Checked = settings.ConfirmClosing;
       MainForm.EditShowTips.Checked = settings.ShowTips;
       MainForm.EditESCtoExit.Checked = settings.ESCtoExit;
-      MainForm.EditCopyToClipboardCloseApp.Checked = settings.CopyToClipboardCloseApp;
       MainForm.EditSoundsEnabled.Checked = settings.SoundsEnabled;
       MainForm.EditUseAdvancedDialogBoxes.Checked = settings.AdvancedDialogBoxes;
       MainForm.EditDialogBoxesSettings_CheckedChanged(null, null);
+      MainForm.EditCopyToClipboardCloseApp.Checked = settings.CopyToClipboardCloseApp;
     }
 
     /// <summary>
@@ -122,9 +123,9 @@ namespace Ordisoftware.Hebrew.Letters
       settings.ConfirmClosing = MainForm.EditConfirmClosing.Checked;
       settings.ShowTips = MainForm.EditShowTips.Checked;
       settings.ESCtoExit = MainForm.EditESCtoExit.Checked;
-      settings.CopyToClipboardCloseApp = MainForm.EditCopyToClipboardCloseApp.Checked;
       settings.SoundsEnabled = MainForm.EditSoundsEnabled.Checked;
       settings.AdvancedDialogBoxes = MainForm.EditUseAdvancedDialogBoxes.Checked;
+      settings.CopyToClipboardCloseApp = MainForm.EditCopyToClipboardCloseApp.Checked;
       settings.Save();
     }
 

@@ -244,7 +244,7 @@
     <value>64, 13</value>
   </data>
   <data name="LabelTrademark.TabIndex" type="System.Int32, mscorlib">
-    <value>23</value>
+    <value>0</value>
   </data>
   <data name="LabelTrademark.Text" xml:space="preserve">
     <value>-Trademark-</value>
@@ -274,7 +274,7 @@
     <value>75, 24</value>
   </data>
   <data name="ActionClose.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
+    <value>0</value>
   </data>
   <data name="ActionClose.Text" xml:space="preserve">
     <value>Close</value>
@@ -289,7 +289,7 @@
     <value>PanelBottom</value>
   </data>
   <data name="&gt;&gt;ActionClose.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="EditLicense.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -301,7 +301,7 @@
     <value>483, 204</value>
   </data>
   <data name="EditLicense.TabIndex" type="System.Int32, mscorlib">
-    <value>26</value>
+    <value>1</value>
   </data>
   <data name="EditLicense.Text" xml:space="preserve">
     <value />
@@ -347,6 +347,49 @@
   </data>
   <data name="&gt;&gt;LabelDescription.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="ActionPrivacyNotice.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="ActionPrivacyNotice.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAkBJREFUOE+Nkl1Ik2EUx8+FzBAWFIQWEYug6Cqii4iCaC1HNPq4bNHNCLzriyBQ
+        6cbUSdvStbleGxGyxbqolhgVRSxrzdxL82NNnMXCwgg0NTJvgn/n7H1Cx4z6w4Hnfc75/c95nuel5XTk
+        Kllq3fTL1kqQkLXsqfS/ZWuhH/GsC4WfARQWArj/zgWbm+ZVulyHPBSvbeNuLYR9lwmnIxakplwIfiBo
+        9wj9n124eHcr9nLOyjU8EYRROJGd4bGFRmS/12N4rgFDM42IjtegM0/o6iXcTq6BPnMe6W910Dly8xeK
+        JgrnkfmcmbkzCL0hhHTC9bccw9x9lOMxIfiE4GGjP0pNn8R+nkThhsHA7Clor9mgn+E0g2yiDfH3M4KP
+        DZaqb+pYqcEBNkjOHkcoQbj2guB/xV15miAb+Z6Wwh7O900fLb6OwnmCZpqM5Xej6+Vi8ZXnhDY2XCoP
+        58MZQmxsD2xNNKlwIusletSa2Ihu3aRKy+VNGhPF3lfDndgEYRROtP0EHXZqJsQ/bUb7w9KuIm+KYb6T
+        G3yxvV+2walVQhiFF1Vlb6avHfo6RLNmtMcXTbwDDA/yc45w94818KfXQ2qFMVAlyy6yO3zcZbQa3SMr
+        0NlDCPDThRjUcoRIYRXCubVweAlSq7ASmXbWUYOYdAyaEclX4SY/X3icEJ0ww59ZWYSlRmoNpFyrtzjI
+        aee/7GxPBW5NVBbj3IMKyJ7kpMYo/bvkbDus9XTnIP/iErKWPZX7b23gEEhC1suI6DeQdKa4dsJoswAA
+        AABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="ActionPrivacyNotice.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ActionPrivacyNotice.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 1</value>
+  </data>
+  <data name="ActionPrivacyNotice.Size" type="System.Drawing.Size, System.Drawing">
+    <value>26, 26</value>
+  </data>
+  <data name="ActionPrivacyNotice.TabIndex" type="System.Int32, mscorlib">
+    <value>64</value>
+  </data>
+  <data name="&gt;&gt;ActionPrivacyNotice.Name" xml:space="preserve">
+    <value>ActionPrivacyNotice</value>
+  </data>
+  <data name="&gt;&gt;ActionPrivacyNotice.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ActionPrivacyNotice.Parent" xml:space="preserve">
+    <value>PanelBottom</value>
+  </data>
+  <data name="&gt;&gt;ActionPrivacyNotice.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="PanelBottom.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Bottom</value>
