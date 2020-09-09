@@ -14,6 +14,7 @@
 /// <edited> 2020-08 </edited>
 using System;
 using System.Data;
+using System.Data.Odbc;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -77,7 +78,7 @@ namespace Ordisoftware.Hebrew.Letters
       InitializeComponent();
       Text = Globals.AssemblyTitle;
       SystemEvents.SessionEnding += SessionEnding;
-      try { Icon = Icon.ExtractAssociatedIcon(Globals.ApplicationIconFilename); }
+      try { Icon = Icon.ExtractAssociatedIcon(Globals.ApplicationIconFilePath); }
       catch { }
       CreateProvidersLinks();
     }
@@ -414,7 +415,7 @@ namespace Ordisoftware.Hebrew.Letters
     /// <param name="e">Event information.</param>
     private void ActionHelp_Click(object sender, EventArgs e)
     {
-      SystemManager.RunShell(Globals.HelpFilename);
+      SystemManager.RunShell(Globals.HelpFilePath);
     }
 
     /// <summary>

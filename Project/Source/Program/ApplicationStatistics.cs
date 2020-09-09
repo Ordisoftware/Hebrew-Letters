@@ -38,10 +38,10 @@ namespace Ordisoftware.Hebrew.Letters
       => MainForm.Instance.DataSet.Meanings.Count().ToString();
 
     public string DBEngine
-      => OdbcSQLiteHelper.Engine;
+      => SQLiteOdbcHelper.EngineNameAndVersion;
 
     public string DBADOdotNETProvider
-      => OdbcSQLiteHelper.ADOdotNETProvider;
+      => SQLiteOdbcHelper.ADOdotNETProviderName;
 
     public string DBFileSize
     {
@@ -50,7 +50,7 @@ namespace Ordisoftware.Hebrew.Letters
         if ( UpdateDBFileSizeRequired )
         {
           UpdateDBFileSizeRequired = false;
-          _DBFileSize = SystemManager.GetFileSize(Globals.DatabaseFilename).FormatBytesSize().ToString();
+          _DBFileSize = SystemManager.GetFileSize(Globals.DatabaseFilePath).FormatBytesSize().ToString();
         }
         return _DBFileSize;
       }

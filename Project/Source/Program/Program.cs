@@ -50,10 +50,8 @@ namespace Ordisoftware.Hebrew.Letters
       Application.SetCompatibleTextRenderingDefault(false);
       Globals.Settings = Settings;
       Globals.MainForm = MainForm.Instance;
-      UpdateLocalization(true);
       DebugManager.Enabled = Settings.DebuggerEnabled;
       DebugManager.TraceEnabled = Settings.TraceEnabled;
-      DebugManager.DeaultShowExceptionMode = ShowExceptionMode.Advanced;
       Language lang = Settings.LanguageSelected;
       SystemManager.CheckCommandLineArguments(args, ref lang);
       Settings.LanguageSelected = lang;
@@ -66,18 +64,16 @@ namespace Ordisoftware.Hebrew.Letters
     /// </summary>
     private static void CheckSettingsReset()
     {
-      if ( Settings.FirstLaunch )
-      {
+      Settings.FirstLaunch = false;
+      if ( Settings.LanguageSelected == Language.None )
         Settings.LanguageSelected = Languages.Current;
-        Settings.FirstLaunch = false;
-        Settings.Save();
-      }
+      Settings.Save();
     }
 
     /// <summary>
     /// Update localization strings to the whole application.
     /// </summary>
-    static internal void UpdateLocalization(bool initonly = false)
+    static internal void UpdateLocalization()
     {
       void updateForm(Form form)
       {
@@ -94,7 +90,6 @@ namespace Ordisoftware.Hebrew.Letters
       var culture = new CultureInfo(lang);
       Thread.CurrentThread.CurrentCulture = culture;
       Thread.CurrentThread.CurrentUICulture = culture;
-      if ( initonly ) return;
       MessageBoxEx.CloseAll();
       AboutBox.Instance.Hide();
       var temp = Settings.CurrentView;
