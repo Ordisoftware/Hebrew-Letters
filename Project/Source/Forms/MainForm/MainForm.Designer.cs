@@ -129,11 +129,11 @@
       this.ActionOpenLexilogosModern = new System.Windows.Forms.ToolStripMenuItem();
       this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
       this.ActionViewLog = new System.Windows.Forms.ToolStripMenuItem();
+      this.ActionViewStats = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionWebLinks = new System.Windows.Forms.ToolStripDropDownButton();
       this.LettersTableAdapter = new Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.LettersTableAdapter();
       this.TableAdapterManager = new Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.TableAdapterManager();
       this.MeaningsTableAdapter = new Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.MeaningsTableAdapter();
-      this.ActionViewStats = new System.Windows.Forms.ToolStripMenuItem();
       LabelName = new System.Windows.Forms.Label();
       LabelStructure = new System.Windows.Forms.Label();
       LabelFunction = new System.Windows.Forms.Label();
@@ -507,6 +507,10 @@
       this.TextBoxStructure.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Structure", true));
       resources.ApplyResources(this.TextBoxStructure, "TextBoxStructure");
       this.TextBoxStructure.Name = "TextBoxStructure";
+      this.TextBoxStructure.ContextMenuEditOpening += new System.ComponentModel.CancelEventHandler(this.TextBoxPositive_ContextMenuEditOpening);
+      this.TextBoxStructure.ContextMenuEditOpened += new System.EventHandler(this.TextBoxPositive_ContextMenuEditOpened);
+      this.TextBoxStructure.TextChanged += new System.EventHandler(this.TextBoxPositive_TextChanged);
+      this.TextBoxStructure.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxPositive_KeyPress);
       // 
       // LabelHebrew
       // 
@@ -521,6 +525,10 @@
       this.TextBoxNegative.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Negative", true));
       resources.ApplyResources(this.TextBoxNegative, "TextBoxNegative");
       this.TextBoxNegative.Name = "TextBoxNegative";
+      this.TextBoxNegative.ContextMenuEditOpening += new System.ComponentModel.CancelEventHandler(this.TextBoxPositive_ContextMenuEditOpening);
+      this.TextBoxNegative.ContextMenuEditOpened += new System.EventHandler(this.TextBoxPositive_ContextMenuEditOpened);
+      this.TextBoxNegative.TextChanged += new System.EventHandler(this.TextBoxPositive_TextChanged);
+      this.TextBoxNegative.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxPositive_KeyPress);
       // 
       // TextBoxName
       // 
@@ -539,6 +547,10 @@
       this.TextBoxFunction.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Function", true));
       resources.ApplyResources(this.TextBoxFunction, "TextBoxFunction");
       this.TextBoxFunction.Name = "TextBoxFunction";
+      this.TextBoxFunction.ContextMenuEditOpening += new System.ComponentModel.CancelEventHandler(this.TextBoxPositive_ContextMenuEditOpening);
+      this.TextBoxFunction.ContextMenuEditOpened += new System.EventHandler(this.TextBoxPositive_ContextMenuEditOpened);
+      this.TextBoxFunction.TextChanged += new System.EventHandler(this.TextBoxPositive_TextChanged);
+      this.TextBoxFunction.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxPositive_KeyPress);
       // 
       // TextBoxPositive
       // 
@@ -547,6 +559,10 @@
       this.TextBoxPositive.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Positive", true));
       resources.ApplyResources(this.TextBoxPositive, "TextBoxPositive");
       this.TextBoxPositive.Name = "TextBoxPositive";
+      this.TextBoxPositive.ContextMenuEditOpening += new System.ComponentModel.CancelEventHandler(this.TextBoxPositive_ContextMenuEditOpening);
+      this.TextBoxPositive.ContextMenuEditOpened += new System.EventHandler(this.TextBoxPositive_ContextMenuEditOpened);
+      this.TextBoxPositive.TextChanged += new System.EventHandler(this.TextBoxPositive_TextChanged);
+      this.TextBoxPositive.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxPositive_KeyPress);
       // 
       // TextBoxVerb
       // 
@@ -555,6 +571,10 @@
       this.TextBoxVerb.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Verb", true));
       resources.ApplyResources(this.TextBoxVerb, "TextBoxVerb");
       this.TextBoxVerb.Name = "TextBoxVerb";
+      this.TextBoxVerb.ContextMenuEditOpening += new System.ComponentModel.CancelEventHandler(this.TextBoxPositive_ContextMenuEditOpening);
+      this.TextBoxVerb.ContextMenuEditOpened += new System.EventHandler(this.TextBoxPositive_ContextMenuEditOpened);
+      this.TextBoxVerb.TextChanged += new System.EventHandler(this.TextBoxPositive_TextChanged);
+      this.TextBoxVerb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxPositive_KeyPress);
       // 
       // TextBoxValueSimple
       // 
@@ -965,6 +985,12 @@
       this.ActionViewLog.Name = "ActionViewLog";
       this.ActionViewLog.Click += new System.EventHandler(this.ActionViewLog_Click);
       // 
+      // ActionViewStats
+      // 
+      resources.ApplyResources(this.ActionViewStats, "ActionViewStats");
+      this.ActionViewStats.Name = "ActionViewStats";
+      this.ActionViewStats.Click += new System.EventHandler(this.ActionViewStats_Click);
+      // 
       // ActionWebLinks
       // 
       this.ActionWebLinks.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -985,12 +1011,6 @@
       // MeaningsTableAdapter
       // 
       this.MeaningsTableAdapter.ClearBeforeFill = true;
-      // 
-      // ActionViewStats
-      // 
-      resources.ApplyResources(this.ActionViewStats, "ActionViewStats");
-      this.ActionViewStats.Name = "ActionViewStats";
-      this.ActionViewStats.Click += new System.EventHandler(this.ActionViewStats_Click);
       // 
       // MainForm
       // 

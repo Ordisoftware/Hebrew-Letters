@@ -310,12 +310,7 @@ namespace Ordisoftware.Hebrew.Letters
     /// <param name="e">Event information.</param>
     private void ActionViewAnalysis_Click(object sender, EventArgs e)
     {
-      if ( DataSet.HasChanges() )
-      {
-        TableAdapterManager.UpdateAll(DataSet);
-        ApplicationStatistics.UpdateDBFileSizeRequired = true;
-        ApplicationStatistics.UpdateDBMemorySizeRequired = true;
-      }
+      SaveData();
       SetView(ViewMode.Analyse);
     }
 
@@ -359,12 +354,7 @@ namespace Ordisoftware.Hebrew.Letters
     /// <param name="e">Event information.</param>
     private void ActionViewLetters_Click(object sender, EventArgs e)
     {
-      if ( DataSet.HasChanges() )
-      {
-        TableAdapterManager.UpdateAll(DataSet);
-        ApplicationStatistics.UpdateDBFileSizeRequired = true;
-        ApplicationStatistics.UpdateDBMemorySizeRequired = true;
-      }
+      SaveData();
       SetView(ViewMode.Settings);
     }
 
@@ -503,6 +493,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void ActionRestoreDefaults_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
+      if ( !SQLiteOdbcHelper.CheckProcessConcurency() ) return;
       if ( DisplayManager.QueryYesNo(AppTranslations.AskToRestoreLettersDefaults.GetLang()) )
       {
         string word = EditLetters.InputText;
@@ -543,6 +534,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void ActionAddMeaning_Click(object sender, EventArgs e)
     {
+      if ( !SQLiteOdbcHelper.CheckProcessConcurency() ) return;
       var row = DataSet.Meanings.NewMeaningsRow();
       row.ID = Guid.NewGuid().ToString();
       row.LetterCode = ComboBoxCode.Text;
@@ -560,6 +552,7 @@ namespace Ordisoftware.Hebrew.Letters
     private void ActionDeleteMeaning_Click(object sender, EventArgs e)
     {
       if ( MeaningsBindingSource.Count < 1 ) return;
+      if ( !SQLiteOdbcHelper.CheckProcessConcurency() ) return;
       int pos = MeaningsBindingSource.Position;
       MeaningsBindingSource.RemoveCurrent();
       EditMeanings.EndEdit();
@@ -577,12 +570,18 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void EditMeanings_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
     {
+      if ( !SQLiteOdbcHelper.CheckProcessConcurency() )
+      {
+        e.Cancel = true;
+        return;
+      }
       Globals.AllowClose = false;
     }
 
     private void EditMeanings_CellEndEdit(object sender, DataGridViewCellEventArgs e)
     {
       Globals.AllowClose = true;
+      SaveData();
     }
 
     private void EditMeanings_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
@@ -741,6 +740,51 @@ namespace Ordisoftware.Hebrew.Letters
 
     }
 
-  }
+    private void TextBoxPositive_KeyPress(object sender, KeyPressEventArgs e)
+    {
+      if ( !SQLiteOdbcHelper.CheckProcessConcurency() )
+      {
+        e.KeyChar = '\0';
+        e.Handled = true;
+      }
+    }
+
+    private bool EditContextMenuMutex;
+
+    private void TextBoxPositive_ContextMenuEditOpening(object sender, System.ComponentModel.CancelEventArgs e)
+    {
+      if ( EditContextMenuMutex ) return;
+      EditContextMenuMutex = true;
+      bool enabled = SQLiteOdbcHelper.CheckProcessConcurency();
+      ( (ContextMenuStrip)sender ).Enabled = enabled;
+    }
+
+    private void TextBoxPositive_ContextMenuEditOpened(object sender, EventArgs e)
+    {
+      EditContextMenuMutex = false;
+    }
+
+    private void TextBoxPositive_TextChanged(object sender, EventArgs e)
+    {
+      //LettersBindingSource.EndEdit();
+      //SaveData();
+    }
+
+    private void SaveData()
+    {
+      if ( DataSet.HasChanges() )
+      {
+        if ( !SQLiteOdbcHelper.CheckProcessConcurency() )
+        {
+          DataSet.RejectChanges();
+          return;
+        }
+        TableAdapterManager.UpdateAll(DataSet);
+        ApplicationStatistics.UpdateDBFileSizeRequired = true;
+        ApplicationStatistics.UpdateDBMemorySizeRequired = true;
+      }
+    }
+
+}
 
 }
