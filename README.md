@@ -65,16 +65,19 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 - Ctrl+M : Open the lettriq analysis method notice
 - Ctrl+G : Open the grammar guide
 - Ctrl+L : Open Shorashon web page
+- Ctrl+F11 : Current log window
+- Ctrl+F12 : Statistics window
 - F8 : Preferences
 - F11 : Help
 - F12 : About
+- Escape : Close window
 
-## Changelog
-
-#### Roadmap
+## Roadmap
 
 - Rewrite advanced undo/redo.
 - Optimize ComboBoxes creation (the old system was really much slower on Windows 10 than 7).
+
+## Changelog
 
 #### 2020.__.__ - Version 5.0
 
@@ -84,6 +87,7 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 - Fix UI colors.
 - Change all TextBox for UndoRedoTextBox to have the new context menu.
 - Remove advanced undo/redo due to a problem that requires a complete rewrite to have the cursor not misplaced in certain cases.
+- Add permanent database file locking while running one or more instances of the application.
 - Add usage statistics form in tools menu.
 - Add option to enable or disable message boxes sounds.
 - Improve message boxes.
