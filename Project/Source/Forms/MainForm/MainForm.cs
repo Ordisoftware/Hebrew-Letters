@@ -129,8 +129,8 @@ namespace Ordisoftware.Hebrew.Letters
       }
       catch ( Exception ex )
       {
-        DisplayManager.ShowError(Localizer.ApplicationMustExit[Language.FR] + Globals.NL2 +
-                                 Localizer.ContactSupport[Language.FR]);
+        DisplayManager.ShowError(SysTranslations.ApplicationMustExit[Language.FR] + Globals.NL2 +
+                                 SysTranslations.ContactSupport[Language.FR]);
         ex.Manage();
         Environment.Exit(-1);
       }
@@ -156,7 +156,7 @@ namespace Ordisoftware.Hebrew.Letters
       }
       else
         ActionReset.Visible = false;
-      if ( IsDBUpgraded && DisplayManager.QueryYesNo(Localizer.AskToCheckParametersAfterDatabaseUpgraded.GetLang()) )
+      if ( IsDBUpgraded && DisplayManager.QueryYesNo(SysTranslations.AskToCheckParametersAfterDatabaseUpgraded.GetLang()) )
         SetView(ViewMode.Settings, true);
       else
         SetView(ViewMode.Analyse, true);
@@ -194,7 +194,7 @@ namespace Ordisoftware.Hebrew.Letters
         return;
       }
       if ( EditConfirmClosing.Checked && !Globals.IsSessionEnding )
-        if ( !DisplayManager.QueryYesNo(Localizer.AskToExitApplication.GetLang()) )
+        if ( !DisplayManager.QueryYesNo(SysTranslations.AskToExitApplication.GetLang()) )
           e.Cancel = true;
         else
           Globals.IsExiting = true;
@@ -375,7 +375,7 @@ namespace Ordisoftware.Hebrew.Letters
     /// <param name="e">Event information.</param>
     private void ActionResetWinSettings_Click(object sender, EventArgs e)
     {
-      if ( DisplayManager.QueryYesNo(Localizer.AskToRestoreWindowPosition.GetLang()) )
+      if ( DisplayManager.QueryYesNo(SysTranslations.AskToRestoreWindowPosition.GetLang()) )
         Settings.RestoreMainForm();
     }
 
@@ -503,7 +503,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void ActionRestoreDefaults_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
-      if ( DisplayManager.QueryYesNo(Translations.AskToRestoreLettersDefaults.GetLang()) )
+      if ( DisplayManager.QueryYesNo(AppTranslations.AskToRestoreLettersDefaults.GetLang()) )
       {
         string word = EditLetters.InputText;
         CreateDataIfNotExists(true);

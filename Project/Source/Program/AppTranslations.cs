@@ -21,7 +21,7 @@ namespace Ordisoftware.Hebrew.Letters
   /// <summary>
   /// Localization strings.
   /// </summary>
-  static public partial class Translations
+  static public partial class AppTranslations
   {
 
     static public readonly TranslationsDictionary ApplicationDescription
@@ -36,11 +36,11 @@ namespace Ordisoftware.Hebrew.Letters
       {
         [Language.EN] = "Letters will be restored to their default values." + Globals.NL2 +
                         "All additions will be lost." + Globals.NL2 +
-                        Localizer.AskToContinue[Language.EN],
+                        SysTranslations.AskToContinue[Language.EN],
 
         [Language.FR] = "Les lettres vont être restaurées à leurs valeurs par défaut." + Globals.NL2 +
                         "Tous les ajouts seront perdus." + Globals.NL2 +
-                        Localizer.AskToContinue[Language.FR]
+                        SysTranslations.AskToContinue[Language.FR]
       };
 
   }
