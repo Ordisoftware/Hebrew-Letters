@@ -73,25 +73,30 @@ namespace Ordisoftware.Hebrew.Letters
     {
       get
       {
-        if ( _StartupWord == null )
-        {
-          string word = "";
-          if ( SystemManager.CommandLineArguments != null && SystemManager.CommandLineArguments.Length == 1 )
+        if ( _StartupWord.IsNullOrEmpty() )
+          try
           {
-            string str = Localizer.RemoveDiacritics(SystemManager.CommandLineArguments[0]);
-            foreach ( char c in str )
-            {
-              string letter = Convert.ToString(c);
-              if ( HebrewAlphabet.Codes.Contains(letter) )
-                word += HebrewAlphabet.SetFinal(letter, false);
-            }
+            _StartupWord = "";
+            string word = SystemManager.CommandLineOptions["word"]?[0];
+            if ( word.IsNullOrEmpty() )
+              if ( SystemManager.CommandLineArguments != null && SystemManager.CommandLineArguments.Length == 1 )
+                word = SystemManager.CommandLineArguments[0];
+            if ( !word.IsNullOrEmpty() )
+              foreach ( char c in Localizer.RemoveDiacritics(word) )
+              {
+                string letter = Convert.ToString(c);
+                if ( HebrewAlphabet.Codes.Contains(letter) )
+                  _StartupWord += HebrewAlphabet.SetFinal(letter, false);
+              }
           }
-          _StartupWord = word;
-        }
+          catch ( Exception ex )
+          {
+            ex.Manage(ShowExceptionMode.None);
+          }
         return _StartupWord;
       }
     }
-    static public string _StartupWord = null;
+    static public string _StartupWord;
 
   }
 
