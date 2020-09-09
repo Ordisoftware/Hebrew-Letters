@@ -27,9 +27,9 @@ namespace Ordisoftware.Hebrew.Letters
   {
 
     /// <summary>
-    /// Indicate filename of the letters meanings.
+    /// Indicate file path of the letters meanings.
     /// </summary>
-    static public string MeaningsFilename
+    static public string MeaningsFilePath
       => Path.Combine(Globals.DocumentsFolderPath, "Alphabet-{0}.txt");
 
     /// <summary>
@@ -40,7 +40,8 @@ namespace Ordisoftware.Hebrew.Letters
       get
       {
         if ( _GrammarGuideForm == null )
-          _GrammarGuideForm = new HTMLBrowserForm(HebrewTranslations.GrammarGuideTitle, ProvidersCollection.HebrewGrammarGuideFilename,
+          _GrammarGuideForm = new HTMLBrowserForm(HebrewTranslations.GrammarGuideTitle,
+                                                  ProvidersCollection.HebrewGrammarGuideFilePath,
                                                   nameof(Settings.GrammarGuideFormLocation),
                                                   nameof(Settings.GrammarGuideFormSize));
         return _GrammarGuideForm;
@@ -56,7 +57,8 @@ namespace Ordisoftware.Hebrew.Letters
       get
       {
         if ( _MethodGuideForm == null )
-          _MethodGuideForm = new HTMLBrowserForm(HebrewTranslations.MethodNoticeTitle, ProvidersCollection.LettriqMethodNoticeFilename,
+          _MethodGuideForm = new HTMLBrowserForm(HebrewTranslations.MethodNoticeTitle,
+                                                 ProvidersCollection.LettriqMethodNoticeFilePath,
                                                  nameof(Settings.MethodNoticeFormLocation),
                                                  nameof(Settings.MethodNoticeFormSize));
         return _MethodGuideForm;
