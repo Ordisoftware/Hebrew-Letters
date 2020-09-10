@@ -94,7 +94,7 @@ This software verifies the validity of the author's website certificate in addit
 - Add option to enable or disable message boxes sounds.
 - Improve message boxes.
 - Improve check update to allow auto update or direct download or open app web page.
-- Improve check update to check the SSL certificate of the website and the checksum of the setup file.
+- Improve check update to verify the SSL certificate of the website and the checksum of the setup file.
 - Improve debugger to support logging.
 - Improve exception form to view log.
 - Some UI/UX improvements.
