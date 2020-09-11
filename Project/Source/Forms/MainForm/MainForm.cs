@@ -118,7 +118,11 @@ namespace Ordisoftware.Hebrew.Letters
       var lastdone = Settings.CheckUpdateLastDone;
       bool exit = WebCheckUpdate.Run(Settings.CheckUpdateAtStartup, ref lastdone, true);
       Settings.CheckUpdateLastDone = lastdone;
-      if ( exit ) return;
+      if ( exit )
+      {
+        SystemManager.Exit();
+        return;
+      }
       try
       {
         EditSentence.Font = new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence);
