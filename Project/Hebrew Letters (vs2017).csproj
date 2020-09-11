@@ -251,7 +251,7 @@
     <Compile Include="Source\Forms\MainForm\MainForm.SetView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Source\Forms\MainForm\MainForm.Location.cs">
+    <Compile Include="Source\Forms\MainForm\MainForm.UpdateUI.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Source\Forms\Config\PreferencesForm.cs">
