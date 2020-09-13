@@ -218,7 +218,7 @@
     <value>66, 13</value>
   </data>
   <data name="cPULoadLabel.Text" xml:space="preserve">
-    <value>CPU global :</value>
+    <value>CPU Global :</value>
   </data>
   <data name="processPriorityLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>114, 13</value>

@@ -712,13 +712,13 @@
     <value>15, 20</value>
   </data>
   <data name="cPULoadLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>63, 13</value>
+    <value>65, 13</value>
   </data>
   <data name="cPULoadLabel.TabIndex" type="System.Int32, mscorlib">
     <value>110</value>
   </data>
   <data name="cPULoadLabel.Text" xml:space="preserve">
-    <value>CPU global:</value>
+    <value>CPU Global:</value>
   </data>
   <data name="&gt;&gt;cPULoadLabel.Name" xml:space="preserve">
     <value>cPULoadLabel</value>
