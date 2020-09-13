@@ -59,6 +59,8 @@
       System.Windows.Forms.Label label1;
       System.Windows.Forms.Label label2;
       System.Windows.Forms.Label EditFolderUserLocalData;
+      System.Windows.Forms.Label cPUProcessLoadMaxLabel;
+      System.Windows.Forms.Label cPUProcessLoadLabel;
       this.PanelBottom = new System.Windows.Forms.Panel();
       this.ActionScreenshot = new System.Windows.Forms.Button();
       this.EditAlwaysOnTop = new System.Windows.Forms.CheckBox();
@@ -95,9 +97,11 @@
       this.operatingSystemTextBox = new Ordisoftware.Core.UndoRedoTextBox();
       this.processorNameTextBox = new Ordisoftware.Core.UndoRedoTextBox();
       this.GroupBoxRunning = new System.Windows.Forms.GroupBox();
+      this.processorTime1 = new System.Windows.Forms.Label();
       this.LabelApplication1 = new System.Windows.Forms.Label();
       this.GroupBoxSystemLoad = new System.Windows.Forms.GroupBox();
-      this.processorTime1 = new System.Windows.Forms.Label();
+      this.cPUProcessLoadMaxLabel1 = new System.Windows.Forms.Label();
+      this.cPUProcessLoadLabel1 = new System.Windows.Forms.Label();
       this.PanelMain = new System.Windows.Forms.Panel();
       this.GroupBoxFolders = new System.Windows.Forms.GroupBox();
       this.ActionOpenFolderUserLocalData = new System.Windows.Forms.Button();
@@ -137,6 +141,8 @@
       label1 = new System.Windows.Forms.Label();
       label2 = new System.Windows.Forms.Label();
       EditFolderUserLocalData = new System.Windows.Forms.Label();
+      cPUProcessLoadMaxLabel = new System.Windows.Forms.Label();
+      cPUProcessLoadLabel = new System.Windows.Forms.Label();
       this.PanelBottom.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.ApplicationStatisticsDataBindingSource)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.SystemStatisticsDataBindingSource)).BeginInit();
@@ -296,6 +302,16 @@
       // 
       resources.ApplyResources(EditFolderUserLocalData, "EditFolderUserLocalData");
       EditFolderUserLocalData.Name = "EditFolderUserLocalData";
+      // 
+      // cPUProcessLoadMaxLabel
+      // 
+      resources.ApplyResources(cPUProcessLoadMaxLabel, "cPUProcessLoadMaxLabel");
+      cPUProcessLoadMaxLabel.Name = "cPUProcessLoadMaxLabel";
+      // 
+      // cPUProcessLoadLabel
+      // 
+      resources.ApplyResources(cPUProcessLoadLabel, "cPUProcessLoadLabel");
+      cPUProcessLoadLabel.Name = "cPUProcessLoadLabel";
       // 
       // PanelBottom
       // 
@@ -565,6 +581,8 @@
       // 
       // GroupBoxRunning
       // 
+      this.GroupBoxRunning.Controls.Add(processorTimeLabel);
+      this.GroupBoxRunning.Controls.Add(this.processorTime1);
       this.GroupBoxRunning.Controls.Add(LabelApplication);
       this.GroupBoxRunning.Controls.Add(this.LabelApplication1);
       this.GroupBoxRunning.Controls.Add(runningTimeLabel);
@@ -573,6 +591,12 @@
       this.GroupBoxRunning.Name = "GroupBoxRunning";
       this.GroupBoxRunning.TabStop = false;
       // 
+      // processorTime1
+      // 
+      this.processorTime1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SystemStatisticsDataBindingSource, "ProcessorTime", true));
+      resources.ApplyResources(this.processorTime1, "processorTime1");
+      this.processorTime1.Name = "processorTime1";
+      // 
       // LabelApplication1
       // 
       resources.ApplyResources(this.LabelApplication1, "LabelApplication1");
@@ -580,19 +604,27 @@
       // 
       // GroupBoxSystemLoad
       // 
-      this.GroupBoxSystemLoad.Controls.Add(processorTimeLabel);
-      this.GroupBoxSystemLoad.Controls.Add(this.processorTime1);
+      this.GroupBoxSystemLoad.Controls.Add(cPUProcessLoadMaxLabel);
+      this.GroupBoxSystemLoad.Controls.Add(this.cPUProcessLoadMaxLabel1);
+      this.GroupBoxSystemLoad.Controls.Add(cPUProcessLoadLabel);
+      this.GroupBoxSystemLoad.Controls.Add(this.cPUProcessLoadLabel1);
       this.GroupBoxSystemLoad.Controls.Add(cPULoadLabel);
       this.GroupBoxSystemLoad.Controls.Add(this.cPULoadLabel1);
       resources.ApplyResources(this.GroupBoxSystemLoad, "GroupBoxSystemLoad");
       this.GroupBoxSystemLoad.Name = "GroupBoxSystemLoad";
       this.GroupBoxSystemLoad.TabStop = false;
       // 
-      // processorTime1
+      // cPUProcessLoadMaxLabel1
       // 
-      this.processorTime1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SystemStatisticsDataBindingSource, "ProcessorTime", true));
-      resources.ApplyResources(this.processorTime1, "processorTime1");
-      this.processorTime1.Name = "processorTime1";
+      this.cPUProcessLoadMaxLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SystemStatisticsDataBindingSource, "CPUProcessLoadMax", true));
+      resources.ApplyResources(this.cPUProcessLoadMaxLabel1, "cPUProcessLoadMaxLabel1");
+      this.cPUProcessLoadMaxLabel1.Name = "cPUProcessLoadMaxLabel1";
+      // 
+      // cPUProcessLoadLabel1
+      // 
+      this.cPUProcessLoadLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SystemStatisticsDataBindingSource, "CPUProcessLoad", true));
+      resources.ApplyResources(this.cPUProcessLoadLabel1, "cPUProcessLoadLabel1");
+      this.cPUProcessLoadLabel1.Name = "cPUProcessLoadLabel1";
       // 
       // PanelMain
       // 
@@ -774,5 +806,7 @@
     private Ordisoftware.Core.UndoRedoTextBox EditOpenFolderUserLocalData;
     private Ordisoftware.Core.UndoRedoTextBox EditFolderUserData;
     private System.Windows.Forms.Panel PanelFolders;
+    private System.Windows.Forms.Label cPUProcessLoadMaxLabel1;
+    private System.Windows.Forms.Label cPUProcessLoadLabel1;
   }
 }
