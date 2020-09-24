@@ -116,6 +116,7 @@
     <Compile Include="Source\Common\Core\Managers.System\SystemManager.cs" />
     <Compile Include="Source\Common\Core\Managers.System\SystemManager.Media.cs" />
     <Compile Include="Source\Common\Core\Managers.System\SystemManager.Shell.cs" />
+    <Compile Include="Source\Common\Core\Managers.System\SystemManager.SSL.cs" />
     <Compile Include="Source\Common\Core\WinForms.Controls\ControlLocation.cs" />
     <Compile Include="Source\Common\Core\WinForms.Controls\FormsHelper.cs" />
     <Compile Include="Source\Common\Core\WinForms.Controls\RichTextBoxEx.cs">
