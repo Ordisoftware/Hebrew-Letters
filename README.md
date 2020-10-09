@@ -86,6 +86,7 @@ The software verifies the validity of the certificate of the update server in ad
 #### 2020.__.__ - Version 5.0
 
 - Add context menu on letters' buttons to allow inserting a letter or open its parameters.
+- Add create a screenshot of the form.
 - Add option to enable or disable the web links menu.
 - Change all TextBox for UndoRedoTextBox to have the new context menu.
 - Remove advanced undo/redo due to a problem that requires a complete rewrite to have the cursor not misplaced in certain cases.
