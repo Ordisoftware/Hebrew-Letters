@@ -210,7 +210,7 @@ Negative: Confusion
 Verb: Partager
 Structure: Dent
 Function: Modération
-Meanings: Force,Chair,Foyer,Famille,Amitié,Réduction,Aveuglement
+Meanings: Force,Chair,Foyer,Famille,Amitié,Affection,Affinité,Réduction,Aveuglement
  
 TAV
 ValueSimple: 400
