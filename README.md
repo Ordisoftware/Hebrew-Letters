@@ -100,6 +100,7 @@ The software verifies the validity of the certificate of the update server in ad
 - Improve exception form to view log.
 - Some UI/UX improvements.
 - Massive code refactoring.
+- Update web links.
 - Update help.
 - Update to SQLite 3.32.3 ODBC Driver.
 - Update Framework .NET version to 4.7.2 and supported Windows only 7 SP1 or higher.
