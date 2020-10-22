@@ -79,11 +79,11 @@ The software verifies the validity of the certificate of the update server in ad
 ## Roadmap
 
 - Rewrite advanced undo/redo.
-- Optimize ComboBoxes creation (the old system was really much slower on Windows 10 than 7).
+- Optimize ComboBoxes creation (the old system is really much slower on Windows 10 than 7).
 
 ## Changelog
 
-#### 2020.__.__ - Version 5.0
+#### 2020.11.__ - Version 5.0
 
 - Add context menu on letters' buttons to allow inserting a letter or open its parameters.
 - Add create a screenshot of the form.
@@ -105,6 +105,9 @@ The software verifies the validity of the certificate of the update server in ad
 - Update Framework .NET version to 4.7.2 and supported Windows only 7 SP1 or higher.
 - The application now automatically creates the ODBC DSN in the Windows registry.
 - Improve setup.
+- Rename 32x32 icon files.
+
+>>>>- Fix pasting unicode word removes special final letters.
 
 #### 2020.04.23 - Version 4.1
 
