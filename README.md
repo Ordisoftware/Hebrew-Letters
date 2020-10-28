@@ -66,6 +66,7 @@ The software verifies the validity of the certificate of the update server in ad
 - F1 : Analyse view
 - F2 : Settings view
 - F3 : Search a term
+- Ctrl+N : Open a new window
 - Ctrl+M : Open the lettriq analysis method notice
 - Ctrl+G : Open the grammar guide
 - Ctrl+L : Open Shorashon web page
@@ -87,6 +88,7 @@ The software verifies the validity of the certificate of the update server in ad
 
 - Add context menu on letters' buttons to allow inserting a letter or open its parameters.
 - Add create a screenshot of the form.
+- Add open new window menu button.
 - Add option to enable or disable the web links menu.
 - Change all TextBox for UndoRedoTextBox to have the new context menu.
 - Remove advanced undo/redo due to a problem that requires a complete rewrite to have the cursor not misplaced in certain cases.
