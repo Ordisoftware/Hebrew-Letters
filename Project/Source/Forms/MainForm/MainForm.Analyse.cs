@@ -125,6 +125,7 @@ namespace Ordisoftware.Hebrew.Letters
         EditGematriaFull.Text = sumFull.ToString();
         WordMeanings = string.Join(Environment.NewLine, meaningsWord);
         ActionCopyToClipboardMeanings.Enabled = EditAnalyze.Controls.Count > 0;
+        ActionSnapshot.Enabled = ActionCopyToClipboardMeanings.Enabled;
       }
       catch ( Exception ex )
       {
@@ -202,6 +203,7 @@ namespace Ordisoftware.Hebrew.Letters
         EditGematriaFull.Text = sumFull.ToString();
         WordMeanings = string.Join(Globals.NL, AnalysisItems.Meanings);
         ActionCopyToClipboardMeanings.Enabled = EditAnalyze.Controls.Count > 0;
+        ActionSnapshot.Enabled = ActionCopyToClipboardMeanings.Enabled;
 
         EditAnalyze.Controls.AddRange(AnalysisItems.Labels.ToArray());
         EditAnalyze.Controls.AddRange(AnalysisItems.ComboBoxes.ToArray());

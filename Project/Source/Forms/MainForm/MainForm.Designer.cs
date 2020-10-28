@@ -117,7 +117,9 @@
       this.EditConfirmClosing = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionViewAnalysis = new System.Windows.Forms.ToolStripButton();
       this.ActionViewLetters = new System.Windows.Forms.ToolStripButton();
+      this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
       this.ActionSearchTerm = new System.Windows.Forms.ToolStripButton();
+      this.ActionNewInstance = new System.Windows.Forms.ToolStripButton();
       this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
       this.ActionTools = new System.Windows.Forms.ToolStripDropDownButton();
       this.ActionShowMethodNotice = new System.Windows.Forms.ToolStripMenuItem();
@@ -134,6 +136,7 @@
       this.LettersTableAdapter = new Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.LettersTableAdapter();
       this.TableAdapterManager = new Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.TableAdapterManager();
       this.MeaningsTableAdapter = new Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.MeaningsTableAdapter();
+      this.ActionSnapshot = new System.Windows.Forms.Button();
       LabelName = new System.Windows.Forms.Label();
       LabelStructure = new System.Windows.Forms.Label();
       LabelFunction = new System.Windows.Forms.Label();
@@ -268,6 +271,7 @@
       this.PanelViewSearch.Controls.Add(this.ActionPasteFromUnicode);
       this.PanelViewSearch.Controls.Add(this.ActionCopyToUnicode);
       this.PanelViewSearch.Controls.Add(this.ActionClear);
+      this.PanelViewSearch.Controls.Add(this.ActionSnapshot);
       this.PanelViewSearch.Controls.Add(this.ActionCopyToClipboardMeanings);
       this.PanelViewSearch.Controls.Add(this.ActionCopyToClipboardResult);
       this.PanelViewSearch.Controls.Add(this.EditSentence);
@@ -694,7 +698,9 @@
             this.ActionSettings,
             this.ActionViewAnalysis,
             this.ActionViewLetters,
+            this.toolStripSeparator6,
             this.ActionSearchTerm,
+            this.ActionNewInstance,
             this.toolStripSeparator1,
             this.ActionTools,
             this.ActionWebLinks});
@@ -899,6 +905,11 @@
       this.ActionViewLetters.MouseEnter += new System.EventHandler(this.ShowToolTipOnMouseEnter);
       this.ActionViewLetters.MouseLeave += new System.EventHandler(this.ShowToolTipOnMouseLeave);
       // 
+      // toolStripSeparator6
+      // 
+      this.toolStripSeparator6.Name = "toolStripSeparator6";
+      resources.ApplyResources(this.toolStripSeparator6, "toolStripSeparator6");
+      // 
       // ActionSearchTerm
       // 
       this.ActionSearchTerm.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -908,6 +919,16 @@
       this.ActionSearchTerm.Click += new System.EventHandler(this.ActionSearchTerm_Click);
       this.ActionSearchTerm.MouseEnter += new System.EventHandler(this.ShowToolTipOnMouseEnter);
       this.ActionSearchTerm.MouseLeave += new System.EventHandler(this.ShowToolTipOnMouseLeave);
+      // 
+      // ActionNewInstance
+      // 
+      this.ActionNewInstance.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      resources.ApplyResources(this.ActionNewInstance, "ActionNewInstance");
+      this.ActionNewInstance.Name = "ActionNewInstance";
+      this.ActionNewInstance.Padding = new System.Windows.Forms.Padding(5);
+      this.ActionNewInstance.Click += new System.EventHandler(this.ActionNewInstance_Click);
+      this.ActionNewInstance.MouseEnter += new System.EventHandler(this.ShowToolTipOnMouseEnter);
+      this.ActionNewInstance.MouseLeave += new System.EventHandler(this.ShowToolTipOnMouseLeave);
       // 
       // toolStripSeparator1
       // 
@@ -1011,6 +1032,14 @@
       // MeaningsTableAdapter
       // 
       this.MeaningsTableAdapter.ClearBeforeFill = true;
+      // 
+      // ActionSnapshot
+      // 
+      resources.ApplyResources(this.ActionSnapshot, "ActionSnapshot");
+      this.ActionSnapshot.FlatAppearance.BorderSize = 0;
+      this.ActionSnapshot.Name = "ActionSnapshot";
+      this.ActionSnapshot.UseVisualStyleBackColor = true;
+      this.ActionSnapshot.Click += new System.EventHandler(this.ActionSnapshot_Click);
       // 
       // MainForm
       // 
@@ -1150,5 +1179,8 @@
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
     internal System.Windows.Forms.ToolStripMenuItem ActionViewLog;
     private System.Windows.Forms.ToolStripMenuItem ActionViewStats;
+    private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+    private System.Windows.Forms.ToolStripButton ActionNewInstance;
+    private System.Windows.Forms.Button ActionSnapshot;
   }
 }

@@ -43,6 +43,14 @@ namespace Ordisoftware.Hebrew.Letters
                         SysTranslations.AskToContinue[Language.FR]
       };
 
+    static public readonly TranslationsDictionary CopyToClipboardInfosDone
+      = new TranslationsDictionary
+      {
+        [Language.EN] = "The information have been copied to the clipboard.",
+        [Language.FR] = "les informations ont été copiées dans le presse-papier."
+      };
+
+
   }
 
 }

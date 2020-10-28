@@ -11,10 +11,9 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2020-08 </edited>
+/// <edited> 2020-10 </edited>
 using System;
 using System.Data;
-using System.Data.Odbc;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -319,6 +318,27 @@ namespace Ordisoftware.Hebrew.Letters
     }
 
     /// <summary>
+    /// Event handler. Called by ActionViewLetters for click events.
+    /// </summary>
+    /// <param name="sender">Source of the event.</param>
+    /// <param name="e">Event information.</param>
+    private void ActionViewLetters_Click(object sender, EventArgs e)
+    {
+      SaveData();
+      SetView(ViewMode.Settings);
+    }
+
+    /// <summary>
+    /// Event handler. Called by ActionNewInstance for click events.
+    /// </summary>
+    /// <param name="sender">Source of the event.</param>
+    /// <param name="e">Event information.</param>
+    private void ActionNewInstance_Click(object sender, EventArgs e)
+    {
+      SystemManager.RunShell(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName);
+    }
+
+    /// <summary>
     /// Event handler. Called by ActionSearchTerm for click events.
     /// </summary>
     /// <param name="sender">Source of the event.</param>
@@ -349,17 +369,6 @@ namespace Ordisoftware.Hebrew.Letters
         check(Instance.TextBoxFunction);
       }
       void check(TextBox textbox) { if ( textbox.Text == meaning ) textbox.Focus(); }
-    }
-
-    /// <summary>
-    /// Event handler. Called by ActionViewLetters for click events.
-    /// </summary>
-    /// <param name="sender">Source of the event.</param>
-    /// <param name="e">Event information.</param>
-    private void ActionViewLetters_Click(object sender, EventArgs e)
-    {
-      SaveData();
-      SetView(ViewMode.Settings);
     }
 
     /// <summary>
@@ -647,6 +656,7 @@ namespace Ordisoftware.Hebrew.Letters
       EditGematriaFull.Text = "";
       EditAnalyze.Controls.Clear();
       ActionCopyToClipboardMeanings.Enabled = false;
+      ActionSnapshot.Enabled = false;
       EditLetters.Focus();
     }
 
@@ -667,7 +677,19 @@ namespace Ordisoftware.Hebrew.Letters
     private void ActionCopyToClipboardMeanings_Click(object sender, EventArgs e)
     {
       if ( EditLetters.InputText != "" )
+      {
         Clipboard.SetText(WordMeanings);
+        DisplayManager.ShowInformation(AppTranslations.CopyToClipboardInfosDone.GetLang());
+      }
+    }
+
+    private void ActionSnapshot_Click(object sender, EventArgs e)
+    {
+      if ( EditLetters.InputText != "" )
+      {
+        Clipboard.SetImage(this.GetBitmap());
+        DisplayManager.ShowInformation(SysTranslations.ScreenshotDone.GetLang());
+      }
     }
 
     private void ActionCopyToClipboardResults_Click(object sender, EventArgs e)
@@ -789,6 +811,6 @@ namespace Ordisoftware.Hebrew.Letters
       }
     }
 
-}
+  }
 
 }
