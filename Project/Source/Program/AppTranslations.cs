@@ -47,7 +47,7 @@ namespace Ordisoftware.Hebrew.Letters
       = new TranslationsDictionary
       {
         [Language.EN] = "The information have been copied to the clipboard.",
-        [Language.FR] = "les informations ont été copiées dans le presse-papier."
+        [Language.FR] = "Les informations ont été copiées dans le presse-papier."
       };
 
 
