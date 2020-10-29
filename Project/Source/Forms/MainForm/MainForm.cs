@@ -114,6 +114,7 @@ namespace Ordisoftware.Hebrew.Letters
     {
       if ( Globals.IsExiting ) return;
       Settings.Retrieve();
+      ActionPreferences.Enabled = SystemManager.ApplicationInstancesCount == 1;
       var lastdone = Settings.CheckUpdateLastDone;
       bool exit = WebCheckUpdate.Run(Settings.CheckUpdateAtStartup, ref lastdone, true);
       Settings.CheckUpdateLastDone = lastdone;
@@ -270,6 +271,19 @@ namespace Ordisoftware.Hebrew.Letters
     }
 
     /// <summary>
+    /// Update preferences menu state.
+    /// </summary>
+    private void TimerProcesses_Tick(object sender, EventArgs e)
+    {
+      ActionPreferences.Enabled = SystemManager.ApplicationInstancesCount == 1;
+      if ( !ActionPreferences.Enabled )
+      {
+        var form = Application.OpenForms.ToList().Where(f => f is PreferencesForm).FirstOrDefault();
+        if ( form != null ) form.Close();
+      }
+    }
+
+    /// <summary>
     /// Timer event for tooltips.
     /// </summary>
     private void TimerTooltip_Tick(object sender, EventArgs e)
@@ -399,6 +413,11 @@ namespace Ordisoftware.Hebrew.Letters
     /// <param name="e">Event information.</param>
     private void ActionPreferences_Click(object sender, EventArgs e)
     {
+      if ( SystemManager.ApplicationInstancesCount > 1 )
+      {
+        ActionPreferences.Enabled = false;
+        return;
+      }
       try
       {
         PreferencesForm.Run();

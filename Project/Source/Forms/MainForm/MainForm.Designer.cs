@@ -60,6 +60,7 @@
       this.ActionPasteFromUnicode = new System.Windows.Forms.Button();
       this.ActionCopyToUnicode = new System.Windows.Forms.Button();
       this.ActionClear = new System.Windows.Forms.Button();
+      this.ActionSnapshot = new System.Windows.Forms.Button();
       this.ActionCopyToClipboardMeanings = new System.Windows.Forms.Button();
       this.ActionCopyToClipboardResult = new System.Windows.Forms.Button();
       this.EditSentence = new Ordisoftware.Core.UndoRedoTextBox();
@@ -136,7 +137,7 @@
       this.LettersTableAdapter = new Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.LettersTableAdapter();
       this.TableAdapterManager = new Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.TableAdapterManager();
       this.MeaningsTableAdapter = new Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.MeaningsTableAdapter();
-      this.ActionSnapshot = new System.Windows.Forms.Button();
+      this.TimerProcesses = new System.Windows.Forms.Timer(this.components);
       LabelName = new System.Windows.Forms.Label();
       LabelStructure = new System.Windows.Forms.Label();
       LabelFunction = new System.Windows.Forms.Label();
@@ -383,6 +384,14 @@
       this.ActionClear.Name = "ActionClear";
       this.ActionClear.UseVisualStyleBackColor = true;
       this.ActionClear.Click += new System.EventHandler(this.ActionClear_Click);
+      // 
+      // ActionSnapshot
+      // 
+      resources.ApplyResources(this.ActionSnapshot, "ActionSnapshot");
+      this.ActionSnapshot.FlatAppearance.BorderSize = 0;
+      this.ActionSnapshot.Name = "ActionSnapshot";
+      this.ActionSnapshot.UseVisualStyleBackColor = true;
+      this.ActionSnapshot.Click += new System.EventHandler(this.ActionSnapshot_Click);
       // 
       // ActionCopyToClipboardMeanings
       // 
@@ -1033,13 +1042,11 @@
       // 
       this.MeaningsTableAdapter.ClearBeforeFill = true;
       // 
-      // ActionSnapshot
+      // TimerProcesses
       // 
-      resources.ApplyResources(this.ActionSnapshot, "ActionSnapshot");
-      this.ActionSnapshot.FlatAppearance.BorderSize = 0;
-      this.ActionSnapshot.Name = "ActionSnapshot";
-      this.ActionSnapshot.UseVisualStyleBackColor = true;
-      this.ActionSnapshot.Click += new System.EventHandler(this.ActionSnapshot_Click);
+      this.TimerProcesses.Enabled = true;
+      this.TimerProcesses.Interval = 2000;
+      this.TimerProcesses.Tick += new System.EventHandler(this.TimerProcesses_Tick);
       // 
       // MainForm
       // 
@@ -1182,5 +1189,6 @@
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
     private System.Windows.Forms.ToolStripButton ActionNewInstance;
     private System.Windows.Forms.Button ActionSnapshot;
+    private System.Windows.Forms.Timer TimerProcesses;
   }
 }
