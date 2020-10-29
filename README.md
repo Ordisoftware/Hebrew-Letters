@@ -100,6 +100,7 @@ The software verifies the validity of the certificate of the update server in ad
 - Improve check update to verify the SSL certificate of the website and the checksum of the setup file.
 - Improve debugger to support logging.
 - Improve exception form to view log.
+- Improve multiple process management.
 - Some UI/UX improvements.
 - Massive code refactoring.
 - Update web links.
