@@ -116,7 +116,10 @@ namespace Ordisoftware.Hebrew.Letters
       Settings.Retrieve();
       ActionPreferences.Enabled = SystemManager.ApplicationInstancesCount == 1;
       var lastdone = Settings.CheckUpdateLastDone;
-      bool exit = WebCheckUpdate.Run(Settings.CheckUpdateAtStartup, ref lastdone, true);
+      bool exit = WebCheckUpdate.Run(Settings.CheckUpdateAtStartup,
+                                     ref lastdone,
+                                     7, // TODO Settings.CheckUpdateAtStartupDaysInterval,
+                                     true);
       Settings.CheckUpdateLastDone = lastdone;
       if ( exit )
       {
@@ -458,7 +461,10 @@ namespace Ordisoftware.Hebrew.Letters
     internal void ActionWebCheckUpdate_Click(object sender, EventArgs e)
     {
       var lastdone = Settings.CheckUpdateLastDone;
-      bool exit = WebCheckUpdate.Run(Settings.CheckUpdateAtStartup, ref lastdone, e == null);
+      bool exit = WebCheckUpdate.Run(Settings.CheckUpdateAtStartup,
+                                     ref lastdone,
+                                     7, // TODO Settings.CheckUpdateAtStartupDaysInterval,
+                                     e == null);
       Settings.CheckUpdateLastDone = lastdone;
       if ( exit )
         Close();
