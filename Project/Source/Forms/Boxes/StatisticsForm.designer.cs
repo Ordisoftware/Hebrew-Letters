@@ -31,7 +31,7 @@
       this.components = new System.ComponentModel.Container();
       System.Windows.Forms.Label dBFileSizeLabel;
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StatisticsForm));
-      System.Windows.Forms.Label dBRecordsCountLabel;
+      System.Windows.Forms.Label dBMeaningsRecordsCountLabel;
       System.Windows.Forms.Label loadDataTimeLabel;
       System.Windows.Forms.Label operatingSystemLabel;
       System.Windows.Forms.Label physicalMemoryFreeLabel;
@@ -61,14 +61,16 @@
       System.Windows.Forms.Label EditFolderUserLocalData;
       System.Windows.Forms.Label cPUProcessLoadMaxLabel;
       System.Windows.Forms.Label cPUProcessLoadLabel;
+      System.Windows.Forms.Label dBLettersRecordsCountLabel;
+      System.Windows.Forms.Label cPUProcessLoadAvgLabel;
       this.PanelBottom = new System.Windows.Forms.Panel();
       this.ActionScreenshot = new System.Windows.Forms.Button();
       this.EditAlwaysOnTop = new System.Windows.Forms.CheckBox();
       this.ActionClose = new System.Windows.Forms.Button();
       this.Timer = new System.Windows.Forms.Timer(this.components);
-      this.ApplicationStatisticsDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.dBFileSizeLabel1 = new System.Windows.Forms.Label();
-      this.dBRecordsCountLabel1 = new System.Windows.Forms.Label();
+      this.ApplicationStatisticsDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+      this.dBMeaningsRecordsCountLabel1 = new System.Windows.Forms.Label();
       this.loadDataTimeLabel1 = new System.Windows.Forms.Label();
       this.physicalMemoryFreeLabel1 = new System.Windows.Forms.Label();
       this.SystemStatisticsDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -88,6 +90,7 @@
       this.currentThreadPriorityLabel1 = new System.Windows.Forms.Label();
       this.GroupBoxTimings = new System.Windows.Forms.GroupBox();
       this.GroupBoxDatabase = new System.Windows.Forms.GroupBox();
+      this.dBLettersRecordsCountLabel1 = new System.Windows.Forms.Label();
       this.dBADONETAccessLabel1 = new System.Windows.Forms.Label();
       this.dBEngineversionLabel1 = new System.Windows.Forms.Label();
       this.GroupBoxMemory = new System.Windows.Forms.GroupBox();
@@ -100,6 +103,7 @@
       this.processorTime1 = new System.Windows.Forms.Label();
       this.LabelApplication1 = new System.Windows.Forms.Label();
       this.GroupBoxSystemLoad = new System.Windows.Forms.GroupBox();
+      this.cPUProcessLoadAvgLabel1 = new System.Windows.Forms.Label();
       this.cPUProcessLoadMaxLabel1 = new System.Windows.Forms.Label();
       this.cPUProcessLoadLabel1 = new System.Windows.Forms.Label();
       this.PanelMain = new System.Windows.Forms.Panel();
@@ -113,7 +117,7 @@
       this.PanelBottomOuter = new System.Windows.Forms.Panel();
       this.PanelFolders = new System.Windows.Forms.Panel();
       dBFileSizeLabel = new System.Windows.Forms.Label();
-      dBRecordsCountLabel = new System.Windows.Forms.Label();
+      dBMeaningsRecordsCountLabel = new System.Windows.Forms.Label();
       loadDataTimeLabel = new System.Windows.Forms.Label();
       operatingSystemLabel = new System.Windows.Forms.Label();
       physicalMemoryFreeLabel = new System.Windows.Forms.Label();
@@ -143,6 +147,8 @@
       EditFolderUserLocalData = new System.Windows.Forms.Label();
       cPUProcessLoadMaxLabel = new System.Windows.Forms.Label();
       cPUProcessLoadLabel = new System.Windows.Forms.Label();
+      dBLettersRecordsCountLabel = new System.Windows.Forms.Label();
+      cPUProcessLoadAvgLabel = new System.Windows.Forms.Label();
       this.PanelBottom.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.ApplicationStatisticsDataBindingSource)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.SystemStatisticsDataBindingSource)).BeginInit();
@@ -163,10 +169,10 @@
       resources.ApplyResources(dBFileSizeLabel, "dBFileSizeLabel");
       dBFileSizeLabel.Name = "dBFileSizeLabel";
       // 
-      // dBRecordsCountLabel
+      // dBMeaningsRecordsCountLabel
       // 
-      resources.ApplyResources(dBRecordsCountLabel, "dBRecordsCountLabel");
-      dBRecordsCountLabel.Name = "dBRecordsCountLabel";
+      resources.ApplyResources(dBMeaningsRecordsCountLabel, "dBMeaningsRecordsCountLabel");
+      dBMeaningsRecordsCountLabel.Name = "dBMeaningsRecordsCountLabel";
       // 
       // loadDataTimeLabel
       // 
@@ -313,6 +319,16 @@
       resources.ApplyResources(cPUProcessLoadLabel, "cPUProcessLoadLabel");
       cPUProcessLoadLabel.Name = "cPUProcessLoadLabel";
       // 
+      // dBLettersRecordsCountLabel
+      // 
+      resources.ApplyResources(dBLettersRecordsCountLabel, "dBLettersRecordsCountLabel");
+      dBLettersRecordsCountLabel.Name = "dBLettersRecordsCountLabel";
+      // 
+      // cPUProcessLoadAvgLabel
+      // 
+      resources.ApplyResources(cPUProcessLoadAvgLabel, "cPUProcessLoadAvgLabel");
+      cPUProcessLoadAvgLabel.Name = "cPUProcessLoadAvgLabel";
+      // 
       // PanelBottom
       // 
       this.PanelBottom.Controls.Add(this.ActionScreenshot);
@@ -351,22 +367,22 @@
       this.Timer.Interval = 1000;
       this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
       // 
-      // ApplicationStatisticsDataBindingSource
-      // 
-      this.ApplicationStatisticsDataBindingSource.AllowNew = false;
-      this.ApplicationStatisticsDataBindingSource.DataSource = typeof(Ordisoftware.Hebrew.Letters.ApplicationStatistics);
-      // 
       // dBFileSizeLabel1
       // 
       resources.ApplyResources(this.dBFileSizeLabel1, "dBFileSizeLabel1");
       this.dBFileSizeLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ApplicationStatisticsDataBindingSource, "DBFileSize", true));
       this.dBFileSizeLabel1.Name = "dBFileSizeLabel1";
       // 
-      // dBRecordsCountLabel1
+      // ApplicationStatisticsDataBindingSource
       // 
-      resources.ApplyResources(this.dBRecordsCountLabel1, "dBRecordsCountLabel1");
-      this.dBRecordsCountLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ApplicationStatisticsDataBindingSource, "DBRecordsCount", true));
-      this.dBRecordsCountLabel1.Name = "dBRecordsCountLabel1";
+      this.ApplicationStatisticsDataBindingSource.AllowNew = false;
+      this.ApplicationStatisticsDataBindingSource.DataSource = typeof(Ordisoftware.Hebrew.Letters.ApplicationStatistics);
+      // 
+      // dBMeaningsRecordsCountLabel1
+      // 
+      resources.ApplyResources(this.dBMeaningsRecordsCountLabel1, "dBMeaningsRecordsCountLabel1");
+      this.dBMeaningsRecordsCountLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ApplicationStatisticsDataBindingSource, "DBMeaningsCount", true));
+      this.dBMeaningsRecordsCountLabel1.Name = "dBMeaningsRecordsCountLabel1";
       // 
       // loadDataTimeLabel1
       // 
@@ -484,8 +500,10 @@
       this.GroupBoxDatabase.Controls.Add(dBADONETAccessLabel);
       this.GroupBoxDatabase.Controls.Add(dBEngineversionLabel);
       this.GroupBoxDatabase.Controls.Add(dBFileSizeLabel);
-      this.GroupBoxDatabase.Controls.Add(this.dBRecordsCountLabel1);
-      this.GroupBoxDatabase.Controls.Add(dBRecordsCountLabel);
+      this.GroupBoxDatabase.Controls.Add(this.dBLettersRecordsCountLabel1);
+      this.GroupBoxDatabase.Controls.Add(this.dBMeaningsRecordsCountLabel1);
+      this.GroupBoxDatabase.Controls.Add(dBLettersRecordsCountLabel);
+      this.GroupBoxDatabase.Controls.Add(dBMeaningsRecordsCountLabel);
       this.GroupBoxDatabase.Controls.Add(this.dBADONETAccessLabel1);
       this.GroupBoxDatabase.Controls.Add(this.dBEngineversionLabel1);
       this.GroupBoxDatabase.Controls.Add(this.dBFileSizeLabel1);
@@ -494,6 +512,12 @@
       resources.ApplyResources(this.GroupBoxDatabase, "GroupBoxDatabase");
       this.GroupBoxDatabase.Name = "GroupBoxDatabase";
       this.GroupBoxDatabase.TabStop = false;
+      // 
+      // dBLettersRecordsCountLabel1
+      // 
+      resources.ApplyResources(this.dBLettersRecordsCountLabel1, "dBLettersRecordsCountLabel1");
+      this.dBLettersRecordsCountLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ApplicationStatisticsDataBindingSource, "DBLettersCount", true));
+      this.dBLettersRecordsCountLabel1.Name = "dBLettersRecordsCountLabel1";
       // 
       // dBADONETAccessLabel1
       // 
@@ -509,6 +533,7 @@
       // 
       // GroupBoxMemory
       // 
+      resources.ApplyResources(this.GroupBoxMemory, "GroupBoxMemory");
       this.GroupBoxMemory.Controls.Add(physicalMemoryFreeLabel);
       this.GroupBoxMemory.Controls.Add(this.totalVisibleMemoryLabel1);
       this.GroupBoxMemory.Controls.Add(totalVisibleMemoryLabel);
@@ -529,7 +554,6 @@
       this.GroupBoxMemory.Controls.Add(memoryPeakWorkingLabel);
       this.GroupBoxMemory.Controls.Add(memoryMaxGCUsageLabel);
       this.GroupBoxMemory.Controls.Add(memoryGCLabel);
-      resources.ApplyResources(this.GroupBoxMemory, "GroupBoxMemory");
       this.GroupBoxMemory.Name = "GroupBoxMemory";
       this.GroupBoxMemory.TabStop = false;
       // 
@@ -541,6 +565,7 @@
       // 
       // GroupBoxSystem
       // 
+      resources.ApplyResources(this.GroupBoxSystem, "GroupBoxSystem");
       this.GroupBoxSystem.Controls.Add(executableModeLabel);
       this.GroupBoxSystem.Controls.Add(this.executableModeLabel1);
       this.GroupBoxSystem.Controls.Add(this.operatingSystemTextBox);
@@ -551,30 +576,29 @@
       this.GroupBoxSystem.Controls.Add(currentThreadPriorityLabel);
       this.GroupBoxSystem.Controls.Add(this.currentThreadPriorityLabel1);
       this.GroupBoxSystem.Controls.Add(this.processPriorityLabel1);
-      resources.ApplyResources(this.GroupBoxSystem, "GroupBoxSystem");
       this.GroupBoxSystem.Name = "GroupBoxSystem";
       this.GroupBoxSystem.TabStop = false;
       // 
       // executableModeLabel1
       // 
-      this.executableModeLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SystemStatisticsDataBindingSource, "ExecutableMode", true));
       resources.ApplyResources(this.executableModeLabel1, "executableModeLabel1");
+      this.executableModeLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SystemStatisticsDataBindingSource, "ExecutableMode", true));
       this.executableModeLabel1.Name = "executableModeLabel1";
       // 
       // operatingSystemTextBox
       // 
+      resources.ApplyResources(this.operatingSystemTextBox, "operatingSystemTextBox");
       this.operatingSystemTextBox.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
       this.operatingSystemTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SystemStatisticsDataBindingSource, "Platform", true));
-      resources.ApplyResources(this.operatingSystemTextBox, "operatingSystemTextBox");
       this.operatingSystemTextBox.Name = "operatingSystemTextBox";
       this.operatingSystemTextBox.ReadOnly = true;
       this.operatingSystemTextBox.TabStop = false;
       // 
       // processorNameTextBox
       // 
+      resources.ApplyResources(this.processorNameTextBox, "processorNameTextBox");
       this.processorNameTextBox.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
       this.processorNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SystemStatisticsDataBindingSource, "Processor", true));
-      resources.ApplyResources(this.processorNameTextBox, "processorNameTextBox");
       this.processorNameTextBox.Name = "processorNameTextBox";
       this.processorNameTextBox.ReadOnly = true;
       this.processorNameTextBox.TabStop = false;
@@ -604,6 +628,8 @@
       // 
       // GroupBoxSystemLoad
       // 
+      this.GroupBoxSystemLoad.Controls.Add(cPUProcessLoadAvgLabel);
+      this.GroupBoxSystemLoad.Controls.Add(this.cPUProcessLoadAvgLabel1);
       this.GroupBoxSystemLoad.Controls.Add(cPUProcessLoadMaxLabel);
       this.GroupBoxSystemLoad.Controls.Add(this.cPUProcessLoadMaxLabel1);
       this.GroupBoxSystemLoad.Controls.Add(cPUProcessLoadLabel);
@@ -613,6 +639,12 @@
       resources.ApplyResources(this.GroupBoxSystemLoad, "GroupBoxSystemLoad");
       this.GroupBoxSystemLoad.Name = "GroupBoxSystemLoad";
       this.GroupBoxSystemLoad.TabStop = false;
+      // 
+      // cPUProcessLoadAvgLabel1
+      // 
+      this.cPUProcessLoadAvgLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.SystemStatisticsDataBindingSource, "CPUProcessLoadAverage", true));
+      resources.ApplyResources(this.cPUProcessLoadAvgLabel1, "cPUProcessLoadAvgLabel1");
+      this.cPUProcessLoadAvgLabel1.Name = "cPUProcessLoadAvgLabel1";
       // 
       // cPUProcessLoadMaxLabel1
       // 
@@ -639,6 +671,7 @@
       // 
       // GroupBoxFolders
       // 
+      resources.ApplyResources(this.GroupBoxFolders, "GroupBoxFolders");
       this.GroupBoxFolders.Controls.Add(this.ActionOpenFolderUserLocalData);
       this.GroupBoxFolders.Controls.Add(this.ActionOpenFolderUserData);
       this.GroupBoxFolders.Controls.Add(this.ActionOpenFolderApplication);
@@ -648,14 +681,13 @@
       this.GroupBoxFolders.Controls.Add(this.EditFolderUserData);
       this.GroupBoxFolders.Controls.Add(label1);
       this.GroupBoxFolders.Controls.Add(this.EditFolderApplication);
-      resources.ApplyResources(this.GroupBoxFolders, "GroupBoxFolders");
       this.GroupBoxFolders.Name = "GroupBoxFolders";
       this.GroupBoxFolders.TabStop = false;
       // 
       // ActionOpenFolderUserLocalData
       // 
-      this.ActionOpenFolderUserLocalData.FlatAppearance.BorderSize = 0;
       resources.ApplyResources(this.ActionOpenFolderUserLocalData, "ActionOpenFolderUserLocalData");
+      this.ActionOpenFolderUserLocalData.FlatAppearance.BorderSize = 0;
       this.ActionOpenFolderUserLocalData.Name = "ActionOpenFolderUserLocalData";
       this.ActionOpenFolderUserLocalData.TabStop = false;
       this.ActionOpenFolderUserLocalData.UseVisualStyleBackColor = true;
@@ -663,8 +695,8 @@
       // 
       // ActionOpenFolderUserData
       // 
-      this.ActionOpenFolderUserData.FlatAppearance.BorderSize = 0;
       resources.ApplyResources(this.ActionOpenFolderUserData, "ActionOpenFolderUserData");
+      this.ActionOpenFolderUserData.FlatAppearance.BorderSize = 0;
       this.ActionOpenFolderUserData.Name = "ActionOpenFolderUserData";
       this.ActionOpenFolderUserData.TabStop = false;
       this.ActionOpenFolderUserData.UseVisualStyleBackColor = true;
@@ -672,8 +704,8 @@
       // 
       // ActionOpenFolderApplication
       // 
-      this.ActionOpenFolderApplication.FlatAppearance.BorderSize = 0;
       resources.ApplyResources(this.ActionOpenFolderApplication, "ActionOpenFolderApplication");
+      this.ActionOpenFolderApplication.FlatAppearance.BorderSize = 0;
       this.ActionOpenFolderApplication.Name = "ActionOpenFolderApplication";
       this.ActionOpenFolderApplication.TabStop = false;
       this.ActionOpenFolderApplication.UseVisualStyleBackColor = true;
@@ -681,24 +713,24 @@
       // 
       // EditOpenFolderUserLocalData
       // 
-      this.EditOpenFolderUserLocalData.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
       resources.ApplyResources(this.EditOpenFolderUserLocalData, "EditOpenFolderUserLocalData");
+      this.EditOpenFolderUserLocalData.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
       this.EditOpenFolderUserLocalData.Name = "EditOpenFolderUserLocalData";
       this.EditOpenFolderUserLocalData.ReadOnly = true;
       this.EditOpenFolderUserLocalData.TabStop = false;
       // 
       // EditFolderUserData
       // 
-      this.EditFolderUserData.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
       resources.ApplyResources(this.EditFolderUserData, "EditFolderUserData");
+      this.EditFolderUserData.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
       this.EditFolderUserData.Name = "EditFolderUserData";
       this.EditFolderUserData.ReadOnly = true;
       this.EditFolderUserData.TabStop = false;
       // 
       // EditFolderApplication
       // 
-      this.EditFolderApplication.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
       resources.ApplyResources(this.EditFolderApplication, "EditFolderApplication");
+      this.EditFolderApplication.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
       this.EditFolderApplication.Name = "EditFolderApplication";
       this.EditFolderApplication.ReadOnly = true;
       this.EditFolderApplication.TabStop = false;
@@ -763,7 +795,7 @@
     private System.Windows.Forms.BindingSource ApplicationStatisticsDataBindingSource;
     private System.Windows.Forms.BindingSource SystemStatisticsDataBindingSource;
     private System.Windows.Forms.Label dBFileSizeLabel1;
-    private System.Windows.Forms.Label dBRecordsCountLabel1;
+    private System.Windows.Forms.Label dBMeaningsRecordsCountLabel1;
     private System.Windows.Forms.Label loadDataTimeLabel1;
     private System.Windows.Forms.Label physicalMemoryFreeLabel1;
     private System.Windows.Forms.Label runningTimeLabel1;
@@ -808,5 +840,7 @@
     private System.Windows.Forms.Panel PanelFolders;
     private System.Windows.Forms.Label cPUProcessLoadMaxLabel1;
     private System.Windows.Forms.Label cPUProcessLoadLabel1;
+    private System.Windows.Forms.Label dBLettersRecordsCountLabel1;
+    private System.Windows.Forms.Label cPUProcessLoadAvgLabel1;
   }
 }

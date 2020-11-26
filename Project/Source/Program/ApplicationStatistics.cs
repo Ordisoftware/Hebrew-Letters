@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2020-08 </created>
-/// <edited> 2020-08 </edited>
+/// <edited> 2020-11 </edited>
 using System;
 using System.Linq;
 using Ordisoftware.Core;
@@ -29,12 +29,15 @@ namespace Ordisoftware.Hebrew.Letters
       = new ApplicationStatistics();
 
     public string StartingTime
-      => "-";// Program.Settings.BenchmarkStartingApp.FormatMilliseconds();
+      => Program.Settings.BenchmarkStartingApp.FormatMilliseconds();
 
     public string LoadDataTime
-      => "-";// Program.Settings.BenchmarkLoadData.FormatMilliseconds();
+      => Program.Settings.BenchmarkLoadData.FormatMilliseconds();
 
-    public string DBRecordsCount
+    public string DBLettersCount
+      => MainForm.Instance.DataSet.Letters.Count().ToString();
+
+    public string DBMeaningsCount
       => MainForm.Instance.DataSet.Meanings.Count().ToString();
 
     public string DBEngine

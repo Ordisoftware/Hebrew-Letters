@@ -464,5 +464,29 @@ namespace Ordisoftware.Hebrew.Letters.Properties {
                 this["StatisticsFormLocation"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public long BenchmarkStartingApp {
+            get {
+                return ((long)(this["BenchmarkStartingApp"]));
+            }
+            set {
+                this["BenchmarkStartingApp"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public long BenchmarkLoadData {
+            get {
+                return ((long)(this["BenchmarkLoadData"]));
+            }
+            set {
+                this["BenchmarkLoadData"] = value;
+            }
+        }
     }
 }

@@ -118,5 +118,11 @@
     <Setting Name="StatisticsFormLocation" Type="System.Drawing.Point" Scope="User">
       <Value Profile="(Default)">-1, -1</Value>
     </Setting>
+    <Setting Name="BenchmarkStartingApp" Type="System.Int64" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="BenchmarkLoadData" Type="System.Int64" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

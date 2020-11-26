@@ -11,10 +11,11 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2020-10 </edited>
+/// <edited> 2020-11 </edited>
 using System;
 using System.Data;
 using System.Drawing;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -38,6 +39,8 @@ namespace Ordisoftware.Hebrew.Letters
 
     private readonly Properties.Settings Settings = Program.Settings;
 
+    private Stopwatch ChronoStart = new Stopwatch();
+   
     /// <summary>
     /// Last term searched.
     /// </summary>
@@ -126,13 +129,19 @@ namespace Ordisoftware.Hebrew.Letters
         SystemManager.Exit();
         return;
       }
+      ChronoStart.Start();
       try
       {
+        var Chrono = new Stopwatch();
+        Chrono.Start();
         EditSentence.Font = new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence);
         IsDBUpgraded = CreateSchemaIfNotExists();
         CreateDataIfNotExists(false);
         LettersTableAdapter.Fill(DataSet.Letters);
         MeaningsTableAdapter.Fill(DataSet.Meanings);
+        Chrono.Stop();
+        Settings.BenchmarkLoadData = Chrono.ElapsedMilliseconds;
+        Settings.Save();
       }
       catch ( Exception ex )
       {
@@ -154,6 +163,9 @@ namespace Ordisoftware.Hebrew.Letters
     /// <param name="e">Form closing event information.</param>
     private void MainForm_Shown(object sender, EventArgs e)
     {
+      ChronoStart.Stop();
+      Settings.BenchmarkStartingApp = ChronoStart.ElapsedMilliseconds;
+      Settings.Save();
       if ( Globals.IsExiting ) return;
       if ( Program.StartupWord != null && Program.StartupWord != "" )
       {
