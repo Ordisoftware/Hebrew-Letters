@@ -127,5 +127,8 @@
     <Setting Name="CheckUpdateAtStartupDaysInterval" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">7</Value>
     </Setting>
+    <Setting Name="ApplicationVolume" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -72,6 +72,7 @@
     <Compile Include="Source\Common\Core\Classes\StringHelper.cs" />
     <Compile Include="Source\Common\Core\Classes\StringHelper.Format.cs" />
     <Compile Include="Source\Common\Core\Classes\SystemStatistics.cs" />
+    <Compile Include="Source\Common\Core\Classes\VolumeMixer.cs" />
     <Compile Include="Source\Common\Core\Classes\WebCheckUpdate.cs" />
     <Compile Include="Source\Common\Core\Collections\AutoResizedList.cs" />
     <Compile Include="Source\Common\Core\Collections\NullSafeDictionary.cs" />
