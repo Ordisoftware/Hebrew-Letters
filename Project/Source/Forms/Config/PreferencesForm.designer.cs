@@ -30,6 +30,7 @@
     {
       this.components = new System.ComponentModel.Container();
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PreferencesForm));
+      System.Windows.Forms.Label LabelCheckUpdateFrequency;
       this.ActionClose = new System.Windows.Forms.Button();
       this.PanelBottom = new System.Windows.Forms.Panel();
       this.ActionResetSettings = new System.Windows.Forms.LinkLabel();
@@ -48,9 +49,13 @@
       this.EditCheckUpdateAtStartup = new System.Windows.Forms.CheckBox();
       this.EditWebLinksMenuEnabled = new System.Windows.Forms.CheckBox();
       this.EditLogEnabled = new System.Windows.Forms.CheckBox();
+      this.LabelCheckUpdateAtStartupInfo = new System.Windows.Forms.Label();
+      this.EditCheckUpdateAtStartupInterval = new System.Windows.Forms.NumericUpDown();
+      LabelCheckUpdateFrequency = new System.Windows.Forms.Label();
       this.PanelBottom.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.EditFontSize)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.EditMaxLength)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.EditCheckUpdateAtStartupInterval)).BeginInit();
       this.SuspendLayout();
       // 
       // ActionClose
@@ -199,12 +204,48 @@
       this.EditLogEnabled.UseVisualStyleBackColor = true;
       this.EditLogEnabled.CheckedChanged += new System.EventHandler(this.EditLogEnabled_CheckedChanged);
       // 
+      // LabelCheckUpdateFrequency
+      // 
+      resources.ApplyResources(LabelCheckUpdateFrequency, "LabelCheckUpdateFrequency");
+      LabelCheckUpdateFrequency.Name = "LabelCheckUpdateFrequency";
+      // 
+      // LabelCheckUpdateAtStartupInfo
+      // 
+      resources.ApplyResources(this.LabelCheckUpdateAtStartupInfo, "LabelCheckUpdateAtStartupInfo");
+      this.LabelCheckUpdateAtStartupInfo.ForeColor = System.Drawing.SystemColors.GrayText;
+      this.LabelCheckUpdateAtStartupInfo.Name = "LabelCheckUpdateAtStartupInfo";
+      // 
+      // EditCheckUpdateAtStartupInterval
+      // 
+      this.EditCheckUpdateAtStartupInterval.BackColor = System.Drawing.SystemColors.Window;
+      resources.ApplyResources(this.EditCheckUpdateAtStartupInterval, "EditCheckUpdateAtStartupInterval");
+      this.EditCheckUpdateAtStartupInterval.Maximum = new decimal(new int[] {
+            28,
+            0,
+            0,
+            0});
+      this.EditCheckUpdateAtStartupInterval.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+      this.EditCheckUpdateAtStartupInterval.Name = "EditCheckUpdateAtStartupInterval";
+      this.EditCheckUpdateAtStartupInterval.ReadOnly = true;
+      this.EditCheckUpdateAtStartupInterval.Value = new decimal(new int[] {
+            7,
+            0,
+            0,
+            0});
+      // 
       // PreferencesForm
       // 
       this.AcceptButton = this.ActionClose;
       resources.ApplyResources(this, "$this");
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.CancelButton = this.ActionClose;
+      this.Controls.Add(LabelCheckUpdateFrequency);
+      this.Controls.Add(this.LabelCheckUpdateAtStartupInfo);
+      this.Controls.Add(this.EditCheckUpdateAtStartupInterval);
       this.Controls.Add(this.EditLogEnabled);
       this.Controls.Add(this.EditWebLinksMenuEnabled);
       this.Controls.Add(this.EditMaxLength);
@@ -230,6 +271,7 @@
       this.PanelBottom.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.EditFontSize)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.EditMaxLength)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.EditCheckUpdateAtStartupInterval)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -254,5 +296,7 @@
     private System.Windows.Forms.Label LabelMaxLength;
     private System.Windows.Forms.CheckBox EditWebLinksMenuEnabled;
     private System.Windows.Forms.CheckBox EditLogEnabled;
+    private System.Windows.Forms.Label LabelCheckUpdateAtStartupInfo;
+    private System.Windows.Forms.NumericUpDown EditCheckUpdateAtStartupInterval;
   }
 }

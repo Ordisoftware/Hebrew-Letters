@@ -121,7 +121,7 @@ namespace Ordisoftware.Hebrew.Letters
       var lastdone = Settings.CheckUpdateLastDone;
       bool exit = WebCheckUpdate.Run(Settings.CheckUpdateAtStartup,
                                      ref lastdone,
-                                     7, // TODO Settings.CheckUpdateAtStartupDaysInterval,
+                                     Settings.CheckUpdateAtStartupDaysInterval,
                                      true);
       Settings.CheckUpdateLastDone = lastdone;
       if ( exit )
@@ -364,7 +364,7 @@ namespace Ordisoftware.Hebrew.Letters
     /// <param name="e">Event information.</param>
     private void ActionNewInstance_Click(object sender, EventArgs e)
     {
-      SystemManager.RunShell(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName);
+      SystemManager.RunShell(Process.GetCurrentProcess().MainModule.FileName);
     }
 
     /// <summary>
@@ -475,7 +475,7 @@ namespace Ordisoftware.Hebrew.Letters
       var lastdone = Settings.CheckUpdateLastDone;
       bool exit = WebCheckUpdate.Run(Settings.CheckUpdateAtStartup,
                                      ref lastdone,
-                                     7, // TODO Settings.CheckUpdateAtStartupDaysInterval,
+                                     Settings.CheckUpdateAtStartupDaysInterval,
                                      e == null);
       Settings.CheckUpdateLastDone = lastdone;
       if ( exit )
