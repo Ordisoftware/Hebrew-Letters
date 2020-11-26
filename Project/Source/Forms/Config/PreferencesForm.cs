@@ -62,6 +62,7 @@ namespace Ordisoftware.Hebrew.Letters
       EditFontSize.Value = Program.Settings.FontSizeSentence;
       EditMaxLength.Value = Program.Settings.HebrewTextBoxMaxLength;
       EditWebLinksMenuEnabled.Checked = Program.Settings.WebLinksMenuEnabled;
+      EditCheckUpdateAtStartupInterval.Value = Program.Settings.CheckUpdateAtStartupDaysInterval;
     }
 
     private void PreferencesForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -74,6 +75,7 @@ namespace Ordisoftware.Hebrew.Letters
       Program.Settings.FontSizeSentence = EditFontSize.Value;
       Program.Settings.HebrewTextBoxMaxLength = EditMaxLength.Value;
       Program.Settings.WebLinksMenuEnabled = EditWebLinksMenuEnabled.Checked;
+      Program.Settings.CheckUpdateAtStartupDaysInterval = (int)EditCheckUpdateAtStartupInterval.Value;
       Program.Settings.Save();
     }
 
