@@ -84,7 +84,7 @@ The software verifies the validity of the certificate of the update server in ad
 
 ## Changelog
 
-#### 2020.11.__ - Version 5.0
+#### 202_.__.__ - Version 5.0
 
 - Add context menu on letters' buttons to allow inserting a letter or open its parameters.
 - Add create a screenshot of the form.
@@ -94,6 +94,7 @@ The software verifies the validity of the certificate of the update server in ad
 - Remove advanced undo/redo due to a problem that requires a complete rewrite to have the cursor not misplaced in certain cases.
 - Add permanent database file locking while running one or more instances of the application.
 - Add usage statistics form in tools menu.
+- Add option to set automatic web check update frequency.
 - Add option to enable or disable message boxes sounds.
 - Improve message boxes.
 - Improve check update to allow auto update or direct download or open app web page.
@@ -110,8 +111,14 @@ The software verifies the validity of the certificate of the update server in ad
 - The application now automatically creates the ODBC DSN in the Windows registry.
 - Improve setup.
 - Rename 32x32 icon files.
+- Refactor project folders hierarchy.
 
+>>>>- Add keyboard shortcuts notice in windows settings menu.
+>>>>- Add option to enable/disable success dialogs.
+>>>>- Add sounds to clipboard actions.
+>>>>- Add option to set application's volume.
 >>>>- Fix pasting unicode word removes special final letters.
+>>>>- Add "Start and reset preferences" link in Windows Start menu.
 
 #### 2020.04.23 - Version 4.1
 
