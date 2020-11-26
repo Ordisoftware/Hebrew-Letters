@@ -117,6 +117,10 @@ namespace Ordisoftware.Hebrew.Letters
     {
       if ( Globals.IsExiting ) return;
       Settings.Retrieve();
+      SystemManager.TryCatch(() => new System.Media.SoundPlayer(Globals.EmptySoundFilePath).Play());
+      SystemManager.TryCatch(() => VolumeMixer.SetApplicationVolume(Process.GetCurrentProcess().Id,
+                                                                    Settings.ApplicationVolume));
+      StatisticsForm.Run(true);
       ActionPreferences.Enabled = SystemManager.ApplicationInstancesCount == 1;
       var lastdone = Settings.CheckUpdateLastDone;
       bool exit = WebCheckUpdate.Run(Settings.CheckUpdateAtStartup,

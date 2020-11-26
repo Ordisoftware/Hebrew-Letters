@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2020-08 </created>
-/// <edited> 2020-08 </edited>
+/// <edited> 2020-11 </edited>
 using System;
 using System.Windows.Forms;
 using Ordisoftware.Core;
@@ -41,6 +41,7 @@ namespace Ordisoftware.Hebrew.Letters
         Instance.Timer.Interval = 1000;
       }
       Instance.Timer.Start();
+      Instance.ActionViewLog.Enabled = DebugManager.TraceEnabled;
     }
 
     private StatisticsForm()
@@ -53,10 +54,14 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void SystemStatisticsForm_Load(object sender, EventArgs e)
     {
-      this.CheckLocationOrCenterToMainFormElseScreen();
       EditFolderApplication.Text = Globals.RootFolderPath;
       EditFolderUserData.Text = Globals.UserDataFolderPath;
       EditOpenFolderUserLocalData.Text = Globals.UserLocalDataFolderPath;
+    }
+
+    private void StatisticsForm_Activated(object sender, EventArgs e)
+    {
+      this.CheckLocationOrCenterToMainFormElseScreen();
     }
 
     private void SystemStatisticsForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -82,20 +87,6 @@ namespace Ordisoftware.Hebrew.Letters
       Application.DoEvents();
     }
 
-    internal void Timer_Tick(object sender, EventArgs e)
-    {
-      if ( Visible )
-      {
-        LabelApplication1.Text = Globals.AssemblyTitleWithVersion;
-        ApplicationStatisticsDataBindingSource.ResetBindings(false);
-        SystemStatisticsDataBindingSource.ResetBindings(false);
-      }
-      else
-      {
-        string dummyUpdate = SystemStatistics.Instance.MemoryGC;
-      }
-    }
-
     private void ActionViewLog_Click(object sender, EventArgs e)
     {
       DebugManager.TraceForm.Popup();
@@ -104,7 +95,8 @@ namespace Ordisoftware.Hebrew.Letters
     private void ActionScreenshot_Click(object sender, EventArgs e)
     {
       Clipboard.SetImage(PanelMain.GetBitmap());
-      DisplayManager.ShowInformation(SysTranslations.ScreenshotDone.GetLang());
+      DisplayManager.ShowSuccessOrSound(SysTranslations.ScreenshotDone.GetLang(),
+                                        Globals.SnapshotSoundFilePath);
     }
 
     private void ActionOpenFolderApplication_Click(object sender, EventArgs e)
@@ -120,6 +112,21 @@ namespace Ordisoftware.Hebrew.Letters
     private void ActionOpenFolderUserLocalData_Click(object sender, EventArgs e)
     {
       SystemManager.RunShell(EditOpenFolderUserLocalData.Text);
+    }
+
+    internal void Timer_Tick(object sender, EventArgs e)
+    {
+      if ( Visible )
+      {
+        LabelApplication1.Text = Globals.AssemblyTitleWithVersion;
+        ApplicationStatisticsDataBindingSource.ResetBindings(false);
+        SystemStatisticsDataBindingSource.ResetBindings(false);
+      }
+      else
+      {
+        string dummyMemoryGC = SystemStatistics.Instance.MemoryGC;
+        string dummyCPUProcessLoad = SystemStatistics.Instance.CPUProcessLoad;
+      }
     }
 
   }

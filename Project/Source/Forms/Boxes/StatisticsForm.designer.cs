@@ -116,6 +116,7 @@
       this.EditFolderApplication = new Ordisoftware.Core.UndoRedoTextBox();
       this.PanelBottomOuter = new System.Windows.Forms.Panel();
       this.PanelFolders = new System.Windows.Forms.Panel();
+      this.ActionViewLog = new System.Windows.Forms.Button();
       dBFileSizeLabel = new System.Windows.Forms.Label();
       dBMeaningsRecordsCountLabel = new System.Windows.Forms.Label();
       loadDataTimeLabel = new System.Windows.Forms.Label();
@@ -331,6 +332,7 @@
       // 
       // PanelBottom
       // 
+      this.PanelBottom.Controls.Add(this.ActionViewLog);
       this.PanelBottom.Controls.Add(this.ActionScreenshot);
       this.PanelBottom.Controls.Add(this.EditAlwaysOnTop);
       this.PanelBottom.Controls.Add(this.ActionClose);
@@ -747,6 +749,14 @@
       resources.ApplyResources(this.PanelFolders, "PanelFolders");
       this.PanelFolders.Name = "PanelFolders";
       // 
+      // ActionViewLog
+      // 
+      resources.ApplyResources(this.ActionViewLog, "ActionViewLog");
+      this.ActionViewLog.FlatAppearance.BorderSize = 0;
+      this.ActionViewLog.Name = "ActionViewLog";
+      this.ActionViewLog.UseVisualStyleBackColor = true;
+      this.ActionViewLog.Click += new System.EventHandler(this.ActionViewLog_Click);
+      // 
       // StatisticsForm
       // 
       resources.ApplyResources(this, "$this");
@@ -760,6 +770,7 @@
       this.Location = global::Ordisoftware.Hebrew.Letters.Properties.Settings.Default.StatisticsFormLocation;
       this.MaximizeBox = false;
       this.Name = "StatisticsForm";
+      this.Activated += new System.EventHandler(this.StatisticsForm_Activated);
       this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SystemStatisticsForm_FormClosing);
       this.Load += new System.EventHandler(this.SystemStatisticsForm_Load);
       this.PanelBottom.ResumeLayout(false);
@@ -842,5 +853,6 @@
     private System.Windows.Forms.Label cPUProcessLoadLabel1;
     private System.Windows.Forms.Label dBLettersRecordsCountLabel1;
     private System.Windows.Forms.Label cPUProcessLoadAvgLabel1;
+    internal System.Windows.Forms.Button ActionViewLog;
   }
 }
