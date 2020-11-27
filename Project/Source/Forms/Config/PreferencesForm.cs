@@ -63,6 +63,7 @@ namespace Ordisoftware.Hebrew.Letters
       EditMaxLength.Value = Program.Settings.HebrewTextBoxMaxLength;
       EditWebLinksMenuEnabled.Checked = Program.Settings.WebLinksMenuEnabled;
       EditCheckUpdateAtStartupInterval.Value = Program.Settings.CheckUpdateAtStartupDaysInterval;
+      EditUsageStatisticsEnabled.Checked = Program.Settings.UsageStatisticsEnabled;
       EditVolume.Value = Program.Settings.ApplicationVolume;
     }
 
@@ -78,6 +79,7 @@ namespace Ordisoftware.Hebrew.Letters
       Program.Settings.WebLinksMenuEnabled = EditWebLinksMenuEnabled.Checked;
       Program.Settings.CheckUpdateAtStartupDaysInterval = (int)EditCheckUpdateAtStartupInterval.Value;
       Program.Settings.ApplicationVolume = EditVolume.Value;
+      Program.Settings.UsageStatisticsEnabled = EditUsageStatisticsEnabled.Checked;
       Program.Settings.Save();
     }
 
