@@ -120,7 +120,7 @@ namespace Ordisoftware.Hebrew.Letters
       SystemManager.TryCatch(() => new System.Media.SoundPlayer(Globals.EmptySoundFilePath).Play());
       SystemManager.TryCatch(() => VolumeMixer.SetApplicationVolume(Process.GetCurrentProcess().Id,
                                                                     Settings.ApplicationVolume));
-      StatisticsForm.Run(true);
+      StatisticsForm.Run(true, Settings.UsageStatisticsEnabled);
       ActionPreferences.Enabled = SystemManager.ApplicationInstancesCount == 1;
       var lastdone = Settings.CheckUpdateLastDone;
       bool exit = WebCheckUpdate.Run(Settings.CheckUpdateAtStartup,
@@ -155,6 +155,7 @@ namespace Ordisoftware.Hebrew.Letters
         Environment.Exit(-1);
       }
       ComboBoxCode_SelectedIndexChanged(null, null);
+      ActionViewStats.Enabled = Settings.UsageStatisticsEnabled;
       ActionViewLog.Enabled = DebugManager.TraceEnabled;
       DebugManager.TraceEnabledChanged += value => ActionViewLog.Enabled = value;
       Globals.IsReady = true;
