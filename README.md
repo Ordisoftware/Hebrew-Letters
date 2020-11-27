@@ -86,16 +86,18 @@ The software verifies the validity of the certificate of the update server in ad
 
 #### 202_.__.__ - Version 5.0
 
+- Rework of the preferences form design to have a Tab Control with pages.
+- Change all TextBox for UndoRedoTextBox to have the new context menu.
+- Remove advanced undo/redo due to a problem that requires a complete rewrite to have the cursor not misplaced in certain cases.
 - Add context menu on letters' buttons to allow inserting a letter or open its parameters.
 - Add create a screenshot of the form.
 - Add open new window menu button.
-- Change all TextBox for UndoRedoTextBox to have the new context menu.
-- Remove advanced undo/redo due to a problem that requires a complete rewrite to have the cursor not misplaced in certain cases.
 - Add permanent database file locking while running one or more instances of the application.
 - Add usage statistics form in tools menu.
 - Add option to set automatic web check update frequency.
 - Add option to enable or disable the web links menu.
 - Add option to enable or disable message boxes sounds.
+- Add option to set application's volume.
 - Improve message boxes.
 - Improve check update to allow auto update or direct download or open app web page.
 - Improve check update to verify the SSL certificate of the website and the checksum of the setup file.
@@ -103,12 +105,12 @@ The software verifies the validity of the certificate of the update server in ad
 - Improve exception form to view log.
 - Improve multiple process management.
 - Some UI/UX improvements.
-- The application now automatically creates the ODBC DSN in the Windows registry.
 - Massive code refactoring.
 - Update web links.
 - Update help.
 - Update to SQLite 3.32.3 ODBC Driver.
 - Update Framework .NET version to 4.7.2 and supported Windows only 7 SP1 or higher.
+- The application now automatically creates the ODBC DSN in the Windows registry.
 - Improve setup.
 - Rename 32x32 icon files.
 - Refactor project folders hierarchy.
@@ -116,7 +118,6 @@ The software verifies the validity of the certificate of the update server in ad
 >>>>- Add keyboard shortcuts notice in windows settings menu.
 >>>>- Add option to enable/disable success dialogs.
 >>>>- Add sounds to clipboard actions.
->>>>- Add option to set application's volume.
 >>>>- Fix pasting unicode word removes special final letters.
 >>>>- Add "Start and reset preferences" link in Windows Start menu.
 
