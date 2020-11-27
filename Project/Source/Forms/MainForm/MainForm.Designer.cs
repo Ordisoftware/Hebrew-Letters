@@ -1185,7 +1185,7 @@
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
     internal System.Windows.Forms.ToolStripMenuItem ActionViewLog;
-    private System.Windows.Forms.ToolStripMenuItem ActionViewStats;
+    internal System.Windows.Forms.ToolStripMenuItem ActionViewStats;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
     private System.Windows.Forms.ToolStripButton ActionNewInstance;
     private System.Windows.Forms.Button ActionSnapshot;

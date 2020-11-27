@@ -136,5 +136,8 @@
     <Setting Name="VacuumAtStartupDaysInterval" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">7</Value>
     </Setting>
+    <Setting Name="PreferencesFormSelectedTabIndex" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

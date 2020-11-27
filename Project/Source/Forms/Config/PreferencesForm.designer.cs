@@ -30,6 +30,7 @@
     {
       this.components = new System.ComponentModel.Container();
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PreferencesForm));
+      System.Windows.Forms.Label LabelVolume;
       System.Windows.Forms.Label LabelCheckUpdateFrequency;
       this.ActionClose = new System.Windows.Forms.Button();
       this.PanelBottom = new System.Windows.Forms.Panel();
@@ -37,25 +38,40 @@
       this.OpenFileDialog = new System.Windows.Forms.OpenFileDialog();
       this.FolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
       this.MenuSelectOnlineVerseURL = new System.Windows.Forms.ContextMenuStrip(this.components);
+      this.TabControl = new System.Windows.Forms.TabControl();
+      this.TabPageApplication = new System.Windows.Forms.TabPage();
+      this.EditUsageStatisticsEnabled = new System.Windows.Forms.CheckBox();
+      this.EditVolume = new System.Windows.Forms.TrackBar();
       this.ActionSelectLangEN = new System.Windows.Forms.Button();
+      this.LabelVolumeValue = new System.Windows.Forms.Label();
       this.ActionSelectLangFR = new System.Windows.Forms.Button();
-      this.LabelFontSize = new System.Windows.Forms.Label();
-      this.EditFontSize = new System.Windows.Forms.NumericUpDown();
-      this.LabelMaxLength = new System.Windows.Forms.Label();
-      this.EditMaxLength = new System.Windows.Forms.NumericUpDown();
-      this.EditEnableDebugger = new System.Windows.Forms.CheckBox();
-      this.EditAutoSortAnalysisMeanings = new System.Windows.Forms.CheckBox();
       this.EditVacuumAtStartup = new System.Windows.Forms.CheckBox();
-      this.EditCheckUpdateAtStartup = new System.Windows.Forms.CheckBox();
+      this.EditDebuggerEnabled = new System.Windows.Forms.CheckBox();
       this.EditWebLinksMenuEnabled = new System.Windows.Forms.CheckBox();
       this.EditLogEnabled = new System.Windows.Forms.CheckBox();
-      this.LabelCheckUpdateAtStartupInfo = new System.Windows.Forms.Label();
+      this.TabPageCheckUpdate = new System.Windows.Forms.TabPage();
+      this.EditCheckUpdateAtStartup = new System.Windows.Forms.CheckBox();
       this.EditCheckUpdateAtStartupInterval = new System.Windows.Forms.NumericUpDown();
+      this.LabelCheckUpdateAtStartupInfo = new System.Windows.Forms.Label();
+      this.TabPageAnalyzer = new System.Windows.Forms.TabPage();
+      this.label2 = new System.Windows.Forms.Label();
+      this.label1 = new System.Windows.Forms.Label();
+      this.EditAutoSortAnalysisMeanings = new System.Windows.Forms.CheckBox();
+      this.LabelFontSize = new System.Windows.Forms.Label();
+      this.EditMaxLength = new System.Windows.Forms.NumericUpDown();
+      this.EditFontSize = new System.Windows.Forms.NumericUpDown();
+      this.LabelMaxLength = new System.Windows.Forms.Label();
+      LabelVolume = new System.Windows.Forms.Label();
       LabelCheckUpdateFrequency = new System.Windows.Forms.Label();
       this.PanelBottom.SuspendLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.EditFontSize)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.EditMaxLength)).BeginInit();
+      this.TabControl.SuspendLayout();
+      this.TabPageApplication.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.EditVolume)).BeginInit();
+      this.TabPageCheckUpdate.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.EditCheckUpdateAtStartupInterval)).BeginInit();
+      this.TabPageAnalyzer.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.EditMaxLength)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.EditFontSize)).BeginInit();
       this.SuspendLayout();
       // 
       // ActionClose
@@ -91,6 +107,50 @@
       this.MenuSelectOnlineVerseURL.Name = "MenuSelectOnlineVerseURL";
       resources.ApplyResources(this.MenuSelectOnlineVerseURL, "MenuSelectOnlineVerseURL");
       // 
+      // TabControl
+      // 
+      resources.ApplyResources(this.TabControl, "TabControl");
+      this.TabControl.Controls.Add(this.TabPageApplication);
+      this.TabControl.Controls.Add(this.TabPageCheckUpdate);
+      this.TabControl.Controls.Add(this.TabPageAnalyzer);
+      this.TabControl.DataBindings.Add(new System.Windows.Forms.Binding("SelectedIndex", global::Ordisoftware.Hebrew.Letters.Properties.Settings.Default, "PreferencesFormSelectedTabIndex", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+      this.TabControl.Multiline = true;
+      this.TabControl.Name = "TabControl";
+      this.TabControl.SelectedIndex = global::Ordisoftware.Hebrew.Letters.Properties.Settings.Default.PreferencesFormSelectedTabIndex;
+      // 
+      // TabPageApplication
+      // 
+      this.TabPageApplication.BackColor = System.Drawing.SystemColors.Window;
+      this.TabPageApplication.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.TabPageApplication.Controls.Add(this.EditUsageStatisticsEnabled);
+      this.TabPageApplication.Controls.Add(this.EditVolume);
+      this.TabPageApplication.Controls.Add(this.ActionSelectLangEN);
+      this.TabPageApplication.Controls.Add(LabelVolume);
+      this.TabPageApplication.Controls.Add(this.LabelVolumeValue);
+      this.TabPageApplication.Controls.Add(this.ActionSelectLangFR);
+      this.TabPageApplication.Controls.Add(this.EditVacuumAtStartup);
+      this.TabPageApplication.Controls.Add(this.EditDebuggerEnabled);
+      this.TabPageApplication.Controls.Add(this.EditWebLinksMenuEnabled);
+      this.TabPageApplication.Controls.Add(this.EditLogEnabled);
+      resources.ApplyResources(this.TabPageApplication, "TabPageApplication");
+      this.TabPageApplication.Name = "TabPageApplication";
+      // 
+      // EditUsageStatisticsEnabled
+      // 
+      resources.ApplyResources(this.EditUsageStatisticsEnabled, "EditUsageStatisticsEnabled");
+      this.EditUsageStatisticsEnabled.Name = "EditUsageStatisticsEnabled";
+      this.EditUsageStatisticsEnabled.UseVisualStyleBackColor = true;
+      this.EditUsageStatisticsEnabled.CheckedChanged += new System.EventHandler(this.EditUsageStatisticsEnabled_CheckedChanged);
+      // 
+      // EditVolume
+      // 
+      resources.ApplyResources(this.EditVolume, "EditVolume");
+      this.EditVolume.Maximum = 100;
+      this.EditVolume.Name = "EditVolume";
+      this.EditVolume.TickFrequency = 10;
+      this.EditVolume.Value = 100;
+      this.EditVolume.ValueChanged += new System.EventHandler(this.EditVolume_ValueChanged);
+      // 
       // ActionSelectLangEN
       // 
       this.ActionSelectLangEN.AllowDrop = true;
@@ -100,6 +160,17 @@
       this.ActionSelectLangEN.TabStop = false;
       this.ActionSelectLangEN.UseVisualStyleBackColor = true;
       this.ActionSelectLangEN.Click += new System.EventHandler(this.ActionSelectLangEN_Click);
+      // 
+      // LabelVolume
+      // 
+      resources.ApplyResources(LabelVolume, "LabelVolume");
+      LabelVolume.Name = "LabelVolume";
+      // 
+      // LabelVolumeValue
+      // 
+      resources.ApplyResources(this.LabelVolumeValue, "LabelVolumeValue");
+      this.LabelVolumeValue.ForeColor = System.Drawing.SystemColors.GrayText;
+      this.LabelVolumeValue.Name = "LabelVolumeValue";
       // 
       // ActionSelectLangFR
       // 
@@ -111,85 +182,18 @@
       this.ActionSelectLangFR.UseVisualStyleBackColor = true;
       this.ActionSelectLangFR.Click += new System.EventHandler(this.ActionSelectLangFR_Click);
       // 
-      // LabelFontSize
-      // 
-      resources.ApplyResources(this.LabelFontSize, "LabelFontSize");
-      this.LabelFontSize.Name = "LabelFontSize";
-      // 
-      // EditFontSize
-      // 
-      this.EditFontSize.BackColor = System.Drawing.SystemColors.Window;
-      resources.ApplyResources(this.EditFontSize, "EditFontSize");
-      this.EditFontSize.Maximum = new decimal(new int[] {
-            14,
-            0,
-            0,
-            0});
-      this.EditFontSize.Minimum = new decimal(new int[] {
-            8,
-            0,
-            0,
-            0});
-      this.EditFontSize.Name = "EditFontSize";
-      this.EditFontSize.ReadOnly = true;
-      this.EditFontSize.Value = new decimal(new int[] {
-            11,
-            0,
-            0,
-            0});
-      this.EditFontSize.ValueChanged += new System.EventHandler(this.EditFontSize_ValueChanged);
-      // 
-      // LabelMaxLength
-      // 
-      resources.ApplyResources(this.LabelMaxLength, "LabelMaxLength");
-      this.LabelMaxLength.Name = "LabelMaxLength";
-      // 
-      // EditMaxLength
-      // 
-      this.EditMaxLength.BackColor = System.Drawing.SystemColors.Window;
-      resources.ApplyResources(this.EditMaxLength, "EditMaxLength");
-      this.EditMaxLength.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-      this.EditMaxLength.Minimum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-      this.EditMaxLength.Name = "EditMaxLength";
-      this.EditMaxLength.ReadOnly = true;
-      this.EditMaxLength.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-      // 
-      // EditEnableDebugger
-      // 
-      resources.ApplyResources(this.EditEnableDebugger, "EditEnableDebugger");
-      this.EditEnableDebugger.Name = "EditEnableDebugger";
-      this.EditEnableDebugger.UseVisualStyleBackColor = true;
-      this.EditEnableDebugger.CheckedChanged += new System.EventHandler(this.EditEnableDebugger_CheckedChanged);
-      // 
-      // EditAutoSortAnalysisMeanings
-      // 
-      resources.ApplyResources(this.EditAutoSortAnalysisMeanings, "EditAutoSortAnalysisMeanings");
-      this.EditAutoSortAnalysisMeanings.Name = "EditAutoSortAnalysisMeanings";
-      this.EditAutoSortAnalysisMeanings.UseVisualStyleBackColor = true;
-      // 
       // EditVacuumAtStartup
       // 
       resources.ApplyResources(this.EditVacuumAtStartup, "EditVacuumAtStartup");
       this.EditVacuumAtStartup.Name = "EditVacuumAtStartup";
       this.EditVacuumAtStartup.UseVisualStyleBackColor = true;
       // 
-      // EditCheckUpdateAtStartup
+      // EditDebuggerEnabled
       // 
-      resources.ApplyResources(this.EditCheckUpdateAtStartup, "EditCheckUpdateAtStartup");
-      this.EditCheckUpdateAtStartup.Name = "EditCheckUpdateAtStartup";
-      this.EditCheckUpdateAtStartup.UseVisualStyleBackColor = true;
+      resources.ApplyResources(this.EditDebuggerEnabled, "EditDebuggerEnabled");
+      this.EditDebuggerEnabled.Name = "EditDebuggerEnabled";
+      this.EditDebuggerEnabled.UseVisualStyleBackColor = true;
+      this.EditDebuggerEnabled.CheckedChanged += new System.EventHandler(this.EditDebuggerEnabled_CheckedChanged);
       // 
       // EditWebLinksMenuEnabled
       // 
@@ -204,16 +208,22 @@
       this.EditLogEnabled.UseVisualStyleBackColor = true;
       this.EditLogEnabled.CheckedChanged += new System.EventHandler(this.EditLogEnabled_CheckedChanged);
       // 
-      // LabelCheckUpdateFrequency
+      // TabPageCheckUpdate
       // 
-      resources.ApplyResources(LabelCheckUpdateFrequency, "LabelCheckUpdateFrequency");
-      LabelCheckUpdateFrequency.Name = "LabelCheckUpdateFrequency";
+      this.TabPageCheckUpdate.BackColor = System.Drawing.SystemColors.Window;
+      this.TabPageCheckUpdate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.TabPageCheckUpdate.Controls.Add(this.EditCheckUpdateAtStartup);
+      this.TabPageCheckUpdate.Controls.Add(this.EditCheckUpdateAtStartupInterval);
+      this.TabPageCheckUpdate.Controls.Add(this.LabelCheckUpdateAtStartupInfo);
+      this.TabPageCheckUpdate.Controls.Add(LabelCheckUpdateFrequency);
+      resources.ApplyResources(this.TabPageCheckUpdate, "TabPageCheckUpdate");
+      this.TabPageCheckUpdate.Name = "TabPageCheckUpdate";
       // 
-      // LabelCheckUpdateAtStartupInfo
+      // EditCheckUpdateAtStartup
       // 
-      resources.ApplyResources(this.LabelCheckUpdateAtStartupInfo, "LabelCheckUpdateAtStartupInfo");
-      this.LabelCheckUpdateAtStartupInfo.ForeColor = System.Drawing.SystemColors.GrayText;
-      this.LabelCheckUpdateAtStartupInfo.Name = "LabelCheckUpdateAtStartupInfo";
+      resources.ApplyResources(this.EditCheckUpdateAtStartup, "EditCheckUpdateAtStartup");
+      this.EditCheckUpdateAtStartup.Name = "EditCheckUpdateAtStartup";
+      this.EditCheckUpdateAtStartup.UseVisualStyleBackColor = true;
       // 
       // EditCheckUpdateAtStartupInterval
       // 
@@ -237,27 +247,111 @@
             0,
             0});
       // 
+      // LabelCheckUpdateAtStartupInfo
+      // 
+      resources.ApplyResources(this.LabelCheckUpdateAtStartupInfo, "LabelCheckUpdateAtStartupInfo");
+      this.LabelCheckUpdateAtStartupInfo.ForeColor = System.Drawing.SystemColors.GrayText;
+      this.LabelCheckUpdateAtStartupInfo.Name = "LabelCheckUpdateAtStartupInfo";
+      // 
+      // LabelCheckUpdateFrequency
+      // 
+      resources.ApplyResources(LabelCheckUpdateFrequency, "LabelCheckUpdateFrequency");
+      LabelCheckUpdateFrequency.Name = "LabelCheckUpdateFrequency";
+      // 
+      // TabPageAnalyzer
+      // 
+      this.TabPageAnalyzer.BackColor = System.Drawing.SystemColors.Window;
+      this.TabPageAnalyzer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.TabPageAnalyzer.Controls.Add(this.label2);
+      this.TabPageAnalyzer.Controls.Add(this.label1);
+      this.TabPageAnalyzer.Controls.Add(this.EditAutoSortAnalysisMeanings);
+      this.TabPageAnalyzer.Controls.Add(this.LabelFontSize);
+      this.TabPageAnalyzer.Controls.Add(this.EditMaxLength);
+      this.TabPageAnalyzer.Controls.Add(this.EditFontSize);
+      this.TabPageAnalyzer.Controls.Add(this.LabelMaxLength);
+      resources.ApplyResources(this.TabPageAnalyzer, "TabPageAnalyzer");
+      this.TabPageAnalyzer.Name = "TabPageAnalyzer";
+      // 
+      // label2
+      // 
+      resources.ApplyResources(this.label2, "label2");
+      this.label2.ForeColor = System.Drawing.SystemColors.GrayText;
+      this.label2.Name = "label2";
+      // 
+      // label1
+      // 
+      resources.ApplyResources(this.label1, "label1");
+      this.label1.ForeColor = System.Drawing.SystemColors.GrayText;
+      this.label1.Name = "label1";
+      // 
+      // EditAutoSortAnalysisMeanings
+      // 
+      resources.ApplyResources(this.EditAutoSortAnalysisMeanings, "EditAutoSortAnalysisMeanings");
+      this.EditAutoSortAnalysisMeanings.Name = "EditAutoSortAnalysisMeanings";
+      this.EditAutoSortAnalysisMeanings.UseVisualStyleBackColor = true;
+      // 
+      // LabelFontSize
+      // 
+      resources.ApplyResources(this.LabelFontSize, "LabelFontSize");
+      this.LabelFontSize.Name = "LabelFontSize";
+      // 
+      // EditMaxLength
+      // 
+      this.EditMaxLength.BackColor = System.Drawing.SystemColors.Window;
+      resources.ApplyResources(this.EditMaxLength, "EditMaxLength");
+      this.EditMaxLength.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+      this.EditMaxLength.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+      this.EditMaxLength.Name = "EditMaxLength";
+      this.EditMaxLength.ReadOnly = true;
+      this.EditMaxLength.Value = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+      // 
+      // EditFontSize
+      // 
+      this.EditFontSize.BackColor = System.Drawing.SystemColors.Window;
+      resources.ApplyResources(this.EditFontSize, "EditFontSize");
+      this.EditFontSize.Maximum = new decimal(new int[] {
+            14,
+            0,
+            0,
+            0});
+      this.EditFontSize.Minimum = new decimal(new int[] {
+            7,
+            0,
+            0,
+            0});
+      this.EditFontSize.Name = "EditFontSize";
+      this.EditFontSize.ReadOnly = true;
+      this.EditFontSize.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+      this.EditFontSize.ValueChanged += new System.EventHandler(this.EditFontSize_ValueChanged);
+      // 
+      // LabelMaxLength
+      // 
+      resources.ApplyResources(this.LabelMaxLength, "LabelMaxLength");
+      this.LabelMaxLength.Name = "LabelMaxLength";
+      // 
       // PreferencesForm
       // 
       this.AcceptButton = this.ActionClose;
       resources.ApplyResources(this, "$this");
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.CancelButton = this.ActionClose;
-      this.Controls.Add(LabelCheckUpdateFrequency);
-      this.Controls.Add(this.LabelCheckUpdateAtStartupInfo);
-      this.Controls.Add(this.EditCheckUpdateAtStartupInterval);
-      this.Controls.Add(this.EditLogEnabled);
-      this.Controls.Add(this.EditWebLinksMenuEnabled);
-      this.Controls.Add(this.EditMaxLength);
-      this.Controls.Add(this.LabelMaxLength);
-      this.Controls.Add(this.EditEnableDebugger);
-      this.Controls.Add(this.EditAutoSortAnalysisMeanings);
-      this.Controls.Add(this.EditVacuumAtStartup);
-      this.Controls.Add(this.EditFontSize);
-      this.Controls.Add(this.LabelFontSize);
-      this.Controls.Add(this.ActionSelectLangFR);
-      this.Controls.Add(this.ActionSelectLangEN);
-      this.Controls.Add(this.EditCheckUpdateAtStartup);
+      this.Controls.Add(this.TabControl);
       this.Controls.Add(this.PanelBottom);
       this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
       this.MaximizeBox = false;
@@ -269,11 +363,18 @@
       this.Shown += new System.EventHandler(this.PreferencesForm_Shown);
       this.PanelBottom.ResumeLayout(false);
       this.PanelBottom.PerformLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.EditFontSize)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.EditMaxLength)).EndInit();
+      this.TabControl.ResumeLayout(false);
+      this.TabPageApplication.ResumeLayout(false);
+      this.TabPageApplication.PerformLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.EditVolume)).EndInit();
+      this.TabPageCheckUpdate.ResumeLayout(false);
+      this.TabPageCheckUpdate.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.EditCheckUpdateAtStartupInterval)).EndInit();
+      this.TabPageAnalyzer.ResumeLayout(false);
+      this.TabPageAnalyzer.PerformLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.EditMaxLength)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.EditFontSize)).EndInit();
       this.ResumeLayout(false);
-      this.PerformLayout();
 
     }
 
@@ -291,12 +392,21 @@
     private System.Windows.Forms.CheckBox EditVacuumAtStartup;
     private System.Windows.Forms.CheckBox EditAutoSortAnalysisMeanings;
     private System.Windows.Forms.LinkLabel ActionResetSettings;
-    private System.Windows.Forms.CheckBox EditEnableDebugger;
+    private System.Windows.Forms.CheckBox EditDebuggerEnabled;
     private System.Windows.Forms.NumericUpDown EditMaxLength;
     private System.Windows.Forms.Label LabelMaxLength;
     private System.Windows.Forms.CheckBox EditWebLinksMenuEnabled;
     private System.Windows.Forms.CheckBox EditLogEnabled;
     private System.Windows.Forms.Label LabelCheckUpdateAtStartupInfo;
     private System.Windows.Forms.NumericUpDown EditCheckUpdateAtStartupInterval;
+    private System.Windows.Forms.TrackBar EditVolume;
+    private System.Windows.Forms.Label LabelVolumeValue;
+    private System.Windows.Forms.TabControl TabControl;
+    private System.Windows.Forms.TabPage TabPageApplication;
+    private System.Windows.Forms.CheckBox EditUsageStatisticsEnabled;
+    private System.Windows.Forms.TabPage TabPageCheckUpdate;
+    private System.Windows.Forms.TabPage TabPageAnalyzer;
+    private System.Windows.Forms.Label label2;
+    private System.Windows.Forms.Label label1;
   }
 }

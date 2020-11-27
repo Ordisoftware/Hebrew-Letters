@@ -536,5 +536,17 @@ namespace Ordisoftware.Hebrew.Letters.Properties {
                 this["VacuumAtStartupDaysInterval"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int PreferencesFormSelectedTabIndex {
+            get {
+                return ((int)(this["PreferencesFormSelectedTabIndex"]));
+            }
+            set {
+                this["PreferencesFormSelectedTabIndex"] = value;
+            }
+        }
     }
 }

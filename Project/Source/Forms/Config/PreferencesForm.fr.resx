@@ -117,10 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="LabelCheckUpdateFrequency.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 13</value>
+  </data>
+  <data name="LabelCheckUpdateFrequency.Text" xml:space="preserve">
+    <value>Fréquence de vérification en nombre de jours</value>
+  </data>
+  <data name="LabelVolume.Size" type="System.Drawing.Size, System.Drawing">
+    <value>386, 13</value>
+  </data>
+  <data name="LabelVolume.Text" xml:space="preserve">
+    <value>Volume des sons .wav (non applicable aux sons système des boites de dialogue)</value>
+  </data>
   <data name="ActionClose.Text" xml:space="preserve">
     <value>Fermer</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="ActionResetSettings.Size" type="System.Drawing.Size, System.Drawing">
     <value>157, 13</value>
   </data>
@@ -172,7 +184,7 @@
   <data name="EditEnableDebugger.Size" type="System.Drawing.Size, System.Drawing">
     <value>124, 17</value>
   </data>
-  <data name="EditEnableDebugger.Text" xml:space="preserve">
+  <data name="EditDebuggerEnabled.Text" xml:space="preserve">
     <value>Activer le débogueur</value>
   </data>
   <data name="EditAutoSortAnalysisMeanings.Size" type="System.Drawing.Size, System.Drawing">
@@ -188,7 +200,7 @@
     <value>Optimiser données au démarrage chaque semaine</value>
   </data>
   <data name="EditCheckUpdateAtStartup.Size" type="System.Drawing.Size, System.Drawing">
-    <value>260, 17</value>
+    <value>179, 17</value>
   </data>
   <data name="EditCheckUpdateAtStartup.Text" xml:space="preserve">
     <value>Vérifier mise à jour au démarrage</value>
@@ -205,10 +217,25 @@
   <data name="EditLogEnabled.Text" xml:space="preserve">
     <value>Activer le fichier log</value>
   </data>
+  <data name="EditUsageStatisticsEnabled.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 17</value>
+  </data>
+  <data name="EditUsageStatisticsEnabled.Text" xml:space="preserve">
+    <value>Activer les statistiques d'usage</value>
+  </data>
+  <data name="TabPageCheckUpdate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>376, 249</value>
+  </data>
+  <data name="TabPageCheckUpdate.Text" xml:space="preserve">
+    <value>Mise à jour</value>
+  </data>
+  <data name="TabPageAnalyzer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>376, 249</value>
+  </data>
+  <data name="TabPageAnalyzer.Text" xml:space="preserve">
+    <value>Analyseur</value>
+  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Préférences</value>
-  </data>
-  <data name="LabelCheckUpdateFrequency.Text" xml:space="preserve">
-    <value>Fréquence de vérification en nombre de jours</value>
   </data>
 </root>

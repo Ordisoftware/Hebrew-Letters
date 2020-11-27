@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-09 </created>
-/// <edited> 2020-08 </edited>
+/// <edited> 2020-11 </edited>
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -55,7 +55,7 @@ namespace Ordisoftware.Hebrew.Letters
       BringToFront();
       UpdateLanguagesButtons();
       EditVacuumAtStartup.Checked = Program.Settings.VacuumAtStartup;
-      EditEnableDebugger.Checked = Program.Settings.DebuggerEnabled;
+      EditDebuggerEnabled.Checked = Program.Settings.DebuggerEnabled;
       EditLogEnabled.Checked = Program.Settings.TraceEnabled;
       EditCheckUpdateAtStartup.Checked = Program.Settings.CheckUpdateAtStartup;
       EditAutoSortAnalysisMeanings.Checked = Program.Settings.AutoSortAnalysisMeanings;
@@ -63,12 +63,13 @@ namespace Ordisoftware.Hebrew.Letters
       EditMaxLength.Value = Program.Settings.HebrewTextBoxMaxLength;
       EditWebLinksMenuEnabled.Checked = Program.Settings.WebLinksMenuEnabled;
       EditCheckUpdateAtStartupInterval.Value = Program.Settings.CheckUpdateAtStartupDaysInterval;
+      EditVolume.Value = Program.Settings.ApplicationVolume;
     }
 
     private void PreferencesForm_FormClosed(object sender, FormClosedEventArgs e)
     {
       Program.Settings.VacuumAtStartup = EditVacuumAtStartup.Checked;
-      Program.Settings.DebuggerEnabled = EditEnableDebugger.Checked;
+      Program.Settings.DebuggerEnabled = EditDebuggerEnabled.Checked;
       Program.Settings.TraceEnabled = EditLogEnabled.Checked;
       Program.Settings.CheckUpdateAtStartup = EditCheckUpdateAtStartup.Checked;
       Program.Settings.AutoSortAnalysisMeanings = EditAutoSortAnalysisMeanings.Checked;
@@ -76,20 +77,31 @@ namespace Ordisoftware.Hebrew.Letters
       Program.Settings.HebrewTextBoxMaxLength = EditMaxLength.Value;
       Program.Settings.WebLinksMenuEnabled = EditWebLinksMenuEnabled.Checked;
       Program.Settings.CheckUpdateAtStartupDaysInterval = (int)EditCheckUpdateAtStartupInterval.Value;
+      Program.Settings.ApplicationVolume = EditVolume.Value;
       Program.Settings.Save();
     }
 
-    private void EditEnableDebugger_CheckedChanged(object sender, EventArgs e)
+    private void EditDebuggerEnabled_CheckedChanged(object sender, EventArgs e)
     {
-      if ( !EditEnableDebugger.Checked ) DebugManager.ClearTraces(true);
-      DebugManager.Enabled = EditEnableDebugger.Checked;
-      MainForm.Instance.ActionViewLog.Enabled = DebugManager.Enabled;
+      if ( !EditDebuggerEnabled.Checked )
+        EditLogEnabled.Checked = false;
+      DebugManager.Enabled = EditDebuggerEnabled.Checked;
       EditLogEnabled.Enabled = DebugManager.Enabled;
     }
 
     private void EditLogEnabled_CheckedChanged(object sender, EventArgs e)
     {
       DebugManager.TraceEnabled = EditLogEnabled.Checked;
+      MainForm.Instance.ActionViewLog.Enabled = DebugManager.TraceEnabled;
+      StatisticsForm.Instance.ActionViewLog.Enabled = DebugManager.TraceEnabled;
+    }
+
+    private void EditUsageStatisticsEnabled_CheckedChanged(object sender, EventArgs e)
+    {
+      MainForm.Instance.ActionViewStats.Enabled = EditUsageStatisticsEnabled.Checked;
+      StatisticsForm.Instance.Timer.Enabled = EditUsageStatisticsEnabled.Checked;
+      if ( !EditUsageStatisticsEnabled.Checked )
+        StatisticsForm.Instance.Close();
     }
 
     private void UpdateLanguagesButtons()
@@ -149,6 +161,12 @@ namespace Ordisoftware.Hebrew.Letters
       Program.GrammarGuideForm.CenterToMainFormElseScreen();
       Program.MethodNoticeForm.CenterToMainFormElseScreen();
       Close();
+    }
+
+    private void EditVolume_ValueChanged(object sender, EventArgs e)
+    {
+      VolumeMixer.SetApplicationVolume(System.Diagnostics.Process.GetCurrentProcess().Id, EditVolume.Value);
+      LabelVolumeValue.Text = EditVolume.Value + "%";
     }
 
   }
