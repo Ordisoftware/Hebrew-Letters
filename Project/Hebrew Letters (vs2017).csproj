@@ -116,6 +116,7 @@
     <Compile Include="Source\Common\Core\Managers.Display\DisplayManager.Screensaver.cs" />
     <Compile Include="Source\Common\Core\Managers.Display\DisplayManager.Show.cs" />
     <Compile Include="Source\Common\Core\Managers.System\SystemManager.cs" />
+    <Compile Include="Source\Common\Core\Managers.System\SystemManager.Platform.cs" />
     <Compile Include="Source\Common\Core\Managers.System\SystemManager.Media.cs" />
     <Compile Include="Source\Common\Core\Managers.System\SystemManager.Shell.cs" />
     <Compile Include="Source\Common\Core\Managers.System\SystemManager.SSL.cs" />
