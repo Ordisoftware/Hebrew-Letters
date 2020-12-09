@@ -8,6 +8,21 @@
 
 A tool for Windows written in C# that allows the lettriq letter-by-letter study and analysis of hebrew words.
 
+## Table of content
+
+1. [Functionalities](#Functionalities)
+2. [Review](#Review)
+3. [Requirements](#Requirements)
+4. [Screenshots](#Screenshots)
+5. [Videos](#Videos)
+6. [Frequently asked questions](#Frequently-asked-questions)
+    - [How to install SQlite ODBC Driver?](#How-to-install-SQlite-ODBC-Driver)
+    - [What to do in case of ODBC datasource connection error?](#What-to-do-in-case-of-ODBC-datasource-connection-error)
+    - [What to do if the check update tells that the SSL certificate is wrong or expired?](#What-to-do-if-the-check-update-tells-that-the-SSL-certificate-is-wrong-or-expired)
+7. [Keyboard shortcuts](#Keyboard-shortcuts)
+8. [Future improvements](#Future-improvements)
+9. [Changelog](#Changelog)
+
 ## Functionalities
 
 - Hebrew letters database with their customizable meanings.
@@ -61,7 +76,7 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 The software verifies the validity of the certificate of the update server in addition to the SHA-512 checksum of the installation file before downloading and running it. This certificate is normally updated within the two months of its annual expiration and a new version is released. If the application has not been updated within this period, you can manually check the latest version available online.
 
-#### Keyboard shortcuts
+## Keyboard shortcuts
 
 - F1 : Analyse view
 - F2 : Settings view
@@ -77,7 +92,7 @@ The software verifies the validity of the certificate of the update server in ad
 - F12 : About
 - Escape : Close window
 
-## Roadmap
+## Future improvements
 
 - Rewrite advanced undo/redo.
 - Optimize ComboBoxes creation (the old system is really much slower on Windows 10 than 7).
