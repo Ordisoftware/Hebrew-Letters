@@ -81,7 +81,6 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Dependencies\Markdownsharp\Markdown.cs" />
     <Compile Include="Source\Common\Core\Classes\Chronometer.cs" />
     <Compile Include="Source\Common\Core\Classes\EnumHelper.cs" />
     <Compile Include="Source\Common\Core\Classes\ExportAction.cs" />
