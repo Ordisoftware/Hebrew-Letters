@@ -77,7 +77,7 @@ namespace Ordisoftware.Hebrew.Letters
           try
           {
             _StartupWord = "";
-            string word = SystemManager.CommandLineOptions["word"]?[0];
+            string word = SystemManager.CommandLineOptions.Word;
             if ( word.IsNullOrEmpty() )
               if ( SystemManager.CommandLineArguments != null && SystemManager.CommandLineArguments.Length == 1 )
                 word = SystemManager.CommandLineArguments[0];

@@ -41,6 +41,9 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CommandLine, Version=2.8.0.0, Culture=neutral, PublicKeyToken=5a870481e358d379, processorArchitecture=MSIL">
+      <HintPath>packages\CommandLineParser.2.8.0\lib\net461\CommandLine.dll</HintPath>
+    </Reference>
     <Reference Include="Markdig, Version=0.22.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\Markdig.0.22.1\lib\net452\Markdig.dll</HintPath>
     </Reference>
@@ -87,6 +90,7 @@
     <Compile Include="Source\Common\Core\Classes\ShellIcons.cs" />
     <Compile Include="Source\Common\Core\Classes\StringHelper.cs" />
     <Compile Include="Source\Common\Core\Classes\StringHelper.Format.cs" />
+    <Compile Include="Source\Common\Core\Classes\SystemCommandLineArgs.cs" />
     <Compile Include="Source\Common\Core\Classes\SystemStatistics.cs" />
     <Compile Include="Source\Common\Core\Classes\VolumeMixer.cs" />
     <Compile Include="Source\Common\Core\Classes\WebCheckUpdate.cs" />
