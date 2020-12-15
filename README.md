@@ -120,7 +120,9 @@ The software verifies the validity of the certificate of the update server in ad
 
 > Add "Start and reset preferences" link in Windows Start menu.
 
-> Add export/import meanings.
+> Add export/import data.
+
+> Add print data.
 
 - Add permanent database file locking while running.
 - Add usage statistics form in tools menu.
