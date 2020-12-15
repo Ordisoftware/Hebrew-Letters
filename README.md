@@ -99,7 +99,7 @@ The software verifies the validity of the certificate of the update server in ad
 
 ## Changelog
 
-#### 202_.__.__ - Version 5.0
+#### Version 5.0 (in progress)
 
 - Rework of the preferences form design to have a Tab Control with pages.
 - Change all TextBox for UndoRedoTextBox to have the new context menu.
@@ -107,7 +107,17 @@ The software verifies the validity of the certificate of the update server in ad
 - Add context menu on letters' buttons to allow inserting a letter or open its parameters.
 - Add create a screenshot of the form.
 - Add open new window menu button.
-- Add permanent database file locking while running one or more instances of the application.
+- Add concurrency control to avoid database editing when multiple instances are running.
+- Update web links.
+
+> Add keyboard shortcuts notice in windows settings menu.
+> Add option to enable/disable success dialogs.
+> Add sounds to clipboard actions.
+> Fix pasting unicode word removes special final letters.
+> Add "Start and reset preferences" link in Windows Start menu.
+> Add export/import meanings.
+
+- Add permanent database file locking while running.
 - Add usage statistics form in tools menu.
 - Add option to set automatic web check update frequency.
 - Add option to enable or disable the web links menu.
@@ -118,10 +128,8 @@ The software verifies the validity of the certificate of the update server in ad
 - Improve check update to verify the SSL certificate of the website and the checksum of the setup file.
 - Improve debugger to support logging.
 - Improve exception form to view log.
-- Improve multiple process management.
-- Some UI/UX improvements.
+- Improve UI/UX.
 - Massive code refactoring.
-- Update web links.
 - Update help.
 - Update to SQLite 3.32.3 ODBC Driver.
 - Update Framework .NET version to 4.7.2 and supported Windows only 7 SP1 or higher.
@@ -129,12 +137,11 @@ The software verifies the validity of the certificate of the update server in ad
 - Improve setup.
 - Rename 32x32 icon files.
 - Refactor project folders hierarchy.
-
->>>>- Add keyboard shortcuts notice in windows settings menu.
->>>>- Add option to enable/disable success dialogs.
->>>>- Add sounds to clipboard actions.
->>>>- Fix pasting unicode word removes special final letters.
->>>>- Add "Start and reset preferences" link in Windows Start menu.
+- Replace simple internal command line parser by CommandLineParser NuGet package.
+- Add Serilog NuGet package.
+- Add Serilog-sinks-file NuGet package.
+- Add Markdig NuGet package.
+- Add Newtonsoft.Json NuGet package.
 
 #### 2020.04.23 - Version 4.1
 
