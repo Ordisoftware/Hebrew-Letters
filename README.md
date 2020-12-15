@@ -111,10 +111,15 @@ The software verifies the validity of the certificate of the update server in ad
 - Update web links.
 
 > Add keyboard shortcuts notice in windows settings menu.
+
 > Add option to enable/disable success dialogs.
+
 > Add sounds to clipboard actions.
+
 > Fix pasting unicode word removes special final letters.
+
 > Add "Start and reset preferences" link in Windows Start menu.
+
 > Add export/import meanings.
 
 - Add permanent database file locking while running.
