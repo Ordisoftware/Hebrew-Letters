@@ -147,6 +147,7 @@ The software verifies the validity of the certificate of the update server in ad
 - Add Serilog-sinks-file NuGet package.
 - Add Markdig NuGet package.
 - Add Newtonsoft.Json NuGet package.
+- Add FileHelpers NuGet package.
 
 #### 2020.04.23 - Version 4.1
 
