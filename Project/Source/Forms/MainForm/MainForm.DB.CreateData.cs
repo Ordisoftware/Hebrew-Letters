@@ -68,8 +68,8 @@ namespace Ordisoftware.Hebrew.Letters
           {
             var rowLetter = DataSet.Letters.NewLettersRow();
             rowLetter.Code = HebrewAlphabet.Codes[index];
-            rowLetter.Name = HebrewAlphabet.Names.GetLang()[index];
-            rowLetter.Hebrew = HebrewAlphabet.HebrewFontNames[index];
+            rowLetter.Name = HebrewAlphabet.Translitterations.GetLang()[index];
+            rowLetter.Hebrew = HebrewAlphabet.Names[index];
             rowLetter.ValueSimple = getIntValue("ValueSimple: ");
             rowLetter.ValueFull = getIntValue("ValueFull: ");
             rowLetter.Positive = getStrValue("Positive: ");
