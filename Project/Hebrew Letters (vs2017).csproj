@@ -55,6 +55,12 @@
     <Reference Include="FileHelpers, Version=3.4.2.0, Culture=neutral, PublicKeyToken=3e0c08d59cc3d657, processorArchitecture=MSIL">
       <HintPath>packages\FileHelpers.3.4.2\lib\net45\FileHelpers.dll</HintPath>
     </Reference>
+    <Reference Include="GlobalHotKey, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\GlobalHotKey.1.1.0\lib\GlobalHotKey.dll</HintPath>
+    </Reference>
+    <Reference Include="InputSimulatorStandard, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\InputSimulatorStandard.1.0.0\lib\netstandard2.0\InputSimulatorStandard.dll</HintPath>
+    </Reference>
     <Reference Include="Markdig, Version=0.22.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\Markdig.0.22.1\lib\net452\Markdig.dll</HintPath>
     </Reference>
@@ -95,6 +101,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\DataSet.cs">
@@ -114,6 +121,7 @@
     <Compile Include="Source\Common\Core\Classes\ExportAction.cs" />
     <Compile Include="Source\Common\Core\Classes\ExportHelper.cs" />
     <Compile Include="Source\Common\Core\Classes\ExportTarget.cs" />
+    <Compile Include="Source\Common\Core\Classes\GlobalHotKeyItem.cs" />
     <Compile Include="Source\Common\Core\Classes\ShellIcons.cs" />
     <Compile Include="Source\Common\Core\Classes\StringHelper.cs" />
     <Compile Include="Source\Common\Core\Classes\StringHelper.Format.cs" />
