@@ -1,10 +1,9 @@
 # Hebrew Letters
 
->This project follows the [Manufacturing Software Guidelines](https://github.com/Ordisoftware/Guidelines).
-
->Licensed under the terms of the [Mozilla Public License 2.0](LICENSE)<br/>
->[Project Website](https://www.ordisoftware.com/projects/hebrew-letters)<br/>
->[Twitter](https://twitter.com/ordisoftware)<br/>
+> Licensed under the terms of the [Mozilla Public License 2.0](LICENSE)<br/>
+> This project follows the [Manufacturing Software Guidelines](https://github.com/Ordisoftware/Guidelines).<br/>
+> [Project Website](https://www.ordisoftware.com/projects/hebrew-letters)<br/>
+> [Twitter](https://twitter.com/ordisoftware)<br/>
 
 A tool for Windows written in C# that allows the lettriq letter-by-letter study and analysis of hebrew words.
 
@@ -108,21 +107,6 @@ The software verifies the validity of the certificate of the update server in ad
 - Add create a screenshot of the form.
 - Add open new window menu button.
 - Add concurrency control to avoid database editing when multiple instances are running.
-- Update web links.
-
-> Add keyboard shortcuts notice in windows settings menu.
-
-> Add option to enable/disable success dialogs.
-
-> Add sounds to clipboard actions.
-
-> Fix pasting unicode word removes special final letters.
-
-> Add "Start and reset preferences" link in Windows Start menu.
-
-> Add export/import data.
-
-> Add print data.
 
 - Add permanent database file locking while running.
 - Add usage statistics form in tools menu.
@@ -137,6 +121,7 @@ The software verifies the validity of the certificate of the update server in ad
 - Improve exception form to view log.
 - Improve UI/UX.
 - Massive code refactoring.
+- Update web links.
 - Update help.
 - Update to SQLite 3.32.3 ODBC Driver.
 - Update Framework .NET version to 4.7.2 and supported Windows only 7 SP1 or higher.
@@ -151,6 +136,14 @@ The software verifies the validity of the certificate of the update server in ad
 - Add Newtonsoft.Json NuGet package.
 - Add FileHelpers NuGet package.
 - Add Enums.NET NuGet package.
+
+>- Add keyboard shortcuts notice in windows settings menu.
+>- Add option to enable/disable success dialogs.
+>- Add sounds to clipboard actions.
+>- Fix pasting unicode word removes special final letters.
+>- Add "Start and reset preferences" link in Windows Start menu.
+>- Add export/import data.
+>- Add print data.
 
 #### 2020.04.23 - Version 4.1
 
