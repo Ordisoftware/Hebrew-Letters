@@ -130,12 +130,15 @@ The software verifies the validity of the certificate of the update server in ad
 - Rename 32x32 icon files.
 - Refactor project folders hierarchy.
 - Replace simple internal command line parser by CommandLineParser NuGet package.
+- Add Markdig NuGet package.
+- Add FileHelpers NuGet package.
+- Add Newtonsoft.Json NuGet package.
+- Add MoreLINQ NuGet package.
+- Add Enums.NET NuGet package.
+- Add GlobalHotKey NuGet package.
+- Add InputSimulatorStandard NuGet package.
 - Add Serilog NuGet package.
 - Add Serilog-sinks-file NuGet package.
-- Add Markdig NuGet package.
-- Add Newtonsoft.Json NuGet package.
-- Add FileHelpers NuGet package.
-- Add Enums.NET NuGet package.
 
 >- Add keyboard shortcuts notice in windows settings menu.
 >- Add option to enable/disable success dialogs.
