@@ -55,9 +55,6 @@
     <Reference Include="FileHelpers, Version=3.4.2.0, Culture=neutral, PublicKeyToken=3e0c08d59cc3d657, processorArchitecture=MSIL">
       <HintPath>packages\FileHelpers.3.4.2\lib\net45\FileHelpers.dll</HintPath>
     </Reference>
-    <Reference Include="GlobalHotKey, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\GlobalHotKey.1.1.0\lib\GlobalHotKey.dll</HintPath>
-    </Reference>
     <Reference Include="InputSimulatorStandard, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\InputSimulatorStandard.1.0.0\lib\netstandard2.0\InputSimulatorStandard.dll</HintPath>
     </Reference>
@@ -65,6 +62,7 @@
       <HintPath>packages\Markdig.0.22.1\lib\net452\Markdig.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -115,6 +113,14 @@
     <Compile Include="Dependencies\CultureManager\CultureManager.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Dependencies\Global Shortcut Manager\Enums and Structs.cs" />
+    <Compile Include="Dependencies\Global Shortcut Manager\Event Args.cs" />
+    <Compile Include="Dependencies\Global Shortcut Manager\Event Handlers.cs" />
+    <Compile Include="Dependencies\Global Shortcut Manager\Exceptions.cs" />
+    <Compile Include="Dependencies\Global Shortcut Manager\Global Shortcut Manager.cs" />
+    <Compile Include="Dependencies\Global Shortcut Manager\Helpers.cs" />
+    <Compile Include="Dependencies\Global Shortcut Manager\HotKeys.cs" />
+    <Compile Include="Dependencies\Global Shortcut Manager\Win32.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source\Common\Core\Classes\Chronometer.cs" />
     <Compile Include="Source\Common\Core\Classes\EnumHelper.cs" />
