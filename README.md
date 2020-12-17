@@ -135,10 +135,10 @@ The software verifies the validity of the certificate of the update server in ad
 - Add Newtonsoft.Json NuGet package.
 - Add MoreLINQ NuGet package.
 - Add Enums.NET NuGet package.
-- Add GlobalHotKey NuGet package.
-- Add InputSimulatorStandard NuGet package.
 - Add Serilog NuGet package.
 - Add Serilog-sinks-file NuGet package.
+- Add InputSimulatorStandard NuGet package.
+- Add Global Shortcut Manager dependency.
 
 >- Add keyboard shortcuts notice in windows settings menu.
 >- Add option to enable/disable success dialogs.
