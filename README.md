@@ -2,7 +2,7 @@
 
 > Licensed under the terms of the [Mozilla Public License 2.0](LICENSE)<br/>
 > This project follows the [Manufacturing Software Guidelines](https://github.com/Ordisoftware/Guidelines).<br/>
-> [Project Website](https://www.ordisoftware.com/projects/hebrew-letters)<br/>
+> [Website](https://www.ordisoftware.com/projects/hebrew-letters)<br/>
 > [Twitter](https://twitter.com/ordisoftware)<br/>
 
 A tool for Windows written in C# that allows the lettriq letter-by-letter study and analysis of hebrew words.
@@ -12,18 +12,22 @@ A tool for Windows written in C# that allows the lettriq letter-by-letter study 
 1. [Functionalities](#Functionalities)
 2. [Review](#Review)
 3. [Requirements](#Requirements)
-4. [Screenshots](#Screenshots)
-5. [Videos](#Videos)
-6. [Frequently asked questions](#Frequently-asked-questions)
-7. [Keyboard shortcuts](#Keyboard-shortcuts)
-8. [Future improvements](#Future-improvements)
-9. [Changelog](#Changelog)
+4. [Download](#Download)
+5. [Screenshots](#Screenshots)
+6. [Videos](#Videos)
+7. [Frequently asked questions](#Frequently-asked-questions)
+8. [Keyboard shortcuts](#Keyboard-shortcuts)
+9. [Future improvements](#Future-improvements)
+10. [Changelog](#Changelog)
 
 ## Functionalities
 
 - Hebrew letters database with their customizable meanings.
 - Analyse a word letter by letter to get a sentence describing its meaning.
-- Copy the result to clipboard.
+- Copy the analysis of a word and the editable sentence to the clipboard.
+- Save the window to an image.
+- Export and import or merge database.
+- Supported file formats: TXT, CSV, JSON, PNG, JPG, TIFF, BMP.
 - English, French.
 
 ## Review
@@ -40,6 +44,10 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 - Screen 1024x768 or higher
 - Framework .NET 4.7.2
 - SQLite ODBC Driver
+
+## Download
+
+[Last release](https://github.com/Ordisoftware/Hebrew-Letters/releases/latest)
 
 ## Screenshots
 
