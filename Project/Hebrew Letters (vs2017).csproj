@@ -126,11 +126,11 @@
     <Compile Include="Source\Common\Core\Classes\ExportAction.cs" />
     <Compile Include="Source\Common\Core\Classes\ExportHelper.cs" />
     <Compile Include="Source\Common\Core\Classes\ExportTarget.cs" />
+    <Compile Include="Source\Common\Core\Classes\SystemCommandLine.cs" />
     <Compile Include="Source\Common\Core\Classes\SystemHotKey.cs" />
     <Compile Include="Source\Common\Core\Classes\ShellIcons.cs" />
     <Compile Include="Source\Common\Core\Classes\StringHelper.cs" />
     <Compile Include="Source\Common\Core\Classes\StringHelper.Format.cs" />
-    <Compile Include="Source\Common\Core\Classes\CommandLineOptions.cs" />
     <Compile Include="Source\Common\Core\Classes\SystemStatistics.cs" />
     <Compile Include="Source\Common\Core\Classes\VolumeMixer.cs" />
     <Compile Include="Source\Common\Core\Classes\WebCheckUpdate.cs" />
