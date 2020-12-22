@@ -71,6 +71,7 @@ namespace Ordisoftware.Hebrew.Letters
     /// </summary>
     static public string StartupWord
     {
+      // TODO move to cmdlineparser property
       get
       {
         if ( _StartupWord.IsNullOrEmpty() )

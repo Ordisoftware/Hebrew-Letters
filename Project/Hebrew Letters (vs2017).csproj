@@ -291,6 +291,7 @@
     </Compile>
     <Compile Include="Source\Program\ApplicationStatistics.cs" />
     <Compile Include="Source\Program\AppTranslations.cs" />
+    <Compile Include="Source\Program\ApplicationCommandLine.cs" />
     <Compile Include="Source\Program\SettingsHelper.cs" />
     <Compile Include="Source\Forms\MainForm\MainForm.DB.CreateSchema.cs">
       <SubType>Form</SubType>
