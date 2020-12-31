@@ -63,7 +63,9 @@
       System.Windows.Forms.Label cPUProcessLoadLabel;
       System.Windows.Forms.Label dBLettersRecordsCountLabel;
       System.Windows.Forms.Label cPUProcessLoadAvgLabel;
+      System.Windows.Forms.Label LabelCompiled;
       this.PanelBottom = new System.Windows.Forms.Panel();
+      this.ActionViewLog = new System.Windows.Forms.Button();
       this.ActionScreenshot = new System.Windows.Forms.Button();
       this.EditAlwaysOnTop = new System.Windows.Forms.CheckBox();
       this.ActionClose = new System.Windows.Forms.Button();
@@ -116,7 +118,7 @@
       this.EditFolderApplication = new Ordisoftware.Core.UndoRedoTextBox();
       this.PanelBottomOuter = new System.Windows.Forms.Panel();
       this.PanelFolders = new System.Windows.Forms.Panel();
-      this.ActionViewLog = new System.Windows.Forms.Button();
+      this.LabelCompiled1 = new System.Windows.Forms.Label();
       dBFileSizeLabel = new System.Windows.Forms.Label();
       dBMeaningsRecordsCountLabel = new System.Windows.Forms.Label();
       loadDataTimeLabel = new System.Windows.Forms.Label();
@@ -150,6 +152,7 @@
       cPUProcessLoadLabel = new System.Windows.Forms.Label();
       dBLettersRecordsCountLabel = new System.Windows.Forms.Label();
       cPUProcessLoadAvgLabel = new System.Windows.Forms.Label();
+      LabelCompiled = new System.Windows.Forms.Label();
       this.PanelBottom.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.ApplicationStatisticsDataBindingSource)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.SystemStatisticsDataBindingSource)).BeginInit();
@@ -338,6 +341,14 @@
       this.PanelBottom.Controls.Add(this.ActionClose);
       resources.ApplyResources(this.PanelBottom, "PanelBottom");
       this.PanelBottom.Name = "PanelBottom";
+      // 
+      // ActionViewLog
+      // 
+      resources.ApplyResources(this.ActionViewLog, "ActionViewLog");
+      this.ActionViewLog.FlatAppearance.BorderSize = 0;
+      this.ActionViewLog.Name = "ActionViewLog";
+      this.ActionViewLog.UseVisualStyleBackColor = true;
+      this.ActionViewLog.Click += new System.EventHandler(this.ActionViewLog_Click);
       // 
       // ActionScreenshot
       // 
@@ -609,6 +620,8 @@
       // 
       this.GroupBoxRunning.Controls.Add(processorTimeLabel);
       this.GroupBoxRunning.Controls.Add(this.processorTime1);
+      this.GroupBoxRunning.Controls.Add(LabelCompiled);
+      this.GroupBoxRunning.Controls.Add(this.LabelCompiled1);
       this.GroupBoxRunning.Controls.Add(LabelApplication);
       this.GroupBoxRunning.Controls.Add(this.LabelApplication1);
       this.GroupBoxRunning.Controls.Add(runningTimeLabel);
@@ -749,13 +762,15 @@
       resources.ApplyResources(this.PanelFolders, "PanelFolders");
       this.PanelFolders.Name = "PanelFolders";
       // 
-      // ActionViewLog
+      // LabelCompiled1
       // 
-      resources.ApplyResources(this.ActionViewLog, "ActionViewLog");
-      this.ActionViewLog.FlatAppearance.BorderSize = 0;
-      this.ActionViewLog.Name = "ActionViewLog";
-      this.ActionViewLog.UseVisualStyleBackColor = true;
-      this.ActionViewLog.Click += new System.EventHandler(this.ActionViewLog_Click);
+      resources.ApplyResources(this.LabelCompiled1, "LabelCompiled1");
+      this.LabelCompiled1.Name = "LabelCompiled1";
+      // 
+      // LabelCompiled
+      // 
+      resources.ApplyResources(LabelCompiled, "LabelCompiled");
+      LabelCompiled.Name = "LabelCompiled";
       // 
       // StatisticsForm
       // 
@@ -853,5 +868,6 @@
     private System.Windows.Forms.Label dBLettersRecordsCountLabel1;
     private System.Windows.Forms.Label cPUProcessLoadAvgLabel1;
     internal System.Windows.Forms.Button ActionViewLog;
+    private System.Windows.Forms.Label LabelCompiled1;
   }
 }

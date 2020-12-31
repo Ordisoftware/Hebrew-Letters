@@ -313,7 +313,7 @@
     <value>NoControl</value>
   </data>
   <data name="runningTimeLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 50</value>
+    <value>15, 62</value>
   </data>
   <data name="runningTimeLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>50, 13</value>
@@ -334,7 +334,7 @@
     <value>GroupBoxRunning</value>
   </data>
   <data name="&gt;&gt;runningTimeLabel.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <metadata name="startingTimeLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
@@ -991,7 +991,7 @@
     <value>NoControl</value>
   </data>
   <data name="processorTimeLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 70</value>
+    <value>15, 78</value>
   </data>
   <data name="processorTimeLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>79, 13</value>
@@ -1048,7 +1048,7 @@
     <value>GroupBoxRunning</value>
   </data>
   <data name="&gt;&gt;LabelApplication.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <metadata name="label1.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
@@ -1613,7 +1613,7 @@
     <value>NoControl</value>
   </data>
   <data name="runningTimeLabel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>138, 45</value>
+    <value>138, 62</value>
   </data>
   <data name="runningTimeLabel1.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 13</value>
@@ -1637,7 +1637,7 @@
     <value>GroupBoxRunning</value>
   </data>
   <data name="&gt;&gt;runningTimeLabel1.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
   <data name="startingTimeLabel1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -2393,7 +2393,7 @@
     <value>NoControl</value>
   </data>
   <data name="processorTime1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>138, 65</value>
+    <value>138, 78</value>
   </data>
   <data name="processorTime1.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 13</value>
@@ -2418,6 +2418,72 @@
   </data>
   <data name="&gt;&gt;processorTime1.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <metadata name="LabelCompiled.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="LabelCompiled.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LabelCompiled.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="LabelCompiled.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="LabelCompiled.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 41</value>
+  </data>
+  <data name="LabelCompiled.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 13</value>
+  </data>
+  <data name="LabelCompiled.TabIndex" type="System.Int32, mscorlib">
+    <value>60</value>
+  </data>
+  <data name="LabelCompiled.Text" xml:space="preserve">
+    <value>Compiled:</value>
+  </data>
+  <data name="&gt;&gt;LabelCompiled.Name" xml:space="preserve">
+    <value>LabelCompiled</value>
+  </data>
+  <data name="&gt;&gt;LabelCompiled.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LabelCompiled.Parent" xml:space="preserve">
+    <value>GroupBoxRunning</value>
+  </data>
+  <data name="&gt;&gt;LabelCompiled.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="LabelCompiled1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="LabelCompiled1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>88, 41</value>
+  </data>
+  <data name="LabelCompiled1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 13</value>
+  </data>
+  <data name="LabelCompiled1.TabIndex" type="System.Int32, mscorlib">
+    <value>61</value>
+  </data>
+  <data name="LabelCompiled1.Text" xml:space="preserve">
+    <value>-</value>
+  </data>
+  <data name="LabelCompiled1.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopRight</value>
+  </data>
+  <data name="&gt;&gt;LabelCompiled1.Name" xml:space="preserve">
+    <value>LabelCompiled1</value>
+  </data>
+  <data name="&gt;&gt;LabelCompiled1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LabelCompiled1.Parent" xml:space="preserve">
+    <value>GroupBoxRunning</value>
+  </data>
+  <data name="&gt;&gt;LabelCompiled1.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="LabelApplication1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -2447,13 +2513,13 @@
     <value>GroupBoxRunning</value>
   </data>
   <data name="&gt;&gt;LabelApplication1.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="GroupBoxRunning.Location" type="System.Drawing.Point, System.Drawing">
     <value>15, 13</value>
   </data>
   <data name="GroupBoxRunning.Size" type="System.Drawing.Size, System.Drawing">
-    <value>250, 95</value>
+    <value>250, 102</value>
   </data>
   <data name="GroupBoxRunning.TabIndex" type="System.Int32, mscorlib">
     <value>119</value>
@@ -2564,10 +2630,10 @@
     <value>5</value>
   </data>
   <data name="GroupBoxSystemLoad.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 114</value>
+    <value>15, 121</value>
   </data>
   <data name="GroupBoxSystemLoad.Size" type="System.Drawing.Size, System.Drawing">
-    <value>250, 117</value>
+    <value>250, 110</value>
   </data>
   <data name="GroupBoxSystemLoad.TabIndex" type="System.Int32, mscorlib">
     <value>119</value>
