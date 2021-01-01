@@ -74,11 +74,11 @@ The software tries to register an ODBC DSN to the registry but in case of proble
 
 &emsp;`C:\Program Files\Ordisoftware\Hebrew Letters\System\RegisterODBC.reg`
 
-Or open the *ODBC Datasource Manager* (Admin tools in Windows' Control panel) and create a user datasource named:
+Or open the ODBC Datasource Manager (Admin tools in Windows' Control panel) and create a user datasource named:
 
 &emsp;`Hebrew-Letters` for `SQLite 3 ODBC Driver`
 
-With `Database Name` sets to:
+With Database Name sets to:
 
 &emsp;`%USERPROFILE%\AppData\Roaming\Ordisoftware\Hebrew Letters\Hebrew-Letters.sqlite`
 
