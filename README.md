@@ -22,12 +22,10 @@ A tool for Windows written in C# that allows the lettriq letter-by-letter study 
 
 ## Functionalities
 
-- Hebrew letters database with their customizable meanings.
-- Analyse a word letter by letter to get a sentence describing its meaning.
-- Copy the analysis of a word and the editable sentence to the clipboard.
-- Save the window to an image.
-- Export and import or merge database.
-- Supported file formats: TXT, CSV, JSON, PNG, JPG, TIFF, BMP.
+- Database of Hebrew letters with their customizable meanings.
+- Analyse a word letter by letter to get a sentence describing its sense.
+- Copy to the clipboard the analysis and the sentence or a screenshot.
+- Export TXT, CSV, JSON, PNG, JPG, TIFF, BMP.
 - English, French.
 
 ## Review
@@ -108,6 +106,7 @@ The software verifies the validity of the certificate of the update server in ad
 
 - Rewrite advanced undo/redo.
 - Optimize ComboBoxes creation (the old system is really much slower on Windows 10 than 7).
+- Import or merge database.
 
 ## Changelog
 
