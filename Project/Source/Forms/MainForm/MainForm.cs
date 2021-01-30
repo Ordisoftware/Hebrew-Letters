@@ -118,7 +118,7 @@ namespace Ordisoftware.Hebrew.Letters
       if ( Globals.IsExiting ) return;
       Settings.Retrieve();
       SystemManager.TryCatch(() => new System.Media.SoundPlayer(Globals.EmptySoundFilePath).Play());
-      SystemManager.TryCatch(() => VolumeMixer.SetApplicationVolume(Process.GetCurrentProcess().Id,
+      SystemManager.TryCatch(() => MediaMixer.SetApplicationVolume(Process.GetCurrentProcess().Id,
                                                                     Settings.ApplicationVolume));
       StatisticsForm.Run(true, Settings.UsageStatisticsEnabled);
       ActionPreferences.Enabled = SystemManager.ApplicationInstancesCount == 1;

@@ -51,8 +51,8 @@
     <Reference Include="CommandLine, Version=2.8.0.0, Culture=neutral, PublicKeyToken=5a870481e358d379, processorArchitecture=MSIL">
       <HintPath>packages\CommandLineParser.2.8.0\lib\net461\CommandLine.dll</HintPath>
     </Reference>
-    <Reference Include="Enums.NET, Version=3.0.0.0, Culture=neutral, PublicKeyToken=7ea1c1650d506225, processorArchitecture=MSIL">
-      <HintPath>packages\Enums.NET.3.0.3\lib\net45\Enums.NET.dll</HintPath>
+    <Reference Include="Enums.NET, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7ea1c1650d506225, processorArchitecture=MSIL">
+      <HintPath>packages\Enums.NET.4.0.0\lib\net45\Enums.NET.dll</HintPath>
     </Reference>
     <Reference Include="FileHelpers, Version=3.4.2.0, Culture=neutral, PublicKeyToken=3e0c08d59cc3d657, processorArchitecture=MSIL">
       <HintPath>packages\FileHelpers.3.4.2\lib\net45\FileHelpers.dll</HintPath>
@@ -131,11 +131,14 @@
     <Compile Include="Source\Common\Core\Classes\ExportAction.cs" />
     <Compile Include="Source\Common\Core\Classes\ExportHelper.cs" />
     <Compile Include="Source\Common\Core\Classes\ExportTarget.cs" />
-    <Compile Include="Source\Common\Core\Classes\SystemCommandLine.cs" />
-    <Compile Include="Source\Common\Core\Classes\SystemHotKey.cs" />
+    <Compile Include="Source\Common\Core\Classes\NativeMethods.cs" />
     <Compile Include="Source\Common\Core\Classes\ShellIcons.cs" />
+    <Compile Include="Source\Common\Core\Classes\SoundItem.cs" />
+    <Compile Include="Source\Common\Core\Classes\SoundSource.cs" />
     <Compile Include="Source\Common\Core\Classes\StringHelper.cs" />
     <Compile Include="Source\Common\Core\Classes\StringHelper.Format.cs" />
+    <Compile Include="Source\Common\Core\Classes\SystemCommandLine.cs" />
+    <Compile Include="Source\Common\Core\Classes\SystemHotKey.cs" />
     <Compile Include="Source\Common\Core\Classes\SystemStatistics.cs" />
     <Compile Include="Source\Common\Core\Classes\VolumeMixer.cs" />
     <Compile Include="Source\Common\Core\Classes\WebCheckUpdate.cs" />
@@ -178,11 +181,9 @@
     <Compile Include="Source\Common\Core\Managers.Debug\DebugManager.Trace.cs" />
     <Compile Include="Source\Common\Core\Managers.Display\DisplayManager.cs" />
     <Compile Include="Source\Common\Core\Managers.Display\DisplayManager.Query.cs" />
-    <Compile Include="Source\Common\Core\Managers.Display\DisplayManager.Screensaver.cs" />
     <Compile Include="Source\Common\Core\Managers.Display\DisplayManager.Show.cs" />
     <Compile Include="Source\Common\Core\Managers.System\SystemManager.cs" />
     <Compile Include="Source\Common\Core\Managers.System\SystemManager.Platform.cs" />
-    <Compile Include="Source\Common\Core\Managers.System\SystemManager.Media.cs" />
     <Compile Include="Source\Common\Core\Managers.System\SystemManager.Shell.cs" />
     <Compile Include="Source\Common\Core\Managers.System\SystemManager.SSL.cs" />
     <Compile Include="Source\Common\Core\WinForms.Controls\ControlLocation.cs" />
@@ -258,6 +259,8 @@
       <DependentUpon>CommonMenusControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Common\Hebrew\HebrewAlphabet.cs" />
+    <Compile Include="Source\Common\Hebrew\HebrewTools.cs" />
+    <Compile Include="Source\Common\Hebrew\HebrewTranslations.cs" />
     <Compile Include="Source\Common\Hebrew\LettersControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -267,12 +270,16 @@
     <Compile Include="Source\Common\Hebrew\LettersControl.Redraw.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Source\Common\Hebrew\HebrewTranslations.cs" />
     <Compile Include="Source\Common\Hebrew\OnlineProviderItem.cs" />
     <Compile Include="Source\Common\Hebrew\OnlineProviders.cs" />
     <Compile Include="Source\Common\Hebrew\OnlineProvidersHelper.cs" />
     <Compile Include="Source\Common\Hebrew\ProvidersCollection.cs" />
-    <Compile Include="Source\Common\Hebrew\HebrewTools.cs" />
+    <Compile Include="Source\Common\Hebrew\SelectValueComboBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Source\Common\Hebrew\SelectValueComboBox.Designer.cs">
+      <DependentUpon>SelectValueComboBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Source\Forms\Boxes\SearchTermResultsBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -413,6 +420,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Common\Hebrew\LettersControl.resx">
       <DependentUpon>LettersControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Common\Hebrew\SelectValueComboBox.resx">
+      <DependentUpon>SelectValueComboBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\Boxes\SearchTermResultsBox.fr.resx">
       <DependentUpon>SearchTermResultsBox.cs</DependentUpon>
