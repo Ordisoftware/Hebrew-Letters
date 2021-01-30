@@ -29,7 +29,7 @@ namespace Ordisoftware.Core
 
     // Windows
 
-    public const int MAX_PATH = 260; 
+    public const int MAX_PATH = 260;
 
     public const uint SW_RESTORE = 0x09;
 
