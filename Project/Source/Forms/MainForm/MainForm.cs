@@ -100,7 +100,7 @@ namespace Ordisoftware.Hebrew.Letters
     /// </summary>
     private void CreateProvidersLinks()
     {
-      ContextMenuSearchOnline.InitializeFromProviders(ProvidersCollection.OnlineWordProviders, (sender, e) =>
+      ContextMenuSearchOnline.InitializeFromProviders(OnlineProviders.OnlineWordProviders, (sender, e) =>
       {
         var menuitem = (ToolStripMenuItem)sender;
         string str = HebrewAlphabet.ConvertToUnicode(EditLetters.InputText);
