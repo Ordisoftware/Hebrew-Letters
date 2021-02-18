@@ -252,6 +252,15 @@
     <Compile Include="Source\Common\Core\WinForms\WebUpdateForm.Designer.cs">
       <DependentUpon>WebUpdateForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Source\Common\Hebrew\Classes\BooksNames.BibleHub.cs" />
+    <Compile Include="Source\Common\Hebrew\Classes\BooksNames.Chabad.cs" />
+    <Compile Include="Source\Common\Hebrew\Classes\BooksNames.Common.cs" />
+    <Compile Include="Source\Common\Hebrew\Classes\BooksNames.Djep.cs" />
+    <Compile Include="Source\Common\Hebrew\Classes\BooksNames.Hebrew.cs" />
+    <Compile Include="Source\Common\Hebrew\Classes\BooksNames.LEvangile.cs" />
+    <Compile Include="Source\Common\Hebrew\Classes\BooksNames.MechonMamre.cs" />
+    <Compile Include="Source\Common\Hebrew\Classes\BooksNames.Original.cs" />
+    <Compile Include="Source\Common\Hebrew\Classes\BooksNames.StudyBible.cs" />
     <Compile Include="Source\Common\Hebrew\Classes\HebrewTools.cs" />
     <Compile Include="Source\Common\Hebrew\Classes\HebrewTranslations.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\Books.cs" />
