@@ -92,6 +92,7 @@ namespace Ordisoftware.Hebrew.Letters
         }
         finally
         {
+          command.Dispose();
           Globals.IsReady = temp;
         }
       }

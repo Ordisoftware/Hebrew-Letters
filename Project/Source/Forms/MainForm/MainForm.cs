@@ -549,7 +549,7 @@ namespace Ordisoftware.Hebrew.Letters
     private void ActionRestoreDefaults_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
       if ( !SQLiteOdbcHelper.CheckProcessConcurency() ) return;
-      if ( DisplayManager.QueryYesNo(SysTranslations.AskToResetDatabase.GetLang()) )
+      if ( DisplayManager.QueryYesNo(SysTranslations.AskToResetData.GetLang()) )
       {
         string word = EditLetters.InputText;
         CreateDataIfNotExists(true);
