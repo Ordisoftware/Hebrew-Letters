@@ -31,18 +31,6 @@ namespace Ordisoftware.Hebrew.Letters
         [Language.FR] = "Étude et analyse lettrique lettre-par-lettre des mots hébreux"
       };
 
-    static public readonly TranslationsDictionary AskToRestoreLettersDefaults
-      = new TranslationsDictionary
-      {
-        [Language.EN] = "Letters will be restored to their default values." + Globals.NL2 +
-                        "All additions will be lost." + Globals.NL2 +
-                        SysTranslations.AskToContinue[Language.EN],
-
-        [Language.FR] = "Les lettres vont être restaurées à leurs valeurs par défaut." + Globals.NL2 +
-                        "Tous les ajouts seront perdus." + Globals.NL2 +
-                        SysTranslations.AskToContinue[Language.FR]
-      };
-
     static public readonly TranslationsDictionary CopyToClipboardInfosDone
       = new TranslationsDictionary
       {

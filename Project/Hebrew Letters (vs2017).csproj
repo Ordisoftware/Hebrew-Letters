@@ -267,8 +267,6 @@
     <Compile Include="Source\Common\Hebrew\Entities\BooksNames.StudyBible.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\HebrewAlphabet.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\HebrewMonths.cs" />
-    <Compile Include="Source\Common\Hebrew\Entities\Parashah.All.cs" />
-    <Compile Include="Source\Common\Hebrew\Entities\Parashah.cs" />
     <Compile Include="Source\Common\Hebrew\Providers\OnlineProviderItem.cs" />
     <Compile Include="Source\Common\Hebrew\Providers\OnlineProviders.cs" />
     <Compile Include="Source\Common\Hebrew\Providers\OnlineProviders.Static.cs" />
