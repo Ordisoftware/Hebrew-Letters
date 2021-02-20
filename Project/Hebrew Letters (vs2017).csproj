@@ -255,9 +255,8 @@
     <Compile Include="Source\Common\Hebrew\Classes\HebrewGlobals.cs" />
     <Compile Include="Source\Common\Hebrew\Classes\HebrewTools.cs" />
     <Compile Include="Source\Common\Hebrew\Classes\HebrewTranslations.cs" />
-    <Compile Include="Source\Common\Hebrew\Database\CommonDatabase.cs" />
-    <Compile Include="Source\Common\Hebrew\Database\CommonDatabase.Parashot.cs" />
-    <Compile Include="Source\Common\Hebrew\Database\CommonDatabase.System.cs" />
+    <Compile Include="Source\Common\Hebrew\Database\ParashotTable.cs" />
+    <Compile Include="Source\Common\Hebrew\Database\ProcessLocksTable.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\Books.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\BooksBounds.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\BooksNames.BibleHub.cs" />
