@@ -252,8 +252,12 @@
     <Compile Include="Source\Common\Core\WinForms\WebUpdateForm.Designer.cs">
       <DependentUpon>WebUpdateForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Source\Common\Hebrew\Classes\HebrewGlobals.cs" />
     <Compile Include="Source\Common\Hebrew\Classes\HebrewTools.cs" />
     <Compile Include="Source\Common\Hebrew\Classes\HebrewTranslations.cs" />
+    <Compile Include="Source\Common\Hebrew\Database\CommonDatabase.cs" />
+    <Compile Include="Source\Common\Hebrew\Database\CommonDatabase.Parashot.cs" />
+    <Compile Include="Source\Common\Hebrew\Database\CommonDatabase.System.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\Books.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\BooksBounds.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\BooksNames.BibleHub.cs" />
@@ -267,6 +271,8 @@
     <Compile Include="Source\Common\Hebrew\Entities\BooksNames.StudyBible.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\HebrewAlphabet.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\HebrewMonths.cs" />
+    <Compile Include="Source\Common\Hebrew\Entities\Parashah.All.cs" />
+    <Compile Include="Source\Common\Hebrew\Entities\Parashah.cs" />
     <Compile Include="Source\Common\Hebrew\Providers\OnlineProviderItem.cs" />
     <Compile Include="Source\Common\Hebrew\Providers\OnlineProviders.cs" />
     <Compile Include="Source\Common\Hebrew\Providers\OnlineProviders.Static.cs" />
