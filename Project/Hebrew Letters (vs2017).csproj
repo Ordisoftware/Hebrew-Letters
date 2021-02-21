@@ -255,7 +255,9 @@
     <Compile Include="Source\Common\Hebrew\Classes\HebrewGlobals.cs" />
     <Compile Include="Source\Common\Hebrew\Classes\HebrewTools.cs" />
     <Compile Include="Source\Common\Hebrew\Classes\HebrewTranslations.cs" />
+    <Compile Include="Source\Common\Hebrew\Database\Parashah.cs" />
     <Compile Include="Source\Common\Hebrew\Database\ParashotTable.cs" />
+    <Compile Include="Source\Common\Hebrew\Database\ParashotTable.Defaults.cs" />
     <Compile Include="Source\Common\Hebrew\Database\ProcessLocksTable.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\Books.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\BooksBounds.cs" />
@@ -270,8 +272,6 @@
     <Compile Include="Source\Common\Hebrew\Entities\BooksNames.StudyBible.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\HebrewAlphabet.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\HebrewMonths.cs" />
-    <Compile Include="Source\Common\Hebrew\Entities\Parashah.All.cs" />
-    <Compile Include="Source\Common\Hebrew\Entities\Parashah.cs" />
     <Compile Include="Source\Common\Hebrew\Providers\OnlineProviderItem.cs" />
     <Compile Include="Source\Common\Hebrew\Providers\OnlineProviders.cs" />
     <Compile Include="Source\Common\Hebrew\Providers\OnlineProviders.Static.cs" />
