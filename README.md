@@ -5,7 +5,7 @@
 > [Website](https://www.ordisoftware.com/projects/hebrew-letters)<br/>
 > [Twitter](https://twitter.com/ordisoftware)<br/>
 
-A tool for Windows written in C# that allows the lettriq letter-by-letter study and analysis of hebrew words.
+A libre and open-source software written in C# that helps for the lettriq letter-by-letter study and analysis of hebrew words.
 
 ## Table of content
 
