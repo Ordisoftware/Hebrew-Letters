@@ -96,9 +96,6 @@
       this.ToolStrip = new System.Windows.Forms.ToolStrip();
       this.ActionExit = new System.Windows.Forms.ToolStripButton();
       this.Sep4 = new System.Windows.Forms.ToolStripSeparator();
-      this.ActionHelp = new System.Windows.Forms.ToolStripButton();
-      this.ActionInformation = new System.Windows.Forms.ToolStripDropDownButton();
-      this.Sep6 = new System.Windows.Forms.ToolStripSeparator();
       this.ActionPreferences = new System.Windows.Forms.ToolStripButton();
       this.ActionSettings = new System.Windows.Forms.ToolStripDropDownButton();
       this.MenuitemScreenPosition = new System.Windows.Forms.ToolStripMenuItem();
@@ -138,6 +135,7 @@
       this.TableAdapterManager = new Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.TableAdapterManager();
       this.MeaningsTableAdapter = new Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.MeaningsTableAdapter();
       this.TimerProcesses = new System.Windows.Forms.Timer(this.components);
+      this.ActionInformation = new System.Windows.Forms.ToolStripDropDownButton();
       LabelName = new System.Windows.Forms.Label();
       LabelStructure = new System.Windows.Forms.Label();
       LabelFunction = new System.Windows.Forms.Label();
@@ -700,9 +698,6 @@
       this.ToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ActionExit,
             this.Sep4,
-            this.ActionHelp,
-            this.ActionInformation,
-            this.Sep6,
             this.ActionPreferences,
             this.ActionSettings,
             this.ActionViewAnalysis,
@@ -712,7 +707,8 @@
             this.ActionNewInstance,
             this.toolStripSeparator1,
             this.ActionTools,
-            this.ActionWebLinks});
+            this.ActionWebLinks,
+            this.ActionInformation});
       this.ToolStrip.Name = "ToolStrip";
       this.ToolStrip.ShowItemToolTips = false;
       // 
@@ -733,30 +729,6 @@
       this.Sep4.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
       this.Sep4.Name = "Sep4";
       resources.ApplyResources(this.Sep4, "Sep4");
-      // 
-      // ActionHelp
-      // 
-      this.ActionHelp.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-      this.ActionHelp.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      resources.ApplyResources(this.ActionHelp, "ActionHelp");
-      this.ActionHelp.Name = "ActionHelp";
-      this.ActionHelp.Padding = new System.Windows.Forms.Padding(5);
-      this.ActionHelp.Click += new System.EventHandler(this.ActionHelp_Click);
-      this.ActionHelp.MouseEnter += new System.EventHandler(this.ShowToolTipOnMouseEnter);
-      this.ActionHelp.MouseLeave += new System.EventHandler(this.ShowToolTipOnMouseLeave);
-      // 
-      // ActionInformation
-      // 
-      this.ActionInformation.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-      this.ActionInformation.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      resources.ApplyResources(this.ActionInformation, "ActionInformation");
-      this.ActionInformation.Name = "ActionInformation";
-      // 
-      // Sep6
-      // 
-      this.Sep6.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-      this.Sep6.Name = "Sep6";
-      resources.ApplyResources(this.Sep6, "Sep6");
       // 
       // ActionPreferences
       // 
@@ -1048,6 +1020,13 @@
       this.TimerProcesses.Interval = 2000;
       this.TimerProcesses.Tick += new System.EventHandler(this.TimerProcesses_Tick);
       // 
+      // ActionInformation
+      // 
+      this.ActionInformation.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      resources.ApplyResources(this.ActionInformation, "ActionInformation");
+      this.ActionInformation.Name = "ActionInformation";
+      this.ActionInformation.Padding = new System.Windows.Forms.Padding(5);
+      // 
       // MainForm
       // 
       resources.ApplyResources(this, "$this");
@@ -1096,7 +1075,6 @@
     private System.Windows.Forms.ToolStripSeparator Sep4;
     private System.Windows.Forms.ToolStripDropDownButton ActionSettings;
     private System.Windows.Forms.ToolStripMenuItem MenuitemScreenPosition;
-    private System.Windows.Forms.ToolStripButton ActionHelp;
     private System.Windows.Forms.ToolStripSeparator Sep7;
     internal System.Windows.Forms.ToolStripMenuItem EditScreenNone;
     internal System.Windows.Forms.ToolStripMenuItem EditScreenCenter;
@@ -1107,7 +1085,6 @@
     internal System.Windows.Forms.ToolStripMenuItem EditConfirmClosing;
     internal System.Windows.Forms.ToolStripMenuItem EditShowTips;
     private System.Windows.Forms.ToolStripMenuItem ActionResetWinSettings;
-    private System.Windows.Forms.ToolStripSeparator Sep6;
     private System.Windows.Forms.Panel PanelMain;
     private System.Windows.Forms.Panel PanelSepTop;
     private System.Windows.Forms.Panel PanelTitle;
@@ -1179,7 +1156,6 @@
     internal System.Windows.Forms.Label LabelGematriaSimple;
     internal Ordisoftware.Core.UndoRedoTextBox EditGematriaFull;
     internal System.Windows.Forms.Label LabelGematriaFull;
-    internal System.Windows.Forms.ToolStripDropDownButton ActionInformation;
     internal System.Windows.Forms.ToolStripMenuItem EditUseAdvancedDialogBoxes;
     internal System.Windows.Forms.ToolStripMenuItem EditSoundsEnabled;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
@@ -1190,5 +1166,6 @@
     private System.Windows.Forms.ToolStripButton ActionNewInstance;
     private System.Windows.Forms.Button ActionSnapshot;
     private System.Windows.Forms.Timer TimerProcesses;
+    internal System.Windows.Forms.ToolStripDropDownButton ActionInformation;
   }
 }

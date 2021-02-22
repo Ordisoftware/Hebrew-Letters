@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2020-11 </edited>
+/// <edited> 2021-02 </edited>
 using System;
 using System.Data;
 using System.Drawing;
@@ -37,15 +37,6 @@ namespace Ordisoftware.Hebrew.Letters
     /// </summary>
     static public MainForm Instance { get; private set; }
 
-    private readonly Properties.Settings Settings = Program.Settings;
-
-    private Stopwatch ChronoStart = new Stopwatch();
-   
-    /// <summary>
-    /// Last term searched.
-    /// </summary>
-    private string LastTermSearched;
-
     /// <summary>
     /// Static constructor.
     /// </summary>
@@ -64,6 +55,12 @@ namespace Ordisoftware.Hebrew.Letters
     /// </summary>
     private bool IsDBUpgraded;
 
+    private readonly Properties.Settings Settings = Program.Settings;
+
+    private Stopwatch ChronoStart = new Stopwatch();
+
+    private string LastTermSearched;
+
     /// <summary>
     /// Indicate the selected meanings text.
     /// </summary>
@@ -78,10 +75,10 @@ namespace Ordisoftware.Hebrew.Letters
     private MainForm()
     {
       InitializeComponent();
+      SoundItem.Initialize();
       Text = Globals.AssemblyTitle;
       SystemEvents.SessionEnding += SessionEnding;
-      try { Icon = Icon.ExtractAssociatedIcon(Globals.ApplicationIconFilePath); }
-      catch { }
+      SystemManager.TryCatch(() => { Icon = new Icon(Globals.ApplicationIconFilePath); });
       CreateProvidersLinks();
     }
 
@@ -448,16 +445,6 @@ namespace Ordisoftware.Hebrew.Letters
       {
         ex.Manage();
       }
-    }
-
-    /// <summary>
-    /// Event handler. Called by ActionHelp for click events.
-    /// </summary>
-    /// <param name="sender">Source of the event.</param>
-    /// <param name="e">Event information.</param>
-    private void ActionHelp_Click(object sender, EventArgs e)
-    {
-      SystemManager.RunShell(Globals.HelpFilePath);
     }
 
     /// <summary>

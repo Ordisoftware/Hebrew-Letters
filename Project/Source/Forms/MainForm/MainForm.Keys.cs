@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-01 </created>
-/// <edited> 2020-10 </edited>
+/// <edited> 2021-02 </edited>
 using System.Windows.Forms;
 
 namespace Ordisoftware.Hebrew.Letters
@@ -43,9 +43,6 @@ namespace Ordisoftware.Hebrew.Letters
           return true;
         case Keys.F8:
           ActionPreferences.PerformClick();
-          return true;
-        case Keys.F11:
-          ActionHelp.PerformClick();
           return true;
         case Keys.F12:
           ActionAbout_Click(null, null);
