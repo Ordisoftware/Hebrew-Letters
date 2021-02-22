@@ -42,6 +42,8 @@ namespace Ordisoftware.Hebrew.Letters
     [STAThread]
     static void Main(string[] args)
     {
+      Globals.SoftpediaURL = "https://www.softpedia.com/get/Others/Home-Education/Hebrew-Letters.shtml";
+      //Globals.AlternativeToURL = "";
       bool upgrade = Settings.UpgradeRequired;
       Settings.CheckUpgradeRequired(ref upgrade);
       Settings.UpgradeRequired = upgrade;
@@ -119,8 +121,8 @@ namespace Ordisoftware.Hebrew.Letters
       menu.DropDownItems.Clear();
       MainForm.Instance.ActionInformation.DropDownItems.Clear();
       MainForm.Instance.ActionInformation.DropDownItems.AddRange(list.ToArray());
-      control.AboutBoxHandler += MainForm.Instance.ActionAbout_Click;
-      control.WebCheckUpdateHandler += MainForm.Instance.ActionWebCheckUpdate_Click;
+      control.AboutBoxHandler = MainForm.Instance.ActionAbout_Click;
+      control.WebCheckUpdateHandler = MainForm.Instance.ActionWebCheckUpdate_Click;
       MainForm.Instance.InitializeSpecialMenus();
       // Various updates
       DebugManager.TraceForm.Text = tempLogTitle;

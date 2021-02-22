@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2020-12 </created>
-/// <edited> 2020-12 </edited>
+/// <edited> 2021-02 </edited>
 using System;
 using CommandLine;
 using Ordisoftware.Core;
@@ -21,11 +21,11 @@ namespace Ordisoftware.Hebrew.Letters
 
   public class ApplicationCommandLine : SystemCommandLine
   {
-    [Option('w', "hebrew", Required = false, HelpText = "Hebrew font word to analyse.")]
-    public bool HebrewFontWord { get; set; }
+    [Option('h', "hebrew", Required = false, HelpText = "Hebrew word to analyse.")]
+    public bool WordHebrew { get; set; }
 
     [Option('u', "unicode", Required = false, HelpText = "Unicode word to analyse.")]
-    public bool UnicodeWord { get; set; }
+    public bool WordUnicode { get; set; }
   }
 
 }
