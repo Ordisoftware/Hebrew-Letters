@@ -67,18 +67,16 @@ namespace Ordisoftware.Hebrew.Letters
     static public HTMLBrowserForm _MethodGuideForm;
 
     /// <summary>
-    /// Indicate the command line argument for word used at startup.
+    /// Indicate the command line argument for hebrew word used at startup.
     /// </summary>
-    static public string StartupWord
+    static public string StartupWordHebrew
     {
-      // TODO move to cmdlineparser property
       get
       {
         if ( _StartupWord.IsNullOrEmpty() )
           try
           {
-            _StartupWord = "";
-            string word = ""; // TODO SystemManager.CommandLineOptions.Word;
+            string word = ((ApplicationCommandLine)SystemManager.CommandLineOptions).WordHebrew;
             if ( word.IsNullOrEmpty() )
               if ( SystemManager.CommandLineArguments != null && SystemManager.CommandLineArguments.Length == 1 )
                 word = SystemManager.CommandLineArguments[0];
@@ -97,7 +95,29 @@ namespace Ordisoftware.Hebrew.Letters
         return _StartupWord;
       }
     }
-    static public string _StartupWord;
+    static public string _StartupWord = string.Empty;
+
+    /// <summary>
+    /// Indicate the command line argument for unicode word used at startup.
+    /// </summary>
+    static public string StartupWordUnicode
+    {
+      get
+      {
+        if ( _StartupWordUnicode.IsNullOrEmpty() )
+          try
+          {
+            _StartupWordUnicode = "";
+            string word = ( (ApplicationCommandLine)SystemManager.CommandLineOptions ).WordHebrew;
+          }
+          catch ( Exception ex )
+          {
+            ex.Manage(ShowExceptionMode.None);
+          }
+        return _StartupWordUnicode;
+      }
+    }
+    static public string _StartupWordUnicode = string.Empty;
 
   }
 

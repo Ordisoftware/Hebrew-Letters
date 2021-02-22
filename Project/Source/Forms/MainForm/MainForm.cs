@@ -169,10 +169,10 @@ namespace Ordisoftware.Hebrew.Letters
       Settings.BenchmarkStartingApp = ChronoStart.ElapsedMilliseconds;
       Settings.Save();
       if ( Globals.IsExiting ) return;
-      if ( Program.StartupWord != null && Program.StartupWord != "" )
+      if ( Program.StartupWordHebrew != null && Program.StartupWordHebrew != "" )
       {
         ActionReset.Visible = true;
-        EditLetters.InputText = Program.StartupWord;
+        EditLetters.InputText = Program.StartupWordHebrew;
         DoAnalyse();
       }
       else
@@ -657,7 +657,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void ActionReset_Click(object sender, EventArgs e)
     {
-      EditLetters.InputText = Program.StartupWord;
+      EditLetters.InputText = Program.StartupWordHebrew;
       EditLetters.Focus();
     }
 

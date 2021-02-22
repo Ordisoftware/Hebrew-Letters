@@ -22,10 +22,10 @@ namespace Ordisoftware.Hebrew.Letters
   public class ApplicationCommandLine : SystemCommandLine
   {
     [Option('h', "hebrew", Required = false, HelpText = "Hebrew word to analyse.")]
-    public bool WordHebrew { get; set; }
+    public string WordHebrew { get; set; }
 
     [Option('u', "unicode", Required = false, HelpText = "Unicode word to analyse.")]
-    public bool WordUnicode { get; set; }
+    public string WordUnicode { get; set; }
   }
 
 }
