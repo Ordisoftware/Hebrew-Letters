@@ -73,7 +73,7 @@ namespace Ordisoftware.Hebrew.Letters
     {
       get
       {
-        if ( _StartupWord.IsNullOrEmpty() )
+        if ( _StartupWordHebrew.IsNullOrEmpty() )
           try
           {
             string word = ((ApplicationCommandLine)SystemManager.CommandLineOptions).WordHebrew;
@@ -85,17 +85,17 @@ namespace Ordisoftware.Hebrew.Letters
               {
                 string letter = Convert.ToString(c);
                 if ( HebrewAlphabet.Codes.Contains(letter) )
-                  _StartupWord += HebrewAlphabet.SetFinal(letter, false);
+                  _StartupWordHebrew += HebrewAlphabet.SetFinal(letter, false);
               }
           }
           catch ( Exception ex )
           {
             ex.Manage(ShowExceptionMode.None);
           }
-        return _StartupWord;
+        return _StartupWordHebrew;
       }
     }
-    static public string _StartupWord = string.Empty;
+    static internal string _StartupWordHebrew = string.Empty;
 
     /// <summary>
     /// Indicate the command line argument for unicode word used at startup.
@@ -107,8 +107,7 @@ namespace Ordisoftware.Hebrew.Letters
         if ( _StartupWordUnicode.IsNullOrEmpty() )
           try
           {
-            _StartupWordUnicode = "";
-            string word = ( (ApplicationCommandLine)SystemManager.CommandLineOptions ).WordHebrew;
+            _StartupWordUnicode = ( (ApplicationCommandLine)SystemManager.CommandLineOptions ).WordUnicode;
           }
           catch ( Exception ex )
           {
@@ -117,7 +116,7 @@ namespace Ordisoftware.Hebrew.Letters
         return _StartupWordUnicode;
       }
     }
-    static public string _StartupWordUnicode = string.Empty;
+    static internal string _StartupWordUnicode = string.Empty;
 
   }
 

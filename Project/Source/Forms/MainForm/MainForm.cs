@@ -169,7 +169,9 @@ namespace Ordisoftware.Hebrew.Letters
       Settings.BenchmarkStartingApp = ChronoStart.ElapsedMilliseconds;
       Settings.Save();
       if ( Globals.IsExiting ) return;
-      if ( Program.StartupWordHebrew != null && Program.StartupWordHebrew != "" )
+      if ( !string.IsNullOrEmpty(Program.StartupWordUnicode) )
+        Program._StartupWordHebrew = HebrewAlphabet.ConvertToHebrewFont(Program.StartupWordUnicode);
+      if ( !string.IsNullOrEmpty(Program.StartupWordHebrew) )
       {
         ActionReset.Visible = true;
         EditLetters.InputText = Program.StartupWordHebrew;
