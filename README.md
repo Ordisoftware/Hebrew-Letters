@@ -155,11 +155,11 @@ The software verifies the validity of the certificate of the update server in ad
 - Add Serilog-sinks-file NuGet package.
 - Add InputSimulatorStandard NuGet package.
 - Add Global Shortcut Manager dependency.
+- Add "Start and reset preferences" link in Windows Start menu.
 
 >- Fix pasting unicode word removes special final letters.
 >- Add show usage statistics from about box.
 >- Add check update from about box.
->- Add "Start and reset preferences" link in Windows Start menu.
 
 #### 2020.04.23 - Version 4.1
 
