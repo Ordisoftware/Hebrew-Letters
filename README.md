@@ -136,16 +136,6 @@ The software verifies the validity of the certificate of the update server in ad
 - Improve debugger to support logging.
 - Improve exception form to view log.
 - Improve UI/UX.
-- Massive code refactoring.
-- Update web links.
-- Update help.
-- Update to SQLite 3.32.3 ODBC Driver.
-- Update Framework .NET version to 4.7.2 and supported Windows only 7 SP1 or higher.
-- The application now automatically creates the ODBC DSN in the Windows registry.
-- Improve setup.
-- Rename 32x32 icon files.
-- Refactor project folders hierarchy.
-- Replace simple internal command line parser by CommandLineParser NuGet package.
 - Add Markdig NuGet package.
 - Add FileHelpers NuGet package.
 - Add Newtonsoft.Json NuGet package.
@@ -155,7 +145,15 @@ The software verifies the validity of the certificate of the update server in ad
 - Add Serilog-sinks-file NuGet package.
 - Add InputSimulatorStandard NuGet package.
 - Add Global Shortcut Manager dependency.
-- Add "Start and reset preferences" link in Windows Start menu.
+- Replace simple internal command line parser by CommandLineParser NuGet package.
+- The application now automatically creates the ODBC DSN in the Windows registry.
+- Massive files and code refactoring.
+- Incorporate common code written since more than one year for Calendar.
+- Update to SQLite 3.32.3 ODBC Driver.
+- Update to Framework .NET 4.7.2 and supported Windows only 7 SP1 or higher.
+- Update setup.
+- Update web links.
+- Update help.
 
 >- Fix pasting unicode word removes special final letters.
 >- Add show usage statistics from about box.
