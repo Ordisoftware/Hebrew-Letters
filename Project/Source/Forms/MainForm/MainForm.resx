@@ -2117,6 +2117,9 @@
   <data name="ActionPreferences.ToolTipText" xml:space="preserve">
     <value>Preferences (F8)</value>
   </data>
+  <data name="ActionSettings.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="EditScreenNone.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
   </data>
@@ -2305,7 +2308,7 @@
     <value>Magenta</value>
   </data>
   <data name="ActionSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 46</value>
+    <value>55, 46</value>
   </data>
   <data name="ActionViewAnalysis.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2471,6 +2474,9 @@
   </data>
   <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
     <value>6, 49</value>
+  </data>
+  <data name="ActionTools.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="ActionShowMethodNotice.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2723,7 +2729,10 @@
     <value>Magenta</value>
   </data>
   <data name="ActionTools.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 46</value>
+    <value>55, 46</value>
+  </data>
+  <data name="ActionWebLinks.AutoSize" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="ActionWebLinks.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2769,7 +2778,7 @@
     <value>Magenta</value>
   </data>
   <data name="ActionWebLinks.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 46</value>
+    <value>55, 46</value>
   </data>
   <data name="ActionInformation.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -3138,6 +3147,12 @@
   <data name="&gt;&gt;ActionWebLinks.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripDropDownButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;ActionInformation.Name" xml:space="preserve">
+    <value>ActionInformation</value>
+  </data>
+  <data name="&gt;&gt;ActionInformation.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripDropDownButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;LettersTableAdapter.Name" xml:space="preserve">
     <value>LettersTableAdapter</value>
   </data>
@@ -3161,12 +3176,6 @@
   </data>
   <data name="&gt;&gt;TimerProcesses.Type" xml:space="preserve">
     <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ActionInformation.Name" xml:space="preserve">
-    <value>ActionInformation</value>
-  </data>
-  <data name="&gt;&gt;ActionInformation.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripDropDownButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainForm</value>

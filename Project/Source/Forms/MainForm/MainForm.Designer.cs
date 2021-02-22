@@ -131,11 +131,11 @@
       this.ActionViewLog = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionViewStats = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionWebLinks = new System.Windows.Forms.ToolStripDropDownButton();
+      this.ActionInformation = new System.Windows.Forms.ToolStripDropDownButton();
       this.LettersTableAdapter = new Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.LettersTableAdapter();
       this.TableAdapterManager = new Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.TableAdapterManager();
       this.MeaningsTableAdapter = new Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.MeaningsTableAdapter();
       this.TimerProcesses = new System.Windows.Forms.Timer(this.components);
-      this.ActionInformation = new System.Windows.Forms.ToolStripDropDownButton();
       LabelName = new System.Windows.Forms.Label();
       LabelStructure = new System.Windows.Forms.Label();
       LabelFunction = new System.Windows.Forms.Label();
@@ -744,6 +744,7 @@
       // ActionSettings
       // 
       this.ActionSettings.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+      resources.ApplyResources(this.ActionSettings, "ActionSettings");
       this.ActionSettings.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
       this.ActionSettings.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MenuitemScreenPosition,
@@ -755,7 +756,6 @@
             this.toolStripSeparator2,
             this.EditESCtoExit,
             this.EditConfirmClosing});
-      resources.ApplyResources(this.ActionSettings, "ActionSettings");
       this.ActionSettings.Name = "ActionSettings";
       // 
       // MenuitemScreenPosition
@@ -918,6 +918,7 @@
       // 
       // ActionTools
       // 
+      resources.ApplyResources(this.ActionTools, "ActionTools");
       this.ActionTools.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
       this.ActionTools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ActionShowMethodNotice,
@@ -930,7 +931,6 @@
             this.toolStripSeparator5,
             this.ActionViewLog,
             this.ActionViewStats});
-      resources.ApplyResources(this.ActionTools, "ActionTools");
       this.ActionTools.Name = "ActionTools";
       // 
       // ActionShowMethodNotice
@@ -995,9 +995,16 @@
       // 
       // ActionWebLinks
       // 
-      this.ActionWebLinks.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
       resources.ApplyResources(this.ActionWebLinks, "ActionWebLinks");
+      this.ActionWebLinks.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
       this.ActionWebLinks.Name = "ActionWebLinks";
+      // 
+      // ActionInformation
+      // 
+      this.ActionInformation.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      resources.ApplyResources(this.ActionInformation, "ActionInformation");
+      this.ActionInformation.Name = "ActionInformation";
+      this.ActionInformation.Padding = new System.Windows.Forms.Padding(5);
       // 
       // LettersTableAdapter
       // 
@@ -1019,13 +1026,6 @@
       this.TimerProcesses.Enabled = true;
       this.TimerProcesses.Interval = 2000;
       this.TimerProcesses.Tick += new System.EventHandler(this.TimerProcesses_Tick);
-      // 
-      // ActionInformation
-      // 
-      this.ActionInformation.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-      resources.ApplyResources(this.ActionInformation, "ActionInformation");
-      this.ActionInformation.Name = "ActionInformation";
-      this.ActionInformation.Padding = new System.Windows.Forms.Padding(5);
       // 
       // MainForm
       // 
