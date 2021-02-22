@@ -26,7 +26,6 @@ AppCopyright=Copyright 2012-2021 Olivier Rogier
 [InstallDelete]
 #include "Scripts\InstallDelete.iss"
 
-
 [Files]
 #include "Scripts\Files.iss"
 
