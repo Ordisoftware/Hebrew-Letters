@@ -104,13 +104,18 @@ The software verifies the validity of the certificate of the update server in ad
 
 ## Future improvements
 
+- Add option to enable/disable success dialogs.
+- Add sounds to clipboard actions.
+- Add keyboard shortcuts notice in windows settings menu.
+- Add export and import or merge data.
+- Add import and export database.
+- Add print data.
 - Rewrite advanced undo/redo.
 - Optimize ComboBoxes creation (the old system is really much slower on Windows 10 than 7).
-- Import or merge database.
 
 ## Changelog
 
-#### Version 5.0 (in progress)
+#### 2021.03.12 - Version 5.0
 
 - Rework of the preferences form design to have a Tab Control with pages.
 - Change all TextBox for UndoRedoTextBox to have the new context menu.
@@ -119,7 +124,6 @@ The software verifies the validity of the certificate of the update server in ad
 - Add create a screenshot of the form.
 - Add open new window menu button.
 - Add concurrency control to avoid database editing when multiple instances are running.
-
 - Add permanent database file locking while running.
 - Add usage statistics form in tools menu.
 - Add option to set automatic web check update frequency.
@@ -152,13 +156,10 @@ The software verifies the validity of the certificate of the update server in ad
 - Add InputSimulatorStandard NuGet package.
 - Add Global Shortcut Manager dependency.
 
->- Add keyboard shortcuts notice in windows settings menu.
->- Add option to enable/disable success dialogs.
->- Add sounds to clipboard actions.
 >- Fix pasting unicode word removes special final letters.
+>- Add show usage statistics from about box.
+>- Add check update from about box.
 >- Add "Start and reset preferences" link in Windows Start menu.
->- Add export/import data.
->- Add print data.
 
 #### 2020.04.23 - Version 4.1
 
