@@ -27,8 +27,8 @@ namespace Ordisoftware.Hebrew.Letters
     static public readonly TranslationsDictionary ApplicationDescription
       = new TranslationsDictionary
       {
-        [Language.EN] = "Lettriq letter-by-letter study and analysis of Hebrew words",
-        [Language.FR] = "Étude et analyse lettrique lettre-par-lettre des mots hébreux"
+        [Language.EN] = "Lettriq letter-by-letter analyzer of Hebrew words",
+        [Language.FR] = "Analyzer lettrique lettre-par-lettre des mots hébreux"
       };
 
     static public readonly TranslationsDictionary CopyToClipboardInfosDone
