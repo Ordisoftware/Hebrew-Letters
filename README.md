@@ -25,7 +25,6 @@ A tool for Windows written in C# that allows the lettriq letter-by-letter study 
 - Database of Hebrew letters with their customizable meanings.
 - Analyse a word letter by letter to get a sentence describing its sense.
 - Copy to the clipboard the analysis and the sentence or a screenshot.
-- Export TXT, CSV, JSON, PNG, JPG, TIFF, BMP.
 - English, French.
 
 ## Review
@@ -88,19 +87,20 @@ The software verifies the validity of the certificate of the update server in ad
 
 ## Keyboard shortcuts
 
-- F1 : Analyse view
-- F2 : Settings view
-- F3 : Search a term
-- Ctrl+N : Open a new window
-- Ctrl+M : Open the lettriq analysis method notice
-- Ctrl+G : Open the grammar guide
-- Ctrl+L : Open Shorashon web page
-- Ctrl+F11 : Current log window
-- Ctrl+F12 : Statistics window
-- F8 : Preferences
-- F11 : Help
-- F12 : About
-- Escape : Close window
+| Keys | Actions |
+|-|-|
+| F1 | Analyse view |
+| F2 | Settings view |
+| F3 | Search a term |
+| Ctrl+N | Open a new window |
+| Ctrl+M | Open the lettriq analysis method notice |
+| Ctrl+G | Open the grammar guide |
+| Ctrl+L | Open Shorashon web page |
+| Ctrl+F11 | Current log window |
+| Ctrl+F12 | Statistics window |
+| F9 | Preferences |
+| F12 | About |
+| Alt + F4 (or Escape) | Close window |
 
 ## Future improvements
 
