@@ -130,11 +130,14 @@ The software verifies the validity of the certificate of the update server in ad
 - Add option to set application's volume.
 - Add show usage statistics from about box.
 - Add check update from about box.
-- Improve message boxes.
+- Fix pasting hebrew font whars removes special final letters.
+- Fix pasting unicode chars removes special final letters.
+- Improve copy and paste to support both hebrew font and unicode chars from context menu and keyboard.
 - Improve check update to allow auto update or direct download or open app web page.
 - Improve check update to verify the SSL certificate of the website and the checksum of the setup file.
 - Improve debugger to support logging.
 - Improve exception form to view log.
+- Improve message boxes.
 - Improve UI/UX.
 - Rework of the preferences form design to have a Tab Control with pages.
 - Change all TextBox for UndoRedoTextBox to have the new context menu.
@@ -158,10 +161,6 @@ The software verifies the validity of the certificate of the update server in ad
 - Update setup.
 - Update web links.
 - Update help.
-
->- Fix pasting unicode word removes special final letters.
->- Add show usage statistics from about box.
->- Add check update from about box.
 
 #### 2020.04.23 - Version 4.1
 
