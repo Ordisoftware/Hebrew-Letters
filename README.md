@@ -130,6 +130,8 @@ The software verifies the validity of the certificate of the update server in ad
 - Add option to enable or disable the web links menu.
 - Add option to enable or disable message boxes sounds.
 - Add option to set application's volume.
+- Add show usage statistics from about box.
+- Add check update from about box.
 - Improve message boxes.
 - Improve check update to allow auto update or direct download or open app web page.
 - Improve check update to verify the SSL certificate of the website and the checksum of the setup file.
