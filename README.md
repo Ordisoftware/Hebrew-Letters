@@ -117,9 +117,7 @@ The software verifies the validity of the certificate of the update server in ad
 
 #### 2021.03.12 - Version 5.0
 
-- Rework of the preferences form design to have a Tab Control with pages.
-- Change all TextBox for UndoRedoTextBox to have the new context menu.
-- Remove advanced undo/redo due to a problem that requires a complete rewrite to have the cursor not misplaced in certain cases.
+- Add Windows double-buffering drawing to optimize startup.
 - Add context menu on letters' buttons to allow inserting a letter or open its parameters.
 - Add create a screenshot of the form.
 - Add open new window menu button.
@@ -138,6 +136,9 @@ The software verifies the validity of the certificate of the update server in ad
 - Improve debugger to support logging.
 - Improve exception form to view log.
 - Improve UI/UX.
+- Rework of the preferences form design to have a Tab Control with pages.
+- Change all TextBox for UndoRedoTextBox to have the new context menu.
+- Remove advanced undo/redo due to a problem that requires a complete rewrite to have the cursor not misplaced in certain cases.
 - Add Markdig NuGet package.
 - Add FileHelpers NuGet package.
 - Add Newtonsoft.Json NuGet package.
