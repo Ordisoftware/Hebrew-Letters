@@ -144,7 +144,7 @@ namespace Ordisoftware.Hebrew.Letters
       ContextMenuSearchOnline.InitializeFromProviders(OnlineProviders.OnlineWordProviders, (sender, e) =>
       {
         var menuitem = (ToolStripMenuItem)sender;
-        string str = HebrewAlphabet.ConvertToUnicode(EditLetters.InputText);
+        string str = HebrewAlphabet.ConvertToUnicode(EditLetters.Input.Text);
         SystemManager.OpenWebLink(( (string)menuitem.Tag ).Replace("%WORD%", str));
       });
     }
@@ -215,12 +215,12 @@ namespace Ordisoftware.Hebrew.Letters
       Settings.BenchmarkStartingApp = ChronoStart.ElapsedMilliseconds;
       SystemManager.TryCatch(Settings.Save);
       if ( Globals.IsExiting ) return;
-      if ( !string.IsNullOrEmpty(Program.StartupWordUnicode) )
-        Program._StartupWordHebrew = HebrewAlphabet.ConvertToHebrewFont(Program.StartupWordUnicode);
-      if ( !string.IsNullOrEmpty(Program.StartupWordHebrew) )
+      if ( !Program.StartupWordHebrew.IsNullOrEmpty() )
       {
         ActionReset.Visible = true;
-        EditLetters.InputText = Program.StartupWordHebrew;
+        EditLetters.Input.Text = Program.StartupWordHebrew;
+        EditLetters.TextBox.SelectAll();
+        EditLetters.TextBox.Refresh();
         DoAnalyse();
       }
       else
@@ -586,11 +586,11 @@ namespace Ordisoftware.Hebrew.Letters
       if ( !SQLiteOdbcHelper.CheckProcessConcurency() ) return;
       if ( DisplayManager.QueryYesNo(SysTranslations.AskToResetData.GetLang()) )
       {
-        string word = EditLetters.InputText;
+        string word = EditLetters.Input.Text;
         CreateDataIfNotExists(true);
         ActionClear.PerformClick();
         ActionReset.PerformClick();
-        EditLetters.InputText = word;
+        EditLetters.Input.Text = word;
         ApplicationStatistics.UpdateDBFileSizeRequired = true;
         ApplicationStatistics.UpdateDBMemorySizeRequired = true;
       }
@@ -670,6 +670,8 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void EditMeanings_CellEndEdit(object sender, DataGridViewCellEventArgs e)
     {
+      var cell = EditMeanings[e.ColumnIndex, e.ColumnIndex];
+      cell.Value = ( (string)cell.Value ).Trim();
       Globals.AllowClose = true;
       SaveData();
     }
@@ -691,28 +693,28 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void ActionDelFirst_Click(object sender, EventArgs e)
     {
-      if ( EditLetters.InputText.Length <= 1 ) return;
-      EditLetters.InputText = EditLetters.InputText.Remove(EditLetters.InputText.Length - 1, 1);
+      if ( EditLetters.Input.Text.Length <= 1 ) return;
+      EditLetters.Input.Text = EditLetters.Input.Text.Remove(EditLetters.Input.Text.Length - 1, 1);
       EditLetters.Focus();
     }
 
     private void ActionDelLast_Click(object sender, EventArgs e)
     {
-      if ( EditLetters.InputText.Length <= 1 ) return;
-      EditLetters.InputText = EditLetters.InputText.Remove(0, 1);
+      if ( EditLetters.Input.Text.Length <= 1 ) return;
+      EditLetters.Input.Text = EditLetters.Input.Text.Remove(0, 1);
       EditLetters.Focus();
     }
 
     private void ActionReset_Click(object sender, EventArgs e)
     {
-      EditLetters.InputText = Program.StartupWordHebrew;
+      EditLetters.Input.Text = Program.StartupWordHebrew;
       EditLetters.Focus();
     }
 
     private void EditLetters_InputTextChanged(object sender, EventArgs e)
     {
-      var enabled = EditLetters.InputText != "";
-      ActionDelFirst.Enabled = EditLetters.InputText.Length > 1;
+      var enabled = EditLetters.Input.Text != "";
+      ActionDelFirst.Enabled = EditLetters.Input.Text.Length > 1;
       ActionDelLast.Enabled = ActionDelFirst.Enabled;
       ActionClear.Enabled = enabled;
       ActionCopyToUnicode.Enabled = enabled;
@@ -727,7 +729,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void ActionClear_Click(object sender, EventArgs e)
     {
-      EditLetters.InputText = "";
+      EditLetters.Input.Text = "";
       EditSentence.Text = "";
       EditGematriaSimple.Text = "";
       EditGematriaFull.Text = "";
@@ -740,21 +742,26 @@ namespace Ordisoftware.Hebrew.Letters
     private void ActionPasteFromUnicode_Click(object sender, EventArgs e)
     {
       string str = Clipboard.GetText();
-      EditLetters.InputText = HebrewAlphabet.ConvertToHebrewFont(new string(str.ToArray())).Replace(" ", "");
+      EditLetters.Input.Text = HebrewAlphabet.ConvertToHebrewFont(new string(str.ToArray())).Replace(" ", "");
       EditLetters.Focus();
     }
 
     private void ActionCopyToUnicode_Click(object sender, EventArgs e)
     {
-      if ( EditLetters.InputText != "" )
-        Clipboard.SetText(HebrewAlphabet.ConvertToUnicode(EditLetters.InputText));
+      if ( EditLetters.Input.Text != "" )
+        Clipboard.SetText(HebrewAlphabet.ConvertToUnicode(EditLetters.Input.Text));
       EditLetters.Focus();
     }
 
     private void ActionCopyToClipboardMeanings_Click(object sender, EventArgs e)
     {
-      if ( EditLetters.InputText != "" )
+      if ( EditLetters.Input.Text != "" )
       {
+
+//        meaningsWord[index] = letter.Name + " : " + string.Join(", ", LettersMeanings[letter.ValueSimple]);
+//        WordMeanings = string.Join(Environment.NewLine, meaningsWord);
+
+
         Clipboard.SetText(WordMeanings);
         DisplayManager.ShowInformation(AppTranslations.CopyToClipboardInfosDone.GetLang());
       }
@@ -762,7 +769,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void ActionSnapshot_Click(object sender, EventArgs e)
     {
-      if ( EditLetters.InputText != "" )
+      if ( EditLetters.Input.Text != "" )
       {
         Clipboard.SetImage(this.GetBitmap());
         DisplayManager.ShowInformation(SysTranslations.ScreenshotDone.GetLang());

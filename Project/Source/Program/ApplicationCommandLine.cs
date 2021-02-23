@@ -21,11 +21,16 @@ namespace Ordisoftware.Hebrew.Letters
 
   public class ApplicationCommandLine : SystemCommandLine
   {
+
+    static public ApplicationCommandLine Instance
+      => SystemManager.CommandLineOptions as ApplicationCommandLine;
+
     [Option("hebrew", Required = false, HelpText = "Hebrew word to analyse.")]
     public string WordHebrew { get; set; }
 
     [Option("unicode", Required = false, HelpText = "Unicode word to analyse.")]
     public string WordUnicode { get; set; }
+
   }
 
 }

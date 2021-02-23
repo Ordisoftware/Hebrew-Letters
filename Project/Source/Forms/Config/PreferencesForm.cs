@@ -124,26 +124,26 @@ namespace Ordisoftware.Hebrew.Letters
     private void ActionSelectLangEN_Click(object sender, EventArgs e)
     {
       if ( Program.Settings.LanguageSelected == Language.EN ) return;
-      string temp = MainForm.Instance.EditLetters.InputText;
+      string temp = MainForm.Instance.EditLetters.Input.Text;
       MainForm.Instance.ActionClear.PerformClick();
       Program.Settings.LanguageSelected = Language.EN;
       Program.UpdateLocalization();
       UpdateLanguagesButtons();
       LanguageChanged = true;
-      MainForm.Instance.EditLetters.InputText = temp;
+      MainForm.Instance.EditLetters.Input.Text = temp;
       Close();
     }
 
     private void ActionSelectLangFR_Click(object sender, EventArgs e)
     {
       if ( Program.Settings.LanguageSelected == Language.FR ) return;
-      string temp = MainForm.Instance.EditLetters.InputText;
+      string temp = MainForm.Instance.EditLetters.Input.Text;
       MainForm.Instance.ActionClear.PerformClick();
       Program.Settings.LanguageSelected = Language.FR;
       Program.UpdateLocalization();
       UpdateLanguagesButtons();
       LanguageChanged = true;
-      MainForm.Instance.EditLetters.InputText = temp;
+      MainForm.Instance.EditLetters.Input.Text = temp;
       Close();
     }
 
