@@ -36,9 +36,9 @@
       this.EditLicense = new System.Windows.Forms.RichTextBox();
       this.LabelDescription = new System.Windows.Forms.Label();
       this.PanelBottom = new System.Windows.Forms.Panel();
-      this.ActionPrivacyNotice = new System.Windows.Forms.Button();
       this.ActionCheckUpdate = new System.Windows.Forms.Button();
       this.ActionViewStats = new System.Windows.Forms.Button();
+      this.ActionPrivacyNotice = new System.Windows.Forms.Button();
       this.PanelBottom.SuspendLayout();
       this.SuspendLayout();
       // 
@@ -95,16 +95,6 @@
       resources.ApplyResources(this.PanelBottom, "PanelBottom");
       this.PanelBottom.Name = "PanelBottom";
       // 
-      // ActionPrivacyNotice
-      // 
-      this.ActionPrivacyNotice.AllowDrop = true;
-      this.ActionPrivacyNotice.FlatAppearance.BorderSize = 0;
-      resources.ApplyResources(this.ActionPrivacyNotice, "ActionPrivacyNotice");
-      this.ActionPrivacyNotice.Name = "ActionPrivacyNotice";
-      this.ActionPrivacyNotice.TabStop = false;
-      this.ActionPrivacyNotice.UseVisualStyleBackColor = true;
-      this.ActionPrivacyNotice.Click += new System.EventHandler(this.ActionPrivacyNotice_Click);
-      // 
       // ActionCheckUpdate
       // 
       this.ActionCheckUpdate.AllowDrop = true;
@@ -122,6 +112,15 @@
       this.ActionViewStats.Name = "ActionViewStats";
       this.ActionViewStats.UseVisualStyleBackColor = true;
       this.ActionViewStats.Click += new System.EventHandler(this.ActionViewStats_Click);
+      // 
+      // ActionPrivacyNotice
+      // 
+      this.ActionPrivacyNotice.AllowDrop = true;
+      this.ActionPrivacyNotice.FlatAppearance.BorderSize = 0;
+      resources.ApplyResources(this.ActionPrivacyNotice, "ActionPrivacyNotice");
+      this.ActionPrivacyNotice.Name = "ActionPrivacyNotice";
+      this.ActionPrivacyNotice.UseVisualStyleBackColor = true;
+      this.ActionPrivacyNotice.Click += new System.EventHandler(this.ActionPrivacyNotice_Click);
       // 
       // AboutBox
       // 
