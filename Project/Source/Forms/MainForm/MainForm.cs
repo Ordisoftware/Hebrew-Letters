@@ -39,6 +39,27 @@ namespace Ordisoftware.Hebrew.Letters
     static public MainForm Instance { get; private set; }
 
     /// <summary>
+    /// Enable double-buffering.
+    /// </summary>
+    protected override CreateParams CreateParams
+    {
+      get
+      {
+        CreateParams cp = base.CreateParams;
+        //if ( Settings.WindowsDoubleBufferingEnabled )
+        //switch ( Settings.CurrentView )
+        //{
+        //case ViewMode.Text:
+        //case ViewMode.Month:
+        cp.ExStyle |= 0x02000000; // + WS_EX_COMPOSITED
+                                  //cp.Style &= ~0x02000000;  // - WS_CLIPCHILDREN
+                                  //break;
+                                  //}
+        return cp;
+      }
+    }
+
+    /// <summary>
     /// Static constructor.
     /// </summary>
     static MainForm()
@@ -83,27 +104,6 @@ namespace Ordisoftware.Hebrew.Letters
       SystemEvents.SessionEnding += SessionEnding;
       SystemManager.TryCatch(() => { Icon = new Icon(Globals.ApplicationIconFilePath); });
       CreateProvidersLinks();
-    }
-
-    /// <summary>
-    /// Enable double-buffering.
-    /// </summary>
-    protected override CreateParams CreateParams
-    {
-      get
-      {
-        CreateParams cp = base.CreateParams;
-        //if ( Settings.WindowsDoubleBufferingEnabled )
-          //switch ( Settings.CurrentView )
-          //{
-            //case ViewMode.Text:
-            //case ViewMode.Month:
-              cp.ExStyle |= 0x02000000; // + WS_EX_COMPOSITED
-              //cp.Style &= ~0x02000000;  // - WS_CLIPCHILDREN
-              //break;
-          //}
-        return cp;
-      }
     }
 
     /// <summary>
