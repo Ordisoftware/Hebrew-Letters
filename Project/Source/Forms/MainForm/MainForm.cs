@@ -165,7 +165,7 @@ namespace Ordisoftware.Hebrew.Letters
         MeaningsTableAdapter.Fill(DataSet.Meanings);
         Chrono.Stop();
         Settings.BenchmarkLoadData = Chrono.ElapsedMilliseconds;
-        Settings.Save();
+        SystemManager.TryCatch(Settings.Save);
       }
       catch ( Exception ex )
       {
@@ -190,7 +190,7 @@ namespace Ordisoftware.Hebrew.Letters
     {
       ChronoStart.Stop();
       Settings.BenchmarkStartingApp = ChronoStart.ElapsedMilliseconds;
-      Settings.Save();
+      SystemManager.TryCatch(Settings.Save);
       if ( Globals.IsExiting ) return;
       if ( !string.IsNullOrEmpty(Program.StartupWordUnicode) )
         Program._StartupWordHebrew = HebrewAlphabet.ConvertToHebrewFont(Program.StartupWordUnicode);
@@ -209,7 +209,7 @@ namespace Ordisoftware.Hebrew.Letters
       if ( Settings.FirstLaunchV4 )
       {
         Settings.FirstLaunchV4 = false;
-        Settings.Save();
+        SystemManager.TryCatch(Settings.Save);
         ActionShowMethodNotice.PerformClick();
       }
     }
