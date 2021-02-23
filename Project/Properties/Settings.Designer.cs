@@ -311,7 +311,7 @@ namespace Ordisoftware.Hebrew.Letters.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("12")]
+        [global::System.Configuration.DefaultSettingValueAttribute("15")]
         public decimal HebrewTextBoxMaxLength {
             get {
                 return ((decimal)(this["HebrewTextBoxMaxLength"]));

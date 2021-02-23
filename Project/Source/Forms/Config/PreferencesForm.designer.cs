@@ -29,8 +29,8 @@
     private void InitializeComponent()
     {
       this.components = new System.ComponentModel.Container();
-      System.Windows.Forms.Label LabelVolume;
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PreferencesForm));
+      System.Windows.Forms.Label LabelVolume;
       System.Windows.Forms.Label LabelCheckUpdateFrequency;
       this.ActionClose = new System.Windows.Forms.Button();
       this.PanelBottom = new System.Windows.Forms.Panel();
@@ -73,16 +73,6 @@
       ((System.ComponentModel.ISupportInitialize)(this.EditMaxLength)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.EditFontSize)).BeginInit();
       this.SuspendLayout();
-      // 
-      // LabelVolume
-      // 
-      resources.ApplyResources(LabelVolume, "LabelVolume");
-      LabelVolume.Name = "LabelVolume";
-      // 
-      // LabelCheckUpdateFrequency
-      // 
-      resources.ApplyResources(LabelCheckUpdateFrequency, "LabelCheckUpdateFrequency");
-      LabelCheckUpdateFrequency.Name = "LabelCheckUpdateFrequency";
       // 
       // ActionClose
       // 
@@ -171,6 +161,11 @@
       this.ActionSelectLangEN.UseVisualStyleBackColor = true;
       this.ActionSelectLangEN.Click += new System.EventHandler(this.ActionSelectLangEN_Click);
       // 
+      // LabelVolume
+      // 
+      resources.ApplyResources(LabelVolume, "LabelVolume");
+      LabelVolume.Name = "LabelVolume";
+      // 
       // LabelVolumeValue
       // 
       resources.ApplyResources(this.LabelVolumeValue, "LabelVolumeValue");
@@ -258,6 +253,11 @@
       this.LabelCheckUpdateAtStartupInfo.ForeColor = System.Drawing.SystemColors.GrayText;
       this.LabelCheckUpdateAtStartupInfo.Name = "LabelCheckUpdateAtStartupInfo";
       // 
+      // LabelCheckUpdateFrequency
+      // 
+      resources.ApplyResources(LabelCheckUpdateFrequency, "LabelCheckUpdateFrequency");
+      LabelCheckUpdateFrequency.Name = "LabelCheckUpdateFrequency";
+      // 
       // TabPageAnalyzer
       // 
       this.TabPageAnalyzer.BackColor = System.Drawing.SystemColors.Window;
@@ -312,7 +312,7 @@
       this.EditMaxLength.Name = "EditMaxLength";
       this.EditMaxLength.ReadOnly = true;
       this.EditMaxLength.Value = new decimal(new int[] {
-            12,
+            15,
             0,
             0,
             0});
