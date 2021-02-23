@@ -13,6 +13,7 @@
 /// <created> 2019-01 </created>
 /// <edited> 2021-02 </edited>
 using System.Windows.Forms;
+using Ordisoftware.Core;
 
 namespace Ordisoftware.Hebrew.Letters
 {
@@ -28,6 +29,12 @@ namespace Ordisoftware.Hebrew.Letters
     {
       switch ( keyData )
       {
+        case Keys.Control | Keys.Shift | Keys.Tab:
+          SetView(Settings.CurrentView.Previous());
+          return true;
+        case Keys.Control | Keys.Tab:
+          SetView(Settings.CurrentView.Next());
+          return true;
         case Keys.Control | Keys.N:
           ActionNewInstance.PerformClick();
           return true;
