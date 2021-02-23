@@ -60,6 +60,7 @@ namespace Ordisoftware.Hebrew.Letters
           EditAnalyze.Controls.Add(label);
           // Combobox
           var combobox = new ComboBox();
+          label.Tag = combobox;
           combobox.Width = 200;
           combobox.Height = 21;
           combobox.Left = 155;
