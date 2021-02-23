@@ -104,18 +104,19 @@ The software verifies the validity of the certificate of the update server in ad
 
 ## Future improvements
 
-- Add option to enable/disable success dialogs.
-- Add sounds to clipboard actions.
-- Add keyboard shortcuts notice in windows settings menu.
-- Add export and import or merge data.
-- Add import and export database.
 - Add print data.
+- Add import data.
+- Add import and export database.
 - Rewrite advanced undo/redo.
 - Optimize ComboBoxes creation (the old system is really much slower on Windows 10 than 7).
 
 ## Changelog
 
 #### 2021.03.12 - Version 5.0
+
+>- Add export and import or merge data.
+>- Add sounds to clipboard actions.
+>- Add keyboard shortcuts notice in windows settings menu.
 
 - Add Windows double-buffering drawing to optimize startup.
 - Add context menu on letters' buttons to allow inserting a letter or open its parameters.
