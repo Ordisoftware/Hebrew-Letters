@@ -3,7 +3,9 @@
 
   partial class DataSet
   {
-
+    partial class LettersDataTable
+    {
+    }
   }
 
 }

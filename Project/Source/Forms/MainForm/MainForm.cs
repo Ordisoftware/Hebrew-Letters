@@ -46,15 +46,8 @@ namespace Ordisoftware.Hebrew.Letters
       get
       {
         CreateParams cp = base.CreateParams;
-        //if ( Settings.WindowsDoubleBufferingEnabled )
-        //switch ( Settings.CurrentView )
-        //{
-        //case ViewMode.Text:
-        //case ViewMode.Month:
         cp.ExStyle |= 0x02000000; // + WS_EX_COMPOSITED
-                                  //cp.Style &= ~0x02000000;  // - WS_CLIPCHILDREN
-                                  //break;
-                                  //}
+        //cp.Style &= ~0x02000000;  // - WS_CLIPCHILDREN
         return cp;
       }
     }
@@ -104,6 +97,11 @@ namespace Ordisoftware.Hebrew.Letters
       SystemEvents.SessionEnding += SessionEnding;
       SystemManager.TryCatch(() => { Icon = new Icon(Globals.ApplicationIconFilePath); });
       CreateProvidersLinks();
+      UndoRedoTextBox.ActionUndo.Click += TextBox_ContextMenuAction_Click;
+      UndoRedoTextBox.ActionRedo.Click += TextBox_ContextMenuAction_Click;
+      UndoRedoTextBox.ActionCut.Click += TextBox_ContextMenuAction_Click;
+      UndoRedoTextBox.ActionPaste.Click += TextBox_ContextMenuAction_Click;
+      UndoRedoTextBox.ActionDelete.Click += TextBox_ContextMenuAction_Click;
     }
 
     /// <summary>
@@ -159,11 +157,12 @@ namespace Ordisoftware.Hebrew.Letters
       if ( Globals.IsExiting ) return;
       Settings.Retrieve();
       ChronoStart.Start();
+      Program.Settings.CurrentView = ViewMode.Analyse;
+      EditSentence.Font = new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence);
       SystemManager.TryCatch(() => new System.Media.SoundPlayer(Globals.EmptySoundFilePath).Play());
       SystemManager.TryCatch(() => MediaMixer.SetApplicationVolume(Process.GetCurrentProcess().Id,
                                                                     Settings.ApplicationVolume));
       StatisticsForm.Run(true, Settings.UsageStatisticsEnabled);
-      ActionPreferences.Enabled = SystemManager.ApplicationInstancesCount == 1;
       ChronoStart.Stop();
       var lastdone = Settings.CheckUpdateLastDone;
       bool exit = WebCheckUpdate.Run(Settings.CheckUpdateAtStartup,
@@ -181,11 +180,11 @@ namespace Ordisoftware.Hebrew.Letters
       {
         var Chrono = new Stopwatch();
         Chrono.Start();
-        EditSentence.Font = new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence);
         IsDBUpgraded = CreateSchemaIfNotExists();
         CreateDataIfNotExists(false);
-        LettersTableAdapter.Fill(DataSet.Letters);
+        ProcessLocksTable.Lock();
         MeaningsTableAdapter.Fill(DataSet.Meanings);
+        LettersTableAdapter.Fill(DataSet.Letters);
         Chrono.Stop();
         Settings.BenchmarkLoadData = Chrono.ElapsedMilliseconds;
         SystemManager.TryCatch(Settings.Save);
@@ -201,8 +200,11 @@ namespace Ordisoftware.Hebrew.Letters
       SystemInformationMenu.ActionViewStats.Enabled = Settings.UsageStatisticsEnabled;
       SystemInformationMenu.ActionViewLog.Enabled = DebugManager.TraceEnabled;
       DebugManager.TraceEnabledChanged += value => SystemInformationMenu.ActionViewLog.Enabled = value;
+      TimerProcesses_Tick(null, null);
       Globals.IsReady = true;
     }
+
+    private bool IsReadOnly;
 
     /// <summary>
     /// Event handler. Called by MainForm for form shown events.
@@ -219,9 +221,8 @@ namespace Ordisoftware.Hebrew.Letters
       {
         ActionReset.Visible = true;
         EditLetters.Input.Text = Program.StartupWordHebrew;
-        EditLetters.TextBox.SelectAll();
+        //EditLetters.TextBox.SelectAll();
         EditLetters.TextBox.Refresh();
-        DoAnalyse();
       }
       else
         ActionReset.Visible = false;
@@ -246,17 +247,7 @@ namespace Ordisoftware.Hebrew.Letters
     {
       if ( Globals.IsExiting ) return;
       if ( !Globals.IsReady ) return;
-      LettersBindingSource.EndEdit();
-      MeaningsBindingSource.EndEdit();
-      if ( DataSet.HasChanges() )
-        try
-        {
-          TableAdapterManager.UpdateAll(DataSet);
-        }
-        catch ( Exception ex )
-        {
-          ex.Manage();
-        }
+      SystemManager.TryCatchManage(SaveData);
       if ( e.CloseReason != CloseReason.None && e.CloseReason != CloseReason.UserClosing )
       {
         Globals.IsExiting = true;
@@ -276,7 +267,9 @@ namespace Ordisoftware.Hebrew.Letters
     /// <param name="e">Form closing event information.</param>
     private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
     {
+      Program.Settings.CurrentView = ViewMode.Analyse;
       Settings.Store();
+      ProcessLocksTable.Unlock();
     }
 
     /// <summary>
@@ -340,12 +333,21 @@ namespace Ordisoftware.Hebrew.Letters
     /// </summary>
     private void TimerProcesses_Tick(object sender, EventArgs e)
     {
-      ActionPreferences.Enabled = SystemManager.ApplicationInstancesCount == 1;
-      if ( !ActionPreferences.Enabled )
-      {
-        var form = Application.OpenForms.ToList().Where(f => f is PreferencesForm).FirstOrDefault();
-        if ( form != null ) form.Close();
-      }
+      //if ( !SQLiteOdbcHelper.CheckProcessConcurency() ) return;
+      IsReadOnly = ProcessLocksTable.IsReadOnly();
+      Text = Globals.AssemblyTitle;
+      if ( IsReadOnly ) Text += " - READ ONLY";
+      TextBoxPositive.ReadOnly = IsReadOnly;
+      TextBoxNegative.ReadOnly = IsReadOnly;
+      TextBoxVerb.ReadOnly = IsReadOnly;
+      TextBoxStructure.ReadOnly = IsReadOnly;
+      TextBoxFunction.ReadOnly = IsReadOnly;
+      EditMeanings.ReadOnly = IsReadOnly;
+      ActionAddMeaning.Enabled = !IsReadOnly;
+      ActionDeleteMeaning.Enabled = !IsReadOnly;
+      ActionPreferences.Enabled = !IsReadOnly;
+      ActionRestoreDefaults.Enabled = !IsReadOnly;
+      TimerProcesses.Enabled = IsReadOnly;
     }
 
     /// <summary>
@@ -392,8 +394,10 @@ namespace Ordisoftware.Hebrew.Letters
     /// <param name="e">Event information.</param>
     private void ActionViewAnalysis_Click(object sender, EventArgs e)
     {
-      SaveData();
       SetView(ViewMode.Analyse);
+      foreach (Data.DataSet.LettersRow row in DataSet.Letters)
+        LettersMeanings[row.ValueSimple] = null;
+      DoAnalyse();
     }
 
     /// <summary>
@@ -403,7 +407,6 @@ namespace Ordisoftware.Hebrew.Letters
     /// <param name="e">Event information.</param>
     private void ActionViewLetters_Click(object sender, EventArgs e)
     {
-      SaveData();
       SetView(ViewMode.Settings);
     }
 
@@ -583,7 +586,6 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void ActionRestoreDefaults_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
-      if ( !SQLiteOdbcHelper.CheckProcessConcurency() ) return;
       if ( DisplayManager.QueryYesNo(SysTranslations.AskToResetData.GetLang()) )
       {
         string word = EditLetters.Input.Text;
@@ -596,111 +598,22 @@ namespace Ordisoftware.Hebrew.Letters
       }
     }
 
-    private void UpdateButtons()
-    {
-      try
-      {
-        if ( ComboBoxCode.SelectedItem == null ) return;
-        var row = (Data.DataSet.LettersRow)( (DataRowView)ComboBoxCode.SelectedItem ).Row;
-        ActionAddMeaning.Enabled = true;
-        ActionDeleteMeaning.Enabled = row.GetMeaningsRows().Length > 0;
-      }
-      catch ( Exception ex )
-      {
-        ex.Manage();
-      }
-    }
-
     private void EditGematriaSimple_TextChanged(object sender, EventArgs e)
     {
       var textbox = sender as TextBox;
       if ( textbox.Text == "0" ) textbox.Text = "";
     }
 
-    private void ComboBoxCode_SelectedIndexChanged(object sender, EventArgs e)
-    {
-      UpdateButtons();
-    }
-
-    private void ActionAddMeaning_Click(object sender, EventArgs e)
-    {
-      if ( !SQLiteOdbcHelper.CheckProcessConcurency() ) return;
-      var row = DataSet.Meanings.NewMeaningsRow();
-      row.ID = Guid.NewGuid().ToString();
-      row.LetterCode = ComboBoxCode.Text;
-      row.Meaning = "";
-      DataSet.Meanings.AddMeaningsRow(row);
-      MeaningsBindingSource.ResetBindings(false);
-      MeaningsBindingSource.MoveLast();
-      EditMeanings.BeginEdit(false);
-      ActionAddMeaning.Enabled = false;
-      ActionDeleteMeaning.Enabled = false;
-      ToolStrip.Enabled = false;
-      PanelLetter.Enabled = false;
-    }
-
-    private void ActionDeleteMeaning_Click(object sender, EventArgs e)
-    {
-      if ( MeaningsBindingSource.Count < 1 ) return;
-      if ( !SQLiteOdbcHelper.CheckProcessConcurency() ) return;
-      int pos = MeaningsBindingSource.Position;
-      MeaningsBindingSource.RemoveCurrent();
-      EditMeanings.EndEdit();
-      int count = MeaningsBindingSource.Count;
-      if ( count > 1 )
-        if ( pos >= count )
-        {
-          MeaningsBindingSource.MoveFirst();
-          MeaningsBindingSource.MoveLast();
-        }
-        else
-          MeaningsBindingSource.Position = pos;
-      UpdateButtons();
-    }
-
-    private void EditMeanings_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
-    {
-      if ( !SQLiteOdbcHelper.CheckProcessConcurency() )
-      {
-        e.Cancel = true;
-        return;
-      }
-      Globals.AllowClose = false;
-    }
-
-    private void EditMeanings_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-    {
-      var cell = EditMeanings[e.ColumnIndex, e.ColumnIndex];
-      cell.Value = ( (string)cell.Value ).Trim();
-      Globals.AllowClose = true;
-      SaveData();
-    }
-
-    private void EditMeanings_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
-    {
-      if ( e.FormattedValue == DBNull.Value || (string)e.FormattedValue == "" )
-      {
-        e.Cancel = true;
-        EditMeanings.BeginEdit(false);
-      }
-      else
-      {
-        ToolStrip.Enabled = true;
-        PanelLetter.Enabled = true;
-        UpdateButtons();
-      }
-    }
-
     private void ActionDelFirst_Click(object sender, EventArgs e)
     {
-      if ( EditLetters.Input.Text.Length <= 1 ) return;
+      if ( EditLetters.Input.Text.Length < 1 ) return;
       EditLetters.Input.Text = EditLetters.Input.Text.Remove(EditLetters.Input.Text.Length - 1, 1);
       EditLetters.Focus();
     }
 
     private void ActionDelLast_Click(object sender, EventArgs e)
     {
-      if ( EditLetters.Input.Text.Length <= 1 ) return;
+      if ( EditLetters.Input.Text.Length < 1 ) return;
       EditLetters.Input.Text = EditLetters.Input.Text.Remove(0, 1);
       EditLetters.Focus();
     }
@@ -714,7 +627,7 @@ namespace Ordisoftware.Hebrew.Letters
     private void EditLetters_InputTextChanged(object sender, EventArgs e)
     {
       var enabled = EditLetters.Input.Text != "";
-      ActionDelFirst.Enabled = EditLetters.Input.Text.Length > 1;
+      ActionDelFirst.Enabled = EditLetters.Input.Text.Length >= 1;
       ActionDelLast.Enabled = ActionDelFirst.Enabled;
       ActionClear.Enabled = enabled;
       ActionCopyToUnicode.Enabled = enabled;
@@ -757,11 +670,8 @@ namespace Ordisoftware.Hebrew.Letters
     {
       if ( EditLetters.Input.Text != "" )
       {
-
-//        meaningsWord[index] = letter.Name + " : " + string.Join(", ", LettersMeanings[letter.ValueSimple]);
-//        WordMeanings = string.Join(Environment.NewLine, meaningsWord);
-
-
+        //meaningsWord[index] = letter.Name + " : " + string.Join(", ", LettersMeanings[letter.ValueSimple]);
+        //WordMeanings = string.Join(Environment.NewLine, meaningsWord);
         Clipboard.SetText(WordMeanings);
         DisplayManager.ShowInformation(AppTranslations.CopyToClipboardInfosDone.GetLang());
       }
@@ -782,46 +692,9 @@ namespace Ordisoftware.Hebrew.Letters
       if ( EditCopyToClipboardCloseApp.Checked ) Close();
     }
 
-    private void ActionAnalyse_Click(object sender, EventArgs e)
-    {
-      DoAnalyse();
-    }
-
-    private void MeaningComboBox_SelectedIndexChanged(object sender, EventArgs e)
-    {
-      string str = "";
-      foreach ( var control in EditAnalyze.Controls )
-        if ( control is ComboBox )
-          str += ( ( control as ComboBox ).Text ?? "" ) + " ";
-      str = str == "" ? "" : str.Remove(str.Length - 1, 1);
-      EditSentence.Text = str;
-    }
-
     private void EditSentence_TextChanged(object sender, EventArgs e)
     {
       ActionCopyToClipboardResult.Enabled = EditSentence.Text != "";
-    }
-
-    private void BindingSource_DataError(object sender, BindingManagerDataErrorEventArgs e)
-    {
-      if ( !Globals.IsReady ) return;
-      e.Exception.Manage();
-      DataSet.RejectChanges();
-    }
-
-    private void EditMeanings_DataError(object sender, DataGridViewDataErrorEventArgs e)
-    {
-      if ( !Globals.IsReady ) return;
-      if ( e.Exception is ArgumentOutOfRangeException || e.Exception is IndexOutOfRangeException )
-      {
-        DisplayManager.ShowError("Internal index error." + Environment.NewLine +
-                                 "Application will exit." + Environment.NewLine + Environment.NewLine +
-                                 e.Exception.InnerException?.Message ?? "Unknown.");
-        DataSet.RejectChanges();
-        Application.Exit();
-      }
-      else
-        e.Exception.Manage();
     }
 
     private void EditLetters_ViewLetterDetails(LettersControl sender, string code)
@@ -850,48 +723,168 @@ namespace Ordisoftware.Hebrew.Letters
 
     }
 
-    private void TextBoxPositive_KeyPress(object sender, KeyPressEventArgs e)
+    private void ComboBoxCode_SelectedIndexChanged(object sender, EventArgs e)
     {
-      if ( !SQLiteOdbcHelper.CheckProcessConcurency() )
+      UpdateButtons();
+    }
+
+    private void ActionAddMeaning_Click(object sender, EventArgs e)
+    {
+      var row = DataSet.Meanings.NewMeaningsRow();
+      row.ID = Guid.NewGuid().ToString();
+      row.LetterCode = ComboBoxCode.Text;
+      row.Meaning = "";
+      DataSet.Meanings.AddMeaningsRow(row);
+      MeaningsBindingSource.ResetBindings(false);
+      MeaningsBindingSource.MoveLast();
+      EditMeanings.BeginEdit(false);
+      ActionAddMeaning.Enabled = false;
+      ActionDeleteMeaning.Enabled = false;
+      ToolStrip.Enabled = false;
+      PanelLetter.Enabled = false;
+    }
+
+    private void ActionDeleteMeaning_Click(object sender, EventArgs e)
+    {
+      if ( MeaningsBindingSource.Count < 1 ) return;
+      int pos = MeaningsBindingSource.Position;
+      MeaningsBindingSource.RemoveCurrent();
+      EditMeanings.EndEdit();
+      int count = MeaningsBindingSource.Count;
+      if ( count > 1 )
+        if ( pos >= count )
+        {
+          MeaningsBindingSource.MoveFirst();
+          MeaningsBindingSource.MoveLast();
+        }
+        else
+          MeaningsBindingSource.Position = pos;
+      SaveData();
+      UpdateButtons();
+    }
+
+    private void EditMeanings_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+    {
+      Globals.AllowClose = false;
+    }
+
+    private void EditMeanings_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+    {
+      var cell = EditMeanings[e.ColumnIndex, e.ColumnIndex];
+      cell.Value = ( (string)cell.Value ).Trim();
+      SaveData();
+      UpdateButtons();
+      Globals.AllowClose = true;
+    }
+
+    private void EditMeanings_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+    {
+      if ( e.FormattedValue == DBNull.Value || (string)e.FormattedValue == "" )
       {
-        e.KeyChar = '\0';
-        e.Handled = true;
+        e.Cancel = true;
+        EditMeanings.BeginEdit(false);
       }
+      else
+      {
+        ToolStrip.Enabled = true;
+        PanelLetter.Enabled = true;
+        UpdateButtons();
+      }
+    }
+
+    private void MeaningComboBox_SelectedIndexChanged(object sender, EventArgs e)
+    {
+      string str = "";
+      foreach ( var control in EditAnalyze.Controls )
+        if ( control is ComboBox )
+          str += ( ( control as ComboBox ).Text ?? "" ) + " ";
+      str = str == "" ? "" : str.Remove(str.Length - 1, 1);
+      EditSentence.Text = str;
+    }
+
+    private void BindingSource_DataError(object sender, BindingManagerDataErrorEventArgs e)
+    {
+      if ( !Globals.IsReady ) return;
+      e.Exception.Manage();
+      DataSet.RejectChanges();
+    }
+
+    private void EditMeanings_DataError(object sender, DataGridViewDataErrorEventArgs e)
+    {
+      if ( !Globals.IsReady ) return;
+      if ( e.Exception is ArgumentOutOfRangeException || e.Exception is IndexOutOfRangeException )
+      {
+        DisplayManager.ShowError("Internal index error.");
+        DataSet.RejectChanges();
+        e.Exception.Manage();
+        Application.Exit();
+      }
+      else
+        e.Exception.Manage();
     }
 
     private bool EditContextMenuMutex;
 
-    private void TextBoxPositive_ContextMenuEditOpening(object sender, System.ComponentModel.CancelEventArgs e)
+    private void TextBox_ContextMenuEditOpening(object sender, System.ComponentModel.CancelEventArgs e)
     {
       if ( EditContextMenuMutex ) return;
       EditContextMenuMutex = true;
-      bool enabled = SQLiteOdbcHelper.CheckProcessConcurency();
-      ( (ContextMenuStrip)sender ).Enabled = enabled;
+      ( (ContextMenuStrip)sender ).Enabled = !IsReadOnly;
     }
 
-    private void TextBoxPositive_ContextMenuEditOpened(object sender, EventArgs e)
+    private void TextBox_ContextMenuEditOpened(object sender, EventArgs e)
     {
       EditContextMenuMutex = false;
     }
 
-    private void TextBoxPositive_TextChanged(object sender, EventArgs e)
+    private bool EditMutex;
+
+    private void TextBox_TextChanged(object sender, EventArgs e)
     {
-      //LettersBindingSource.EndEdit();
-      //SaveData();
+      if ( EditMutex ) return;
+      EditMutex = true;
+      LettersBindingSource.EndEdit();
+      SaveData();
+      EditMutex = false;
+    }
+
+    private void TextBox_Leave(object sender, EventArgs e)
+    {
+      TextBox_TextChanged(sender, e);
+    }
+
+    private void TextBox_ContextMenuAction_Click(object sender, EventArgs e)
+    {
+      var textbox = UndoRedoTextBox.GetTextBox(sender);
+      if ( (string)textbox.Tag == "data" )
+        TextBox_TextChanged(sender, e);
     }
 
     private void SaveData()
     {
       if ( DataSet.HasChanges() )
-      {
-        if ( !SQLiteOdbcHelper.CheckProcessConcurency() )
-        {
+        if ( IsReadOnly )
           DataSet.RejectChanges();
-          return;
+        else
+        {
+          TableAdapterManager.UpdateAll(DataSet);
+          ApplicationStatistics.UpdateDBFileSizeRequired = true;
+          ApplicationStatistics.UpdateDBMemorySizeRequired = true;
         }
-        TableAdapterManager.UpdateAll(DataSet);
-        ApplicationStatistics.UpdateDBFileSizeRequired = true;
-        ApplicationStatistics.UpdateDBMemorySizeRequired = true;
+    }
+
+    private void UpdateButtons()
+    {
+      try
+      {
+        if ( ComboBoxCode.SelectedItem == null ) return;
+        var row = (Data.DataSet.LettersRow)( (DataRowView)ComboBoxCode.SelectedItem ).Row;
+        ActionAddMeaning.Enabled = !IsReadOnly;
+        ActionDeleteMeaning.Enabled = !IsReadOnly && row.GetMeaningsRows().Length > 0;
+      }
+      catch ( Exception ex )
+      {
+        ex.Manage();
       }
     }
 

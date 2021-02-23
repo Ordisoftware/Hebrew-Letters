@@ -129,10 +129,10 @@
       this.ActionOpenLexilogosModern = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionWebLinks = new System.Windows.Forms.ToolStripDropDownButton();
       this.ActionInformation = new System.Windows.Forms.ToolStripDropDownButton();
+      this.TimerProcesses = new System.Windows.Forms.Timer(this.components);
       this.LettersTableAdapter = new Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.LettersTableAdapter();
       this.TableAdapterManager = new Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.TableAdapterManager();
       this.MeaningsTableAdapter = new Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.MeaningsTableAdapter();
-      this.TimerProcesses = new System.Windows.Forms.Timer(this.components);
       LabelName = new System.Windows.Forms.Label();
       LabelStructure = new System.Windows.Forms.Label();
       LabelFunction = new System.Windows.Forms.Label();
@@ -450,13 +450,13 @@
       // 
       // PanelSettingsDetails
       // 
+      resources.ApplyResources(this.PanelSettingsDetails, "PanelSettingsDetails");
       this.PanelSettingsDetails.BackColor = System.Drawing.SystemColors.Control;
       this.PanelSettingsDetails.Controls.Add(this.PanelLetter);
       this.PanelSettingsDetails.Controls.Add(this.ActionDeleteMeaning);
       this.PanelSettingsDetails.Controls.Add(this.ActionAddMeaning);
       this.PanelSettingsDetails.Controls.Add(LabelMeanings);
       this.PanelSettingsDetails.Controls.Add(this.EditMeanings);
-      resources.ApplyResources(this.PanelSettingsDetails, "PanelSettingsDetails");
       this.PanelSettingsDetails.Name = "PanelSettingsDetails";
       // 
       // PanelLetter
@@ -496,10 +496,8 @@
       // 
       // LettersBindingSource
       // 
-      this.LettersBindingSource.AllowNew = true;
       this.LettersBindingSource.DataMember = "Letters";
       this.LettersBindingSource.DataSource = this.DataSet;
-      this.LettersBindingSource.DataError += new System.Windows.Forms.BindingManagerDataErrorEventHandler(this.BindingSource_DataError);
       // 
       // DataSet
       // 
@@ -513,14 +511,14 @@
       this.TextBoxStructure.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Structure", true));
       resources.ApplyResources(this.TextBoxStructure, "TextBoxStructure");
       this.TextBoxStructure.Name = "TextBoxStructure";
-      this.TextBoxStructure.ContextMenuEditOpening += new System.ComponentModel.CancelEventHandler(this.TextBoxPositive_ContextMenuEditOpening);
-      this.TextBoxStructure.ContextMenuEditOpened += new System.EventHandler(this.TextBoxPositive_ContextMenuEditOpened);
-      this.TextBoxStructure.TextChanged += new System.EventHandler(this.TextBoxPositive_TextChanged);
-      this.TextBoxStructure.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxPositive_KeyPress);
+      this.TextBoxStructure.Tag = "data";
+      this.TextBoxStructure.ContextMenuEditOpening += new System.ComponentModel.CancelEventHandler(this.TextBox_ContextMenuEditOpening);
+      this.TextBoxStructure.ContextMenuEditOpened += new System.EventHandler(this.TextBox_ContextMenuEditOpened);
+      this.TextBoxStructure.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+      this.TextBoxStructure.Leave += new System.EventHandler(this.TextBox_Leave);
       // 
       // LabelHebrew
       // 
-      this.LabelHebrew.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Hebrew", true));
       resources.ApplyResources(this.LabelHebrew, "LabelHebrew");
       this.LabelHebrew.Name = "LabelHebrew";
       // 
@@ -531,10 +529,11 @@
       this.TextBoxNegative.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Negative", true));
       resources.ApplyResources(this.TextBoxNegative, "TextBoxNegative");
       this.TextBoxNegative.Name = "TextBoxNegative";
-      this.TextBoxNegative.ContextMenuEditOpening += new System.ComponentModel.CancelEventHandler(this.TextBoxPositive_ContextMenuEditOpening);
-      this.TextBoxNegative.ContextMenuEditOpened += new System.EventHandler(this.TextBoxPositive_ContextMenuEditOpened);
-      this.TextBoxNegative.TextChanged += new System.EventHandler(this.TextBoxPositive_TextChanged);
-      this.TextBoxNegative.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxPositive_KeyPress);
+      this.TextBoxNegative.Tag = "data";
+      this.TextBoxNegative.ContextMenuEditOpening += new System.ComponentModel.CancelEventHandler(this.TextBox_ContextMenuEditOpening);
+      this.TextBoxNegative.ContextMenuEditOpened += new System.EventHandler(this.TextBox_ContextMenuEditOpened);
+      this.TextBoxNegative.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+      this.TextBoxNegative.Leave += new System.EventHandler(this.TextBox_Leave);
       // 
       // TextBoxName
       // 
@@ -553,10 +552,11 @@
       this.TextBoxFunction.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Function", true));
       resources.ApplyResources(this.TextBoxFunction, "TextBoxFunction");
       this.TextBoxFunction.Name = "TextBoxFunction";
-      this.TextBoxFunction.ContextMenuEditOpening += new System.ComponentModel.CancelEventHandler(this.TextBoxPositive_ContextMenuEditOpening);
-      this.TextBoxFunction.ContextMenuEditOpened += new System.EventHandler(this.TextBoxPositive_ContextMenuEditOpened);
-      this.TextBoxFunction.TextChanged += new System.EventHandler(this.TextBoxPositive_TextChanged);
-      this.TextBoxFunction.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxPositive_KeyPress);
+      this.TextBoxFunction.Tag = "data";
+      this.TextBoxFunction.ContextMenuEditOpening += new System.ComponentModel.CancelEventHandler(this.TextBox_ContextMenuEditOpening);
+      this.TextBoxFunction.ContextMenuEditOpened += new System.EventHandler(this.TextBox_ContextMenuEditOpened);
+      this.TextBoxFunction.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+      this.TextBoxFunction.Leave += new System.EventHandler(this.TextBox_Leave);
       // 
       // TextBoxPositive
       // 
@@ -565,10 +565,11 @@
       this.TextBoxPositive.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Positive", true));
       resources.ApplyResources(this.TextBoxPositive, "TextBoxPositive");
       this.TextBoxPositive.Name = "TextBoxPositive";
-      this.TextBoxPositive.ContextMenuEditOpening += new System.ComponentModel.CancelEventHandler(this.TextBoxPositive_ContextMenuEditOpening);
-      this.TextBoxPositive.ContextMenuEditOpened += new System.EventHandler(this.TextBoxPositive_ContextMenuEditOpened);
-      this.TextBoxPositive.TextChanged += new System.EventHandler(this.TextBoxPositive_TextChanged);
-      this.TextBoxPositive.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxPositive_KeyPress);
+      this.TextBoxPositive.Tag = "data";
+      this.TextBoxPositive.ContextMenuEditOpening += new System.ComponentModel.CancelEventHandler(this.TextBox_ContextMenuEditOpening);
+      this.TextBoxPositive.ContextMenuEditOpened += new System.EventHandler(this.TextBox_ContextMenuEditOpened);
+      this.TextBoxPositive.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+      this.TextBoxPositive.Leave += new System.EventHandler(this.TextBox_Leave);
       // 
       // TextBoxVerb
       // 
@@ -577,10 +578,11 @@
       this.TextBoxVerb.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Verb", true));
       resources.ApplyResources(this.TextBoxVerb, "TextBoxVerb");
       this.TextBoxVerb.Name = "TextBoxVerb";
-      this.TextBoxVerb.ContextMenuEditOpening += new System.ComponentModel.CancelEventHandler(this.TextBoxPositive_ContextMenuEditOpening);
-      this.TextBoxVerb.ContextMenuEditOpened += new System.EventHandler(this.TextBoxPositive_ContextMenuEditOpened);
-      this.TextBoxVerb.TextChanged += new System.EventHandler(this.TextBoxPositive_TextChanged);
-      this.TextBoxVerb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxPositive_KeyPress);
+      this.TextBoxVerb.Tag = "data";
+      this.TextBoxVerb.ContextMenuEditOpening += new System.ComponentModel.CancelEventHandler(this.TextBox_ContextMenuEditOpening);
+      this.TextBoxVerb.ContextMenuEditOpened += new System.EventHandler(this.TextBox_ContextMenuEditOpened);
+      this.TextBoxVerb.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+      this.TextBoxVerb.Leave += new System.EventHandler(this.TextBox_Leave);
       // 
       // TextBoxValueSimple
       // 
@@ -657,10 +659,8 @@
       // 
       // MeaningsBindingSource
       // 
-      this.MeaningsBindingSource.AllowNew = true;
       this.MeaningsBindingSource.DataMember = "Letters_Meanings";
       this.MeaningsBindingSource.DataSource = this.LettersBindingSource;
-      this.MeaningsBindingSource.DataError += new System.Windows.Forms.BindingManagerDataErrorEventHandler(this.BindingSource_DataError);
       // 
       // PanelSepTop
       // 
@@ -981,6 +981,11 @@
       this.ActionInformation.Name = "ActionInformation";
       this.ActionInformation.Padding = new System.Windows.Forms.Padding(5);
       // 
+      // TimerProcesses
+      // 
+      this.TimerProcesses.Interval = 5000;
+      this.TimerProcesses.Tick += new System.EventHandler(this.TimerProcesses_Tick);
+      // 
       // LettersTableAdapter
       // 
       this.LettersTableAdapter.ClearBeforeFill = true;
@@ -995,12 +1000,6 @@
       // MeaningsTableAdapter
       // 
       this.MeaningsTableAdapter.ClearBeforeFill = true;
-      // 
-      // TimerProcesses
-      // 
-      this.TimerProcesses.Enabled = true;
-      this.TimerProcesses.Interval = 2000;
-      this.TimerProcesses.Tick += new System.EventHandler(this.TimerProcesses_Tick);
       // 
       // MainForm
       // 
@@ -1076,14 +1075,9 @@
     private System.Windows.Forms.Panel PanelViewSettings;
     private System.Windows.Forms.ToolStripButton ActionViewAnalysis;
     private System.Windows.Forms.ToolStripButton ActionViewLetters;
-    internal Data.DataSet DataSet;
-    internal System.Windows.Forms.BindingSource LettersBindingSource;
-    private Data.DataSetTableAdapters.LettersTableAdapter LettersTableAdapter;
-    private Data.DataSetTableAdapters.TableAdapterManager TableAdapterManager;
     private Ordisoftware.Core.UndoRedoTextBox TextBoxName;
     private Ordisoftware.Core.UndoRedoTextBox TextBoxValueSimple;
     private Ordisoftware.Core.UndoRedoTextBox TextBoxValueFull;
-    private Data.DataSetTableAdapters.MeaningsTableAdapter MeaningsTableAdapter;
     private System.Windows.Forms.Panel PanelSettingsDetails;
     private System.Windows.Forms.LinkLabel ActionRestoreDefaults;
     private System.Windows.Forms.Button ActionDeleteMeaning;
@@ -1099,7 +1093,6 @@
     private System.Windows.Forms.Button ActionDelLast;
     private System.Windows.Forms.Button ActionDelFirst;
     private System.Windows.Forms.DataGridView EditMeanings;
-    private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
     private System.Windows.Forms.Label LabelHebrew;
     private System.Windows.Forms.ComboBox ComboBoxCode;
     private System.Windows.Forms.Panel PanelLetter;
@@ -1121,7 +1114,6 @@
     private System.Windows.Forms.ToolStripMenuItem ActionShowGrammarGuide;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
     private System.Windows.Forms.ToolStripMenuItem ActionShowMethodNotice;
-    internal System.Windows.Forms.BindingSource MeaningsBindingSource;
     internal Ordisoftware.Core.UndoRedoTextBox TextBoxStructure;
     internal Ordisoftware.Core.UndoRedoTextBox TextBoxFunction;
     internal Ordisoftware.Core.UndoRedoTextBox TextBoxVerb;
@@ -1139,5 +1131,12 @@
     private System.Windows.Forms.Button ActionSnapshot;
     private System.Windows.Forms.Timer TimerProcesses;
     internal System.Windows.Forms.ToolStripDropDownButton ActionInformation;
+    internal Data.DataSet DataSet;
+    private System.Windows.Forms.BindingSource LettersBindingSource;
+    private Data.DataSetTableAdapters.LettersTableAdapter LettersTableAdapter;
+    private Data.DataSetTableAdapters.TableAdapterManager TableAdapterManager;
+    private Data.DataSetTableAdapters.MeaningsTableAdapter MeaningsTableAdapter;
+    private System.Windows.Forms.BindingSource MeaningsBindingSource;
+    private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
   }
 }
