@@ -86,6 +86,27 @@ namespace Ordisoftware.Hebrew.Letters
     }
 
     /// <summary>
+    /// Enable double-buffering.
+    /// </summary>
+    protected override CreateParams CreateParams
+    {
+      get
+      {
+        CreateParams cp = base.CreateParams;
+        //if ( Settings.WindowsDoubleBufferingEnabled )
+          //switch ( Settings.CurrentView )
+          //{
+            //case ViewMode.Text:
+            //case ViewMode.Month:
+              cp.ExStyle |= 0x02000000; // + WS_EX_COMPOSITED
+              //cp.Style &= ~0x02000000;  // - WS_CLIPCHILDREN
+              //break;
+          //}
+        return cp;
+      }
+    }
+
+    /// <summary>
     /// Create system information menu items.
     /// </summary>
     internal void CreateSystemInformationMenu()
@@ -203,9 +224,9 @@ namespace Ordisoftware.Hebrew.Letters
       else
         ActionReset.Visible = false;
       if ( IsDBUpgraded && DisplayManager.QueryYesNo(SysTranslations.AskToCheckParametersAfterDatabaseUpgraded.GetLang()) )
-        SetView(ViewMode.Settings, true);
+        SetView(ViewMode.Settings, false);
       else
-        SetView(ViewMode.Analyse, true);
+        SetView(ViewMode.Analyse, false);
       if ( Settings.FirstLaunchV4 )
       {
         Settings.FirstLaunchV4 = false;
