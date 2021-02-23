@@ -210,7 +210,7 @@ Negative: Confusion
 Verb: Share
 Structure: Tooth
 Function: Moderation
-Meanings: Strength,Flesh,Home,Family,Friendship,Reduction,Blindness
+Meanings: Strength,Flesh,Home,Family,Friendship,Affection,Affinity,Reduction,Blindness
  
 TAV
 ValueSimple: 400
@@ -220,4 +220,4 @@ Negative: Fail
 Verb: Support
 Structure: Sign
 Function: Offering
-Meanings: Material,Substance,Synthesis,Union,Fusion,Goal,Outcome,Perfection,Grace,Music,Mark,Symbol
+Meanings: Material,Substance,Synthesis,Union,Fusion,Goal,Outcome,Achievement,Purpose,Perfection,Grace,Music,Mark,Symbol

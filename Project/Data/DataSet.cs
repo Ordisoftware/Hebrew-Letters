@@ -1,9 +1,11 @@
-﻿namespace Ordisoftware.HebrewLetters.Data
+﻿namespace Ordisoftware.Hebrew.Letters.Data
 {
 
   partial class DataSet
   {
-
+    partial class LettersDataTable
+    {
+    }
   }
 
 }

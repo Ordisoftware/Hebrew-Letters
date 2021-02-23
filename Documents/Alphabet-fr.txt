@@ -210,7 +210,7 @@ Negative: Confusion
 Verb: Partager
 Structure: Dent
 Function: Modération
-Meanings: Force,Chair,Foyer,Famille,Amitié,Réduction,Aveuglement
+Meanings: Force,Chair,Foyer,Famille,Amitié,Affection,Affinité,Réduction,Aveuglement
  
 TAV
 ValueSimple: 400
@@ -220,4 +220,4 @@ Negative: Échec
 Verb: Soutenir
 Structure: Signe
 Function: Offrande
-Meanings: Matière,Substance,Synthèse,Union,Fusion,But,Aboutissement,Perfection,Grâce,Musique,Marque,Symbole
+Meanings: Matière,Substance,Synthèse,Union,Fusion,But,Aboutissement,Accomplissement,Finalité,Perfection,Grâce,Musique,Marque,Symbole

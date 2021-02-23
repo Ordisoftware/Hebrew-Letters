@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Hebrew Letters.
-/// Copyright 2012-2020 Olivier Rogier.
+/// Copyright 2012-2021 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at 
@@ -13,10 +13,11 @@
 /// <created> 2016-04 </created>
 /// <edited> 2020-04 </edited>
 using System;
-using System.Linq;
-using Ordisoftware.HebrewCommon;
+using System.IO;
+using System.Windows.Forms;
+using Ordisoftware.Core;
 
-namespace Ordisoftware.HebrewLetters
+namespace Ordisoftware.Hebrew.Letters
 {
 
   /// <summary>
@@ -26,10 +27,10 @@ namespace Ordisoftware.HebrewLetters
   {
 
     /// <summary>
-    /// Indicate filename of the letters meanings.
+    /// Indicate file path of the letters meanings.
     /// </summary>
-    static public string MeaningsFilename
-      = Globals.DocumentsFolderPath + "Alphabet-%LANG%.txt";
+    static public string MeaningsFilePath
+      => Path.Combine(Globals.DocumentsFolderPath, "Alphabet-{0}.txt");
 
     /// <summary>
     /// Indicate the grammar guide form.
@@ -39,7 +40,8 @@ namespace Ordisoftware.HebrewLetters
       get
       {
         if ( _GrammarGuideForm == null )
-          _GrammarGuideForm = new HTMLBrowserForm(Globals.GrammarGuideTitle, Globals.GrammarGuideFilename,
+          _GrammarGuideForm = new HTMLBrowserForm(HebrewTranslations.GrammarGuideTitle,
+                                                  OnlineProviders.HebrewGrammarGuideFilePath,
                                                   nameof(Settings.GrammarGuideFormLocation),
                                                   nameof(Settings.GrammarGuideFormSize));
         return _GrammarGuideForm;
@@ -55,7 +57,8 @@ namespace Ordisoftware.HebrewLetters
       get
       {
         if ( _MethodGuideForm == null )
-          _MethodGuideForm = new HTMLBrowserForm(Globals.MethodNoticeTitle, Globals.MethodNoticeFilename,
+          _MethodGuideForm = new HTMLBrowserForm(HebrewTranslations.MethodNoticeTitle,
+                                                 OnlineProviders.LettriqMethodNoticeFilePath,
                                                  nameof(Settings.MethodNoticeFormLocation),
                                                  nameof(Settings.MethodNoticeFormSize));
         return _MethodGuideForm;
@@ -64,31 +67,55 @@ namespace Ordisoftware.HebrewLetters
     static public HTMLBrowserForm _MethodGuideForm;
 
     /// <summary>
-    /// Indicate the command line argument for word used at startup.
+    /// Indicate the command line argument for hebrew word used at startup.
     /// </summary>
-    static public string StartupWord
+    static public string StartupWordHebrew
     {
       get
       {
-        if ( _StartupWord == null )
-        {
-          string word = "";
-          if ( SystemHelper.CommandLineArguments != null && SystemHelper.CommandLineArguments.Length == 1 )
+        if ( _StartupWordHebrew.IsNullOrEmpty() )
+          try
           {
-            string str = Localizer.RemoveDiacritics(SystemHelper.CommandLineArguments[0]);
-            foreach ( char c in str )
-            {
-              string @char = Convert.ToString(c);
-              if ( HebrewAlphabet.Codes.Contains(@char) )
-                word += HebrewAlphabet.SetFinal(@char, false);
-            }
+            string word = ApplicationCommandLine.Instance?.WordHebrew ?? string.Empty;
+            if ( word.IsNullOrEmpty() )
+              if ( SystemManager.CommandLineArguments != null && SystemManager.CommandLineArguments.Length == 1 )
+                word = SystemManager.CommandLineArguments[0];
+            _StartupWordHebrew = HebrewAlphabet.IsHebrew(word) ? word.RemoveDiacritics() : string.Empty;
+            if ( _StartupWordUnicode.IsNullOrEmpty() )
+              _StartupWordUnicode = HebrewAlphabet.ConvertToUnicode(_StartupWordHebrew);
           }
-          _StartupWord = word;
-        }
-        return _StartupWord;
+          catch ( Exception ex )
+          {
+            MessageBox.Show(ex.Message, Globals.AssemblyTitle);
+          }
+        return _StartupWordHebrew;
       }
     }
-    static public string _StartupWord = null;
+    static private string _StartupWordHebrew = string.Empty;
+
+    /// <summary>
+    /// Indicate the command line argument for unicode word used at startup.
+    /// </summary>
+    static public string StartupWordUnicode
+    {
+      get
+      {
+        if ( _StartupWordUnicode.IsNullOrEmpty() )
+          try
+          {
+            string word = ApplicationCommandLine.Instance?.WordUnicode ?? string.Empty;
+            _StartupWordUnicode = HebrewAlphabet.IsUnicode(word) ? word.RemoveDiacritics() : string.Empty;
+            if ( _StartupWordHebrew.IsNullOrEmpty() )
+              _StartupWordHebrew = HebrewAlphabet.ConvertToHebrewFont(_StartupWordUnicode);
+          }
+          catch ( Exception ex )
+          {
+            MessageBox.Show(ex.Message, Globals.AssemblyTitle);
+          }
+        return _StartupWordUnicode;
+      }
+    }
+    static private string _StartupWordUnicode = string.Empty;
 
   }
 

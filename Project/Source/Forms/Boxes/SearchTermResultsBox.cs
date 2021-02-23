@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Hebrew Letters.
-/// Copyright 2016-2020 Olivier Rogier.
+/// Copyright 2016-2021 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at 
@@ -16,9 +16,8 @@ using System;
 using System.Linq;
 using System.Windows.Forms;
 using Ordisoftware.Core;
-using Ordisoftware.HebrewCommon;
 
-namespace Ordisoftware.HebrewLetters
+namespace Ordisoftware.Hebrew.Letters
 {
 
   public partial class SearchTermResultsBox : Form
@@ -45,7 +44,7 @@ namespace Ordisoftware.HebrewLetters
                   select letter;
       if ( query.Count() < 1 )
       {
-        DisplayManager.ShowInfo(Globals.TermNotFound.GetLang(term));
+        DisplayManager.ShowInformation(SysTranslations.TermNotFound.GetLang(term));
         return false;
       }
       var form = new SearchTermResultsBox();

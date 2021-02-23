@@ -6,12 +6,14 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{E4E4C05B-71ED-42DE-A2FA-345AE793A9AC}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Ordisoftware.HebrewLetters</RootNamespace>
-    <AssemblyName>Ordisoftware.HebrewLetters</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>Ordisoftware.Hebrew.Letters</RootNamespace>
+    <AssemblyName>Ordisoftware.Hebrew.Letters</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -23,10 +25,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <NoWarn>1587, 1591</NoWarn>
+    <DocumentationFile>..\Bin\Debug\Ordisoftware.Hebrew.Letters.xml</DocumentationFile>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>full</DebugType>
+    <DebugType>portable</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>..\Bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
@@ -34,10 +39,67 @@
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
     <DebugSymbols>true</DebugSymbols>
+    <NoWarn>1587, 1591</NoWarn>
+    <LangVersion>latest</LangVersion>
+    <AllowedReferenceRelatedFileExtensions>
+          *.pdb;
+          Ordisoftware*.xml
+    </AllowedReferenceRelatedFileExtensions>
+    <DocumentationFile>..\Bin\Release\Ordisoftware.Hebrew.Letters.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CommandLine, Version=2.8.0.0, Culture=neutral, PublicKeyToken=5a870481e358d379, processorArchitecture=MSIL">
+      <HintPath>packages\CommandLineParser.2.8.0\lib\net461\CommandLine.dll</HintPath>
+    </Reference>
+    <Reference Include="Enums.NET, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7ea1c1650d506225, processorArchitecture=MSIL">
+      <HintPath>packages\Enums.NET.4.0.0\lib\net45\Enums.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="FileHelpers, Version=3.4.2.0, Culture=neutral, PublicKeyToken=3e0c08d59cc3d657, processorArchitecture=MSIL">
+      <HintPath>packages\FileHelpers.3.4.2\lib\net45\FileHelpers.dll</HintPath>
+    </Reference>
+    <Reference Include="InputSimulatorStandard, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\InputSimulatorStandard.1.0.0\lib\netstandard2.0\InputSimulatorStandard.dll</HintPath>
+    </Reference>
+    <Reference Include="Markdig, Version=0.23.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Markdig.0.23.0\lib\net452\Markdig.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="MoreLinq, Version=3.3.2.0, Culture=neutral, PublicKeyToken=384d532d7e88985d, processorArchitecture=MSIL">
+      <HintPath>packages\morelinq.3.3.2\lib\net451\MoreLinq.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>packages\Serilog.2.10.0\lib\net46\Serilog.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Sinks.File, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>packages\Serilog.Sinks.File.4.1.0\lib\net45\Serilog.Sinks.File.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Sinks.WinForms, Version=2.2.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Serilog.Sinks.WinForms.2.2.5\lib\net46\Serilog.Sinks.WinForms.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
@@ -45,6 +107,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\DataSet.cs">
@@ -55,42 +118,187 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Dependencies\Core Library\AbortException.cs" />
-    <Compile Include="Dependencies\Core Library\Debugger.cs" />
-    <Compile Include="Dependencies\Core Library\ExceptionForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dependencies\Core Library\ExceptionForm.designer.cs">
-      <DependentUpon>ExceptionForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dependencies\Core Library\ExceptionInfo.cs" />
-    <Compile Include="Dependencies\Core Library\DisplayManager.ManageException.cs" />
-    <Compile Include="Dependencies\Core Library\DisplayManager.QueryBox.cs" />
-    <Compile Include="Dependencies\Core Library\DisplayManager.Show.cs" />
-    <Compile Include="Dependencies\Core Library\DisplayManager.SyncUI.cs" />
     <Compile Include="Dependencies\CultureManager\CultureManager.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Source\Common\EnumHelper.cs" />
-    <Compile Include="Source\Common\Globals.cs" />
-    <Compile Include="Source\Common\LettersControl.CreateLetters.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Source\Common\OnlineProviderItem.cs" />
-    <Compile Include="Source\Common\Globals.Translations.cs" />
-    <Compile Include="Source\Common\SQLiteHelper.cs" />
-    <Compile Include="Source\Common\HTMLBrowserForm.cs">
+    <Compile Include="Dependencies\Windows Global Hotkey\Hotkey.cs" />
+    <Compile Include="Dependencies\Windows Global Hotkey\HotkeyAction.cs" />
+    <Compile Include="Dependencies\Windows Global Hotkey\HotkeyEventArgs.cs" />
+    <Compile Include="Dependencies\Windows Global Hotkey\HotkeyForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Source\Common\HTMLBrowserForm.Designer.cs">
-      <DependentUpon>HTMLBrowserForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Source\Common\UndoRedoTextBox.cs">
+    <Compile Include="Dependencies\Windows Global Hotkey\HotkeyManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Source\Common\Core\Classes\Chronometer.cs" />
+    <Compile Include="Source\Common\Core\Classes\EnumHelper.cs" />
+    <Compile Include="Source\Common\Core\Classes\ExportAction.cs" />
+    <Compile Include="Source\Common\Core\Classes\ExportHelper.cs" />
+    <Compile Include="Source\Common\Core\Classes\ExportTarget.cs" />
+    <Compile Include="Source\Common\Core\Classes\NativeMethods.cs" />
+    <Compile Include="Source\Common\Core\Classes\ShellIcons.cs" />
+    <Compile Include="Source\Common\Core\Classes\SoundItem.cs" />
+    <Compile Include="Source\Common\Core\Classes\SoundSource.cs" />
+    <Compile Include="Source\Common\Core\Classes\StringHelper.cs" />
+    <Compile Include="Source\Common\Core\Classes\StringHelper.Format.cs" />
+    <Compile Include="Source\Common\Core\Classes\SystemCommandLine.cs" />
+    <Compile Include="Source\Common\Core\Classes\SystemHotKey.cs" />
+    <Compile Include="Source\Common\Core\Classes\SystemStatistics.cs" />
+    <Compile Include="Source\Common\Core\Classes\VolumeMixer.cs" />
+    <Compile Include="Source\Common\Core\Classes\WebCheckUpdate.cs" />
+    <Compile Include="Source\Common\Core\Collections\AutoResizedList.cs" />
+    <Compile Include="Source\Common\Core\Collections\NullSafeDictionary.cs" />
+    <Compile Include="Source\Common\Core\Collections\NullSafeList.cs" />
+    <Compile Include="Source\Common\Core\Collections\NullSafeOfEnumDictionary.cs" />
+    <Compile Include="Source\Common\Core\Collections\NullSafeOfStringDictionary.cs" />
+    <Compile Include="Source\Common\Core\Collections\NullSafeSortedDictionary.cs" />
+    <Compile Include="Source\Common\Core\Collections\NullSafeStringList.cs" />
+    <Compile Include="Source\Common\Core\Collections\SortedAutoDictionary.cs" />
+    <Compile Include="Source\Common\Core\Data\DataFile.cs" />
+    <Compile Include="Source\Common\Core\Data\DataFileFolder.cs" />
+    <Compile Include="Source\Common\Core\Data\SQLiteDate.cs" />
+    <Compile Include="Source\Common\Core\Data\SQLiteOdbcHelper.cs" />
+    <Compile Include="Source\Common\Core\Exceptions\AbortException.cs" />
+    <Compile Include="Source\Common\Core\Exceptions\ExceptionInfo.cs" />
+    <Compile Include="Source\Common\Core\Exceptions\NotImplementedExceptionEx.cs" />
+    <Compile Include="Source\Common\Core\Exceptions\SQLiteException.cs" />
+    <Compile Include="Source\Common\Core\Globalization\Languages.cs" />
+    <Compile Include="Source\Common\Core\Globalization\Localizer.cs" />
+    <Compile Include="Source\Common\Core\Globalization\SysTranslations.Application.cs" />
+    <Compile Include="Source\Common\Core\Globalization\SysTranslations.cs" />
+    <Compile Include="Source\Common\Core\Globalization\SysTranslations.Database.cs" />
+    <Compile Include="Source\Common\Core\Globalization\SysTranslations.Errors.cs" />
+    <Compile Include="Source\Common\Core\Globalization\SysTranslations.IO.cs" />
+    <Compile Include="Source\Common\Core\Globalization\SysTranslations.Processing.cs" />
+    <Compile Include="Source\Common\Core\Globalization\SysTranslations.Settings.cs" />
+    <Compile Include="Source\Common\Core\Globalization\SysTranslations.WebUpdate.cs" />
+    <Compile Include="Source\Common\Core\Globals\Globals.Assembly.cs" />
+    <Compile Include="Source\Common\Core\Globals\Globals.cs" />
+    <Compile Include="Source\Common\Core\Globals\Globals.Files.cs" />
+    <Compile Include="Source\Common\Core\Globals\Globals.Folders.cs" />
+    <Compile Include="Source\Common\Core\Globals\Globals.State.cs" />
+    <Compile Include="Source\Common\Core\Globals\Globals.Trace.cs" />
+    <Compile Include="Source\Common\Core\Managers.Debug\DebugManager.cs" />
+    <Compile Include="Source\Common\Core\Managers.Debug\DebugManager.Delegates.cs" />
+    <Compile Include="Source\Common\Core\Managers.Debug\DebugManager.Enums.cs" />
+    <Compile Include="Source\Common\Core\Managers.Debug\DebugManager.Listener.cs" />
+    <Compile Include="Source\Common\Core\Managers.Debug\DebugManager.Trace.cs" />
+    <Compile Include="Source\Common\Core\Managers.Display\DisplayManager.cs" />
+    <Compile Include="Source\Common\Core\Managers.Display\DisplayManager.Query.cs" />
+    <Compile Include="Source\Common\Core\Managers.Display\DisplayManager.Show.cs" />
+    <Compile Include="Source\Common\Core\Managers.System\SystemManager.cs" />
+    <Compile Include="Source\Common\Core\Managers.System\SystemManager.Platform.cs" />
+    <Compile Include="Source\Common\Core\Managers.System\SystemManager.Shell.cs" />
+    <Compile Include="Source\Common\Core\Managers.System\SystemManager.SSL.cs" />
+    <Compile Include="Source\Common\Core\WinForms.Controls\ControlLocation.cs" />
+    <Compile Include="Source\Common\Core\WinForms.Controls\FormsHelper.cs" />
+    <Compile Include="Source\Common\Core\WinForms.Controls\RichTextBoxEx.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Source\Common\UndoRedoTextBox.Designer.cs">
+    <Compile Include="Source\Common\Core\WinForms.Controls\ToolStripMenuItemHelper.cs" />
+    <Compile Include="Source\Common\Core\WinForms.Controls\UndoRedoTextBox.Actions.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Source\Common\Core\WinForms.Controls\UndoRedoTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Source\Common\Core\WinForms.Controls\UndoRedoTextBox.Designer.cs">
       <DependentUpon>UndoRedoTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Common\Core\WinForms.Controls\UndoRedoTextBox.Initialize.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Source\Common\Core\WinForms\DataFileEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Common\Core\WinForms\DataFileEditorForm.Designer.cs">
+      <DependentUpon>DataFileEditorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Common\Core\WinForms\ExceptionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Common\Core\WinForms\ExceptionForm.designer.cs">
+      <DependentUpon>ExceptionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Common\Core\WinForms\HTMLBrowserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Common\Core\WinForms\HTMLBrowserForm.Designer.cs">
+      <DependentUpon>HTMLBrowserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Common\Core\WinForms\LoadingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Common\Core\WinForms\LoadingForm.designer.cs">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Common\Core\WinForms\MessageBoxEx.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Common\Core\WinForms\MessageBoxEx.Designer.cs">
+      <DependentUpon>MessageBoxEx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Common\Core\WinForms\ShowTextForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Common\Core\WinForms\ShowTextForm.Designer.cs">
+      <DependentUpon>ShowTextForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Common\Core\WinForms\TraceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Common\Core\WinForms\TraceForm.Designer.cs">
+      <DependentUpon>TraceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Common\Core\WinForms\WebUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Common\Core\WinForms\WebUpdateForm.Designer.cs">
+      <DependentUpon>WebUpdateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Common\Hebrew\Classes\HebrewGlobals.cs" />
+    <Compile Include="Source\Common\Hebrew\Classes\HebrewTools.cs" />
+    <Compile Include="Source\Common\Hebrew\Classes\HebrewTranslations.cs" />
+    <Compile Include="Source\Common\Hebrew\Database\Parashah.cs" />
+    <Compile Include="Source\Common\Hebrew\Database\ParashotTable.cs" />
+    <Compile Include="Source\Common\Hebrew\Database\ParashotTable.Defaults.cs" />
+    <Compile Include="Source\Common\Hebrew\Database\ProcessLocksTable.cs" />
+    <Compile Include="Source\Common\Hebrew\Entities\Books.cs" />
+    <Compile Include="Source\Common\Hebrew\Entities\BooksBounds.cs" />
+    <Compile Include="Source\Common\Hebrew\Entities\BooksNames.BibleHub.cs" />
+    <Compile Include="Source\Common\Hebrew\Entities\BooksNames.Chabad.cs" />
+    <Compile Include="Source\Common\Hebrew\Entities\BooksNames.Common.cs" />
+    <Compile Include="Source\Common\Hebrew\Entities\BooksNames.Djep.cs" />
+    <Compile Include="Source\Common\Hebrew\Entities\BooksNames.Hebrew.cs" />
+    <Compile Include="Source\Common\Hebrew\Entities\BooksNames.LEvangile.cs" />
+    <Compile Include="Source\Common\Hebrew\Entities\BooksNames.MechonMamre.cs" />
+    <Compile Include="Source\Common\Hebrew\Entities\BooksNames.Original.cs" />
+    <Compile Include="Source\Common\Hebrew\Entities\BooksNames.StudyBible.cs" />
+    <Compile Include="Source\Common\Hebrew\Entities\HebrewAlphabet.cs" />
+    <Compile Include="Source\Common\Hebrew\Entities\HebrewMonths.cs" />
+    <Compile Include="Source\Common\Hebrew\Providers\OnlineProviderItem.cs" />
+    <Compile Include="Source\Common\Hebrew\Providers\OnlineProviders.cs" />
+    <Compile Include="Source\Common\Hebrew\Providers\OnlineProviders.Static.cs" />
+    <Compile Include="Source\Common\Hebrew\Providers\OnlineProvidersHelper.cs" />
+    <Compile Include="Source\Common\Hebrew\WinForms\CommonMenusControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Source\Common\Hebrew\WinForms\CommonMenusControl.Designer.cs">
+      <DependentUpon>CommonMenusControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Common\Hebrew\WinForms\LettersControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Source\Common\Hebrew\WinForms\LettersControl.Designer.cs">
+      <DependentUpon>LettersControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Common\Hebrew\WinForms\LettersControl.Redraw.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Source\Common\Hebrew\WinForms\SelectValueComboBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Source\Common\Hebrew\WinForms\SelectValueComboBox.Designer.cs">
+      <DependentUpon>SelectValueComboBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Forms\Boxes\SearchTermResultsBox.cs">
       <SubType>Form</SubType>
@@ -104,10 +312,18 @@
     <Compile Include="Source\Forms\Boxes\SearchTermBox.Designer.cs">
       <DependentUpon>SearchTermBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\Common\HebrewAlphabet.cs" />
-    <Compile Include="Source\Common\OnlineProviders.cs" />
-    <Compile Include="Source\Program\Translations.cs" />
-    <Compile Include="Source\Common\Localizer.cs" />
+    <Compile Include="Source\Forms\Config\PreferencesForm.Keys.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Forms\Config\StatisticsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Forms\Config\StatisticsForm.designer.cs">
+      <DependentUpon>StatisticsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Program\ApplicationStatistics.cs" />
+    <Compile Include="Source\Program\AppTranslations.cs" />
+    <Compile Include="Source\Program\ApplicationCommandLine.cs" />
     <Compile Include="Source\Program\SettingsHelper.cs" />
     <Compile Include="Source\Forms\MainForm\MainForm.DB.CreateSchema.cs">
       <SubType>Form</SubType>
@@ -115,7 +331,6 @@
     <Compile Include="Source\Forms\MainForm\MainForm.DB.CreateData.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Source\Common\ControlLocation.cs" />
     <Compile Include="Source\Forms\MainForm\ViewMode.cs" />
     <Compile Include="Source\Forms\Config\AboutBox.cs">
       <SubType>Form</SubType>
@@ -129,23 +344,15 @@
     <Compile Include="Source\Forms\MainForm\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\Forms\MainForm\MainForm.Analyse.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Source\Forms\MainForm\MainForm.Analyse.cs" />
     <Compile Include="Source\Forms\MainForm\MainForm.Keys.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Source\Forms\MainForm\MainForm.SetView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Source\Forms\MainForm\MainForm.Location.cs">
+    <Compile Include="Source\Forms\MainForm\MainForm.UpdateUI.cs">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Source\Common\LettersControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Source\Common\LettersControl.Designer.cs">
-      <DependentUpon>LettersControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Forms\Config\PreferencesForm.cs">
       <SubType>Form</SubType>
@@ -154,15 +361,7 @@
       <DependentUpon>PreferencesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Program\Program.cs" />
-    <Compile Include="Source\Common\OnlineProvidersHelper.cs" />
-    <Compile Include="Source\Common\SystemHelper.cs" />
     <Compile Include="Source\Program\Program.Vars.cs" />
-    <EmbeddedResource Include="Dependencies\Core Library\ExceptionForm.fr.resx">
-      <DependentUpon>ExceptionForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dependencies\Core Library\ExceptionForm.resx">
-      <DependentUpon>ExceptionForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -173,23 +372,86 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Source\Common\HTMLBrowserForm.fr.resx">
-      <DependentUpon>HTMLBrowserForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Source\Common\HTMLBrowserForm.resx">
-      <DependentUpon>HTMLBrowserForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Source\Common\UndoRedoTextBox.fr.resx">
+    <EmbeddedResource Include="Source\Common\Core\WinForms.Controls\UndoRedoTextBox.fr.resx">
       <DependentUpon>UndoRedoTextBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Source\Common\UndoRedoTextBox.resx">
+    <EmbeddedResource Include="Source\Common\Core\WinForms.Controls\UndoRedoTextBox.resx">
       <DependentUpon>UndoRedoTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Common\Core\WinForms\DataFileEditorForm.fr.resx">
+      <DependentUpon>DataFileEditorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Common\Core\WinForms\DataFileEditorForm.resx">
+      <DependentUpon>DataFileEditorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Common\Core\WinForms\ExceptionForm.fr.resx">
+      <DependentUpon>ExceptionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Common\Core\WinForms\ExceptionForm.resx">
+      <DependentUpon>ExceptionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Common\Core\WinForms\HTMLBrowserForm.fr.resx">
+      <DependentUpon>HTMLBrowserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Common\Core\WinForms\HTMLBrowserForm.resx">
+      <DependentUpon>HTMLBrowserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Common\Core\WinForms\LoadingForm.fr.resx">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Common\Core\WinForms\LoadingForm.resx">
+      <DependentUpon>LoadingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Common\Core\WinForms\MessageBoxEx.fr.resx">
+      <DependentUpon>MessageBoxEx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Common\Core\WinForms\MessageBoxEx.resx">
+      <DependentUpon>MessageBoxEx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Common\Core\WinForms\ShowTextForm.fr.resx">
+      <DependentUpon>ShowTextForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Common\Core\WinForms\ShowTextForm.resx">
+      <DependentUpon>ShowTextForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Common\Core\WinForms\TraceForm.fr.resx">
+      <DependentUpon>TraceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Common\Core\WinForms\TraceForm.resx">
+      <DependentUpon>TraceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Common\Core\WinForms\WebUpdateForm.fr.resx">
+      <DependentUpon>WebUpdateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Common\Core\WinForms\WebUpdateForm.resx">
+      <DependentUpon>WebUpdateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Common\Hebrew\WinForms\CommonMenusControl.fr.resx">
+      <DependentUpon>CommonMenusControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Common\Hebrew\WinForms\CommonMenusControl.resx">
+      <DependentUpon>CommonMenusControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Common\Hebrew\WinForms\LettersControl.fr.resx">
+      <DependentUpon>LettersControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Common\Hebrew\WinForms\LettersControl.resx">
+      <DependentUpon>LettersControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Common\Hebrew\WinForms\SelectValueComboBox.resx">
+      <DependentUpon>SelectValueComboBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\Boxes\SearchTermResultsBox.fr.resx">
       <DependentUpon>SearchTermResultsBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\Boxes\SearchTermResultsBox.resx">
       <DependentUpon>SearchTermResultsBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Forms\Config\StatisticsForm.fr.resx">
+      <DependentUpon>StatisticsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Forms\Config\StatisticsForm.resx">
+      <DependentUpon>StatisticsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\Config\AboutBox.fr.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
@@ -205,9 +467,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\MainForm\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Source\Common\LettersControl.resx">
-      <DependentUpon>LettersControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\Config\PreferencesForm.resx">
       <DependentUpon>PreferencesForm.cs</DependentUpon>
@@ -233,7 +492,10 @@
     <None Include="Data\DataSet.xss">
       <DependentUpon>DataSet.xsd</DependentUpon>
     </None>
-    <None Include="License\MPL 2.0.rtf" />
+    <None Include="Licenses\MPL 2.0.rtf" />
+    <None Include="Packages.config" />
+    <None Include="Properties\DataSources\ApplicationStatistics.datasource" />
+    <None Include="Properties\DataSources\Ordisoftware.Core.SystemStatistics.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -245,8 +507,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="License\MPL 2.0.htm" />
-    <Content Include="License\MPL 2.0.txt" />
+    <Content Include="Licenses\MPL 2.0.htm" />
+    <Content Include="Licenses\MPL 2.0.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

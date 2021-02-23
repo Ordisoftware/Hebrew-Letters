@@ -8,18 +8,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Ordisoftware.HebrewLetters.Properties
-{
-
-
-  /// <summary>
-  ///   Une classe de ressource fortement typée destinée, entre autres, à la consultation des chaînes localisées.
-  /// </summary>
-  // Cette classe a été générée automatiquement par la classe StronglyTypedResourceBuilder
-  // à l'aide d'un outil, tel que ResGen ou Visual Studio.
-  // Pour ajouter ou supprimer un membre, modifiez votre fichier .ResX, puis réexécutez ResGen
-  // avec l'option /str ou régénérez votre projet VS.
-  [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+namespace Ordisoftware.Hebrew.Letters.Properties {
+    using System;
+    
+    
+    /// <summary>
+    ///   Une classe de ressource fortement typée destinée, entre autres, à la consultation des chaînes localisées.
+    /// </summary>
+    // Cette classe a été générée automatiquement par la classe StronglyTypedResourceBuilder
+    // à l'aide d'un outil, tel que ResGen ou Visual Studio.
+    // Pour ajouter ou supprimer un membre, modifiez votre fichier .ResX, puis réexécutez ResGen
+    // avec l'option /str ou régénérez votre projet VS.
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -39,7 +39,7 @@ namespace Ordisoftware.HebrewLetters.Properties
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Ordisoftware.HebrewLetters.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Ordisoftware.Hebrew.Letters.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

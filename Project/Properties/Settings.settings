@@ -1,5 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Ordisoftware.HebrewLetters.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Ordisoftware.Hebrew.Letters.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
     <Setting Name="ConnectionString" Type="(Connection string)" Scope="Application">
@@ -10,7 +10,7 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Dsn=Hebrew-Letters</Value>
     </Setting>
-    <Setting Name="MainFormPosition" Type="Ordisoftware.HebrewCommon.ControlLocation" Scope="User">
+    <Setting Name="MainFormPosition" Type="Ordisoftware.Core.ControlLocation" Scope="User">
       <Value Profile="(Default)">Center</Value>
     </Setting>
     <Setting Name="MainFormLeft" Type="System.Int32" Scope="User">
@@ -37,7 +37,7 @@
     <Setting Name="UpgradeRequired" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="CurrentView" Type="Ordisoftware.HebrewLetters.ViewMode" Scope="User">
+    <Setting Name="CurrentView" Type="Ordisoftware.Hebrew.Letters.ViewMode" Scope="User">
       <Value Profile="(Default)">Analyse</Value>
     </Setting>
     <Setting Name="CopyToClipboardCloseApp" Type="System.Boolean" Scope="User">
@@ -46,8 +46,8 @@
     <Setting Name="CheckUpdateAtStartup" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="Language" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+    <Setting Name="LanguageSelected" Type="Ordisoftware.Core.Language" Scope="User">
+      <Value Profile="(Default)">None</Value>
     </Setting>
     <Setting Name="FontSizeSentence" Type="System.Decimal" Scope="User">
       <Value Profile="(Default)">10</Value>
@@ -59,7 +59,7 @@
       <Value Profile="(Default)">-1, -1</Value>
     </Setting>
     <Setting Name="GrammarGuideFormSize" Type="System.Drawing.Size" Scope="User">
-      <Value Profile="(Default)">392, 466</Value>
+      <Value Profile="(Default)">542, 666</Value>
     </Setting>
     <Setting Name="VacuumAtStartup" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
@@ -68,7 +68,7 @@
       <Value Profile="(Default)">-1, -1</Value>
     </Setting>
     <Setting Name="MethodNoticeFormSize" Type="System.Drawing.Size" Scope="User">
-      <Value Profile="(Default)">392, 466</Value>
+      <Value Profile="(Default)">542, 666</Value>
     </Setting>
     <Setting Name="AutoSortAnalysisMeanings" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
@@ -80,10 +80,64 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="HebrewTextBoxMaxLength" Type="System.Decimal" Scope="User">
-      <Value Profile="(Default)">20</Value>
+      <Value Profile="(Default)">12</Value>
     </Setting>
     <Setting Name="VacuumLastDone" Type="System.DateTime" Scope="User">
-      <Value Profile="(Default)">2020-01-01</Value>
+      <Value Profile="(Default)">2000-01-01</Value>
+    </Setting>
+    <Setting Name="WebLinksMenuEnabled" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="CheckUpdateLastDone" Type="System.DateTime" Scope="User">
+      <Value Profile="(Default)">2000-01-01</Value>
+    </Setting>
+    <Setting Name="TraceFormLocation" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">-1, -1</Value>
+    </Setting>
+    <Setting Name="TraceFormSize" Type="System.Drawing.Size" Scope="User">
+      <Value Profile="(Default)">884, 661</Value>
+    </Setting>
+    <Setting Name="TraceFormTextBoxFontSize" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">8</Value>
+    </Setting>
+    <Setting Name="TraceEnabled" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="SoundsEnabled" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="AdvancedDialogBoxes" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="FirstLaunch" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="StatisticsFormAlwaysOnTop" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="StatisticsFormLocation" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">-1, -1</Value>
+    </Setting>
+    <Setting Name="BenchmarkStartingApp" Type="System.Int64" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="BenchmarkLoadData" Type="System.Int64" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="CheckUpdateAtStartupDaysInterval" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">7</Value>
+    </Setting>
+    <Setting Name="ApplicationVolume" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="UsageStatisticsEnabled" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="VacuumAtStartupDaysInterval" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">7</Value>
+    </Setting>
+    <Setting Name="PreferencesFormSelectedTabIndex" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
     </Setting>
   </Settings>
 </SettingsFile>

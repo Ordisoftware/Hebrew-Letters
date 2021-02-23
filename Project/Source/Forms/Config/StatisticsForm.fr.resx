@@ -1,0 +1,328 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="dBFileSizeLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 13</value>
+  </data>
+  <data name="dBFileSizeLabel.Text" xml:space="preserve">
+    <value>Taille fichier :</value>
+  </data>
+  <data name="dBRecordsCountLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 13</value>
+  </data>
+  <data name="dBRecordsCountLabel.Text" xml:space="preserve">
+    <value>Significations :</value>
+  </data>
+  <data name="loadDataTimeLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 13</value>
+  </data>
+  <data name="loadDataTimeLabel.Text" xml:space="preserve">
+    <value>Chargement données :</value>
+  </data>
+  <data name="operatingSystemLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 13</value>
+  </data>
+  <data name="operatingSystemLabel.Text" xml:space="preserve">
+    <value>Plateforme :</value>
+  </data>
+  <data name="physicalMemoryFreeLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 13</value>
+  </data>
+  <data name="physicalMemoryFreeLabel.Text" xml:space="preserve">
+    <value>Mémoire physique libre :</value>
+  </data>
+  <data name="runningTimeLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 13</value>
+  </data>
+  <data name="runningTimeLabel.Text" xml:space="preserve">
+    <value>Durée :</value>
+  </data>
+  <data name="startingTimeLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 13</value>
+  </data>
+  <data name="startingTimeLabel.Text" xml:space="preserve">
+    <value>Démarrage complet :</value>
+  </data>
+  <data name="totalVisibleMemoryLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 13</value>
+  </data>
+  <data name="totalVisibleMemoryLabel.Text" xml:space="preserve">
+    <value>Mémoire visible totale :</value>
+  </data>
+  <data name="dBMemorySizeLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 13</value>
+  </data>
+  <data name="dBMemorySizeLabel.Text" xml:space="preserve">
+    <value>Taille mémoire:</value>
+  </data>
+  <data name="memoryPeakWorkingLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>151, 13</value>
+  </data>
+  <data name="memoryPeakWorkingLabel.Text" xml:space="preserve">
+    <value>Pic de mémoire du processus :</value>
+  </data>
+  <data name="memoryPrivateLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 13</value>
+  </data>
+  <data name="memoryPrivateLabel.Text" xml:space="preserve">
+    <value>Mémoire privée :</value>
+  </data>
+  <data name="memoryWorkingLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 13</value>
+  </data>
+  <data name="memoryWorkingLabel.Text" xml:space="preserve">
+    <value>Mémoire du processus :</value>
+  </data>
+  <data name="memoryGCLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 13</value>
+  </data>
+  <data name="memoryGCLabel.Text" xml:space="preserve">
+    <value>Utilisation mémoire GC :</value>
+  </data>
+  <data name="memoryPagedLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>94, 13</value>
+  </data>
+  <data name="memoryPagedLabel.Text" xml:space="preserve">
+    <value>Mémoire paginée :</value>
+  </data>
+  <data name="memoryPagedPeakLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>126, 13</value>
+  </data>
+  <data name="memoryPagedPeakLabel.Text" xml:space="preserve">
+    <value>Pic de mémoire paginée :</value>
+  </data>
+  <data name="memoryPagedSystemLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 13</value>
+  </data>
+  <data name="memoryPagedSystemLabel.Text" xml:space="preserve">
+    <value>Mémoire paginée système :</value>
+  </data>
+  <data name="cPULoadLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>66, 13</value>
+  </data>
+  <data name="cPULoadLabel.Text" xml:space="preserve">
+    <value>CPU Global :</value>
+  </data>
+  <data name="processPriorityLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 13</value>
+  </data>
+  <data name="processPriorityLabel.Text" xml:space="preserve">
+    <value>Priorité du processus : </value>
+  </data>
+  <data name="currentThreadPriorityLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 13</value>
+  </data>
+  <data name="currentThreadPriorityLabel.Text" xml:space="preserve">
+    <value>Priorité du thread :</value>
+  </data>
+  <data name="cPUNameLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 13</value>
+  </data>
+  <data name="cPUNameLabel.Text" xml:space="preserve">
+    <value>CPU :</value>
+  </data>
+  <data name="executableModeLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 13</value>
+  </data>
+  <data name="executableModeLabel.Text" xml:space="preserve">
+    <value>Type d'exécutable :</value>
+  </data>
+  <data name="memoryMaxGCUsageLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 13</value>
+  </data>
+  <data name="memoryMaxGCUsageLabel.Text" xml:space="preserve">
+    <value>Pic d'utilisation mémoire GC :</value>
+  </data>
+  <data name="dBEngineversionLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 13</value>
+  </data>
+  <data name="dBEngineversionLabel.Text" xml:space="preserve">
+    <value>Moteur :</value>
+  </data>
+  <data name="dBADONETAccessLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 13</value>
+  </data>
+  <data name="dBADONETAccessLabel.Text" xml:space="preserve">
+    <value>ADO.NET :</value>
+  </data>
+  <data name="processorTimeLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 13</value>
+  </data>
+  <data name="processorTimeLabel.Text" xml:space="preserve">
+    <value>Temps processeur :</value>
+  </data>
+  <data name="LabelApplication.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 13</value>
+  </data>
+  <data name="LabelApplication.Text" xml:space="preserve">
+    <value>Application :</value>
+  </data>
+  <data name="cPUProcessLoadMaxLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>98, 13</value>
+  </data>
+  <data name="cPUProcessLoadMaxLabel.Text" xml:space="preserve">
+    <value>CPU Process max :</value>
+  </data>
+  <data name="cPUProcessLoadLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 13</value>
+  </data>
+  <data name="cPUProcessLoadLabel.Text" xml:space="preserve">
+    <value>CPU Process :</value>
+  </data>
+  <data name="EditAlwaysOnTop.Size" type="System.Drawing.Size, System.Drawing">
+    <value>112, 17</value>
+  </data>
+  <data name="EditAlwaysOnTop.Text" xml:space="preserve">
+    <value>Toujours en avant</value>
+  </data>
+  <data name="ActionClose.Text" xml:space="preserve">
+    <value>Fermer</value>
+  </data>
+  <data name="GroupBoxTimings.Text" xml:space="preserve">
+    <value>Chronométrages</value>
+  </data>
+  <data name="GroupBoxDatabase.Text" xml:space="preserve">
+    <value>Base de données</value>
+  </data>
+  <data name="GroupBoxMemory.Text" xml:space="preserve">
+    <value>Mémoire</value>
+  </data>
+  <data name="GroupBoxSystem.Text" xml:space="preserve">
+    <value>Système</value>
+  </data>
+  <data name="GroupBoxRunning.Text" xml:space="preserve">
+    <value>Fonctionnement</value>
+  </data>
+  <data name="GroupBoxSystemLoad.Text" xml:space="preserve">
+    <value>Charge</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Statistiques</value>
+  </data>
+  <data name="cPUProcessLoadAvgLabel.Text" xml:space="preserve">
+    <value>CPU Process moyen :</value>
+  </data>
+  <data name="LabelCompiled.Text" xml:space="preserve">
+    <value>Compilé :</value>
+  </data>
+  <data name="dBCommonFileSizeLabel.Text" xml:space="preserve">
+    <value>Taille fichier commun :</value>
+  </data>
+</root>

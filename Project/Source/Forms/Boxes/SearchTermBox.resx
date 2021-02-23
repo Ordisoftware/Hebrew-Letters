@@ -223,7 +223,7 @@
     <value>EditTerm</value>
   </data>
   <data name="&gt;&gt;EditTerm.Type" xml:space="preserve">
-    <value>Ordisoftware.HebrewCommon.UndoRedoTextBox, Ordisoftware.HebrewLetters, Version=4.1.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.UndoRedoTextBox, Ordisoftware.Hebrew.Letters, Version=4.1.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;EditTerm.Parent" xml:space="preserve">
     <value>$this</value>

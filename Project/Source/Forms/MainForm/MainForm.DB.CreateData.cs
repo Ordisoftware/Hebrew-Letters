@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Hebrew Letters.
-/// Copyright 2016-2020 Olivier Rogier.
+/// Copyright 2016-2021 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at 
@@ -11,16 +11,14 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-01 </created>
-/// <edited> 2020-04 </edited>
+/// <edited> 2020-08 </edited>
 using System;
 using System.Data.Odbc;
-using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
 using Ordisoftware.Core;
-using Ordisoftware.HebrewCommon;
 
-namespace Ordisoftware.HebrewLetters
+namespace Ordisoftware.Hebrew.Letters
 {
 
   public partial class MainForm : Form
@@ -50,9 +48,7 @@ namespace Ordisoftware.HebrewLetters
           connection.Close();
           MeaningsTableAdapter.Fill(DataSet.Meanings);
           LettersTableAdapter.Fill(DataSet.Letters);
-          string lang = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
-          if ( lang != "fr" && lang != "en" ) lang = "en";
-          string data = File.ReadAllText(Program.MeaningsFilename.Replace("%LANG%", Localizer.Language),
+          string data = File.ReadAllText(string.Format(Program.MeaningsFilePath, Languages.CurrentCode.ToUpper()),
                                          System.Text.Encoding.Default);
           int indexStart = 0;
           Func<string, string> getStrValue = (name) =>
@@ -70,8 +66,8 @@ namespace Ordisoftware.HebrewLetters
           {
             var rowLetter = DataSet.Letters.NewLettersRow();
             rowLetter.Code = HebrewAlphabet.Codes[index];
-            rowLetter.Name = HebrewAlphabet.Names.GetLang()[index];
-            rowLetter.Hebrew = HebrewAlphabet.HebrewFontNames[index];
+            rowLetter.Name = HebrewAlphabet.Translitterations.GetLang()[index];
+            rowLetter.Hebrew = HebrewAlphabet.Names[index];
             rowLetter.ValueSimple = getIntValue("ValueSimple: ");
             rowLetter.ValueFull = getIntValue("ValueFull: ");
             rowLetter.Positive = getStrValue("Positive: ");
@@ -94,6 +90,7 @@ namespace Ordisoftware.HebrewLetters
         }
         finally
         {
+          command.Dispose();
           Globals.IsReady = temp;
         }
       }

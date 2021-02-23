@@ -1,18 +1,30 @@
 # Hebrew Letters
 
->This project follows the [Manufacturing Software Guidelines](https://github.com/Ordisoftware/Guidelines).
+> Licensed under the terms of the [Mozilla Public License 2.0](LICENSE)<br/>
+> This project follows the [Manufacturing Software Guidelines](https://github.com/Ordisoftware/Guidelines).<br/>
+> [Website](https://www.ordisoftware.com/projects/hebrew-letters)<br/>
+> [Twitter](https://twitter.com/ordisoftware)<br/>
 
->Licensed under the terms of the [Mozilla Public License 2.0](LICENSE)<br/>
->[Project Website](http://www.ordisoftware.com/projects/hebrew-letters)<br/>
->[Twitter](https://twitter.com/ordisoftware)<br/>
+A libre and open-source software written in C# that helps for the lettriq letter-by-letter study and analysis of hebrew words.
 
-A tool for Windows written in C# that allows the lettriq letter-by-letter study of hebrew words.
+## Table of content
+
+1. [Functionalities](#Functionalities)
+2. [Review](#Review)
+3. [Requirements](#Requirements)
+4. [Download](#Download)
+5. [Screenshots](#Screenshots)
+6. [Videos](#Videos)
+7. [Frequently asked questions](#Frequently-asked-questions)
+8. [Keyboard shortcuts](#Keyboard-shortcuts)
+9. [Future improvements](#Future-improvements)
+10. [Changelog](#Changelog)
 
 ## Functionalities
 
-- Hebrew letters database with their customizable meanings.
-- Analyse a word letter by letter to get a sentence describing its meaning.
-- Copy the result to clipboard.
+- Database of Hebrew letters with their customizable meanings.
+- Analyse a word letter by letter to get a sentence describing its sense.
+- Copy to the clipboard the analysis and the sentence or a screenshot.
 - English, French.
 
 ## Review
@@ -21,14 +33,18 @@ A tool for Windows written in C# that allows the lettriq letter-by-letter study 
 
 _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 
-![Note](http://www.ordisoftware.com/uploads/2019/10/softpedia4.5-1.png)
+[![Note](https://www.ordisoftware.com/theme/softpedia4.5-white.png)](https://www.softpedia.com/get/Others/Home-Education/Hebrew-Letters.shtml)
 
 ## Requirements
 
-- Windows Vista x32/x64 or higher
+- Windows 7 SP1 x32/x64 or higher
 - Screen 1024x768 or higher
-- Framework .NET 4.5
+- Framework .NET 4.7.2
 - SQLite ODBC Driver
+
+## Download
+
+[Last release](https://github.com/Ordisoftware/Hebrew-Letters/releases/latest)
 
 ## Screenshots
 
@@ -42,38 +58,109 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 
 #### How to install SQlite ODBC Driver?
 
-The setup tries to install the driver:
+The setup installs:
 
 - [sqliteodbc.exe](http://www.ch-werner.de/sqliteodbc/sqliteodbc.exe) on Windows 32-bit.
 - [sqliteodbc_w64.exe](http://www.ch-werner.de/sqliteodbc/sqliteodbc_w64.exe) on Windows 64-bit.
 
+In the event that an error message indicates that a DLL file could not be copied, it is usually due to the fact that an application using this driver already installed is running and is blocking the file. You can ignore this error or close the application in question and restart the installation to obtain a driver update.
+
 #### What to do in case of ODBC datasource connection error?
 
-The setup tries to register an ODBC DSN to the registry but in case of problem run "C:\Program Files\Ordisoftware\Hebrew Letters\Register ODBC.reg" or open the ODBC datasource manager (Admin tools in Windows' Control panel) and create a user datasource named "Hebrew-Letters" for "SQLite 3 ODBC Driver" with "Database Name" sets to:
+The software tries to register an ODBC DSN to the registry but in case of problem run:
 
-"%USERPROFILE%\AppData\Roaming\Ordisoftware\Hebrew Letters\Hebrew-Letters.sqlite"
+&emsp;`C:\Program Files\Ordisoftware\Hebrew Letters\System\RegisterODBC.reg`
+
+Or open the ODBC Datasource Manager (Admin tools in Windows' Control panel) and create a user datasource named:
+
+&emsp;`Hebrew-Letters` for `SQLite 3 ODBC Driver`
+
+With Database Name sets to:
+
+&emsp;`%USERPROFILE%\AppData\Roaming\Ordisoftware\Hebrew Letters\Hebrew-Letters.sqlite`
 
 Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
-#### Keyboard shortcuts
+#### What to do if the check update tells that the SSL certificate is wrong or expired?
 
-- F1 : Analyse view
-- F2 : Settings view
-- F3 : Search a term
-- Ctrl+M : Open the lettriq analysis method notice
-- Ctrl+G : Open the grammar guide
-- Ctrl+L : Open Shorashon web page
-- F8 : Preferences
-- F11 : Help
-- F12 : About
+The software verifies the validity of the certificate of the update server in addition to the SHA-512 checksum of the installation file before downloading and running it. This certificate is normally updated within the two months of its annual expiration and a new version is released. If the application has not been updated within this period, you can manually check the latest version available online.
+
+## Keyboard shortcuts
+
+| Keys | Actions |
+|-|-|
+| F1 | Analyse view |
+| F2 | Settings view |
+| F3 | Search a term |
+| Ctrl+N | Open a new window |
+| Ctrl+M | Open the lettriq analysis method notice |
+| Ctrl+G | Open the grammar guide |
+| Ctrl+L | Open Shorashon web page |
+| Ctrl+F11 | Current log window |
+| Ctrl+F12 | Statistics window |
+| F9 | Preferences |
+| F12 | About |
+| Alt + F4 (or Escape) | Close window |
+
+## Future improvements
+
+- Add option to enable/disable success dialogs.
+- Add sounds to clipboard actions.
+- Add keyboard shortcuts notice in windows settings menu.
+- Add export and import or merge data.
+- Add import and export database.
+- Add print data.
+- Rewrite advanced undo/redo.
+- Optimize ComboBoxes creation (the old system is really much slower on Windows 10 than 7).
 
 ## Changelog
 
-#### Future improvements
+#### 2021.03.12 - Version 5.0
 
-- Add context menu on letters buttons to open details of letter.
-- Add online search a word providers editor form.
-- Optimize comboboxes creation.
+- Add Windows double-buffering drawing to optimize startup.
+- Add context menu on letters' buttons to allow inserting a letter or open its parameters.
+- Add create a screenshot of the form.
+- Add open new window menu button.
+- Add concurrency control to avoid database editing when multiple instances are running.
+- Add permanent database file locking while running.
+- Add usage statistics form in tools menu.
+- Add option to set automatic web check update frequency.
+- Add option to enable or disable the web links menu.
+- Add option to enable or disable message boxes sounds.
+- Add option to set application's volume.
+- Add show usage statistics from about box.
+- Add check update from about box.
+- Fix pasting hebrew font whars removes special final letters.
+- Fix pasting unicode chars removes special final letters.
+- Improve copy and paste to support both hebrew font and unicode chars from context menu and keyboard.
+- Improve check update to allow auto update or direct download or open app web page.
+- Improve check update to verify the SSL certificate of the website and the checksum of the setup file.
+- Improve debugger to support logging.
+- Improve exception form to view log.
+- Improve message boxes.
+- Improve UI/UX.
+- Rework of the preferences form design to have a Tab Control with pages.
+- Change all TextBox for UndoRedoTextBox to have the new context menu.
+- Remove advanced undo/redo due to a problem that requires a complete rewrite to have the cursor not misplaced in certain cases.
+- Add Markdig NuGet package.
+- Add FileHelpers NuGet package.
+- Add Newtonsoft.Json NuGet package.
+- Add MoreLINQ NuGet package.
+- Add Enums.NET NuGet package.
+- Add Serilog NuGet package.
+- Add Serilog-sinks-file NuGet package.
+- Add Serilog-sinks-winforms NuGet package.
+- Add InputSimulatorStandard NuGet package.
+- Add Global Shortcut Manager dependency.
+- Replace simple internal command line parser by CommandLineParser NuGet package.
+- The application now automatically creates the ODBC DSN in the Windows registry.
+- Massive files and code refactoring.
+- Incorporate common code written since more than one year for Calendar.
+- Update to SQLite 3.32.3 ODBC Driver.
+- Update to Framework .NET 4.7.2 and supported Windows only 7 SP1 or higher.
+- Update setup.
+- Update web links.
+- Update help.
 
 #### 2020.04.23 - Version 4.1
 
