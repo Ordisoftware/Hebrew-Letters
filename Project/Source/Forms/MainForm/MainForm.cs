@@ -638,7 +638,8 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void ActionClear_Click(object sender, EventArgs e)
     {
-      EditLetters.Input.Text = "";
+      EditLetters.Input.SelectAll();
+      EditLetters.Input.Paste("");
       EditSentence.Text = "";
       EditGematriaSimple.Text = "";
       EditGematriaFull.Text = "";
@@ -856,8 +857,10 @@ namespace Ordisoftware.Hebrew.Letters
     private void TextBox_ContextMenuAction_Click(object sender, EventArgs e)
     {
       var textbox = UndoRedoTextBox.GetTextBox(sender);
-      if ( (string)textbox.Tag == "data" )
-        TextBox_TextChanged(sender, e);
+      if ( textbox != null )
+        if ( textbox.Tag is string )
+          if ( (string)textbox.Tag == "data" )
+            TextBox_TextChanged(sender, e);
     }
 
     private void SaveData()
