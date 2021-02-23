@@ -28,16 +28,8 @@ namespace Ordisoftware.Hebrew.Letters
       = new TranslationsDictionary
       {
         [Language.EN] = "Lettriq letter-by-letter analyzer of Hebrew words",
-        [Language.FR] = "Analyzer lettrique lettre-par-lettre des mots hébreux"
+        [Language.FR] = "Analyseur lettrique lettre-par-lettre des mots hébreux"
       };
-
-    static public readonly TranslationsDictionary CopyToClipboardInfosDone
-      = new TranslationsDictionary
-      {
-        [Language.EN] = "The information have been copied to the clipboard.",
-        [Language.FR] = "Les informations ont été copiées dans le presse-papier."
-      };
-
 
   }
 

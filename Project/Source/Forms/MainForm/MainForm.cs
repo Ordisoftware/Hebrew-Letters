@@ -674,7 +674,7 @@ namespace Ordisoftware.Hebrew.Letters
         //meaningsWord[index] = letter.Name + " : " + string.Join(", ", LettersMeanings[letter.ValueSimple]);
         //WordMeanings = string.Join(Environment.NewLine, meaningsWord);
         Clipboard.SetText(WordMeanings);
-        DisplayManager.ShowInformation(AppTranslations.CopyToClipboardInfosDone.GetLang());
+        DisplayManager.ShowInformation(SysTranslations.DataCopiedToClipboard.GetLang());
       }
     }
 
