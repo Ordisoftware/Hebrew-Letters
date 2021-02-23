@@ -48,6 +48,7 @@ namespace Ordisoftware.Hebrew.Letters
       InitializeComponent();
       Icon = MainForm.Instance.Icon;
       ActiveControl = ActionClose;
+      ActionViewStats.Enabled = Program.Settings.UsageStatisticsEnabled;
     }
 
     /// <summary>
@@ -112,6 +113,26 @@ namespace Ordisoftware.Hebrew.Letters
     private void ActionPrivacyNotice_Click(object sender, EventArgs e)
     {
       DisplayManager.ShowInformation(SysTranslations.NoticePrivacyNoData.GetLang());
+    }
+
+    /// <summary>
+    /// Event handler. Called by ActionViewStats for link clicked events.
+    /// </summary>
+    /// <param name="sender">Source of the event.</param>
+    /// <param name="e">Link clicked event information.</param>
+    private void ActionViewStats_Click(object sender, EventArgs e)
+    {
+      StatisticsForm.Run();
+    }
+
+    /// <summary>
+    /// Event handler. Called by ActionCheckUpdate for link clicked events.
+    /// </summary>
+    /// <param name="sender">Source of the event.</param>
+    /// <param name="e">Link clicked event information.</param>
+    private void ActionCheckUpdate_Click(object sender, EventArgs e)
+    {
+      MainForm.Instance.ActionWebCheckUpdate_Click(sender, EventArgs.Empty);
     }
 
   }

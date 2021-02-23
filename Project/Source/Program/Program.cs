@@ -14,7 +14,6 @@
 /// <edited> 2020-08 </edited>
 using System;
 using System.Drawing;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
 using System.Threading;
@@ -113,17 +112,6 @@ namespace Ordisoftware.Hebrew.Letters
         if ( form != MainForm.Instance && form != AboutBox.Instance
           && form != GrammarGuideForm && form != MethodNoticeForm )
           updateForm(form);
-      // Menu information
-      var control = new CommonMenusControl();
-      var menu = control.MenuInformation;
-      var list = new List<ToolStripItem>();
-      foreach ( ToolStripItem item in menu.DropDownItems ) list.Add(item);
-      menu.DropDownItems.Clear();
-      MainForm.Instance.ActionInformation.DropDownItems.Clear();
-      MainForm.Instance.ActionInformation.DropDownItems.AddRange(list.ToArray());
-      control.AboutBoxHandler = MainForm.Instance.ActionAbout_Click;
-      control.WebCheckUpdateHandler = MainForm.Instance.ActionWebCheckUpdate_Click;
-      MainForm.Instance.InitializeSpecialMenus();
       // Various updates
       DebugManager.TraceForm.Text = tempLogTitle;
       DebugManager.TraceForm.AppendText(tempLogContent);
@@ -132,6 +120,7 @@ namespace Ordisoftware.Hebrew.Letters
       AboutBox.Instance.AboutBox_Shown(null, null);
       GrammarGuideForm.HTMLBrowserForm_Shown(null, null);
       MethodNoticeForm.HTMLBrowserForm_Shown(null, null);
+      MainForm.Instance.CreateSystemInformationMenu();
     }
 
   }

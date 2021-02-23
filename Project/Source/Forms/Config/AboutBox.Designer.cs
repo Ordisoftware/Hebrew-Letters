@@ -37,6 +37,8 @@
       this.LabelDescription = new System.Windows.Forms.Label();
       this.PanelBottom = new System.Windows.Forms.Panel();
       this.ActionPrivacyNotice = new System.Windows.Forms.Button();
+      this.ActionCheckUpdate = new System.Windows.Forms.Button();
+      this.ActionViewStats = new System.Windows.Forms.Button();
       this.PanelBottom.SuspendLayout();
       this.SuspendLayout();
       // 
@@ -86,6 +88,8 @@
       // 
       // PanelBottom
       // 
+      this.PanelBottom.Controls.Add(this.ActionCheckUpdate);
+      this.PanelBottom.Controls.Add(this.ActionViewStats);
       this.PanelBottom.Controls.Add(this.ActionPrivacyNotice);
       this.PanelBottom.Controls.Add(this.ActionClose);
       resources.ApplyResources(this.PanelBottom, "PanelBottom");
@@ -100,6 +104,24 @@
       this.ActionPrivacyNotice.TabStop = false;
       this.ActionPrivacyNotice.UseVisualStyleBackColor = true;
       this.ActionPrivacyNotice.Click += new System.EventHandler(this.ActionPrivacyNotice_Click);
+      // 
+      // ActionCheckUpdate
+      // 
+      this.ActionCheckUpdate.AllowDrop = true;
+      this.ActionCheckUpdate.FlatAppearance.BorderSize = 0;
+      resources.ApplyResources(this.ActionCheckUpdate, "ActionCheckUpdate");
+      this.ActionCheckUpdate.Name = "ActionCheckUpdate";
+      this.ActionCheckUpdate.UseVisualStyleBackColor = true;
+      this.ActionCheckUpdate.Click += new System.EventHandler(this.ActionCheckUpdate_Click);
+      // 
+      // ActionViewStats
+      // 
+      this.ActionViewStats.AllowDrop = true;
+      this.ActionViewStats.FlatAppearance.BorderSize = 0;
+      resources.ApplyResources(this.ActionViewStats, "ActionViewStats");
+      this.ActionViewStats.Name = "ActionViewStats";
+      this.ActionViewStats.UseVisualStyleBackColor = true;
+      this.ActionViewStats.Click += new System.EventHandler(this.ActionViewStats_Click);
       // 
       // AboutBox
       // 
@@ -138,5 +160,7 @@
     private System.Windows.Forms.Label LabelDescription;
     private System.Windows.Forms.Panel PanelBottom;
     private System.Windows.Forms.Button ActionPrivacyNotice;
+    internal System.Windows.Forms.Button ActionCheckUpdate;
+    internal System.Windows.Forms.Button ActionViewStats;
   }
 }

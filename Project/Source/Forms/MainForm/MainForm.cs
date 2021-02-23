@@ -13,6 +13,7 @@
 /// <created> 2016-04 </created>
 /// <edited> 2021-02 </edited>
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Diagnostics;
@@ -45,6 +46,12 @@ namespace Ordisoftware.Hebrew.Letters
       Instance = new MainForm();
     }
 
+    private readonly Properties.Settings Settings = Program.Settings;
+
+    internal CommonMenusControl SystemInformationMenu;
+
+    private Stopwatch ChronoStart = new Stopwatch();
+
     /// <summary>
     /// INdicate last showned tooltip.
     /// </summary>
@@ -54,10 +61,6 @@ namespace Ordisoftware.Hebrew.Letters
     /// Indicate if database has been upgraded.
     /// </summary>
     private bool IsDBUpgraded;
-
-    private readonly Properties.Settings Settings = Program.Settings;
-
-    private Stopwatch ChronoStart = new Stopwatch();
 
     private string LastTermSearched;
 
@@ -83,10 +86,30 @@ namespace Ordisoftware.Hebrew.Letters
     }
 
     /// <summary>
+    /// Create system information menu items.
+    /// </summary>
+    internal void CreateSystemInformationMenu()
+    {
+      SystemInformationMenu = new CommonMenusControl(ActionAbout_Click,
+                                                     ActionWebCheckUpdate_Click,
+                                                     ActionViewLog_Click,
+                                                     ActionViewStats_Click);
+      var menu = SystemInformationMenu.MenuInformation;
+      var list = new List<ToolStripItem>();
+      foreach ( ToolStripItem item in menu.DropDownItems ) list.Add(item);
+      menu.DropDownItems.Clear();
+      ActionInformation.DropDownItems.Clear();
+      ActionInformation.DropDownItems.AddRange(list.ToArray());
+      InitializeSpecialMenus();
+    }
+
+    /// <summary>
     /// Create providers and web links menu items.
     /// </summary>
     internal void InitializeSpecialMenus()
     {
+      SystemInformationMenu.ActionViewStats.Enabled = Settings.UsageStatisticsEnabled;
+      SystemInformationMenu.ActionViewLog.Enabled = DebugManager.TraceEnabled;
       ActionWebLinks.Visible = Settings.WebLinksMenuEnabled;
       if ( Settings.WebLinksMenuEnabled )
         ActionWebLinks.InitializeFromWebLinks(InitializeSpecialMenus);
@@ -152,9 +175,9 @@ namespace Ordisoftware.Hebrew.Letters
         Environment.Exit(-1);
       }
       ComboBoxCode_SelectedIndexChanged(null, null);
-      ActionViewStats.Enabled = Settings.UsageStatisticsEnabled;
-      ActionViewLog.Enabled = DebugManager.TraceEnabled;
-      DebugManager.TraceEnabledChanged += value => ActionViewLog.Enabled = value;
+      SystemInformationMenu.ActionViewStats.Enabled = Settings.UsageStatisticsEnabled;
+      SystemInformationMenu.ActionViewLog.Enabled = DebugManager.TraceEnabled;
+      DebugManager.TraceEnabledChanged += value => SystemInformationMenu.ActionViewLog.Enabled = value;
       Globals.IsReady = true;
     }
 
@@ -450,6 +473,28 @@ namespace Ordisoftware.Hebrew.Letters
     }
 
     /// <summary>
+    /// Event handler. Called by ActionExit for click events.
+    /// </summary>
+    /// <param name="sender">Source of the event.</param>
+    /// <param name="e">Event information.</param>
+    private void ActionExit_Click(object sender, EventArgs e)
+    {
+      if ( Globals.AllowClose )
+        Close();
+    }
+
+    /// <summary>
+    /// Event handler. Called by ActionExit for mouse up events.
+    /// </summary>
+    /// <param name="sender">Source of the event.</param>
+    /// <param name="e">Event information.</param>
+    private void ActionExit_MouseUp(object sender, MouseEventArgs e)
+    {
+      if ( e.Button == MouseButtons.Right )
+        ActionExit_Click(ActionExit, null);
+    }
+
+    /// <summary>
     /// Event handler. Called by ActionAbout for click events.
     /// </summary>
     /// <param name="sender">Source of the event.</param>
@@ -477,28 +522,6 @@ namespace Ordisoftware.Hebrew.Letters
       else
       if ( Visible )
         BringToFront();
-    }
-
-    /// <summary>
-    /// Event handler. Called by ActionExit for click events.
-    /// </summary>
-    /// <param name="sender">Source of the event.</param>
-    /// <param name="e">Event information.</param>
-    private void ActionExit_Click(object sender, EventArgs e)
-    {
-      if ( Globals.AllowClose )
-        Close();
-    }
-
-    /// <summary>
-    /// Event handler. Called by ActionExit for mouse up events.
-    /// </summary>
-    /// <param name="sender">Source of the event.</param>
-    /// <param name="e">Event information.</param>
-    private void ActionExit_MouseUp(object sender, MouseEventArgs e)
-    {
-      if ( e.Button == MouseButtons.Right )
-        ActionExit_Click(ActionExit, null);
     }
 
     internal void ActionViewLog_Click(object sender, EventArgs e)

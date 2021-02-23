@@ -127,9 +127,6 @@
       this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
       this.ActionOpenLexilogosOld = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionOpenLexilogosModern = new System.Windows.Forms.ToolStripMenuItem();
-      this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-      this.ActionViewLog = new System.Windows.Forms.ToolStripMenuItem();
-      this.ActionViewStats = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionWebLinks = new System.Windows.Forms.ToolStripDropDownButton();
       this.ActionInformation = new System.Windows.Forms.ToolStripDropDownButton();
       this.LettersTableAdapter = new Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.LettersTableAdapter();
@@ -927,10 +924,7 @@
             this.ActionOpenShorashon,
             this.toolStripSeparator3,
             this.ActionOpenLexilogosOld,
-            this.ActionOpenLexilogosModern,
-            this.toolStripSeparator5,
-            this.ActionViewLog,
-            this.ActionViewStats});
+            this.ActionOpenLexilogosModern});
       this.ActionTools.Name = "ActionTools";
       // 
       // ActionShowMethodNotice
@@ -975,23 +969,6 @@
       this.ActionOpenLexilogosModern.Name = "ActionOpenLexilogosModern";
       this.ActionOpenLexilogosModern.Tag = "https://www.lexilogos.com/hebreu_moderne_dictionnaire.htm";
       this.ActionOpenLexilogosModern.Click += new System.EventHandler(this.ActionOpenWebsiteURL_Click);
-      // 
-      // toolStripSeparator5
-      // 
-      this.toolStripSeparator5.Name = "toolStripSeparator5";
-      resources.ApplyResources(this.toolStripSeparator5, "toolStripSeparator5");
-      // 
-      // ActionViewLog
-      // 
-      resources.ApplyResources(this.ActionViewLog, "ActionViewLog");
-      this.ActionViewLog.Name = "ActionViewLog";
-      this.ActionViewLog.Click += new System.EventHandler(this.ActionViewLog_Click);
-      // 
-      // ActionViewStats
-      // 
-      resources.ApplyResources(this.ActionViewStats, "ActionViewStats");
-      this.ActionViewStats.Name = "ActionViewStats";
-      this.ActionViewStats.Click += new System.EventHandler(this.ActionViewStats_Click);
       // 
       // ActionWebLinks
       // 
@@ -1159,9 +1136,6 @@
     internal System.Windows.Forms.ToolStripMenuItem EditUseAdvancedDialogBoxes;
     internal System.Windows.Forms.ToolStripMenuItem EditSoundsEnabled;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-    private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-    internal System.Windows.Forms.ToolStripMenuItem ActionViewLog;
-    internal System.Windows.Forms.ToolStripMenuItem ActionViewStats;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
     private System.Windows.Forms.ToolStripButton ActionNewInstance;
     private System.Windows.Forms.Button ActionSnapshot;

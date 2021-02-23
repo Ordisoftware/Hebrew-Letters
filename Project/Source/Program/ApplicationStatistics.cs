@@ -76,6 +76,21 @@ namespace Ordisoftware.Hebrew.Letters
     static private string _DBMemorySize;
     static internal bool UpdateDBMemorySizeRequired = true;
 
+    public string DBCommonFileSize
+    {
+      get
+      {
+        if ( UpdateDBCommonFileSizeRequired )
+        {
+          UpdateDBCommonFileSizeRequired = false;
+          _DBCommonFileSize = SystemManager.GetFileSize(Globals.CommonDatabaseFilePath).FormatBytesSize().ToString();
+        }
+        return _DBCommonFileSize;
+      }
+    }
+    static private string _DBCommonFileSize;
+    static internal bool UpdateDBCommonFileSizeRequired = true;
+
   }
 
 }

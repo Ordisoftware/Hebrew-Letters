@@ -385,4 +385,7 @@
   <data name="LabelCompiled.Text" xml:space="preserve">
     <value>Compilé :</value>
   </data>
+  <data name="dBCommonFileSizeLabel.Text" xml:space="preserve">
+    <value>Taille fichier commun :</value>
+  </data>
 </root>
