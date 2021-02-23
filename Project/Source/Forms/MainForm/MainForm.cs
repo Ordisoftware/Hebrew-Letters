@@ -670,9 +670,9 @@ namespace Ordisoftware.Hebrew.Letters
     {
       if ( EditLetters.Input.Text != "" )
       {
-        // TODO redo
-        //meaningsWord[index] = letter.Name + " : " + string.Join(", ", LettersMeanings[letter.ValueSimple]);
-        //WordMeanings = string.Join(Environment.NewLine, meaningsWord);
+        var controls = EditAnalyze.Controls.OfType<Label>();
+        var list = controls.Select(label => label.Text + " : " + string.Join(", ", (object[])( (ComboBox)label.Tag ).Tag));
+        WordMeanings = string.Join(Globals.NL, list);
         Clipboard.SetText(WordMeanings);
         DisplayManager.ShowInformation(SysTranslations.DataCopiedToClipboard.GetLang());
       }
