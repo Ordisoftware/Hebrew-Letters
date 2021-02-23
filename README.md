@@ -108,7 +108,7 @@ The software verifies the validity of the certificate of the update server in ad
 - Add import data.
 - Add import and export database.
 - Rewrite advanced undo/redo.
-- Optimize ComboBoxes creation (the old system is really much slower on Windows 10 than 7).
+- Optimize more ComboBoxes creation.
 
 ## Changelog
 
@@ -118,6 +118,7 @@ The software verifies the validity of the certificate of the update server in ad
 >- Add sounds to clipboard actions.
 >- Add keyboard shortcuts notice in windows settings menu.
 
+- Optimize ComboBoxes creation (the old system is really much slower on Windows 10 than 7).
 - Add Windows double-buffering drawing to optimize startup.
 - Add context menu on letters' buttons to allow inserting a letter or open its parameters.
 - Add create a screenshot of the form.
