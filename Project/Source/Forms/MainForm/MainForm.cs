@@ -83,8 +83,10 @@ namespace Ordisoftware.Hebrew.Letters
     /// </summary>
     private string WordMeanings = "";
 
-    [DllImport("User32.dll", CharSet = CharSet.Auto)]
+    // TODO remove
+    /*[DllImport("User32.dll", CharSet = CharSet.Auto)]
     private static extern IntPtr SetClipboardViewer(IntPtr hWndNewViewer);
+    private IntPtr ClipboardViewerNext;*/
 
     /// <summary>
     /// Default constructor.
@@ -102,6 +104,8 @@ namespace Ordisoftware.Hebrew.Letters
       UndoRedoTextBox.ActionCut.Click += TextBox_ContextMenuAction_Click;
       UndoRedoTextBox.ActionPaste.Click += TextBox_ContextMenuAction_Click;
       UndoRedoTextBox.ActionDelete.Click += TextBox_ContextMenuAction_Click;
+      // TODO remove
+      //ClipboardViewerNext = SetClipboardViewer(Handle);
     }
 
     /// <summary>
@@ -221,7 +225,6 @@ namespace Ordisoftware.Hebrew.Letters
       {
         ActionReset.Visible = true;
         EditLetters.Input.Text = Program.StartupWordHebrew;
-        //EditLetters.TextBox.SelectAll();
         EditLetters.TextBox.Refresh();
       }
       else
@@ -303,30 +306,23 @@ namespace Ordisoftware.Hebrew.Letters
       Close();
     }
 
+    // TODO remove
     /// <summary>
     /// Clipboard monitoring.
     /// </summary>
-    protected override void WndProc(ref Message m)
+    /*protected override void WndProc(ref Message m)
     {
       const int WM_DRAWCLIPBOARD = 0x308;
       switch ( m.Msg )
       {
         case WM_DRAWCLIPBOARD:
-          string str = Clipboard.GetText();
-          bool isValid = false;
-          foreach ( char c in str )
-            if ( c != ' ' && HebrewAlphabet.ConvertToKey(c) != ' ' )
-            {
-              isValid = true;
-              break;
-            }
-          ActionPasteFromUnicode.Enabled = isValid;
+          ActionPasteFromUnicode.Enabled = HebrewAlphabet.IsUnicode(Clipboard.GetText());
           break;
         default:
           base.WndProc(ref m);
           break;
       }
-    }
+    }*/
 
     /// <summary>
     /// Update preferences menu state.
@@ -652,11 +648,14 @@ namespace Ordisoftware.Hebrew.Letters
       EditLetters.Focus();
     }
 
+    // TODO remove
     private void ActionPasteFromUnicode_Click(object sender, EventArgs e)
     {
-      string str = Clipboard.GetText();
-      EditLetters.Input.Text = HebrewAlphabet.ConvertToHebrewFont(new string(str.ToArray())).Replace(" ", "");
-      EditLetters.Focus();
+      /*string str = Clipboard.GetText();
+      str = HebrewAlphabet.ConvertToHebrewFont(str).Replace(" ", ""); ;
+      str = HebrewAlphabet.UnFinalAll(str);
+      EditLetters.Input.Text = str;
+      EditLetters.Focus();*/
     }
 
     private void ActionCopyToUnicode_Click(object sender, EventArgs e)
@@ -670,6 +669,7 @@ namespace Ordisoftware.Hebrew.Letters
     {
       if ( EditLetters.Input.Text != "" )
       {
+        // TODO redo
         //meaningsWord[index] = letter.Name + " : " + string.Join(", ", LettersMeanings[letter.ValueSimple]);
         //WordMeanings = string.Join(Environment.NewLine, meaningsWord);
         Clipboard.SetText(WordMeanings);
