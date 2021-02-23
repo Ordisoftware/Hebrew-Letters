@@ -5,7 +5,7 @@
 > [Website](https://www.ordisoftware.com/projects/hebrew-letters)<br/>
 > [Twitter](https://twitter.com/ordisoftware)<br/>
 
-A libre and open-source software written in C# that helps for the lettriq letter-by-letter study and analysis of hebrew words.
+A libre and open-source software written in C# that helps for the lettriq letter-by-letter study and analysis of Hebrew words.
 
 ## Table of content
 
@@ -104,18 +104,19 @@ The software verifies the validity of the certificate of the update server in ad
 
 ## Future improvements
 
-- Add option to enable/disable success dialogs.
-- Add sounds to clipboard actions.
-- Add keyboard shortcuts notice in windows settings menu.
-- Add export and import or merge data.
-- Add import and export database.
 - Add print data.
+- Add import data.
+- Add import and export database.
 - Rewrite advanced undo/redo.
 - Optimize ComboBoxes creation (the old system is really much slower on Windows 10 than 7).
 
 ## Changelog
 
 #### 2021.03.12 - Version 5.0
+
+>- Add export and import or merge data.
+>- Add sounds to clipboard actions.
+>- Add keyboard shortcuts notice in windows settings menu.
 
 - Add Windows double-buffering drawing to optimize startup.
 - Add context menu on letters' buttons to allow inserting a letter or open its parameters.
@@ -130,9 +131,9 @@ The software verifies the validity of the certificate of the update server in ad
 - Add option to set application's volume.
 - Add show usage statistics from about box.
 - Add check update from about box.
-- Fix pasting hebrew font whars removes special final letters.
+- Fix pasting Hebrew font whars removes special final letters.
 - Fix pasting unicode chars removes special final letters.
-- Improve copy and paste to support both hebrew font and unicode chars from context menu and keyboard.
+- Improve copy and paste to support both Hebrew font and unicode chars from context menu and keyboard.
 - Improve check update to allow auto update or direct download or open app web page.
 - Improve check update to verify the SSL certificate of the website and the checksum of the setup file.
 - Improve debugger to support logging.
@@ -167,9 +168,9 @@ The software verifies the validity of the certificate of the update server in ad
 - Add select all (Ctrl+A) and undo/redo support for text boxes.
 - Add undo/redo & copy/cut/paste context menu for text boxes.
 - Add backspace key management for text boxes.
-- Fix copy/cut/paste of hebrew text box.
+- Fix copy/cut/paste of Hebrew text box.
 - Fix inserting a letter at the caret when clicking on letters buttons.
-- Add option to set the max length of the textbox of the hebrew input panel.
+- Add option to set the max length of the textbox of the Hebrew input panel.
 - Improve auto optimize database at startup that is done once a week.
 - Improve debugger to create a GitHub issue.
 - Optimize startup time.
@@ -205,7 +206,7 @@ The software verifies the validity of the certificate of the update server in ad
 - Add search a term.
 - Add letters values in the input panel.
 - Add copy/cut/paste for the input box.
-- Add copy hebrew unicode to clipboard button.
+- Add copy Hebrew unicode to clipboard button.
 - Add paste from unicode clipboard content button.
 - Add online search from several providers (Pealim, Google, Bing, Wiktionary, Sefaria, Reverso, Glosbe, Dict.com).
 - Add  links to Shorashon and Lexilogos.
