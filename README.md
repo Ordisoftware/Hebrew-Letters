@@ -146,6 +146,7 @@ The software verifies the validity of the certificate of the update server in ad
 - Add Enums.NET NuGet package.
 - Add Serilog NuGet package.
 - Add Serilog-sinks-file NuGet package.
+- Add Serilog-sinks-winforms NuGet package.
 - Add InputSimulatorStandard NuGet package.
 - Add Global Shortcut Manager dependency.
 - Replace simple internal command line parser by CommandLineParser NuGet package.
