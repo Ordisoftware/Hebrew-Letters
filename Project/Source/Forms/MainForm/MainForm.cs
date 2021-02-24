@@ -115,6 +115,7 @@ namespace Ordisoftware.Hebrew.Letters
       menu.DropDownItems.Clear();
       ActionInformation.DropDownItems.Clear();
       ActionInformation.DropDownItems.AddRange(list.ToArray());
+      SystemInformationMenu.InitializeVersionNewsMenuItems(AppTranslations.NoticeNewFeatures);
       InitializeSpecialMenus();
     }
 
@@ -231,6 +232,13 @@ namespace Ordisoftware.Hebrew.Letters
         SystemManager.TryCatch(Settings.Save);
         ActionShowMethodNotice.PerformClick();
       }
+      if ( Settings.FirstLaunchV5_0 )
+        SystemManager.TryCatch(() =>
+        {
+          Settings.FirstLaunchV5_0 = false;
+          var menuitem = SystemInformationMenu.ActionViewVersionNews.DropDownItems.Cast<ToolStripItem>().LastOrDefault();
+          if ( menuitem != null ) menuitem.PerformClick();
+        });
     }
 
     /// <summary>
