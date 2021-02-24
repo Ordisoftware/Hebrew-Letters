@@ -46,7 +46,7 @@ namespace Ordisoftware.Hebrew.Letters
                           "Rework of the preferences window design with more options." + Globals.NL2 +
                           "Fixed and improved copy, paste and delete for both Hebrew font chars and unicode." + Globals.NL2 +
                           "Incorporate common code written since more than one year for Hebrew Calendar." + Globals.NL2 +
-                          "Added news in version in the Information menu." + Globals.NL2 +
+                          "Added new in version in the Information menu." + Globals.NL2 +
                           "Modification and addition of web links and online providers for the study of words and verses of the Bible." + Globals.NL2 +
                           "Some improvements in appearance and function.",
 
