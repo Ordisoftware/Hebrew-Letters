@@ -512,10 +512,10 @@
       resources.ApplyResources(this.TextBoxStructure, "TextBoxStructure");
       this.TextBoxStructure.Name = "TextBoxStructure";
       this.TextBoxStructure.Tag = "data";
-      this.TextBoxStructure.ContextMenuEditOpening += new System.ComponentModel.CancelEventHandler(this.TextBox_ContextMenuEditOpening);
-      this.TextBoxStructure.ContextMenuEditOpened += new System.EventHandler(this.TextBox_ContextMenuEditOpened);
-      this.TextBoxStructure.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
-      this.TextBoxStructure.Leave += new System.EventHandler(this.TextBox_Leave);
+      this.TextBoxStructure.ContextMenuEditOpening += new System.ComponentModel.CancelEventHandler(this.TextBoxData_ContextMenuEditOpening);
+      this.TextBoxStructure.ContextMenuEditOpened += new System.EventHandler(this.TextBoxData_ContextMenuEditOpened);
+      this.TextBoxStructure.TextChanged += new System.EventHandler(this.TextBoxData_TextChanged);
+      this.TextBoxStructure.Leave += new System.EventHandler(this.TextBoxData_Leave);
       // 
       // LabelHebrew
       // 
@@ -530,10 +530,10 @@
       resources.ApplyResources(this.TextBoxNegative, "TextBoxNegative");
       this.TextBoxNegative.Name = "TextBoxNegative";
       this.TextBoxNegative.Tag = "data";
-      this.TextBoxNegative.ContextMenuEditOpening += new System.ComponentModel.CancelEventHandler(this.TextBox_ContextMenuEditOpening);
-      this.TextBoxNegative.ContextMenuEditOpened += new System.EventHandler(this.TextBox_ContextMenuEditOpened);
-      this.TextBoxNegative.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
-      this.TextBoxNegative.Leave += new System.EventHandler(this.TextBox_Leave);
+      this.TextBoxNegative.ContextMenuEditOpening += new System.ComponentModel.CancelEventHandler(this.TextBoxData_ContextMenuEditOpening);
+      this.TextBoxNegative.ContextMenuEditOpened += new System.EventHandler(this.TextBoxData_ContextMenuEditOpened);
+      this.TextBoxNegative.TextChanged += new System.EventHandler(this.TextBoxData_TextChanged);
+      this.TextBoxNegative.Leave += new System.EventHandler(this.TextBoxData_Leave);
       // 
       // TextBoxName
       // 
@@ -553,10 +553,10 @@
       resources.ApplyResources(this.TextBoxFunction, "TextBoxFunction");
       this.TextBoxFunction.Name = "TextBoxFunction";
       this.TextBoxFunction.Tag = "data";
-      this.TextBoxFunction.ContextMenuEditOpening += new System.ComponentModel.CancelEventHandler(this.TextBox_ContextMenuEditOpening);
-      this.TextBoxFunction.ContextMenuEditOpened += new System.EventHandler(this.TextBox_ContextMenuEditOpened);
-      this.TextBoxFunction.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
-      this.TextBoxFunction.Leave += new System.EventHandler(this.TextBox_Leave);
+      this.TextBoxFunction.ContextMenuEditOpening += new System.ComponentModel.CancelEventHandler(this.TextBoxData_ContextMenuEditOpening);
+      this.TextBoxFunction.ContextMenuEditOpened += new System.EventHandler(this.TextBoxData_ContextMenuEditOpened);
+      this.TextBoxFunction.TextChanged += new System.EventHandler(this.TextBoxData_TextChanged);
+      this.TextBoxFunction.Leave += new System.EventHandler(this.TextBoxData_Leave);
       // 
       // TextBoxPositive
       // 
@@ -566,10 +566,10 @@
       resources.ApplyResources(this.TextBoxPositive, "TextBoxPositive");
       this.TextBoxPositive.Name = "TextBoxPositive";
       this.TextBoxPositive.Tag = "data";
-      this.TextBoxPositive.ContextMenuEditOpening += new System.ComponentModel.CancelEventHandler(this.TextBox_ContextMenuEditOpening);
-      this.TextBoxPositive.ContextMenuEditOpened += new System.EventHandler(this.TextBox_ContextMenuEditOpened);
-      this.TextBoxPositive.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
-      this.TextBoxPositive.Leave += new System.EventHandler(this.TextBox_Leave);
+      this.TextBoxPositive.ContextMenuEditOpening += new System.ComponentModel.CancelEventHandler(this.TextBoxData_ContextMenuEditOpening);
+      this.TextBoxPositive.ContextMenuEditOpened += new System.EventHandler(this.TextBoxData_ContextMenuEditOpened);
+      this.TextBoxPositive.TextChanged += new System.EventHandler(this.TextBoxData_TextChanged);
+      this.TextBoxPositive.Leave += new System.EventHandler(this.TextBoxData_Leave);
       // 
       // TextBoxVerb
       // 
@@ -579,10 +579,10 @@
       resources.ApplyResources(this.TextBoxVerb, "TextBoxVerb");
       this.TextBoxVerb.Name = "TextBoxVerb";
       this.TextBoxVerb.Tag = "data";
-      this.TextBoxVerb.ContextMenuEditOpening += new System.ComponentModel.CancelEventHandler(this.TextBox_ContextMenuEditOpening);
-      this.TextBoxVerb.ContextMenuEditOpened += new System.EventHandler(this.TextBox_ContextMenuEditOpened);
-      this.TextBoxVerb.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
-      this.TextBoxVerb.Leave += new System.EventHandler(this.TextBox_Leave);
+      this.TextBoxVerb.ContextMenuEditOpening += new System.ComponentModel.CancelEventHandler(this.TextBoxData_ContextMenuEditOpening);
+      this.TextBoxVerb.ContextMenuEditOpened += new System.EventHandler(this.TextBoxData_ContextMenuEditOpened);
+      this.TextBoxVerb.TextChanged += new System.EventHandler(this.TextBoxData_TextChanged);
+      this.TextBoxVerb.Leave += new System.EventHandler(this.TextBoxData_Leave);
       // 
       // TextBoxValueSimple
       // 
