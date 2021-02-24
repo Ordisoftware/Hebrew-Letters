@@ -780,59 +780,57 @@
   <data name="&gt;&gt;ActionSearchOnline.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="ActionPasteFromUnicode.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="ActionPaste.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="ActionPasteFromUnicode.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="ActionPaste.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         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
-        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
+        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
+        AElFTkSuQmCC
 </value>
   </data>
-  <data name="ActionPasteFromUnicode.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="ActionPaste.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="ActionPasteFromUnicode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>556, 32</value>
+  <data name="ActionPaste.Location" type="System.Drawing.Point, System.Drawing">
+    <value>533, 141</value>
   </data>
-  <data name="ActionPasteFromUnicode.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="ActionPaste.Size" type="System.Drawing.Size, System.Drawing">
     <value>42, 42</value>
   </data>
-  <data name="ActionPasteFromUnicode.TabIndex" type="System.Int32, mscorlib">
+  <data name="ActionPaste.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <data name="ActionPasteFromUnicode.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="&gt;&gt;ActionPaste.Name" xml:space="preserve">
+    <value>ActionPaste</value>
   </data>
-  <data name="&gt;&gt;ActionPasteFromUnicode.Name" xml:space="preserve">
-    <value>ActionPasteFromUnicode</value>
-  </data>
-  <data name="&gt;&gt;ActionPasteFromUnicode.Type" xml:space="preserve">
+  <data name="&gt;&gt;ActionPaste.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ActionPasteFromUnicode.Parent" xml:space="preserve">
+  <data name="&gt;&gt;ActionPaste.Parent" xml:space="preserve">
     <value>PanelViewSearch</value>
   </data>
-  <data name="&gt;&gt;ActionPasteFromUnicode.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;ActionPaste.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
   <data name="ActionCopyToUnicode.Enabled" type="System.Boolean, mscorlib">
@@ -868,7 +866,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionCopyToUnicode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>533, 141</value>
+    <value>584, 141</value>
   </data>
   <data name="ActionCopyToUnicode.Size" type="System.Drawing.Size, System.Drawing">
     <value>42, 42</value>

@@ -18,7 +18,6 @@ using System.Data;
 using System.Drawing;
 using System.Diagnostics;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Microsoft.Win32;
 using Ordisoftware.Core;
@@ -83,11 +82,6 @@ namespace Ordisoftware.Hebrew.Letters
     /// </summary>
     private string WordMeanings = "";
 
-    // TODO remove
-    /*[DllImport("User32.dll", CharSet = CharSet.Auto)]
-    private static extern IntPtr SetClipboardViewer(IntPtr hWndNewViewer);
-    private IntPtr ClipboardViewerNext;*/
-
     /// <summary>
     /// Default constructor.
     /// </summary>
@@ -104,8 +98,6 @@ namespace Ordisoftware.Hebrew.Letters
       UndoRedoTextBox.ActionCut.Click += TextBox_ContextMenuAction_Click;
       UndoRedoTextBox.ActionPaste.Click += TextBox_ContextMenuAction_Click;
       UndoRedoTextBox.ActionDelete.Click += TextBox_ContextMenuAction_Click;
-      // TODO remove
-      //ClipboardViewerNext = SetClipboardViewer(Handle);
     }
 
     /// <summary>
@@ -305,24 +297,6 @@ namespace Ordisoftware.Hebrew.Letters
           catch { }
       Close();
     }
-
-    // TODO remove
-    /// <summary>
-    /// Clipboard monitoring.
-    /// </summary>
-    /*protected override void WndProc(ref Message m)
-    {
-      const int WM_DRAWCLIPBOARD = 0x308;
-      switch ( m.Msg )
-      {
-        case WM_DRAWCLIPBOARD:
-          ActionPasteFromUnicode.Enabled = HebrewAlphabet.IsUnicode(Clipboard.GetText());
-          break;
-        default:
-          base.WndProc(ref m);
-          break;
-      }
-    }*/
 
     /// <summary>
     /// Update preferences menu state.
@@ -649,14 +623,11 @@ namespace Ordisoftware.Hebrew.Letters
       EditLetters.Focus();
     }
 
-    // TODO remove
-    private void ActionPasteFromUnicode_Click(object sender, EventArgs e)
+    private void ActionPaste_Click(object sender, EventArgs e)
     {
-      /*string str = Clipboard.GetText();
-      str = HebrewAlphabet.ConvertToHebrewFont(str).Replace(" ", ""); ;
-      str = HebrewAlphabet.UnFinalAll(str);
-      EditLetters.Input.Text = str;
-      EditLetters.Focus();*/
+      ActiveControl = EditLetters.Input;
+      EditLetters.Input.SelectAll();
+      UndoRedoTextBox.ActionPaste.PerformClick();
     }
 
     private void ActionCopyToUnicode_Click(object sender, EventArgs e)

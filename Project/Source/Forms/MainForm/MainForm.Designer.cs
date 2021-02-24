@@ -57,7 +57,7 @@
       this.ActionSearchOnline = new System.Windows.Forms.Button();
       this.ContextMenuSearchOnline = new System.Windows.Forms.ContextMenuStrip(this.components);
       this.ActionOpenWordOnline = new System.Windows.Forms.ToolStripMenuItem();
-      this.ActionPasteFromUnicode = new System.Windows.Forms.Button();
+      this.ActionPaste = new System.Windows.Forms.Button();
       this.ActionCopyToUnicode = new System.Windows.Forms.Button();
       this.ActionClear = new System.Windows.Forms.Button();
       this.ActionSnapshot = new System.Windows.Forms.Button();
@@ -264,7 +264,7 @@
       this.PanelViewSearch.Controls.Add(this.EditCopyToClipboardCloseApp);
       this.PanelViewSearch.Controls.Add(this.EditAnalyze);
       this.PanelViewSearch.Controls.Add(this.ActionSearchOnline);
-      this.PanelViewSearch.Controls.Add(this.ActionPasteFromUnicode);
+      this.PanelViewSearch.Controls.Add(this.ActionPaste);
       this.PanelViewSearch.Controls.Add(this.ActionCopyToUnicode);
       this.PanelViewSearch.Controls.Add(this.ActionClear);
       this.PanelViewSearch.Controls.Add(this.ActionSnapshot);
@@ -356,13 +356,13 @@
       resources.ApplyResources(this.ActionOpenWordOnline, "ActionOpenWordOnline");
       this.ActionOpenWordOnline.Name = "ActionOpenWordOnline";
       // 
-      // ActionPasteFromUnicode
+      // ActionPaste
       // 
-      this.ActionPasteFromUnicode.FlatAppearance.BorderSize = 0;
-      resources.ApplyResources(this.ActionPasteFromUnicode, "ActionPasteFromUnicode");
-      this.ActionPasteFromUnicode.Name = "ActionPasteFromUnicode";
-      this.ActionPasteFromUnicode.UseVisualStyleBackColor = true;
-      this.ActionPasteFromUnicode.Click += new System.EventHandler(this.ActionPasteFromUnicode_Click);
+      this.ActionPaste.FlatAppearance.BorderSize = 0;
+      resources.ApplyResources(this.ActionPaste, "ActionPaste");
+      this.ActionPaste.Name = "ActionPaste";
+      this.ActionPaste.UseVisualStyleBackColor = true;
+      this.ActionPaste.Click += new System.EventHandler(this.ActionPaste_Click);
       // 
       // ActionCopyToUnicode
       // 
@@ -1099,7 +1099,6 @@
     private System.Windows.Forms.Button ActionCopyToUnicode;
     private System.Windows.Forms.Button ActionSearchOnline;
     private System.Windows.Forms.ContextMenuStrip ContextMenuSearchOnline;
-    private System.Windows.Forms.Button ActionPasteFromUnicode;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     private System.Windows.Forms.ToolStripButton ActionSearchTerm;
     private System.Windows.Forms.ToolStripDropDownButton ActionTools;
@@ -1138,5 +1137,6 @@
     private Data.DataSetTableAdapters.MeaningsTableAdapter MeaningsTableAdapter;
     private System.Windows.Forms.BindingSource MeaningsBindingSource;
     private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+    private System.Windows.Forms.Button ActionPaste;
   }
 }
