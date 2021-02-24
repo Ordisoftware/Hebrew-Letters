@@ -44,6 +44,21 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 
 ## Download
 
+**What's new in the latest version**
+
+- Startup and combo boxes creation are optimized.
+- Modification of the database is only possible by one instance at a time.
+- New top menu icon to open a new window.
+- New context menu on letters' buttons.
+- New screenshot button.
+- New usage statistics window.
+- Rework of the preferences window design with more options.
+- Fixed and improved copy, paste and delete for both Hebrew font chars and unicode.
+- Incorporate common code written since more than one year for Hebrew Calendar.
+- Added news in version in the Information menu.
+- Modification and addition of web links and online providers for the study of words and verses of the Bible.
+- Some improvements in appearance and function.
+
 [Last release](https://github.com/Ordisoftware/Hebrew-Letters/releases/latest)
 
 ## Screenshots
@@ -130,9 +145,10 @@ The software verifies the validity of the certificate of the update server in ad
 - Add option to enable or disable the web links menu.
 - Add option to enable or disable message boxes sounds.
 - Add option to set application's volume.
+- Add news in version notice in the Information menu.
 - Add show usage statistics from about box.
 - Add check update from about box.
-- Fix pasting Hebrew font whars removes special final letters.
+- Fix pasting Hebrew font chars removes special final letters.
 - Fix pasting unicode chars removes special final letters.
 - Improve copy and paste to support both Hebrew font and unicode chars from context menu and keyboard.
 - Improve check update to allow auto update or direct download or open app web page.
