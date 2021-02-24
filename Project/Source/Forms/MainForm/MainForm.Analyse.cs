@@ -62,7 +62,7 @@ namespace Ordisoftware.Hebrew.Letters
           label.Tag = combobox;
           combobox.Width = 200;
           combobox.Height = 21;
-          combobox.Left = 155;
+          combobox.Left = 160;
           combobox.Top = 16 + dy;
           combobox.DropDownStyle = ComboBoxStyle.DropDownList;
           combobox.SelectedIndexChanged += MeaningComboBox_SelectedIndexChanged;

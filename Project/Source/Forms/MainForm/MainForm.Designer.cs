@@ -106,10 +106,13 @@
       this.EditScreenBottomRight = new System.Windows.Forms.ToolStripMenuItem();
       this.EditScreenCenter = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionResetWinSettings = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+      this.ActionShowKeyboardNotice = new System.Windows.Forms.ToolStripMenuItem();
       this.Sep7 = new System.Windows.Forms.ToolStripSeparator();
+      this.EditShowTips = new System.Windows.Forms.ToolStripMenuItem();
       this.EditUseAdvancedDialogBoxes = new System.Windows.Forms.ToolStripMenuItem();
       this.EditSoundsEnabled = new System.Windows.Forms.ToolStripMenuItem();
-      this.EditShowTips = new System.Windows.Forms.ToolStripMenuItem();
+      this.EditShowSuccessDialogs = new System.Windows.Forms.ToolStripMenuItem();
       this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
       this.EditESCtoExit = new System.Windows.Forms.ToolStripMenuItem();
       this.EditConfirmClosing = new System.Windows.Forms.ToolStripMenuItem();
@@ -744,10 +747,13 @@
       this.ActionSettings.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MenuitemScreenPosition,
             this.ActionResetWinSettings,
+            this.toolStripSeparator5,
+            this.ActionShowKeyboardNotice,
             this.Sep7,
+            this.EditShowTips,
             this.EditUseAdvancedDialogBoxes,
             this.EditSoundsEnabled,
-            this.EditShowTips,
+            this.EditShowSuccessDialogs,
             this.toolStripSeparator2,
             this.EditESCtoExit,
             this.EditConfirmClosing});
@@ -813,10 +819,28 @@
       this.ActionResetWinSettings.Name = "ActionResetWinSettings";
       this.ActionResetWinSettings.Click += new System.EventHandler(this.ActionResetWinSettings_Click);
       // 
+      // toolStripSeparator5
+      // 
+      this.toolStripSeparator5.Name = "toolStripSeparator5";
+      resources.ApplyResources(this.toolStripSeparator5, "toolStripSeparator5");
+      // 
+      // ActionShowKeyboardNotice
+      // 
+      resources.ApplyResources(this.ActionShowKeyboardNotice, "ActionShowKeyboardNotice");
+      this.ActionShowKeyboardNotice.Name = "ActionShowKeyboardNotice";
+      // 
       // Sep7
       // 
       this.Sep7.Name = "Sep7";
       resources.ApplyResources(this.Sep7, "Sep7");
+      // 
+      // EditShowTips
+      // 
+      this.EditShowTips.Checked = true;
+      this.EditShowTips.CheckOnClick = true;
+      this.EditShowTips.CheckState = System.Windows.Forms.CheckState.Checked;
+      resources.ApplyResources(this.EditShowTips, "EditShowTips");
+      this.EditShowTips.Name = "EditShowTips";
       // 
       // EditUseAdvancedDialogBoxes
       // 
@@ -836,13 +860,14 @@
       this.EditSoundsEnabled.Name = "EditSoundsEnabled";
       this.EditSoundsEnabled.CheckedChanged += new System.EventHandler(this.EditDialogBoxesSettings_CheckedChanged);
       // 
-      // EditShowTips
+      // EditShowSuccessDialogs
       // 
-      this.EditShowTips.Checked = true;
-      this.EditShowTips.CheckOnClick = true;
-      this.EditShowTips.CheckState = System.Windows.Forms.CheckState.Checked;
-      resources.ApplyResources(this.EditShowTips, "EditShowTips");
-      this.EditShowTips.Name = "EditShowTips";
+      this.EditShowSuccessDialogs.Checked = true;
+      this.EditShowSuccessDialogs.CheckOnClick = true;
+      this.EditShowSuccessDialogs.CheckState = System.Windows.Forms.CheckState.Checked;
+      resources.ApplyResources(this.EditShowSuccessDialogs, "EditShowSuccessDialogs");
+      this.EditShowSuccessDialogs.Name = "EditShowSuccessDialogs";
+      this.EditShowSuccessDialogs.CheckedChanged += new System.EventHandler(this.EditShowSuccessDialogs_CheckedChanged);
       // 
       // toolStripSeparator2
       // 
@@ -1138,5 +1163,8 @@
     private System.Windows.Forms.BindingSource MeaningsBindingSource;
     private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
     private System.Windows.Forms.Button ActionPaste;
+    internal System.Windows.Forms.ToolStripMenuItem EditShowSuccessDialogs;
+    private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+    private System.Windows.Forms.ToolStripMenuItem ActionShowKeyboardNotice;
   }
 }

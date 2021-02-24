@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2020-12 </edited>
+/// <edited> 2021-02 </edited>
 using System;
 using System.Windows.Forms;
 using Ordisoftware.Core;
@@ -53,7 +53,13 @@ namespace Ordisoftware.Hebrew.Letters
       MainForm.EditShowTips.Checked = true;
       MainForm.EditESCtoExit.Checked = false;
       MainForm.EditSoundsEnabled.Checked = true;
+      DisplayManager.AdvancedFormUseSounds = true;
       MainForm.EditUseAdvancedDialogBoxes.Checked = true;
+      DisplayManager.FormStyle = MessageBoxFormStyle.Advanced;
+      MainForm.EditShowSuccessDialogs.Checked = false;
+      DisplayManager.ShowSuccessDialogs = false;
+      settings.ApplicationVolume = 100;
+      MediaMixer.SetApplicationVolume(System.Diagnostics.Process.GetCurrentProcess().Id, settings.ApplicationVolume);
       MainForm.SetView(ViewMode.Analyse);
       settings.Store();
     }
@@ -99,6 +105,8 @@ namespace Ordisoftware.Hebrew.Letters
         MainForm.EditESCtoExit.Checked = settings.ESCtoExit;
         MainForm.EditSoundsEnabled.Checked = settings.SoundsEnabled;
         MainForm.EditUseAdvancedDialogBoxes.Checked = settings.AdvancedDialogBoxes;
+        MainForm.EditShowSuccessDialogs.Checked = settings.ShowSuccessDialogs;
+        DisplayManager.ShowSuccessDialogs = settings.ShowSuccessDialogs;
         MainForm.EditDialogBoxesSettings_CheckedChanged(null, null);
         MainForm.EditCopyToClipboardCloseApp.Checked = settings.CopyToClipboardCloseApp;
       }
@@ -140,6 +148,7 @@ namespace Ordisoftware.Hebrew.Letters
         settings.ESCtoExit = MainForm.EditESCtoExit.Checked;
         settings.SoundsEnabled = MainForm.EditSoundsEnabled.Checked;
         settings.AdvancedDialogBoxes = MainForm.EditUseAdvancedDialogBoxes.Checked;
+        settings.ShowSuccessDialogs = MainForm.EditShowSuccessDialogs.Checked;
         settings.CopyToClipboardCloseApp = MainForm.EditCopyToClipboardCloseApp.Checked;
         settings.Save();
       }
