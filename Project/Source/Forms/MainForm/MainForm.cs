@@ -153,6 +153,7 @@ namespace Ordisoftware.Hebrew.Letters
     {
       if ( Globals.IsExiting ) return;
       Settings.Retrieve();
+      ProcessLocksTable.Lock();
       ChronoStart.Start();
       Program.Settings.CurrentView = ViewMode.Analyse;
       EditSentence.Font = new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence);
@@ -179,7 +180,6 @@ namespace Ordisoftware.Hebrew.Letters
         Chrono.Start();
         IsDBUpgraded = CreateSchemaIfNotExists();
         CreateDataIfNotExists(false);
-        ProcessLocksTable.Lock();
         MeaningsTableAdapter.Fill(DataSet.Meanings);
         LettersTableAdapter.Fill(DataSet.Letters);
         Chrono.Stop();
