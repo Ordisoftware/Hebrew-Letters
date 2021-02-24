@@ -149,11 +149,11 @@ The software verifies the validity of the certificate of the update server in ad
 - Add Newtonsoft.Json NuGet package.
 - Add MoreLINQ NuGet package.
 - Add Enums.NET NuGet package.
+- Add Global Shortcut Manager dependency.
+- Add InputSimulatorStandard NuGet package.
 - Add Serilog NuGet package.
 - Add Serilog-sinks-file NuGet package.
 - Add Serilog-sinks-winforms NuGet package.
-- Add InputSimulatorStandard NuGet package.
-- Add Global Shortcut Manager dependency.
 - Replace simple internal command line parser by CommandLineParser NuGet package.
 - The application now automatically creates the ODBC DSN in the Windows registry.
 - Massive files and code refactoring.
