@@ -55,7 +55,7 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 - Rework of the preferences window design with more options.
 - Fixed and improved copy, paste and delete for both Hebrew font chars and unicode.
 - Incorporate common code written since more than one year for Hebrew Calendar.
-- Added news in version in the Information menu.
+- Added new in version in the Information menu.
 - Modification and addition of web links and online providers for the study of words and verses of the Bible.
 - Some improvements in appearance and function.
 
