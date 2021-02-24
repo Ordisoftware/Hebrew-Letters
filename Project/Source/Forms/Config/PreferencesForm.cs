@@ -23,6 +23,8 @@ namespace Ordisoftware.Hebrew.Letters
   public partial class PreferencesForm : Form
   {
 
+    static private readonly Properties.Settings Settings = Program.Settings;
+
     static private bool LanguageChanged;
 
     static public void Run()
@@ -36,6 +38,8 @@ namespace Ordisoftware.Hebrew.Letters
         form.ShowDialog();
       }
     }
+
+    private bool IsReady;
 
     private PreferencesForm()
     {
@@ -54,33 +58,34 @@ namespace Ordisoftware.Hebrew.Letters
       ActiveControl = ActionClose;
       BringToFront();
       UpdateLanguagesButtons();
-      EditVacuumAtStartup.Checked = Program.Settings.VacuumAtStartup;
-      EditDebuggerEnabled.Checked = Program.Settings.DebuggerEnabled;
-      EditLogEnabled.Checked = Program.Settings.TraceEnabled;
-      EditCheckUpdateAtStartup.Checked = Program.Settings.CheckUpdateAtStartup;
-      EditAutoSortAnalysisMeanings.Checked = Program.Settings.AutoSortAnalysisMeanings;
-      EditFontSize.Value = Program.Settings.FontSizeSentence;
-      EditMaxLength.Value = Program.Settings.HebrewTextBoxMaxLength;
-      EditWebLinksMenuEnabled.Checked = Program.Settings.WebLinksMenuEnabled;
-      EditCheckUpdateAtStartupInterval.Value = Program.Settings.CheckUpdateAtStartupDaysInterval;
-      EditUsageStatisticsEnabled.Checked = Program.Settings.UsageStatisticsEnabled;
-      EditVolume.Value = Program.Settings.ApplicationVolume;
+      EditVacuumAtStartup.Checked = Settings.VacuumAtStartup;
+      EditDebuggerEnabled.Checked = Settings.DebuggerEnabled;
+      EditLogEnabled.Checked = Settings.TraceEnabled;
+      EditCheckUpdateAtStartup.Checked = Settings.CheckUpdateAtStartup;
+      EditAutoSortAnalysisMeanings.Checked = Settings.AutoSortAnalysisMeanings;
+      EditFontSize.Value = Settings.FontSizeSentence;
+      EditMaxLength.Value = Settings.HebrewTextBoxMaxLength;
+      EditWebLinksMenuEnabled.Checked = Settings.WebLinksMenuEnabled;
+      EditCheckUpdateAtStartupInterval.Value = Settings.CheckUpdateAtStartupDaysInterval;
+      EditUsageStatisticsEnabled.Checked = Settings.UsageStatisticsEnabled;
+      EditVolume.Value = Settings.ApplicationVolume;
+      IsReady = true;
     }
 
     private void PreferencesForm_FormClosed(object sender, FormClosedEventArgs e)
     {
-      Program.Settings.VacuumAtStartup = EditVacuumAtStartup.Checked;
-      Program.Settings.DebuggerEnabled = EditDebuggerEnabled.Checked;
-      Program.Settings.TraceEnabled = EditLogEnabled.Checked;
-      Program.Settings.CheckUpdateAtStartup = EditCheckUpdateAtStartup.Checked;
-      Program.Settings.AutoSortAnalysisMeanings = EditAutoSortAnalysisMeanings.Checked;
-      Program.Settings.FontSizeSentence = EditFontSize.Value;
-      Program.Settings.HebrewTextBoxMaxLength = EditMaxLength.Value;
-      Program.Settings.WebLinksMenuEnabled = EditWebLinksMenuEnabled.Checked;
-      Program.Settings.CheckUpdateAtStartupDaysInterval = (int)EditCheckUpdateAtStartupInterval.Value;
-      Program.Settings.ApplicationVolume = EditVolume.Value;
-      Program.Settings.UsageStatisticsEnabled = EditUsageStatisticsEnabled.Checked;
-      Program.Settings.Save();
+      Settings.VacuumAtStartup = EditVacuumAtStartup.Checked;
+      Settings.DebuggerEnabled = EditDebuggerEnabled.Checked;
+      Settings.TraceEnabled = EditLogEnabled.Checked;
+      Settings.CheckUpdateAtStartup = EditCheckUpdateAtStartup.Checked;
+      Settings.AutoSortAnalysisMeanings = EditAutoSortAnalysisMeanings.Checked;
+      Settings.FontSizeSentence = EditFontSize.Value;
+      Settings.HebrewTextBoxMaxLength = EditMaxLength.Value;
+      Settings.WebLinksMenuEnabled = EditWebLinksMenuEnabled.Checked;
+      Settings.CheckUpdateAtStartupDaysInterval = (int)EditCheckUpdateAtStartupInterval.Value;
+      Settings.ApplicationVolume = EditVolume.Value;
+      Settings.UsageStatisticsEnabled = EditUsageStatisticsEnabled.Checked;
+      Settings.Save();
     }
 
     private void EditDebuggerEnabled_CheckedChanged(object sender, EventArgs e)
@@ -109,12 +114,12 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void UpdateLanguagesButtons()
     {
-      if ( Program.Settings.LanguageSelected == Language.EN )
+      if ( Settings.LanguageSelected == Language.EN )
       {
         ActionSelectLangEN.BackColor = SystemColors.ControlLightLight;
         ActionSelectLangFR.BackColor = SystemColors.Control;
       }
-      if ( Program.Settings.LanguageSelected == Language.FR )
+      if ( Settings.LanguageSelected == Language.FR )
       {
         ActionSelectLangFR.BackColor = SystemColors.ControlLightLight;
         ActionSelectLangEN.BackColor = SystemColors.Control;
@@ -123,10 +128,10 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void ActionSelectLangEN_Click(object sender, EventArgs e)
     {
-      if ( Program.Settings.LanguageSelected == Language.EN ) return;
+      if ( Settings.LanguageSelected == Language.EN ) return;
       string temp = MainForm.Instance.EditLetters.Input.Text;
       MainForm.Instance.ActionClear.PerformClick();
-      Program.Settings.LanguageSelected = Language.EN;
+      Settings.LanguageSelected = Language.EN;
       Program.UpdateLocalization();
       UpdateLanguagesButtons();
       LanguageChanged = true;
@@ -136,10 +141,10 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void ActionSelectLangFR_Click(object sender, EventArgs e)
     {
-      if ( Program.Settings.LanguageSelected == Language.FR ) return;
+      if ( Settings.LanguageSelected == Language.FR ) return;
       string temp = MainForm.Instance.EditLetters.Input.Text;
       MainForm.Instance.ActionClear.PerformClick();
-      Program.Settings.LanguageSelected = Language.FR;
+      Settings.LanguageSelected = Language.FR;
       Program.UpdateLocalization();
       UpdateLanguagesButtons();
       LanguageChanged = true;
@@ -155,21 +160,34 @@ namespace Ordisoftware.Hebrew.Letters
     private void ActionResetSettings_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
       if ( !DisplayManager.QueryYesNo(SysTranslations.AskToResetPreferences.GetLang()) ) return;
-      Program.Settings.Reset();
-      Program.Settings.Reload();
-      Program.Settings.LanguageSelected = Languages.Current;
-      Program.Settings.Store();
+      IsReady = false;
+      var lastupdate = Settings.CheckUpdateLastDone;
+      var lastvacuum = Settings.VacuumLastDone;
+      Settings.Reset();
+      Settings.Reload();
+      Settings.CheckUpdateLastDone = lastupdate;
+      Settings.VacuumLastDone = lastvacuum;
+      Settings.LanguageSelected = Languages.Current;
+      Settings.FirstLaunchV4 = false;
+      Settings.FirstLaunchV5_0 = false;
+      Settings.FirstLaunch = false;
+      Settings.Store();
       PreferencesForm_Shown(null, null);
-      MainForm.Instance.EditSentence.Font = new Font("Microsoft Sans Serif", (float)Program.Settings.FontSizeSentence);
+      MainForm.Instance.EditSentence.Font = new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence);
       Program.GrammarGuideForm.CenterToMainFormElseScreen();
       Program.MethodNoticeForm.CenterToMainFormElseScreen();
+      IsReady = true;
       Close();
     }
 
     private void EditVolume_ValueChanged(object sender, EventArgs e)
     {
+      if ( !IsReady ) return;
       MediaMixer.SetApplicationVolume(System.Diagnostics.Process.GetCurrentProcess().Id, EditVolume.Value);
       LabelVolumeValue.Text = EditVolume.Value + "%";
+      Settings.ApplicationVolume = EditVolume.Value;
+      Settings.Save();
+      DisplayManager.DoSound(Globals.ClipboardSoundFilePath);
     }
 
   }

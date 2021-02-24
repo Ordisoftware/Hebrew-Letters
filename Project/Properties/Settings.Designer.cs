@@ -560,5 +560,17 @@ namespace Ordisoftware.Hebrew.Letters.Properties {
                 this["FirstLaunchV5_0"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ShowSuccessDialogs {
+            get {
+                return ((bool)(this["ShowSuccessDialogs"]));
+            }
+            set {
+                this["ShowSuccessDialogs"] = value;
+            }
+        }
     }
 }

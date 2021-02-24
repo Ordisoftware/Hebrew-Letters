@@ -653,7 +653,8 @@ namespace Ordisoftware.Hebrew.Letters
         var list = controls.Select(label => label.Text + " : " + string.Join(", ", (object[])( (ComboBox)label.Tag ).Tag));
         WordMeanings = string.Join(Globals.NL, list);
         Clipboard.SetText(WordMeanings);
-        DisplayManager.ShowInformation(SysTranslations.DataCopiedToClipboard.GetLang());
+        DisplayManager.ShowSuccessOrSound(SysTranslations.DataCopiedToClipboard.GetLang(),
+                                          Globals.ClipboardSoundFilePath);
       }
     }
 
@@ -662,7 +663,8 @@ namespace Ordisoftware.Hebrew.Letters
       if ( EditLetters.Input.Text != "" )
       {
         Clipboard.SetImage(this.GetBitmap());
-        DisplayManager.ShowInformation(SysTranslations.ScreenshotDone.GetLang());
+        DisplayManager.ShowSuccessOrSound(SysTranslations.ScreenshotDone.GetLang(),
+                                          Globals.SnapshotSoundFilePath);
       }
     }
 
@@ -701,6 +703,12 @@ namespace Ordisoftware.Hebrew.Letters
           break;
       }
 
+    }
+
+    private void EditShowSuccessDialogs_CheckedChanged(object sender, EventArgs e)
+    {
+      // TODO Settings.ShowSuccessDialogs = EditShowSuccessDialogs.Checked;
+      DisplayManager.ShowSuccessDialogs = EditShowSuccessDialogs.Checked;
     }
 
     private void ComboBoxCode_SelectedIndexChanged(object sender, EventArgs e)
