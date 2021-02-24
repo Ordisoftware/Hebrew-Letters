@@ -93,11 +93,11 @@ namespace Ordisoftware.Hebrew.Letters
       SystemEvents.SessionEnding += SessionEnding;
       SystemManager.TryCatch(() => { Icon = new Icon(Globals.ApplicationIconFilePath); });
       CreateProvidersLinks();
-      UndoRedoTextBox.ActionUndo.Click += TextBox_ContextMenuAction_Click;
-      UndoRedoTextBox.ActionRedo.Click += TextBox_ContextMenuAction_Click;
-      UndoRedoTextBox.ActionCut.Click += TextBox_ContextMenuAction_Click;
-      UndoRedoTextBox.ActionPaste.Click += TextBox_ContextMenuAction_Click;
-      UndoRedoTextBox.ActionDelete.Click += TextBox_ContextMenuAction_Click;
+      UndoRedoTextBox.ActionUndo.Click += TextBoxData_ContextMenuAction_Click;
+      UndoRedoTextBox.ActionRedo.Click += TextBoxData_ContextMenuAction_Click;
+      UndoRedoTextBox.ActionCut.Click += TextBoxData_ContextMenuAction_Click;
+      UndoRedoTextBox.ActionPaste.Click += TextBoxData_ContextMenuAction_Click;
+      UndoRedoTextBox.ActionDelete.Click += TextBoxData_ContextMenuAction_Click;
     }
 
     /// <summary>
@@ -115,6 +115,7 @@ namespace Ordisoftware.Hebrew.Letters
       menu.DropDownItems.Clear();
       ActionInformation.DropDownItems.Clear();
       ActionInformation.DropDownItems.AddRange(list.ToArray());
+      SystemInformationMenu.InitializeVersionNewsMenuItems(AppTranslations.NoticeNewFeatures);
       InitializeSpecialMenus();
     }
 
@@ -231,6 +232,13 @@ namespace Ordisoftware.Hebrew.Letters
         SystemManager.TryCatch(Settings.Save);
         ActionShowMethodNotice.PerformClick();
       }
+      if ( Settings.FirstLaunchV5_0 )
+        SystemManager.TryCatch(() =>
+        {
+          Settings.FirstLaunchV5_0 = false;
+          var menuitem = SystemInformationMenu.ActionViewVersionNews.DropDownItems.Cast<ToolStripItem>().LastOrDefault();
+          if ( menuitem != null ) menuitem.PerformClick();
+        });
     }
 
     /// <summary>
@@ -774,44 +782,23 @@ namespace Ordisoftware.Hebrew.Letters
       EditSentence.Text = str;
     }
 
-    private void BindingSource_DataError(object sender, BindingManagerDataErrorEventArgs e)
-    {
-      if ( !Globals.IsReady ) return;
-      e.Exception.Manage();
-      DataSet.RejectChanges();
-    }
+    private bool TextBoxDataContextMenuMutex;
 
-    private void EditMeanings_DataError(object sender, DataGridViewDataErrorEventArgs e)
+    private void TextBoxData_ContextMenuEditOpening(object sender, System.ComponentModel.CancelEventArgs e)
     {
-      if ( !Globals.IsReady ) return;
-      if ( e.Exception is ArgumentOutOfRangeException || e.Exception is IndexOutOfRangeException )
-      {
-        DisplayManager.ShowError("Internal index error.");
-        DataSet.RejectChanges();
-        e.Exception.Manage();
-        Application.Exit();
-      }
-      else
-        e.Exception.Manage();
-    }
-
-    private bool EditContextMenuMutex;
-
-    private void TextBox_ContextMenuEditOpening(object sender, System.ComponentModel.CancelEventArgs e)
-    {
-      if ( EditContextMenuMutex ) return;
-      EditContextMenuMutex = true;
+      if ( TextBoxDataContextMenuMutex ) return;
+      TextBoxDataContextMenuMutex = true;
       ( (ContextMenuStrip)sender ).Enabled = !IsReadOnly;
     }
 
-    private void TextBox_ContextMenuEditOpened(object sender, EventArgs e)
+    private void TextBoxData_ContextMenuEditOpened(object sender, EventArgs e)
     {
-      EditContextMenuMutex = false;
+      TextBoxDataContextMenuMutex = false;
     }
 
     private bool EditMutex;
 
-    private void TextBox_TextChanged(object sender, EventArgs e)
+    private void TextBoxData_TextChanged(object sender, EventArgs e)
     {
       if ( EditMutex ) return;
       EditMutex = true;
@@ -820,18 +807,18 @@ namespace Ordisoftware.Hebrew.Letters
       EditMutex = false;
     }
 
-    private void TextBox_Leave(object sender, EventArgs e)
+    private void TextBoxData_Leave(object sender, EventArgs e)
     {
-      TextBox_TextChanged(sender, e);
+      TextBoxData_TextChanged(sender, e);
     }
 
-    private void TextBox_ContextMenuAction_Click(object sender, EventArgs e)
+    private void TextBoxData_ContextMenuAction_Click(object sender, EventArgs e)
     {
       var textbox = UndoRedoTextBox.GetTextBox(sender);
       if ( textbox != null )
         if ( textbox.Tag is string )
           if ( (string)textbox.Tag == "data" )
-            TextBox_TextChanged(sender, e);
+            TextBoxData_TextChanged(sender, e);
     }
 
     private void SaveData()
@@ -860,6 +847,27 @@ namespace Ordisoftware.Hebrew.Letters
       {
         ex.Manage();
       }
+    }
+
+    private void BindingSource_DataError(object sender, BindingManagerDataErrorEventArgs e)
+    {
+      if ( !Globals.IsReady ) return;
+      e.Exception.Manage();
+      DataSet.RejectChanges();
+    }
+
+    private void EditMeanings_DataError(object sender, DataGridViewDataErrorEventArgs e)
+    {
+      if ( !Globals.IsReady ) return;
+      if ( e.Exception is ArgumentOutOfRangeException || e.Exception is IndexOutOfRangeException )
+      {
+        DisplayManager.ShowError("Internal index error.");
+        DataSet.RejectChanges();
+        e.Exception.Manage();
+        Application.Exit();
+      }
+      else
+        e.Exception.Manage();
     }
 
   }
