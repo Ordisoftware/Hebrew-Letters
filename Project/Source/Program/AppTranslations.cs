@@ -58,7 +58,7 @@ namespace Ordisoftware.Hebrew.Letters
                           "Some improvements in appearance and function.",
 
           [Language.FR] = "La démarrage et la création des boites combos sont optimisé." + Globals.NL2 +
-                          "La modification de la base de données est possible seulement par une seule instance à la fois" + Globals.NL2 +
+                          "La modification de la base de données est possible seulement par une seule instance à la fois." + Globals.NL2 +
                           "Nouvelle icône de menu principal pour ouvrir une nouvelle fenêtre." + Globals.NL2 +
                           "Nouveau menu contextuel pour les boutons des lettres." + Globals.NL2 +
                           "Nouveau bouton de capture d'écran." + Globals.NL2 +
