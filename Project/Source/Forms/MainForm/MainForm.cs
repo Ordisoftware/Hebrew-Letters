@@ -87,6 +87,7 @@ namespace Ordisoftware.Hebrew.Letters
     /// </summary>
     private MainForm()
     {
+      ChronoStart.Start();
       InitializeComponent();
       SoundItem.Initialize();
       Text = Globals.AssemblyTitle;
@@ -154,7 +155,6 @@ namespace Ordisoftware.Hebrew.Letters
       if ( Globals.IsExiting ) return;
       Settings.Retrieve();
       ProcessLocksTable.Lock();
-      ChronoStart.Start();
       Program.Settings.CurrentView = ViewMode.Analyse;
       EditSentence.Font = new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence);
       SystemManager.TryCatch(() => new System.Media.SoundPlayer(Globals.EmptySoundFilePath).Play());
@@ -210,8 +210,6 @@ namespace Ordisoftware.Hebrew.Letters
     /// <param name="e">Form closing event information.</param>
     private void MainForm_Shown(object sender, EventArgs e)
     {
-      ChronoStart.Stop();
-      Settings.BenchmarkStartingApp = ChronoStart.ElapsedMilliseconds;
       SystemManager.TryCatch(Settings.Save);
       if ( Globals.IsExiting ) return;
       if ( !Program.StartupWordHebrew.IsNullOrEmpty() )
@@ -222,6 +220,8 @@ namespace Ordisoftware.Hebrew.Letters
       }
       else
         ActionReset.Visible = false;
+      ChronoStart.Stop();
+      Settings.BenchmarkStartingApp = ChronoStart.ElapsedMilliseconds;
       if ( IsDBUpgraded && DisplayManager.QueryYesNo(SysTranslations.AskToCheckParametersAfterDatabaseUpgraded.GetLang()) )
         SetView(ViewMode.Settings, false);
       else
