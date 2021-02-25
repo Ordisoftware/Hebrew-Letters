@@ -172,7 +172,7 @@ The software verifies the validity of the certificate of the update server in ad
 - Add Serilog-sinks-winforms NuGet package.
 - Replace simple internal command line parser by CommandLineParser NuGet package.
 - The application now automatically creates the ODBC DSN in the Windows registry.
-- Massive files and code refactoring.
+- files and code refactoring.
 - Incorporate common code written since more than one year for Calendar.
 - Update to SQLite 3.32.3 ODBC Driver.
 - Update to Framework .NET 4.7.2 and supported Windows only 7 SP1 or higher.

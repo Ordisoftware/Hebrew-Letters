@@ -20,6 +20,7 @@ namespace Ordisoftware.Hebrew
   public class Parashah
   {
 
+    public string ID { get; }
     public TorahBooks Book { get; }
     public int Number { get; }
     public string Name { get; }
@@ -31,12 +32,7 @@ namespace Ordisoftware.Hebrew
     public string Translation { get; set; }
     public string Lettriq { get; set; }
     public string Memo { get; set; }
-
-    public string ReferenceBegin
-      => $"{(int)Book + 1}.{VerseBegin}";
-
-    public string ReferenceEnd
-      => $"{(int)Book + 1}.{VerseEnd}";
+    public Parashah Linked { get; internal set; }
 
     public override string ToString()
       => ToString(false);
@@ -45,6 +41,9 @@ namespace Ordisoftware.Hebrew
       => $"Sefer {Book}, Parashah n°{Number}, " +
          $"{Name}{( IsLinkedToNext ? "*" : string.Empty )} {VerseBegin} - {VerseEnd} : " +
          $"{Translation} ; {Lettriq} ({( useHebrewFont ? Hebrew : Unicode )})";
+
+    public string ToStringLinked()
+      => Name + ( Linked != null  ? " - " + Linked.Name : "");
 
     public Parashah(TorahBooks book,
                     int number,
@@ -66,6 +65,7 @@ namespace Ordisoftware.Hebrew
       IsLinkedToNext = isLinkedToNext;
       Translation = translation;
       Lettriq = lettriq;
+      ID = $"{(int)book + 1}.{number}";
     }
 
   }
