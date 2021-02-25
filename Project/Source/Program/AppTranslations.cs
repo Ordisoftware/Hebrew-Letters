@@ -31,7 +31,14 @@ namespace Ordisoftware.Hebrew.Letters
         [Language.FR] = "Analyseur lettrique lettre-par-lettre des mots hébreux"
       };
 
-    static public readonly NullSafeDictionary<string, TranslationsDictionary> NoticeNewFeatures
+    static public readonly TranslationsDictionary ReadOnly
+      = new TranslationsDictionary
+      {
+        [Language.EN] = "Read only",
+        [Language.FR] = "Lecture seule"
+      };
+      
+      static public readonly NullSafeDictionary<string, TranslationsDictionary> NoticeNewFeatures
       = new NullSafeDictionary<string, TranslationsDictionary>
       {
 

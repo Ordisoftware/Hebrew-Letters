@@ -314,7 +314,7 @@ namespace Ordisoftware.Hebrew.Letters
       //if ( !SQLiteOdbcHelper.CheckProcessConcurency() ) return;
       IsReadOnly = ProcessLocksTable.IsReadOnly();
       Text = Globals.AssemblyTitle;
-      if ( IsReadOnly ) Text += " - READ ONLY";
+      if ( IsReadOnly ) Text += " - " + AppTranslations.ReadOnly.GetLang();
       TextBoxPositive.ReadOnly = IsReadOnly;
       TextBoxNegative.ReadOnly = IsReadOnly;
       TextBoxVerb.ReadOnly = IsReadOnly;
@@ -754,6 +754,7 @@ namespace Ordisoftware.Hebrew.Letters
     private void EditMeanings_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
     {
       Globals.AllowClose = false;
+      ToolStrip.Enabled = false;
     }
 
     private void EditMeanings_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -763,6 +764,7 @@ namespace Ordisoftware.Hebrew.Letters
       SaveData();
       UpdateButtons();
       Globals.AllowClose = true;
+      ToolStrip.Enabled = true;
     }
 
     private void EditMeanings_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
