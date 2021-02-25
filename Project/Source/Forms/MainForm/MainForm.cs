@@ -798,7 +798,8 @@ namespace Ordisoftware.Hebrew.Letters
     {
       if ( TextBoxDataContextMenuMutex ) return;
       TextBoxDataContextMenuMutex = true;
-      ( (ContextMenuStrip)sender ).Enabled = !IsReadOnly;
+      var textbox = UndoRedoTextBox.GetTextBox(sender);
+      ( (ContextMenuStrip)sender ).Enabled = (string)textbox.Tag != "data" || !IsReadOnly;
     }
 
     private void TextBoxData_ContextMenuEditOpened(object sender, EventArgs e)
