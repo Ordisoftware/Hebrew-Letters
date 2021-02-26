@@ -46,9 +46,10 @@ namespace Ordisoftware.Hebrew.Letters
       Application.SetCompatibleTextRenderingDefault(false);
       Globals.SoftpediaURL = "https://www.softpedia.com/get/Others/Home-Education/Hebrew-Letters.shtml";
       Globals.AlternativeToURL = "";
-      Globals.SettingsUpgraded = Settings.UpgradeRequired;
-      Settings.CheckUpgradeRequired(ref Globals.SettingsUpgraded);
-      Settings.UpgradeRequired = Globals.SettingsUpgraded;
+      bool upgrade = Settings.UpgradeRequired;
+      Globals.SettingsUpgraded = upgrade;
+      Settings.CheckUpgradeRequired(ref upgrade);
+      Settings.UpgradeRequired = upgrade;
       CheckSettingsReset();
       Globals.Settings = Settings;
       Globals.MainForm = MainForm.Instance;
