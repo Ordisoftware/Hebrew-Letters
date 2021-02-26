@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-01 </created>
-/// <edited> 2020-04 </edited>
+/// <edited> 2021-02 </edited>
 using System;
 using System.Data.Odbc;
 using System.Windows.Forms;
@@ -41,25 +41,25 @@ namespace Ordisoftware.Hebrew.Letters
         LockFileConnection.CheckTable(@"Letters",
                                       @"CREATE TABLE Letters
                                         ( 
-                                          Code TEXT NOT NULL, 
-                                          Name TEXT NOT NULL, 
-                                          Hebrew TEXT NOT NULL, 
-                                          Positive TEXT NOT NULL, 
-                                          Negative TEXT NOT NULL, 
-                                          Structure TEXT NOT NULL, 
-                                          Function TEXT NOT NULL, 
-                                          Verb TEXT NOT NULL,
-                                          ValueSimple INTEGER NOT NULL, 
-                                          ValueFull INTEGER NOT NULL, 
-                                          CONSTRAINT Pk_Letter_Code PRIMARY KEY (Code) 
+                                          Code TEXT DEFAULT '' NOT NULL, 
+                                          Name TEXT DEFAULT '' NOT NULL, 
+                                          Hebrew TEXT DEFAULT '' NOT NULL, 
+                                          Positive TEXT DEFAULT '' NOT NULL, 
+                                          Negative TEXT DEFAULT '' NOT NULL, 
+                                          Structure TEXT DEFAULT '' NOT NULL, 
+                                          Function TEXT DEFAULT '' NOT NULL, 
+                                          Verb TEXT DEFAULT '' NOT NULL,
+                                          ValueSimple INTEGER DEFAULT 0 NOT NULL, 
+                                          ValueFull INTEGER DEFAULT 0 NOT NULL, 
+                                          PRIMARY KEY(Code) 
                                         )");
         string sqlMeanings = @"CREATE TABLE Meanings
                                (
-                                 ID TEXT NOT NULL, 
-                                 LetterCode TEXT NOT NULL,
+                                 ID TEXT DEFAULT '' NOT NULL, 
+                                 LetterCode TEXT DEFAULT '' NOT NULL,
                                  Meaning TEXT DEFAULT '' NOT NULL,
                                  FOREIGN KEY(LetterCode) REFERENCES Letters(Code)
-                                 CONSTRAINT Pk_Meaning_ID PRIMARY KEY ( ID ) 
+                                 PRIMARY KEY(ID) 
                                )";
         LockFileConnection.CheckTable("Meanings", sqlMeanings);
         if ( !LockFileConnection.CheckColumn("Meanings", "ID") )
