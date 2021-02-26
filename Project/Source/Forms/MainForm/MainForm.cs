@@ -59,11 +59,10 @@ namespace Ordisoftware.Hebrew.Letters
       Instance = new MainForm();
     }
 
+    /// <summary>
+    /// Indicate the default Settings instance.
+    /// </summary>
     private readonly Properties.Settings Settings = Program.Settings;
-
-    internal CommonMenusControl SystemInformationMenu;
-
-    private Stopwatch ChronoStart = new Stopwatch();
 
     /// <summary>
     /// INdicate last showned tooltip.
@@ -74,6 +73,7 @@ namespace Ordisoftware.Hebrew.Letters
     /// Indicate if database has been upgraded.
     /// </summary>
     private bool IsDBUpgraded;
+
 
     private string LastTermSearched;
 
@@ -87,7 +87,7 @@ namespace Ordisoftware.Hebrew.Letters
     /// </summary>
     private MainForm()
     {
-      ChronoStart.Start();
+      Globals.ChronoLoadApp.Start();
       InitializeComponent();
       SoundItem.Initialize();
       Text = Globals.AssemblyTitle;
@@ -106,17 +106,17 @@ namespace Ordisoftware.Hebrew.Letters
     /// </summary>
     internal void CreateSystemInformationMenu()
     {
-      SystemInformationMenu = new CommonMenusControl(ActionAbout_Click,
-                                                     ActionWebCheckUpdate_Click,
-                                                     ActionViewLog_Click,
-                                                     ActionViewStats_Click);
-      var menu = SystemInformationMenu.MenuInformation;
+      CommonMenusControl.Instance = new CommonMenusControl(ActionAbout_Click,
+                                                           ActionWebCheckUpdate_Click,
+                                                           ActionViewLog_Click,
+                                                           ActionViewStats_Click);
+      var menu = CommonMenusControl.Instance.MenuInformation;
       var list = new List<ToolStripItem>();
       foreach ( ToolStripItem item in menu.DropDownItems ) list.Add(item);
       menu.DropDownItems.Clear();
       ActionInformation.DropDownItems.Clear();
       ActionInformation.DropDownItems.AddRange(list.ToArray());
-      SystemInformationMenu.InitializeVersionNewsMenuItems(AppTranslations.NoticeNewFeatures);
+      CommonMenusControl.Instance.InitializeVersionNewsMenuItems(AppTranslations.NoticeNewFeatures);
       InitializeSpecialMenus();
     }
 
@@ -125,8 +125,8 @@ namespace Ordisoftware.Hebrew.Letters
     /// </summary>
     internal void InitializeSpecialMenus()
     {
-      SystemInformationMenu.ActionViewStats.Enabled = Settings.UsageStatisticsEnabled;
-      SystemInformationMenu.ActionViewLog.Enabled = DebugManager.TraceEnabled;
+      CommonMenusControl.Instance.ActionViewStats.Enabled = Settings.UsageStatisticsEnabled;
+      CommonMenusControl.Instance.ActionViewLog.Enabled = DebugManager.TraceEnabled;
       ActionWebLinks.Visible = Settings.WebLinksMenuEnabled;
       if ( Settings.WebLinksMenuEnabled )
         ActionWebLinks.InitializeFromWebLinks(InitializeSpecialMenus);
@@ -159,9 +159,9 @@ namespace Ordisoftware.Hebrew.Letters
       EditSentence.Font = new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence);
       SystemManager.TryCatch(() => new System.Media.SoundPlayer(Globals.EmptySoundFilePath).Play());
       SystemManager.TryCatch(() => MediaMixer.SetApplicationVolume(Process.GetCurrentProcess().Id,
-                                                                    Settings.ApplicationVolume));
+                                                                   Settings.ApplicationVolume));
       StatisticsForm.Run(true, Settings.UsageStatisticsEnabled);
-      ChronoStart.Stop();
+      Globals.ChronoLoadApp.Stop();
       var lastdone = Settings.CheckUpdateLastDone;
       bool exit = WebCheckUpdate.Run(Settings.CheckUpdateAtStartup,
                                      ref lastdone,
@@ -173,7 +173,7 @@ namespace Ordisoftware.Hebrew.Letters
         SystemManager.Exit();
         return;
       }
-      ChronoStart.Start();
+      Globals.ChronoLoadApp.Start();
       try
       {
         var Chrono = new Stopwatch();
@@ -194,9 +194,9 @@ namespace Ordisoftware.Hebrew.Letters
         Environment.Exit(-1);
       }
       ComboBoxCode_SelectedIndexChanged(null, null);
-      SystemInformationMenu.ActionViewStats.Enabled = Settings.UsageStatisticsEnabled;
-      SystemInformationMenu.ActionViewLog.Enabled = DebugManager.TraceEnabled;
-      DebugManager.TraceEnabledChanged += value => SystemInformationMenu.ActionViewLog.Enabled = value;
+      CommonMenusControl.Instance.ActionViewStats.Enabled = Settings.UsageStatisticsEnabled;
+      CommonMenusControl.Instance.ActionViewLog.Enabled = DebugManager.TraceEnabled;
+      DebugManager.TraceEnabledChanged += value => CommonMenusControl.Instance.ActionViewLog.Enabled = value;
       TimerProcesses_Tick(null, null);
       Globals.IsReady = true;
     }
@@ -220,8 +220,8 @@ namespace Ordisoftware.Hebrew.Letters
       }
       else
         ActionReset.Visible = false;
-      ChronoStart.Stop();
-      Settings.BenchmarkStartingApp = ChronoStart.ElapsedMilliseconds;
+      Globals.ChronoLoadApp.Stop();
+      Settings.BenchmarkStartingApp = Globals.ChronoLoadApp.ElapsedMilliseconds;
       if ( IsDBUpgraded && DisplayManager.QueryYesNo(SysTranslations.AskToCheckParametersAfterDatabaseUpgraded.GetLang()) )
         SetView(ViewMode.Settings, false);
       else
@@ -232,11 +232,15 @@ namespace Ordisoftware.Hebrew.Letters
         SystemManager.TryCatch(Settings.Save);
         ActionShowMethodNotice.PerformClick();
       }
-      if ( Settings.FirstLaunchV5_0 )
+      Globals.ChronoLoadApp.Stop();
+      if ( Globals.SettingsUpgraded )
         SystemManager.TryCatch(() =>
         {
-          Settings.FirstLaunchV5_0 = false;
-          var menuitem = SystemInformationMenu.ActionViewVersionNews.DropDownItems.Cast<ToolStripItem>().LastOrDefault();
+          var menuitem = CommonMenusControl.Instance
+                                           .ActionViewVersionNews
+                                           .DropDownItems
+                                           .Cast<ToolStripItem>()
+                                           .LastOrDefault();
           if ( menuitem != null ) menuitem.PerformClick();
         });
     }
