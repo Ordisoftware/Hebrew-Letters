@@ -50,6 +50,7 @@ namespace Ordisoftware.Hebrew.Letters
       Globals.SettingsUpgraded = upgrade;
       Settings.CheckUpgradeRequired(ref upgrade);
       Settings.UpgradeRequired = upgrade;
+      Globals.SettingsUpgraded = Globals.SettingsUpgraded && !Settings.FirstLaunch;
       CheckSettingsReset();
       Globals.Settings = Settings;
       Globals.MainForm = MainForm.Instance;
