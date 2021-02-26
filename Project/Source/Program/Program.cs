@@ -13,11 +13,12 @@
 /// <created> 2016-04 </created>
 /// <edited> 2021-02 </edited>
 using System;
-using System.Drawing;
 using System.ComponentModel;
 using System.Globalization;
+using System.IO.Pipes;
 using System.Threading;
 using System.Windows.Forms;
+using System.Runtime.Serialization.Formatters.Binary;
 using Ordisoftware.Core;
 
 namespace Ordisoftware.Hebrew.Letters
@@ -41,14 +42,14 @@ namespace Ordisoftware.Hebrew.Letters
     [STAThread]
     static void Main(string[] args)
     {
+      Application.EnableVisualStyles();
+      Application.SetCompatibleTextRenderingDefault(false);
       Globals.SoftpediaURL = "https://www.softpedia.com/get/Others/Home-Education/Hebrew-Letters.shtml";
       Globals.AlternativeToURL = "";
       Globals.SettingsUpgraded = Settings.UpgradeRequired;
       Settings.CheckUpgradeRequired(ref Globals.SettingsUpgraded);
       Settings.UpgradeRequired = Globals.SettingsUpgraded;
       CheckSettingsReset();
-      Application.EnableVisualStyles();
-      Application.SetCompatibleTextRenderingDefault(false);
       Globals.Settings = Settings;
       Globals.MainForm = MainForm.Instance;
       DebugManager.Enabled = Settings.DebuggerEnabled;
@@ -57,7 +58,23 @@ namespace Ordisoftware.Hebrew.Letters
       SystemManager.CheckCommandLineArguments<ApplicationCommandLine>(args, ref lang);
       Settings.LanguageSelected = lang;
       UpdateLocalization();
+      ProcessCommandLineOptions();
       Application.Run(MainForm.Instance);
+    }
+
+    /// <summary>
+    /// Bring to front the app in case of duplicate process start.
+    /// </summary>
+    /// <param name="ar"></param>
+    static void IPCRequest(IAsyncResult ar)
+    {
+      var server = ar.AsyncState as NamedPipeServerStream;
+      server.EndWaitForConnection(ar);
+      var command = new BinaryFormatter().Deserialize(server) as string;
+      if ( command == "BringToFront" )
+        MainForm.Instance.SyncUI(() => MainForm.Instance.Popup());
+      server.Close();
+      SystemManager.CreateIPCServer(IPCRequest);
     }
 
     /// <summary>
@@ -72,9 +89,16 @@ namespace Ordisoftware.Hebrew.Letters
     }
 
     /// <summary>
+    /// Process command line options.
+    /// </summary>
+    static private void ProcessCommandLineOptions()
+    {
+    }
+
+    /// <summary>
     /// Update localization strings to the whole application.
     /// </summary>
-    static internal void UpdateLocalization()
+    static public void UpdateLocalization()
     {
       void updateForm(Form form)
       {
@@ -84,7 +108,7 @@ namespace Ordisoftware.Hebrew.Letters
       }
       void updateLabel(Label label, TextBox textbox, int dy)
       {
-        label.Location = new Point(label.Location.X, textbox.Location.Y + dy);
+        label.Location = new System.Drawing.Point(label.Location.X, textbox.Location.Y + dy);
       }
       string lang = "en-US";
       if ( Settings.LanguageSelected == Language.FR ) lang = "fr-FR";

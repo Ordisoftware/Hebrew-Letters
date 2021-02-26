@@ -29,7 +29,7 @@ namespace Ordisoftware.Hebrew.Letters
   /// Provide application's main form.
   /// </summary>
   /// <seealso cref="T:System.Windows.Forms.Form"/>
-  public partial class MainForm : Form
+  partial class MainForm : Form
   {
 
     /// <summary>
@@ -104,7 +104,7 @@ namespace Ordisoftware.Hebrew.Letters
     /// <summary>
     /// Create system information menu items.
     /// </summary>
-    internal void CreateSystemInformationMenu()
+    public void CreateSystemInformationMenu()
     {
       CommonMenusControl.Instance = new CommonMenusControl(ActionAbout_Click,
                                                            ActionWebCheckUpdate_Click,
@@ -123,7 +123,7 @@ namespace Ordisoftware.Hebrew.Letters
     /// <summary>
     /// Create providers and web links menu items.
     /// </summary>
-    internal void InitializeSpecialMenus()
+    public void InitializeSpecialMenus()
     {
       CommonMenusControl.Instance.ActionViewStats.Enabled = Settings.UsageStatisticsEnabled;
       CommonMenusControl.Instance.ActionViewLog.Enabled = DebugManager.TraceEnabled;
@@ -451,7 +451,7 @@ namespace Ordisoftware.Hebrew.Letters
     /// </summary>
     /// <param name="sender">Source of the event.</param>
     /// <param name="e">Event information.</param>
-    internal void EditScreenPosition_Click(object sender, EventArgs e)
+    public void EditScreenPosition_Click(object sender, EventArgs e)
     {
       DoScreenPosition(sender, e);
     }
@@ -507,7 +507,7 @@ namespace Ordisoftware.Hebrew.Letters
     /// </summary>
     /// <param name="sender">Source of the event.</param>
     /// <param name="e">Event information.</param>
-    internal void ActionAbout_Click(object sender, EventArgs e)
+    public void ActionAbout_Click(object sender, EventArgs e)
     {
       AboutBox.Instance.ShowDialog();
     }
@@ -517,7 +517,7 @@ namespace Ordisoftware.Hebrew.Letters
     /// </summary>
     /// <param name="sender">Source of the event.</param>
     /// <param name="e">Event information.</param>
-    internal void ActionWebCheckUpdate_Click(object sender, EventArgs e)
+    public void ActionWebCheckUpdate_Click(object sender, EventArgs e)
     {
       var lastdone = Settings.CheckUpdateLastDone;
       bool exit = WebCheckUpdate.Run(Settings.CheckUpdateAtStartup,
@@ -532,7 +532,7 @@ namespace Ordisoftware.Hebrew.Letters
         BringToFront();
     }
 
-    internal void ActionViewLog_Click(object sender, EventArgs e)
+    public void ActionViewLog_Click(object sender, EventArgs e)
     {
       DebugManager.TraceForm.Popup();
     }
@@ -689,7 +689,7 @@ namespace Ordisoftware.Hebrew.Letters
       ComboBoxCode.SelectedIndex = ComboBoxCode.FindStringExact(code);
     }
 
-    internal void EditDialogBoxesSettings_CheckedChanged(object sender, EventArgs e)
+    public void EditDialogBoxesSettings_CheckedChanged(object sender, EventArgs e)
     {
       DisplayManager.AdvancedFormUseSounds = EditSoundsEnabled.Checked;
       DisplayManager.FormStyle = EditUseAdvancedDialogBoxes.Checked
@@ -876,7 +876,7 @@ namespace Ordisoftware.Hebrew.Letters
       if ( !Globals.IsReady ) return;
       if ( e.Exception is ArgumentOutOfRangeException || e.Exception is IndexOutOfRangeException )
       {
-        DisplayManager.ShowError("Internal index error.");
+        DisplayManager.ShowError("public index error.");
         DataSet.RejectChanges();
         e.Exception.Manage();
         Application.Exit();

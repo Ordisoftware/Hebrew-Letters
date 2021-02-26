@@ -20,7 +20,7 @@ using Ordisoftware.Core;
 namespace Ordisoftware.Hebrew.Letters
 {
 
-  public partial class SearchTermResultsBox : Form
+  partial class SearchTermResultsBox : Form
   {
 
     static public bool Run(string term, out string code, out string meaning)
@@ -113,7 +113,7 @@ namespace Ordisoftware.Hebrew.Letters
 
   }
 
-  public class LetterItem
+  class LetterItem
   {
     public Data.DataSet.LettersRow Letter;
     public override string ToString()

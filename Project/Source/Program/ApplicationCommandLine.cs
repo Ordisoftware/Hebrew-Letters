@@ -19,7 +19,7 @@ using Ordisoftware.Core;
 namespace Ordisoftware.Hebrew.Letters
 {
 
-  public class ApplicationCommandLine : SystemCommandLine
+  class ApplicationCommandLine : SystemCommandLine
   {
 
     static public ApplicationCommandLine Instance

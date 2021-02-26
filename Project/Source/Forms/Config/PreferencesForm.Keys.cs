@@ -18,7 +18,7 @@ using System.Windows.Forms;
 namespace Ordisoftware.Hebrew.Letters
 {
 
-  public partial class PreferencesForm : Form
+  partial class PreferencesForm : Form
   {
 
     protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
