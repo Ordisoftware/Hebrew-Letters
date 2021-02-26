@@ -828,6 +828,7 @@
       // 
       resources.ApplyResources(this.ActionShowKeyboardNotice, "ActionShowKeyboardNotice");
       this.ActionShowKeyboardNotice.Name = "ActionShowKeyboardNotice";
+      this.ActionShowKeyboardNotice.Click += new System.EventHandler(this.ActionShowKeyboardNotice_Click);
       // 
       // Sep7
       // 

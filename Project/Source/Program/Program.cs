@@ -81,9 +81,21 @@ namespace Ordisoftware.Hebrew.Letters
     /// <summary>
     /// Check if settings must be reseted.
     /// </summary>
-    private static void CheckSettingsReset()
+    private static void CheckSettingsReset(bool force = false)
     {
-      Settings.FirstLaunch = false;
+      if ( force /*|| Settings.UpgradeResetRequiredVx_y*/ )
+      {
+        if ( !force && !Settings.FirstLaunch )
+          DisplayManager.ShowInformation(SysTranslations.UpgradeResetRequired.GetLang());
+        Settings.Reset();
+        Settings.LanguageSelected = Languages.Current;
+        Settings.SetUpgradeFlagsOff();
+      }
+      if ( Settings.FirstLaunchV4 )
+      {
+        Settings.SetFirstAndUpgradeFlagsOff();
+        Settings.FirstLaunch = true;
+      }
       if ( Settings.LanguageSelected == Language.None )
         Settings.LanguageSelected = Languages.Current;
       Settings.Save();
@@ -134,9 +146,13 @@ namespace Ordisoftware.Hebrew.Letters
       new Infralution.Localization.CultureManager().ManagedControl = MethodNoticeForm;
       Infralution.Localization.CultureManager.ApplicationUICulture = culture;
       foreach ( Form form in Application.OpenForms )
-        if ( form != MainForm.Instance && form != AboutBox.Instance
+      {
+        if ( form != Globals.MainForm && form != AboutBox.Instance
           && form != GrammarGuideForm && form != MethodNoticeForm )
           updateForm(form);
+        if ( form is ShowTextForm formShowText )
+          formShowText.Relocalize();
+      }
       // Various updates
       DebugManager.TraceForm.Text = tempLogTitle;
       DebugManager.TraceForm.AppendText(tempLogContent);

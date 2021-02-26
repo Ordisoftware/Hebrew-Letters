@@ -189,6 +189,10 @@ namespace Ordisoftware.Hebrew.Letters
       DisplayManager.DoSound(Globals.ClipboardSoundFilePath);
     }
 
+    private void PanelBottom_Paint(object sender, PaintEventArgs e)
+    {
+
+    }
   }
 
 }

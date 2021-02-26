@@ -322,6 +322,8 @@
       <DependentUpon>StatisticsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Program\ApplicationStatistics.cs" />
+    <Compile Include="Source\Program\AppTranslations.News.cs" />
+    <Compile Include="Source\Program\AppTranslations.Keys.cs" />
     <Compile Include="Source\Program\AppTranslations.cs" />
     <Compile Include="Source\Program\ApplicationCommandLine.cs" />
     <Compile Include="Source\Program\SettingsHelper.cs" />

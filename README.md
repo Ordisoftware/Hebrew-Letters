@@ -1,4 +1,4 @@
-# Hebrew Letters
+﻿# Hebrew Letters
 
 > Licensed under the terms of the [Mozilla Public License 2.0](LICENSE)<br/>
 > This project follows the [Manufacturing Software Guidelines](https://github.com/Ordisoftware/Guidelines).<br/>
@@ -100,6 +100,22 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 The software verifies the validity of the certificate of the update server in addition to the SHA-512 checksum of the installation file before downloading and running it. This certificate is normally updated within the two months of its annual expiration and a new version is released. If the application has not been updated within this period, you can manually check the latest version available online.
 
+#### What are command line options?
+
+- To load a Hebrew font word like "`ty>arb`":
+
+  `Ordisoftware.Hebrew.Letters.exe --hebrew [word]` 
+
+- To load a Unicode word like "`בראשית`":
+
+  `Ordisoftware.Hebrew.Letters.exe --unicode [word]`
+
+- To run in auto detect mode:
+
+  `Ordisoftware.Hebrew.Letters.exe [word]`
+
+Note: all diacritics are removed and if the word can't be processed or does not match the expected encoding, nothing is done.
+
 ## Keyboard shortcuts
 
 | Keys | Actions |
@@ -120,6 +136,7 @@ The software verifies the validity of the certificate of the update server in ad
 ## Future improvements
 
 - Add print data.
+- Add export data.
 - Add import data.
 - Add import and export database.
 - Rewrite advanced undo/redo.
@@ -128,10 +145,6 @@ The software verifies the validity of the certificate of the update server in ad
 ## Changelog
 
 #### 2021.03.12 - Version 5.0
-
->- Add export and import or merge data.
->- Add sounds to clipboard actions.
->- Add keyboard shortcuts notice in windows settings menu.
 
 - Optimize ComboBoxes creation (the old system is really much slower on Windows 10 than 7).
 - Add Windows double-buffering drawing to optimize startup.
@@ -145,6 +158,8 @@ The software verifies the validity of the certificate of the update server in ad
 - Add option to enable or disable the web links menu.
 - Add option to enable or disable message boxes sounds.
 - Add option to set application's volume.
+- Add sounds to clipboard actions.
+- Add keyboard shortcuts notice in windows settings menu.
 - Add news in version notice in the Information menu.
 - Add show usage statistics from about box.
 - Add check update from about box.

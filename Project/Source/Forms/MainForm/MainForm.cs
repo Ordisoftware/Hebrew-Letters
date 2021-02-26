@@ -232,6 +232,12 @@ namespace Ordisoftware.Hebrew.Letters
         SystemManager.TryCatch(Settings.Save);
         ActionShowMethodNotice.PerformClick();
       }
+      Globals.NoticeKeyboardShortcutsForm = new ShowTextForm(AppTranslations.NoticeKeyboardShortcutsTitle,
+                                                             AppTranslations.NoticeKeyboardShortcuts,
+                                                             true, false, 340, 250, false, false);
+      Globals.NoticeKeyboardShortcutsForm.TextBox.BackColor = Globals.NoticeKeyboardShortcutsForm.BackColor;
+      Globals.NoticeKeyboardShortcutsForm.TextBox.BorderStyle = BorderStyle.None;
+      Globals.NoticeKeyboardShortcutsForm.Padding = new Padding(20, 20, 10, 10);
       Globals.ChronoLoadApp.Stop();
       if ( Globals.SettingsUpgraded )
         SystemManager.TryCatch(() =>
@@ -454,6 +460,16 @@ namespace Ordisoftware.Hebrew.Letters
     public void EditScreenPosition_Click(object sender, EventArgs e)
     {
       DoScreenPosition(sender, e);
+    }
+
+    /// <summary>
+    /// Event handler. Called by ActionShowKeyboardNotice for click events.
+    /// </summary>
+    /// <param name="sender">Source of the event.</param>
+    /// <param name="e">Event information.</param>
+    private void ActionShowKeyboardNotice_Click(object sender, EventArgs e)
+    {
+      Globals.NoticeKeyboardShortcutsForm.Popup();
     }
 
     /// <summary>
