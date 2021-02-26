@@ -23,7 +23,7 @@ namespace Ordisoftware.Hebrew.Letters
   /// <summary>
   /// Provide Settings helper.
   /// </summary>
-  static internal class SettingsHelper
+  static public class SettingsHelper
   {
 
     static private bool Mutex;

@@ -59,7 +59,7 @@ namespace Ordisoftware.Hebrew.Letters
       }
     }
     static private string _DBFileSize;
-    static internal bool UpdateDBFileSizeRequired = true;
+    static public bool UpdateDBFileSizeRequired = true;
 
     public string DBMemorySize
     {
@@ -74,7 +74,7 @@ namespace Ordisoftware.Hebrew.Letters
       }
     }
     static private string _DBMemorySize;
-    static internal bool UpdateDBMemorySizeRequired = true;
+    static public bool UpdateDBMemorySizeRequired = true;
 
     public string DBCommonFileSize
     {
@@ -89,7 +89,7 @@ namespace Ordisoftware.Hebrew.Letters
       }
     }
     static private string _DBCommonFileSize;
-    static internal bool UpdateDBCommonFileSizeRequired = true;
+    static public bool UpdateDBCommonFileSizeRequired = true;
 
   }
 
