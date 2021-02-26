@@ -102,11 +102,11 @@ The software verifies the validity of the certificate of the update server in ad
 
 #### What are command line options?
 
-- To load a Hebrew font word like `ty>arb`:
+- To load a Hebrew font word like "`ty>arb`":
 
   `Ordisoftware.Hebrew.Letters.exe --hebrew [word]` 
 
-- To load a Unicode word like `בראשית`:
+- To load a Unicode word like "`בראשית`":
 
   `Ordisoftware.Hebrew.Letters.exe --unicode [word]`
 
@@ -114,7 +114,7 @@ The software verifies the validity of the certificate of the update server in ad
 
   `Ordisoftware.Hebrew.Letters.exe [word]`
 
-All diacritics are removed and if the word can't be processed or does not match the expected encoding, nothing is done.
+Note: all diacritics are removed and if the word can't be processed or does not match the expected encoding, nothing is done.
 
 ## Keyboard shortcuts
 
