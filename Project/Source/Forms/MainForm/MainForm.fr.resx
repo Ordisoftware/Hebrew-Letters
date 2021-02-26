@@ -352,4 +352,10 @@
   <data name="EditUseAdvancedDialogBoxes.Text" xml:space="preserve">
     <value>Boites de dialogues avancées</value>
   </data>
+  <data name="ActionShowKeyboardNotice.Text" xml:space="preserve">
+    <value>Notice des raccourcis clavier</value>
+  </data>
+  <data name="EditShowSuccessDialogs.Text" xml:space="preserve">
+    <value>Boîtes de dialogue de réussite à la place des sons</value>
+  </data>
 </root>

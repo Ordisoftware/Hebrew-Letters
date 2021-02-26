@@ -81,9 +81,21 @@ namespace Ordisoftware.Hebrew.Letters
     /// <summary>
     /// Check if settings must be reseted.
     /// </summary>
-    private static void CheckSettingsReset()
+    private static void CheckSettingsReset(bool force = false)
     {
-      Settings.FirstLaunch = false;
+      if ( force /*|| Settings.UpgradeResetRequiredVx_y*/ )
+      {
+        if ( !force && !Settings.FirstLaunch )
+          DisplayManager.ShowInformation(SysTranslations.UpgradeResetRequired.GetLang());
+        Settings.Reset();
+        Settings.LanguageSelected = Languages.Current;
+        Settings.SetUpgradeFlagsOff();
+      }
+      if ( Settings.FirstLaunchV4 )
+      {
+        Settings.SetFirstAndUpgradeFlagsOff();
+        Settings.FirstLaunch = true;
+      }
       if ( Settings.LanguageSelected == Language.None )
         Settings.LanguageSelected = Languages.Current;
       Settings.Save();

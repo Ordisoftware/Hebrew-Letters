@@ -158,6 +158,17 @@ namespace Ordisoftware.Hebrew.Letters
       }
     }
 
+    static internal void SetUpgradeFlagsOff(this Settings settings)
+    {
+    }
+
+    static internal void SetFirstAndUpgradeFlagsOff(this Settings settings)
+    {
+      settings.SetUpgradeFlagsOff();
+      settings.FirstLaunch = false;
+      settings.FirstLaunchV4 = false;
+    }
+
   }
 
 }
