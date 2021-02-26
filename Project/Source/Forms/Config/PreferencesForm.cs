@@ -99,13 +99,13 @@ namespace Ordisoftware.Hebrew.Letters
     private void EditLogEnabled_CheckedChanged(object sender, EventArgs e)
     {
       DebugManager.TraceEnabled = EditLogEnabled.Checked;
-      MainForm.Instance.SystemInformationMenu.ActionViewLog.Enabled = DebugManager.TraceEnabled;
+      CommonMenusControl.Instance.ActionViewLog.Enabled = DebugManager.TraceEnabled;
       StatisticsForm.Instance.ActionViewLog.Enabled = DebugManager.TraceEnabled;
     }
 
     private void EditUsageStatisticsEnabled_CheckedChanged(object sender, EventArgs e)
     {
-      MainForm.Instance.SystemInformationMenu.ActionViewStats.Enabled = EditUsageStatisticsEnabled.Checked;
+      CommonMenusControl.Instance.ActionViewStats.Enabled = EditUsageStatisticsEnabled.Checked;
       AboutBox.Instance.ActionViewStats.Enabled = EditUsageStatisticsEnabled.Checked;
       StatisticsForm.Instance.Timer.Enabled = EditUsageStatisticsEnabled.Checked;
       if ( !EditUsageStatisticsEnabled.Checked )
@@ -169,7 +169,6 @@ namespace Ordisoftware.Hebrew.Letters
       Settings.VacuumLastDone = lastvacuum;
       Settings.LanguageSelected = Languages.Current;
       Settings.FirstLaunchV4 = false;
-      Settings.FirstLaunchV5_0 = false;
       Settings.FirstLaunch = false;
       Settings.Store();
       PreferencesForm_Shown(null, null);
