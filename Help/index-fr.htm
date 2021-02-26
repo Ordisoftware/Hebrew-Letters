@@ -54,6 +54,22 @@ Driver&quot; avec &quot;Database Name&quot; d&eacute;finit &agrave; :</p>
     <p>Visionner la <a href="https://www.youtube.com/watch?v=WPVF8pj9I3E" target="_blank" rel="noopener">vid&eacute;o</a>.</p>
     <h4>Que faire si la v&eacute;rification de mise &agrave; jour indique que le certificat SSL est incorrect ou expir&eacute; ?</h4>
     <p>Le logiciel v&eacute;rifie la validit&eacute; du certificat du serveur de mise &agrave; jour en plus de la somme de contr&ocirc;le SHA-512 du fichier d'installation avant de le t&eacute;l&eacute;charger et de l'ex&eacute;cuter. Ce certificat est normalement mis &agrave; jour dans les deux mois avant sont expiration annuelle et une nouvelle version est publi&eacute;e. Si l'application n'a pas &eacute;t&eacute; mise &agrave; jour dans ce d&eacute;lai, vous pouvez v&eacute;rifier manuellement la derni&egrave;re version disponible en ligne.</p>
+    <h4>Quelles sont les options de ligne de commande ?</h4>
+    <ul>
+        <li>
+            <p>Pour charger un mot de police h&eacute;breu comme <code>&quot;ty&gt;arb&quot; </code>:</p>
+            <p><code>Ordisoftware.Hebrew.Letters.exe --hebrew [word]</code></p>
+        </li>
+        <li>
+            <p>Pour charger un mot Unicode comme <code>&quot;בראשית&quot; </code>:</p>
+            <p><code>Ordisoftware.Hebrew.Letters.exe --unicode [word]</code></p>
+        </li>
+        <li>
+            <p>Pour ex&eacute;cuter en mode de d&eacute;tection automatique :</p>
+            <p><code>Ordisoftware.Hebrew.Letters.exe [word]</code></p>
+        </li>
+    </ul>
+    <p>Note : tous les signes diacritiques sont supprim&eacute;s et si le mot ne peut pas &ecirc;tre trait&eacute; ou ne correspond pas &agrave; l'encodage attendu, rien n'est fait: :</p>
     <h3>Raccourcis clavier</h3>
     <ul>
         <li>F1 : Vue d'analyse</li>

@@ -51,6 +51,22 @@ Control panel) and create a user datasource named &quot;Hebrew-Letters&quot; for
     <p>Watch the <a href="https://www.youtube.com/watch?v=WPVF8pj9I3E" target="_blank" rel="noopener">video</a>.</p>
     <h4>What to do if the check update tells that the SSL certificate is wrong or expired?</h4>
     <p>The software verifies the validity of the certificate of the update server in addition to the SHA-512 checksum of the installation file before downloading and running it. This certificate is normally updated within the two months of its annual expiration and a new version is released. If the application has not been updated within this period, you can manually check the latest version available online.</p>
+    <h4>What are command line options?</h4>
+    <ul>
+        <li>
+            <p>To load a Hebrew font word like <code>&quot;ty&gt;arb&quot;</code>:</p>
+            <p><code>Ordisoftware.Hebrew.Letters.exe --hebrew [word]</code></p>
+        </li>
+        <li>
+            <p>To load a Unicode word like <code>&quot;בראשית&quot;</code>:</p>
+            <p><code>Ordisoftware.Hebrew.Letters.exe --unicode [word]</code></p>
+        </li>
+        <li>
+            <p>To run in auto detect mode:</p>
+            <p><code>Ordisoftware.Hebrew.Letters.exe [word]</code></p>
+        </li>
+    </ul>
+    <p>Note: all diacritics are removed and if the word can't be processed or does not match the expected encoding, nothing is done.</p>
     <h3>Keyboard shortcuts</h3>
     <ul>
         <li>F1 : Analyse view</li>
