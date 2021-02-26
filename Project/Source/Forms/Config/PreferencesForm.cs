@@ -20,7 +20,7 @@ using Ordisoftware.Core;
 namespace Ordisoftware.Hebrew.Letters
 {
 
-  public partial class PreferencesForm : Form
+  partial class PreferencesForm : Form
   {
 
     static private readonly Properties.Settings Settings = Program.Settings;

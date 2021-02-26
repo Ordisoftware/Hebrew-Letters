@@ -23,7 +23,7 @@ namespace Ordisoftware.Hebrew.Letters
   /// The application's main form.
   /// </summary>
   /// <seealso cref="T:System.Windows.Forms.Form"/>
-  public partial class MainForm
+  partial class MainForm
   {
 
     /// <summary>

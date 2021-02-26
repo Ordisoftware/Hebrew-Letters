@@ -22,7 +22,7 @@ using Ordisoftware.Core;
 namespace Ordisoftware.Hebrew.Letters
 {
 
-  public partial class MainForm
+  partial class MainForm
   {
 
     private object[][] LettersMeanings = new object[400 + 1][];
@@ -109,7 +109,7 @@ namespace Ordisoftware.Hebrew.Letters
     /*
     private AnalysisItems AnalysisItems = new AnalysisItems();
    
-    public class AnalysisItem
+    class AnalysisItem
     {
       public Data.DataSet.LettersRow Letter;
       public Label Label;
@@ -117,7 +117,7 @@ namespace Ordisoftware.Hebrew.Letters
       public string Meaning;
     }
 
-    public class AnalysisItems : List<AnalysisItem>
+    class AnalysisItems : List<AnalysisItem>
     {
       public IEnumerable<Label> Labels 
       {

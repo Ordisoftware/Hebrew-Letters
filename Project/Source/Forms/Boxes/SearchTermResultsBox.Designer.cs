@@ -95,7 +95,7 @@
     private System.Windows.Forms.Panel PanelBottom;
     private System.Windows.Forms.Button ActionCancel;
     private System.Windows.Forms.Button ActionSearch;
-    internal System.Windows.Forms.ListBox ListBoxLetters;
-    internal System.Windows.Forms.ListBox ListBoxMeanings;
+    public System.Windows.Forms.ListBox ListBoxLetters;
+    public System.Windows.Forms.ListBox ListBoxMeanings;
   }
 }

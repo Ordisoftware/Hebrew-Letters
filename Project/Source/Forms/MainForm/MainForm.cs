@@ -29,7 +29,7 @@ namespace Ordisoftware.Hebrew.Letters
   /// Provide application's main form.
   /// </summary>
   /// <seealso cref="T:System.Windows.Forms.Form"/>
-  public partial class MainForm : Form
+  partial class MainForm : Form
   {
 
     /// <summary>
@@ -876,7 +876,7 @@ namespace Ordisoftware.Hebrew.Letters
       if ( !Globals.IsReady ) return;
       if ( e.Exception is ArgumentOutOfRangeException || e.Exception is IndexOutOfRangeException )
       {
-        DisplayManager.ShowError("Internal index error.");
+        DisplayManager.ShowError("public index error.");
         DataSet.RejectChanges();
         e.Exception.Manage();
         Application.Exit();

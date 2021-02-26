@@ -833,7 +833,7 @@
 
     private System.Windows.Forms.Panel PanelBottom;
     private System.Windows.Forms.Button ActionClose;
-    internal System.Windows.Forms.Timer Timer;
+    public System.Windows.Forms.Timer Timer;
     private System.Windows.Forms.BindingSource ApplicationStatisticsDataBindingSource;
     private System.Windows.Forms.BindingSource SystemStatisticsDataBindingSource;
     private System.Windows.Forms.Label dBFileSizeLabel1;
@@ -884,7 +884,7 @@
     private System.Windows.Forms.Label cPUProcessLoadLabel1;
     private System.Windows.Forms.Label dBLettersRecordsCountLabel1;
     private System.Windows.Forms.Label cPUProcessLoadAvgLabel1;
-    internal System.Windows.Forms.Button ActionViewLog;
+    public System.Windows.Forms.Button ActionViewLog;
     private System.Windows.Forms.Label LabelCompiled1;
     private System.Windows.Forms.Label dBCommonFileSizeLabel1;
   }

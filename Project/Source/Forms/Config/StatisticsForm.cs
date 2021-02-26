@@ -19,7 +19,7 @@ using Ordisoftware.Core;
 namespace Ordisoftware.Hebrew.Letters
 {
 
-  public partial class StatisticsForm : Form
+  partial class StatisticsForm : Form
   {
 
     static public StatisticsForm Instance { get; private set; }

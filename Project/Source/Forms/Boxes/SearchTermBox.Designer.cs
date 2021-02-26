@@ -87,6 +87,6 @@
     private System.Windows.Forms.Panel PanelBottom;
     private System.Windows.Forms.Button ActionSearch;
     private System.Windows.Forms.Button ActionCancel;
-    internal Ordisoftware.Core.UndoRedoTextBox EditTerm;
+    public Ordisoftware.Core.UndoRedoTextBox EditTerm;
   }
 }

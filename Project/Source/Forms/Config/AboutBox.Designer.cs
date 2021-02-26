@@ -159,7 +159,7 @@
     private System.Windows.Forms.Label LabelDescription;
     private System.Windows.Forms.Panel PanelBottom;
     private System.Windows.Forms.Button ActionPrivacyNotice;
-    internal System.Windows.Forms.Button ActionCheckUpdate;
-    internal System.Windows.Forms.Button ActionViewStats;
+    public System.Windows.Forms.Button ActionCheckUpdate;
+    public System.Windows.Forms.Button ActionViewStats;
   }
 }

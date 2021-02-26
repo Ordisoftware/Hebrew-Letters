@@ -20,7 +20,7 @@ using Ordisoftware.Core;
 namespace Ordisoftware.Hebrew.Letters
 {
 
-  public partial class MainForm : Form
+  partial class MainForm : Form
   {
 
     private OdbcConnection LockFileConnection;

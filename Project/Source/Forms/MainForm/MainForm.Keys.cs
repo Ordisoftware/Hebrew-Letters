@@ -18,7 +18,7 @@ using Ordisoftware.Core;
 namespace Ordisoftware.Hebrew.Letters
 {
 
-  public partial class MainForm
+  partial class MainForm
   {
 
     /// <summary>

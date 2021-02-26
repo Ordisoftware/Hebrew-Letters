@@ -22,7 +22,7 @@ namespace Ordisoftware.Hebrew.Letters
   /// <summary>
   /// provide application statistics.
   /// </summary>
-  public class ApplicationStatistics
+  class ApplicationStatistics
   {
 
     static public ApplicationStatistics Instance
