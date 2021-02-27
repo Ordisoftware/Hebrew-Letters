@@ -29,34 +29,56 @@ namespace Ordisoftware.Hebrew.Letters
     {
       switch ( keyData )
       {
+        // System close
+        case Keys.Alt | Keys.Control | Keys.F4:
+          ActionExit.PerformClick();
+          return true;
+        case Keys.Escape:
+          if ( EditESCtoExit.Checked && !EditMeanings.IsCurrentCellInEditMode )
+          {
+            ActionExit.PerformClick();
+            return true;
+          }
+          break;
+        // System tools
+        case Keys.F9:
+          ActionPreferences.PerformClick();
+          return true;
+        // Change view
         case Keys.Control | Keys.Shift | Keys.Tab:
           SetView(Settings.CurrentView.Previous());
           return true;
         case Keys.Control | Keys.Tab:
           SetView(Settings.CurrentView.Next());
           return true;
-        case Keys.Control | Keys.N:
-          ActionNewInstance.PerformClick();
-          return true;
         case Keys.F1:
           ActionViewAnalysis.PerformClick();
           return true;
         case Keys.F2:
+          if ( ActiveControl == EditMeanings ) break;
           ActionViewLetters.PerformClick();
           return true;
+        // Application functions
         case Keys.F3:
         case Keys.Control | Keys.F:
           ActionSearchTerm.PerformClick();
           return true;
-        case Keys.F8:
-          ActionPreferences.PerformClick();
+        case Keys.Control | Keys.N:
+          ActionNewInstance.PerformClick();
           return true;
-        case Keys.F12:
-          ActionAbout_Click(null, null);
+        // Application menus
+        case Keys.Alt | Keys.T:
+          ActionTools.ShowDropDown();
           return true;
-        case Keys.Escape:
-          if ( EditESCtoExit.Checked )
-            ActionExit.PerformClick();
+        case Keys.Alt | Keys.L:
+          ActionWebLinks.ShowDropDown();
+          return true;
+        // System menus
+        case Keys.Alt | Keys.S:
+          ActionSettings.ShowDropDown();
+          return true;
+        case Keys.Alt | Keys.I:
+          ActionInformation.ShowDropDown();
           return true;
       }
       return base.ProcessCmdKey(ref msg, keyData);
