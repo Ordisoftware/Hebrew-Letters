@@ -1755,7 +1755,7 @@
     <value>0</value>
   </data>
   <data name="ActionUndo.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
+    <value>Bottom, Right</value>
   </data>
   <data name="ActionUndo.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -1787,7 +1787,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionUndo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>565, 435</value>
+    <value>565, 486</value>
   </data>
   <data name="ActionUndo.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 45</value>
@@ -1808,7 +1808,7 @@
     <value>1</value>
   </data>
   <data name="ActionSave.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
+    <value>Bottom, Right</value>
   </data>
   <data name="ActionSave.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -1851,7 +1851,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionSave.Location" type="System.Drawing.Point, System.Drawing">
-    <value>565, 486</value>
+    <value>565, 435</value>
   </data>
   <data name="ActionSave.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 45</value>

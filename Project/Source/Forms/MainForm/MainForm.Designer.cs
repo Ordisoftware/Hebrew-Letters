@@ -529,12 +529,13 @@
       resources.ApplyResources(this.SelectLetter, "SelectLetter");
       this.SelectLetter.FormattingEnabled = true;
       this.SelectLetter.Name = "SelectLetter";
-      this.SelectLetter.SelectedIndexChanged += new System.EventHandler(this.ComboBoxCode_SelectedIndexChanged);
+      this.SelectLetter.SelectedIndexChanged += new System.EventHandler(this.SelectLetter_SelectedIndexChanged);
       // 
       // LettersBindingSource
       // 
       this.LettersBindingSource.DataMember = "Letters";
       this.LettersBindingSource.DataSource = this.DataSet;
+      this.LettersBindingSource.PositionChanged += new System.EventHandler(this.LettersBindingSource_PositionChanged);
       // 
       // DataSet
       // 

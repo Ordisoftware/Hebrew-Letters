@@ -23,7 +23,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     // TODO shortcuts
     // grid
-    //   ins/del
+    //   ins/del & +/- if not in edition
     // buttons
     //   ctrl+s
     //   ctrl+u
