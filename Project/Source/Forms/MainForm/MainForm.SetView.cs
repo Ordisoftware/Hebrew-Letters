@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2020-04 </edited>
+/// <edited> 2021-02 </edited>
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -57,6 +57,9 @@ namespace Ordisoftware.Hebrew.Letters
       SetView(view, false);
     }
 
+    private int SavedSelectionStart;
+    private int SavedSelectionLength;
+
     /// <summary>
     /// Set the view panel.
     /// </summary>
@@ -81,17 +84,38 @@ namespace Ordisoftware.Hebrew.Letters
           {
             MenuItem = ActionViewLetters,
             Panel = PanelViewSettings,
-            Focused = EditMeanings
+            Focused = SelectLetter
           }
         }
       };
       if ( Program.Settings.CurrentView == view && !first ) return;
+      if ( Program.Settings.CurrentView == ViewMode.Settings )
+      {
+        ViewPanels[Program.Settings.CurrentView].Focused.Focus();
+      }
       ViewPanels[Program.Settings.CurrentView].MenuItem.Checked = false;
       ViewPanels[Program.Settings.CurrentView].Panel.Parent = null;
       ViewPanels[view].MenuItem.Checked = true;
       ViewPanels[view].Panel.Parent = PanelMainCenter;
       ViewPanels[view].Focused.Focus();
       Program.Settings.CurrentView = view;
+      if ( view == ViewMode.Analyse )
+      {
+        EditLetters.Input.SelectionStart = SavedSelectionStart;
+        EditLetters.Input.SelectionLength = SavedSelectionLength;
+        if ( DataChanged )
+        {
+          foreach ( Data.DataSet.LettersRow row in DataSet.Letters )
+            LettersMeanings[row.ValueSimple] = null;
+          DoAnalyse();
+          DataChanged = false;
+        }
+      }
+      else
+      {
+        SavedSelectionStart = EditLetters.Input.SelectionStart;
+        SavedSelectionLength = EditLetters.Input.SelectionLength;
+      }
     }
 
   }

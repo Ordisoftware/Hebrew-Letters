@@ -46,44 +46,49 @@
       this.TabControl = new System.Windows.Forms.TabControl();
       this.TabPageText = new System.Windows.Forms.TabPage();
       this.PanelViewSearch = new System.Windows.Forms.Panel();
-      this.EditGematriaFull = new Ordisoftware.Core.UndoRedoTextBox();
+      this.EditGematriaFull = new Ordisoftware.Core.TextBoxEx();
       this.LabelGematriaFull = new System.Windows.Forms.Label();
       this.LabelGematriaSimple = new System.Windows.Forms.Label();
       this.ActionReset = new System.Windows.Forms.Button();
       this.ActionDelLast = new System.Windows.Forms.Button();
       this.ActionDelFirst = new System.Windows.Forms.Button();
       this.EditCopyToClipboardCloseApp = new System.Windows.Forms.CheckBox();
-      this.EditAnalyze = new System.Windows.Forms.Panel();
+      this.SelectAnalyze = new System.Windows.Forms.Panel();
       this.ActionSearchOnline = new System.Windows.Forms.Button();
       this.ContextMenuSearchOnline = new System.Windows.Forms.ContextMenuStrip(this.components);
       this.ActionOpenWordOnline = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionPaste = new System.Windows.Forms.Button();
+      this.ActionCopyToHebrew = new System.Windows.Forms.Button();
       this.ActionCopyToUnicode = new System.Windows.Forms.Button();
       this.ActionClear = new System.Windows.Forms.Button();
+      this.ActionSaveImage = new System.Windows.Forms.Button();
       this.ActionSnapshot = new System.Windows.Forms.Button();
-      this.ActionCopyToClipboardMeanings = new System.Windows.Forms.Button();
-      this.ActionCopyToClipboardResult = new System.Windows.Forms.Button();
-      this.EditSentence = new Ordisoftware.Core.UndoRedoTextBox();
-      this.EditGematriaSimple = new Ordisoftware.Core.UndoRedoTextBox();
+      this.button1 = new System.Windows.Forms.Button();
+      this.ActionCopyToMeanings = new System.Windows.Forms.Button();
+      this.ActionCopyToResult = new System.Windows.Forms.Button();
+      this.EditSentence = new Ordisoftware.Core.TextBoxEx();
+      this.EditGematriaSimple = new Ordisoftware.Core.TextBoxEx();
       this.LabelGematria = new System.Windows.Forms.Label();
       this.EditLetters = new Ordisoftware.Hebrew.LettersControl();
       this.TabPageMonth = new System.Windows.Forms.TabPage();
       this.PanelViewSettings = new System.Windows.Forms.Panel();
       this.PanelSettingsDetails = new System.Windows.Forms.Panel();
       this.PanelLetter = new System.Windows.Forms.Panel();
-      this.ComboBoxCode = new System.Windows.Forms.ComboBox();
+      this.SelectLetter = new System.Windows.Forms.ComboBox();
       this.LettersBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.DataSet = new Ordisoftware.Hebrew.Letters.Data.DataSet();
-      this.TextBoxStructure = new Ordisoftware.Core.UndoRedoTextBox();
+      this.TextBoxStructure = new Ordisoftware.Core.TextBoxEx();
       this.LabelHebrew = new System.Windows.Forms.Label();
-      this.TextBoxNegative = new Ordisoftware.Core.UndoRedoTextBox();
-      this.TextBoxName = new Ordisoftware.Core.UndoRedoTextBox();
-      this.TextBoxFunction = new Ordisoftware.Core.UndoRedoTextBox();
-      this.TextBoxPositive = new Ordisoftware.Core.UndoRedoTextBox();
-      this.TextBoxVerb = new Ordisoftware.Core.UndoRedoTextBox();
-      this.TextBoxValueSimple = new Ordisoftware.Core.UndoRedoTextBox();
-      this.TextBoxValueFull = new Ordisoftware.Core.UndoRedoTextBox();
+      this.TextBoxNegative = new Ordisoftware.Core.TextBoxEx();
+      this.TextBoxName = new Ordisoftware.Core.TextBoxEx();
+      this.TextBoxFunction = new Ordisoftware.Core.TextBoxEx();
+      this.TextBoxPositive = new Ordisoftware.Core.TextBoxEx();
+      this.TextBoxVerb = new Ordisoftware.Core.TextBoxEx();
+      this.TextBoxValueSimple = new Ordisoftware.Core.TextBoxEx();
+      this.TextBoxValueFull = new Ordisoftware.Core.TextBoxEx();
       this.ActionRestoreDefaults = new System.Windows.Forms.LinkLabel();
+      this.ActionUndo = new System.Windows.Forms.Button();
+      this.ActionSave = new System.Windows.Forms.Button();
       this.ActionDeleteMeaning = new System.Windows.Forms.Button();
       this.ActionAddMeaning = new System.Windows.Forms.Button();
       this.EditMeanings = new System.Windows.Forms.DataGridView();
@@ -121,7 +126,7 @@
       this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
       this.ActionSearchTerm = new System.Windows.Forms.ToolStripButton();
       this.ActionNewInstance = new System.Windows.Forms.ToolStripButton();
-      this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+      this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
       this.ActionTools = new System.Windows.Forms.ToolStripDropDownButton();
       this.ActionShowMethodNotice = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionShowGrammarGuide = new System.Windows.Forms.ToolStripMenuItem();
@@ -265,14 +270,17 @@
       this.PanelViewSearch.Controls.Add(this.ActionDelLast);
       this.PanelViewSearch.Controls.Add(this.ActionDelFirst);
       this.PanelViewSearch.Controls.Add(this.EditCopyToClipboardCloseApp);
-      this.PanelViewSearch.Controls.Add(this.EditAnalyze);
+      this.PanelViewSearch.Controls.Add(this.SelectAnalyze);
       this.PanelViewSearch.Controls.Add(this.ActionSearchOnline);
       this.PanelViewSearch.Controls.Add(this.ActionPaste);
+      this.PanelViewSearch.Controls.Add(this.ActionCopyToHebrew);
       this.PanelViewSearch.Controls.Add(this.ActionCopyToUnicode);
       this.PanelViewSearch.Controls.Add(this.ActionClear);
+      this.PanelViewSearch.Controls.Add(this.ActionSaveImage);
       this.PanelViewSearch.Controls.Add(this.ActionSnapshot);
-      this.PanelViewSearch.Controls.Add(this.ActionCopyToClipboardMeanings);
-      this.PanelViewSearch.Controls.Add(this.ActionCopyToClipboardResult);
+      this.PanelViewSearch.Controls.Add(this.button1);
+      this.PanelViewSearch.Controls.Add(this.ActionCopyToMeanings);
+      this.PanelViewSearch.Controls.Add(this.ActionCopyToResult);
       this.PanelViewSearch.Controls.Add(this.EditSentence);
       this.PanelViewSearch.Controls.Add(this.EditGematriaSimple);
       this.PanelViewSearch.Controls.Add(this.LabelGematria);
@@ -330,12 +338,12 @@
       this.EditCopyToClipboardCloseApp.Name = "EditCopyToClipboardCloseApp";
       this.EditCopyToClipboardCloseApp.UseVisualStyleBackColor = true;
       // 
-      // EditAnalyze
+      // SelectAnalyze
       // 
-      resources.ApplyResources(this.EditAnalyze, "EditAnalyze");
-      this.EditAnalyze.BackColor = System.Drawing.Color.MintCream;
-      this.EditAnalyze.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.EditAnalyze.Name = "EditAnalyze";
+      resources.ApplyResources(this.SelectAnalyze, "SelectAnalyze");
+      this.SelectAnalyze.BackColor = System.Drawing.Color.MintCream;
+      this.SelectAnalyze.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.SelectAnalyze.Name = "SelectAnalyze";
       // 
       // ActionSearchOnline
       // 
@@ -367,6 +375,14 @@
       this.ActionPaste.UseVisualStyleBackColor = true;
       this.ActionPaste.Click += new System.EventHandler(this.ActionPaste_Click);
       // 
+      // ActionCopyToHebrew
+      // 
+      resources.ApplyResources(this.ActionCopyToHebrew, "ActionCopyToHebrew");
+      this.ActionCopyToHebrew.FlatAppearance.BorderSize = 0;
+      this.ActionCopyToHebrew.Name = "ActionCopyToHebrew";
+      this.ActionCopyToHebrew.UseVisualStyleBackColor = true;
+      this.ActionCopyToHebrew.Click += new System.EventHandler(this.ActionCopyToHebrew_Click);
+      // 
       // ActionCopyToUnicode
       // 
       resources.ApplyResources(this.ActionCopyToUnicode, "ActionCopyToUnicode");
@@ -383,6 +399,14 @@
       this.ActionClear.UseVisualStyleBackColor = true;
       this.ActionClear.Click += new System.EventHandler(this.ActionClear_Click);
       // 
+      // ActionSaveImage
+      // 
+      resources.ApplyResources(this.ActionSaveImage, "ActionSaveImage");
+      this.ActionSaveImage.FlatAppearance.BorderSize = 0;
+      this.ActionSaveImage.Name = "ActionSaveImage";
+      this.ActionSaveImage.UseVisualStyleBackColor = true;
+      this.ActionSaveImage.Click += new System.EventHandler(this.ActionSnapshot_Click);
+      // 
       // ActionSnapshot
       // 
       resources.ApplyResources(this.ActionSnapshot, "ActionSnapshot");
@@ -391,21 +415,29 @@
       this.ActionSnapshot.UseVisualStyleBackColor = true;
       this.ActionSnapshot.Click += new System.EventHandler(this.ActionSnapshot_Click);
       // 
-      // ActionCopyToClipboardMeanings
+      // button1
       // 
-      resources.ApplyResources(this.ActionCopyToClipboardMeanings, "ActionCopyToClipboardMeanings");
-      this.ActionCopyToClipboardMeanings.FlatAppearance.BorderSize = 0;
-      this.ActionCopyToClipboardMeanings.Name = "ActionCopyToClipboardMeanings";
-      this.ActionCopyToClipboardMeanings.UseVisualStyleBackColor = true;
-      this.ActionCopyToClipboardMeanings.Click += new System.EventHandler(this.ActionCopyToClipboardMeanings_Click);
+      resources.ApplyResources(this.button1, "button1");
+      this.button1.FlatAppearance.BorderSize = 0;
+      this.button1.Name = "button1";
+      this.button1.UseVisualStyleBackColor = true;
+      this.button1.Click += new System.EventHandler(this.ActionCopyToMeanings_Click);
       // 
-      // ActionCopyToClipboardResult
+      // ActionCopyToMeanings
       // 
-      resources.ApplyResources(this.ActionCopyToClipboardResult, "ActionCopyToClipboardResult");
-      this.ActionCopyToClipboardResult.FlatAppearance.BorderSize = 0;
-      this.ActionCopyToClipboardResult.Name = "ActionCopyToClipboardResult";
-      this.ActionCopyToClipboardResult.UseVisualStyleBackColor = true;
-      this.ActionCopyToClipboardResult.Click += new System.EventHandler(this.ActionCopyToClipboardResults_Click);
+      resources.ApplyResources(this.ActionCopyToMeanings, "ActionCopyToMeanings");
+      this.ActionCopyToMeanings.FlatAppearance.BorderSize = 0;
+      this.ActionCopyToMeanings.Name = "ActionCopyToMeanings";
+      this.ActionCopyToMeanings.UseVisualStyleBackColor = true;
+      this.ActionCopyToMeanings.Click += new System.EventHandler(this.ActionCopyToMeanings_Click);
+      // 
+      // ActionCopyToResult
+      // 
+      resources.ApplyResources(this.ActionCopyToResult, "ActionCopyToResult");
+      this.ActionCopyToResult.FlatAppearance.BorderSize = 0;
+      this.ActionCopyToResult.Name = "ActionCopyToResult";
+      this.ActionCopyToResult.UseVisualStyleBackColor = true;
+      this.ActionCopyToResult.Click += new System.EventHandler(this.ActionCopyToResult_Click);
       // 
       // EditSentence
       // 
@@ -456,6 +488,8 @@
       resources.ApplyResources(this.PanelSettingsDetails, "PanelSettingsDetails");
       this.PanelSettingsDetails.BackColor = System.Drawing.SystemColors.Control;
       this.PanelSettingsDetails.Controls.Add(this.PanelLetter);
+      this.PanelSettingsDetails.Controls.Add(this.ActionUndo);
+      this.PanelSettingsDetails.Controls.Add(this.ActionSave);
       this.PanelSettingsDetails.Controls.Add(this.ActionDeleteMeaning);
       this.PanelSettingsDetails.Controls.Add(this.ActionAddMeaning);
       this.PanelSettingsDetails.Controls.Add(LabelMeanings);
@@ -464,7 +498,7 @@
       // 
       // PanelLetter
       // 
-      this.PanelLetter.Controls.Add(this.ComboBoxCode);
+      this.PanelLetter.Controls.Add(this.SelectLetter);
       this.PanelLetter.Controls.Add(this.TextBoxStructure);
       this.PanelLetter.Controls.Add(this.LabelHebrew);
       this.PanelLetter.Controls.Add(LabelStructure);
@@ -486,16 +520,16 @@
       resources.ApplyResources(this.PanelLetter, "PanelLetter");
       this.PanelLetter.Name = "PanelLetter";
       // 
-      // ComboBoxCode
+      // SelectLetter
       // 
-      this.ComboBoxCode.BackColor = System.Drawing.Color.LightYellow;
-      this.ComboBoxCode.DataSource = this.LettersBindingSource;
-      this.ComboBoxCode.DisplayMember = "Code";
-      this.ComboBoxCode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-      resources.ApplyResources(this.ComboBoxCode, "ComboBoxCode");
-      this.ComboBoxCode.FormattingEnabled = true;
-      this.ComboBoxCode.Name = "ComboBoxCode";
-      this.ComboBoxCode.SelectedIndexChanged += new System.EventHandler(this.ComboBoxCode_SelectedIndexChanged);
+      this.SelectLetter.BackColor = System.Drawing.Color.LightYellow;
+      this.SelectLetter.DataSource = this.LettersBindingSource;
+      this.SelectLetter.DisplayMember = "Code";
+      this.SelectLetter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+      resources.ApplyResources(this.SelectLetter, "SelectLetter");
+      this.SelectLetter.FormattingEnabled = true;
+      this.SelectLetter.Name = "SelectLetter";
+      this.SelectLetter.SelectedIndexChanged += new System.EventHandler(this.ComboBoxCode_SelectedIndexChanged);
       // 
       // LettersBindingSource
       // 
@@ -511,7 +545,7 @@
       // 
       this.TextBoxStructure.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.TextBoxStructure.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
-      this.TextBoxStructure.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Structure", true));
+      this.TextBoxStructure.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Structure", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
       resources.ApplyResources(this.TextBoxStructure, "TextBoxStructure");
       this.TextBoxStructure.Name = "TextBoxStructure";
       this.TextBoxStructure.Tag = "data";
@@ -529,7 +563,7 @@
       // 
       this.TextBoxNegative.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.TextBoxNegative.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
-      this.TextBoxNegative.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Negative", true));
+      this.TextBoxNegative.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Negative", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
       resources.ApplyResources(this.TextBoxNegative, "TextBoxNegative");
       this.TextBoxNegative.Name = "TextBoxNegative";
       this.TextBoxNegative.Tag = "data";
@@ -552,7 +586,7 @@
       // 
       this.TextBoxFunction.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.TextBoxFunction.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
-      this.TextBoxFunction.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Function", true));
+      this.TextBoxFunction.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Function", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
       resources.ApplyResources(this.TextBoxFunction, "TextBoxFunction");
       this.TextBoxFunction.Name = "TextBoxFunction";
       this.TextBoxFunction.Tag = "data";
@@ -565,7 +599,7 @@
       // 
       this.TextBoxPositive.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.TextBoxPositive.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
-      this.TextBoxPositive.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Positive", true));
+      this.TextBoxPositive.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Positive", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
       resources.ApplyResources(this.TextBoxPositive, "TextBoxPositive");
       this.TextBoxPositive.Name = "TextBoxPositive";
       this.TextBoxPositive.Tag = "data";
@@ -578,7 +612,7 @@
       // 
       this.TextBoxVerb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.TextBoxVerb.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
-      this.TextBoxVerb.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Verb", true));
+      this.TextBoxVerb.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Verb", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
       resources.ApplyResources(this.TextBoxVerb, "TextBoxVerb");
       this.TextBoxVerb.Name = "TextBoxVerb";
       this.TextBoxVerb.Tag = "data";
@@ -616,6 +650,22 @@
       this.ActionRestoreDefaults.TabStop = true;
       this.ActionRestoreDefaults.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ActionRestoreDefaults_LinkClicked);
       // 
+      // ActionUndo
+      // 
+      resources.ApplyResources(this.ActionUndo, "ActionUndo");
+      this.ActionUndo.FlatAppearance.BorderSize = 0;
+      this.ActionUndo.Name = "ActionUndo";
+      this.ActionUndo.UseVisualStyleBackColor = true;
+      this.ActionUndo.Click += new System.EventHandler(this.ActionUndo_Click);
+      // 
+      // ActionSave
+      // 
+      resources.ApplyResources(this.ActionSave, "ActionSave");
+      this.ActionSave.FlatAppearance.BorderSize = 0;
+      this.ActionSave.Name = "ActionSave";
+      this.ActionSave.UseVisualStyleBackColor = true;
+      this.ActionSave.Click += new System.EventHandler(this.ActionSave_Click);
+      // 
       // ActionDeleteMeaning
       // 
       resources.ApplyResources(this.ActionDeleteMeaning, "ActionDeleteMeaning");
@@ -645,13 +695,18 @@
       this.EditMeanings.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn2});
       this.EditMeanings.DataSource = this.MeaningsBindingSource;
+      this.EditMeanings.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
       this.EditMeanings.MultiSelect = false;
       this.EditMeanings.Name = "EditMeanings";
       this.EditMeanings.RowHeadersVisible = false;
       this.EditMeanings.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.EditMeanings_CellBeginEdit);
+      this.EditMeanings.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.EditMeanings_CellDoubleClick);
       this.EditMeanings.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.EditMeanings_CellEndEdit);
       this.EditMeanings.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.EditMeanings_CellValidating);
+      this.EditMeanings.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.EditMeanings_CellValueChanged);
       this.EditMeanings.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.EditMeanings_DataError);
+      this.EditMeanings.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EditMeanings_KeyDown);
+      this.EditMeanings.KeyUp += new System.Windows.Forms.KeyEventHandler(this.EditMeanings_KeyUp);
       // 
       // dataGridViewTextBoxColumn2
       // 
@@ -662,6 +717,7 @@
       // 
       // MeaningsBindingSource
       // 
+      this.MeaningsBindingSource.AllowNew = true;
       this.MeaningsBindingSource.DataMember = "Letters_Meanings";
       this.MeaningsBindingSource.DataSource = this.LettersBindingSource;
       // 
@@ -703,7 +759,7 @@
             this.toolStripSeparator6,
             this.ActionSearchTerm,
             this.ActionNewInstance,
-            this.toolStripSeparator1,
+            this.toolStripSeparator7,
             this.ActionTools,
             this.ActionWebLinks,
             this.ActionInformation});
@@ -929,13 +985,11 @@
       this.ActionNewInstance.Name = "ActionNewInstance";
       this.ActionNewInstance.Padding = new System.Windows.Forms.Padding(5);
       this.ActionNewInstance.Click += new System.EventHandler(this.ActionNewInstance_Click);
-      this.ActionNewInstance.MouseEnter += new System.EventHandler(this.ShowToolTipOnMouseEnter);
-      this.ActionNewInstance.MouseLeave += new System.EventHandler(this.ShowToolTipOnMouseLeave);
       // 
-      // toolStripSeparator1
+      // toolStripSeparator7
       // 
-      this.toolStripSeparator1.Name = "toolStripSeparator1";
-      resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
+      this.toolStripSeparator7.Name = "toolStripSeparator7";
+      resources.ApplyResources(this.toolStripSeparator7, "toolStripSeparator7");
       // 
       // ActionTools
       // 
@@ -1101,31 +1155,30 @@
     private System.Windows.Forms.Panel PanelViewSettings;
     private System.Windows.Forms.ToolStripButton ActionViewAnalysis;
     private System.Windows.Forms.ToolStripButton ActionViewLetters;
-    private Ordisoftware.Core.UndoRedoTextBox TextBoxName;
-    private Ordisoftware.Core.UndoRedoTextBox TextBoxValueSimple;
-    private Ordisoftware.Core.UndoRedoTextBox TextBoxValueFull;
+    private Ordisoftware.Core.TextBoxEx TextBoxName;
+    private Ordisoftware.Core.TextBoxEx TextBoxValueSimple;
+    private Ordisoftware.Core.TextBoxEx TextBoxValueFull;
     private System.Windows.Forms.Panel PanelSettingsDetails;
     private System.Windows.Forms.LinkLabel ActionRestoreDefaults;
     private System.Windows.Forms.Button ActionDeleteMeaning;
     private System.Windows.Forms.Button ActionAddMeaning;
-    private System.Windows.Forms.Button ActionCopyToClipboardResult;
-    private System.Windows.Forms.Panel EditAnalyze;
+    private System.Windows.Forms.Button ActionCopyToResult;
+    private System.Windows.Forms.Panel SelectAnalyze;
     public System.Windows.Forms.CheckBox EditCopyToClipboardCloseApp;
-    private System.Windows.Forms.Button ActionCopyToClipboardMeanings;
+    private System.Windows.Forms.Button ActionCopyToMeanings;
     private System.Windows.Forms.ToolStripButton ActionPreferences;
     public System.Windows.Forms.Label LabelGematria;
-    public Ordisoftware.Core.UndoRedoTextBox EditGematriaSimple;
+    public Ordisoftware.Core.TextBoxEx EditGematriaSimple;
     private System.Windows.Forms.Button ActionReset;
     private System.Windows.Forms.Button ActionDelLast;
     private System.Windows.Forms.Button ActionDelFirst;
     private System.Windows.Forms.DataGridView EditMeanings;
     private System.Windows.Forms.Label LabelHebrew;
-    private System.Windows.Forms.ComboBox ComboBoxCode;
+    private System.Windows.Forms.ComboBox SelectLetter;
     private System.Windows.Forms.Panel PanelLetter;
     private System.Windows.Forms.Button ActionCopyToUnicode;
     private System.Windows.Forms.Button ActionSearchOnline;
     private System.Windows.Forms.ContextMenuStrip ContextMenuSearchOnline;
-    private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     private System.Windows.Forms.ToolStripButton ActionSearchTerm;
     private System.Windows.Forms.ToolStripDropDownButton ActionTools;
     private System.Windows.Forms.ToolStripMenuItem ActionOpenShorashon;
@@ -1133,26 +1186,25 @@
     private System.Windows.Forms.ToolStripMenuItem ActionOpenLexilogosOld;
     private System.Windows.Forms.ToolStripMenuItem ActionOpenLexilogosModern;
     private System.Windows.Forms.ToolStripMenuItem ActionOpenWordOnline;
-    public Ordisoftware.Core.UndoRedoTextBox EditSentence;
+    public Ordisoftware.Core.TextBoxEx EditSentence;
     public System.Windows.Forms.ToolStripMenuItem EditESCtoExit;
     private System.Windows.Forms.ToolStripDropDownButton ActionWebLinks;
     private System.Windows.Forms.ToolStripMenuItem ActionShowGrammarGuide;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
     private System.Windows.Forms.ToolStripMenuItem ActionShowMethodNotice;
-    public Ordisoftware.Core.UndoRedoTextBox TextBoxStructure;
-    public Ordisoftware.Core.UndoRedoTextBox TextBoxFunction;
-    public Ordisoftware.Core.UndoRedoTextBox TextBoxVerb;
-    public Ordisoftware.Core.UndoRedoTextBox TextBoxNegative;
-    public Ordisoftware.Core.UndoRedoTextBox TextBoxPositive;
+    public Ordisoftware.Core.TextBoxEx TextBoxStructure;
+    public Ordisoftware.Core.TextBoxEx TextBoxFunction;
+    public Ordisoftware.Core.TextBoxEx TextBoxVerb;
+    public Ordisoftware.Core.TextBoxEx TextBoxNegative;
+    public Ordisoftware.Core.TextBoxEx TextBoxPositive;
     public System.Windows.Forms.Button ActionClear;
     public System.Windows.Forms.Label LabelGematriaSimple;
-    public Ordisoftware.Core.UndoRedoTextBox EditGematriaFull;
+    public Ordisoftware.Core.TextBoxEx EditGematriaFull;
     public System.Windows.Forms.Label LabelGematriaFull;
     public System.Windows.Forms.ToolStripMenuItem EditUseAdvancedDialogBoxes;
     public System.Windows.Forms.ToolStripMenuItem EditSoundsEnabled;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
-    private System.Windows.Forms.ToolStripButton ActionNewInstance;
     private System.Windows.Forms.Button ActionSnapshot;
     private System.Windows.Forms.Timer TimerProcesses;
     public System.Windows.Forms.ToolStripDropDownButton ActionInformation;
@@ -1167,5 +1219,12 @@
     public System.Windows.Forms.ToolStripMenuItem EditShowSuccessDialogs;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
     private System.Windows.Forms.ToolStripMenuItem ActionShowKeyboardNotice;
+    private System.Windows.Forms.Button ActionCopyToHebrew;
+    private System.Windows.Forms.Button ActionSaveImage;
+    private System.Windows.Forms.Button button1;
+    private System.Windows.Forms.Button ActionUndo;
+    private System.Windows.Forms.Button ActionSave;
+    private System.Windows.Forms.ToolStripButton ActionNewInstance;
+    private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
   }
 }

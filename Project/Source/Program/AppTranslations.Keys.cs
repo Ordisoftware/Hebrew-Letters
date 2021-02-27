@@ -34,29 +34,42 @@ namespace Ordisoftware.Hebrew.Letters
     static public readonly TranslationsDictionary NoticeKeyboardShortcuts
       = new TranslationsDictionary
       {
-        [Language.EN] = "F1 : Analyse view" + Globals.NL +
+        [Language.EN] = "Ctrl + Tab : Next view" + Globals.NL +
+                        "Shift + Ctrl + Tab : Previous view" + Globals.NL +
+                        "F1 : Analyse view" + Globals.NL +
                         "F2 : Settings view" + Globals.NL +
                         "F3 : Search term" + Globals.NL +
-                        "Ctrl + M : Open the lettriq analysis method notice" + Globals.NL +
-                        "Ctrl + G : Open the grammar guide" + Globals.NL +
+                        "Alt + T : Show tools menu" + Globals.NL +
+                        "Alt + L : Show web links menu" + Globals.NL +
+                        "Alt + I : Show information menu" + Globals.NL +
+                        "Alt + S : Show settings menu" + Globals.NL +
+                        "Ctrl + M : Open lettriq analysis method notice" + Globals.NL +
+                        "Ctrl + G : Open grammar guide" + Globals.NL +
                         "Ctrl + L : Open Shorashon web page" + Globals.NL +
                         "F9 : Preferences" + Globals.NL +
                         "F10 : Log file window" + Globals.NL +
                         "F11 : Usage statistics window" + Globals.NL +
                         "F12 : About" + Globals.NL +
-                        "Escape : Close window",
+                        "Alt + F4 (ou Escape) : Exit application" + Globals.NL +
+                        "Ctrl + Alt + F4 : Exit application",
 
-        [Language.FR] = "F1 : Vue d'analyse" + Globals.NL +
+        [Language.FR] = "Ctrl + Tab : Vue suivante" + Globals.NL +
+                        "Maj + Ctrl + Tab : Vue précédente" + Globals.NL +
+                        "F1 : Vue d'analyse" + Globals.NL +
                         "F2 : Vue des paramètres" + Globals.NL +
                         "F3 : Recherche d'un terme" + Globals.NL +
+                        "Alt + T : Montre le menu des outils" + Globals.NL +
+                        "Alt + L : Montre le menu des liens web" + Globals.NL +
+                        "Alt + I : Montre le menu des informations" + Globals.NL +
+                        "Alt + S : Montre le menu des paramètres" + Globals.NL +
                         "Ctrl + M : Ouvre la notice de la méthode d'analyse lettrique" + Globals.NL +
-                        "Ctrl + G : Open le guide de grammaire" + Globals.NL +
+                        "Ctrl + G : Ouvre le guide de grammaire" + Globals.NL +
                         "Ctrl + L : Ouvre la page web Shorashon" + Globals.NL +
                         "F9 : Préférences" + Globals.NL +
                         "F10 : Fenêtre du fichier log" + Globals.NL +
                         "F11 : Fenêtre des statistiques d'utilisation" + Globals.NL +
-                        "F12 : A propos" + Globals.NL +
-                        "Echap : Ferme la fenêtre"
+                        "Alt + F4 (ou Echap) : Ferme l'application" + Globals.NL +
+                        "Ctrl + Alt + F4 : Ferme l'application",
       };
 
   }

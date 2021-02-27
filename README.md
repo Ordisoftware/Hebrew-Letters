@@ -165,6 +165,7 @@ Note: all diacritics are removed and if the word can't be processed or does not 
 - Add check update from about box.
 - Fix pasting Hebrew font chars removes special final letters.
 - Fix pasting unicode chars removes special final letters.
+- Improve data edition.
 - Improve copy and paste to support both Hebrew font and unicode chars from context menu and keyboard.
 - Improve check update to allow auto update or direct download or open app web page.
 - Improve check update to verify the SSL certificate of the website and the checksum of the setup file.
@@ -173,7 +174,7 @@ Note: all diacritics are removed and if the word can't be processed or does not 
 - Improve message boxes.
 - Improve UI/UX.
 - Rework of the preferences form design to have a Tab Control with pages.
-- Change all TextBox for UndoRedoTextBox to have the new context menu.
+- Change all TextBox for TextBoxEx to have the new context menu.
 - Remove advanced undo/redo due to a problem that requires a complete rewrite to have the cursor not misplaced in certain cases.
 - Add Markdig NuGet package.
 - Add FileHelpers NuGet package.

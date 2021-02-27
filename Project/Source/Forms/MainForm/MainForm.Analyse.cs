@@ -31,7 +31,7 @@ namespace Ordisoftware.Hebrew.Letters
     {
       try
       {
-        EditAnalyze.Controls.Clear();
+        SelectAnalyze.Controls.Clear();
         EditSentence.Text = "";
         EditGematriaSimple.Text = "";
         EditGematriaFull.Text = "";
@@ -56,7 +56,7 @@ namespace Ordisoftware.Hebrew.Letters
           label.Left = 100;
           label.Top = 20 + dy;
           label.Text = letter.Name;
-          EditAnalyze.Controls.Add(label);
+          SelectAnalyze.Controls.Add(label);
           // Combobox
           var combobox = new ComboBox();
           label.Tag = combobox;
@@ -84,14 +84,14 @@ namespace Ordisoftware.Hebrew.Letters
               LettersMeanings[letter.ValueSimple][indexMeaning++] = meaning.Meaning;
           }
           combobox.Tag = LettersMeanings[letter.ValueSimple];
-          EditAnalyze.Controls.Add(combobox);
+          SelectAnalyze.Controls.Add(combobox);
           // Loop
           dy += 30;
         }
         EditGematriaSimple.Text = sumSimple.ToString();
         EditGematriaFull.Text = sumFull.ToString();
-        ActionCopyToClipboardMeanings.Enabled = EditAnalyze.Controls.Count > 0;
-        ActionSnapshot.Enabled = ActionCopyToClipboardMeanings.Enabled;
+        ActionCopyToMeanings.Enabled = SelectAnalyze.Controls.Count > 0;
+        ActionSnapshot.Enabled = ActionCopyToMeanings.Enabled;
       }
       catch ( Exception ex )
       {
