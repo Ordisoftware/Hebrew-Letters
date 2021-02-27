@@ -33,7 +33,7 @@
       this.PanelBottom = new System.Windows.Forms.Panel();
       this.ActionSearch = new System.Windows.Forms.Button();
       this.ActionCancel = new System.Windows.Forms.Button();
-      this.EditTerm = new Ordisoftware.Core.UndoRedoTextBox();
+      this.EditTerm = new Ordisoftware.Core.TextBoxEx();
       this.PanelBottom.SuspendLayout();
       this.SuspendLayout();
       // 
@@ -87,6 +87,6 @@
     private System.Windows.Forms.Panel PanelBottom;
     private System.Windows.Forms.Button ActionSearch;
     private System.Windows.Forms.Button ActionCancel;
-    public Ordisoftware.Core.UndoRedoTextBox EditTerm;
+    public Ordisoftware.Core.TextBoxEx EditTerm;
   }
 }

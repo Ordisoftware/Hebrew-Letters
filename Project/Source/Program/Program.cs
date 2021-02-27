@@ -158,7 +158,7 @@ namespace Ordisoftware.Hebrew.Letters
       DebugManager.TraceForm.Text = tempLogTitle;
       DebugManager.TraceForm.AppendText(tempLogContent);
       LoadingForm.Instance.Relocalize();
-      UndoRedoTextBox.Relocalize();
+      TextBoxEx.Relocalize();
       AboutBox.Instance.AboutBox_Shown(null, null);
       GrammarGuideForm.HTMLBrowserForm_Shown(null, null);
       MethodNoticeForm.HTMLBrowserForm_Shown(null, null);

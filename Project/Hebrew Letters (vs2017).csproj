@@ -195,16 +195,16 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Source\Common\Core\WinForms.Controls\ToolStripMenuItemHelper.cs" />
-    <Compile Include="Source\Common\Core\WinForms.Controls\UndoRedoTextBox.Actions.cs">
+    <Compile Include="Source\Common\Core\WinForms.Controls\TextBoxEx.Actions.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Source\Common\Core\WinForms.Controls\UndoRedoTextBox.cs">
+    <Compile Include="Source\Common\Core\WinForms.Controls\TextBoxEx.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Source\Common\Core\WinForms.Controls\UndoRedoTextBox.Designer.cs">
-      <DependentUpon>UndoRedoTextBox.cs</DependentUpon>
+    <Compile Include="Source\Common\Core\WinForms.Controls\TextBoxEx.Designer.cs">
+      <DependentUpon>TextBoxEx.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\Common\Core\WinForms.Controls\UndoRedoTextBox.Initialize.cs">
+    <Compile Include="Source\Common\Core\WinForms.Controls\TextBoxEx.Initialize.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Source\Common\Core\WinForms\DataFileEditorForm.cs">
@@ -346,7 +346,9 @@
     <Compile Include="Source\Forms\MainForm\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\Forms\MainForm\MainForm.Analyse.cs" />
+    <Compile Include="Source\Forms\MainForm\MainForm.Analyse.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Source\Forms\MainForm\MainForm.Keys.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -374,11 +376,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Source\Common\Core\WinForms.Controls\UndoRedoTextBox.fr.resx">
-      <DependentUpon>UndoRedoTextBox.cs</DependentUpon>
+    <EmbeddedResource Include="Source\Common\Core\WinForms.Controls\TextBoxEx.fr.resx">
+      <DependentUpon>TextBoxEx.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Source\Common\Core\WinForms.Controls\UndoRedoTextBox.resx">
-      <DependentUpon>UndoRedoTextBox.cs</DependentUpon>
+    <EmbeddedResource Include="Source\Common\Core\WinForms.Controls\TextBoxEx.resx">
+      <DependentUpon>TextBoxEx.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Common\Core\WinForms\DataFileEditorForm.fr.resx">
       <DependentUpon>DataFileEditorForm.cs</DependentUpon>
@@ -439,6 +442,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Common\Hebrew\WinForms\LettersControl.resx">
       <DependentUpon>LettersControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Common\Hebrew\WinForms\SelectValueComboBox.resx">
       <DependentUpon>SelectValueComboBox.cs</DependentUpon>
@@ -454,6 +458,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\Config\StatisticsForm.resx">
       <DependentUpon>StatisticsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\Config\AboutBox.fr.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
@@ -469,6 +474,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\MainForm\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\Config\PreferencesForm.resx">
       <DependentUpon>PreferencesForm.cs</DependentUpon>
@@ -478,6 +484,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\Boxes\SearchTermBox.resx">
       <DependentUpon>SearchTermBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="..\README.md">
       <Link>README.md</Link>
