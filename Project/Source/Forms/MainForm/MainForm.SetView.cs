@@ -115,6 +115,7 @@ namespace Ordisoftware.Hebrew.Letters
       {
         SavedSelectionStart = EditLetters.Input.SelectionStart;
         SavedSelectionLength = EditLetters.Input.SelectionLength;
+        EditMutex = false;
       }
     }
 

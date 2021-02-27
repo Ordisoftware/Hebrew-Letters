@@ -74,13 +74,15 @@ namespace Ordisoftware.Hebrew.Letters
     /// </summary>
     private bool IsDBUpgraded;
 
-
-    private string LastTermSearched;
-
     /// <summary>
     /// Indicate the selected meanings text.
     /// </summary>
     private string WordMeanings = "";
+
+    private string LastTermSearched;
+
+    private bool EditMutex;
+    private bool AddNewRowMutex;
 
     /// <summary>
     /// Default constructor.
@@ -193,12 +195,13 @@ namespace Ordisoftware.Hebrew.Letters
         ex.Manage();
         Environment.Exit(-1);
       }
-      ComboBoxCode_SelectedIndexChanged(null, null);
       CommonMenusControl.Instance.ActionViewStats.Enabled = Settings.UsageStatisticsEnabled;
       CommonMenusControl.Instance.ActionViewLog.Enabled = DebugManager.TraceEnabled;
       DebugManager.TraceEnabledChanged += value => CommonMenusControl.Instance.ActionViewLog.Enabled = value;
       TimerProcesses_Tick(null, null);
       Globals.IsReady = true;
+      SelectLetter_SelectedIndexChanged(SelectLetter, EventArgs.Empty);
+      UpdateButtons(SelectLetter);
     }
 
     private bool IsReadOnly;
@@ -600,6 +603,7 @@ namespace Ordisoftware.Hebrew.Letters
         EditLetters.Input.Text = word;
         ApplicationStatistics.UpdateDBFileSizeRequired = true;
         ApplicationStatistics.UpdateDBMemorySizeRequired = true;
+        UpdateButtons(null);
       }
     }
 
@@ -694,6 +698,16 @@ namespace Ordisoftware.Hebrew.Letters
       }
     }
 
+    private void MeaningComboBox_SelectedIndexChanged(object sender, EventArgs e)
+    {
+      string str = "";
+      foreach ( var control in SelectAnalyze.Controls )
+        if ( control is ComboBox )
+          str += ( ( control as ComboBox ).Text ?? "" ) + " ";
+      str = str == "" ? "" : str.Remove(str.Length - 1, 1);
+      EditSentence.Text = str;
+    }
+
     private void ActionSnapshot_Click(object sender, EventArgs e)
     {
       if ( EditLetters.Input.Text != "" )
@@ -765,8 +779,17 @@ namespace Ordisoftware.Hebrew.Letters
       SelectLetter.Focus();
     }
 
-    private void ComboBoxCode_SelectedIndexChanged(object sender, EventArgs e)
+    private void SelectLetter_SelectedIndexChanged(object sender, EventArgs e)
     {
+      if ( !Globals.IsReady ) return;
+      if ( !SelectLetter.Enabled ) return;
+      EditMutex = true;
+    }
+
+    private void LettersBindingSource_PositionChanged(object sender, EventArgs e)
+    {
+      if ( !Globals.IsReady ) return;
+      EditMutex = false;
       UpdateButtons(sender);
     }
 
@@ -780,8 +803,8 @@ namespace Ordisoftware.Hebrew.Letters
       MeaningsBindingSource.ResetBindings(false);
       MeaningsBindingSource.MoveLast();
       EditMeanings.BeginEdit(false);
-      UpdateButtons(sender);
       AddNewRowMutex = true;
+      UpdateButtons(sender);
     }
 
     private void ActionDeleteMeaning_Click(object sender, EventArgs e)
@@ -802,16 +825,6 @@ namespace Ordisoftware.Hebrew.Letters
       UpdateButtons(sender);
     }
 
-    private void MeaningComboBox_SelectedIndexChanged(object sender, EventArgs e)
-    {
-      string str = "";
-      foreach ( var control in SelectAnalyze.Controls )
-        if ( control is ComboBox )
-          str += ( ( control as ComboBox ).Text ?? "" ) + " ";
-      str = str == "" ? "" : str.Remove(str.Length - 1, 1);
-      EditSentence.Text = str;
-    }
-
     private bool TextBoxDataContextMenuMutex;
 
     private void TextBoxData_ContextMenuEditOpening(object sender, System.ComponentModel.CancelEventArgs e)
@@ -827,20 +840,21 @@ namespace Ordisoftware.Hebrew.Letters
       TextBoxDataContextMenuMutex = false;
     }
 
-    private bool EditMutex;
-
     private void TextBoxData_TextChanged(object sender, EventArgs e)
     {
+      if ( !Globals.IsReady ) return;
       if ( EditMutex ) return;
       EditMutex = true;
       LettersBindingSource.EndEdit();
-      UpdateButtons(sender, true);
+      if ( sender != null ) UpdateButtons(sender, true);
       EditMutex = false;
     }
 
     private void TextBoxData_Leave(object sender, EventArgs e)
     {
-      TextBoxData_TextChanged(sender, e);
+      if ( !Globals.IsReady ) return;
+      TextBoxData_TextChanged(null, null);
+      UpdateButtons(null);
     }
 
     private void TextBoxData_ContextMenuAction_Click(object sender, EventArgs e)
@@ -851,8 +865,6 @@ namespace Ordisoftware.Hebrew.Letters
           if ( (string)textbox.Tag == "data" )
             TextBoxData_TextChanged(sender, e);
     }
-
-    private bool AddNewRowMutex;
 
     private void EditMeanings_KeyDown(object sender, KeyEventArgs e)
     {
@@ -868,7 +880,7 @@ namespace Ordisoftware.Hebrew.Letters
     {
       if ( e.KeyCode == Keys.Enter )
       {
-        if ( AddNewRowMutex )
+        if ( AddNewRowMutex && ( (string)EditMeanings.CurrentCell.Value ).IsNullOrEmpty() )
         {
           EditMeanings.BeginEdit(false);
           AddNewRowMutex = true;
@@ -876,6 +888,7 @@ namespace Ordisoftware.Hebrew.Letters
         else
         if ( DataSet.HasChanges() )
         {
+          AddNewRowMutex = false;
           UpdateButtons(sender);
         }
       }
@@ -906,12 +919,14 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void EditMeanings_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
     {
+      if ( !Globals.IsReady ) return;
       UpdateButtons(sender, true);
       AddNewRowMutex = false;
     }
 
     private void EditMeanings_CellEndEdit(object sender, DataGridViewCellEventArgs e)
     {
+      if ( !Globals.IsReady ) return;
       var cell = EditMeanings[e.ColumnIndex, e.ColumnIndex];
       var str = (string)cell.Value;
       if ( str.StartsWith(" ") || str.EndsWith(" ") )
@@ -921,11 +936,13 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void EditMeanings_CellValueChanged(object sender, DataGridViewCellEventArgs e)
     {
+      if ( !Globals.IsReady ) return;
       UpdateButtons(sender);
     }
 
     private void EditMeanings_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
     {
+      if ( !Globals.IsReady ) return;
       if ( e.FormattedValue == DBNull.Value || (string)e.FormattedValue == "" )
         e.Cancel = true;
       else
@@ -944,7 +961,11 @@ namespace Ordisoftware.Hebrew.Letters
         ActionSave.Enabled = ( DataSet.HasChanges() && !forceEditMode ) || ( forceEditMode && sender is TextBox );
         ActionUndo.Enabled = ActionSave.Enabled;
         Globals.AllowClose = !ActionSave.Enabled && !forceEditMode;
-        ToolStrip.Enabled = Globals.AllowClose;
+        SelectLetter.Enabled = Globals.AllowClose;
+        ActionViewAnalysis.Enabled = Globals.AllowClose;
+        ActionViewLetters.Enabled = Globals.AllowClose;
+        ActionExit.Enabled = Globals.AllowClose;
+        ActionSearchTerm.Enabled = Globals.AllowClose;
       }
       catch ( Exception ex )
       {
