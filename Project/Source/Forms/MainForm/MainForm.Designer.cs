@@ -52,6 +52,7 @@
       this.ActionReset = new System.Windows.Forms.Button();
       this.ActionDelLast = new System.Windows.Forms.Button();
       this.ActionDelFirst = new System.Windows.Forms.Button();
+      this.EditCopyWithFinalLetter = new System.Windows.Forms.CheckBox();
       this.EditCopyToClipboardCloseApp = new System.Windows.Forms.CheckBox();
       this.SelectAnalyze = new System.Windows.Forms.Panel();
       this.ActionSearchOnline = new System.Windows.Forms.Button();
@@ -269,6 +270,7 @@
       this.PanelViewSearch.Controls.Add(this.ActionReset);
       this.PanelViewSearch.Controls.Add(this.ActionDelLast);
       this.PanelViewSearch.Controls.Add(this.ActionDelFirst);
+      this.PanelViewSearch.Controls.Add(this.EditCopyWithFinalLetter);
       this.PanelViewSearch.Controls.Add(this.EditCopyToClipboardCloseApp);
       this.PanelViewSearch.Controls.Add(this.SelectAnalyze);
       this.PanelViewSearch.Controls.Add(this.ActionSearchOnline);
@@ -331,6 +333,15 @@
       this.ActionDelFirst.Name = "ActionDelFirst";
       this.ActionDelFirst.UseVisualStyleBackColor = true;
       this.ActionDelFirst.Click += new System.EventHandler(this.ActionDelFirst_Click);
+      // 
+      // EditCopyWithFinalLetter
+      // 
+      resources.ApplyResources(this.EditCopyWithFinalLetter, "EditCopyWithFinalLetter");
+      this.EditCopyWithFinalLetter.Checked = global::Ordisoftware.Hebrew.Letters.Properties.Settings.Default.CopyWithFinalLetter;
+      this.EditCopyWithFinalLetter.CheckState = System.Windows.Forms.CheckState.Checked;
+      this.EditCopyWithFinalLetter.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Ordisoftware.Hebrew.Letters.Properties.Settings.Default, "CopyWithFinalLetter", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+      this.EditCopyWithFinalLetter.Name = "EditCopyWithFinalLetter";
+      this.EditCopyWithFinalLetter.UseVisualStyleBackColor = true;
       // 
       // EditCopyToClipboardCloseApp
       // 
@@ -446,6 +457,7 @@
       this.EditSentence.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.EditSentence.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
       this.EditSentence.Name = "EditSentence";
+      this.EditSentence.FontChanged += new System.EventHandler(this.EditSentence_FontChanged);
       this.EditSentence.TextChanged += new System.EventHandler(this.EditSentence_TextChanged);
       // 
       // EditGematriaSimple
@@ -1227,5 +1239,6 @@
     private System.Windows.Forms.Button ActionSave;
     private System.Windows.Forms.ToolStripButton ActionNewInstance;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+    public System.Windows.Forms.CheckBox EditCopyWithFinalLetter;
   }
 }

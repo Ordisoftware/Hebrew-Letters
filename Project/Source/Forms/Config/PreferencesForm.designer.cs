@@ -301,7 +301,7 @@
       this.EditMaxLength.BackColor = System.Drawing.SystemColors.Window;
       resources.ApplyResources(this.EditMaxLength, "EditMaxLength");
       this.EditMaxLength.Maximum = new decimal(new int[] {
-            25,
+            30,
             0,
             0,
             0});
@@ -323,7 +323,7 @@
       this.EditFontSize.BackColor = System.Drawing.SystemColors.Window;
       resources.ApplyResources(this.EditFontSize, "EditFontSize");
       this.EditFontSize.Maximum = new decimal(new int[] {
-            14,
+            16,
             0,
             0,
             0});

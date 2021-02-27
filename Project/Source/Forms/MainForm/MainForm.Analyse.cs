@@ -88,6 +88,11 @@ namespace Ordisoftware.Hebrew.Letters
           // Loop
           dy += 30;
         }
+        var dummy = new Label();
+        dummy.Left = 100;
+        dummy.Top = dy;
+        dummy.Text = "";
+        SelectAnalyze.Controls.Add(dummy);
         EditGematriaSimple.Text = sumSimple.ToString();
         EditGematriaFull.Text = sumFull.ToString();
         ActionCopyToMeanings.Enabled = SelectAnalyze.Controls.Count > 0;

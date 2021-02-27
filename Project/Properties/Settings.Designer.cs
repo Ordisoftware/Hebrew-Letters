@@ -560,5 +560,17 @@ namespace Ordisoftware.Hebrew.Letters.Properties {
                 this["ShowSuccessDialogs"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool CopyWithFinalLetter {
+            get {
+                return ((bool)(this["CopyWithFinalLetter"]));
+            }
+            set {
+                this["CopyWithFinalLetter"] = value;
+            }
+        }
     }
 }

@@ -75,13 +75,33 @@ namespace Ordisoftware.Hebrew.Letters
     private bool IsDBUpgraded;
 
     /// <summary>
+    /// Indicate if data is read only.
+    /// </summary>
+    private bool IsReadOnly;
+
+    /// <summary>
     /// Indicate the selected meanings text.
     /// </summary>
     private string WordMeanings = "";
 
+    /// <summary>
+    /// Indicate the last term searched.
+    /// </summary>
     private string LastTermSearched;
 
+    /// <summary>
+    /// Indicate if data has changed to refrech the analysis.
+    /// </summary>
+    private bool DataChanged;
+
+    /// <summary>
+    /// Indicate data edition mutex.
+    /// </summary>
     private bool EditMutex;
+
+    /// <summary>
+    /// Indicate add new meaning mutex.
+    /// </summary>
     private bool AddNewRowMutex;
 
     /// <summary>
@@ -142,7 +162,7 @@ namespace Ordisoftware.Hebrew.Letters
       ContextMenuSearchOnline.InitializeFromProviders(OnlineProviders.OnlineWordProviders, (sender, e) =>
       {
         var menuitem = (ToolStripMenuItem)sender;
-        string str = HebrewAlphabet.ConvertToUnicode(EditLetters.Input.Text);
+        string str = HebrewAlphabet.ConvertToUnicode(HebrewAlphabet.SetFinal(EditLetters.Input.Text, true));
         SystemManager.OpenWebLink(( (string)menuitem.Tag ).Replace("%WORD%", str));
       });
     }
@@ -159,6 +179,7 @@ namespace Ordisoftware.Hebrew.Letters
       ProcessLocksTable.Lock();
       Program.Settings.CurrentView = ViewMode.Analyse;
       EditSentence.Font = new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence);
+      EditSentence_FontChanged(null, null);
       SystemManager.TryCatch(() => new System.Media.SoundPlayer(Globals.EmptySoundFilePath).Play());
       SystemManager.TryCatch(() => MediaMixer.SetApplicationVolume(Process.GetCurrentProcess().Id,
                                                                    Settings.ApplicationVolume));
@@ -203,8 +224,6 @@ namespace Ordisoftware.Hebrew.Letters
       SelectLetter_SelectedIndexChanged(SelectLetter, EventArgs.Empty);
       UpdateButtons(SelectLetter);
     }
-
-    private bool IsReadOnly;
 
     /// <summary>
     /// Event handler. Called by MainForm for form shown events.
@@ -382,7 +401,18 @@ namespace Ordisoftware.Hebrew.Letters
       LastToolTip.Hide(ToolStrip);
     }
 
-    private bool DataChanged;
+    /// <summary>
+    /// Event handler. Called by EditSentence for font changed.
+    /// </summary>
+    /// <param name="sender">Source of the event.</param>
+    /// <param name="e">Form closing event information.</param>
+    private void EditSentence_FontChanged(object sender, EventArgs e)
+    {
+      double top = ActionCopyToResult.Top;
+      top += ActionCopyToResult.Height / 2;
+      top -= EditSentence.Height / 2;
+      EditSentence.Top = (int)Math.Round(top, MidpointRounding.AwayFromZero);
+    }
 
     /// <summary>
     /// Event handler. Called by ActionViewAnalysis for click events.
@@ -649,9 +679,15 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void UpdateControls(bool enabled)
     {
+      ActionDelFirst.Enabled = EditLetters.Input.Text.Length >= 1;
+      ActionDelLast.Enabled = ActionDelFirst.Enabled;
+      ActionClear.Enabled = enabled;
+      ActionCopyToHebrew.Enabled = enabled;
+      ActionCopyToUnicode.Enabled = enabled;
       ActionCopyToMeanings.Enabled = enabled;
       ActionSnapshot.Enabled = enabled;
       ActionSaveImage.Enabled = enabled;
+      ActionSearchOnline.Enabled = enabled;
     }
 
     private void ActionClear_Click(object sender, EventArgs e)
@@ -675,13 +711,21 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void ActionCopyToHebrew_Click(object sender, EventArgs e)
     {
-      EditLetters.Input.Copy();
+      if ( EditLetters.Input.Text == "" ) return;
+      string str = EditLetters.Input.Text;
+      if ( EditCopyWithFinalLetter.Checked )
+        str = HebrewAlphabet.SetFinal(str, true);
+      Clipboard.SetText(str);
+      EditLetters.Focus();
     }
 
     private void ActionCopyToUnicode_Click(object sender, EventArgs e)
     {
-      if ( EditLetters.Input.Text != "" )
-        Clipboard.SetText(HebrewAlphabet.ConvertToUnicode(EditLetters.Input.Text));
+      if ( EditLetters.Input.Text == "" ) return;
+      string str = EditLetters.Input.Text;
+      if ( EditCopyWithFinalLetter.Checked )
+        str = HebrewAlphabet.SetFinal(str, true);
+      Clipboard.SetText(HebrewAlphabet.ConvertToUnicode(str));
       EditLetters.Focus();
     }
 

@@ -358,4 +358,7 @@
   <data name="EditShowSuccessDialogs.Text" xml:space="preserve">
     <value>Boîtes de dialogue de réussite à la place des sons</value>
   </data>
+  <data name="EditCopyWithFinalLetter.Text" xml:space="preserve">
+    <value>Copie Finale</value>
+  </data>
 </root>
