@@ -745,7 +745,7 @@ namespace Ordisoftware.Hebrew.Letters
     {
       if ( DataSet.HasChanges() )
         DataSet.RejectChanges();
-      UpdateButtons();
+      UpdateButtons(sender);
       SelectLetter.Focus();
     }
 
@@ -761,13 +761,13 @@ namespace Ordisoftware.Hebrew.Letters
           ApplicationStatistics.UpdateDBMemorySizeRequired = true;
           DataChanged = true;
         }
-      UpdateButtons();
+      UpdateButtons(sender);
       SelectLetter.Focus();
     }
 
     private void ComboBoxCode_SelectedIndexChanged(object sender, EventArgs e)
     {
-      UpdateButtons();
+      UpdateButtons(sender);
     }
 
     private void ActionAddMeaning_Click(object sender, EventArgs e)
@@ -780,7 +780,7 @@ namespace Ordisoftware.Hebrew.Letters
       MeaningsBindingSource.ResetBindings(false);
       MeaningsBindingSource.MoveLast();
       EditMeanings.BeginEdit(false);
-      UpdateButtons();
+      UpdateButtons(sender);
       AddNewRowMutex = true;
     }
 
@@ -799,7 +799,7 @@ namespace Ordisoftware.Hebrew.Letters
         }
         else
           MeaningsBindingSource.Position = pos;
-      UpdateButtons();
+      UpdateButtons(sender);
     }
 
     private void MeaningComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -834,17 +834,8 @@ namespace Ordisoftware.Hebrew.Letters
       if ( EditMutex ) return;
       EditMutex = true;
       LettersBindingSource.EndEdit();
-      UpdateButtons();
+      UpdateButtons(sender, true);
       EditMutex = false;
-    }
-
-    private void TextBoxPositive_KeyPress(object sender, KeyPressEventArgs e)
-    {
-    }
-
-    private void TextBoxPositive_Enter(object sender, EventArgs e)
-    {
-      //LettersBindingSource.begin();
     }
 
     private void TextBoxData_Leave(object sender, EventArgs e)
@@ -885,7 +876,7 @@ namespace Ordisoftware.Hebrew.Letters
         else
         if ( DataSet.HasChanges() )
         {
-          UpdateButtons();
+          UpdateButtons(sender);
         }
       }
       else
@@ -897,7 +888,7 @@ namespace Ordisoftware.Hebrew.Letters
           EditMeanings.EndEdit();
           EditMeanings.Rows.Remove(EditMeanings.CurrentRow);
           AddNewRowMutex = false;
-          UpdateButtons();
+          UpdateButtons(sender);
         }
         else
         {
@@ -915,7 +906,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void EditMeanings_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
     {
-      UpdateButtons(true);
+      UpdateButtons(sender, true);
       AddNewRowMutex = false;
     }
 
@@ -925,12 +916,12 @@ namespace Ordisoftware.Hebrew.Letters
       var str = (string)cell.Value;
       if ( str.StartsWith(" ") || str.EndsWith(" ") )
         cell.Value = str.Trim();
-      UpdateButtons();
+      UpdateButtons(sender);
     }
 
     private void EditMeanings_CellValueChanged(object sender, DataGridViewCellEventArgs e)
     {
-      UpdateButtons();
+      UpdateButtons(sender);
     }
 
     private void EditMeanings_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
@@ -938,10 +929,10 @@ namespace Ordisoftware.Hebrew.Letters
       if ( e.FormattedValue == DBNull.Value || (string)e.FormattedValue == "" )
         e.Cancel = true;
       else
-        UpdateButtons();
+        UpdateButtons(sender);
     }
 
-    private void UpdateButtons(bool forceEditMode = false)
+    private void UpdateButtons(object sender, bool forceEditMode = false)
     {
       try
       {
@@ -950,9 +941,8 @@ namespace Ordisoftware.Hebrew.Letters
         var row = (Data.DataSet.LettersRow)( (DataRowView)SelectLetter.SelectedItem ).Row;
         ActionAddMeaning.Enabled = !IsReadOnly && !forceEditMode;
         ActionDeleteMeaning.Enabled = !IsReadOnly && !forceEditMode && row.GetMeaningsRows().Length > 0;
-        ActionSave.Enabled = DataSet.HasChanges() && !forceEditMode;
+        ActionSave.Enabled = ( DataSet.HasChanges() && !forceEditMode ) || ( forceEditMode && sender is TextBox );
         ActionUndo.Enabled = ActionSave.Enabled;
-        PanelLetter.Enabled = !forceEditMode;
         Globals.AllowClose = !ActionSave.Enabled && !forceEditMode;
         ToolStrip.Enabled = Globals.AllowClose;
       }

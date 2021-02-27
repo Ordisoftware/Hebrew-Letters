@@ -34,12 +34,9 @@ namespace Ordisoftware.Hebrew.Letters
           ActionExit.PerformClick();
           return true;
         case Keys.Escape:
-          if ( EditESCtoExit.Checked && !EditMeanings.IsCurrentCellInEditMode )
-          {
-            ActionExit.PerformClick();
-            return true;
-          }
-          break;
+          if ( !EditESCtoExit.Checked || EditMeanings.IsCurrentCellInEditMode ) break;
+          ActionExit.PerformClick();
+          return true;
         // System tools
         case Keys.F9:
           ActionPreferences.PerformClick();

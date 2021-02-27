@@ -552,8 +552,6 @@
       this.TextBoxStructure.ContextMenuEditOpening += new System.ComponentModel.CancelEventHandler(this.TextBoxData_ContextMenuEditOpening);
       this.TextBoxStructure.ContextMenuEditOpened += new System.EventHandler(this.TextBoxData_ContextMenuEditOpened);
       this.TextBoxStructure.TextChanged += new System.EventHandler(this.TextBoxData_TextChanged);
-      this.TextBoxStructure.Enter += new System.EventHandler(this.TextBoxPositive_Enter);
-      this.TextBoxStructure.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxPositive_KeyPress);
       this.TextBoxStructure.Leave += new System.EventHandler(this.TextBoxData_Leave);
       // 
       // LabelHebrew
@@ -572,8 +570,6 @@
       this.TextBoxNegative.ContextMenuEditOpening += new System.ComponentModel.CancelEventHandler(this.TextBoxData_ContextMenuEditOpening);
       this.TextBoxNegative.ContextMenuEditOpened += new System.EventHandler(this.TextBoxData_ContextMenuEditOpened);
       this.TextBoxNegative.TextChanged += new System.EventHandler(this.TextBoxData_TextChanged);
-      this.TextBoxNegative.Enter += new System.EventHandler(this.TextBoxPositive_Enter);
-      this.TextBoxNegative.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxPositive_KeyPress);
       this.TextBoxNegative.Leave += new System.EventHandler(this.TextBoxData_Leave);
       // 
       // TextBoxName
@@ -597,8 +593,6 @@
       this.TextBoxFunction.ContextMenuEditOpening += new System.ComponentModel.CancelEventHandler(this.TextBoxData_ContextMenuEditOpening);
       this.TextBoxFunction.ContextMenuEditOpened += new System.EventHandler(this.TextBoxData_ContextMenuEditOpened);
       this.TextBoxFunction.TextChanged += new System.EventHandler(this.TextBoxData_TextChanged);
-      this.TextBoxFunction.Enter += new System.EventHandler(this.TextBoxPositive_Enter);
-      this.TextBoxFunction.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxPositive_KeyPress);
       this.TextBoxFunction.Leave += new System.EventHandler(this.TextBoxData_Leave);
       // 
       // TextBoxPositive
@@ -612,8 +606,6 @@
       this.TextBoxPositive.ContextMenuEditOpening += new System.ComponentModel.CancelEventHandler(this.TextBoxData_ContextMenuEditOpening);
       this.TextBoxPositive.ContextMenuEditOpened += new System.EventHandler(this.TextBoxData_ContextMenuEditOpened);
       this.TextBoxPositive.TextChanged += new System.EventHandler(this.TextBoxData_TextChanged);
-      this.TextBoxPositive.Enter += new System.EventHandler(this.TextBoxPositive_Enter);
-      this.TextBoxPositive.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxPositive_KeyPress);
       this.TextBoxPositive.Leave += new System.EventHandler(this.TextBoxData_Leave);
       // 
       // TextBoxVerb
@@ -627,8 +619,6 @@
       this.TextBoxVerb.ContextMenuEditOpening += new System.ComponentModel.CancelEventHandler(this.TextBoxData_ContextMenuEditOpening);
       this.TextBoxVerb.ContextMenuEditOpened += new System.EventHandler(this.TextBoxData_ContextMenuEditOpened);
       this.TextBoxVerb.TextChanged += new System.EventHandler(this.TextBoxData_TextChanged);
-      this.TextBoxVerb.Enter += new System.EventHandler(this.TextBoxPositive_Enter);
-      this.TextBoxVerb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxPositive_KeyPress);
       this.TextBoxVerb.Leave += new System.EventHandler(this.TextBoxData_Leave);
       // 
       // TextBoxValueSimple
