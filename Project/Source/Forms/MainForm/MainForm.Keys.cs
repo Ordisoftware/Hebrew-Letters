@@ -21,13 +21,6 @@ namespace Ordisoftware.Hebrew.Letters
   partial class MainForm
   {
 
-    // TODO shortcuts
-    // grid
-    //   ins/del & +/- if not in edition
-    // buttons
-    //   ctrl+s
-    //   ctrl+u
-
     /// <summary>
     /// Process the command key.
     /// </summary>
@@ -83,6 +76,13 @@ namespace Ordisoftware.Hebrew.Letters
           return true;
         case Keys.Alt | Keys.I:
           ActionInformation.ShowDropDown();
+          return true;
+        // Data edition
+        case Keys.Control | Keys.S:
+          ActionSave.PerformClick();
+          return true;
+        case Keys.Control | Keys.Back:
+          ActionUndo.PerformClick();
           return true;
       }
       return base.ProcessCmdKey(ref msg, keyData);
