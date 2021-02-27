@@ -39,13 +39,18 @@ namespace Ordisoftware.Hebrew.Letters
                         "F1 : Analyse view" + Globals.NL +
                         "F2 : Settings view" + Globals.NL +
                         "F3 : Search term" + Globals.NL +
+                        "Insert (or Add) : Add meaning" + Globals.NL +
+                        "Delete (or Substract) : Delete meaning" + Globals.NL +
+                        "Ctrl + S : Save changes" + Globals.NL +
+                        "Ctrl + Back : Cancel changes" + Globals.NL +
+                        "Ctrl + M : Open lettriq analysis method notice" + Globals.NL +
+                        "Ctrl + G : Open grammar guide" + Globals.NL +
+                        "Ctrl + L : Open Shorashon web page" + Globals.NL +
+                        "Ctrl + N : New window" + Globals.NL +
                         "Alt + T : Show tools menu" + Globals.NL +
                         "Alt + L : Show web links menu" + Globals.NL +
                         "Alt + I : Show information menu" + Globals.NL +
                         "Alt + S : Show settings menu" + Globals.NL +
-                        "Ctrl + M : Open lettriq analysis method notice" + Globals.NL +
-                        "Ctrl + G : Open grammar guide" + Globals.NL +
-                        "Ctrl + L : Open Shorashon web page" + Globals.NL +
                         "F9 : Preferences" + Globals.NL +
                         "F10 : Log file window" + Globals.NL +
                         "F11 : Usage statistics window" + Globals.NL +
@@ -58,13 +63,18 @@ namespace Ordisoftware.Hebrew.Letters
                         "F1 : Vue d'analyse" + Globals.NL +
                         "F2 : Vue des paramètres" + Globals.NL +
                         "F3 : Recherche d'un terme" + Globals.NL +
+                        "Insérer (ou Plus) : Ajout une signification" + Globals.NL +
+                        "Supprimer (ou Moins) : Efface une signification" + Globals.NL +
+                        "Ctrl + S : Save changes" + Globals.NL +
+                        "Ctrl + Back : Cancel changes" + Globals.NL +
+                        "Ctrl + M : Ouvre la notice de la méthode d'analyse lettrique" + Globals.NL +
+                        "Ctrl + G : Ouvre le guide de grammaire" + Globals.NL +
+                        "Ctrl + L : Ouvre la page web Shorashon" + Globals.NL +
+                        "Ctrl + N : Nouvelle fenêtre" + Globals.NL +
                         "Alt + T : Montre le menu des outils" + Globals.NL +
                         "Alt + L : Montre le menu des liens web" + Globals.NL +
                         "Alt + I : Montre le menu des informations" + Globals.NL +
                         "Alt + S : Montre le menu des paramètres" + Globals.NL +
-                        "Ctrl + M : Ouvre la notice de la méthode d'analyse lettrique" + Globals.NL +
-                        "Ctrl + G : Ouvre le guide de grammaire" + Globals.NL +
-                        "Ctrl + L : Ouvre la page web Shorashon" + Globals.NL +
                         "F9 : Préférences" + Globals.NL +
                         "F10 : Fenêtre du fichier log" + Globals.NL +
                         "F11 : Fenêtre des statistiques d'utilisation" + Globals.NL +

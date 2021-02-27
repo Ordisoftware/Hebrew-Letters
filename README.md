@@ -46,14 +46,15 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 
 **What's new in the latest version**
 
-- Startup and combo boxes creation are optimized.
+- Startup speed and analysis combo boxes creation are optimized.
 - Modification of the database is only possible by one instance at a time.
+- Data edition is improved to have save and cancel behavior.
+- Fixed and improved copy, paste and delete for both Hebrew font chars and unicode.
 - New top menu icon to open a new window.
 - New context menu on letters' buttons.
 - New screenshot button.
 - New usage statistics window.
 - Rework of the preferences window design with more options.
-- Fixed and improved copy, paste and delete for both Hebrew font chars and unicode.
 - Incorporate common code written since more than one year for Hebrew Calendar.
 - Added new in version in the Information menu.
 - Modification and addition of web links and online providers for the study of words and verses of the Bible.
@@ -120,18 +121,29 @@ Note: all diacritics are removed and if the word can't be processed or does not 
 
 | Keys | Actions |
 |-|-|
+| Ctrl + Tab | Next view |
+| Shift + Ctrl + Tab | Previous view |
 | F1 | Analyse view |
 | F2 | Settings view |
 | F3 | Search a term |
-| Ctrl+N | Open a new window |
+| Insert (or Add) | Add meaning |
+| Delete (or Substract)| Delete meaning |
+| Ctrl + S | Save changes |
+| Ctrl + Back | Cancel changes |
 | Ctrl+M | Open the lettriq analysis method notice |
 | Ctrl+G | Open the grammar guide |
 | Ctrl+L | Open Shorashon web page |
-| Ctrl+F11 | Current log window |
-| Ctrl+F12 | Statistics window |
+| Ctrl+N | New window |
+| Alt + T | Show tools menu |
+| Alt + L | Show web links menu |
+| Alt + S | Show settings menu |
+| Alt + I | Show information menu |
 | F9 | Preferences |
+| F10 | Log file window |
+| F11 | Usage statistics window |
 | F12 | About |
 | Alt + F4 (or Escape) | Close window |
+| Ctrl + Alt + F4 | Exit application |
 
 ## Future improvements
 
@@ -172,6 +184,7 @@ Note: all diacritics are removed and if the word can't be processed or does not 
 - Improve debugger to support logging.
 - Improve exception form to view log.
 - Improve message boxes.
+- Improve keyboard shortcuts.
 - Improve UI/UX.
 - Rework of the preferences form design to have a Tab Control with pages.
 - Change all TextBox for TextBoxEx to have the new context menu.

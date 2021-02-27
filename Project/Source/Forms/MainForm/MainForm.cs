@@ -237,7 +237,7 @@ namespace Ordisoftware.Hebrew.Letters
       }
       Globals.NoticeKeyboardShortcutsForm = new ShowTextForm(AppTranslations.NoticeKeyboardShortcutsTitle,
                                                              AppTranslations.NoticeKeyboardShortcuts,
-                                                             true, false, 340, 330, false, false);
+                                                             true, false, 340, 400, false, false);
       Globals.NoticeKeyboardShortcutsForm.TextBox.BackColor = Globals.NoticeKeyboardShortcutsForm.BackColor;
       Globals.NoticeKeyboardShortcutsForm.TextBox.BorderStyle = BorderStyle.None;
       Globals.NoticeKeyboardShortcutsForm.Padding = new Padding(20, 20, 10, 10);
@@ -868,6 +868,12 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void EditMeanings_KeyDown(object sender, KeyEventArgs e)
     {
+      if ( e.KeyCode == Keys.Insert || e.KeyCode == Keys.Add )
+        ActionAddMeaning.PerformClick();
+      else
+      if ( e.KeyCode == Keys.Delete || e.KeyCode == Keys.Subtract )
+        ActionDeleteMeaning.PerformClick();
+      else
       if ( e.KeyCode == Keys.F2 || ( e.KeyCode == Keys.Enter && !EditMeanings.IsCurrentCellInEditMode ) )
         EditMeanings.BeginEdit(false);
       else
