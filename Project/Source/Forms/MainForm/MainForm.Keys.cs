@@ -21,6 +21,13 @@ namespace Ordisoftware.Hebrew.Letters
   partial class MainForm
   {
 
+    // TODO shortcuts
+    // grid
+    //   ins/del
+    // buttons
+    //   ctrl+s
+    //   ctrl+u
+
     /// <summary>
     /// Process the command key.
     /// </summary>

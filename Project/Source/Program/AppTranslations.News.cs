@@ -30,6 +30,7 @@ namespace Ordisoftware.Hebrew.Letters
 
         ["5.0"] = new TranslationsDictionary
         {
+          // TODO Amélioration de l'édition des données
           [Language.EN] = "Startup and combo boxes creation are optimized." + Globals.NL2 +
                           "Modification of the database is only possible by one instance at a time." + Globals.NL2 +
                           "New top menu icon to open a new window." + Globals.NL2 +
