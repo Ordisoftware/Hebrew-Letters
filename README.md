@@ -121,12 +121,12 @@ The software verifies the validity of the certificate of the update server in ad
 
 Note: all diacritics are removed and if the word can't be processed or does not match the expected encoding, nothing is done.
 
-#### How to configure AutoHotKey to run a word contextual analysis from any application such as browser or text editor?
+#### How to run a word contextual analysis from any application such as browser or text editor?
 
-[AutoHotKey](https://www.autohotkey.com) code:
+It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for example this Shift + Ctrl + Alt + H command::
 
 ```
-^+H:: 
+!^+H::
   WinActive("A")
   WinGetActiveTitle, wintitle
   ControlGetFocus, ctrl
