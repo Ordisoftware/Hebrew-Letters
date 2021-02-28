@@ -126,14 +126,15 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 ```
 !^+H::
   WinActive("A")
-  WinGetActiveTitle, wintitle
-  ControlGetFocus, ctrl
   ClipboardOld := ClipboardAll
+  ControlGetFocus, ctrl
   Send, ^c
+  sleep 100 ; Increase delay in case of problems
   word := Clipboard
   Clipboard := ClipboardOld
-  Run, "C:\Program Files\Ordisoftware\Hebrew Letters\Bin\Ordisoftware.Hebrew.Letters.exe" "%word%"
-  ;sleep 3000 ; use a delay in case of lag
+  app := "C:\Program Files\Ordisoftware\Hebrew Letters\Bin\Ordisoftware.Hebrew.Letters.exe"
+  Run, %app% "%word%"
+  ;sleep 500 ; Increase delay in case of problems
   WinActive("A")
   return 
 ```
