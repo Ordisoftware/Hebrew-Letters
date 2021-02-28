@@ -103,6 +103,10 @@ The software verifies the validity of the certificate of the update server in ad
 
 #### What are command line options?
 
+- Change interface language (does not change the meanings of letters unless restoring them):
+
+  `Ordisoftware.Hebrew.Letters.exe --lang [en|fr]`
+
 - To load a Hebrew font word like "`ty>arb`":
 
   `Ordisoftware.Hebrew.Letters.exe --hebrew [word]` 
@@ -116,6 +120,16 @@ The software verifies the validity of the certificate of the update server in ad
   `Ordisoftware.Hebrew.Letters.exe [word]`
 
 Note: all diacritics are removed and if the word can't be processed or does not match the expected encoding, nothing is done.
+
+#### How to configure AutoHotKey to run a word contextual analysis from any application such as browser or text editor?
+
+[AutoHotKey](https://www.autohotkey.com) code:
+
+Code will be added soon
+
+^+H:: 
+   Run "C:\Program Files\Ordisoftware\Hebrew Letters\Bin\Ordisoftware.Hebrew.Letters.exe" %word%
+   return 
 
 ## Keyboard shortcuts
 
