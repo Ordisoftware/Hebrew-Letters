@@ -176,6 +176,7 @@ namespace Ordisoftware.Hebrew.Letters
       InitializeTheme();
       InitializeDialogsDirectory();
       ProcessLocksTable.Lock();
+      EditLetters.Input.MaxLength = (int)Settings.HebrewTextBoxMaxLength;
       Program.Settings.CurrentView = ViewMode.Analyse;
       EditSentence.Font = new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence);
       EditSentence_FontChanged(null, null);
@@ -266,10 +267,10 @@ namespace Ordisoftware.Hebrew.Letters
     {
       SystemManager.TryCatch(Settings.Save);
       if ( Globals.IsExiting ) return;
-      if ( !Program.StartupWordHebrew.IsNullOrEmpty() )
+      if ( !Program.StartupWord.IsNullOrEmpty() )
       {
         ActionReset.Visible = true;
-        EditLetters.Input.Text = Program.StartupWordHebrew;
+        EditLetters.Input.Text = Program.StartupWord;
         EditLetters.Input.SelectionStart = 0;
         EditLetters.Input.SelectionLength = 0;
         EditLetters.TextBox.Refresh();
@@ -695,7 +696,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void ActionReset_Click(object sender, EventArgs e)
     {
-      EditLetters.Input.Text = Program.StartupWordHebrew;
+      EditLetters.Input.Text = Program.StartupWord;
       EditLetters.Focus(false);
     }
 
@@ -713,7 +714,7 @@ namespace Ordisoftware.Hebrew.Letters
     private void UpdateControls()
     {
       bool enabled = EditLetters.Input.Text.Length >= 1;
-      ActionReset.Enabled = !Program.StartupWordHebrew.IsNullOrEmpty();
+      ActionReset.Enabled = !Program.StartupWord.IsNullOrEmpty();
       ActionClear.Enabled = enabled;
       ActionDelFirst.Enabled = enabled;
       ActionDelLast.Enabled = enabled;

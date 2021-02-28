@@ -73,7 +73,7 @@ namespace Ordisoftware.Hebrew.Letters
     /// <summary>
     /// Indicate the command line argument for hebrew word used at startup.
     /// </summary>
-    static public string StartupWordHebrew
+    static public string StartupWord
     {
       get
       {
@@ -86,10 +86,7 @@ namespace Ordisoftware.Hebrew.Letters
                 word = SystemManager.CommandLineArguments[0];
             word = word.RemoveDiacritics();
             word = new string(word.Where(c => char.IsLetter(c)).Take((int)Settings.HebrewTextBoxMaxLength).ToArray());
-            word = HebrewAlphabet.ContainsUnicode(word) ? HebrewAlphabet.ConvertToHebrewFont(word) : word;
-            _StartupWordHebrew = word;
-            if ( _StartupWordUnicode.IsNullOrEmpty() )
-              _StartupWordUnicode = HebrewAlphabet.ConvertToUnicode(_StartupWordHebrew);
+            _StartupWordHebrew = HebrewAlphabet.ContainsUnicode(word) ? HebrewAlphabet.ConvertToHebrewFont(word) : word; ;
           }
           catch ( Exception ex )
           {
@@ -99,33 +96,6 @@ namespace Ordisoftware.Hebrew.Letters
       }
     }
     static private string _StartupWordHebrew = string.Empty;
-
-    /// <summary>
-    /// Indicate the command line argument for unicode word used at startup.
-    /// </summary>
-    static public string StartupWordUnicode
-    {
-      get
-      {
-        if ( _StartupWordUnicode.IsNullOrEmpty() )
-          try
-          {
-            string word = ApplicationCommandLine.Instance?.WordUnicode ?? string.Empty;
-            word = HebrewAlphabet.ContainsUnicode(word) ? word : string.Empty;
-            word = word.RemoveDiacritics();
-            word = new string(word.Where(c => char.IsLetter(c)).Take((int)Settings.HebrewTextBoxMaxLength).ToArray());
-            _StartupWordUnicode = word;
-            if ( _StartupWordHebrew.IsNullOrEmpty() )
-              _StartupWordHebrew = HebrewAlphabet.ConvertToHebrewFont(_StartupWordUnicode);
-          }
-          catch ( Exception ex )
-          {
-            MessageBox.Show(ex.Message, Globals.AssemblyTitle);
-          }
-        return _StartupWordUnicode;
-      }
-    }
-    static private string _StartupWordUnicode = string.Empty;
 
   }
 
