@@ -245,14 +245,24 @@ namespace Ordisoftware.Hebrew.Letters
       EditSentence.BackColor = Settings.ColorSentenceTextBox;
       EditGematriaFull.BackColor = Settings.ColorGematriaTextBox;
       EditGematriaSimple.BackColor = Settings.ColorGematriaTextBox;
+      TextBoxName.BackColor = Settings.ColorLettersPanel == SystemColors.Window 
+                              ? Settings.ColorGematriaTextBox
+                              : Settings.ColorLettersPanel;
+      TextBoxValueSimple.BackColor = Settings.ColorGematriaTextBox;
+      TextBoxValueFull.BackColor = Settings.ColorGematriaTextBox;
+      TextBoxStructure.BackColor = Settings.ColorSentenceTextBox;
+      TextBoxFunction.BackColor = Settings.ColorSentenceTextBox;
+      TextBoxVerb.BackColor = Settings.ColorSentenceTextBox;
+      TextBoxNegative.BackColor = Settings.ColorSentenceTextBox;
+      TextBoxPositive.BackColor = Settings.ColorSentenceTextBox;
     }
 
-    /// <summary>
-    /// Event handler. Called by MainForm for form shown events.
-    /// </summary>
-    /// <param name="sender">Source of the event.</param>
-    /// <param name="e">Form closing event information.</param>
-    private void MainForm_Shown(object sender, EventArgs e)
+  /// <summary>
+  /// Event handler. Called by MainForm for form shown events.
+  /// </summary>
+  /// <param name="sender">Source of the event.</param>
+  /// <param name="e">Form closing event information.</param>
+  private void MainForm_Shown(object sender, EventArgs e)
     {
       SystemManager.TryCatch(Settings.Save);
       if ( Globals.IsExiting ) return;

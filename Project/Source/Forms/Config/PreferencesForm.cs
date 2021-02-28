@@ -253,7 +253,7 @@ namespace Ordisoftware.Hebrew.Letters
       Settings.ColorHebrewWordTextBox = SystemColors.Window;
       Settings.ColorMeaningsPanel = SystemColors.Window;
       Settings.ColorSentenceTextBox = SystemColors.Window;
-      Settings.ColorGematriaTextBox = SystemColors.Window;
+      Settings.ColorGematriaTextBox = SystemColors.Control;
       MainForm.Instance.InitializeTheme();
     }
 
