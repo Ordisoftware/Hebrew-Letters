@@ -51,44 +51,38 @@ Control panel) and create a user datasource named &quot;Hebrew-Letters&quot; for
     <p>Watch the <a href="https://www.youtube.com/watch?v=WPVF8pj9I3E" target="_blank" rel="noopener">video</a>.</p>
     <h4>What to do if the check update tells that the SSL certificate is wrong or expired?</h4>
     <p>The software verifies the validity of the certificate of the update server in addition to the SHA-512 checksum of the installation file before downloading and running it. This certificate is normally updated within the two months of its annual expiration and a new version is released. If the application has not been updated within this period, you can manually check the latest version available online.</p>
-    <h4>What are command-line options?</h4>
+    <h4>What are command line options?</h4>
     <ul>
-        <li>
-            <p>Change interface language (does not change the meanings of letters unless restoring them):</p>
-            <p><code>Ordisoftware.Hebrew.Letters.exe --lang [en|fr]</code></p>
-        </li>
+        <li>Change interface language (does not change the meanings of letters unless restoring them):</li>
     </ul>
+    <p style="padding-left: 40px;"><code>Ordisoftware.Hebrew.Letters.exe --lang [en|fr]</code></p>
     <ul>
-        <li>
-            <p>Load a Hebrew font word like <code>&quot;ty&gt;arb&quot;</code>:</p>
-            <p><code>Ordisoftware.Hebrew.Letters.exe --hebrew [word]</code></p>
-        </li>
-        <li>
-            <p>Load a Unicode word like <code>&quot;בראשית&quot;</code>:</p>
-            <p><code>Ordisoftware.Hebrew.Letters.exe --unicode [word]</code></p>
-        </li>
-        <li>
-            <p>Run in auto detect mode (no other option allowed):</p>
-            <p><code>Ordisoftware.Hebrew.Letters.exe [word]</code></p>
-        </li>
+        <li>Analyse a word in Hebrew unicode chars or else Hebrew font chars like &quot;בראשית&quot; and <code>&quot;ty&gt;arb&quot;</code>:</li>
     </ul>
-    <p>Note: all diacritics are removed and if the word can't be processed or does not match the expected encoding, nothing is done.</p>
+    <p style="padding-left: 40px;"><code>Ordisoftware.Hebrew.Letters.exe --hebrew [word]</code></p>
+    <p style="padding-left: 40px;">Or without any other option:</p>
+    <p style="padding-left: 40px;"><code>Ordisoftware.Hebrew.Letters.exe [word]</code></p>
+    <p style="padding-left: 40px;">All diacritics are removed and if the word can't be processed it is set to empty.</p>
+    <p style="padding-left: 40px;">If
+ any Hebrew unicode chars is present, all non-unicode are removed, else 
+Hebrew font chars are used and all non-font chars are removed.</p>
     <h4>How to run a word contextual analysis from any application such as browser or text editor?</h4>
-    <p>It is possible to use <a href="https://www.autohotkey.com" target="_blank">AutoHotKey</a> to define for example this Shift + Ctrl + Alt + H command::</p>
-    <p><code>!^+H::</code><code><br>
+    <p>It is possible to use <a href="https://www.autohotkey.com" target="_blank" rel="noopener">AutoHotKey</a> to define for example this Shift + Ctrl + Alt + H command on a selected word:</p>
+    <p><code>!^+H::<br>
+&nbsp;&nbsp;clipboardOld := ClipboardAll<br>
 &nbsp;&nbsp;WinActive(&quot;A&quot;)<br>
-&nbsp;&nbsp;WinGetActiveTitle, wintitle<br>
 &nbsp;&nbsp;ControlGetFocus, ctrl<br>
-&nbsp;&nbsp;ClipboardOld := ClipboardAll<br>
 &nbsp;&nbsp;Send, ^c<br>
+&nbsp;&nbsp;sleep 100 ; Increase delay in case of problems<br>
 &nbsp;&nbsp;word := Clipboard<br>
-&nbsp;&nbsp;Clipboard := ClipboardOld<br>
-&nbsp;&nbsp;Run, &quot;C:\Program Files\Ordisoftware\Hebrew Letters\Bin\Ordisoftware.Hebrew.Letters.exe&quot; &quot;%word%&quot;<br>
-&nbsp;&nbsp;;sleep 3000 ; use a delay in case of lag<br>
-&nbsp;&nbsp;WinActive(&quot;A&quot;)</code><code><br>
- &nbsp;&nbsp;return
-</code></p>
-    <h3>Keyboard shortcuts</h3>
+&nbsp;&nbsp;Clipboard := clipboardOld<br>
+&nbsp;&nbsp;appPath := &quot;C:\Program Files\Ordisoftware\Hebrew Letters\Bin\&quot;<br>
+&nbsp;&nbsp;appExe := &quot;Ordisoftware.Hebrew.Letters.exe&quot;<br>
+&nbsp;&nbsp;Run %appPath%%appExe% &quot;%word%&quot;<br>
+&nbsp;&nbsp;;sleep 500 ; Increase delay in case of problems<br>
+&nbsp;&nbsp;WinActive(&quot;A&quot;)<br>
+&nbsp;&nbsp;return</code></p>
+    <h3><span id="Keyboard_shortcuts">Keyboard shortcuts</span></h3>
     <ul>
         <li>Ctrl + Tab : Next view</li>
         <li>Shift + Ctrl + Tab : Previous view</li>
