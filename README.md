@@ -101,7 +101,7 @@ Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 The software verifies the validity of the certificate of the update server in addition to the SHA-512 checksum of the installation file before downloading and running it. This certificate is normally updated within the two months of its annual expiration and a new version is released. If the application has not been updated within this period, you can manually check the latest version available online.
 
-#### What are command line options?
+#### What are command-line options?
 
 - Change interface language (does not change the meanings of letters unless restoring them):
 
@@ -127,9 +127,20 @@ Note: all diacritics are removed and if the word can't be processed or does not 
 
 Code will be added soon
 
+```
 ^+H:: 
-   Run "C:\Program Files\Ordisoftware\Hebrew Letters\Bin\Ordisoftware.Hebrew.Letters.exe" %word%
-   return 
+  WinActive("A")
+  WinGetActiveTitle, wintitle
+  ControlGetFocus, ctrl
+  ClipboardOld := ClipboardAll
+  Send, ^c
+  word := Clipboard
+  Clipboard := ClipboardOld
+  Run, "C:\Program Files\Ordisoftware\Hebrew Letters\Bin\Ordisoftware.Hebrew.Letters.exe" %word%
+  ;sleep 3000 ; use a delay in case of lag
+  WinActive("A")
+  return 
+```
 
 ## Keyboard shortcuts
 
@@ -194,6 +205,7 @@ Code will be added soon
 - Add news in version notice in the Information menu.
 - Add show usage statistics from about box.
 - Add check update from about box.
+- Add command-line options (see FAQ).
 - Fix pasting Hebrew font chars removes special final letters.
 - Fix pasting unicode chars removes special final letters.
 - Improve data edition.
@@ -218,7 +230,7 @@ Code will be added soon
 - Add Serilog NuGet package.
 - Add Serilog-sinks-file NuGet package.
 - Add Serilog-sinks-winforms NuGet package.
-- Replace simple internal command line parser by CommandLineParser NuGet package.
+- Replace simple internal command-line parser by CommandLineParser NuGet package.
 - The application now automatically creates the ODBC DSN in the Windows registry.
 - files and code refactoring.
 - Incorporate common code written since more than one year for Calendar.
