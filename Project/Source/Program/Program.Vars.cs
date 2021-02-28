@@ -16,7 +16,6 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using System.Text.RegularExpressions;
 using MoreLinq;
 using Ordisoftware.Core;
 
