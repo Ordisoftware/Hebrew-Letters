@@ -169,6 +169,14 @@ namespace Ordisoftware.Hebrew.Letters
       settings.FirstLaunchV4 = false;
     }
 
+    static internal string GetExportDirectory(this Settings settings)
+    {
+      string directory = settings.ExportFolder;
+      if ( directory == "%USER_APP_DOCUMENTS%" )
+        directory = Globals.UserDocumentsFolderPath;
+      return directory;
+    }
+
   }
 
 }
