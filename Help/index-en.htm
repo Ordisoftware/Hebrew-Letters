@@ -54,19 +54,34 @@ Control panel) and create a user datasource named &quot;Hebrew-Letters&quot; for
     <h4>What are command line options?</h4>
     <ul>
         <li>
-            <p>To load a Hebrew font word like <code>&quot;ty&gt;arb&quot;</code>:</p>
+            <p>Change interface language (does not change the meanings of letters unless restoring them):</p>
+            <p><code>Ordisoftware.Hebrew.Letters.exe --lang [en|fr]</code></p>
+        </li>
+    </ul>
+    <ul>
+        <li>
+            <p>Load a Hebrew font word like <code>&quot;ty&gt;arb&quot;</code>:</p>
             <p><code>Ordisoftware.Hebrew.Letters.exe --hebrew [word]</code></p>
         </li>
         <li>
-            <p>To load a Unicode word like <code>&quot;בראשית&quot;</code>:</p>
+            <p>Load a Unicode word like <code>&quot;בראשית&quot;</code>:</p>
             <p><code>Ordisoftware.Hebrew.Letters.exe --unicode [word]</code></p>
         </li>
         <li>
-            <p>To run in auto detect mode:</p>
+            <p>Run in auto detect mode (no other option allowed):</p>
             <p><code>Ordisoftware.Hebrew.Letters.exe [word]</code></p>
         </li>
     </ul>
     <p>Note: all diacritics are removed and if the word can't be processed or does not match the expected encoding, nothing is done.</p>
+    <h4>How to configure AutoHotKey to run a word contextual analysis from any application such as browser or text editor?</h4>
+    <p><a href="https://www.autohotkey.com" target="_blank">AutoHotKey</a> code:</p>
+    <p><code><i>Code will be added soon</i><br>
+<br>
+^+H::
+<br>
+ &nbsp;&nbsp;Run &quot;C:\Program Files\Ordisoftware\Hebrew Letters\Bin\Ordisoftware.Hebrew.Letters.exe&quot; %word%<br>
+ &nbsp;&nbsp;return
+</code></p>
     <h3>Keyboard shortcuts</h3>
     <ul>
         <li>Ctrl + Tab : Next view</li>
@@ -90,8 +105,8 @@ Control panel) and create a user datasource named &quot;Hebrew-Letters&quot; for
         <li>Alt + I : Show information menu</li>
         <li>Alt + S : Show settings menu</li>
         <li>F9 : Preferences</li>
-        <li>F11 : Usage statistics window</li>
-        <li>F12 : About</li>
+        <li>F10 : Log file window </li>
+        <li>F11 : Usage statistics window </li>
         <li>F12 : About</li>
         <li>Alt + F4 (ou Escape) : Exit application</li>
         <li>Ctrl + Alt + F4 : Exit application</li>
