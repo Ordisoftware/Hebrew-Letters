@@ -73,8 +73,8 @@ namespace Ordisoftware.Hebrew.Letters
                         "Ctrl + End : Dernière lettre" + Globals.NL +
                         "Ctrl + PageUp : Letter précédente" + Globals.NL +
                         "Ctrl + PageDn : Letter suivante" + Globals.NL +
-                        "Ctrl + S : Save changes" + Globals.NL +
-                        "Ctrl + Back : Cancel changes" + Globals.NL +
+                        "Ctrl + S : Sauve les changements" + Globals.NL +
+                        "Ctrl + Back : Annule les changements" + Globals.NL +
                         "Ctrl + M : Ouvre la notice de la méthode d'analyse lettrique" + Globals.NL +
                         "Ctrl + G : Ouvre le guide de grammaire" + Globals.NL +
                         "Ctrl + L : Ouvre la page web Shorashon" + Globals.NL +
