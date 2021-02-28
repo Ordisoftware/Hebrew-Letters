@@ -83,7 +83,7 @@ Control panel) and create a user datasource named &quot;Hebrew-Letters&quot; for
 &nbsp;&nbsp;Send, ^c<br>
 &nbsp;&nbsp;word := Clipboard<br>
 &nbsp;&nbsp;Clipboard := ClipboardOld<br>
-&nbsp;&nbsp;Run, &quot;C:\Program Files\Ordisoftware\Hebrew Letters\Bin\Ordisoftware.Hebrew.Letters.exe&quot; %word%<br>
+&nbsp;&nbsp;Run, &quot;C:\Program Files\Ordisoftware\Hebrew Letters\Bin\Ordisoftware.Hebrew.Letters.exe&quot; &quot;%word%&quot;<br>
 &nbsp;&nbsp;;sleep 3000 ; use a delay in case of lag<br>
 &nbsp;&nbsp;WinActive(&quot;A&quot;)</code><code><br>
  &nbsp;&nbsp;return
