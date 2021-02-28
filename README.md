@@ -111,11 +111,11 @@ The software verifies the validity of the certificate of the update server in ad
 
   `Ordisoftware.Hebrew.Letters.exe --word [word]` 
 
-  Or without any othet option:
+  Or without any other option:
 
   `Ordisoftware.Hebrew.Letters.exe [word]`
 
-  All diacritics are removed and if the word can't be processed it will be set to empty.
+  All diacritics are removed and if the word can't be processed it is set to empty.
 
   If any Hebrew unicode chars is present, all non-unicode are removed, else Hebrew font chars are used and all non-font chars are removed.
 
