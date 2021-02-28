@@ -14,6 +14,7 @@
 /// <edited> 2021-02 </edited>
 using System;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using Ordisoftware.Core;
 
@@ -83,9 +84,10 @@ namespace Ordisoftware.Hebrew.Letters
             if ( word.IsNullOrEmpty() )
               if ( SystemManager.CommandLineArguments != null && SystemManager.CommandLineArguments.Length == 1 )
                 word = SystemManager.CommandLineArguments[0];
-            word = word.Trim().RemoveDiacritics();
+            word = word.RemoveDiacritics();
+            word = new string(word.Where(c => char.IsLetter(c)).Take((int)Settings.HebrewTextBoxMaxLength).ToArray());
             word = HebrewAlphabet.ContainsUnicode(word) ? HebrewAlphabet.ConvertToHebrewFont(word) : word;
-            _StartupWordHebrew = HebrewAlphabet.UnFinalAll(word);
+            _StartupWordHebrew = word;
             if ( _StartupWordUnicode.IsNullOrEmpty() )
               _StartupWordUnicode = HebrewAlphabet.ConvertToUnicode(_StartupWordHebrew);
           }
@@ -109,7 +111,10 @@ namespace Ordisoftware.Hebrew.Letters
           try
           {
             string word = ApplicationCommandLine.Instance?.WordUnicode ?? string.Empty;
-            _StartupWordUnicode = HebrewAlphabet.ContainsUnicode(word) ? word.Trim().RemoveDiacritics() : string.Empty;
+            word = HebrewAlphabet.ContainsUnicode(word) ? word : string.Empty;
+            word = word.RemoveDiacritics();
+            word = new string(word.Where(c => char.IsLetter(c)).Take((int)Settings.HebrewTextBoxMaxLength).ToArray());
+            _StartupWordUnicode = word;
             if ( _StartupWordHebrew.IsNullOrEmpty() )
               _StartupWordHebrew = HebrewAlphabet.ConvertToHebrewFont(_StartupWordUnicode);
           }
