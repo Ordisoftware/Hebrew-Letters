@@ -69,10 +69,10 @@ namespace Ordisoftware.Hebrew.Letters
                         "F3 : Recherche d'un terme" + Globals.NL +
                         "Insérer (ou Plus) : Ajout une signification" + Globals.NL +
                         "Supprimer (ou Moins) : Efface une signification" + Globals.NL +
-                        "Ctrl + Home : Première lettre" + Globals.NL +
-                        "Ctrl + End : Dernière lettre" + Globals.NL +
-                        "Ctrl + PageUp : Letter précédente" + Globals.NL +
-                        "Ctrl + PageDn : Letter suivante" + Globals.NL +
+                        "Ctrl + Début : Première lettre" + Globals.NL +
+                        "Ctrl + Fin : Dernière lettre" + Globals.NL +
+                        "Ctrl + PagePrec : Letter précédente" + Globals.NL +
+                        "Ctrl + PageSuiv : Letter suivante" + Globals.NL +
                         "Ctrl + S : Sauve les changements" + Globals.NL +
                         "Ctrl + Back : Annule les changements" + Globals.NL +
                         "Ctrl + M : Ouvre la notice de la méthode d'analyse lettrique" + Globals.NL +
