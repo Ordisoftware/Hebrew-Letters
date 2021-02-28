@@ -526,10 +526,10 @@
     <value>NoControl</value>
   </data>
   <data name="ActionReset.Location" type="System.Drawing.Point, System.Drawing">
-    <value>468, 259</value>
+    <value>465, 250</value>
   </data>
   <data name="ActionReset.Size" type="System.Drawing.Size, System.Drawing">
-    <value>22, 22</value>
+    <value>24, 24</value>
   </data>
   <data name="ActionReset.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -562,10 +562,10 @@
     <value>NoControl</value>
   </data>
   <data name="ActionDelLast.Location" type="System.Drawing.Point, System.Drawing">
-    <value>435, 259</value>
+    <value>432, 250</value>
   </data>
   <data name="ActionDelLast.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 22</value>
+    <value>30, 24</value>
   </data>
   <data name="ActionDelLast.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -598,10 +598,10 @@
     <value>NoControl</value>
   </data>
   <data name="ActionDelFirst.Location" type="System.Drawing.Point, System.Drawing">
-    <value>493, 259</value>
+    <value>492, 250</value>
   </data>
   <data name="ActionDelFirst.Size" type="System.Drawing.Size, System.Drawing">
-    <value>30, 22</value>
+    <value>30, 24</value>
   </data>
   <data name="ActionDelFirst.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -628,16 +628,16 @@
     <value>NoControl</value>
   </data>
   <data name="EditCopyWithFinalLetter.Location" type="System.Drawing.Point, System.Drawing">
-    <value>540, 13</value>
+    <value>13, 254</value>
   </data>
   <data name="EditCopyWithFinalLetter.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 17</value>
+    <value>223, 17</value>
   </data>
   <data name="EditCopyWithFinalLetter.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
   </data>
   <data name="EditCopyWithFinalLetter.Text" xml:space="preserve">
-    <value>Copy Final</value>
+    <value>Copy to hebrew or unicode with final letter</value>
   </data>
   <data name="&gt;&gt;EditCopyWithFinalLetter.Name" xml:space="preserve">
     <value>EditCopyWithFinalLetter</value>
@@ -919,21 +919,21 @@
   </data>
   <data name="ActionCopyToUnicode.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALtSURBVFhH7ZZPSFRRFMYH2lSLlrpxUURiELkoq3lFhIs2
-        Ldq2iwSnoqIgsD+bNlJRUKM2TmX0x4TUSBttxpxRZ9TMkmaeRgUyiyQXNmVtxDbG+zrffdcZtU2LO1Hg
-        Dz7uved9553z7rvzGM9/BZBu9VseeDwW/GnAcZxyUTEV8THuQwQqXqRTzCL3XoG0H5ZMPZYface5IrHV
-        UrBANcCYBLQ9P0ix0rTfYhFYsg2yDmV3xm1q0nXmCSl4ABGfaoDycc/1ruiGqpUxHyx6Bb/JwvW0MykN
-        7Betkph55Mb73MPmPvn8q1hwKDeKCmXaqhJM4zjpawvfde5X4TYkxatFa2SnVroZhoH8yHx8YqkmhcpE
-        BblX4kNYNYUt2m6eJQ2sY0zGTdlD6cZDjOeFJaedO1Ak4odo0dlw3css8xeoDwYRCATAUYfyx8Nze582
-        nS1H05ndeFRl4fyFiwiHn6OzM6xGrhnndfro16lmaKzaA3tkCO1dPQh1xXD5qh/Dr0bwcvi1GrlmnNfp
-        o1+nmuH+6V1oi/TIh86lNnALgZsNWXE9D33061Qz3Du1E0+eRVWByU+T+Dw1ha+ZTFZcM07oo1+nmuHu
-        SQtt4W5V4HtmCjPTGcxOf8HsN5GMXDNO6KNfp5rhzgkv2sPuDhQGU9jw4D2KGz9gbYOtRq4ZJ/TRr1PN
-        0HDcK0/mNvAuOQJndgb4MYPx0Tdq5JpxQh/9OtUMt4/tyDYwkEjATiUxKhoaHFAj14wT+ujXqWYIHt2e
-        bSCZTGJu7qeSbdvZOeOEPvp1qhnqj2zLNhCPx1UxO5XCC9mBsVEbY3YKg/396jp99OtUMwQqcw0sZPyt
-        rWe5eXskBvp1qhl4w1B3nyqwkJKWjyh9PIHNopKWCRXriMbNN3DjsBeh5nrVRHskqtQpn95orAd9Pb1K
-        0VgvwrEEOpqDoF+nmuHSQW+ittKLmooy1BzaqlQrqqtYrFq5Xic++nWqMdaL+I/3T0X/v47H8wsBTUHd
-        0d4/UwAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAu1JREFUWEftlk9IVFEUxgfaVIuWunFRRGIQuSireUWEizYt2raLBKeioiCwP5s2
+        UlFQozZOZfTHhNRIG23GnFFn1MySZp5GBTKLJBc2ZW3ENsb7Ot991xm1TYs7UeAPPu69533nnfPuu/MY
+        z38FkG71Wx54PBb8acBxnHJRMRXxMe5DBCpepFPMIvdegbQflkw9lh9px7kisdVSsEA1wJgEtD0/SLHS
+        tN9iEViyDbIOZXfGbWrSdeYJKXgAEZ9qgPJxz/Wu6IaqlTEfLHoFv8nC9bQzKQ3sF62SmHnkxvvcw+Y+
+        +fyrWHAoN4oKZdqqEkzjOOlrC9917lfhNiTFq0VrZKdWuhmGgfzIfHxiqSaFykQFuVfiQ1g1hS3abp4l
+        DaxjTMZN2UPpxkOM54Ulp507UCTih2jR2XDdyyzzF6gPBhEIBMBRh/LHw3N7nzadLUfTmd14VGXh/IWL
+        CIefo7MzrEauGed1+ujXqWZorNoDe2QI7V09CHXFcPmqH8OvRvBy+LUauWac1+mjX6ea4f7pXWiL9MiH
+        zqU2cAuBmw1ZcT0PffTrVDPcO7UTT55FVYHJT5P4PDWFr5lMVlwzTuijX6ea4e5JC23hblXge2YKM9MZ
+        zE5/wew3kYxcM07oo1+nmuHOCS/aw+4OFAZT2PDgPYobP2Btg61Grhkn9NGvU83QcNwrT+Y28C45Amd2
+        Bvgxg/HRN2rkmnFCH/061Qy3j+3INjCQSMBOJTEqGhocUCPXjBP66NepZgge3Z5tIJlMYm7up5Jt29k5
+        44Q++nWqGeqPbMs2EI/HVTE7lcIL2YGxURtjdgqD/f3qOn3061QzBCpzDSxk/K2tZ7l5eyQG+nWqGXjD
+        UHefKrCQkpaPKH08gc2ikpYJFeuIxs03cOOwF6HmetVEeySq1Cmf3misB309vUrRWC/CsQQ6moOgX6ea
+        4dJBb6K20ouaijLUHNqqVCuqq1isWrleJz76daox1ov4j/dPRf+/jsfzCwFNQd3R3j9TAAAAAElFTkSu
+        QmCC
 </value>
   </data>
   <data name="ActionCopyToUnicode.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
@@ -1016,13 +1016,13 @@
   <data name="&gt;&gt;ActionClear.ZOrder" xml:space="preserve">
     <value>13</value>
   </data>
-  <data name="ActionSaveImage.Enabled" type="System.Boolean, mscorlib">
+  <data name="ActionSaveScreenshot.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="ActionSaveImage.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="ActionSaveScreenshot.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="ActionSaveImage.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="ActionSaveScreenshot.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         wwAADsMBx2+oZAAABkxJREFUWEe1lnlMVFcUxqetaGLj1io1bY2pWo1oI2qbaq22YBdwadPaJv2rJu5t
@@ -1055,37 +1055,37 @@
         1HKNyu4/STIGknFnaagAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="ActionSaveImage.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="ActionSaveScreenshot.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="ActionSaveImage.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="ActionSaveScreenshot.Location" type="System.Drawing.Point, System.Drawing">
     <value>584, 335</value>
   </data>
-  <data name="ActionSaveImage.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="ActionSaveScreenshot.Size" type="System.Drawing.Size, System.Drawing">
     <value>42, 42</value>
   </data>
-  <data name="ActionSaveImage.TabIndex" type="System.Int32, mscorlib">
+  <data name="ActionSaveScreenshot.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
-  <data name="&gt;&gt;ActionSaveImage.Name" xml:space="preserve">
-    <value>ActionSaveImage</value>
+  <data name="&gt;&gt;ActionSaveScreenshot.Name" xml:space="preserve">
+    <value>ActionSaveScreenshot</value>
   </data>
-  <data name="&gt;&gt;ActionSaveImage.Type" xml:space="preserve">
+  <data name="&gt;&gt;ActionSaveScreenshot.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ActionSaveImage.Parent" xml:space="preserve">
+  <data name="&gt;&gt;ActionSaveScreenshot.Parent" xml:space="preserve">
     <value>PanelViewSearch</value>
   </data>
-  <data name="&gt;&gt;ActionSaveImage.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;ActionSaveScreenshot.ZOrder" xml:space="preserve">
     <value>14</value>
   </data>
-  <data name="ActionSnapshot.Enabled" type="System.Boolean, mscorlib">
+  <data name="ActionScreenshot.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="ActionSnapshot.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="ActionScreenshot.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="ActionSnapshot.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="ActionScreenshot.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         wwAADsMBx2+oZAAAB4FJREFUWEe9l2tMm9cZx9FubSIt0ZZB1g/VpGlTNkVT1ajqNGla1VaV8mVfKi0f
@@ -1123,89 +1123,85 @@
         d8IF7JKX6sdkh/ceEvI/aaDZgFkwA98AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="ActionSnapshot.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="ActionScreenshot.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="ActionSnapshot.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="ActionScreenshot.Location" type="System.Drawing.Point, System.Drawing">
     <value>584, 287</value>
   </data>
-  <data name="ActionSnapshot.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="ActionScreenshot.Size" type="System.Drawing.Size, System.Drawing">
     <value>42, 42</value>
   </data>
-  <data name="ActionSnapshot.TabIndex" type="System.Int32, mscorlib">
+  <data name="ActionScreenshot.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
-  <data name="&gt;&gt;ActionSnapshot.Name" xml:space="preserve">
-    <value>ActionSnapshot</value>
+  <data name="&gt;&gt;ActionScreenshot.Name" xml:space="preserve">
+    <value>ActionScreenshot</value>
   </data>
-  <data name="&gt;&gt;ActionSnapshot.Type" xml:space="preserve">
+  <data name="&gt;&gt;ActionScreenshot.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ActionSnapshot.Parent" xml:space="preserve">
+  <data name="&gt;&gt;ActionScreenshot.Parent" xml:space="preserve">
     <value>PanelViewSearch</value>
   </data>
-  <data name="&gt;&gt;ActionSnapshot.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;ActionScreenshot.ZOrder" xml:space="preserve">
     <value>15</value>
   </data>
-  <data name="button1.Enabled" type="System.Boolean, mscorlib">
+  <data name="ActionViewAllMeaningsList.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="button1.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="ActionViewAllMeaningsList.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="ActionViewAllMeaningsList.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         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
-        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
+        wwAADsMBx2+oZAAABQBJREFUWEfNl9luW1UYhXOBBFTQSlWbSsAbIB6AG6jEEyDxAgghhLiEpm1mO3Y8
+        xXYGZ6YV3CBVcEeTpgIKFUUCIVpBMzuO43mM4zGes/jXdmIyHAoSOPBLn3Ryzt57rb3+7ROdtv9DPfWC
+        fu72pYEFtOvvoF3XYkSDWtSkNg08f0m/gNlHKUz9ksTMw9ZCDWpRk9o0cPGCbh63ljO4ZPsVLzp+w0st
+        gmtTg1rUpDYNtJ/vn8eCp4BXb67htU/WcfnT1sC1qUEtalJbGTjXO4f7vhLevOXDW5+3FmpQi5pNA2e6
+        53DaRc2mgWe6GgYWFx9jcWkJS8vC0rJcL8v1k1g5htaYBlzr8eKS0mBR84SB1dVVrK+vw+Nxw72xAbfH
+        A4/XK2xhc8t3Aq+P+BVazwnnbmx6sebewMraOlZWVpWWpoENtxs+rwcXPriPgG8LX87NwWi2wWiyQGc0
+        oU9nRE+fHp3dfbjW2Y2Oa5348MpVfNRxHVevd+F6Vw+6enXo7dejXz+IAaNZ5loVm2LEveGBWzbI0jSw
+        KTve2vIi5N+CX3bn8/sRCIYQCoURCkeOECaR6FGOjQmFwwjKXH8gCC/TkCQ8YoJ1zMBtdZPi/oAPkXAA
+        waAQEvFIBJFYVIg1icZJXAN5Tg6NDUejCIoRXyDQaJlosKh5wkBAiQdx/v1vEYuFsXD3a1hsTpisDtWK
+        gUGzipYRd/X0q8ivXOtS7WBbevp00qYB6AZMMEjbBs1DMNscsoajacLn9yktTQOhUECiDCERjyAa5c5j
+        iCUSSGwnhe0myRRJaZKQZ4fHxpNJlQ6TDEiiTJalaSAaCSMeiyCVjCGRIAlsyyKpnZ0mO2mSfgLy/ND4
+        1I4Ykw1E2Q62MxxSWpoG4tLrVDKOc+99g8xOEvfufQf78CiGHCOwDjlgkkgNg/KLGBhUUXfLie/s7pV2
+        SPzq5Buh3z/5JosdNrsTNqfMFxJMgomKBkvTQFJ2nJIdZ9Mp2QVJI5PJIpvLN8nlSeEv+GN8NpdDWtZI
+        bqcQTySVBuuogc6GgZQMSkts+SyFG+I5WSRf2FUUyG7xb9AYfwCNpGQzNMENsqh5wkBGepjPZXD23a9Q
+        LOTw/YMfMOKahHNsHHbnmIrUZLPDYLZAbzChV29Q0TdOvlF+JXLyLVaYpV1DjmE4RlwYHpvA8OgEMtmc
+        MpEWWEcMPL1vIJ/NoiCRlXfzYiCPXXFfKpVQLldQIRVSbVI9xOH7ChnPeaRYLKkkVaICi5onDOxK74qF
+        AqqlXZSLDXGKVqs11EitfoQ6qe9z7Fmt1pjDuTTB9tFEQTRYmgbKIlyrlvDcO3exV6/gx59+hmtyGq6J
+        aYy6xlWkjNZstctLxiqRm9Av0esNRvXiMVlssEib7HLqnaMujI5PyNwZtUapUlZnoyQbY2kaqMigWrUM
+        7FVkRxXU6jXsqSf/rOp7eyhLkkUmWi6pe5oG6rWq7LzKKzFRF/F/Q75RVWkJTdREg6VpQAmL6Jm376i/
+        Hj18iOmZm8LHGJ+awZhrAk5pg13awPe7SU68Qf5NG+X0m602DEn8juEROfnjcI1PYXJ6FlOzNzA5c0Ot
+        VxcT3BjrTwy0tvakFQd1xMCz+2/C0yxqNg2c7Z3fv316Rc0DAxfbO79Y5A26YjSthBrUau/47AG1aeCs
+        8IpwWXjjlHhdeFlQn2b8QKQJumEkpwG1KK4+Tv/Damv7HZB8+WuMdRUfAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="button1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="ActionViewAllMeaningsList.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>533, 335</value>
+  <data name="ActionViewAllMeaningsList.Location" type="System.Drawing.Point, System.Drawing">
+    <value>533, 287</value>
   </data>
-  <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="ActionViewAllMeaningsList.Size" type="System.Drawing.Size, System.Drawing">
     <value>42, 42</value>
   </data>
-  <data name="button1.TabIndex" type="System.Int32, mscorlib">
+  <data name="ActionViewAllMeaningsList.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
-  <data name="&gt;&gt;button1.Name" xml:space="preserve">
-    <value>button1</value>
+  <data name="&gt;&gt;ActionViewAllMeaningsList.Name" xml:space="preserve">
+    <value>ActionViewAllMeaningsList</value>
   </data>
-  <data name="&gt;&gt;button1.Type" xml:space="preserve">
+  <data name="&gt;&gt;ActionViewAllMeaningsList.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;button1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;ActionViewAllMeaningsList.Parent" xml:space="preserve">
     <value>PanelViewSearch</value>
   </data>
-  <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;ActionViewAllMeaningsList.ZOrder" xml:space="preserve">
     <value>16</value>
   </data>
   <data name="ActionCopyToMeanings.Enabled" type="System.Boolean, mscorlib">
@@ -1249,7 +1245,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionCopyToMeanings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>533, 287</value>
+    <value>533, 335</value>
   </data>
   <data name="ActionCopyToMeanings.Size" type="System.Drawing.Size, System.Drawing">
     <value>42, 42</value>
@@ -2434,7 +2430,7 @@
     <value>Preferences</value>
   </data>
   <data name="ActionPreferences.ToolTipText" xml:space="preserve">
-    <value>Preferences (F8)</value>
+    <value>Preferences (F9)</value>
   </data>
   <data name="ActionSettings.AutoSize" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -3184,6 +3180,9 @@
   <metadata name="MeaningsTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>429, 18</value>
   </metadata>
+  <metadata name="SaveImageDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>533, 53</value>
+  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -3495,6 +3494,12 @@
   </data>
   <data name="&gt;&gt;MeaningsTableAdapter.Type" xml:space="preserve">
     <value>Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.MeaningsTableAdapter, Ordisoftware.Hebrew.Letters, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;SaveImageDialog.Name" xml:space="preserve">
+    <value>SaveImageDialog</value>
+  </data>
+  <data name="&gt;&gt;SaveImageDialog.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SaveFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainForm</value>

@@ -62,9 +62,9 @@
       this.ActionCopyToHebrew = new System.Windows.Forms.Button();
       this.ActionCopyToUnicode = new System.Windows.Forms.Button();
       this.ActionClear = new System.Windows.Forms.Button();
-      this.ActionSaveImage = new System.Windows.Forms.Button();
-      this.ActionSnapshot = new System.Windows.Forms.Button();
-      this.button1 = new System.Windows.Forms.Button();
+      this.ActionSaveScreenshot = new System.Windows.Forms.Button();
+      this.ActionScreenshot = new System.Windows.Forms.Button();
+      this.ActionViewAllMeaningsList = new System.Windows.Forms.Button();
       this.ActionCopyToMeanings = new System.Windows.Forms.Button();
       this.ActionCopyToResult = new System.Windows.Forms.Button();
       this.EditSentence = new Ordisoftware.Core.TextBoxEx();
@@ -142,6 +142,7 @@
       this.LettersTableAdapter = new Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.LettersTableAdapter();
       this.TableAdapterManager = new Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.TableAdapterManager();
       this.MeaningsTableAdapter = new Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.MeaningsTableAdapter();
+      this.SaveImageDialog = new System.Windows.Forms.SaveFileDialog();
       LabelName = new System.Windows.Forms.Label();
       LabelStructure = new System.Windows.Forms.Label();
       LabelFunction = new System.Windows.Forms.Label();
@@ -278,9 +279,9 @@
       this.PanelViewSearch.Controls.Add(this.ActionCopyToHebrew);
       this.PanelViewSearch.Controls.Add(this.ActionCopyToUnicode);
       this.PanelViewSearch.Controls.Add(this.ActionClear);
-      this.PanelViewSearch.Controls.Add(this.ActionSaveImage);
-      this.PanelViewSearch.Controls.Add(this.ActionSnapshot);
-      this.PanelViewSearch.Controls.Add(this.button1);
+      this.PanelViewSearch.Controls.Add(this.ActionSaveScreenshot);
+      this.PanelViewSearch.Controls.Add(this.ActionScreenshot);
+      this.PanelViewSearch.Controls.Add(this.ActionViewAllMeaningsList);
       this.PanelViewSearch.Controls.Add(this.ActionCopyToMeanings);
       this.PanelViewSearch.Controls.Add(this.ActionCopyToResult);
       this.PanelViewSearch.Controls.Add(this.EditSentence);
@@ -410,29 +411,29 @@
       this.ActionClear.UseVisualStyleBackColor = true;
       this.ActionClear.Click += new System.EventHandler(this.ActionClear_Click);
       // 
-      // ActionSaveImage
+      // ActionSaveScreenshot
       // 
-      resources.ApplyResources(this.ActionSaveImage, "ActionSaveImage");
-      this.ActionSaveImage.FlatAppearance.BorderSize = 0;
-      this.ActionSaveImage.Name = "ActionSaveImage";
-      this.ActionSaveImage.UseVisualStyleBackColor = true;
-      this.ActionSaveImage.Click += new System.EventHandler(this.ActionSnapshot_Click);
+      resources.ApplyResources(this.ActionSaveScreenshot, "ActionSaveScreenshot");
+      this.ActionSaveScreenshot.FlatAppearance.BorderSize = 0;
+      this.ActionSaveScreenshot.Name = "ActionSaveScreenshot";
+      this.ActionSaveScreenshot.UseVisualStyleBackColor = true;
+      this.ActionSaveScreenshot.Click += new System.EventHandler(this.ActionSaveScreenshot_Click);
       // 
-      // ActionSnapshot
+      // ActionScreenshot
       // 
-      resources.ApplyResources(this.ActionSnapshot, "ActionSnapshot");
-      this.ActionSnapshot.FlatAppearance.BorderSize = 0;
-      this.ActionSnapshot.Name = "ActionSnapshot";
-      this.ActionSnapshot.UseVisualStyleBackColor = true;
-      this.ActionSnapshot.Click += new System.EventHandler(this.ActionSnapshot_Click);
+      resources.ApplyResources(this.ActionScreenshot, "ActionScreenshot");
+      this.ActionScreenshot.FlatAppearance.BorderSize = 0;
+      this.ActionScreenshot.Name = "ActionScreenshot";
+      this.ActionScreenshot.UseVisualStyleBackColor = true;
+      this.ActionScreenshot.Click += new System.EventHandler(this.ActionScreenshot_Click);
       // 
-      // button1
+      // ActionViewAllMeaningsList
       // 
-      resources.ApplyResources(this.button1, "button1");
-      this.button1.FlatAppearance.BorderSize = 0;
-      this.button1.Name = "button1";
-      this.button1.UseVisualStyleBackColor = true;
-      this.button1.Click += new System.EventHandler(this.ActionCopyToMeanings_Click);
+      resources.ApplyResources(this.ActionViewAllMeaningsList, "ActionViewAllMeaningsList");
+      this.ActionViewAllMeaningsList.FlatAppearance.BorderSize = 0;
+      this.ActionViewAllMeaningsList.Name = "ActionViewAllMeaningsList";
+      this.ActionViewAllMeaningsList.UseVisualStyleBackColor = true;
+      this.ActionViewAllMeaningsList.Click += new System.EventHandler(this.ActionViewAllMeaningsList_Click);
       // 
       // ActionCopyToMeanings
       // 
@@ -1218,7 +1219,7 @@
     public System.Windows.Forms.ToolStripMenuItem EditSoundsEnabled;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
-    private System.Windows.Forms.Button ActionSnapshot;
+    private System.Windows.Forms.Button ActionScreenshot;
     private System.Windows.Forms.Timer TimerProcesses;
     public System.Windows.Forms.ToolStripDropDownButton ActionInformation;
     public Data.DataSet DataSet;
@@ -1233,12 +1234,13 @@
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
     private System.Windows.Forms.ToolStripMenuItem ActionShowKeyboardNotice;
     private System.Windows.Forms.Button ActionCopyToHebrew;
-    private System.Windows.Forms.Button ActionSaveImage;
-    private System.Windows.Forms.Button button1;
+    private System.Windows.Forms.Button ActionSaveScreenshot;
+    private System.Windows.Forms.Button ActionViewAllMeaningsList;
     private System.Windows.Forms.Button ActionUndo;
     private System.Windows.Forms.Button ActionSave;
     private System.Windows.Forms.ToolStripButton ActionNewInstance;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
     public System.Windows.Forms.CheckBox EditCopyWithFinalLetter;
+    private System.Windows.Forms.SaveFileDialog SaveImageDialog;
   }
 }
