@@ -125,8 +125,6 @@ Note: all diacritics are removed and if the word can't be processed or does not 
 
 [AutoHotKey](https://www.autohotkey.com) code:
 
-Code will be added soon
-
 ```
 ^+H:: 
   WinActive("A")
