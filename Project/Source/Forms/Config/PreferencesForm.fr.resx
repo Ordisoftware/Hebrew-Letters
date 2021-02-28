@@ -118,17 +118,17 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="LabelCheckUpdateFrequency.Size" type="System.Drawing.Size, System.Drawing">
-    <value>220, 13</value>
-  </data>
-  <data name="LabelCheckUpdateFrequency.Text" xml:space="preserve">
-    <value>Fréquence de vérification en nombre de jours</value>
-  </data>
   <data name="LabelVolume.Size" type="System.Drawing.Size, System.Drawing">
     <value>386, 13</value>
   </data>
   <data name="LabelVolume.Text" xml:space="preserve">
     <value>Volume des sons .wav (non applicable aux sons système des boites de dialogue)</value>
+  </data>
+  <data name="LabelCheckUpdateFrequency.Size" type="System.Drawing.Size, System.Drawing">
+    <value>220, 13</value>
+  </data>
+  <data name="LabelCheckUpdateFrequency.Text" xml:space="preserve">
+    <value>Fréquence de vérification en nombre de jours</value>
   </data>
   <data name="ActionClose.Text" xml:space="preserve">
     <value>Fermer</value>
@@ -139,29 +139,11 @@
   <data name="ActionResetSettings.Text" xml:space="preserve">
     <value>Restaurer les valeurs par défaut</value>
   </data>
-  <data name="LabelFontSize.Size" type="System.Drawing.Size, System.Drawing">
-    <value>150, 13</value>
+  <data name="EditUsageStatisticsEnabled.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 17</value>
   </data>
-  <data name="LabelFontSize.Text" xml:space="preserve">
-    <value>Taille de la police de la phrase</value>
-  </data>
-  <data name="LabelMaxLength.Size" type="System.Drawing.Size, System.Drawing">
-    <value>199, 13</value>
-  </data>
-  <data name="LabelMaxLength.Text" xml:space="preserve">
-    <value>Nombre maximum de caractères hébreux</value>
-  </data>
-  <data name="EditEnableDebugger.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 17</value>
-  </data>
-  <data name="EditDebuggerEnabled.Text" xml:space="preserve">
-    <value>Activer le débogueur</value>
-  </data>
-  <data name="EditAutoSortAnalysisMeanings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 17</value>
-  </data>
-  <data name="EditAutoSortAnalysisMeanings.Text" xml:space="preserve">
-    <value>Trier automatiquement les significations</value>
+  <data name="EditUsageStatisticsEnabled.Text" xml:space="preserve">
+    <value>Activer les statistiques d'usage</value>
   </data>
   <data name="EditVacuumAtStartup.Size" type="System.Drawing.Size, System.Drawing">
     <value>262, 17</value>
@@ -169,11 +151,11 @@
   <data name="EditVacuumAtStartup.Text" xml:space="preserve">
     <value>Optimiser données au démarrage chaque semaine</value>
   </data>
-  <data name="EditCheckUpdateAtStartup.Size" type="System.Drawing.Size, System.Drawing">
-    <value>179, 17</value>
+  <data name="EditDebuggerEnabled.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 17</value>
   </data>
-  <data name="EditCheckUpdateAtStartup.Text" xml:space="preserve">
-    <value>Vérifier mise à jour au démarrage</value>
+  <data name="EditDebuggerEnabled.Text" xml:space="preserve">
+    <value>Activer le débogueur</value>
   </data>
   <data name="EditWebLinksMenuEnabled.Size" type="System.Drawing.Size, System.Drawing">
     <value>166, 17</value>
@@ -187,25 +169,58 @@
   <data name="EditLogEnabled.Text" xml:space="preserve">
     <value>Activer le fichier log</value>
   </data>
-  <data name="EditUsageStatisticsEnabled.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 17</value>
+  <data name="EditCheckUpdateAtStartup.Size" type="System.Drawing.Size, System.Drawing">
+    <value>179, 17</value>
   </data>
-  <data name="EditUsageStatisticsEnabled.Text" xml:space="preserve">
-    <value>Activer les statistiques d'usage</value>
-  </data>
-  <data name="TabPageCheckUpdate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>376, 249</value>
+  <data name="EditCheckUpdateAtStartup.Text" xml:space="preserve">
+    <value>Vérifier mise à jour au démarrage</value>
   </data>
   <data name="TabPageCheckUpdate.Text" xml:space="preserve">
     <value>Mise à jour</value>
   </data>
-  <data name="TabPageAnalyzer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>376, 249</value>
+  <data name="EditAutoSortAnalysisMeanings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 17</value>
+  </data>
+  <data name="EditAutoSortAnalysisMeanings.Text" xml:space="preserve">
+    <value>Trier automatiquement les significations</value>
+  </data>
+  <data name="LabelFontSize.Size" type="System.Drawing.Size, System.Drawing">
+    <value>150, 13</value>
+  </data>
+  <data name="LabelFontSize.Text" xml:space="preserve">
+    <value>Taille de la police de la phrase</value>
+  </data>
+  <data name="LabelMaxLength.Size" type="System.Drawing.Size, System.Drawing">
+    <value>199, 13</value>
+  </data>
+  <data name="LabelMaxLength.Text" xml:space="preserve">
+    <value>Nombre maximum de caractères hébreux</value>
   </data>
   <data name="TabPageAnalyzer.Text" xml:space="preserve">
     <value>Analyseur</value>
   </data>
+  <data name="LabelImageExportFileFormat.Size" type="System.Drawing.Size, System.Drawing">
+    <value>205, 13</value>
+  </data>
+  <data name="LabelImageExportFileFormat.Text" xml:space="preserve">
+    <value>Format préféré du fichier d'export d'images</value>
+  </data>
+  <data name="EditAutoOpenExportedFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>221, 17</value>
+  </data>
+  <data name="EditAutoOpenExportedFile.Text" xml:space="preserve">
+    <value>Ouvrir le fichier exporté en cas de succès</value>
+  </data>
+  <data name="EditAutoOpenExportFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>228, 17</value>
+  </data>
+  <data name="EditAutoOpenExportFolder.Text" xml:space="preserve">
+    <value>Ouvrir le dossier d'export en cas de succès</value>
+  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Préférences</value>
+  </data>
+  <data name="LabelExportFolder.Text" xml:space="preserve">
+    <value>Dossier d'exportation</value>
   </data>
 </root>

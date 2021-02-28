@@ -26,6 +26,9 @@ namespace Ordisoftware.Hebrew.Letters
   static partial class Program
   {
 
+    static public readonly NullSafeOfStringDictionary<ImageExportTarget> ImageExportTargets
+      = ExportHelper.CreateExportTargets<ImageExportTarget>().SetUnsupported(ImageExportTarget.GIF);
+
     /// <summary>
     /// Indicate file path of the letters meanings.
     /// </summary>

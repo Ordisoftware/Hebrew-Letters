@@ -61,6 +61,15 @@
       this.EditMaxLength = new System.Windows.Forms.NumericUpDown();
       this.EditFontSize = new System.Windows.Forms.NumericUpDown();
       this.LabelMaxLength = new System.Windows.Forms.Label();
+      this.TabPageExport = new System.Windows.Forms.TabPage();
+      this.LabelExportFolder = new System.Windows.Forms.Label();
+      this.ActionResetExportFolder = new System.Windows.Forms.Button();
+      this.ActionSelectExportFolder = new System.Windows.Forms.Button();
+      this.EditImageExportFileFormat = new System.Windows.Forms.ComboBox();
+      this.LabelImageExportFileFormat = new System.Windows.Forms.Label();
+      this.EditAutoOpenExportedFile = new System.Windows.Forms.CheckBox();
+      this.EditAutoOpenExportFolder = new System.Windows.Forms.CheckBox();
+      this.EditExportFolder = new Ordisoftware.Core.TextBoxEx();
       LabelVolume = new System.Windows.Forms.Label();
       LabelCheckUpdateFrequency = new System.Windows.Forms.Label();
       this.PanelBottom.SuspendLayout();
@@ -72,6 +81,7 @@
       this.TabPageAnalyzer.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.EditMaxLength)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.EditFontSize)).BeginInit();
+      this.TabPageExport.SuspendLayout();
       this.SuspendLayout();
       // 
       // LabelVolume
@@ -97,7 +107,6 @@
       this.PanelBottom.Controls.Add(this.ActionClose);
       resources.ApplyResources(this.PanelBottom, "PanelBottom");
       this.PanelBottom.Name = "PanelBottom";
-      this.PanelBottom.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelBottom_Paint);
       // 
       // ActionResetSettings
       // 
@@ -124,6 +133,7 @@
       this.TabControl.Controls.Add(this.TabPageApplication);
       this.TabControl.Controls.Add(this.TabPageCheckUpdate);
       this.TabControl.Controls.Add(this.TabPageAnalyzer);
+      this.TabControl.Controls.Add(this.TabPageExport);
       this.TabControl.DataBindings.Add(new System.Windows.Forms.Binding("SelectedIndex", global::Ordisoftware.Hebrew.Letters.Properties.Settings.Default, "PreferencesFormSelectedTabIndex", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
       this.TabControl.Multiline = true;
       this.TabControl.Name = "TabControl";
@@ -346,6 +356,77 @@
       resources.ApplyResources(this.LabelMaxLength, "LabelMaxLength");
       this.LabelMaxLength.Name = "LabelMaxLength";
       // 
+      // TabPageExport
+      // 
+      this.TabPageExport.BackColor = System.Drawing.SystemColors.Window;
+      this.TabPageExport.Controls.Add(this.LabelExportFolder);
+      this.TabPageExport.Controls.Add(this.ActionResetExportFolder);
+      this.TabPageExport.Controls.Add(this.ActionSelectExportFolder);
+      this.TabPageExport.Controls.Add(this.EditExportFolder);
+      this.TabPageExport.Controls.Add(this.EditImageExportFileFormat);
+      this.TabPageExport.Controls.Add(this.LabelImageExportFileFormat);
+      this.TabPageExport.Controls.Add(this.EditAutoOpenExportedFile);
+      this.TabPageExport.Controls.Add(this.EditAutoOpenExportFolder);
+      resources.ApplyResources(this.TabPageExport, "TabPageExport");
+      this.TabPageExport.Name = "TabPageExport";
+      // 
+      // LabelExportFolder
+      // 
+      resources.ApplyResources(this.LabelExportFolder, "LabelExportFolder");
+      this.LabelExportFolder.Name = "LabelExportFolder";
+      // 
+      // ActionResetExportFolder
+      // 
+      this.ActionResetExportFolder.FlatAppearance.BorderSize = 0;
+      resources.ApplyResources(this.ActionResetExportFolder, "ActionResetExportFolder");
+      this.ActionResetExportFolder.Name = "ActionResetExportFolder";
+      this.ActionResetExportFolder.UseVisualStyleBackColor = true;
+      this.ActionResetExportFolder.Click += new System.EventHandler(this.ActionResetExportFolder_Click);
+      // 
+      // ActionSelectExportFolder
+      // 
+      this.ActionSelectExportFolder.FlatAppearance.BorderSize = 0;
+      resources.ApplyResources(this.ActionSelectExportFolder, "ActionSelectExportFolder");
+      this.ActionSelectExportFolder.Name = "ActionSelectExportFolder";
+      this.ActionSelectExportFolder.UseVisualStyleBackColor = true;
+      this.ActionSelectExportFolder.Click += new System.EventHandler(this.ActionSelectExportFolder_Click);
+      // 
+      // EditImageExportFileFormat
+      // 
+      this.EditImageExportFileFormat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+      this.EditImageExportFileFormat.FormattingEnabled = true;
+      resources.ApplyResources(this.EditImageExportFileFormat, "EditImageExportFileFormat");
+      this.EditImageExportFileFormat.Name = "EditImageExportFileFormat";
+      this.EditImageExportFileFormat.SelectedIndexChanged += new System.EventHandler(this.EditImageExportFileFormat_SelectedIndexChanged);
+      this.EditImageExportFileFormat.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.EditImageExportFileFormat_Format);
+      // 
+      // LabelImageExportFileFormat
+      // 
+      resources.ApplyResources(this.LabelImageExportFileFormat, "LabelImageExportFileFormat");
+      this.LabelImageExportFileFormat.Name = "LabelImageExportFileFormat";
+      // 
+      // EditAutoOpenExportedFile
+      // 
+      resources.ApplyResources(this.EditAutoOpenExportedFile, "EditAutoOpenExportedFile");
+      this.EditAutoOpenExportedFile.Name = "EditAutoOpenExportedFile";
+      this.EditAutoOpenExportedFile.UseVisualStyleBackColor = true;
+      this.EditAutoOpenExportedFile.CheckedChanged += new System.EventHandler(this.EditAutoOpenExportedFile_CheckedChanged);
+      // 
+      // EditAutoOpenExportFolder
+      // 
+      resources.ApplyResources(this.EditAutoOpenExportFolder, "EditAutoOpenExportFolder");
+      this.EditAutoOpenExportFolder.Name = "EditAutoOpenExportFolder";
+      this.EditAutoOpenExportFolder.UseVisualStyleBackColor = true;
+      this.EditAutoOpenExportFolder.CheckedChanged += new System.EventHandler(this.EditAutoOpenExportFolder_CheckedChanged);
+      // 
+      // EditExportFolder
+      // 
+      this.EditExportFolder.BackColor = System.Drawing.SystemColors.Control;
+      this.EditExportFolder.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
+      resources.ApplyResources(this.EditExportFolder, "EditExportFolder");
+      this.EditExportFolder.Name = "EditExportFolder";
+      this.EditExportFolder.ReadOnly = true;
+      // 
       // PreferencesForm
       // 
       this.AcceptButton = this.ActionClose;
@@ -375,6 +456,8 @@
       this.TabPageAnalyzer.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.EditMaxLength)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.EditFontSize)).EndInit();
+      this.TabPageExport.ResumeLayout(false);
+      this.TabPageExport.PerformLayout();
       this.ResumeLayout(false);
 
     }
@@ -409,5 +492,14 @@
     private System.Windows.Forms.TabPage TabPageAnalyzer;
     private System.Windows.Forms.Label label2;
     private System.Windows.Forms.Label label1;
+    private System.Windows.Forms.TabPage TabPageExport;
+    private System.Windows.Forms.ComboBox EditImageExportFileFormat;
+    private System.Windows.Forms.Label LabelImageExportFileFormat;
+    private System.Windows.Forms.CheckBox EditAutoOpenExportedFile;
+    private System.Windows.Forms.CheckBox EditAutoOpenExportFolder;
+    private System.Windows.Forms.Label LabelExportFolder;
+    private System.Windows.Forms.Button ActionResetExportFolder;
+    private System.Windows.Forms.Button ActionSelectExportFolder;
+    private Core.TextBoxEx EditExportFolder;
   }
 }
