@@ -82,8 +82,10 @@ namespace Ordisoftware.Hebrew.Letters
             string word = ApplicationCommandLine.Instance?.WordHebrew ?? string.Empty;
             if ( word.IsNullOrEmpty() )
               if ( SystemManager.CommandLineArguments != null && SystemManager.CommandLineArguments.Length == 1 )
-                word = SystemManager.CommandLineArguments[0].Trim().RemoveDiacritics();
-            _StartupWordHebrew = HebrewAlphabet.IsHebrew(word) ? word : HebrewAlphabet.ConvertToHebrewFont(word);
+                word = SystemManager.CommandLineArguments[0];
+            word = word.Trim().RemoveDiacritics();
+            word = HebrewAlphabet.ContainsUnicode(word) ? HebrewAlphabet.ConvertToHebrewFont(word) : word;
+            _StartupWordHebrew = HebrewAlphabet.UnFinalAll(word);
             if ( _StartupWordUnicode.IsNullOrEmpty() )
               _StartupWordUnicode = HebrewAlphabet.ConvertToUnicode(_StartupWordHebrew);
           }
@@ -107,7 +109,7 @@ namespace Ordisoftware.Hebrew.Letters
           try
           {
             string word = ApplicationCommandLine.Instance?.WordUnicode ?? string.Empty;
-            _StartupWordUnicode = HebrewAlphabet.IsUnicode(word) ? word.RemoveDiacritics() : string.Empty;
+            _StartupWordUnicode = HebrewAlphabet.ContainsUnicode(word) ? word.Trim().RemoveDiacritics() : string.Empty;
             if ( _StartupWordHebrew.IsNullOrEmpty() )
               _StartupWordHebrew = HebrewAlphabet.ConvertToHebrewFont(_StartupWordUnicode);
           }
