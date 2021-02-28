@@ -158,7 +158,7 @@ namespace Ordisoftware.Hebrew.Letters
       ContextMenuSearchOnline.InitializeFromProviders(OnlineProviders.OnlineWordProviders, (sender, e) =>
       {
         var menuitem = (ToolStripMenuItem)sender;
-        string str = HebrewAlphabet.ConvertToUnicode(HebrewAlphabet.SetFinal(EditLetters.Input.Text, true));
+        string str = HebrewAlphabet.ToUnicode(HebrewAlphabet.SetFinal(EditLetters.Input.Text, true));
         SystemManager.OpenWebLink(( (string)menuitem.Tag ).Replace("%WORD%", str));
         EditLetters.Focus();
       });
@@ -763,7 +763,7 @@ namespace Ordisoftware.Hebrew.Letters
       string str = EditLetters.Input.Text;
       if ( EditCopyWithFinalLetter.Checked )
         str = HebrewAlphabet.SetFinal(str, true);
-      Clipboard.SetText(HebrewAlphabet.ConvertToUnicode(str));
+      Clipboard.SetText(HebrewAlphabet.ToUnicode(str));
       DisplayManager.ShowSuccessOrSound(SysTranslations.DataCopiedToClipboard.GetLang(),
                                         Globals.ClipboardSoundFilePath);
       EditLetters.Focus(true);
@@ -824,7 +824,7 @@ namespace Ordisoftware.Hebrew.Letters
       string str = EditLetters.Input.Text;
       if ( EditCopyWithFinalLetter.Checked )
         str = HebrewAlphabet.SetFinal(str, true);
-      SaveImageDialog.FileName = HebrewAlphabet.ConvertToUnicode(str);
+      SaveImageDialog.FileName = HebrewAlphabet.ToUnicode(str);
       for ( int index = 0; index < Program.ImageExportTargets.Count; index++ )
         if ( Program.ImageExportTargets.ElementAt(index).Key == Settings.ExportImagePreferredTarget )
           SaveImageDialog.FilterIndex = index + 1;

@@ -16,6 +16,8 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
+using MoreLinq;
 using Ordisoftware.Core;
 
 namespace Ordisoftware.Hebrew.Letters
@@ -84,9 +86,10 @@ namespace Ordisoftware.Hebrew.Letters
             if ( word.IsNullOrEmpty() )
               if ( SystemManager.CommandLineArguments != null && SystemManager.CommandLineArguments.Length == 1 )
                 word = SystemManager.CommandLineArguments[0];
-            word = word.RemoveDiacritics();
-            word = new string(word.Where(c => char.IsLetter(c)).Take((int)Settings.HebrewTextBoxMaxLength).ToArray());
-            _StartupWordHebrew = HebrewAlphabet.ContainsUnicode(word) ? HebrewAlphabet.ConvertToHebrewFont(word) : word; ;
+            word = HebrewAlphabet.ContainsUnicode(word) 
+                   ? HebrewAlphabet.ToHebrewFont(word)
+                   : HebrewAlphabet.OnlyHebrewFont(word);
+            _StartupWordHebrew = new string(word.TakeLast((int)Settings.HebrewTextBoxMaxLength).ToArray());
           }
           catch ( Exception ex )
           {
