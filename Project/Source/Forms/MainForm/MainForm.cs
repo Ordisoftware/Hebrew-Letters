@@ -13,6 +13,7 @@
 /// <created> 2016-04 </created>
 /// <edited> 2021-02 </edited>
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
@@ -78,11 +79,6 @@ namespace Ordisoftware.Hebrew.Letters
     /// Indicate if data is read only.
     /// </summary>
     private bool IsReadOnly;
-
-    /// <summary>
-    /// Indicate the selected meanings text.
-    /// </summary>
-    private string WordMeanings = "";
 
     /// <summary>
     /// Indicate the last term searched.
@@ -164,6 +160,7 @@ namespace Ordisoftware.Hebrew.Letters
         var menuitem = (ToolStripMenuItem)sender;
         string str = HebrewAlphabet.ConvertToUnicode(HebrewAlphabet.SetFinal(EditLetters.Input.Text, true));
         SystemManager.OpenWebLink(( (string)menuitem.Tag ).Replace("%WORD%", str));
+        EditLetters.Focus();
       });
     }
 
@@ -176,6 +173,8 @@ namespace Ordisoftware.Hebrew.Letters
     {
       if ( Globals.IsExiting ) return;
       Settings.Retrieve();
+      InitializeTheme();
+      InitializeDialogsDirectory();
       ProcessLocksTable.Lock();
       Program.Settings.CurrentView = ViewMode.Analyse;
       EditSentence.Font = new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence);
@@ -226,6 +225,29 @@ namespace Ordisoftware.Hebrew.Letters
     }
 
     /// <summary>
+    /// Set the initial directories of dialog boxes.
+    /// </summary>
+    private void InitializeDialogsDirectory()
+    {
+      string directory = Settings.GetExportDirectory();
+      SaveImageDialog.InitialDirectory = directory;
+      SaveImageDialog.Filter = Program.ImageExportTargets.CreateFilters();
+    }
+
+    /// <summary>
+    /// Set colors.
+    /// </summary>
+    internal void InitializeTheme()
+    {
+      EditLetters.LettersBackColor = Settings.ColorLettersPanel;
+      EditLetters.InputBackColor = Settings.ColorHebrewWordTextBox;
+      SelectAnalyze.BackColor = Settings.ColorMeaningsPanel;
+      EditSentence.BackColor = Settings.ColorSentenceTextBox;
+      EditGematriaFull.BackColor = Settings.ColorGematriaTextBox;
+      EditGematriaSimple.BackColor = Settings.ColorGematriaTextBox;
+    }
+
+    /// <summary>
     /// Event handler. Called by MainForm for form shown events.
     /// </summary>
     /// <param name="sender">Source of the event.</param>
@@ -238,6 +260,8 @@ namespace Ordisoftware.Hebrew.Letters
       {
         ActionReset.Visible = true;
         EditLetters.Input.Text = Program.StartupWordHebrew;
+        EditLetters.Input.SelectionStart = 0;
+        EditLetters.Input.SelectionLength = 0;
         EditLetters.TextBox.Refresh();
       }
       else
@@ -256,7 +280,7 @@ namespace Ordisoftware.Hebrew.Letters
       }
       Globals.NoticeKeyboardShortcutsForm = new ShowTextForm(AppTranslations.NoticeKeyboardShortcutsTitle,
                                                              AppTranslations.NoticeKeyboardShortcuts,
-                                                             true, false, 340, 400, false, false);
+                                                             true, false, 340, 460, false, false);
       Globals.NoticeKeyboardShortcutsForm.TextBox.BackColor = Globals.NoticeKeyboardShortcutsForm.BackColor;
       Globals.NoticeKeyboardShortcutsForm.TextBox.BorderStyle = BorderStyle.None;
       Globals.NoticeKeyboardShortcutsForm.Padding = new Padding(20, 20, 10, 10);
@@ -525,6 +549,7 @@ namespace Ordisoftware.Hebrew.Letters
         PreferencesForm.Run();
         EditLetters.InputMaxLength = (int)Settings.HebrewTextBoxMaxLength;
         InitializeSpecialMenus();
+        InitializeDialogsDirectory();
       }
       catch ( Exception ex )
       {
@@ -647,28 +672,26 @@ namespace Ordisoftware.Hebrew.Letters
     {
       if ( EditLetters.Input.Text.Length < 1 ) return;
       EditLetters.Input.Text = EditLetters.Input.Text.Remove(EditLetters.Input.Text.Length - 1, 1);
-      EditLetters.Focus();
+      EditLetters.Focus(false);
+      EditLetters.Input.SelectionStart = EditLetters.Input.TextLength;
     }
 
     private void ActionDelLast_Click(object sender, EventArgs e)
     {
       if ( EditLetters.Input.Text.Length < 1 ) return;
       EditLetters.Input.Text = EditLetters.Input.Text.Remove(0, 1);
-      EditLetters.Focus();
+      EditLetters.Focus(false);
     }
 
     private void ActionReset_Click(object sender, EventArgs e)
     {
       EditLetters.Input.Text = Program.StartupWordHebrew;
-      EditLetters.Focus();
+      EditLetters.Focus(false);
     }
 
     private void EditLetters_InputTextChanged(object sender, EventArgs e)
     {
-      var enabled = EditLetters.Input.Text != "";
-      ActionDelFirst.Enabled = EditLetters.Input.Text.Length >= 1;
-      ActionDelLast.Enabled = ActionDelFirst.Enabled;
-      UpdateControls(enabled);
+      UpdateControls();
       DoAnalyse();
     }
 
@@ -677,16 +700,19 @@ namespace Ordisoftware.Hebrew.Letters
       ContextMenuSearchOnline.Show(ActionSearchOnline, new Point(0, ActionSearchOnline.Height));
     }
 
-    private void UpdateControls(bool enabled)
+    private void UpdateControls()
     {
-      ActionDelFirst.Enabled = EditLetters.Input.Text.Length >= 1;
-      ActionDelLast.Enabled = ActionDelFirst.Enabled;
+      bool enabled = EditLetters.Input.Text.Length >= 1;
+      ActionReset.Enabled = !Program.StartupWordHebrew.IsNullOrEmpty();
       ActionClear.Enabled = enabled;
+      ActionDelFirst.Enabled = enabled;
+      ActionDelLast.Enabled = enabled;
       ActionCopyToHebrew.Enabled = enabled;
       ActionCopyToUnicode.Enabled = enabled;
       ActionCopyToMeanings.Enabled = enabled;
-      ActionSnapshot.Enabled = enabled;
-      ActionSaveImage.Enabled = enabled;
+      ActionViewAllMeaningsList.Enabled = enabled;
+      ActionScreenshot.Enabled = enabled;
+      ActionSaveScreenshot.Enabled = enabled;
       ActionSearchOnline.Enabled = enabled;
     }
 
@@ -698,14 +724,13 @@ namespace Ordisoftware.Hebrew.Letters
       EditGematriaSimple.Text = "";
       EditGematriaFull.Text = "";
       SelectAnalyze.Controls.Clear();
-      UpdateControls(false);
+      UpdateControls();
       EditLetters.Focus();
     }
 
     private void ActionPaste_Click(object sender, EventArgs e)
     {
-      ActiveControl = EditLetters.Input;
-      EditLetters.Input.SelectAll();
+      EditLetters.Focus(true);
       TextBoxEx.ActionPaste.PerformClick();
     }
 
@@ -716,7 +741,9 @@ namespace Ordisoftware.Hebrew.Letters
       if ( EditCopyWithFinalLetter.Checked )
         str = HebrewAlphabet.SetFinal(str, true);
       Clipboard.SetText(str);
-      EditLetters.Focus();
+      DisplayManager.ShowSuccessOrSound(SysTranslations.DataCopiedToClipboard.GetLang(),
+                                        Globals.ClipboardSoundFilePath);
+      EditLetters.Focus(true);
     }
 
     private void ActionCopyToUnicode_Click(object sender, EventArgs e)
@@ -726,20 +753,9 @@ namespace Ordisoftware.Hebrew.Letters
       if ( EditCopyWithFinalLetter.Checked )
         str = HebrewAlphabet.SetFinal(str, true);
       Clipboard.SetText(HebrewAlphabet.ConvertToUnicode(str));
-      EditLetters.Focus();
-    }
-
-    private void ActionCopyToMeanings_Click(object sender, EventArgs e)
-    {
-      if ( EditLetters.Input.Text != "" )
-      {
-        var controls = SelectAnalyze.Controls.OfType<Label>();
-        var list = controls.Select(label => label.Text + " : " + string.Join(", ", (object[])( (ComboBox)label.Tag ).Tag));
-        WordMeanings = string.Join(Globals.NL, list);
-        Clipboard.SetText(WordMeanings);
-        DisplayManager.ShowSuccessOrSound(SysTranslations.DataCopiedToClipboard.GetLang(),
-                                          Globals.ClipboardSoundFilePath);
-      }
+      DisplayManager.ShowSuccessOrSound(SysTranslations.DataCopiedToClipboard.GetLang(),
+                                        Globals.ClipboardSoundFilePath);
+      EditLetters.Focus(true);
     }
 
     private void MeaningComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -752,25 +768,74 @@ namespace Ordisoftware.Hebrew.Letters
       EditSentence.Text = str;
     }
 
-    private void ActionSnapshot_Click(object sender, EventArgs e)
+    private void EditSentence_TextChanged(object sender, EventArgs e)
     {
-      if ( EditLetters.Input.Text != "" )
-      {
-        Clipboard.SetImage(this.GetBitmap());
-        DisplayManager.ShowSuccessOrSound(SysTranslations.ScreenshotDone.GetLang(),
-                                          Globals.SnapshotSoundFilePath);
-      }
+      ActionCopyToResult.Enabled = EditSentence.Text != "";
+    }
+
+    private void ActionViewAllMeaningsList_Click(object sender, EventArgs e)
+    {
+      if ( EditLetters.Input.Text == "" ) return;
+      new ShowTextForm("", GetMeaningsText().Replace(Globals.NL, Globals.NL2), false, true, 600, 400, true, true).ShowDialog();
+      EditLetters.Focus();
+    }
+
+    private string GetMeaningsText()
+    {
+      var list = SelectAnalyze.Controls
+                              .OfType<Label>()
+                              .Where(label => label.Text != "")
+                              .Select(label => label.Text + " : " + string.Join(", ", (object[])( (ComboBox)label.Tag ).Tag));
+      return string.Join(Globals.NL, list);
+    }
+
+    private void ActionCopyToMeanings_Click(object sender, EventArgs e)
+    {
+      if ( EditLetters.Input.Text == "" ) return;
+      Clipboard.SetText(GetMeaningsText());
+      DisplayManager.ShowSuccessOrSound(SysTranslations.DataCopiedToClipboard.GetLang(),
+                                        Globals.ClipboardSoundFilePath);
+      EditLetters.Focus();
+    }
+
+    private void ActionScreenshot_Click(object sender, EventArgs e)
+    {
+      if ( EditLetters.Input.Text == "" ) return;
+      Clipboard.SetImage(this.GetBitmap());
+      DisplayManager.ShowSuccessOrSound(SysTranslations.ScreenshotDone.GetLang(),
+                                        Globals.ScreenshotSoundFilePath);
+      EditLetters.Focus();
+    }
+
+    private void ActionSaveScreenshot_Click(object sender, EventArgs e)
+    {
+      if ( EditLetters.Input.Text == "" ) return;
+      string str = EditLetters.Input.Text;
+      if ( EditCopyWithFinalLetter.Checked )
+        str = HebrewAlphabet.SetFinal(str, true);
+      SaveImageDialog.FileName = HebrewAlphabet.ConvertToUnicode(str);
+      for ( int index = 0; index < Program.ImageExportTargets.Count; index++ )
+        if ( Program.ImageExportTargets.ElementAt(index).Key == Settings.ExportImagePreferredTarget )
+          SaveImageDialog.FilterIndex = index + 1;
+      if ( SaveImageDialog.ShowDialog() != DialogResult.OK ) return;
+      string filePath = SaveImageDialog.FileName;
+      var bitmap = this.GetBitmap();
+      bitmap.Save(filePath, Program.ImageExportTargets.GetFormat(Path.GetExtension(filePath)));
+      DisplayManager.ShowSuccessOrSound(SysTranslations.ViewSavedToFile.GetLang(filePath),
+                                        Globals.ScreenshotSoundFilePath);
+      if ( Settings.AutoOpenExportFolder )
+        SystemManager.RunShell(Path.GetDirectoryName(filePath));
+      if ( Settings.AutoOpenExportedFile )
+        SystemManager.RunShell(filePath);
+      EditLetters.Focus();
     }
 
     private void ActionCopyToResult_Click(object sender, EventArgs e)
     {
-      if ( EditSentence.Text != "" ) Clipboard.SetText(EditSentence.Text);
+      if ( EditSentence.Text == "" ) return;
+      Clipboard.SetText(EditSentence.Text);
       if ( EditCopyToClipboardCloseApp.Checked ) Close();
-    }
-
-    private void EditSentence_TextChanged(object sender, EventArgs e)
-    {
-      ActionCopyToResult.Enabled = EditSentence.Text != "";
+      EditSentence.Focus();
     }
 
     private void EditLetters_ViewLetterDetails(LettersControl sender, string code)
@@ -804,7 +869,7 @@ namespace Ordisoftware.Hebrew.Letters
       if ( DataSet.HasChanges() )
         DataSet.RejectChanges();
       UpdateButtons(sender);
-      SelectLetter.Focus();
+      EditMeanings.Focus();
     }
 
     private void ActionSave_Click(object sender, EventArgs e)
@@ -820,7 +885,33 @@ namespace Ordisoftware.Hebrew.Letters
           DataChanged = true;
         }
       UpdateButtons(sender);
-      SelectLetter.Focus();
+      EditMeanings.Focus();
+    }
+
+    private void ActionFirst_Click(object sender, EventArgs e)
+    {
+      SelectLetter.SelectedIndex = 0;
+      EditMeanings.Focus();
+    }
+
+    private void ActionPrevious_Click(object sender, EventArgs e)
+    {
+      if ( SelectLetter.SelectedIndex > 0 ) SelectLetter.SelectedIndex--;
+      if ( SelectLetter.SelectedIndex == 0 ) ActiveControl = ActionNext;
+      EditMeanings.Focus();
+    }
+
+    private void ActionNext_Click(object sender, EventArgs e)
+    {
+      if ( SelectLetter.SelectedIndex < SelectLetter.Items.Count - 1 ) SelectLetter.SelectedIndex++;
+      if ( SelectLetter.SelectedIndex == SelectLetter.Items.Count - 1 ) ActiveControl = ActionPrevious;
+      EditMeanings.Focus();
+    }
+
+    private void ActionLast_Click(object sender, EventArgs e)
+    {
+      SelectLetter.SelectedIndex = SelectLetter.Items.Count - 1;
+      EditMeanings.Focus();
     }
 
     private void SelectLetter_SelectedIndexChanged(object sender, EventArgs e)
@@ -828,6 +919,10 @@ namespace Ordisoftware.Hebrew.Letters
       if ( !Globals.IsReady ) return;
       if ( !SelectLetter.Enabled ) return;
       EditMutex = true;
+      ActionFirst.Enabled = SelectLetter.SelectedIndex > 0;
+      ActionPrevious.Enabled = ActionFirst.Enabled;
+      ActionLast.Enabled = SelectLetter.SelectedIndex < SelectLetter.Items.Count - 1;
+      ActionNext.Enabled = ActionLast.Enabled;
     }
 
     private void LettersBindingSource_PositionChanged(object sender, EventArgs e)

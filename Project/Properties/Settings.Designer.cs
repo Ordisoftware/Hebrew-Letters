@@ -572,5 +572,113 @@ namespace Ordisoftware.Hebrew.Letters.Properties {
                 this["CopyWithFinalLetter"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("%USER_APP_DOCUMENTS%")]
+        public string ExportFolder {
+            get {
+                return ((string)(this["ExportFolder"]));
+            }
+            set {
+                this["ExportFolder"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("PNG")]
+        public global::Ordisoftware.Core.ImageExportTarget ExportImagePreferredTarget {
+            get {
+                return ((global::Ordisoftware.Core.ImageExportTarget)(this["ExportImagePreferredTarget"]));
+            }
+            set {
+                this["ExportImagePreferredTarget"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool AutoOpenExportFolder {
+            get {
+                return ((bool)(this["AutoOpenExportFolder"]));
+            }
+            set {
+                this["AutoOpenExportFolder"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool AutoOpenExportedFile {
+            get {
+                return ((bool)(this["AutoOpenExportedFile"]));
+            }
+            set {
+                this["AutoOpenExportedFile"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("LightYellow")]
+        public global::System.Drawing.Color ColorLettersPanel {
+            get {
+                return ((global::System.Drawing.Color)(this["ColorLettersPanel"]));
+            }
+            set {
+                this["ColorLettersPanel"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("AliceBlue")]
+        public global::System.Drawing.Color ColorHebrewWordTextBox {
+            get {
+                return ((global::System.Drawing.Color)(this["ColorHebrewWordTextBox"]));
+            }
+            set {
+                this["ColorHebrewWordTextBox"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("MintCream")]
+        public global::System.Drawing.Color ColorMeaningsPanel {
+            get {
+                return ((global::System.Drawing.Color)(this["ColorMeaningsPanel"]));
+            }
+            set {
+                this["ColorMeaningsPanel"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Window")]
+        public global::System.Drawing.Color ColorSentenceTextBox {
+            get {
+                return ((global::System.Drawing.Color)(this["ColorSentenceTextBox"]));
+            }
+            set {
+                this["ColorSentenceTextBox"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("LavenderBlush")]
+        public global::System.Drawing.Color ColorGematriaTextBox {
+            get {
+                return ((global::System.Drawing.Color)(this["ColorGematriaTextBox"]));
+            }
+            set {
+                this["ColorGematriaTextBox"] = value;
+            }
+        }
     }
 }

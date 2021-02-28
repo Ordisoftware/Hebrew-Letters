@@ -187,9 +187,6 @@
   <data name="ActionHelp.Text" xml:space="preserve">
     <value>Aide</value>
   </data>
-  <data name="ActionHelp.ToolTipText" xml:space="preserve">
-    <value>Aide (F11)</value>
-  </data>
   <data name="ActionAbout.Size" type="System.Drawing.Size, System.Drawing">
     <value>373, 22</value>
   </data>
@@ -260,7 +257,7 @@
     <value>Préférences</value>
   </data>
   <data name="ActionPreferences.ToolTipText" xml:space="preserve">
-    <value>Préférences (F8)</value>
+    <value>Préférences (F9)</value>
   </data>
   <data name="MenuitemScreenPosition.Size" type="System.Drawing.Size, System.Drawing">
     <value>279, 22</value>
@@ -359,6 +356,6 @@
     <value>Boîtes de dialogue de réussite à la place des sons</value>
   </data>
   <data name="EditCopyWithFinalLetter.Text" xml:space="preserve">
-    <value>Copie Finale</value>
+    <value>Copier vers hebrew ou unicode avec lettre finale</value>
   </data>
 </root>

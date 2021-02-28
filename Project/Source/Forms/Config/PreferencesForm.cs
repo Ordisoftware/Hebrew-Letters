@@ -16,6 +16,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using Ordisoftware.Core;
+using KVPImageExportTarget = System.Collections.Generic.KeyValuePair<Ordisoftware.Core.ImageExportTarget, string>;
 
 namespace Ordisoftware.Hebrew.Letters
 {
@@ -69,6 +70,10 @@ namespace Ordisoftware.Hebrew.Letters
       EditCheckUpdateAtStartupInterval.Value = Settings.CheckUpdateAtStartupDaysInterval;
       EditUsageStatisticsEnabled.Checked = Settings.UsageStatisticsEnabled;
       EditVolume.Value = Settings.ApplicationVolume;
+      EditExportFolder.Text = Settings.ExportFolder;
+      EditAutoOpenExportFolder.Checked = Settings.AutoOpenExportFolder;
+      EditAutoOpenExportedFile.Checked = Settings.AutoOpenExportedFile;
+      EditImageExportFileFormat.Fill(Program.ImageExportTargets, Settings.ExportImagePreferredTarget);
       IsReady = true;
     }
 
@@ -85,6 +90,9 @@ namespace Ordisoftware.Hebrew.Letters
       Settings.CheckUpdateAtStartupDaysInterval = (int)EditCheckUpdateAtStartupInterval.Value;
       Settings.ApplicationVolume = EditVolume.Value;
       Settings.UsageStatisticsEnabled = EditUsageStatisticsEnabled.Checked;
+      Settings.ExportFolder = EditExportFolder.Text;
+      Settings.AutoOpenExportFolder = EditAutoOpenExportFolder.Checked;
+      Settings.AutoOpenExportedFile = EditAutoOpenExportedFile.Checked;
       Settings.Save();
     }
 
@@ -136,6 +144,7 @@ namespace Ordisoftware.Hebrew.Letters
       UpdateLanguagesButtons();
       LanguageChanged = true;
       MainForm.Instance.EditLetters.Input.Text = temp;
+      MainForm.Instance.EditLetters.Focus(false);
       Close();
     }
 
@@ -149,6 +158,7 @@ namespace Ordisoftware.Hebrew.Letters
       UpdateLanguagesButtons();
       LanguageChanged = true;
       MainForm.Instance.EditLetters.Input.Text = temp;
+      MainForm.Instance.EditLetters.Focus(false);
       Close();
     }
 
@@ -189,10 +199,64 @@ namespace Ordisoftware.Hebrew.Letters
       DisplayManager.DoSound(Globals.ClipboardSoundFilePath);
     }
 
-    private void PanelBottom_Paint(object sender, PaintEventArgs e)
+    private void EditAutoOpenExportedFile_CheckedChanged(object sender, EventArgs e)
     {
-
+      if ( EditAutoOpenExportedFile.Checked && EditAutoOpenExportFolder.Checked )
+        EditAutoOpenExportFolder.Checked = false;
     }
+
+    private void EditAutoOpenExportFolder_CheckedChanged(object sender, EventArgs e)
+    {
+      if ( EditAutoOpenExportedFile.Checked && EditAutoOpenExportFolder.Checked )
+        EditAutoOpenExportedFile.Checked = false;
+    }
+    private void EditImageExportFileFormat_Format(object sender, ListControlConvertEventArgs e)
+    {
+      e.Value = ( (KVPImageExportTarget)e.ListItem ).Key.ToString();
+    }
+
+    private void EditImageExportFileFormat_SelectedIndexChanged(object sender, EventArgs e)
+    {
+      if ( !IsReady ) return;
+      Settings.ExportImagePreferredTarget = ( (KVPImageExportTarget)EditImageExportFileFormat.SelectedItem ).Key;
+    }
+
+    private void ActionSelectExportFolder_Click(object sender, EventArgs e)
+    {
+      SystemManager.TryCatch(() =>
+      {
+        FolderBrowserDialog.SelectedPath = Settings.GetExportDirectory();
+      });
+      if ( FolderBrowserDialog.ShowDialog() == DialogResult.OK )
+        EditExportFolder.Text = FolderBrowserDialog.SelectedPath;
+    }
+
+    private void ActionResetExportFolder_Click(object sender, EventArgs e)
+    {
+      if ( DisplayManager.QueryYesNo(SysTranslations.AskToResetParameter.GetLang()) )
+        EditExportFolder.Text = (string)Settings.Properties[nameof(Settings.ExportFolder)].DefaultValue;
+    }
+
+    private void ActionUseColorsPastel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      Settings.ColorLettersPanel = Color.LightYellow;
+      Settings.ColorHebrewWordTextBox = Color.AliceBlue;
+      Settings.ColorMeaningsPanel = Color.MintCream;
+      Settings.ColorSentenceTextBox = SystemColors.Window;
+      Settings.ColorGematriaTextBox = Color.LavenderBlush;
+      MainForm.Instance.InitializeTheme();
+    }
+
+    private void ActionUseColorsSystem_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      Settings.ColorLettersPanel = SystemColors.Window;
+      Settings.ColorHebrewWordTextBox = SystemColors.Window;
+      Settings.ColorMeaningsPanel = SystemColors.Window;
+      Settings.ColorSentenceTextBox = SystemColors.Window;
+      Settings.ColorGematriaTextBox = SystemColors.Window;
+      MainForm.Instance.InitializeTheme();
+    }
+
   }
 
 }

@@ -52,7 +52,7 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 - Fixed and improved copy, paste and delete for both Hebrew font chars and unicode.
 - New top menu icon to open a new window.
 - New context menu on letters' buttons.
-- New screenshot button.
+- New screenshot and save buttons.
 - New usage statistics window.
 - Rework of the preferences window design with more options.
 - Incorporate common code written since more than one year for Hebrew Calendar.
@@ -127,7 +127,11 @@ Note: all diacritics are removed and if the word can't be processed or does not 
 | F2 | Settings view |
 | F3 | Search a term |
 | Insert (or Add) | Add meaning |
-| Delete (or Substract)| Delete meaning |
+| Delete (or Substract) | Delete meaning |
+| Ctrl + Home | First letter |
+| Ctrl + End | Last letter |
+| Ctrl + PageUp | Previous letter |
+| Ctrl + PageDn | Next letter |
 | Ctrl + S | Save changes |
 | Ctrl + Back | Cancel changes |
 | Ctrl+M | Open the lettriq analysis method notice |
@@ -161,15 +165,16 @@ Note: all diacritics are removed and if the word can't be processed or does not 
 - Optimize ComboBoxes creation (the old system is really much slower on Windows 10 than 7).
 - Add Windows double-buffering drawing to optimize startup.
 - Add context menu on letters' buttons to allow inserting a letter or open its parameters.
-- Add create a screenshot of the form.
-- Add open new window menu button.
+- Add create and save a screenshot of the form.
+- Add open new window top menu button.
 - Add concurrency control to avoid database editing when multiple instances are running.
 - Add permanent database file locking while running.
 - Add usage statistics form in tools menu.
-- Add option to set automatic web check update frequency.
 - Add option to enable or disable the web links menu.
 - Add option to enable or disable message boxes sounds.
+- Add option to set automatic web check update frequency.
 - Add option to set application's volume.
+- Add Option to set color theme.
 - Add sounds to clipboard actions.
 - Add keyboard shortcuts notice in windows settings menu.
 - Add news in version notice in the Information menu.
@@ -186,7 +191,7 @@ Note: all diacritics are removed and if the word can't be processed or does not 
 - Improve message boxes.
 - Improve keyboard shortcuts.
 - Improve UI/UX.
-- Rework of the preferences form design to have a Tab Control with pages.
+- Rework of the preferences form design to have a Tab Control with pages with more options.
 - Change all TextBox for TextBoxEx to have the new context menu.
 - Remove advanced undo/redo due to a problem that requires a complete rewrite to have the cursor not misplaced in certain cases.
 - Add Markdig NuGet package.

@@ -145,5 +145,32 @@
     <Setting Name="CopyWithFinalLetter" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="ExportFolder" Type="System.String" Scope="User">
+      <Value Profile="(Default)">%USER_APP_DOCUMENTS%</Value>
+    </Setting>
+    <Setting Name="ExportImagePreferredTarget" Type="Ordisoftware.Core.ImageExportTarget" Scope="User">
+      <Value Profile="(Default)">PNG</Value>
+    </Setting>
+    <Setting Name="AutoOpenExportFolder" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="AutoOpenExportedFile" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="ColorLettersPanel" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">LightYellow</Value>
+    </Setting>
+    <Setting Name="ColorHebrewWordTextBox" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">AliceBlue</Value>
+    </Setting>
+    <Setting Name="ColorMeaningsPanel" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">MintCream</Value>
+    </Setting>
+    <Setting Name="ColorSentenceTextBox" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Window</Value>
+    </Setting>
+    <Setting Name="ColorGematriaTextBox" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">LavenderBlush</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
