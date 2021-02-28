@@ -80,10 +80,9 @@ version disponible en ligne.</p>
         </li>
     </ul>
     <p>Note : tous les signes diacritiques sont supprim&eacute;s et si le mot ne peut pas &ecirc;tre trait&eacute; ou ne correspond pas &agrave; l'encodage attendu, rien n'est fait: :</p>
-    <h4>Comment configurer AutoHotKey pour lancer une analyse contextuelle d'un mot depuis n'importe quelle application telle que le navigateur ou un traitement de texte?</h4>
-    <p>Code <a href="https://www.autohotkey.com" target="_blank">AutoHotKey</a> :</p>
-    <p><code>^+H::
-<br>
+    <h4>Comment lancer une analyse contextuelle d'un mot depuis n'importe quelle application telle qu'un navigateur ou un traitement de texte?</h4>
+    <p>Il est possible d'utiliser <a href="https://www.autohotkey.com" target="_blank">AutoHotKey</a> pour d&eacute;finir par exemple cette commande Maj + Ctrl + Alt + H :</p>
+    <p><code>!^+H::</code><code><br>
 &nbsp;&nbsp;WinActive(&quot;A&quot;)<br>
 &nbsp;&nbsp;WinGetActiveTitle, wintitle<br>
 &nbsp;&nbsp;ControlGetFocus, ctrl<br>
