@@ -776,7 +776,7 @@ namespace Ordisoftware.Hebrew.Letters
     private void ActionViewAllMeaningsList_Click(object sender, EventArgs e)
     {
       if ( EditLetters.Input.Text == "" ) return;
-      new ShowTextForm("", GetMeaningsText(), false, true, 600, 350, true, true).ShowDialog();
+      new ShowTextForm("", GetMeaningsText().Replace(Globals.NL, Globals.NL2), false, true, 600, 400, true, true).ShowDialog();
       EditLetters.Focus();
     }
 
