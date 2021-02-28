@@ -60,43 +60,39 @@ Driver&quot; avec &quot;Database Name&quot; d&eacute;finit &agrave; :</p>
 version disponible en ligne.</p>
     <h4>Quelles sont les options de ligne de commande ?</h4>
     <ul>
-        <li>
-            <p>Changer la langue de l'interface (ne change pas les significations des lettres &agrave; moins de les restaurer) &nbsp;:</p>
-            <p><code>Ordisoftware.Hebrew.Letters.exe --lang [en|fr]</code></p>
-        </li>
+        <li>Changer la langue de l'interface (ne change pas les significations des lettres &agrave; moins de les restaurer) :</li>
     </ul>
+    <p style="padding-left: 40px;"><code>Ordisoftware.Hebrew.Letters.exe --lang [en|fr]</code></p>
     <ul>
-        <li>
-            <p>Charger un mot de police h&eacute;breu comme <code>&quot;ty&gt;arb&quot; </code>:</p>
-            <p><code>Ordisoftware.Hebrew.Letters.exe --hebrew [word]</code></p>
-        </li>
-        <li>
-            <p>Charger un mot Unicode comme <code>&quot;בראשית&quot; </code>:</p>
-            <p><code>Ordisoftware.Hebrew.Letters.exe --unicode [word]</code></p>
-        </li>
-        <li>
-            <p>Ex&eacute;cuter en mode de d&eacute;tection automatique (pas d'autre option autoris&eacute;)&nbsp;:</p>
-            <p><code>Ordisoftware.Hebrew.Letters.exe [word]</code></p>
-        </li>
+        <li>Analyser un mot en caract&egrave;res h&eacute;breux unicode ou sinon en caract&egrave;res de fonte h&eacute;breu tel que &quot;בראשית&quot; et <code>&quot;ty&gt;arb&quot;</code> :</li>
     </ul>
-    <p>Note : tous les signes diacritiques sont supprim&eacute;s et si le mot ne peut pas &ecirc;tre trait&eacute; ou ne correspond pas &agrave; l'encodage attendu, rien n'est fait: :</p>
-    <h4>Comment lancer une analyse contextuelle d'un mot depuis n'importe quelle application telle qu'un navigateur ou un traitement de texte?</h4>
-    <p>Il est possible d'utiliser <a href="https://www.autohotkey.com" target="_blank">AutoHotKey</a> pour d&eacute;finir par exemple cette commande Maj + Ctrl + Alt + H :</p>
-    <p><code>!^+H::</code><code><br>
+    <p style="padding-left: 40px;"><code>Ordisoftware.Hebrew.Letters.exe --hebrew [word]</code></p>
+    <p style="padding-left: 40px;">Ou sans aucune autre option :</p>
+    <p style="padding-left: 40px;"><code>Ordisoftware.Hebrew.Letters.exe [word]</code></p>
+    <p style="padding-left: 40px;">Tous les signes diacritiques sont supprim&eacute;s et si le mot ne peut pas &ecirc;tre trait&eacute;, il est mis &agrave; vide.</p>
+    <p style="padding-left: 40px;">Si
+ des caract&egrave;res unicode h&eacute;breux sont pr&eacute;sents, tous les caract&egrave;res 
+non-unicode sont supprim&eacute;s, sinon les caract&egrave;res de fonte h&eacute;breu sont 
+utilis&eacute;s et tous les caract&egrave;res non-font sont supprim&eacute;s.</p>
+    <h4>Comment 
+lancer une analyse contextuelle d'un mot depuis n'importe quelle 
+application telle qu'un navigateur ou un traitement de texte?</h4>
+    <p>Il est possible d'utiliser <a href="https://www.autohotkey.com" target="_blank" rel="noopener">AutoHotKey</a> pour d&eacute;finir par exemple cette commande Maj + Ctrl + Alt + H sur un mot s&eacute;lectionn&eacute; :</p>
+    <p><code>!^+H::<br>
+&nbsp;&nbsp;clipboardOld := ClipboardAll<br>
 &nbsp;&nbsp;WinActive(&quot;A&quot;)<br>
-&nbsp;&nbsp;WinGetActiveTitle, wintitle<br>
 &nbsp;&nbsp;ControlGetFocus, ctrl<br>
-&nbsp;&nbsp;ClipboardOld := ClipboardAll<br>
 &nbsp;&nbsp;Send, ^c<br>
+&nbsp;&nbsp;sleep 100 ; Increase delay in case of problems<br>
 &nbsp;&nbsp;word := Clipboard<br>
-&nbsp;&nbsp;Clipboard := ClipboardOld<br>
-&nbsp;&nbsp;Run, &quot;C:\Program Files\Ordisoftware\Hebrew Letters\Bin\Ordisoftware.Hebrew.Letters.exe&quot; &quot;%word%&quot;<br>
-&nbsp;&nbsp;;sleep 3000 ; use a delay in case of lag<br>
-&nbsp;&nbsp;WinActive(&quot;A&quot;)</code><code><br>
- &nbsp;&nbsp;return
-</code><code>
-</code></p>
-    <h3>Raccourcis clavier</h3>
+&nbsp;&nbsp;Clipboard := clipboardOld<br>
+&nbsp;&nbsp;appPath := &quot;C:\Program Files\Ordisoftware\Hebrew Letters\Bin\&quot;<br>
+&nbsp;&nbsp;appExe := &quot;Ordisoftware.Hebrew.Letters.exe&quot;<br>
+&nbsp;&nbsp;Run %appPath%%appExe% &quot;%word%&quot;<br>
+&nbsp;&nbsp;;sleep 500 ; Increase delay in case of problems<br>
+&nbsp;&nbsp;WinActive(&quot;A&quot;)<br>
+&nbsp;&nbsp;return</code></p>
+    <h3><span id="Raccourcis_clavier">Raccourcis clavier</span></h3>
     <ul>
         <li>Ctrl + Tab : Vue suivante</li>
         <li>Maj + Ctrl + Tab : Vue pr&eacute;c&eacute;dente</li>

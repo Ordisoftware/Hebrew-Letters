@@ -111,29 +111,30 @@ The software verifies the validity of the certificate of the update server in ad
 
   `Ordisoftware.Hebrew.Letters.exe --word [word]` 
 
-  Or without any othet option:
+  Or without any other option:
 
   `Ordisoftware.Hebrew.Letters.exe [word]`
 
-  All diacritics are removed and if the word can't be processed it will be set to empty.
+  All diacritics are removed and if the word can't be processed it is set to empty.
 
   If any Hebrew unicode chars is present, all non-unicode are removed, else Hebrew font chars are used and all non-font chars are removed.
 
 #### How to run a word contextual analysis from any application such as browser or text editor?
 
-It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for example this Shift + Ctrl + Alt + H command::
+It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for example this Shift + Ctrl + Alt + H command on a selected word:
 
 ```
 !^+H::
+  clipboardOld := ClipboardAll
   WinActive("A")
-  ClipboardOld := ClipboardAll
   ControlGetFocus, ctrl
   Send, ^c
   sleep 100 ; Increase delay in case of problems
   word := Clipboard
-  Clipboard := ClipboardOld
-  app := "C:\Program Files\Ordisoftware\Hebrew Letters\Bin\Ordisoftware.Hebrew.Letters.exe"
-  Run, %app% "%word%"
+  Clipboard := clipboardOld
+  appPath := "C:\Program Files\Ordisoftware\Hebrew Letters\Bin\"
+  appExe := "Ordisoftware.Hebrew.Letters.exe"
+  Run %appPath%%appExe% "%word%"
   ;sleep 500 ; Increase delay in case of problems
   WinActive("A")
   return 
