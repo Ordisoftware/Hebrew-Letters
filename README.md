@@ -107,19 +107,17 @@ The software verifies the validity of the certificate of the update server in ad
 
   `Ordisoftware.Hebrew.Letters.exe --lang [en|fr]`
 
-- To load a Hebrew font word like "`ty>arb`":
+- Analyse a word in Hebrew unicode chars or else Hebrew font chars like "`בראשית`" and "`ty>arb`":
 
-  `Ordisoftware.Hebrew.Letters.exe --hebrew [word]` 
+  `Ordisoftware.Hebrew.Letters.exe --word [word]` 
 
-- To load a Unicode word like "`בראשית`":
-
-  `Ordisoftware.Hebrew.Letters.exe --unicode [word]`
-
-- To run in auto detect mode:
+  Or without any othet option:
 
   `Ordisoftware.Hebrew.Letters.exe [word]`
 
-Note: all diacritics are removed and if the word can't be processed or does not match the expected encoding, nothing is done.
+  All diacritics are removed and if the word can't be processed it will be set to empty.
+
+  If any Hebrew unicode chars is present, all non-unicode are removed, else Hebrew font chars are used and all non-font chars are removed.
 
 #### How to run a word contextual analysis from any application such as browser or text editor?
 
@@ -128,14 +126,15 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 ```
 !^+H::
   WinActive("A")
-  WinGetActiveTitle, wintitle
-  ControlGetFocus, ctrl
   ClipboardOld := ClipboardAll
+  ControlGetFocus, ctrl
   Send, ^c
+  sleep 100 ; Increase delay in case of problems
   word := Clipboard
   Clipboard := ClipboardOld
-  Run, "C:\Program Files\Ordisoftware\Hebrew Letters\Bin\Ordisoftware.Hebrew.Letters.exe" "%word%"
-  ;sleep 3000 ; use a delay in case of lag
+  app := "C:\Program Files\Ordisoftware\Hebrew Letters\Bin\Ordisoftware.Hebrew.Letters.exe"
+  Run, %app% "%word%"
+  ;sleep 500 ; Increase delay in case of problems
   WinActive("A")
   return 
 ```

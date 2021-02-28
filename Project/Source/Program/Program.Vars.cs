@@ -14,7 +14,9 @@
 /// <edited> 2021-02 </edited>
 using System;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
+using MoreLinq;
 using Ordisoftware.Core;
 
 namespace Ordisoftware.Hebrew.Letters
@@ -72,7 +74,7 @@ namespace Ordisoftware.Hebrew.Letters
     /// <summary>
     /// Indicate the command line argument for hebrew word used at startup.
     /// </summary>
-    static public string StartupWordHebrew
+    static public string StartupWord
     {
       get
       {
@@ -83,11 +85,12 @@ namespace Ordisoftware.Hebrew.Letters
             if ( word.IsNullOrEmpty() )
               if ( SystemManager.CommandLineArguments != null && SystemManager.CommandLineArguments.Length == 1 )
                 word = SystemManager.CommandLineArguments[0];
-            word = word.Trim().RemoveDiacritics();
-            word = HebrewAlphabet.ContainsUnicode(word) ? HebrewAlphabet.ConvertToHebrewFont(word) : word;
-            _StartupWordHebrew = HebrewAlphabet.UnFinalAll(word);
-            if ( _StartupWordUnicode.IsNullOrEmpty() )
-              _StartupWordUnicode = HebrewAlphabet.ConvertToUnicode(_StartupWordHebrew);
+            word = HebrewAlphabet.ContainsUnicode(word) 
+                   ? HebrewAlphabet.ToHebrewFont(word)
+                   : HebrewAlphabet.OnlyHebrewFont(word);
+            _StartupWordHebrew = new string(word.Where(c => c != ' ')
+                                                .TakeLast((int)Settings.HebrewTextBoxMaxLength)
+                                                .ToArray());
           }
           catch ( Exception ex )
           {
@@ -97,30 +100,6 @@ namespace Ordisoftware.Hebrew.Letters
       }
     }
     static private string _StartupWordHebrew = string.Empty;
-
-    /// <summary>
-    /// Indicate the command line argument for unicode word used at startup.
-    /// </summary>
-    static public string StartupWordUnicode
-    {
-      get
-      {
-        if ( _StartupWordUnicode.IsNullOrEmpty() )
-          try
-          {
-            string word = ApplicationCommandLine.Instance?.WordUnicode ?? string.Empty;
-            _StartupWordUnicode = HebrewAlphabet.ContainsUnicode(word) ? word.Trim().RemoveDiacritics() : string.Empty;
-            if ( _StartupWordHebrew.IsNullOrEmpty() )
-              _StartupWordHebrew = HebrewAlphabet.ConvertToHebrewFont(_StartupWordUnicode);
-          }
-          catch ( Exception ex )
-          {
-            MessageBox.Show(ex.Message, Globals.AssemblyTitle);
-          }
-        return _StartupWordUnicode;
-      }
-    }
-    static private string _StartupWordUnicode = string.Empty;
 
   }
 

@@ -158,7 +158,7 @@ namespace Ordisoftware.Hebrew.Letters
       ContextMenuSearchOnline.InitializeFromProviders(OnlineProviders.OnlineWordProviders, (sender, e) =>
       {
         var menuitem = (ToolStripMenuItem)sender;
-        string str = HebrewAlphabet.ConvertToUnicode(HebrewAlphabet.SetFinal(EditLetters.Input.Text, true));
+        string str = HebrewAlphabet.ToUnicode(HebrewAlphabet.SetFinal(EditLetters.Input.Text, true));
         SystemManager.OpenWebLink(( (string)menuitem.Tag ).Replace("%WORD%", str));
         EditLetters.Focus();
       });
@@ -176,6 +176,7 @@ namespace Ordisoftware.Hebrew.Letters
       InitializeTheme();
       InitializeDialogsDirectory();
       ProcessLocksTable.Lock();
+      EditLetters.Input.MaxLength = (int)Settings.HebrewTextBoxMaxLength;
       Program.Settings.CurrentView = ViewMode.Analyse;
       EditSentence.Font = new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence);
       EditSentence_FontChanged(null, null);
@@ -266,10 +267,10 @@ namespace Ordisoftware.Hebrew.Letters
     {
       SystemManager.TryCatch(Settings.Save);
       if ( Globals.IsExiting ) return;
-      if ( !Program.StartupWordHebrew.IsNullOrEmpty() )
+      if ( !Program.StartupWord.IsNullOrEmpty() )
       {
         ActionReset.Visible = true;
-        EditLetters.Input.Text = Program.StartupWordHebrew;
+        EditLetters.Input.Text = Program.StartupWord;
         EditLetters.Input.SelectionStart = 0;
         EditLetters.Input.SelectionLength = 0;
         EditLetters.TextBox.Refresh();
@@ -695,7 +696,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void ActionReset_Click(object sender, EventArgs e)
     {
-      EditLetters.Input.Text = Program.StartupWordHebrew;
+      EditLetters.Input.Text = Program.StartupWord;
       EditLetters.Focus(false);
     }
 
@@ -713,7 +714,7 @@ namespace Ordisoftware.Hebrew.Letters
     private void UpdateControls()
     {
       bool enabled = EditLetters.Input.Text.Length >= 1;
-      ActionReset.Enabled = !Program.StartupWordHebrew.IsNullOrEmpty();
+      ActionReset.Enabled = !Program.StartupWord.IsNullOrEmpty();
       ActionClear.Enabled = enabled;
       ActionDelFirst.Enabled = enabled;
       ActionDelLast.Enabled = enabled;
@@ -762,7 +763,7 @@ namespace Ordisoftware.Hebrew.Letters
       string str = EditLetters.Input.Text;
       if ( EditCopyWithFinalLetter.Checked )
         str = HebrewAlphabet.SetFinal(str, true);
-      Clipboard.SetText(HebrewAlphabet.ConvertToUnicode(str));
+      Clipboard.SetText(HebrewAlphabet.ToUnicode(str));
       DisplayManager.ShowSuccessOrSound(SysTranslations.DataCopiedToClipboard.GetLang(),
                                         Globals.ClipboardSoundFilePath);
       EditLetters.Focus(true);
@@ -823,7 +824,7 @@ namespace Ordisoftware.Hebrew.Letters
       string str = EditLetters.Input.Text;
       if ( EditCopyWithFinalLetter.Checked )
         str = HebrewAlphabet.SetFinal(str, true);
-      SaveImageDialog.FileName = HebrewAlphabet.ConvertToUnicode(str);
+      SaveImageDialog.FileName = HebrewAlphabet.ToUnicode(str);
       for ( int index = 0; index < Program.ImageExportTargets.Count; index++ )
         if ( Program.ImageExportTargets.ElementAt(index).Key == Settings.ExportImagePreferredTarget )
           SaveImageDialog.FilterIndex = index + 1;
