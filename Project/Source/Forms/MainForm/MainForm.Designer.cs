@@ -143,6 +143,10 @@
       this.TableAdapterManager = new Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.TableAdapterManager();
       this.MeaningsTableAdapter = new Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.MeaningsTableAdapter();
       this.SaveImageDialog = new System.Windows.Forms.SaveFileDialog();
+      this.ActionLast = new System.Windows.Forms.Button();
+      this.ActionNext = new System.Windows.Forms.Button();
+      this.ActionFirst = new System.Windows.Forms.Button();
+      this.ActionPrevious = new System.Windows.Forms.Button();
       LabelName = new System.Windows.Forms.Label();
       LabelStructure = new System.Windows.Forms.Label();
       LabelFunction = new System.Windows.Forms.Label();
@@ -511,6 +515,10 @@
       // 
       // PanelLetter
       // 
+      this.PanelLetter.Controls.Add(this.ActionLast);
+      this.PanelLetter.Controls.Add(this.ActionNext);
+      this.PanelLetter.Controls.Add(this.ActionFirst);
+      this.PanelLetter.Controls.Add(this.ActionPrevious);
       this.PanelLetter.Controls.Add(this.SelectLetter);
       this.PanelLetter.Controls.Add(this.TextBoxStructure);
       this.PanelLetter.Controls.Add(this.LabelHebrew);
@@ -570,6 +578,7 @@
       // 
       // LabelHebrew
       // 
+      this.LabelHebrew.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Hebrew", true));
       resources.ApplyResources(this.LabelHebrew, "LabelHebrew");
       this.LabelHebrew.Name = "LabelHebrew";
       // 
@@ -1095,6 +1104,30 @@
       // 
       this.MeaningsTableAdapter.ClearBeforeFill = true;
       // 
+      // ActionLast
+      // 
+      resources.ApplyResources(this.ActionLast, "ActionLast");
+      this.ActionLast.Name = "ActionLast";
+      this.ActionLast.Click += new System.EventHandler(this.ActionLast_Click);
+      // 
+      // ActionNext
+      // 
+      resources.ApplyResources(this.ActionNext, "ActionNext");
+      this.ActionNext.Name = "ActionNext";
+      this.ActionNext.Click += new System.EventHandler(this.ActionNext_Click);
+      // 
+      // ActionFirst
+      // 
+      resources.ApplyResources(this.ActionFirst, "ActionFirst");
+      this.ActionFirst.Name = "ActionFirst";
+      this.ActionFirst.Click += new System.EventHandler(this.ActionFirst_Click);
+      // 
+      // ActionPrevious
+      // 
+      resources.ApplyResources(this.ActionPrevious, "ActionPrevious");
+      this.ActionPrevious.Name = "ActionPrevious";
+      this.ActionPrevious.Click += new System.EventHandler(this.ActionPrevious_Click);
+      // 
       // MainForm
       // 
       resources.ApplyResources(this, "$this");
@@ -1242,5 +1275,9 @@
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
     public System.Windows.Forms.CheckBox EditCopyWithFinalLetter;
     private System.Windows.Forms.SaveFileDialog SaveImageDialog;
+    private System.Windows.Forms.Button ActionLast;
+    private System.Windows.Forms.Button ActionNext;
+    private System.Windows.Forms.Button ActionFirst;
+    private System.Windows.Forms.Button ActionPrevious;
   }
 }

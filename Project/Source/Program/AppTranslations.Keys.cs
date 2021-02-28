@@ -41,6 +41,10 @@ namespace Ordisoftware.Hebrew.Letters
                         "F3 : Search term" + Globals.NL +
                         "Insert (or Add) : Add meaning" + Globals.NL +
                         "Delete (or Substract) : Delete meaning" + Globals.NL +
+                        "Ctrl + Home : First letter" + Globals.NL +
+                        "Ctrl + End : Last letter" + Globals.NL +
+                        "Ctrl + PageUp : Previous letter" + Globals.NL +
+                        "Ctrl + PageDn : Next letter" + Globals.NL +
                         "Ctrl + S : Save changes" + Globals.NL +
                         "Ctrl + Back : Cancel changes" + Globals.NL +
                         "Ctrl + M : Open lettriq analysis method notice" + Globals.NL +
@@ -65,6 +69,10 @@ namespace Ordisoftware.Hebrew.Letters
                         "F3 : Recherche d'un terme" + Globals.NL +
                         "Insérer (ou Plus) : Ajout une signification" + Globals.NL +
                         "Supprimer (ou Moins) : Efface une signification" + Globals.NL +
+                        "Ctrl + Home : Première lettre" + Globals.NL +
+                        "Ctrl + End : Dernière lettre" + Globals.NL +
+                        "Ctrl + PageUp : Letter précédente" + Globals.NL +
+                        "Ctrl + PageDn : Letter suivante" + Globals.NL +
                         "Ctrl + S : Save changes" + Globals.NL +
                         "Ctrl + Back : Cancel changes" + Globals.NL +
                         "Ctrl + M : Ouvre la notice de la méthode d'analyse lettrique" + Globals.NL +

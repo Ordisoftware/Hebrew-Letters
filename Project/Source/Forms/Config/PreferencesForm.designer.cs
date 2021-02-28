@@ -53,6 +53,9 @@
       this.EditCheckUpdateAtStartup = new System.Windows.Forms.CheckBox();
       this.EditCheckUpdateAtStartupInterval = new System.Windows.Forms.NumericUpDown();
       this.LabelCheckUpdateAtStartupInfo = new System.Windows.Forms.Label();
+      this.TabPageColors = new System.Windows.Forms.TabPage();
+      this.ActionUseColorsPastel = new System.Windows.Forms.LinkLabel();
+      this.ActionUseColorsSystem = new System.Windows.Forms.LinkLabel();
       this.TabPageAnalyzer = new System.Windows.Forms.TabPage();
       this.label2 = new System.Windows.Forms.Label();
       this.label1 = new System.Windows.Forms.Label();
@@ -78,6 +81,7 @@
       ((System.ComponentModel.ISupportInitialize)(this.EditVolume)).BeginInit();
       this.TabPageCheckUpdate.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.EditCheckUpdateAtStartupInterval)).BeginInit();
+      this.TabPageColors.SuspendLayout();
       this.TabPageAnalyzer.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.EditMaxLength)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.EditFontSize)).BeginInit();
@@ -132,6 +136,7 @@
       resources.ApplyResources(this.TabControl, "TabControl");
       this.TabControl.Controls.Add(this.TabPageApplication);
       this.TabControl.Controls.Add(this.TabPageCheckUpdate);
+      this.TabControl.Controls.Add(this.TabPageColors);
       this.TabControl.Controls.Add(this.TabPageAnalyzer);
       this.TabControl.Controls.Add(this.TabPageExport);
       this.TabControl.DataBindings.Add(new System.Windows.Forms.Binding("SelectedIndex", global::Ordisoftware.Hebrew.Letters.Properties.Settings.Default, "PreferencesFormSelectedTabIndex", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
@@ -269,6 +274,35 @@
       this.LabelCheckUpdateAtStartupInfo.ForeColor = System.Drawing.SystemColors.GrayText;
       this.LabelCheckUpdateAtStartupInfo.Name = "LabelCheckUpdateAtStartupInfo";
       // 
+      // TabPageColors
+      // 
+      this.TabPageColors.BackColor = System.Drawing.Color.White;
+      this.TabPageColors.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.TabPageColors.Controls.Add(this.ActionUseColorsPastel);
+      this.TabPageColors.Controls.Add(this.ActionUseColorsSystem);
+      resources.ApplyResources(this.TabPageColors, "TabPageColors");
+      this.TabPageColors.Name = "TabPageColors";
+      // 
+      // ActionUseColorsPastel
+      // 
+      this.ActionUseColorsPastel.ActiveLinkColor = System.Drawing.Color.MediumBlue;
+      resources.ApplyResources(this.ActionUseColorsPastel, "ActionUseColorsPastel");
+      this.ActionUseColorsPastel.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+      this.ActionUseColorsPastel.LinkColor = System.Drawing.Color.Navy;
+      this.ActionUseColorsPastel.Name = "ActionUseColorsPastel";
+      this.ActionUseColorsPastel.TabStop = true;
+      this.ActionUseColorsPastel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ActionUseColorsPastel_LinkClicked);
+      // 
+      // ActionUseColorsSystem
+      // 
+      this.ActionUseColorsSystem.ActiveLinkColor = System.Drawing.Color.MediumBlue;
+      resources.ApplyResources(this.ActionUseColorsSystem, "ActionUseColorsSystem");
+      this.ActionUseColorsSystem.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+      this.ActionUseColorsSystem.LinkColor = System.Drawing.Color.Navy;
+      this.ActionUseColorsSystem.Name = "ActionUseColorsSystem";
+      this.ActionUseColorsSystem.TabStop = true;
+      this.ActionUseColorsSystem.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ActionUseColorsSystem_LinkClicked);
+      // 
       // TabPageAnalyzer
       // 
       this.TabPageAnalyzer.BackColor = System.Drawing.SystemColors.Window;
@@ -359,14 +393,15 @@
       // TabPageExport
       // 
       this.TabPageExport.BackColor = System.Drawing.SystemColors.Window;
+      this.TabPageExport.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.TabPageExport.Controls.Add(this.LabelExportFolder);
       this.TabPageExport.Controls.Add(this.ActionResetExportFolder);
       this.TabPageExport.Controls.Add(this.ActionSelectExportFolder);
-      this.TabPageExport.Controls.Add(this.EditExportFolder);
       this.TabPageExport.Controls.Add(this.EditImageExportFileFormat);
       this.TabPageExport.Controls.Add(this.LabelImageExportFileFormat);
       this.TabPageExport.Controls.Add(this.EditAutoOpenExportedFile);
       this.TabPageExport.Controls.Add(this.EditAutoOpenExportFolder);
+      this.TabPageExport.Controls.Add(this.EditExportFolder);
       resources.ApplyResources(this.TabPageExport, "TabPageExport");
       this.TabPageExport.Name = "TabPageExport";
       // 
@@ -452,6 +487,8 @@
       this.TabPageCheckUpdate.ResumeLayout(false);
       this.TabPageCheckUpdate.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.EditCheckUpdateAtStartupInterval)).EndInit();
+      this.TabPageColors.ResumeLayout(false);
+      this.TabPageColors.PerformLayout();
       this.TabPageAnalyzer.ResumeLayout(false);
       this.TabPageAnalyzer.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.EditMaxLength)).EndInit();
@@ -501,5 +538,8 @@
     private System.Windows.Forms.Button ActionResetExportFolder;
     private System.Windows.Forms.Button ActionSelectExportFolder;
     private Core.TextBoxEx EditExportFolder;
+    private System.Windows.Forms.LinkLabel ActionUseColorsPastel;
+    private System.Windows.Forms.LinkLabel ActionUseColorsSystem;
+    private System.Windows.Forms.TabPage TabPageColors;
   }
 }

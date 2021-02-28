@@ -144,6 +144,7 @@ namespace Ordisoftware.Hebrew.Letters
       UpdateLanguagesButtons();
       LanguageChanged = true;
       MainForm.Instance.EditLetters.Input.Text = temp;
+      MainForm.Instance.EditLetters.Focus(false);
       Close();
     }
 
@@ -157,6 +158,7 @@ namespace Ordisoftware.Hebrew.Letters
       UpdateLanguagesButtons();
       LanguageChanged = true;
       MainForm.Instance.EditLetters.Input.Text = temp;
+      MainForm.Instance.EditLetters.Focus(false);
       Close();
     }
 
@@ -233,6 +235,26 @@ namespace Ordisoftware.Hebrew.Letters
     {
       if ( DisplayManager.QueryYesNo(SysTranslations.AskToResetParameter.GetLang()) )
         EditExportFolder.Text = (string)Settings.Properties[nameof(Settings.ExportFolder)].DefaultValue;
+    }
+
+    private void ActionUseColorsPastel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      Settings.ColorLettersPanel = Color.LightYellow;
+      Settings.ColorHebrewWordTextBox = Color.AliceBlue;
+      Settings.ColorMeaningsPanel = Color.MintCream;
+      Settings.ColorSentenceTextBox = SystemColors.Window;
+      Settings.ColorGematriaTextBox = Color.LavenderBlush;
+      MainForm.Instance.InitializeTheme();
+    }
+
+    private void ActionUseColorsSystem_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      Settings.ColorLettersPanel = SystemColors.Window;
+      Settings.ColorHebrewWordTextBox = SystemColors.Window;
+      Settings.ColorMeaningsPanel = SystemColors.Window;
+      Settings.ColorSentenceTextBox = SystemColors.Window;
+      Settings.ColorGematriaTextBox = SystemColors.Window;
+      MainForm.Instance.InitializeTheme();
     }
 
   }

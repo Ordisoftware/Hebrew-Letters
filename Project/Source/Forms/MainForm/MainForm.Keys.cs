@@ -85,6 +85,23 @@ namespace Ordisoftware.Hebrew.Letters
           ActionUndo.PerformClick();
           return true;
       }
+      // Letters navigation
+      if ( Settings.CurrentView == ViewMode.Settings )
+        switch ( keyData )
+        {
+          case Keys.Control | Keys.Home:
+            ActionFirst.PerformClick();
+            return true;
+          case Keys.Control | Keys.End:
+            ActionLast.PerformClick();
+            return true;
+          case Keys.Control | Keys.PageUp:
+            ActionPrevious.PerformClick();
+            return true;
+          case Keys.Control | Keys.PageDown:
+            ActionNext.PerformClick();
+            return true;
+        }
       return base.ProcessCmdKey(ref msg, keyData);
     }
 

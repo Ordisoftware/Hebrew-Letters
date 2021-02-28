@@ -84,8 +84,8 @@ namespace Ordisoftware.Hebrew.Letters
           {
             MenuItem = ActionViewLetters,
             Panel = PanelViewSettings,
-            Focused = SelectLetter
-          }
+            Focused = EditMeanings
+    }
         }
       };
       if ( Program.Settings.CurrentView == view && !first ) return;

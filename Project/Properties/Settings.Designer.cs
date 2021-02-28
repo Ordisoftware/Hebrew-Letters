@@ -620,5 +620,65 @@ namespace Ordisoftware.Hebrew.Letters.Properties {
                 this["AutoOpenExportedFile"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("LightYellow")]
+        public global::System.Drawing.Color ColorLettersPanel {
+            get {
+                return ((global::System.Drawing.Color)(this["ColorLettersPanel"]));
+            }
+            set {
+                this["ColorLettersPanel"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("AliceBlue")]
+        public global::System.Drawing.Color ColorHebrewWordTextBox {
+            get {
+                return ((global::System.Drawing.Color)(this["ColorHebrewWordTextBox"]));
+            }
+            set {
+                this["ColorHebrewWordTextBox"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("MintCream")]
+        public global::System.Drawing.Color ColorMeaningsPanel {
+            get {
+                return ((global::System.Drawing.Color)(this["ColorMeaningsPanel"]));
+            }
+            set {
+                this["ColorMeaningsPanel"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Window")]
+        public global::System.Drawing.Color ColorSentenceTextBox {
+            get {
+                return ((global::System.Drawing.Color)(this["ColorSentenceTextBox"]));
+            }
+            set {
+                this["ColorSentenceTextBox"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("LavenderBlush")]
+        public global::System.Drawing.Color ColorGematriaTextBox {
+            get {
+                return ((global::System.Drawing.Color)(this["ColorGematriaTextBox"]));
+            }
+            set {
+                this["ColorGematriaTextBox"] = value;
+            }
+        }
     }
 }

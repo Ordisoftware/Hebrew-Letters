@@ -173,6 +173,8 @@ namespace Ordisoftware.Hebrew.Letters
     {
       if ( Globals.IsExiting ) return;
       Settings.Retrieve();
+      InitializeTheme();
+      InitializeDialogsDirectory();
       ProcessLocksTable.Lock();
       Program.Settings.CurrentView = ViewMode.Analyse;
       EditSentence.Font = new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence);
@@ -220,7 +222,6 @@ namespace Ordisoftware.Hebrew.Letters
       Globals.IsReady = true;
       SelectLetter_SelectedIndexChanged(SelectLetter, EventArgs.Empty);
       UpdateButtons(SelectLetter);
-      InitializeDialogsDirectory();
     }
 
     /// <summary>
@@ -231,6 +232,19 @@ namespace Ordisoftware.Hebrew.Letters
       string directory = Settings.GetExportDirectory();
       SaveImageDialog.InitialDirectory = directory;
       SaveImageDialog.Filter = Program.ImageExportTargets.CreateFilters();
+    }
+
+    /// <summary>
+    /// Set colors.
+    /// </summary>
+    internal void InitializeTheme()
+    {
+      EditLetters.LettersBackColor = Settings.ColorLettersPanel;
+      EditLetters.InputBackColor = Settings.ColorHebrewWordTextBox;
+      SelectAnalyze.BackColor = Settings.ColorMeaningsPanel;
+      EditSentence.BackColor = Settings.ColorSentenceTextBox;
+      EditGematriaFull.BackColor = Settings.ColorGematriaTextBox;
+      EditGematriaSimple.BackColor = Settings.ColorGematriaTextBox;
     }
 
     /// <summary>
@@ -266,7 +280,7 @@ namespace Ordisoftware.Hebrew.Letters
       }
       Globals.NoticeKeyboardShortcutsForm = new ShowTextForm(AppTranslations.NoticeKeyboardShortcutsTitle,
                                                              AppTranslations.NoticeKeyboardShortcuts,
-                                                             true, false, 340, 400, false, false);
+                                                             true, false, 340, 460, false, false);
       Globals.NoticeKeyboardShortcutsForm.TextBox.BackColor = Globals.NoticeKeyboardShortcutsForm.BackColor;
       Globals.NoticeKeyboardShortcutsForm.TextBox.BorderStyle = BorderStyle.None;
       Globals.NoticeKeyboardShortcutsForm.Padding = new Padding(20, 20, 10, 10);
@@ -658,26 +672,21 @@ namespace Ordisoftware.Hebrew.Letters
     {
       if ( EditLetters.Input.Text.Length < 1 ) return;
       EditLetters.Input.Text = EditLetters.Input.Text.Remove(EditLetters.Input.Text.Length - 1, 1);
+      EditLetters.Focus(false);
       EditLetters.Input.SelectionStart = EditLetters.Input.TextLength;
-      EditLetters.Input.SelectionLength = 0;
-      EditLetters.Focus();
     }
 
     private void ActionDelLast_Click(object sender, EventArgs e)
     {
       if ( EditLetters.Input.Text.Length < 1 ) return;
       EditLetters.Input.Text = EditLetters.Input.Text.Remove(0, 1);
-      EditLetters.Input.SelectionStart = 0;
-      EditLetters.Input.SelectionLength = 0;
-      EditLetters.Focus();
+      EditLetters.Focus(false);
     }
 
     private void ActionReset_Click(object sender, EventArgs e)
     {
       EditLetters.Input.Text = Program.StartupWordHebrew;
-      EditLetters.Input.SelectionStart = 0;
-      EditLetters.Input.SelectionLength = 0;
-      EditLetters.Focus();
+      EditLetters.Focus(false);
     }
 
     private void EditLetters_InputTextChanged(object sender, EventArgs e)
@@ -860,7 +869,7 @@ namespace Ordisoftware.Hebrew.Letters
       if ( DataSet.HasChanges() )
         DataSet.RejectChanges();
       UpdateButtons(sender);
-      SelectLetter.Focus();
+      EditMeanings.Focus();
     }
 
     private void ActionSave_Click(object sender, EventArgs e)
@@ -876,7 +885,33 @@ namespace Ordisoftware.Hebrew.Letters
           DataChanged = true;
         }
       UpdateButtons(sender);
-      SelectLetter.Focus();
+      EditMeanings.Focus();
+    }
+
+    private void ActionFirst_Click(object sender, EventArgs e)
+    {
+      SelectLetter.SelectedIndex = 0;
+      EditMeanings.Focus();
+    }
+
+    private void ActionPrevious_Click(object sender, EventArgs e)
+    {
+      if ( SelectLetter.SelectedIndex > 0 ) SelectLetter.SelectedIndex--;
+      if ( SelectLetter.SelectedIndex == 0 ) ActiveControl = ActionNext;
+      EditMeanings.Focus();
+    }
+
+    private void ActionNext_Click(object sender, EventArgs e)
+    {
+      if ( SelectLetter.SelectedIndex < SelectLetter.Items.Count - 1 ) SelectLetter.SelectedIndex++;
+      if ( SelectLetter.SelectedIndex == SelectLetter.Items.Count - 1 ) ActiveControl = ActionPrevious;
+      EditMeanings.Focus();
+    }
+
+    private void ActionLast_Click(object sender, EventArgs e)
+    {
+      SelectLetter.SelectedIndex = SelectLetter.Items.Count - 1;
+      EditMeanings.Focus();
     }
 
     private void SelectLetter_SelectedIndexChanged(object sender, EventArgs e)
@@ -884,6 +919,10 @@ namespace Ordisoftware.Hebrew.Letters
       if ( !Globals.IsReady ) return;
       if ( !SelectLetter.Enabled ) return;
       EditMutex = true;
+      ActionFirst.Enabled = SelectLetter.SelectedIndex > 0;
+      ActionPrevious.Enabled = ActionFirst.Enabled;
+      ActionLast.Enabled = SelectLetter.SelectedIndex < SelectLetter.Items.Count - 1;
+      ActionNext.Enabled = ActionLast.Enabled;
     }
 
     private void LettersBindingSource_PositionChanged(object sender, EventArgs e)
