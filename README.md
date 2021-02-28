@@ -121,19 +121,20 @@ The software verifies the validity of the certificate of the update server in ad
 
 #### How to run a word contextual analysis from any application such as browser or text editor?
 
-It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for example this Shift + Ctrl + Alt + H command::
+It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for example this Shift + Ctrl + Alt + H command on a selected word:
 
 ```
 !^+H::
+  clipboardOld := ClipboardAll
   WinActive("A")
-  ClipboardOld := ClipboardAll
   ControlGetFocus, ctrl
   Send, ^c
   sleep 100 ; Increase delay in case of problems
   word := Clipboard
-  Clipboard := ClipboardOld
-  app := "C:\Program Files\Ordisoftware\Hebrew Letters\Bin\Ordisoftware.Hebrew.Letters.exe"
-  Run, %app% "%word%"
+  Clipboard := clipboardOld
+  appPath := "C:\Program Files\Ordisoftware\Hebrew Letters\Bin\"
+  appExe := "Ordisoftware.Hebrew.Letters.exe"
+  Run %appPath%%appExe% "%word%"
   ;sleep 500 ; Increase delay in case of problems
   WinActive("A")
   return 
