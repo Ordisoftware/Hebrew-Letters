@@ -134,7 +134,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
   Send, ^c
   word := Clipboard
   Clipboard := ClipboardOld
-  Run, "C:\Program Files\Ordisoftware\Hebrew Letters\Bin\Ordisoftware.Hebrew.Letters.exe" %word%
+  Run, "C:\Program Files\Ordisoftware\Hebrew Letters\Bin\Ordisoftware.Hebrew.Letters.exe" "%word%"
   ;sleep 3000 ; use a delay in case of lag
   WinActive("A")
   return 
