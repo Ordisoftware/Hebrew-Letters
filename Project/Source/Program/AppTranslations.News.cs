@@ -28,7 +28,7 @@ namespace Ordisoftware.Hebrew.Letters
       = new NullSafeDictionary<string, TranslationsDictionary>
       {
 
-        ["1.0"] = new TranslationsDictionary
+        ["1.x"] = new TranslationsDictionary
         {
           [Language.EN] = "Initial release with few options.",
 

@@ -28,6 +28,15 @@ namespace Ordisoftware.Hebrew.Letters
   static partial class Program
   {
 
+    /// <summary>
+    /// Indicate the default Settings instance.
+    /// </summary>
+    static public readonly Properties.Settings Settings
+      = Properties.Settings.Default;
+
+    /// <summary>
+    /// Indicate managed image export targets.
+    /// </summary>
     static public readonly NullSafeOfStringDictionary<ImageExportTarget> ImageExportTargets
       = ExportHelper.CreateExportTargets<ImageExportTarget>().SetUnsupported(ImageExportTarget.GIF);
 
