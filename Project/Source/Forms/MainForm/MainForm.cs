@@ -1018,10 +1018,10 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void EditMeanings_KeyDown(object sender, KeyEventArgs e)
     {
-      if ( e.KeyCode == Keys.Insert || e.KeyCode == Keys.Add )
+      if ( ( e.Control && e.KeyCode == Keys.Insert ) || ( e.Control && e.KeyCode == Keys.Add ) )
         ActionAddMeaning.PerformClick();
       else
-      if ( e.KeyCode == Keys.Delete || e.KeyCode == Keys.Subtract )
+      if ( ( e.Control && e.KeyCode == Keys.Delete ) || ( e.Control && e.KeyCode == Keys.Subtract ) )
         ActionDeleteMeaning.PerformClick();
       else
       if ( e.KeyCode == Keys.F2 || ( e.KeyCode == Keys.Enter && !EditMeanings.IsCurrentCellInEditMode ) )

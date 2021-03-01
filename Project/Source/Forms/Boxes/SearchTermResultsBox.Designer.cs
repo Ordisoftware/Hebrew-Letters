@@ -62,6 +62,7 @@
       this.ListBoxLetters.FormattingEnabled = true;
       this.ListBoxLetters.Name = "ListBoxLetters";
       this.ListBoxLetters.SelectedIndexChanged += new System.EventHandler(this.ListBoxLetters_SelectedIndexChanged);
+      this.ListBoxLetters.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ListBox_KeyDown);
       this.ListBoxLetters.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ListBoxLetters_MouseDoubleClick);
       // 
       // ListBoxMeanings
@@ -70,6 +71,7 @@
       this.ListBoxMeanings.FormattingEnabled = true;
       this.ListBoxMeanings.Name = "ListBoxMeanings";
       this.ListBoxMeanings.SelectedIndexChanged += new System.EventHandler(this.ListBoxMeanings_SelectedIndexChanged);
+      this.ListBoxMeanings.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ListBox_KeyDown);
       this.ListBoxMeanings.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ListBoxMeanings_MouseDoubleClick);
       // 
       // SearchTermResultsBox
