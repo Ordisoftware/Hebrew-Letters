@@ -86,7 +86,8 @@ namespace Ordisoftware.Hebrew.Letters
 
         ["5.0"] = new TranslationsDictionary
         {
-          [Language.EN] = "Startup speed and analysis combo boxes creation are optimized." + Globals.NL +
+          [Language.EN] = "Added command-line options(see FAQ)" + Globals.NL +
+                          "Startup speed and analysis combo boxes creation are optimized." + Globals.NL +
                           "Data edition is only possible by one instance at a time." + Globals.NL +
                           "Data edition is improved to have save and cancel behavior." + Globals.NL +
                           "Improved and fixed copy, paste and delete for both Hebrew font chars and unicode." + Globals.NL2 +
@@ -100,7 +101,8 @@ namespace Ordisoftware.Hebrew.Letters
                           "Modification and addition of web links and online providers for the study of words and verses of the Bible." + Globals.NL2 +
                           "Incorporate common code written since more than one year for Hebrew Calendar.",
 
-          [Language.FR] = "Le temps de démarrage et la création des boites combos d'analyse sont optimisé." + Globals.NL +
+          [Language.FR] = "Ajout d'options de ligne de commande (voir la FAQ)." + Globals.NL +
+                          "Le temps de démarrage et la création des boites combos d'analyse sont optimisé." + Globals.NL +
                           "L'édition des données est possible seulement par une seule instance à la fois." + Globals.NL +
                           "L'édition des données est améliorée pour avoir le comportement sauver et annuler." + Globals.NL +
                           "Amélioration et correction du copier, coller et supprimer pour les caractères de police hébreu et unicode." + Globals.NL2 +
