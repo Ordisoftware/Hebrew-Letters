@@ -67,7 +67,7 @@ namespace Ordisoftware.Hebrew.Letters
                           "Améliorations générales et quelques corrections."
         },
 
-        ["4.0"] = new TranslationsDictionary
+        ["4.x"] = new TranslationsDictionary
         {
           [Language.EN] = "Added lettriq analysis method notice." + Globals.NL +
                           "Added grammar guide." + Globals.NL +

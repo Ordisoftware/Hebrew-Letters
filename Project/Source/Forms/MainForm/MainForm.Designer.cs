@@ -91,7 +91,6 @@
       this.TextBoxVerb = new Ordisoftware.Core.TextBoxEx();
       this.TextBoxValueSimple = new Ordisoftware.Core.TextBoxEx();
       this.TextBoxValueFull = new Ordisoftware.Core.TextBoxEx();
-      this.ActionRestoreDefaults = new System.Windows.Forms.LinkLabel();
       this.ActionUndo = new System.Windows.Forms.Button();
       this.ActionSave = new System.Windows.Forms.Button();
       this.ActionDeleteMeaning = new System.Windows.Forms.Button();
@@ -99,6 +98,7 @@
       this.EditMeanings = new System.Windows.Forms.DataGridView();
       this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.MeaningsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+      this.ActionRestoreDefaults = new System.Windows.Forms.LinkLabel();
       this.PanelSepTop = new System.Windows.Forms.Panel();
       this.PanelTitle = new System.Windows.Forms.Panel();
       this.LabelTitle = new System.Windows.Forms.Label();
@@ -522,6 +522,7 @@
       this.PanelLetter.Controls.Add(this.SelectLetter);
       this.PanelLetter.Controls.Add(this.TextBoxStructure);
       this.PanelLetter.Controls.Add(this.LabelHebrew);
+      this.PanelLetter.Controls.Add(this.ActionRestoreDefaults);
       this.PanelLetter.Controls.Add(LabelStructure);
       this.PanelLetter.Controls.Add(LabelNegative);
       this.PanelLetter.Controls.Add(LabelFunction);
@@ -537,7 +538,6 @@
       this.PanelLetter.Controls.Add(this.TextBoxValueSimple);
       this.PanelLetter.Controls.Add(LabelValueFull);
       this.PanelLetter.Controls.Add(this.TextBoxValueFull);
-      this.PanelLetter.Controls.Add(this.ActionRestoreDefaults);
       resources.ApplyResources(this.PanelLetter, "PanelLetter");
       this.PanelLetter.Name = "PanelLetter";
       // 
@@ -688,15 +688,6 @@
       this.TextBoxValueFull.Name = "TextBoxValueFull";
       this.TextBoxValueFull.ReadOnly = true;
       // 
-      // ActionRestoreDefaults
-      // 
-      this.ActionRestoreDefaults.ActiveLinkColor = System.Drawing.Color.MediumBlue;
-      resources.ApplyResources(this.ActionRestoreDefaults, "ActionRestoreDefaults");
-      this.ActionRestoreDefaults.LinkColor = System.Drawing.Color.Navy;
-      this.ActionRestoreDefaults.Name = "ActionRestoreDefaults";
-      this.ActionRestoreDefaults.TabStop = true;
-      this.ActionRestoreDefaults.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ActionRestoreDefaults_LinkClicked);
-      // 
       // ActionUndo
       // 
       resources.ApplyResources(this.ActionUndo, "ActionUndo");
@@ -767,6 +758,15 @@
       this.MeaningsBindingSource.AllowNew = true;
       this.MeaningsBindingSource.DataMember = "Letters_Meanings";
       this.MeaningsBindingSource.DataSource = this.LettersBindingSource;
+      // 
+      // ActionRestoreDefaults
+      // 
+      this.ActionRestoreDefaults.ActiveLinkColor = System.Drawing.Color.MediumBlue;
+      resources.ApplyResources(this.ActionRestoreDefaults, "ActionRestoreDefaults");
+      this.ActionRestoreDefaults.LinkColor = System.Drawing.Color.Navy;
+      this.ActionRestoreDefaults.Name = "ActionRestoreDefaults";
+      this.ActionRestoreDefaults.TabStop = true;
+      this.ActionRestoreDefaults.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ActionRestoreDefaults_LinkClicked);
       // 
       // PanelSepTop
       // 
