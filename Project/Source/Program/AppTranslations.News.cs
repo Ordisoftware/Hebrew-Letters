@@ -30,24 +30,22 @@ namespace Ordisoftware.Hebrew.Letters
 
         ["1.x"] = new TranslationsDictionary
         {
-          [Language.EN] = "Initial release with few options.",
+          [Language.EN] = "Initial release.",
 
-          [Language.FR] = "Version initiale avec peu d'options."
+          [Language.FR] = "Version initiale."
         },
 
         ["2.x"] = new TranslationsDictionary
         {
           [Language.EN] = "Added copy list of meanings for current word." + Globals.NL +
-                          "Improved and corrected meanings." + Globals.NL +
+                          "Improved user interface." + Globals.NL +
                           "Improved preferences." + Globals.NL +
-                          "Improved UI and UX." + Globals.NL +
-                          "Improved setup.",
+                          "Improved meanings.",
 
           [Language.FR] = "Ajout de la copie de la liste des significations du mot actuel." + Globals.NL +
-                          "Significations améliorées et corrigées." + Globals.NL +
+                          "Interface utilisateur améliorée." + Globals.NL +
                           "Préférences améliorées." + Globals.NL +
-                          "UI et UX améliorées." + Globals.NL +
-                          "Configuration améliorée."
+                          "Significations améliorées."
         },
 
         ["3.x"] = new TranslationsDictionary
