@@ -30,24 +30,22 @@ namespace Ordisoftware.Hebrew.Letters
 
         ["1.x"] = new TranslationsDictionary
         {
-          [Language.EN] = "Initial release with few options.",
+          [Language.EN] = "Initial release.",
 
-          [Language.FR] = "Version initiale avec peu d'options."
+          [Language.FR] = "Version initiale."
         },
 
         ["2.x"] = new TranslationsDictionary
         {
           [Language.EN] = "Added copy list of meanings for current word." + Globals.NL +
-                          "Improved and corrected meanings." + Globals.NL +
+                          "Improved user interface." + Globals.NL +
                           "Improved preferences." + Globals.NL +
-                          "Improved UI and UX." + Globals.NL +
-                          "Improved setup.",
+                          "Improved meanings.",
 
           [Language.FR] = "Ajout de la copie de la liste des significations du mot actuel." + Globals.NL +
-                          "Significations améliorées et corrigées." + Globals.NL +
+                          "Interface utilisateur améliorée." + Globals.NL +
                           "Préférences améliorées." + Globals.NL +
-                          "UI et UX améliorées." + Globals.NL +
-                          "Configuration améliorée."
+                          "Significations améliorées."
         },
 
         ["3.x"] = new TranslationsDictionary
@@ -67,7 +65,7 @@ namespace Ordisoftware.Hebrew.Letters
                           "Améliorations générales et quelques corrections."
         },
 
-        ["4.0"] = new TranslationsDictionary
+        ["4.x"] = new TranslationsDictionary
         {
           [Language.EN] = "Added lettriq analysis method notice." + Globals.NL +
                           "Added grammar guide." + Globals.NL +
@@ -86,7 +84,7 @@ namespace Ordisoftware.Hebrew.Letters
 
         ["5.0"] = new TranslationsDictionary
         {
-          [Language.EN] = "Added command-line options(see FAQ)" + Globals.NL +
+          [Language.EN] = "Added command-line options(see help FAQ)" + Globals.NL +
                           "Startup speed and analysis combo boxes creation are optimized." + Globals.NL +
                           "Data edition is only possible by one instance at a time." + Globals.NL +
                           "Data edition is improved to have save and cancel behavior." + Globals.NL +
@@ -101,7 +99,7 @@ namespace Ordisoftware.Hebrew.Letters
                           "Modification and addition of web links and online providers for the study of words and verses of the Bible." + Globals.NL +
                           "Incorporate common code written since more than one year for Hebrew Calendar.",
 
-          [Language.FR] = "Ajout d'options de ligne de commande (voir la FAQ)." + Globals.NL +
+          [Language.FR] = "Ajout d'options de ligne de commande (voir la FAQ de l'aide)." + Globals.NL +
                           "Le temps de démarrage et la création des boites combos d'analyse sont optimisé." + Globals.NL +
                           "L'édition des données est possible seulement par une seule instance à la fois." + Globals.NL +
                           "L'édition des données est améliorée pour avoir le comportement sauver et annuler." + Globals.NL +
@@ -116,6 +114,7 @@ namespace Ordisoftware.Hebrew.Letters
                           "Modification et ajouts de liens web et de fournisseurs en ligne pour l'étude des mots et des versets de la Bible." + Globals.NL +
                           "Incorporation du code commun écrit depuis plus d'un an pour Hebrew Calendar."
         }
+
       };
 
   }
