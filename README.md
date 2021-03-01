@@ -185,6 +185,10 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 #### 2021.03.12 - Version 5.0
 
+>- Add english letters names and upgrade the matching database field.
+>- Add double-click on a letter to go to its parameters.
+>- Improve search result box to swap between lists using Left and Right keys.
+
 - Optimize ComboBoxes creation (the old system is really much slower on Windows 10 than 7).
 - Add Windows double-buffering drawing to optimize startup.
 - Add context menu on letters' buttons to allow inserting a letter or open its parameters.
