@@ -149,8 +149,8 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 | F1 | Analyse view |
 | F2 | Settings view |
 | F3 | Search a term |
-| Insert (or Add) | Add meaning |
-| Delete (or Substract) | Delete meaning |
+| Ctrl + Ins (or +) | Add meaning |
+| Ctrl + Del (or -) | Delete meaning |
 | Ctrl + Home | First letter |
 | Ctrl + End | Last letter |
 | Ctrl + PageUp | Previous letter |
@@ -186,8 +186,6 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 #### 2021.03.12 - Version 5.0
 
 >- Add english letters names and upgrade the matching database field.
->- Add double-click on a letter to go to its parameters.
->- Improve search result box to swap between lists using Left and Right keys.
 
 - Optimize ComboBoxes creation (the old system is really much slower on Windows 10 than 7).
 - Add Windows double-buffering drawing to optimize startup.
