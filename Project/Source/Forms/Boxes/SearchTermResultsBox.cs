@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2020-03 </created>
-/// <edited> 2020-04 </edited>
+/// <edited> 2021-02 </edited>
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -93,7 +93,7 @@ namespace Ordisoftware.Hebrew.Letters
       var item = (LetterItem)ListBoxLetters.SelectedItem;
       Action<string> check = (meaning) =>
       {
-        if (meaning.ToLower().RemoveDiacritics().Contains(Term)) ListBoxMeanings.Items.Add(meaning);
+        if ( meaning.ToLower().RemoveDiacritics().Contains(Term) ) ListBoxMeanings.Items.Add(meaning);
       };
       check(item.Letter.Positive);
       check(item.Letter.Negative);
@@ -109,6 +109,21 @@ namespace Ordisoftware.Hebrew.Letters
     {
       ActionSearch.Enabled = ListBoxLetters.SelectedItem != null && ListBoxMeanings.SelectedItem != null;
       if ( !ActionSearch.Enabled ) return;
+    }
+
+    private void ListBox_KeyDown(object sender, KeyEventArgs e)
+    {
+      if ( e.KeyCode == Keys.Left )
+      {
+        ListBoxLetters.Focus();
+        e.Handled = true;
+      }
+      else
+      if ( e.KeyCode == Keys.Right )
+      {
+        ListBoxMeanings.Focus();
+        e.Handled = true;
+      }
     }
 
   }

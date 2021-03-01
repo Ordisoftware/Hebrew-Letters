@@ -119,7 +119,6 @@
       this.ActionResetSettings.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
       this.ActionResetSettings.LinkColor = System.Drawing.Color.Navy;
       this.ActionResetSettings.Name = "ActionResetSettings";
-      this.ActionResetSettings.TabStop = true;
       this.ActionResetSettings.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ActionResetSettings_LinkClicked);
       // 
       // OpenFileDialog

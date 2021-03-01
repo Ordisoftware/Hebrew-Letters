@@ -39,8 +39,8 @@ namespace Ordisoftware.Hebrew.Letters
                         "F1 : Analyse view" + Globals.NL +
                         "F2 : Settings view" + Globals.NL +
                         "F3 : Search term" + Globals.NL +
-                        "Insert (or Add) : Add meaning" + Globals.NL +
-                        "Delete (or Substract) : Delete meaning" + Globals.NL +
+                        "Ctrl + Ins (or +) : Add meaning" + Globals.NL +
+                        "Ctrl + Del (or -) : Delete meaning" + Globals.NL +
                         "Ctrl + Home : First letter" + Globals.NL +
                         "Ctrl + End : Last letter" + Globals.NL +
                         "Ctrl + PageUp : Previous letter" + Globals.NL +
@@ -67,8 +67,8 @@ namespace Ordisoftware.Hebrew.Letters
                         "F1 : Vue d'analyse" + Globals.NL +
                         "F2 : Vue des paramètres" + Globals.NL +
                         "F3 : Recherche d'un terme" + Globals.NL +
-                        "Insérer (ou Plus) : Ajout une signification" + Globals.NL +
-                        "Supprimer (ou Moins) : Efface une signification" + Globals.NL +
+                        "Ctrl + Ins (ou +) : Ajoute une signification" + Globals.NL +
+                        "Ctrl + Suppr (ou -) : Efface une signification" + Globals.NL +
                         "Ctrl + Début : Première lettre" + Globals.NL +
                         "Ctrl + Fin : Dernière lettre" + Globals.NL +
                         "Ctrl + PagePrec : Letter précédente" + Globals.NL +
