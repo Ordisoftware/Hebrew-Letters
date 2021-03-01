@@ -30,11 +30,10 @@ namespace Ordisoftware.Hebrew.Letters
 
         ["1.0"] = new TranslationsDictionary
         {
-          [Language.EN] = "Initial release.",
+          [Language.EN] = "Initial release with few options.",
 
-          [Language.FR] = "Version initiale."
+          [Language.FR] = "Version initiale avec peu d'options."
         },
-
 
         ["2.x"] = new TranslationsDictionary
         {
@@ -50,7 +49,6 @@ namespace Ordisoftware.Hebrew.Letters
                           "UI et UX améliorées." + Globals.NL +
                           "Configuration améliorée."
         },
-
 
         ["3.x"] = new TranslationsDictionary
         {
@@ -68,7 +66,6 @@ namespace Ordisoftware.Hebrew.Letters
                           "Utilisation d'un TextBox avancée pour permettre de copier, couper, coller, tout sélectionner et supprimer." + Globals.NL +
                           "Améliorations générales et quelques corrections."
         },
-
 
         ["4.0"] = new TranslationsDictionary
         {
