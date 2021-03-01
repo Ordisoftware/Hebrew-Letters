@@ -116,6 +116,7 @@ namespace Ordisoftware.Hebrew.Letters
                           "Modification et ajouts de liens web et de fournisseurs en ligne pour l'étude des mots et des versets de la Bible." + Globals.NL +
                           "Incorporation du code commun écrit depuis plus d'un an pour Hebrew Calendar."
         }
+
       };
 
   }
