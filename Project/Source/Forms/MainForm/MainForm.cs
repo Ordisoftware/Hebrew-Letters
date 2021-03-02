@@ -336,9 +336,9 @@ namespace Ordisoftware.Hebrew.Letters
         SetView(ViewMode.Settings, false);
       else
         SetView(ViewMode.Analyse, false);
-      if ( Settings.FirstLaunchV4 )
+      if ( Settings.FirstLaunch )
       {
-        Settings.FirstLaunchV4 = false;
+        Settings.FirstLaunch = false;
         SystemManager.TryCatch(Settings.Save);
         ActionShowMethodNotice.PerformClick();
       }

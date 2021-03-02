@@ -198,8 +198,7 @@ namespace Ordisoftware.Hebrew.Letters
       Settings.CheckUpdateLastDone = lastupdate;
       Settings.VacuumLastDone = lastvacuum;
       Settings.LanguageSelected = Languages.Current;
-      Settings.FirstLaunchV4 = false;
-      Settings.FirstLaunch = false;
+      Settings.SetFirstAndUpgradeFlagsOff();
       Settings.Store();
       PreferencesForm_Shown(null, null);
       MainForm.Instance.EditSentence.Font = new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence);
