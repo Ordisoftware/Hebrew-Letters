@@ -14,6 +14,7 @@
 /// <edited> 2021-02 </edited>
 using System;
 using System.Linq;
+using System.Drawing;
 using System.Windows.Forms;
 using Ordisoftware.Core;
 
@@ -124,6 +125,27 @@ namespace Ordisoftware.Hebrew.Letters
         ListBoxMeanings.Focus();
         e.Handled = true;
       }
+    }
+
+    private void ListBox_DrawItem(object sender, DrawItemEventArgs e)
+    {
+      var listbox = sender as ListBox;
+      if ( sender == null ) return;
+      if ( e.Index < 0 ) return;
+      bool selected = ( e.State & DrawItemState.Selected ) == DrawItemState.Selected;
+      if ( selected )
+        e = new DrawItemEventArgs(e.Graphics,
+                                  e.Font,
+                                  e.Bounds,
+                                  e.Index,
+                                  e.State ^ DrawItemState.Selected,
+                                  e.ForeColor,
+                                  listbox.Focused ? SystemColors.Highlight : SystemColors.ControlDark);
+
+      e.DrawBackground();
+      var brush = selected ? SystemBrushes.HighlightText : SystemBrushes.WindowText;
+      e.Graphics.DrawString(listbox.Items[e.Index].ToString(), e.Font, brush, e.Bounds, StringFormat.GenericDefault);
+      e.DrawFocusRectangle();
     }
 
   }
