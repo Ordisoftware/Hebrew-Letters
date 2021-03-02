@@ -160,6 +160,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     static internal void SetUpgradeFlagsOff(this Settings settings)
     {
+      settings.UpgradeRequired = false;
     }
 
     static internal void SetFirstAndUpgradeFlagsOff(this Settings settings)
