@@ -174,6 +174,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 ## Future improvements
 
+- Add find gematria combination.
 - Add print data.
 - Add export data.
 - Add import data.
