@@ -23,7 +23,7 @@ A libre and open-source software written in C# that helps for the lettriq letter
 ## Functionalities
 
 - Database of Hebrew letters with their customizable meanings.
-- Analyse a word letter by letter to get a sentence describing its sense.
+- Analyze a word letter by letter to get a sentence describing its sense.
 - Copy to the clipboard the analysis and the sentence or a screenshot.
 - English, French.
 
@@ -64,7 +64,7 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 
 ## Screenshots
 
-[![Analyse](https://i0.wp.com/www.ordisoftware.com/uploads/2020/04/hebrew-letters-analyse-en.png?resize=300%2C292&ssl=1)](http://www.ordisoftware.com/uploads/2020/04/hebrew-letters-analyse-en.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Parameters](https://i1.wp.com/www.ordisoftware.com/uploads/2020/04/hebrew-letters-settings-en.png?resize=272%2C300&ssl=1)](http://www.ordisoftware.com/uploads/2020/04/hebrew-letters-settings-en.png)
+[![Analyze](https://i0.wp.com/www.ordisoftware.com/uploads/2020/04/hebrew-letters-analyse-en.png?resize=300%2C292&ssl=1)](http://www.ordisoftware.com/uploads/2020/04/hebrew-letters-analyse-en.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Parameters](https://i1.wp.com/www.ordisoftware.com/uploads/2020/04/hebrew-letters-settings-en.png?resize=272%2C300&ssl=1)](http://www.ordisoftware.com/uploads/2020/04/hebrew-letters-settings-en.png)
 
 ## Videos
 
@@ -107,7 +107,7 @@ The software verifies the validity of the certificate of the update server in ad
 
   `Ordisoftware.Hebrew.Letters.exe --lang [en|fr]`
 
-- Analyse a word in Hebrew unicode chars or else Hebrew font chars like "`בראשית`" and "`ty>arb`":
+- Analyze a word in Hebrew unicode chars or else Hebrew font chars like "`בראשית`" and "`ty>arb`":
 
   `Ordisoftware.Hebrew.Letters.exe --word [word]` 
 
@@ -146,7 +146,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 |-|-|
 | Ctrl + Tab | Next view |
 | Shift + Ctrl + Tab | Previous view |
-| F1 | Analyse view |
+| F1 | Analyze view |
 | F2 | Data view |
 | F3 | Search a term |
 | Ctrl + Ins (or +) | Add meaning |
