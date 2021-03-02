@@ -183,9 +183,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 ## Changelog
 
-#### 2021.03.12 - Version 5.0
-
->- Add english letters names and upgrade the matching database field.
+#### 2021.03.07 - Version 5.0
 
 - Optimize ComboBoxes creation (the old system is really much slower on Windows 10 than 7).
 - Add Windows double-buffering drawing to optimize startup.
