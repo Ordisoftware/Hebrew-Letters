@@ -356,6 +356,6 @@
     <value>Boîtes de dialogue de réussite à la place des sons</value>
   </data>
   <data name="EditCopyWithFinalLetter.Text" xml:space="preserve">
-    <value>Copier vers hebrew ou unicode avec lettre finale</value>
+    <value>Copier avec lettre finale</value>
   </data>
 </root>
