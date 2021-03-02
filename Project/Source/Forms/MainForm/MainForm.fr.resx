@@ -311,16 +311,16 @@
     <value>Confirmer la fermeture de l'application</value>
   </data>
   <data name="ActionViewAnalysis.Text" xml:space="preserve">
-    <value>Analyser un mot</value>
+    <value>Analyse</value>
   </data>
   <data name="ActionViewAnalysis.ToolTipText" xml:space="preserve">
-    <value>Analyser un mot (F1)</value>
+    <value>Analyse (F1)</value>
   </data>
   <data name="ActionViewLetters.Text" xml:space="preserve">
-    <value>Paramètres</value>
+    <value>Données</value>
   </data>
   <data name="ActionViewLetters.ToolTipText" xml:space="preserve">
-    <value>Paramètres (F2)</value>
+    <value>Données (F2)</value>
   </data>
   <data name="ActionSearchTerm.Text" xml:space="preserve">
     <value>Chercher</value>

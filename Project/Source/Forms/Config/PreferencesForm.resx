@@ -220,6 +220,88 @@
     <value>PanelBottom</value>
   </data>
   <data name="&gt;&gt;ActionClose.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="ActionExportSettings.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="ActionExportSettings.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAeVJREFUOE+tkklrFFEUhQtFuzrBAVcGFRJduRHBhX/AARH8Af4DwYXDzkxKxKhI
+        MGA0gRYMUcxGO4Hu6g7dGkKwxYVdOMSq1iRWk4UKojiP8fPeV5VKm5VBDxzuqXr3nPte1bP+GWs7RoZW
+        tjkkWxwSzQ62YTaq81rXtU/7I2sIfbkYrJL+yBoi2ZINV8Z3wJ09UNpNW3YG7u4yNLokurTTtNW3LgyQ
+        LSpah6dozwR0OAGduWlOOs8NO/PTnMoFnMkHHBz2zJEiawi7OWMCKp9g8jME3+Bc1qMqtfodzucrvJb1
+        d0Lr6BB7/e3Une6eD5kLqH6FGTG9+Kkmj5dSX83CxWIF69AN4U32DZRpcutodG2WH+8PQ+YCujKP6XYm
+        uDDicang0yNV2Sdap24S4/ryUtbdX2K4+cEa81figDcy8a1M/CC6t+DxUaqcitQtny0PG8zUjW59HKDP
+        fwR8+SWU+kN4uegheUge18eeYh1JG+4fdGksJ9hQXoZ9tkuPsC0OSBUmSBWfcOW2z8BYhf5R33Bw/Bnp
+        0iTOvSnzEZvcJCt6D4dmRTIKqMXVUS9ScK1GH0g/Qvtjs2KxN3F1+4KL1HAi915DNDlxLIOtFG1qjdZ1
+        vcbaH1ljbBXqlv6W2v+/YFm/ASTqJNKXvI4rAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="ActionExportSettings.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ActionExportSettings.Location" type="System.Drawing.Point, System.Drawing">
+    <value>32, 1</value>
+  </data>
+  <data name="ActionExportSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>26, 26</value>
+  </data>
+  <data name="ActionExportSettings.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;ActionExportSettings.Name" xml:space="preserve">
+    <value>ActionExportSettings</value>
+  </data>
+  <data name="&gt;&gt;ActionExportSettings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ActionExportSettings.Parent" xml:space="preserve">
+    <value>PanelBottom</value>
+  </data>
+  <data name="&gt;&gt;ActionExportSettings.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ActionImportSettings.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="ActionImportSettings.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAchJREFUOE+tUk1LW1EQvY3F5GEp7jRxoYX+gIJ/obT4W6R14aZqEshHcaNUCaVV
+        jMXGlSgtJu8lkvhRsHaVtAv1JUKTaKF1IcRPVKw9zkye+aAbiz1w3hzuzJw7996n/itaAwsf73sNaG4D
+        9gEDDqFuxarmPNe1BhMlq7UMXvwXcL3VWgbvIFh9DHzuAtaewqv/AL48EYpeI815gubWqwYtgQQaXkQl
+        4Y/l4dOLCBhFDMbzCBoFIWu/XoBn/rvUabSh1U7jv4zgQcYB9WwWv34DO+fANnFINyVe68IZsHUi/XQf
+        MShHfwyN/VGo3g9wphUefmuC6p7BPhXs/QFGF0zskiFzJGHi5wWZk0nFoC1tA9OVviMGYvL1HlTPHMKL
+        OYylcnhNJsw3ySxCiU280terBi6r+S+D53OgATCeMnFMkfk2aeKIYumSPgQxaHLHoNERbJ5Jae6w7uEa
+        k2RA0wvDpOkEOOUEQQwInczm4RDaM3Zpnl3dwvRKFu+Xs4h8ymGKIpP1uyUTE6mNOgMBP+PdvvIz1mJ6
+        2bRUvWZotQaEzlv/iU5//IAX2dlOz8tPzGNKrNGc5zqnL35otVbwiCh3ckNy/W2g1BX3aDCxKWCzKQAA
+        AABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="ActionImportSettings.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ActionImportSettings.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 1</value>
+  </data>
+  <data name="ActionImportSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>26, 26</value>
+  </data>
+  <data name="ActionImportSettings.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;ActionImportSettings.Name" xml:space="preserve">
+    <value>ActionImportSettings</value>
+  </data>
+  <data name="&gt;&gt;ActionImportSettings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ActionImportSettings.Parent" xml:space="preserve">
+    <value>PanelBottom</value>
+  </data>
+  <data name="&gt;&gt;ActionImportSettings.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="ActionResetSettings.AutoSize" type="System.Boolean, mscorlib">
@@ -232,7 +314,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionResetSettings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 8</value>
+    <value>69, 8</value>
   </data>
   <data name="ActionResetSettings.Size" type="System.Drawing.Size, System.Drawing">
     <value>113, 13</value>
@@ -253,7 +335,7 @@
     <value>PanelBottom</value>
   </data>
   <data name="&gt;&gt;ActionResetSettings.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="PanelBottom.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Bottom</value>
@@ -280,16 +362,16 @@
     <value>2</value>
   </data>
   <metadata name="OpenFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+    <value>22, 23</value>
   </metadata>
   <data name="OpenFileDialog.Filter" xml:space="preserve">
     <value>Exe files (*.exe)|*.exe</value>
   </data>
   <metadata name="FolderBrowserDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>152, 17</value>
+    <value>158, 24</value>
   </metadata>
   <metadata name="MenuSelectOnlineVerseURL.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>317, 17</value>
+    <value>328, 30</value>
   </metadata>
   <data name="MenuSelectOnlineVerseURL.Size" type="System.Drawing.Size, System.Drawing">
     <value>61, 4</value>
@@ -1683,7 +1765,13 @@
     <value>1</value>
   </data>
   <metadata name="DialogColor.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>515, 20</value>
+    <value>525, 29</value>
+  </metadata>
+  <metadata name="OpenSettingsDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>642, 27</value>
+  </metadata>
+  <metadata name="SaveSettingsDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>803, 27</value>
   </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -1720,6 +1808,18 @@
   </data>
   <data name="&gt;&gt;DialogColor.Type" xml:space="preserve">
     <value>System.Windows.Forms.ColorDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;OpenSettingsDialog.Name" xml:space="preserve">
+    <value>OpenSettingsDialog</value>
+  </data>
+  <data name="&gt;&gt;OpenSettingsDialog.Type" xml:space="preserve">
+    <value>System.Windows.Forms.OpenFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SaveSettingsDialog.Name" xml:space="preserve">
+    <value>SaveSettingsDialog</value>
+  </data>
+  <data name="&gt;&gt;SaveSettingsDialog.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SaveFileDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>PreferencesForm</value>
