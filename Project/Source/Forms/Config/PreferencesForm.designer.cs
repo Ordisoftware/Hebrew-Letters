@@ -54,6 +54,16 @@
       this.EditCheckUpdateAtStartupInterval = new System.Windows.Forms.NumericUpDown();
       this.LabelCheckUpdateAtStartupInfo = new System.Windows.Forms.Label();
       this.TabPageColors = new System.Windows.Forms.TabPage();
+      this.label3 = new System.Windows.Forms.Label();
+      this.EditLettersBack = new System.Windows.Forms.Panel();
+      this.EditAnalyseBack = new System.Windows.Forms.Panel();
+      this.EditWordBack = new System.Windows.Forms.Panel();
+      this.EditEditableBack = new System.Windows.Forms.Panel();
+      this.label5 = new System.Windows.Forms.Label();
+      this.EditReadonlyBack = new System.Windows.Forms.Panel();
+      this.label4 = new System.Windows.Forms.Label();
+      this.label6 = new System.Windows.Forms.Label();
+      this.label7 = new System.Windows.Forms.Label();
       this.ActionUseColorsPastel = new System.Windows.Forms.LinkLabel();
       this.ActionUseColorsSystem = new System.Windows.Forms.LinkLabel();
       this.TabPageAnalyzer = new System.Windows.Forms.TabPage();
@@ -73,6 +83,7 @@
       this.EditAutoOpenExportedFile = new System.Windows.Forms.CheckBox();
       this.EditAutoOpenExportFolder = new System.Windows.Forms.CheckBox();
       this.EditExportFolder = new Ordisoftware.Core.TextBoxEx();
+      this.DialogColor = new System.Windows.Forms.ColorDialog();
       LabelVolume = new System.Windows.Forms.Label();
       LabelCheckUpdateFrequency = new System.Windows.Forms.Label();
       this.PanelBottom.SuspendLayout();
@@ -119,6 +130,7 @@
       this.ActionResetSettings.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
       this.ActionResetSettings.LinkColor = System.Drawing.Color.Navy;
       this.ActionResetSettings.Name = "ActionResetSettings";
+      this.ActionResetSettings.TabStop = true;
       this.ActionResetSettings.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ActionResetSettings_LinkClicked);
       // 
       // OpenFileDialog
@@ -189,7 +201,7 @@
       // LabelVolumeValue
       // 
       resources.ApplyResources(this.LabelVolumeValue, "LabelVolumeValue");
-      this.LabelVolumeValue.ForeColor = System.Drawing.SystemColors.GrayText;
+      this.LabelVolumeValue.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
       this.LabelVolumeValue.Name = "LabelVolumeValue";
       // 
       // ActionSelectLangFR
@@ -270,17 +282,97 @@
       // LabelCheckUpdateAtStartupInfo
       // 
       resources.ApplyResources(this.LabelCheckUpdateAtStartupInfo, "LabelCheckUpdateAtStartupInfo");
-      this.LabelCheckUpdateAtStartupInfo.ForeColor = System.Drawing.SystemColors.GrayText;
+      this.LabelCheckUpdateAtStartupInfo.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
       this.LabelCheckUpdateAtStartupInfo.Name = "LabelCheckUpdateAtStartupInfo";
       // 
       // TabPageColors
       // 
       this.TabPageColors.BackColor = System.Drawing.Color.White;
       this.TabPageColors.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.TabPageColors.Controls.Add(this.label3);
+      this.TabPageColors.Controls.Add(this.EditLettersBack);
+      this.TabPageColors.Controls.Add(this.EditAnalyseBack);
+      this.TabPageColors.Controls.Add(this.EditWordBack);
+      this.TabPageColors.Controls.Add(this.EditEditableBack);
+      this.TabPageColors.Controls.Add(this.label5);
+      this.TabPageColors.Controls.Add(this.EditReadonlyBack);
+      this.TabPageColors.Controls.Add(this.label4);
+      this.TabPageColors.Controls.Add(this.label6);
+      this.TabPageColors.Controls.Add(this.label7);
       this.TabPageColors.Controls.Add(this.ActionUseColorsPastel);
       this.TabPageColors.Controls.Add(this.ActionUseColorsSystem);
       resources.ApplyResources(this.TabPageColors, "TabPageColors");
       this.TabPageColors.Name = "TabPageColors";
+      // 
+      // label3
+      // 
+      resources.ApplyResources(this.label3, "label3");
+      this.label3.Name = "label3";
+      // 
+      // EditLettersBack
+      // 
+      this.EditLettersBack.BackColor = System.Drawing.SystemColors.Control;
+      this.EditLettersBack.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      resources.ApplyResources(this.EditLettersBack, "EditLettersBack");
+      this.EditLettersBack.ForeColor = System.Drawing.SystemColors.Control;
+      this.EditLettersBack.Name = "EditLettersBack";
+      this.EditLettersBack.Click += new System.EventHandler(this.EditColor_Click);
+      // 
+      // EditAnalyseBack
+      // 
+      this.EditAnalyseBack.BackColor = System.Drawing.SystemColors.Control;
+      this.EditAnalyseBack.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      resources.ApplyResources(this.EditAnalyseBack, "EditAnalyseBack");
+      this.EditAnalyseBack.ForeColor = System.Drawing.SystemColors.Control;
+      this.EditAnalyseBack.Name = "EditAnalyseBack";
+      this.EditAnalyseBack.Click += new System.EventHandler(this.EditColor_Click);
+      // 
+      // EditWordBack
+      // 
+      this.EditWordBack.BackColor = System.Drawing.SystemColors.Control;
+      this.EditWordBack.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      resources.ApplyResources(this.EditWordBack, "EditWordBack");
+      this.EditWordBack.ForeColor = System.Drawing.SystemColors.Control;
+      this.EditWordBack.Name = "EditWordBack";
+      this.EditWordBack.Click += new System.EventHandler(this.EditColor_Click);
+      // 
+      // EditEditableBack
+      // 
+      this.EditEditableBack.BackColor = System.Drawing.SystemColors.Control;
+      this.EditEditableBack.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      resources.ApplyResources(this.EditEditableBack, "EditEditableBack");
+      this.EditEditableBack.ForeColor = System.Drawing.SystemColors.Control;
+      this.EditEditableBack.Name = "EditEditableBack";
+      this.EditEditableBack.Click += new System.EventHandler(this.EditColor_Click);
+      // 
+      // label5
+      // 
+      resources.ApplyResources(this.label5, "label5");
+      this.label5.Name = "label5";
+      // 
+      // EditReadonlyBack
+      // 
+      this.EditReadonlyBack.BackColor = System.Drawing.SystemColors.Control;
+      this.EditReadonlyBack.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      resources.ApplyResources(this.EditReadonlyBack, "EditReadonlyBack");
+      this.EditReadonlyBack.ForeColor = System.Drawing.SystemColors.Control;
+      this.EditReadonlyBack.Name = "EditReadonlyBack";
+      this.EditReadonlyBack.Click += new System.EventHandler(this.EditColor_Click);
+      // 
+      // label4
+      // 
+      resources.ApplyResources(this.label4, "label4");
+      this.label4.Name = "label4";
+      // 
+      // label6
+      // 
+      resources.ApplyResources(this.label6, "label6");
+      this.label6.Name = "label6";
+      // 
+      // label7
+      // 
+      resources.ApplyResources(this.label7, "label7");
+      this.label7.Name = "label7";
       // 
       // ActionUseColorsPastel
       // 
@@ -319,13 +411,13 @@
       // label2
       // 
       resources.ApplyResources(this.label2, "label2");
-      this.label2.ForeColor = System.Drawing.SystemColors.GrayText;
+      this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
       this.label2.Name = "label2";
       // 
       // label1
       // 
       resources.ApplyResources(this.label1, "label1");
-      this.label1.ForeColor = System.Drawing.SystemColors.GrayText;
+      this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
       this.label1.Name = "label1";
       // 
       // EditAutoSortAnalysisMeanings
@@ -461,6 +553,10 @@
       this.EditExportFolder.Name = "EditExportFolder";
       this.EditExportFolder.ReadOnly = true;
       // 
+      // DialogColor
+      // 
+      this.DialogColor.FullOpen = true;
+      // 
       // PreferencesForm
       // 
       this.AcceptButton = this.ActionClose;
@@ -540,5 +636,16 @@
     private System.Windows.Forms.LinkLabel ActionUseColorsPastel;
     private System.Windows.Forms.LinkLabel ActionUseColorsSystem;
     private System.Windows.Forms.TabPage TabPageColors;
+    private System.Windows.Forms.Label label3;
+    public System.Windows.Forms.Panel EditLettersBack;
+    public System.Windows.Forms.Panel EditAnalyseBack;
+    public System.Windows.Forms.Panel EditWordBack;
+    public System.Windows.Forms.Panel EditEditableBack;
+    private System.Windows.Forms.Label label5;
+    public System.Windows.Forms.Panel EditReadonlyBack;
+    private System.Windows.Forms.Label label4;
+    private System.Windows.Forms.Label label6;
+    private System.Windows.Forms.Label label7;
+    private System.Windows.Forms.ColorDialog DialogColor;
   }
 }

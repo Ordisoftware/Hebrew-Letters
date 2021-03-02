@@ -222,27 +222,6 @@
   <data name="&gt;&gt;ActionClose.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="ActionResetSettings.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="ActionResetSettings.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt</value>
-  </data>
-  <data name="ActionResetSettings.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="ActionResetSettings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 8</value>
-  </data>
-  <data name="ActionResetSettings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>113, 13</value>
-  </data>
-  <data name="ActionResetSettings.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="ActionResetSettings.Text" xml:space="preserve">
-    <value>Restore default values</value>
-  </data>
   <data name="&gt;&gt;ActionResetSettings.Name" xml:space="preserve">
     <value>ActionResetSettings</value>
   </data>
@@ -279,6 +258,39 @@
   <data name="&gt;&gt;PanelBottom.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="ActionResetSettings.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ActionResetSettings.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="ActionResetSettings.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ActionResetSettings.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 8</value>
+  </data>
+  <data name="ActionResetSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>113, 13</value>
+  </data>
+  <data name="ActionResetSettings.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="ActionResetSettings.Text" xml:space="preserve">
+    <value>Restore default values</value>
+  </data>
+  <data name="&gt;&gt;ActionResetSettings.Name" xml:space="preserve">
+    <value>ActionResetSettings</value>
+  </data>
+  <data name="&gt;&gt;ActionResetSettings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ActionResetSettings.Parent" xml:space="preserve">
+    <value>PanelBottom</value>
+  </data>
+  <data name="&gt;&gt;ActionResetSettings.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <metadata name="OpenFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
@@ -302,6 +314,843 @@
   </data>
   <data name="TabControl.Appearance" type="System.Windows.Forms.TabAppearance, System.Windows.Forms">
     <value>Buttons</value>
+  </data>
+  <data name="&gt;&gt;EditUsageStatisticsEnabled.Name" xml:space="preserve">
+    <value>EditUsageStatisticsEnabled</value>
+  </data>
+  <data name="&gt;&gt;EditUsageStatisticsEnabled.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;EditUsageStatisticsEnabled.Parent" xml:space="preserve">
+    <value>TabPageApplication</value>
+  </data>
+  <data name="&gt;&gt;EditUsageStatisticsEnabled.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;EditVolume.Name" xml:space="preserve">
+    <value>EditVolume</value>
+  </data>
+  <data name="&gt;&gt;EditVolume.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TrackBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;EditVolume.Parent" xml:space="preserve">
+    <value>TabPageApplication</value>
+  </data>
+  <data name="&gt;&gt;EditVolume.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;ActionSelectLangEN.Name" xml:space="preserve">
+    <value>ActionSelectLangEN</value>
+  </data>
+  <data name="&gt;&gt;ActionSelectLangEN.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ActionSelectLangEN.Parent" xml:space="preserve">
+    <value>TabPageApplication</value>
+  </data>
+  <data name="&gt;&gt;ActionSelectLangEN.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;LabelVolumeValue.Name" xml:space="preserve">
+    <value>LabelVolumeValue</value>
+  </data>
+  <data name="&gt;&gt;LabelVolumeValue.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LabelVolumeValue.Parent" xml:space="preserve">
+    <value>TabPageApplication</value>
+  </data>
+  <data name="&gt;&gt;LabelVolumeValue.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;ActionSelectLangFR.Name" xml:space="preserve">
+    <value>ActionSelectLangFR</value>
+  </data>
+  <data name="&gt;&gt;ActionSelectLangFR.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ActionSelectLangFR.Parent" xml:space="preserve">
+    <value>TabPageApplication</value>
+  </data>
+  <data name="&gt;&gt;ActionSelectLangFR.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;EditVacuumAtStartup.Name" xml:space="preserve">
+    <value>EditVacuumAtStartup</value>
+  </data>
+  <data name="&gt;&gt;EditVacuumAtStartup.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;EditVacuumAtStartup.Parent" xml:space="preserve">
+    <value>TabPageApplication</value>
+  </data>
+  <data name="&gt;&gt;EditVacuumAtStartup.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;EditDebuggerEnabled.Name" xml:space="preserve">
+    <value>EditDebuggerEnabled</value>
+  </data>
+  <data name="&gt;&gt;EditDebuggerEnabled.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;EditDebuggerEnabled.Parent" xml:space="preserve">
+    <value>TabPageApplication</value>
+  </data>
+  <data name="&gt;&gt;EditDebuggerEnabled.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;EditWebLinksMenuEnabled.Name" xml:space="preserve">
+    <value>EditWebLinksMenuEnabled</value>
+  </data>
+  <data name="&gt;&gt;EditWebLinksMenuEnabled.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;EditWebLinksMenuEnabled.Parent" xml:space="preserve">
+    <value>TabPageApplication</value>
+  </data>
+  <data name="&gt;&gt;EditWebLinksMenuEnabled.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;EditLogEnabled.Name" xml:space="preserve">
+    <value>EditLogEnabled</value>
+  </data>
+  <data name="&gt;&gt;EditLogEnabled.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;EditLogEnabled.Parent" xml:space="preserve">
+    <value>TabPageApplication</value>
+  </data>
+  <data name="&gt;&gt;EditLogEnabled.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="TabPageApplication.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 25</value>
+  </data>
+  <data name="TabPageApplication.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="TabPageApplication.Size" type="System.Drawing.Size, System.Drawing">
+    <value>426, 249</value>
+  </data>
+  <data name="TabPageApplication.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="TabPageApplication.Text" xml:space="preserve">
+    <value>Application</value>
+  </data>
+  <data name="&gt;&gt;TabPageApplication.Name" xml:space="preserve">
+    <value>TabPageApplication</value>
+  </data>
+  <data name="&gt;&gt;TabPageApplication.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TabPageApplication.Parent" xml:space="preserve">
+    <value>TabControl</value>
+  </data>
+  <data name="&gt;&gt;TabPageApplication.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;EditCheckUpdateAtStartup.Name" xml:space="preserve">
+    <value>EditCheckUpdateAtStartup</value>
+  </data>
+  <data name="&gt;&gt;EditCheckUpdateAtStartup.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;EditCheckUpdateAtStartup.Parent" xml:space="preserve">
+    <value>TabPageCheckUpdate</value>
+  </data>
+  <data name="&gt;&gt;EditCheckUpdateAtStartup.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;EditCheckUpdateAtStartupInterval.Name" xml:space="preserve">
+    <value>EditCheckUpdateAtStartupInterval</value>
+  </data>
+  <data name="&gt;&gt;EditCheckUpdateAtStartupInterval.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;EditCheckUpdateAtStartupInterval.Parent" xml:space="preserve">
+    <value>TabPageCheckUpdate</value>
+  </data>
+  <data name="&gt;&gt;EditCheckUpdateAtStartupInterval.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;LabelCheckUpdateAtStartupInfo.Name" xml:space="preserve">
+    <value>LabelCheckUpdateAtStartupInfo</value>
+  </data>
+  <data name="&gt;&gt;LabelCheckUpdateAtStartupInfo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LabelCheckUpdateAtStartupInfo.Parent" xml:space="preserve">
+    <value>TabPageCheckUpdate</value>
+  </data>
+  <data name="&gt;&gt;LabelCheckUpdateAtStartupInfo.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="TabPageCheckUpdate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 25</value>
+  </data>
+  <data name="TabPageCheckUpdate.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="TabPageCheckUpdate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>426, 249</value>
+  </data>
+  <data name="TabPageCheckUpdate.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="TabPageCheckUpdate.Text" xml:space="preserve">
+    <value>New version</value>
+  </data>
+  <data name="&gt;&gt;TabPageCheckUpdate.Name" xml:space="preserve">
+    <value>TabPageCheckUpdate</value>
+  </data>
+  <data name="&gt;&gt;TabPageCheckUpdate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TabPageCheckUpdate.Parent" xml:space="preserve">
+    <value>TabControl</value>
+  </data>
+  <data name="&gt;&gt;TabPageCheckUpdate.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 20</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>66, 13</value>
+  </data>
+  <data name="label3.TabIndex" type="System.Int32, mscorlib">
+    <value>53</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Letters back</value>
+  </data>
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
+  </data>
+  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+    <value>TabPageColors</value>
+  </data>
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="EditLettersBack.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="EditLettersBack.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 39</value>
+  </data>
+  <data name="EditLettersBack.Size" type="System.Drawing.Size, System.Drawing">
+    <value>25, 25</value>
+  </data>
+  <data name="EditLettersBack.TabIndex" type="System.Int32, mscorlib">
+    <value>48</value>
+  </data>
+  <data name="&gt;&gt;EditLettersBack.Name" xml:space="preserve">
+    <value>EditLettersBack</value>
+  </data>
+  <data name="&gt;&gt;EditLettersBack.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;EditLettersBack.Parent" xml:space="preserve">
+    <value>TabPageColors</value>
+  </data>
+  <data name="&gt;&gt;EditLettersBack.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="EditAnalyseBack.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="EditAnalyseBack.Location" type="System.Drawing.Point, System.Drawing">
+    <value>224, 39</value>
+  </data>
+  <data name="EditAnalyseBack.Size" type="System.Drawing.Size, System.Drawing">
+    <value>25, 25</value>
+  </data>
+  <data name="EditAnalyseBack.TabIndex" type="System.Int32, mscorlib">
+    <value>50</value>
+  </data>
+  <data name="&gt;&gt;EditAnalyseBack.Name" xml:space="preserve">
+    <value>EditAnalyseBack</value>
+  </data>
+  <data name="&gt;&gt;EditAnalyseBack.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;EditAnalyseBack.Parent" xml:space="preserve">
+    <value>TabPageColors</value>
+  </data>
+  <data name="&gt;&gt;EditAnalyseBack.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="EditWordBack.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="EditWordBack.Location" type="System.Drawing.Point, System.Drawing">
+    <value>124, 39</value>
+  </data>
+  <data name="EditWordBack.Size" type="System.Drawing.Size, System.Drawing">
+    <value>25, 25</value>
+  </data>
+  <data name="EditWordBack.TabIndex" type="System.Int32, mscorlib">
+    <value>49</value>
+  </data>
+  <data name="&gt;&gt;EditWordBack.Name" xml:space="preserve">
+    <value>EditWordBack</value>
+  </data>
+  <data name="&gt;&gt;EditWordBack.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;EditWordBack.Parent" xml:space="preserve">
+    <value>TabPageColors</value>
+  </data>
+  <data name="&gt;&gt;EditWordBack.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="EditEditableBack.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="EditEditableBack.Location" type="System.Drawing.Point, System.Drawing">
+    <value>126, 104</value>
+  </data>
+  <data name="EditEditableBack.Size" type="System.Drawing.Size, System.Drawing">
+    <value>25, 25</value>
+  </data>
+  <data name="EditEditableBack.TabIndex" type="System.Int32, mscorlib">
+    <value>52</value>
+  </data>
+  <data name="&gt;&gt;EditEditableBack.Name" xml:space="preserve">
+    <value>EditEditableBack</value>
+  </data>
+  <data name="&gt;&gt;EditEditableBack.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;EditEditableBack.Parent" xml:space="preserve">
+    <value>TabPageColors</value>
+  </data>
+  <data name="&gt;&gt;EditEditableBack.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="label5.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label5.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 85</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 13</value>
+  </data>
+  <data name="label5.TabIndex" type="System.Int32, mscorlib">
+    <value>54</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Readonly back</value>
+  </data>
+  <data name="&gt;&gt;label5.Name" xml:space="preserve">
+    <value>label5</value>
+  </data>
+  <data name="&gt;&gt;label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
+    <value>TabPageColors</value>
+  </data>
+  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="EditReadonlyBack.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="EditReadonlyBack.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 104</value>
+  </data>
+  <data name="EditReadonlyBack.Size" type="System.Drawing.Size, System.Drawing">
+    <value>25, 25</value>
+  </data>
+  <data name="EditReadonlyBack.TabIndex" type="System.Int32, mscorlib">
+    <value>51</value>
+  </data>
+  <data name="&gt;&gt;EditReadonlyBack.Name" xml:space="preserve">
+    <value>EditReadonlyBack</value>
+  </data>
+  <data name="&gt;&gt;EditReadonlyBack.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;EditReadonlyBack.Parent" xml:space="preserve">
+    <value>TabPageColors</value>
+  </data>
+  <data name="&gt;&gt;EditReadonlyBack.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label4.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>121, 85</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 13</value>
+  </data>
+  <data name="label4.TabIndex" type="System.Int32, mscorlib">
+    <value>55</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Editable back</value>
+  </data>
+  <data name="&gt;&gt;label4.Name" xml:space="preserve">
+    <value>label4</value>
+  </data>
+  <data name="&gt;&gt;label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
+    <value>TabPageColors</value>
+  </data>
+  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label6.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>120, 20</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 13</value>
+  </data>
+  <data name="label6.TabIndex" type="System.Int32, mscorlib">
+    <value>56</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Word back</value>
+  </data>
+  <data name="&gt;&gt;label6.Name" xml:space="preserve">
+    <value>label6</value>
+  </data>
+  <data name="&gt;&gt;label6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
+    <value>TabPageColors</value>
+  </data>
+  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="label7.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label7.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>220, 20</value>
+  </data>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>71, 13</value>
+  </data>
+  <data name="label7.TabIndex" type="System.Int32, mscorlib">
+    <value>57</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>Analyze back</value>
+  </data>
+  <data name="&gt;&gt;label7.Name" xml:space="preserve">
+    <value>label7</value>
+  </data>
+  <data name="&gt;&gt;label7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
+    <value>TabPageColors</value>
+  </data>
+  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="ActionUseColorsPastel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ActionUseColorsPastel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="ActionUseColorsPastel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ActionUseColorsPastel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>22, 175</value>
+  </data>
+  <data name="ActionUseColorsPastel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 13</value>
+  </data>
+  <data name="ActionUseColorsPastel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="ActionUseColorsPastel.Text" xml:space="preserve">
+    <value>Pastel</value>
+  </data>
+  <data name="&gt;&gt;ActionUseColorsPastel.Name" xml:space="preserve">
+    <value>ActionUseColorsPastel</value>
+  </data>
+  <data name="&gt;&gt;ActionUseColorsPastel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ActionUseColorsPastel.Parent" xml:space="preserve">
+    <value>TabPageColors</value>
+  </data>
+  <data name="&gt;&gt;ActionUseColorsPastel.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="ActionUseColorsSystem.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ActionUseColorsSystem.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="ActionUseColorsSystem.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ActionUseColorsSystem.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 155</value>
+  </data>
+  <data name="ActionUseColorsSystem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 13</value>
+  </data>
+  <data name="ActionUseColorsSystem.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="ActionUseColorsSystem.Text" xml:space="preserve">
+    <value>System</value>
+  </data>
+  <data name="&gt;&gt;ActionUseColorsSystem.Name" xml:space="preserve">
+    <value>ActionUseColorsSystem</value>
+  </data>
+  <data name="&gt;&gt;ActionUseColorsSystem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ActionUseColorsSystem.Parent" xml:space="preserve">
+    <value>TabPageColors</value>
+  </data>
+  <data name="&gt;&gt;ActionUseColorsSystem.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="TabPageColors.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 25</value>
+  </data>
+  <data name="TabPageColors.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="TabPageColors.Size" type="System.Drawing.Size, System.Drawing">
+    <value>426, 249</value>
+  </data>
+  <data name="TabPageColors.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="TabPageColors.Text" xml:space="preserve">
+    <value>Theme</value>
+  </data>
+  <data name="&gt;&gt;TabPageColors.Name" xml:space="preserve">
+    <value>TabPageColors</value>
+  </data>
+  <data name="&gt;&gt;TabPageColors.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TabPageColors.Parent" xml:space="preserve">
+    <value>TabControl</value>
+  </data>
+  <data name="&gt;&gt;TabPageColors.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>TabPageAnalyzer</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>TabPageAnalyzer</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;EditAutoSortAnalysisMeanings.Name" xml:space="preserve">
+    <value>EditAutoSortAnalysisMeanings</value>
+  </data>
+  <data name="&gt;&gt;EditAutoSortAnalysisMeanings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;EditAutoSortAnalysisMeanings.Parent" xml:space="preserve">
+    <value>TabPageAnalyzer</value>
+  </data>
+  <data name="&gt;&gt;EditAutoSortAnalysisMeanings.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;LabelFontSize.Name" xml:space="preserve">
+    <value>LabelFontSize</value>
+  </data>
+  <data name="&gt;&gt;LabelFontSize.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LabelFontSize.Parent" xml:space="preserve">
+    <value>TabPageAnalyzer</value>
+  </data>
+  <data name="&gt;&gt;LabelFontSize.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;EditMaxLength.Name" xml:space="preserve">
+    <value>EditMaxLength</value>
+  </data>
+  <data name="&gt;&gt;EditMaxLength.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;EditMaxLength.Parent" xml:space="preserve">
+    <value>TabPageAnalyzer</value>
+  </data>
+  <data name="&gt;&gt;EditMaxLength.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;EditFontSize.Name" xml:space="preserve">
+    <value>EditFontSize</value>
+  </data>
+  <data name="&gt;&gt;EditFontSize.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;EditFontSize.Parent" xml:space="preserve">
+    <value>TabPageAnalyzer</value>
+  </data>
+  <data name="&gt;&gt;EditFontSize.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;LabelMaxLength.Name" xml:space="preserve">
+    <value>LabelMaxLength</value>
+  </data>
+  <data name="&gt;&gt;LabelMaxLength.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LabelMaxLength.Parent" xml:space="preserve">
+    <value>TabPageAnalyzer</value>
+  </data>
+  <data name="&gt;&gt;LabelMaxLength.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="TabPageAnalyzer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 25</value>
+  </data>
+  <data name="TabPageAnalyzer.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="TabPageAnalyzer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>426, 249</value>
+  </data>
+  <data name="TabPageAnalyzer.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="TabPageAnalyzer.Text" xml:space="preserve">
+    <value>Analyzer</value>
+  </data>
+  <data name="&gt;&gt;TabPageAnalyzer.Name" xml:space="preserve">
+    <value>TabPageAnalyzer</value>
+  </data>
+  <data name="&gt;&gt;TabPageAnalyzer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TabPageAnalyzer.Parent" xml:space="preserve">
+    <value>TabControl</value>
+  </data>
+  <data name="&gt;&gt;TabPageAnalyzer.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;LabelExportFolder.Name" xml:space="preserve">
+    <value>LabelExportFolder</value>
+  </data>
+  <data name="&gt;&gt;LabelExportFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LabelExportFolder.Parent" xml:space="preserve">
+    <value>TabPageExport</value>
+  </data>
+  <data name="&gt;&gt;LabelExportFolder.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;ActionResetExportFolder.Name" xml:space="preserve">
+    <value>ActionResetExportFolder</value>
+  </data>
+  <data name="&gt;&gt;ActionResetExportFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ActionResetExportFolder.Parent" xml:space="preserve">
+    <value>TabPageExport</value>
+  </data>
+  <data name="&gt;&gt;ActionResetExportFolder.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;ActionSelectExportFolder.Name" xml:space="preserve">
+    <value>ActionSelectExportFolder</value>
+  </data>
+  <data name="&gt;&gt;ActionSelectExportFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ActionSelectExportFolder.Parent" xml:space="preserve">
+    <value>TabPageExport</value>
+  </data>
+  <data name="&gt;&gt;ActionSelectExportFolder.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;EditImageExportFileFormat.Name" xml:space="preserve">
+    <value>EditImageExportFileFormat</value>
+  </data>
+  <data name="&gt;&gt;EditImageExportFileFormat.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;EditImageExportFileFormat.Parent" xml:space="preserve">
+    <value>TabPageExport</value>
+  </data>
+  <data name="&gt;&gt;EditImageExportFileFormat.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;LabelImageExportFileFormat.Name" xml:space="preserve">
+    <value>LabelImageExportFileFormat</value>
+  </data>
+  <data name="&gt;&gt;LabelImageExportFileFormat.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LabelImageExportFileFormat.Parent" xml:space="preserve">
+    <value>TabPageExport</value>
+  </data>
+  <data name="&gt;&gt;LabelImageExportFileFormat.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;EditAutoOpenExportedFile.Name" xml:space="preserve">
+    <value>EditAutoOpenExportedFile</value>
+  </data>
+  <data name="&gt;&gt;EditAutoOpenExportedFile.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;EditAutoOpenExportedFile.Parent" xml:space="preserve">
+    <value>TabPageExport</value>
+  </data>
+  <data name="&gt;&gt;EditAutoOpenExportedFile.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;EditAutoOpenExportFolder.Name" xml:space="preserve">
+    <value>EditAutoOpenExportFolder</value>
+  </data>
+  <data name="&gt;&gt;EditAutoOpenExportFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;EditAutoOpenExportFolder.Parent" xml:space="preserve">
+    <value>TabPageExport</value>
+  </data>
+  <data name="&gt;&gt;EditAutoOpenExportFolder.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;EditExportFolder.Name" xml:space="preserve">
+    <value>EditExportFolder</value>
+  </data>
+  <data name="&gt;&gt;EditExportFolder.Type" xml:space="preserve">
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;EditExportFolder.Parent" xml:space="preserve">
+    <value>TabPageExport</value>
+  </data>
+  <data name="&gt;&gt;EditExportFolder.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="TabPageExport.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 25</value>
+  </data>
+  <data name="TabPageExport.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="TabPageExport.Size" type="System.Drawing.Size, System.Drawing">
+    <value>426, 249</value>
+  </data>
+  <data name="TabPageExport.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="TabPageExport.Text" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="&gt;&gt;TabPageExport.Name" xml:space="preserve">
+    <value>TabPageExport</value>
+  </data>
+  <data name="&gt;&gt;TabPageExport.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TabPageExport.Parent" xml:space="preserve">
+    <value>TabControl</value>
+  </data>
+  <data name="&gt;&gt;TabPageExport.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="TabControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="TabControl.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="TabControl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 10</value>
+  </data>
+  <data name="TabControl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>434, 278</value>
+  </data>
+  <data name="TabControl.TabIndex" type="System.Int32, mscorlib">
+    <value>86</value>
+  </data>
+  <data name="&gt;&gt;TabControl.Name" xml:space="preserve">
+    <value>TabControl</value>
+  </data>
+  <data name="&gt;&gt;TabControl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TabControl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;TabControl.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="EditUsageStatisticsEnabled.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -621,33 +1470,6 @@
   <data name="&gt;&gt;EditLogEnabled.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="TabPageApplication.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 25</value>
-  </data>
-  <data name="TabPageApplication.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="TabPageApplication.Size" type="System.Drawing.Size, System.Drawing">
-    <value>426, 249</value>
-  </data>
-  <data name="TabPageApplication.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="TabPageApplication.Text" xml:space="preserve">
-    <value>Application</value>
-  </data>
-  <data name="&gt;&gt;TabPageApplication.Name" xml:space="preserve">
-    <value>TabPageApplication</value>
-  </data>
-  <data name="&gt;&gt;TabPageApplication.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TabPageApplication.Parent" xml:space="preserve">
-    <value>TabControl</value>
-  </data>
-  <data name="&gt;&gt;TabPageApplication.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="EditCheckUpdateAtStartup.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -733,126 +1555,6 @@
     <value>TabPageCheckUpdate</value>
   </data>
   <data name="&gt;&gt;LabelCheckUpdateAtStartupInfo.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="TabPageCheckUpdate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 25</value>
-  </data>
-  <data name="TabPageCheckUpdate.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="TabPageCheckUpdate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>426, 249</value>
-  </data>
-  <data name="TabPageCheckUpdate.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="TabPageCheckUpdate.Text" xml:space="preserve">
-    <value>New version</value>
-  </data>
-  <data name="&gt;&gt;TabPageCheckUpdate.Name" xml:space="preserve">
-    <value>TabPageCheckUpdate</value>
-  </data>
-  <data name="&gt;&gt;TabPageCheckUpdate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TabPageCheckUpdate.Parent" xml:space="preserve">
-    <value>TabControl</value>
-  </data>
-  <data name="&gt;&gt;TabPageCheckUpdate.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="ActionUseColorsPastel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="ActionUseColorsPastel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt</value>
-  </data>
-  <data name="ActionUseColorsPastel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="ActionUseColorsPastel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 20</value>
-  </data>
-  <data name="ActionUseColorsPastel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 13</value>
-  </data>
-  <data name="ActionUseColorsPastel.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="ActionUseColorsPastel.Text" xml:space="preserve">
-    <value>Pastel</value>
-  </data>
-  <data name="&gt;&gt;ActionUseColorsPastel.Name" xml:space="preserve">
-    <value>ActionUseColorsPastel</value>
-  </data>
-  <data name="&gt;&gt;ActionUseColorsPastel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ActionUseColorsPastel.Parent" xml:space="preserve">
-    <value>TabPageColors</value>
-  </data>
-  <data name="&gt;&gt;ActionUseColorsPastel.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="ActionUseColorsSystem.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="ActionUseColorsSystem.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt</value>
-  </data>
-  <data name="ActionUseColorsSystem.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="ActionUseColorsSystem.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 40</value>
-  </data>
-  <data name="ActionUseColorsSystem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>41, 13</value>
-  </data>
-  <data name="ActionUseColorsSystem.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="ActionUseColorsSystem.Text" xml:space="preserve">
-    <value>System</value>
-  </data>
-  <data name="&gt;&gt;ActionUseColorsSystem.Name" xml:space="preserve">
-    <value>ActionUseColorsSystem</value>
-  </data>
-  <data name="&gt;&gt;ActionUseColorsSystem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ActionUseColorsSystem.Parent" xml:space="preserve">
-    <value>TabPageColors</value>
-  </data>
-  <data name="&gt;&gt;ActionUseColorsSystem.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="TabPageColors.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 25</value>
-  </data>
-  <data name="TabPageColors.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="TabPageColors.Size" type="System.Drawing.Size, System.Drawing">
-    <value>426, 249</value>
-  </data>
-  <data name="TabPageColors.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="TabPageColors.Text" xml:space="preserve">
-    <value>Theme</value>
-  </data>
-  <data name="&gt;&gt;TabPageColors.Name" xml:space="preserve">
-    <value>TabPageColors</value>
-  </data>
-  <data name="&gt;&gt;TabPageColors.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TabPageColors.Parent" xml:space="preserve">
-    <value>TabControl</value>
-  </data>
-  <data name="&gt;&gt;TabPageColors.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
@@ -1067,33 +1769,6 @@
   </data>
   <data name="&gt;&gt;LabelMaxLength.ZOrder" xml:space="preserve">
     <value>6</value>
-  </data>
-  <data name="TabPageAnalyzer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 25</value>
-  </data>
-  <data name="TabPageAnalyzer.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="TabPageAnalyzer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>426, 249</value>
-  </data>
-  <data name="TabPageAnalyzer.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="TabPageAnalyzer.Text" xml:space="preserve">
-    <value>Analyzer</value>
-  </data>
-  <data name="&gt;&gt;TabPageAnalyzer.Name" xml:space="preserve">
-    <value>TabPageAnalyzer</value>
-  </data>
-  <data name="&gt;&gt;TabPageAnalyzer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TabPageAnalyzer.Parent" xml:space="preserve">
-    <value>TabControl</value>
-  </data>
-  <data name="&gt;&gt;TabPageAnalyzer.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <data name="LabelExportFolder.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1343,60 +2018,9 @@
   <data name="&gt;&gt;EditExportFolder.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="TabPageExport.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 25</value>
-  </data>
-  <data name="TabPageExport.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="TabPageExport.Size" type="System.Drawing.Size, System.Drawing">
-    <value>426, 249</value>
-  </data>
-  <data name="TabPageExport.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="TabPageExport.Text" xml:space="preserve">
-    <value>Export</value>
-  </data>
-  <data name="&gt;&gt;TabPageExport.Name" xml:space="preserve">
-    <value>TabPageExport</value>
-  </data>
-  <data name="&gt;&gt;TabPageExport.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TabPageExport.Parent" xml:space="preserve">
-    <value>TabControl</value>
-  </data>
-  <data name="&gt;&gt;TabPageExport.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="TabControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="TabControl.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt</value>
-  </data>
-  <data name="TabControl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 10</value>
-  </data>
-  <data name="TabControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>434, 278</value>
-  </data>
-  <data name="TabControl.TabIndex" type="System.Int32, mscorlib">
-    <value>86</value>
-  </data>
-  <data name="&gt;&gt;TabControl.Name" xml:space="preserve">
-    <value>TabControl</value>
-  </data>
-  <data name="&gt;&gt;TabControl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TabControl.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;TabControl.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
+  <metadata name="DialogColor.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>515, 20</value>
+  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -1426,6 +2050,12 @@
   </data>
   <data name="&gt;&gt;FolderBrowserDialog.Type" xml:space="preserve">
     <value>System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;DialogColor.Name" xml:space="preserve">
+    <value>DialogColor</value>
+  </data>
+  <data name="&gt;&gt;DialogColor.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColorDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>PreferencesForm</value>

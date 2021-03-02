@@ -240,15 +240,18 @@ namespace Ordisoftware.Hebrew.Letters
     /// </summary>
     internal void InitializeTheme()
     {
+      // Analyser
       EditLetters.LettersBackColor = Settings.ColorLettersPanel;
       EditLetters.InputBackColor = Settings.ColorHebrewWordTextBox;
       SelectAnalyze.BackColor = Settings.ColorMeaningsPanel;
       EditSentence.BackColor = Settings.ColorSentenceTextBox;
       EditGematriaFull.BackColor = Settings.ColorGematriaTextBox;
       EditGematriaSimple.BackColor = Settings.ColorGematriaTextBox;
-      TextBoxName.BackColor = Settings.ColorLettersPanel == SystemColors.Window 
+      // Parameters
+      SelectLetter.BackColor = Settings.ColorLettersPanel == SystemColors.Window
                               ? Settings.ColorGematriaTextBox
                               : Settings.ColorLettersPanel;
+      TextBoxName.BackColor = SelectLetter.BackColor;
       TextBoxValueSimple.BackColor = Settings.ColorGematriaTextBox;
       TextBoxValueFull.BackColor = Settings.ColorGematriaTextBox;
       TextBoxStructure.BackColor = Settings.ColorSentenceTextBox;
