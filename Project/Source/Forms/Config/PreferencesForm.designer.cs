@@ -53,7 +53,7 @@
       this.EditCheckUpdateAtStartup = new System.Windows.Forms.CheckBox();
       this.EditCheckUpdateAtStartupInterval = new System.Windows.Forms.NumericUpDown();
       this.LabelCheckUpdateAtStartupInfo = new System.Windows.Forms.Label();
-      this.TabPageColors = new System.Windows.Forms.TabPage();
+      this.TabPageTheme = new System.Windows.Forms.TabPage();
       this.label3 = new System.Windows.Forms.Label();
       this.EditLettersBack = new System.Windows.Forms.Panel();
       this.EditAnalyseBack = new System.Windows.Forms.Panel();
@@ -92,7 +92,7 @@
       ((System.ComponentModel.ISupportInitialize)(this.EditVolume)).BeginInit();
       this.TabPageCheckUpdate.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.EditCheckUpdateAtStartupInterval)).BeginInit();
-      this.TabPageColors.SuspendLayout();
+      this.TabPageTheme.SuspendLayout();
       this.TabPageAnalyzer.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.EditMaxLength)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.EditFontSize)).BeginInit();
@@ -147,7 +147,7 @@
       resources.ApplyResources(this.TabControl, "TabControl");
       this.TabControl.Controls.Add(this.TabPageApplication);
       this.TabControl.Controls.Add(this.TabPageCheckUpdate);
-      this.TabControl.Controls.Add(this.TabPageColors);
+      this.TabControl.Controls.Add(this.TabPageTheme);
       this.TabControl.Controls.Add(this.TabPageAnalyzer);
       this.TabControl.Controls.Add(this.TabPageExport);
       this.TabControl.DataBindings.Add(new System.Windows.Forms.Binding("SelectedIndex", global::Ordisoftware.Hebrew.Letters.Properties.Settings.Default, "PreferencesFormSelectedTabIndex", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
@@ -285,24 +285,24 @@
       this.LabelCheckUpdateAtStartupInfo.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
       this.LabelCheckUpdateAtStartupInfo.Name = "LabelCheckUpdateAtStartupInfo";
       // 
-      // TabPageColors
+      // TabPageTheme
       // 
-      this.TabPageColors.BackColor = System.Drawing.Color.White;
-      this.TabPageColors.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.TabPageColors.Controls.Add(this.label3);
-      this.TabPageColors.Controls.Add(this.EditLettersBack);
-      this.TabPageColors.Controls.Add(this.EditAnalyseBack);
-      this.TabPageColors.Controls.Add(this.EditWordBack);
-      this.TabPageColors.Controls.Add(this.EditEditableBack);
-      this.TabPageColors.Controls.Add(this.label5);
-      this.TabPageColors.Controls.Add(this.EditReadonlyBack);
-      this.TabPageColors.Controls.Add(this.label4);
-      this.TabPageColors.Controls.Add(this.label6);
-      this.TabPageColors.Controls.Add(this.label7);
-      this.TabPageColors.Controls.Add(this.ActionUseColorsPastel);
-      this.TabPageColors.Controls.Add(this.ActionUseColorsSystem);
-      resources.ApplyResources(this.TabPageColors, "TabPageColors");
-      this.TabPageColors.Name = "TabPageColors";
+      this.TabPageTheme.BackColor = System.Drawing.Color.White;
+      this.TabPageTheme.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.TabPageTheme.Controls.Add(this.label3);
+      this.TabPageTheme.Controls.Add(this.EditLettersBack);
+      this.TabPageTheme.Controls.Add(this.EditAnalyseBack);
+      this.TabPageTheme.Controls.Add(this.EditWordBack);
+      this.TabPageTheme.Controls.Add(this.EditEditableBack);
+      this.TabPageTheme.Controls.Add(this.label5);
+      this.TabPageTheme.Controls.Add(this.EditReadonlyBack);
+      this.TabPageTheme.Controls.Add(this.label4);
+      this.TabPageTheme.Controls.Add(this.label6);
+      this.TabPageTheme.Controls.Add(this.label7);
+      this.TabPageTheme.Controls.Add(this.ActionUseColorsPastel);
+      this.TabPageTheme.Controls.Add(this.ActionUseColorsSystem);
+      resources.ApplyResources(this.TabPageTheme, "TabPageTheme");
+      this.TabPageTheme.Name = "TabPageTheme";
       // 
       // label3
       // 
@@ -582,8 +582,8 @@
       this.TabPageCheckUpdate.ResumeLayout(false);
       this.TabPageCheckUpdate.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.EditCheckUpdateAtStartupInterval)).EndInit();
-      this.TabPageColors.ResumeLayout(false);
-      this.TabPageColors.PerformLayout();
+      this.TabPageTheme.ResumeLayout(false);
+      this.TabPageTheme.PerformLayout();
       this.TabPageAnalyzer.ResumeLayout(false);
       this.TabPageAnalyzer.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.EditMaxLength)).EndInit();
@@ -635,7 +635,7 @@
     private Core.TextBoxEx EditExportFolder;
     private System.Windows.Forms.LinkLabel ActionUseColorsPastel;
     private System.Windows.Forms.LinkLabel ActionUseColorsSystem;
-    private System.Windows.Forms.TabPage TabPageColors;
+    private System.Windows.Forms.TabPage TabPageTheme;
     private System.Windows.Forms.Label label3;
     public System.Windows.Forms.Panel EditLettersBack;
     public System.Windows.Forms.Panel EditAnalyseBack;

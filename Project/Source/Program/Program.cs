@@ -113,7 +113,7 @@ namespace Ordisoftware.Hebrew.Letters
     {
       try
       {
-        void updateForm(Form form)
+        void update(Form form)
         {
           new Infralution.Localization.CultureManager().ManagedControl = form;
           ComponentResourceManager resources = new ComponentResourceManager(form.GetType());
@@ -132,24 +132,21 @@ namespace Ordisoftware.Hebrew.Letters
         AboutBox.Instance.Hide();
         var temp = Settings.CurrentView;
         MainForm.Instance.SetView(ViewMode.Analyse);
-        updateForm(MainForm.Instance);
+        update(MainForm.Instance);
         MainForm.Instance.SetView(ViewMode.Settings);
-        updateForm(MainForm.Instance);
+        update(MainForm.Instance);
         MainForm.Instance.SetView(temp);
-        updateLabel(MainForm.Instance.LabelGematria, MainForm.Instance.EditGematriaSimple, -19);
-        updateLabel(MainForm.Instance.LabelGematriaSimple, MainForm.Instance.EditGematriaSimple, 3);
-        updateLabel(MainForm.Instance.LabelGematriaFull, MainForm.Instance.EditGematriaFull, 3);
         string tempLogTitle = DebugManager.TraceForm.Text;
         string tempLogContent = DebugManager.TraceForm.TextBox.Text;
         new Infralution.Localization.CultureManager().ManagedControl = AboutBox.Instance;
+        new Infralution.Localization.CultureManager().ManagedControl = DebugManager.TraceForm;
         new Infralution.Localization.CultureManager().ManagedControl = GrammarGuideForm;
         new Infralution.Localization.CultureManager().ManagedControl = MethodNoticeForm;
         Infralution.Localization.CultureManager.ApplicationUICulture = culture;
         foreach ( Form form in Application.OpenForms )
         {
-          if ( form != Globals.MainForm && form != AboutBox.Instance
-            && form != GrammarGuideForm && form != MethodNoticeForm )
-            updateForm(form);
+          if ( form != AboutBox.Instance && form != GrammarGuideForm && form != MethodNoticeForm )
+            update(form);
           if ( form is ShowTextForm formShowText )
             formShowText.Relocalize();
         }
@@ -162,6 +159,10 @@ namespace Ordisoftware.Hebrew.Letters
         GrammarGuideForm.HTMLBrowserForm_Shown(null, null);
         MethodNoticeForm.HTMLBrowserForm_Shown(null, null);
         MainForm.Instance.CreateSystemInformationMenu();
+        MainForm.Instance.CheckClipboardContentType();
+        updateLabel(MainForm.Instance.LabelGematria, MainForm.Instance.EditGematriaSimple, -19);
+        updateLabel(MainForm.Instance.LabelGematriaSimple, MainForm.Instance.EditGematriaSimple, 3);
+        updateLabel(MainForm.Instance.LabelGematriaFull, MainForm.Instance.EditGematriaFull, 3);
       }
       catch ( Exception ex )
       {

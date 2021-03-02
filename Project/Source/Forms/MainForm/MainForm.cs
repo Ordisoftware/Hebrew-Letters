@@ -120,30 +120,32 @@ namespace Ordisoftware.Hebrew.Letters
     /// <summary>
     /// Check clipboard content type.
     /// </summary>
-    private void CheckClipboardContentType()
+    internal void CheckClipboardContentType()
     {
       string str = Clipboard.GetText();
       if ( str.IsNullOrEmpty() )
       {
         LabelClipboardContentType.Text = SysTranslations.EmptySlot.GetLang().Trim('(', ')');
         ActionPaste.Enabled = false;
+        return;
       }
       if ( HebrewAlphabet.IsValidHebrew(str) )
       {
-        LabelClipboardContentType.Text = AppTranslations.ClipboardHebrew.GetLang(); ;
+        LabelClipboardContentType.Text = AppTranslations.ClipboardHebrew.GetLang();
         ActionPaste.Enabled = true;
       }
       else
       if ( HebrewAlphabet.IsValidUnicode(str) )
       {
-        LabelClipboardContentType.Text = AppTranslations.ClipboardUnicode.GetLang(); ;
+        LabelClipboardContentType.Text = AppTranslations.ClipboardUnicode.GetLang();
         ActionPaste.Enabled = true;
       }
       else
       {
-        LabelClipboardContentType.Text = AppTranslations.ClipboardUncertain.GetLang(); ;
+        LabelClipboardContentType.Text = AppTranslations.ClipboardUncertain.GetLang();
         ActionPaste.Enabled = true;
       }
+      LabelClipboardContentType.Text += Globals.NL + $"({str.Length})";
     }
 
     /// <summary>
@@ -272,7 +274,6 @@ namespace Ordisoftware.Hebrew.Letters
       Globals.IsReady = true;
       SelectLetter_SelectedIndexChanged(SelectLetter, EventArgs.Empty);
       UpdateButtons(SelectLetter);
-      CheckClipboardContentType();
     }
 
     /// <summary>
@@ -1177,6 +1178,8 @@ namespace Ordisoftware.Hebrew.Letters
         ActionViewLetters.Enabled = Globals.AllowClose;
         ActionExit.Enabled = Globals.AllowClose;
         ActionSearchTerm.Enabled = Globals.AllowClose;
+        CommonMenusControl.Instance.ActionCheckUpdate.Enabled = Globals.AllowClose;
+        AboutBox.Instance.ActionCheckUpdate.Enabled = Globals.AllowClose;
       }
       catch ( Exception ex )
       {

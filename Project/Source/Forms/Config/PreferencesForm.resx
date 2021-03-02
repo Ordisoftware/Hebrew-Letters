@@ -790,7 +790,7 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label3.Parent" xml:space="preserve">
-    <value>TabPageColors</value>
+    <value>TabPageTheme</value>
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -814,7 +814,7 @@
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;EditLettersBack.Parent" xml:space="preserve">
-    <value>TabPageColors</value>
+    <value>TabPageTheme</value>
   </data>
   <data name="&gt;&gt;EditLettersBack.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -838,7 +838,7 @@
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;EditAnalyseBack.Parent" xml:space="preserve">
-    <value>TabPageColors</value>
+    <value>TabPageTheme</value>
   </data>
   <data name="&gt;&gt;EditAnalyseBack.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -862,7 +862,7 @@
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;EditWordBack.Parent" xml:space="preserve">
-    <value>TabPageColors</value>
+    <value>TabPageTheme</value>
   </data>
   <data name="&gt;&gt;EditWordBack.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -886,7 +886,7 @@
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;EditEditableBack.Parent" xml:space="preserve">
-    <value>TabPageColors</value>
+    <value>TabPageTheme</value>
   </data>
   <data name="&gt;&gt;EditEditableBack.ZOrder" xml:space="preserve">
     <value>4</value>
@@ -919,7 +919,7 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label5.Parent" xml:space="preserve">
-    <value>TabPageColors</value>
+    <value>TabPageTheme</value>
   </data>
   <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
     <value>5</value>
@@ -943,7 +943,7 @@
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;EditReadonlyBack.Parent" xml:space="preserve">
-    <value>TabPageColors</value>
+    <value>TabPageTheme</value>
   </data>
   <data name="&gt;&gt;EditReadonlyBack.ZOrder" xml:space="preserve">
     <value>6</value>
@@ -976,7 +976,7 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label4.Parent" xml:space="preserve">
-    <value>TabPageColors</value>
+    <value>TabPageTheme</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
     <value>7</value>
@@ -1009,7 +1009,7 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label6.Parent" xml:space="preserve">
-    <value>TabPageColors</value>
+    <value>TabPageTheme</value>
   </data>
   <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
     <value>8</value>
@@ -1042,7 +1042,7 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label7.Parent" xml:space="preserve">
-    <value>TabPageColors</value>
+    <value>TabPageTheme</value>
   </data>
   <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
     <value>9</value>
@@ -1075,7 +1075,7 @@
     <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ActionUseColorsPastel.Parent" xml:space="preserve">
-    <value>TabPageColors</value>
+    <value>TabPageTheme</value>
   </data>
   <data name="&gt;&gt;ActionUseColorsPastel.ZOrder" xml:space="preserve">
     <value>10</value>
@@ -1108,36 +1108,36 @@
     <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ActionUseColorsSystem.Parent" xml:space="preserve">
-    <value>TabPageColors</value>
+    <value>TabPageTheme</value>
   </data>
   <data name="&gt;&gt;ActionUseColorsSystem.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
-  <data name="TabPageColors.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="TabPageTheme.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 25</value>
   </data>
-  <data name="TabPageColors.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="TabPageTheme.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
   </data>
-  <data name="TabPageColors.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="TabPageTheme.Size" type="System.Drawing.Size, System.Drawing">
     <value>426, 249</value>
   </data>
-  <data name="TabPageColors.TabIndex" type="System.Int32, mscorlib">
+  <data name="TabPageTheme.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
   </data>
-  <data name="TabPageColors.Text" xml:space="preserve">
+  <data name="TabPageTheme.Text" xml:space="preserve">
     <value>Theme</value>
   </data>
-  <data name="&gt;&gt;TabPageColors.Name" xml:space="preserve">
-    <value>TabPageColors</value>
+  <data name="&gt;&gt;TabPageTheme.Name" xml:space="preserve">
+    <value>TabPageTheme</value>
   </data>
-  <data name="&gt;&gt;TabPageColors.Type" xml:space="preserve">
+  <data name="&gt;&gt;TabPageTheme.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;TabPageColors.Parent" xml:space="preserve">
+  <data name="&gt;&gt;TabPageTheme.Parent" xml:space="preserve">
     <value>TabControl</value>
   </data>
-  <data name="&gt;&gt;TabPageColors.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;TabPageTheme.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
