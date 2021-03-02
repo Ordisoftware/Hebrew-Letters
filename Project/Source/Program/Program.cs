@@ -44,7 +44,6 @@ namespace Ordisoftware.Hebrew.Letters
         Application.SetCompatibleTextRenderingDefault(false);
         Language lang = Settings.LanguageSelected;
         SystemManager.CheckCommandLineArguments<ApplicationCommandLine>(args, ref lang);
-        Settings.LanguageSelected = lang;
         // No IPCAnswers
         // No IPCRequests
         bool upgrade = Settings.UpgradeRequired;
@@ -53,6 +52,8 @@ namespace Ordisoftware.Hebrew.Letters
         Settings.UpgradeRequired = upgrade;
         Globals.SettingsUpgraded = Globals.SettingsUpgraded && !Settings.FirstLaunch;
         CheckSettingsReset();
+        Settings.LanguageSelected = lang;
+        Settings.Save();
         Globals.Settings = Settings;
         Globals.MainForm = MainForm.Instance;
         DebugManager.Enabled = Settings.DebuggerEnabled;
@@ -84,7 +85,7 @@ namespace Ordisoftware.Hebrew.Letters
         }
         if ( Settings.FirstLaunchV4 )
         {
-          Settings.SetFirstAndUpgradeFlagsOff();
+          Settings.FirstLaunchV4 = false;
           Settings.FirstLaunch = true;
         }
         if ( Settings.LanguageSelected == Language.None )

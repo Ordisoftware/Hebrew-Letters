@@ -48,6 +48,7 @@
       this.PanelViewSearch = new System.Windows.Forms.Panel();
       this.EditGematriaFull = new Ordisoftware.Core.TextBoxEx();
       this.LabelGematriaFull = new System.Windows.Forms.Label();
+      this.LabelClipboardContentType = new System.Windows.Forms.Label();
       this.LabelGematriaSimple = new System.Windows.Forms.Label();
       this.ActionReset = new System.Windows.Forms.Button();
       this.ActionDelLast = new System.Windows.Forms.Button();
@@ -84,6 +85,7 @@
       this.DataSet = new Ordisoftware.Hebrew.Letters.Data.DataSet();
       this.TextBoxStructure = new Ordisoftware.Core.TextBoxEx();
       this.LabelHebrew = new System.Windows.Forms.Label();
+      this.ActionRestoreDefaults = new System.Windows.Forms.LinkLabel();
       this.TextBoxNegative = new Ordisoftware.Core.TextBoxEx();
       this.TextBoxName = new Ordisoftware.Core.TextBoxEx();
       this.TextBoxFunction = new Ordisoftware.Core.TextBoxEx();
@@ -98,7 +100,6 @@
       this.EditMeanings = new System.Windows.Forms.DataGridView();
       this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.MeaningsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-      this.ActionRestoreDefaults = new System.Windows.Forms.LinkLabel();
       this.PanelSepTop = new System.Windows.Forms.Panel();
       this.PanelTitle = new System.Windows.Forms.Panel();
       this.LabelTitle = new System.Windows.Forms.Label();
@@ -271,6 +272,7 @@
       this.PanelViewSearch.BackColor = System.Drawing.SystemColors.Control;
       this.PanelViewSearch.Controls.Add(this.EditGematriaFull);
       this.PanelViewSearch.Controls.Add(this.LabelGematriaFull);
+      this.PanelViewSearch.Controls.Add(this.LabelClipboardContentType);
       this.PanelViewSearch.Controls.Add(this.LabelGematriaSimple);
       this.PanelViewSearch.Controls.Add(this.ActionReset);
       this.PanelViewSearch.Controls.Add(this.ActionDelLast);
@@ -308,6 +310,12 @@
       resources.ApplyResources(this.LabelGematriaFull, "LabelGematriaFull");
       this.LabelGematriaFull.ForeColor = System.Drawing.SystemColors.GrayText;
       this.LabelGematriaFull.Name = "LabelGematriaFull";
+      // 
+      // LabelClipboardContentType
+      // 
+      resources.ApplyResources(this.LabelClipboardContentType, "LabelClipboardContentType");
+      this.LabelClipboardContentType.ForeColor = System.Drawing.SystemColors.GrayText;
+      this.LabelClipboardContentType.Name = "LabelClipboardContentType";
       // 
       // LabelGematriaSimple
       // 
@@ -606,6 +614,15 @@
       resources.ApplyResources(this.LabelHebrew, "LabelHebrew");
       this.LabelHebrew.Name = "LabelHebrew";
       // 
+      // ActionRestoreDefaults
+      // 
+      this.ActionRestoreDefaults.ActiveLinkColor = System.Drawing.Color.MediumBlue;
+      resources.ApplyResources(this.ActionRestoreDefaults, "ActionRestoreDefaults");
+      this.ActionRestoreDefaults.LinkColor = System.Drawing.Color.Navy;
+      this.ActionRestoreDefaults.Name = "ActionRestoreDefaults";
+      this.ActionRestoreDefaults.TabStop = true;
+      this.ActionRestoreDefaults.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ActionRestoreDefaults_LinkClicked);
+      // 
       // TextBoxNegative
       // 
       this.TextBoxNegative.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -758,15 +775,6 @@
       this.MeaningsBindingSource.AllowNew = true;
       this.MeaningsBindingSource.DataMember = "Letters_Meanings";
       this.MeaningsBindingSource.DataSource = this.LettersBindingSource;
-      // 
-      // ActionRestoreDefaults
-      // 
-      this.ActionRestoreDefaults.ActiveLinkColor = System.Drawing.Color.MediumBlue;
-      resources.ApplyResources(this.ActionRestoreDefaults, "ActionRestoreDefaults");
-      this.ActionRestoreDefaults.LinkColor = System.Drawing.Color.Navy;
-      this.ActionRestoreDefaults.Name = "ActionRestoreDefaults";
-      this.ActionRestoreDefaults.TabStop = true;
-      this.ActionRestoreDefaults.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ActionRestoreDefaults_LinkClicked);
       // 
       // PanelSepTop
       // 
@@ -1279,5 +1287,6 @@
     private System.Windows.Forms.Button ActionNext;
     private System.Windows.Forms.Button ActionFirst;
     private System.Windows.Forms.Button ActionPrevious;
+    public System.Windows.Forms.Label LabelClipboardContentType;
   }
 }

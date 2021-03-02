@@ -59,8 +59,10 @@
       // ListBoxLetters
       // 
       resources.ApplyResources(this.ListBoxLetters, "ListBoxLetters");
+      this.ListBoxLetters.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
       this.ListBoxLetters.FormattingEnabled = true;
       this.ListBoxLetters.Name = "ListBoxLetters";
+      this.ListBoxLetters.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ListBox_DrawItem);
       this.ListBoxLetters.SelectedIndexChanged += new System.EventHandler(this.ListBoxLetters_SelectedIndexChanged);
       this.ListBoxLetters.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ListBox_KeyDown);
       this.ListBoxLetters.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ListBoxLetters_MouseDoubleClick);
@@ -68,8 +70,10 @@
       // ListBoxMeanings
       // 
       resources.ApplyResources(this.ListBoxMeanings, "ListBoxMeanings");
+      this.ListBoxMeanings.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
       this.ListBoxMeanings.FormattingEnabled = true;
       this.ListBoxMeanings.Name = "ListBoxMeanings";
+      this.ListBoxMeanings.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.ListBox_DrawItem);
       this.ListBoxMeanings.SelectedIndexChanged += new System.EventHandler(this.ListBoxMeanings_SelectedIndexChanged);
       this.ListBoxMeanings.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ListBox_KeyDown);
       this.ListBoxMeanings.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ListBoxMeanings_MouseDoubleClick);

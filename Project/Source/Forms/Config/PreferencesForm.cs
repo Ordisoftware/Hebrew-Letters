@@ -74,6 +74,7 @@ namespace Ordisoftware.Hebrew.Letters
       EditAutoOpenExportFolder.Checked = Settings.AutoOpenExportFolder;
       EditAutoOpenExportedFile.Checked = Settings.AutoOpenExportedFile;
       EditImageExportFileFormat.Fill(Program.ImageExportTargets, Settings.ExportImagePreferredTarget);
+      LoadColors();
       IsReady = true;
     }
 
@@ -93,7 +94,26 @@ namespace Ordisoftware.Hebrew.Letters
       Settings.ExportFolder = EditExportFolder.Text;
       Settings.AutoOpenExportFolder = EditAutoOpenExportFolder.Checked;
       Settings.AutoOpenExportedFile = EditAutoOpenExportedFile.Checked;
+      SaveColors();
       Settings.Save();
+    }
+
+    private void LoadColors()
+    {
+      EditLettersBack.BackColor = Settings.ColorLettersPanel;
+      EditWordBack.BackColor = Settings.ColorHebrewWordTextBox;
+      EditAnalyseBack.BackColor = Settings.ColorMeaningsPanel;
+      EditEditableBack.BackColor = Settings.ColorSentenceTextBox;
+      EditReadonlyBack.BackColor = Settings.ColorGematriaTextBox;
+    }
+
+    private void SaveColors()
+    {
+      Settings.ColorLettersPanel = EditLettersBack.BackColor;
+      Settings.ColorHebrewWordTextBox = EditWordBack.BackColor;
+      Settings.ColorMeaningsPanel = EditAnalyseBack.BackColor;
+      Settings.ColorSentenceTextBox = EditEditableBack.BackColor;
+      Settings.ColorGematriaTextBox = EditReadonlyBack.BackColor;
     }
 
     private void EditDebuggerEnabled_CheckedChanged(object sender, EventArgs e)
@@ -178,8 +198,7 @@ namespace Ordisoftware.Hebrew.Letters
       Settings.CheckUpdateLastDone = lastupdate;
       Settings.VacuumLastDone = lastvacuum;
       Settings.LanguageSelected = Languages.Current;
-      Settings.FirstLaunchV4 = false;
-      Settings.FirstLaunch = false;
+      Settings.SetFirstAndUpgradeFlagsOff();
       Settings.Store();
       PreferencesForm_Shown(null, null);
       MainForm.Instance.EditSentence.Font = new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence);
@@ -237,23 +256,34 @@ namespace Ordisoftware.Hebrew.Letters
         EditExportFolder.Text = (string)Settings.Properties[nameof(Settings.ExportFolder)].DefaultValue;
     }
 
+    private void EditColor_Click(object sender, EventArgs e)
+    {
+      var panel = (Panel)sender;
+      DialogColor.Color = panel.BackColor;
+      if ( DialogColor.ShowDialog() == DialogResult.Cancel ) return;
+      panel.BackColor = DialogColor.Color;
+      MainForm.Instance.InitializeTheme();
+    }
+
     private void ActionUseColorsPastel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
-      Settings.ColorLettersPanel = Color.LightYellow;
-      Settings.ColorHebrewWordTextBox = Color.AliceBlue;
-      Settings.ColorMeaningsPanel = Color.MintCream;
-      Settings.ColorSentenceTextBox = SystemColors.Window;
-      Settings.ColorGematriaTextBox = Color.LavenderBlush;
+      EditLettersBack.BackColor  = Color.LightYellow;
+      EditWordBack.BackColor     = Color.AliceBlue;
+      EditAnalyseBack.BackColor  = Color.MintCream;
+      EditEditableBack.BackColor = SystemColors.Window;
+      EditReadonlyBack.BackColor = Color.LavenderBlush;
+      SaveColors();
       MainForm.Instance.InitializeTheme();
     }
 
     private void ActionUseColorsSystem_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
-      Settings.ColorLettersPanel = SystemColors.Window;
-      Settings.ColorHebrewWordTextBox = SystemColors.Window;
-      Settings.ColorMeaningsPanel = SystemColors.Window;
-      Settings.ColorSentenceTextBox = SystemColors.Window;
-      Settings.ColorGematriaTextBox = SystemColors.Control;
+      EditLettersBack.BackColor = SystemColors.Control;
+      EditWordBack.BackColor    = SystemColors.Window;
+      EditAnalyseBack.BackColor = SystemColors.Window;
+      EditEditableBack.BackColor= SystemColors.Window;
+      EditReadonlyBack.BackColor= SystemColors.Control;
+      SaveColors();
       MainForm.Instance.InitializeTheme();
     }
 

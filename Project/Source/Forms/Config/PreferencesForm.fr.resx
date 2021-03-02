@@ -178,6 +178,42 @@
   <data name="EditCheckUpdateAtStartup.Text" xml:space="preserve">
     <value>Vérifier mise à jour au démarrage</value>
   </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 13</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Fond lettres</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>94, 13</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Fond lecture seule</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>71, 13</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Fond éditable</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 13</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Fond mot</value>
+  </data>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 13</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>Fond analyze</value>
+  </data>
+  <data name="ActionUseColorsSystem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 13</value>
+  </data>
+  <data name="ActionUseColorsSystem.Text" xml:space="preserve">
+    <value>Système</value>
+  </data>
   <data name="TabPageAnalyzer.Text" xml:space="preserve">
     <value>Analyseur</value>
   </data>
@@ -222,21 +258,6 @@
   </data>
   <data name="EditAutoOpenExportFolder.Text" xml:space="preserve">
     <value>Ouvrir le dossier d'export en cas de succès</value>
-  </data>
-  <data name="TabPageColors.Text" xml:space="preserve">
-    <value>Theme</value>
-  </data>
-  <data name="ActionUseColorsPastel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 13</value>
-  </data>
-  <data name="ActionUseColorsPastel.Text" xml:space="preserve">
-    <value>Pastel</value>
-  </data>
-  <data name="ActionUseColorsSystem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>47, 13</value>
-  </data>
-  <data name="ActionUseColorsSystem.Text" xml:space="preserve">
-    <value>Système</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Préférences</value>

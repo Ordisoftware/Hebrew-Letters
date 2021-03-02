@@ -183,9 +183,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 ## Changelog
 
-#### 2021.03.12 - Version 5.0
-
->- Add english letters names and upgrade the matching database field.
+#### 2021.03.07 - Version 5.0
 
 - Optimize ComboBoxes creation (the old system is really much slower on Windows 10 than 7).
 - Add Windows double-buffering drawing to optimize startup.
@@ -210,6 +208,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Fix pasting unicode chars removes special final letters.
 - Improve data edition.
 - Improve copy and paste to support both Hebrew font and unicode chars from context menu and keyboard.
+- Improve search box to add Left and Right keys to switch between lists.
 - Improve check update to allow auto update or direct download or open app web page.
 - Improve check update to verify the SSL certificate of the website and the checksum of the setup file.
 - Improve debugger to support logging.
