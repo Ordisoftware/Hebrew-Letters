@@ -147,7 +147,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 | Ctrl + Tab | Next view |
 | Shift + Ctrl + Tab | Previous view |
 | F1 | Analyse view |
-| F2 | Settings view |
+| F2 | Data view |
 | F3 | Search a term |
 | Ctrl + Ins (or +) | Add meaning |
 | Ctrl + Del (or -) | Delete meaning |
@@ -188,7 +188,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 - Optimize ComboBoxes creation (the old system is really much slower on Windows 10 than 7).
 - Add Windows double-buffering drawing to optimize startup.
-- Add context menu on letters' buttons to allow inserting a letter or open its parameters.
+- Add context menu on letters' buttons to allow inserting a letter or open its data.
 - Add create and save a screenshot of the form.
 - Add open new window top menu button.
 - Add concurrency control to avoid database editing when multiple instances are running.
@@ -199,6 +199,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Add option to set automatic web check update frequency.
 - Add option to set application's volume.
 - Add Option to set color theme.
+- Add import and export settings.
 - Add sounds to clipboard actions.
 - Add keyboard shortcuts notice in windows settings menu.
 - Add news in version notice in the Information menu.

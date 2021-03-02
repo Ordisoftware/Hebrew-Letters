@@ -52,7 +52,7 @@ namespace Ordisoftware.Hebrew.Letters
         Settings.UpgradeRequired = upgrade;
         Globals.SettingsUpgraded = Globals.SettingsUpgraded && !Settings.FirstLaunch;
         CheckSettingsReset();
-        Settings.LanguageSelected = lang;
+        if (lang != Language.None) Settings.LanguageSelected = lang;
         Settings.Save();
         Globals.Settings = Settings;
         Globals.MainForm = MainForm.Instance;

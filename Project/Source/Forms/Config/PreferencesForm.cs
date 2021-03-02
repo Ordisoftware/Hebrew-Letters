@@ -13,6 +13,10 @@
 /// <created> 2019-09 </created>
 /// <edited> 2021-02 </edited>
 using System;
+using System.Linq;
+using System.Xml.Linq;
+using System.Xml.XPath;
+using System.Configuration;
 using System.Drawing;
 using System.Windows.Forms;
 using Ordisoftware.Core;
@@ -27,6 +31,7 @@ namespace Ordisoftware.Hebrew.Letters
     static private readonly Properties.Settings Settings = Program.Settings;
 
     static private bool LanguageChanged;
+    static private bool DoReset;
 
     static public void Run()
     {
@@ -35,10 +40,14 @@ namespace Ordisoftware.Hebrew.Letters
       while ( LanguageChanged )
       {
         LanguageChanged = false;
+        DoReset = false;
         form = new PreferencesForm();
         form.ShowDialog();
       }
     }
+
+    private NullSafeOfStringDictionary<DataExportTarget> ExportTarget
+      = ExportHelper.CreateExportTargets(DataExportTarget.XML);
 
     private bool IsReady;
 
@@ -46,6 +55,10 @@ namespace Ordisoftware.Hebrew.Letters
     {
       InitializeComponent();
       Icon = MainForm.Instance.Icon;
+      SaveSettingsDialog.InitialDirectory = Program.Settings.GetExportDirectory();
+      OpenSettingsDialog.InitialDirectory = SaveSettingsDialog.InitialDirectory;
+      SaveSettingsDialog.Filter = ExportTarget.CreateFilters();
+      OpenSettingsDialog.Filter = SaveSettingsDialog.Filter;
     }
 
     private void PreferencesForm_Load(object sender, EventArgs e)
@@ -80,22 +93,8 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void PreferencesForm_FormClosed(object sender, FormClosedEventArgs e)
     {
-      Settings.VacuumAtStartup = EditVacuumAtStartup.Checked;
-      Settings.DebuggerEnabled = EditDebuggerEnabled.Checked;
-      Settings.TraceEnabled = EditLogEnabled.Checked;
-      Settings.CheckUpdateAtStartup = EditCheckUpdateAtStartup.Checked;
-      Settings.AutoSortAnalysisMeanings = EditAutoSortAnalysisMeanings.Checked;
-      Settings.FontSizeSentence = EditFontSize.Value;
-      Settings.HebrewTextBoxMaxLength = EditMaxLength.Value;
-      Settings.WebLinksMenuEnabled = EditWebLinksMenuEnabled.Checked;
-      Settings.CheckUpdateAtStartupDaysInterval = (int)EditCheckUpdateAtStartupInterval.Value;
-      Settings.ApplicationVolume = EditVolume.Value;
-      Settings.UsageStatisticsEnabled = EditUsageStatisticsEnabled.Checked;
-      Settings.ExportFolder = EditExportFolder.Text;
-      Settings.AutoOpenExportFolder = EditAutoOpenExportFolder.Checked;
-      Settings.AutoOpenExportedFile = EditAutoOpenExportedFile.Checked;
-      SaveColors();
-      Settings.Save();
+      if ( DoReset ) return;
+      SaveSettings();
     }
 
     private void LoadColors()
@@ -114,6 +113,26 @@ namespace Ordisoftware.Hebrew.Letters
       Settings.ColorMeaningsPanel = EditAnalyseBack.BackColor;
       Settings.ColorSentenceTextBox = EditEditableBack.BackColor;
       Settings.ColorGematriaTextBox = EditReadonlyBack.BackColor;
+    }
+
+    private void SaveSettings()
+    {
+      Settings.VacuumAtStartup = EditVacuumAtStartup.Checked;
+      Settings.DebuggerEnabled = EditDebuggerEnabled.Checked;
+      Settings.TraceEnabled = EditLogEnabled.Checked;
+      Settings.CheckUpdateAtStartup = EditCheckUpdateAtStartup.Checked;
+      Settings.AutoSortAnalysisMeanings = EditAutoSortAnalysisMeanings.Checked;
+      Settings.FontSizeSentence = EditFontSize.Value;
+      Settings.HebrewTextBoxMaxLength = EditMaxLength.Value;
+      Settings.WebLinksMenuEnabled = EditWebLinksMenuEnabled.Checked;
+      Settings.CheckUpdateAtStartupDaysInterval = (int)EditCheckUpdateAtStartupInterval.Value;
+      Settings.ApplicationVolume = EditVolume.Value;
+      Settings.UsageStatisticsEnabled = EditUsageStatisticsEnabled.Checked;
+      Settings.ExportFolder = EditExportFolder.Text;
+      Settings.AutoOpenExportFolder = EditAutoOpenExportFolder.Checked;
+      Settings.AutoOpenExportedFile = EditAutoOpenExportedFile.Checked;
+      SaveColors();
+      Settings.Save();
     }
 
     private void EditDebuggerEnabled_CheckedChanged(object sender, EventArgs e)
@@ -285,6 +304,54 @@ namespace Ordisoftware.Hebrew.Letters
       EditReadonlyBack.BackColor= SystemColors.Control;
       SaveColors();
       MainForm.Instance.InitializeTheme();
+    }
+
+    private void ActionImportSettings_Click(object sender, EventArgs e)
+    {
+      OpenSettingsDialog.FileName = string.Empty;
+      if ( OpenSettingsDialog.ShowDialog() != DialogResult.OK ) return;
+      StatisticsForm.Instance.Hide();
+      long starttime = Settings.BenchmarkStartingApp;
+      long loadtime = Settings.BenchmarkLoadData;
+      try
+      {
+        var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.PerUserRoamingAndLocal);
+        string context = Properties.Settings.Default.Context["GroupName"].ToString();
+        var xmldata = XDocument.Load(OpenSettingsDialog.FileName);
+        var settings = xmldata.XPathSelectElements("//" + context);
+        var section = config.GetSectionGroup("userSettings").Sections[context].SectionInformation;
+        section.SetRawXml(settings.Single().ToString());
+        config.Save(ConfigurationSaveMode.Modified);
+        ConfigurationManager.RefreshSection("userSettings");
+        Settings.Reload();
+        Settings.BenchmarkStartingApp = starttime;
+        Settings.BenchmarkLoadData = loadtime;
+        Settings.Save();
+        Settings.Retrieve();
+        Settings.SetFirstAndUpgradeFlagsOff();
+        Program.UpdateLocalization();
+        LanguageChanged = true;
+        DoReset = true;
+        EditFontSize_ValueChanged(null, null);
+        MainForm.Instance.InitializeTheme();
+        Close();
+      }
+      catch ( Exception ex )
+      {
+        DisplayManager.ShowError(ex.Message);
+        Settings.Reload();
+      }
+    }
+
+    private void ActionExportSettings_Click(object sender, EventArgs e)
+    {
+      SaveSettingsDialog.FileName = "Settings";
+      if ( SaveSettingsDialog.ShowDialog() != DialogResult.OK ) return;
+      TabControl.SelectedIndex = 0;
+      SaveSettings();
+      Settings.Store();
+      var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.PerUserRoamingAndLocal);
+      config.SaveAs(SaveSettingsDialog.FileName);
     }
 
   }

@@ -34,6 +34,8 @@
       System.Windows.Forms.Label LabelCheckUpdateFrequency;
       this.ActionClose = new System.Windows.Forms.Button();
       this.PanelBottom = new System.Windows.Forms.Panel();
+      this.ActionExportSettings = new System.Windows.Forms.Button();
+      this.ActionImportSettings = new System.Windows.Forms.Button();
       this.ActionResetSettings = new System.Windows.Forms.LinkLabel();
       this.OpenFileDialog = new System.Windows.Forms.OpenFileDialog();
       this.FolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
@@ -84,6 +86,8 @@
       this.EditAutoOpenExportFolder = new System.Windows.Forms.CheckBox();
       this.EditExportFolder = new Ordisoftware.Core.TextBoxEx();
       this.DialogColor = new System.Windows.Forms.ColorDialog();
+      this.OpenSettingsDialog = new System.Windows.Forms.OpenFileDialog();
+      this.SaveSettingsDialog = new System.Windows.Forms.SaveFileDialog();
       LabelVolume = new System.Windows.Forms.Label();
       LabelCheckUpdateFrequency = new System.Windows.Forms.Label();
       this.PanelBottom.SuspendLayout();
@@ -118,10 +122,30 @@
       // 
       // PanelBottom
       // 
+      this.PanelBottom.Controls.Add(this.ActionExportSettings);
+      this.PanelBottom.Controls.Add(this.ActionImportSettings);
       this.PanelBottom.Controls.Add(this.ActionResetSettings);
       this.PanelBottom.Controls.Add(this.ActionClose);
       resources.ApplyResources(this.PanelBottom, "PanelBottom");
       this.PanelBottom.Name = "PanelBottom";
+      // 
+      // ActionExportSettings
+      // 
+      this.ActionExportSettings.AllowDrop = true;
+      this.ActionExportSettings.FlatAppearance.BorderSize = 0;
+      resources.ApplyResources(this.ActionExportSettings, "ActionExportSettings");
+      this.ActionExportSettings.Name = "ActionExportSettings";
+      this.ActionExportSettings.UseVisualStyleBackColor = true;
+      this.ActionExportSettings.Click += new System.EventHandler(this.ActionExportSettings_Click);
+      // 
+      // ActionImportSettings
+      // 
+      this.ActionImportSettings.AllowDrop = true;
+      this.ActionImportSettings.FlatAppearance.BorderSize = 0;
+      resources.ApplyResources(this.ActionImportSettings, "ActionImportSettings");
+      this.ActionImportSettings.Name = "ActionImportSettings";
+      this.ActionImportSettings.UseVisualStyleBackColor = true;
+      this.ActionImportSettings.Click += new System.EventHandler(this.ActionImportSettings_Click);
       // 
       // ActionResetSettings
       // 
@@ -647,5 +671,9 @@
     private System.Windows.Forms.Label label6;
     private System.Windows.Forms.Label label7;
     private System.Windows.Forms.ColorDialog DialogColor;
+    private System.Windows.Forms.Button ActionExportSettings;
+    private System.Windows.Forms.Button ActionImportSettings;
+    private System.Windows.Forms.OpenFileDialog OpenSettingsDialog;
+    private System.Windows.Forms.SaveFileDialog SaveSettingsDialog;
   }
 }
