@@ -37,7 +37,7 @@ namespace Ordisoftware.Hebrew.Letters
     {
       var form = new PreferencesForm();
       form.ShowDialog();
-      while ( LanguageChanged )
+      while ( LanguageChanged || DoReset )
       {
         LanguageChanged = false;
         DoReset = false;
@@ -93,8 +93,13 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void PreferencesForm_FormClosed(object sender, FormClosedEventArgs e)
     {
-      if ( DoReset ) return;
-      SaveSettings();
+      if ( DoReset )
+      {
+        EditFontSize_ValueChanged(null, null);
+        MainForm.Instance.InitializeTheme();
+      }
+      else
+        SaveSettings();
     }
 
     private void LoadColors()
@@ -210,19 +215,23 @@ namespace Ordisoftware.Hebrew.Letters
     {
       if ( !DisplayManager.QueryYesNo(SysTranslations.AskToResetPreferences.GetLang()) ) return;
       IsReady = false;
+      long starttime = Settings.BenchmarkStartingApp;
+      long loadtime = Settings.BenchmarkLoadData;
       var lastupdate = Settings.CheckUpdateLastDone;
       var lastvacuum = Settings.VacuumLastDone;
       Settings.Reset();
-      Settings.Reload();
+      Settings.SetFirstAndUpgradeFlagsOff();
       Settings.CheckUpdateLastDone = lastupdate;
       Settings.VacuumLastDone = lastvacuum;
       Settings.LanguageSelected = Languages.Current;
-      Settings.SetFirstAndUpgradeFlagsOff();
-      Settings.Store();
-      PreferencesForm_Shown(null, null);
+      Settings.BenchmarkStartingApp = starttime;
+      Settings.BenchmarkLoadData = loadtime;
+      Settings.RestoreMainForm();
+      Settings.Save();
       MainForm.Instance.EditSentence.Font = new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence);
       Program.GrammarGuideForm.CenterToMainFormElseScreen();
       Program.MethodNoticeForm.CenterToMainFormElseScreen();
+      DoReset = true;
       IsReady = true;
       Close();
     }
@@ -328,12 +337,10 @@ namespace Ordisoftware.Hebrew.Letters
         Settings.BenchmarkLoadData = loadtime;
         Settings.Save();
         Settings.Retrieve();
-        Settings.SetFirstAndUpgradeFlagsOff();
         Program.UpdateLocalization();
+        Settings.SetFirstAndUpgradeFlagsOff();
         LanguageChanged = true;
         DoReset = true;
-        EditFontSize_ValueChanged(null, null);
-        MainForm.Instance.InitializeTheme();
         Close();
       }
       catch ( Exception ex )
