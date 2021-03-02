@@ -38,6 +38,27 @@ namespace Ordisoftware.Hebrew.Letters
         [Language.FR] = "Lecture seule"
       };
 
+    static public readonly TranslationsDictionary ClipboardHebrew
+      = new TranslationsDictionary
+      {
+        [Language.EN] = "Hébrew",
+        [Language.FR] = "Hébreu"
+      };
+
+    static public readonly TranslationsDictionary ClipboardUnicode
+      = new TranslationsDictionary
+      {
+        [Language.EN] = "Unicode",
+        [Language.FR] = "Unicode"
+      };
+
+    static public readonly TranslationsDictionary ClipboardUncertain 
+      = new TranslationsDictionary
+      {
+        [Language.EN] = "Uncertain",
+        [Language.FR] = "Incertain"
+      };
+
   }
 
 }

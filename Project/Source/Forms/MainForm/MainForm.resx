@@ -424,7 +424,7 @@
     <value>Bottom, Left</value>
   </data>
   <data name="EditGematriaFull.Location" type="System.Drawing.Point, System.Drawing">
-    <value>540, 477</value>
+    <value>540, 480</value>
   </data>
   <data name="EditGematriaFull.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 20</value>
@@ -457,7 +457,7 @@
     <value>NoControl</value>
   </data>
   <data name="LabelGematriaFull.Location" type="System.Drawing.Point, System.Drawing">
-    <value>589, 480</value>
+    <value>589, 483</value>
   </data>
   <data name="LabelGematriaFull.Size" type="System.Drawing.Size, System.Drawing">
     <value>23, 13</value>
@@ -480,6 +480,42 @@
   <data name="&gt;&gt;LabelGematriaFull.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="LabelClipboardContentType.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="LabelClipboardContentType.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="LabelClipboardContentType.Location" type="System.Drawing.Point, System.Drawing">
+    <value>573, 109</value>
+  </data>
+  <data name="LabelClipboardContentType.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="LabelClipboardContentType.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 13</value>
+  </data>
+  <data name="LabelClipboardContentType.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="LabelClipboardContentType.Text" xml:space="preserve">
+    <value> </value>
+  </data>
+  <data name="LabelClipboardContentType.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="&gt;&gt;LabelClipboardContentType.Name" xml:space="preserve">
+    <value>LabelClipboardContentType</value>
+  </data>
+  <data name="&gt;&gt;LabelClipboardContentType.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LabelClipboardContentType.Parent" xml:space="preserve">
+    <value>PanelViewSearch</value>
+  </data>
+  <data name="&gt;&gt;LabelClipboardContentType.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="LabelGematriaSimple.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
   </data>
@@ -493,7 +529,7 @@
     <value>NoControl</value>
   </data>
   <data name="LabelGematriaSimple.Location" type="System.Drawing.Point, System.Drawing">
-    <value>589, 454</value>
+    <value>589, 457</value>
   </data>
   <data name="LabelGematriaSimple.Size" type="System.Drawing.Size, System.Drawing">
     <value>38, 13</value>
@@ -514,7 +550,7 @@
     <value>PanelViewSearch</value>
   </data>
   <data name="&gt;&gt;LabelGematriaSimple.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="ActionReset.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -547,7 +583,7 @@
     <value>PanelViewSearch</value>
   </data>
   <data name="&gt;&gt;ActionReset.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="ActionDelLast.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -583,7 +619,7 @@
     <value>PanelViewSearch</value>
   </data>
   <data name="&gt;&gt;ActionDelLast.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="ActionDelFirst.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -619,7 +655,7 @@
     <value>PanelViewSearch</value>
   </data>
   <data name="&gt;&gt;ActionDelFirst.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="EditCopyWithFinalLetter.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -649,7 +685,7 @@
     <value>PanelViewSearch</value>
   </data>
   <data name="&gt;&gt;EditCopyWithFinalLetter.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="EditCopyToClipboardCloseApp.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -661,7 +697,7 @@
     <value>NoControl</value>
   </data>
   <data name="EditCopyToClipboardCloseApp.Location" type="System.Drawing.Point, System.Drawing">
-    <value>574, 522</value>
+    <value>574, 525</value>
   </data>
   <data name="EditCopyToClipboardCloseApp.Size" type="System.Drawing.Size, System.Drawing">
     <value>52, 17</value>
@@ -682,7 +718,7 @@
     <value>PanelViewSearch</value>
   </data>
   <data name="&gt;&gt;EditCopyToClipboardCloseApp.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="SelectAnalyze.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left</value>
@@ -697,7 +733,7 @@
     <value>10, 10, 10, 10</value>
   </data>
   <data name="SelectAnalyze.Size" type="System.Drawing.Size, System.Drawing">
-    <value>510, 210</value>
+    <value>510, 213</value>
   </data>
   <data name="SelectAnalyze.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -712,7 +748,7 @@
     <value>PanelViewSearch</value>
   </data>
   <data name="&gt;&gt;SelectAnalyze.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <metadata name="ContextMenuSearchOnline.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>335, 53</value>
@@ -782,7 +818,7 @@
     <value>PanelViewSearch</value>
   </data>
   <data name="&gt;&gt;ActionSearchOnline.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="ActionPaste.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -835,7 +871,7 @@
     <value>PanelViewSearch</value>
   </data>
   <data name="&gt;&gt;ActionPaste.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="ActionCopyToHebrew.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -883,7 +919,7 @@
     <value>PanelViewSearch</value>
   </data>
   <data name="&gt;&gt;ActionCopyToHebrew.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="ActionCopyToUnicode.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -932,7 +968,7 @@
     <value>PanelViewSearch</value>
   </data>
   <data name="&gt;&gt;ActionCopyToUnicode.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>13</value>
   </data>
   <data name="ActionClear.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -988,7 +1024,7 @@
     <value>PanelViewSearch</value>
   </data>
   <data name="&gt;&gt;ActionClear.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>14</value>
   </data>
   <data name="ActionSaveScreenshot.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1051,7 +1087,7 @@
     <value>PanelViewSearch</value>
   </data>
   <data name="&gt;&gt;ActionSaveScreenshot.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>15</value>
   </data>
   <data name="ActionScreenshot.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1119,7 +1155,7 @@
     <value>PanelViewSearch</value>
   </data>
   <data name="&gt;&gt;ActionScreenshot.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>16</value>
   </data>
   <data name="ActionViewAllMeaningsList.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1176,7 +1212,7 @@
     <value>PanelViewSearch</value>
   </data>
   <data name="&gt;&gt;ActionViewAllMeaningsList.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>17</value>
   </data>
   <data name="ActionCopyToMeanings.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1237,7 +1273,7 @@
     <value>PanelViewSearch</value>
   </data>
   <data name="&gt;&gt;ActionCopyToMeanings.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>18</value>
   </data>
   <data name="ActionCopyToResult.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -1283,7 +1319,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionCopyToResult.Location" type="System.Drawing.Point, System.Drawing">
-    <value>531, 501</value>
+    <value>531, 504</value>
   </data>
   <data name="ActionCopyToResult.Size" type="System.Drawing.Size, System.Drawing">
     <value>42, 42</value>
@@ -1301,7 +1337,7 @@
     <value>PanelViewSearch</value>
   </data>
   <data name="&gt;&gt;ActionCopyToResult.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>19</value>
   </data>
   <data name="EditSentence.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -1310,7 +1346,7 @@
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="EditSentence.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 510</value>
+    <value>13, 513</value>
   </data>
   <data name="EditSentence.Size" type="System.Drawing.Size, System.Drawing">
     <value>510, 26</value>
@@ -1328,13 +1364,13 @@
     <value>PanelViewSearch</value>
   </data>
   <data name="&gt;&gt;EditSentence.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>20</value>
   </data>
   <data name="EditGematriaSimple.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
   </data>
   <data name="EditGematriaSimple.Location" type="System.Drawing.Point, System.Drawing">
-    <value>540, 451</value>
+    <value>540, 454</value>
   </data>
   <data name="EditGematriaSimple.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 20</value>
@@ -1352,7 +1388,7 @@
     <value>PanelViewSearch</value>
   </data>
   <data name="&gt;&gt;EditGematriaSimple.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>21</value>
   </data>
   <data name="LabelGematria.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -1367,7 +1403,7 @@
     <value>NoControl</value>
   </data>
   <data name="LabelGematria.Location" type="System.Drawing.Point, System.Drawing">
-    <value>537, 432</value>
+    <value>537, 435</value>
   </data>
   <data name="LabelGematria.Size" type="System.Drawing.Size, System.Drawing">
     <value>49, 13</value>
@@ -1388,7 +1424,7 @@
     <value>PanelViewSearch</value>
   </data>
   <data name="&gt;&gt;LabelGematria.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>22</value>
   </data>
   <data name="EditLetters.Location" type="System.Drawing.Point, System.Drawing">
     <value>13, 13</value>
@@ -1409,7 +1445,7 @@
     <value>PanelViewSearch</value>
   </data>
   <data name="&gt;&gt;EditLetters.ZOrder" xml:space="preserve">
-    <value>22</value>
+    <value>23</value>
   </data>
   <data name="PanelViewSearch.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -2236,7 +2272,7 @@
     <value>NoControl</value>
   </data>
   <data name="LabelHebrew.Location" type="System.Drawing.Point, System.Drawing">
-    <value>82, 27</value>
+    <value>92, 27</value>
   </data>
   <data name="LabelHebrew.Size" type="System.Drawing.Size, System.Drawing">
     <value>95, 38</value>

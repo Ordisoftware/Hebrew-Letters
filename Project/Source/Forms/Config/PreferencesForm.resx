@@ -823,7 +823,7 @@
     <value>Microsoft Sans Serif, 8.25pt</value>
   </data>
   <data name="EditAnalyseBack.Location" type="System.Drawing.Point, System.Drawing">
-    <value>224, 39</value>
+    <value>244, 39</value>
   </data>
   <data name="EditAnalyseBack.Size" type="System.Drawing.Size, System.Drawing">
     <value>25, 25</value>
@@ -847,7 +847,7 @@
     <value>Microsoft Sans Serif, 8.25pt</value>
   </data>
   <data name="EditWordBack.Location" type="System.Drawing.Point, System.Drawing">
-    <value>124, 39</value>
+    <value>134, 39</value>
   </data>
   <data name="EditWordBack.Size" type="System.Drawing.Size, System.Drawing">
     <value>25, 25</value>
@@ -871,7 +871,7 @@
     <value>Microsoft Sans Serif, 8.25pt</value>
   </data>
   <data name="EditEditableBack.Location" type="System.Drawing.Point, System.Drawing">
-    <value>126, 104</value>
+    <value>136, 104</value>
   </data>
   <data name="EditEditableBack.Size" type="System.Drawing.Size, System.Drawing">
     <value>25, 25</value>
@@ -958,7 +958,7 @@
     <value>NoControl</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>121, 85</value>
+    <value>131, 85</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>72, 13</value>
@@ -991,7 +991,7 @@
     <value>NoControl</value>
   </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>120, 20</value>
+    <value>130, 20</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
     <value>60, 13</value>
@@ -1024,7 +1024,7 @@
     <value>NoControl</value>
   </data>
   <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>220, 20</value>
+    <value>240, 20</value>
   </data>
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
     <value>71, 13</value>

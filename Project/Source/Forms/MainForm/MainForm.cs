@@ -39,20 +39,6 @@ namespace Ordisoftware.Hebrew.Letters
     static public MainForm Instance { get; private set; }
 
     /// <summary>
-    /// Enable double-buffering.
-    /// </summary>
-    protected override CreateParams CreateParams
-    {
-      get
-      {
-        CreateParams cp = base.CreateParams;
-        cp.ExStyle |= 0x02000000; // + WS_EX_COMPOSITED
-        //cp.Style &= ~0x02000000;  // - WS_CLIPCHILDREN
-        return cp;
-      }
-    }
-
-    /// <summary>
     /// Static constructor.
     /// </summary>
     static MainForm()
@@ -101,6 +87,66 @@ namespace Ordisoftware.Hebrew.Letters
     private bool AddNewRowMutex;
 
     /// <summary>
+    /// Enable double-buffering.
+    /// </summary>
+    protected override CreateParams CreateParams
+    {
+      get
+      {
+        CreateParams cp = base.CreateParams;
+        cp.ExStyle |= 0x02000000; // + WS_EX_COMPOSITED
+        //cp.Style &= ~0x02000000;  // - WS_CLIPCHILDREN
+        return cp;
+      }
+    }
+
+    /// <summary>
+    /// Clipboard monitoring.
+    /// </summary>
+    protected override void WndProc(ref Message m)
+    {
+      const int WM_DRAWCLIPBOARD = 0x308;
+      switch ( m.Msg )
+      {
+        case WM_DRAWCLIPBOARD:
+          CheckClipboardContentType();
+          break;
+        default:
+          base.WndProc(ref m);
+          break;
+      }
+    }
+
+    /// <summary>
+    /// Check clipboard content type.
+    /// </summary>
+    private void CheckClipboardContentType()
+    {
+      string str = Clipboard.GetText();
+      if ( str.IsNullOrEmpty() )
+      {
+        LabelClipboardContentType.Text = SysTranslations.EmptySlot.GetLang().Trim('(', ')');
+        ActionPaste.Enabled = false;
+      }
+      if ( HebrewAlphabet.IsValidHebrew(str) )
+      {
+        LabelClipboardContentType.Text = AppTranslations.ClipboardHebrew.GetLang(); ;
+        ActionPaste.Enabled = true;
+      }
+      else
+      if ( HebrewAlphabet.IsValidUnicode(str) )
+      {
+        LabelClipboardContentType.Text = AppTranslations.ClipboardUnicode.GetLang(); ;
+        ActionPaste.Enabled = true;
+      }
+      else
+      {
+        LabelClipboardContentType.Text = AppTranslations.ClipboardUncertain.GetLang(); ;
+        ActionPaste.Enabled = true;
+      }
+    }
+
+    /// <summary>
     /// Default constructor.
     /// </summary>
     private MainForm()
@@ -117,6 +163,7 @@ namespace Ordisoftware.Hebrew.Letters
       TextBoxEx.ActionCut.Click += TextBoxData_ContextMenuAction_Click;
       TextBoxEx.ActionPaste.Click += TextBoxData_ContextMenuAction_Click;
       TextBoxEx.ActionDelete.Click += TextBoxData_ContextMenuAction_Click;
+      NativeMethods.ClipboardViewerNext = NativeMethods.SetClipboardViewer(Handle);
     }
 
     /// <summary>
@@ -176,6 +223,8 @@ namespace Ordisoftware.Hebrew.Letters
       InitializeTheme();
       InitializeDialogsDirectory();
       ProcessLocksTable.Lock();
+      LabelClipboardContentType.Left = ActionCopyToUnicode.Left + ActionCopyToUnicode.Width / 2
+                                     - LabelClipboardContentType.Width / 2;
       EditLetters.Input.MaxLength = (int)Settings.HebrewTextBoxMaxLength;
       Program.Settings.CurrentView = ViewMode.Analyse;
       EditSentence.Font = new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence);
@@ -223,6 +272,7 @@ namespace Ordisoftware.Hebrew.Letters
       Globals.IsReady = true;
       SelectLetter_SelectedIndexChanged(SelectLetter, EventArgs.Empty);
       UpdateButtons(SelectLetter);
+      CheckClipboardContentType();
     }
 
     /// <summary>
@@ -261,12 +311,12 @@ namespace Ordisoftware.Hebrew.Letters
       TextBoxPositive.BackColor = Settings.ColorSentenceTextBox;
     }
 
-  /// <summary>
-  /// Event handler. Called by MainForm for form shown events.
-  /// </summary>
-  /// <param name="sender">Source of the event.</param>
-  /// <param name="e">Form closing event information.</param>
-  private void MainForm_Shown(object sender, EventArgs e)
+    /// <summary>
+    /// Event handler. Called by MainForm for form shown events.
+    /// </summary>
+    /// <param name="sender">Source of the event.</param>
+    /// <param name="e">Form closing event information.</param>
+    private void MainForm_Shown(object sender, EventArgs e)
     {
       SystemManager.TryCatch(Settings.Save);
       if ( Globals.IsExiting ) return;
@@ -1059,6 +1109,8 @@ namespace Ordisoftware.Hebrew.Letters
           EditMeanings.CancelEdit();
           EditMeanings.EndEdit();
           EditMeanings.Rows.Remove(EditMeanings.CurrentRow);
+          if ( EditMeanings.Rows.Count > 0 )
+            EditMeanings.Rows[EditMeanings.Rows.Count - 1].Selected = true;
           AddNewRowMutex = false;
           UpdateButtons(sender);
         }
