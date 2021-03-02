@@ -262,4 +262,7 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Préférences</value>
   </data>
+  <data name="TabPageTheme.Text" xml:space="preserve">
+    <value>Thème</value>
+  </data>
 </root>

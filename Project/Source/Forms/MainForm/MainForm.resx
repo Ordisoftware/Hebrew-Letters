@@ -487,13 +487,13 @@
     <value>NoControl</value>
   </data>
   <data name="LabelClipboardContentType.Location" type="System.Drawing.Point, System.Drawing">
-    <value>573, 109</value>
+    <value>573, 98</value>
   </data>
   <data name="LabelClipboardContentType.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
   <data name="LabelClipboardContentType.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 13</value>
+    <value>55, 26</value>
   </data>
   <data name="LabelClipboardContentType.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
