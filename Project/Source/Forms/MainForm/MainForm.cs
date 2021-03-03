@@ -1204,6 +1204,11 @@ namespace Ordisoftware.Hebrew.Letters
       DataSet.RejectChanges();
     }
 
+    private void LabelClipboardContentType_MouseHover(object sender, EventArgs e)
+    {
+      ToolTipClipboard.Show(Clipboard.GetText(), LabelClipboardContentType);
+    }
+
   }
 
 }

@@ -137,6 +137,7 @@
       this.ActionShowMethodNotice = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionShowGrammarGuide = new System.Windows.Forms.ToolStripMenuItem();
       this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+      this.ActionOpenShorashim = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionOpenShorashon = new System.Windows.Forms.ToolStripMenuItem();
       this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
       this.ActionOpenLexilogosOld = new System.Windows.Forms.ToolStripMenuItem();
@@ -148,7 +149,7 @@
       this.TableAdapterManager = new Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.TableAdapterManager();
       this.MeaningsTableAdapter = new Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.MeaningsTableAdapter();
       this.SaveImageDialog = new System.Windows.Forms.SaveFileDialog();
-      this.ActionOpenShorashim = new System.Windows.Forms.ToolStripMenuItem();
+      this.ToolTipClipboard = new System.Windows.Forms.ToolTip(this.components);
       LabelName = new System.Windows.Forms.Label();
       LabelStructure = new System.Windows.Forms.Label();
       LabelFunction = new System.Windows.Forms.Label();
@@ -317,6 +318,8 @@
       resources.ApplyResources(this.LabelClipboardContentType, "LabelClipboardContentType");
       this.LabelClipboardContentType.ForeColor = System.Drawing.SystemColors.GrayText;
       this.LabelClipboardContentType.Name = "LabelClipboardContentType";
+      this.ToolTipClipboard.SetToolTip(this.LabelClipboardContentType, resources.GetString("LabelClipboardContentType.ToolTip"));
+      this.LabelClipboardContentType.MouseHover += new System.EventHandler(this.LabelClipboardContentType_MouseHover);
       // 
       // LabelGematriaSimple
       // 
@@ -1079,6 +1082,12 @@
       this.toolStripSeparator4.Name = "toolStripSeparator4";
       resources.ApplyResources(this.toolStripSeparator4, "toolStripSeparator4");
       // 
+      // ActionOpenShorashim
+      // 
+      resources.ApplyResources(this.ActionOpenShorashim, "ActionOpenShorashim");
+      this.ActionOpenShorashim.Name = "ActionOpenShorashim";
+      this.ActionOpenShorashim.Tag = "www.hebrew.ch/verb-roots/";
+      // 
       // ActionOpenShorashon
       // 
       resources.ApplyResources(this.ActionOpenShorashon, "ActionOpenShorashon");
@@ -1137,12 +1146,6 @@
       // MeaningsTableAdapter
       // 
       this.MeaningsTableAdapter.ClearBeforeFill = true;
-      // 
-      // ActionOpenShorashim
-      // 
-      resources.ApplyResources(this.ActionOpenShorashim, "ActionOpenShorashim");
-      this.ActionOpenShorashim.Name = "ActionOpenShorashim";
-      this.ActionOpenShorashim.Tag = "www.hebrew.ch/verb-roots/";
       // 
       // MainForm
       // 
@@ -1297,5 +1300,6 @@
     private System.Windows.Forms.Button ActionPrevious;
     public System.Windows.Forms.Label LabelClipboardContentType;
     private System.Windows.Forms.ToolStripMenuItem ActionOpenShorashim;
+    private System.Windows.Forms.ToolTip ToolTipClipboard;
   }
 }
