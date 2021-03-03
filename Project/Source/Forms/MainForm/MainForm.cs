@@ -23,6 +23,9 @@ using Microsoft.Win32;
 using Humanizer;
 using Ordisoftware.Core;
 
+// TODO clear meanings & doanalyse if data restored
+// TODO bouton del start & end or reset => undoable
+
 namespace Ordisoftware.Hebrew.Letters
 {
 
@@ -60,11 +63,6 @@ namespace Ordisoftware.Hebrew.Letters
     /// Indicate if database has been upgraded.
     /// </summary>
     private bool IsDBUpgraded;
-
-    /// <summary>
-    /// Indicate if data is read only.
-    /// </summary>
-    private bool IsReadOnly;
 
     /// <summary>
     /// Indicate the last term searched.
@@ -435,20 +433,21 @@ namespace Ordisoftware.Hebrew.Letters
     private void TimerProcesses_Tick(object sender, EventArgs e)
     {
       //if ( !SQLiteOdbcHelper.CheckProcessConcurency() ) return;
-      IsReadOnly = ProcessLocksTable.IsReadOnly();
+      Globals.IsReadOnly = ProcessLocksTable.IsReadOnly();
       Text = Globals.AssemblyTitle;
-      if ( IsReadOnly ) Text += " - " + AppTranslations.ReadOnly.GetLang();
-      TextBoxPositive.ReadOnly = IsReadOnly;
-      TextBoxNegative.ReadOnly = IsReadOnly;
-      TextBoxVerb.ReadOnly = IsReadOnly;
-      TextBoxStructure.ReadOnly = IsReadOnly;
-      TextBoxFunction.ReadOnly = IsReadOnly;
-      EditMeanings.ReadOnly = IsReadOnly;
-      ActionAddMeaning.Enabled = !IsReadOnly;
-      ActionDeleteMeaning.Enabled = !IsReadOnly;
-      ActionPreferences.Enabled = !IsReadOnly;
-      ActionRestoreDefaults.Enabled = !IsReadOnly;
-      TimerProcesses.Enabled = IsReadOnly;
+      if ( Globals.IsReadOnly ) Text += " - " + AppTranslations.ReadOnly.GetLang();
+      TextBoxPositive.ReadOnly = Globals.IsReadOnly;
+      TextBoxNegative.ReadOnly = Globals.IsReadOnly;
+      TextBoxVerb.ReadOnly = Globals.IsReadOnly;
+      TextBoxStructure.ReadOnly = Globals.IsReadOnly;
+      TextBoxFunction.ReadOnly = Globals.IsReadOnly;
+      EditMeanings.ReadOnly = Globals.IsReadOnly;
+      ActionAddMeaning.Enabled = !Globals.IsReadOnly;
+      ActionDeleteMeaning.Enabled = !Globals.IsReadOnly;
+      ActionSettings.Enabled = !Globals.IsReadOnly;
+      ActionPreferences.Enabled = !Globals.IsReadOnly;
+      ActionRestoreDefaults.Enabled = !Globals.IsReadOnly;
+      TimerProcesses.Enabled = Globals.IsReadOnly;
     }
 
     /// <summary>
@@ -937,7 +936,7 @@ namespace Ordisoftware.Hebrew.Letters
     private void ActionSave_Click(object sender, EventArgs e)
     {
       if ( DataSet.HasChanges() )
-        if ( IsReadOnly )
+        if ( Globals.IsReadOnly )
           DataSet.RejectChanges();
         else
         {
@@ -1033,7 +1032,7 @@ namespace Ordisoftware.Hebrew.Letters
       if ( TextBoxDataContextMenuMutex ) return;
       TextBoxDataContextMenuMutex = true;
       var textbox = TextBoxEx.GetTextBox(sender);
-      ( (ContextMenuStrip)sender ).Enabled = (string)textbox.Tag != "data" || !IsReadOnly;
+      ( (ContextMenuStrip)sender ).Enabled = (string)textbox.Tag != "data" || !Globals.IsReadOnly;
     }
 
     private void TextBoxData_ContextMenuEditOpened(object sender, EventArgs e)
@@ -1165,8 +1164,8 @@ namespace Ordisoftware.Hebrew.Letters
         forceEditMode = forceEditMode || EditMeanings.IsCurrentCellInEditMode || AddNewRowMutex;
         if ( SelectLetter.SelectedItem == null ) return;
         var row = (Data.DataSet.LettersRow)( (DataRowView)SelectLetter.SelectedItem ).Row;
-        ActionAddMeaning.Enabled = !IsReadOnly && !forceEditMode;
-        ActionDeleteMeaning.Enabled = !IsReadOnly && !forceEditMode && row.GetMeaningsRows().Length > 0;
+        ActionAddMeaning.Enabled = !Globals.IsReadOnly && !forceEditMode;
+        ActionDeleteMeaning.Enabled = !Globals.IsReadOnly && !forceEditMode && row.GetMeaningsRows().Length > 0;
         ActionSave.Enabled = ( DataSet.HasChanges() && !forceEditMode ) || ( forceEditMode && sender is TextBox );
         ActionUndo.Enabled = ActionSave.Enabled;
         Globals.AllowClose = !ActionSave.Enabled && !forceEditMode;
