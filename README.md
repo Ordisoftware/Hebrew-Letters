@@ -50,7 +50,7 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 - Startup speed and analysis combo boxes creation are optimized.
 - Data edition is only possible by one instance at a time.
 - Data edition is improved to have save and cancel behavior.
-- Improved and fixed copy, paste and delete for both Hebrew font chars and unicode.
+- Improved and fixed copy, cut and paste for both Hebrew font chars and unicode.
 - Added New in version in the Information menu.
 - Added link to online Shorashim roots database.
 - New top menu icon to open a new window.
@@ -59,8 +59,8 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 - New usage statistics window.
 - Rework of the preferences window design with more options.
 - Some improvements in appearance and function.
-- Modification and addition of web links and online providers for the study of words and verses of the Bible.
 - Incorporate common code written since more than one year for Hebrew Calendar.
+- Modification and addition of web links and online providers for the study of words and verses of the Bible.
 
 [Last release](https://github.com/Ordisoftware/Hebrew-Letters/releases/latest)
 
@@ -229,6 +229,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Add Newtonsoft.Json NuGet package.
 - Add MoreLINQ NuGet package.
 - Add Enums.NET NuGet package.
+- Add Humanizer NuGet package.
 - Add Global Shortcut Manager dependency.
 - Add InputSimulatorStandard NuGet package.
 - Add Serilog NuGet package.
