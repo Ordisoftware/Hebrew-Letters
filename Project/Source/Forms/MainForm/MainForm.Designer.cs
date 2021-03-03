@@ -1087,6 +1087,7 @@
       resources.ApplyResources(this.ActionOpenShorashim, "ActionOpenShorashim");
       this.ActionOpenShorashim.Name = "ActionOpenShorashim";
       this.ActionOpenShorashim.Tag = "www.hebrew.ch/verb-roots/";
+      this.ActionOpenShorashim.Click += new System.EventHandler(this.ActionOpenWebsiteURL_Click);
       // 
       // ActionOpenShorashon
       // 
