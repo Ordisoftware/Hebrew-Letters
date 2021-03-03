@@ -27,6 +27,12 @@ namespace Ordisoftware.Hebrew.Letters
 
     private object[][] LettersMeanings = new object[400 + 1][];
 
+    private void ClearLettersMeanings()
+    {
+      for ( int index = 0; index < LettersMeanings.GetUpperBound(0); index++ )
+        LettersMeanings[index] = null;
+    }
+
     private void DoAnalyse()
     {
       try
