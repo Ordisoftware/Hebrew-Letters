@@ -148,6 +148,7 @@
       this.TableAdapterManager = new Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.TableAdapterManager();
       this.MeaningsTableAdapter = new Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.MeaningsTableAdapter();
       this.SaveImageDialog = new System.Windows.Forms.SaveFileDialog();
+      this.ActionOpenShorashim = new System.Windows.Forms.ToolStripMenuItem();
       LabelName = new System.Windows.Forms.Label();
       LabelStructure = new System.Windows.Forms.Label();
       LabelFunction = new System.Windows.Forms.Label();
@@ -1054,6 +1055,7 @@
             this.ActionShowMethodNotice,
             this.ActionShowGrammarGuide,
             this.toolStripSeparator4,
+            this.ActionOpenShorashim,
             this.ActionOpenShorashon,
             this.toolStripSeparator3,
             this.ActionOpenLexilogosOld,
@@ -1135,6 +1137,12 @@
       // MeaningsTableAdapter
       // 
       this.MeaningsTableAdapter.ClearBeforeFill = true;
+      // 
+      // ActionOpenShorashim
+      // 
+      resources.ApplyResources(this.ActionOpenShorashim, "ActionOpenShorashim");
+      this.ActionOpenShorashim.Name = "ActionOpenShorashim";
+      this.ActionOpenShorashim.Tag = "www.hebrew.ch/verb-roots/";
       // 
       // MainForm
       // 
@@ -1288,5 +1296,6 @@
     private System.Windows.Forms.Button ActionFirst;
     private System.Windows.Forms.Button ActionPrevious;
     public System.Windows.Forms.Label LabelClipboardContentType;
+    private System.Windows.Forms.ToolStripMenuItem ActionOpenShorashim;
   }
 }

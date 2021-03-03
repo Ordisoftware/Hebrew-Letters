@@ -39,17 +39,18 @@ namespace Ordisoftware.Hebrew.Letters
                         "F1 : Analyse view" + Globals.NL +
                         "F2 : Settings view" + Globals.NL +
                         "F3 : Search term" + Globals.NL +
-                        "Ctrl + Ins (or +) : Add meaning" + Globals.NL +
-                        "Ctrl + Del (or -) : Delete meaning" + Globals.NL +
                         "Ctrl + Home : First letter" + Globals.NL +
                         "Ctrl + End : Last letter" + Globals.NL +
                         "Ctrl + PageUp : Previous letter" + Globals.NL +
                         "Ctrl + PageDn : Next letter" + Globals.NL +
+                        "Ctrl + Ins (or +) : Add meaning" + Globals.NL +
+                        "Ctrl + Del (or -) : Delete meaning" + Globals.NL +
                         "Ctrl + S : Save changes" + Globals.NL +
                         "Ctrl + Back : Cancel changes" + Globals.NL +
                         "Ctrl + M : Open lettriq analysis method notice" + Globals.NL +
                         "Ctrl + G : Open grammar guide" + Globals.NL +
-                        "Ctrl + L : Open Shorashon web page" + Globals.NL +
+                        "Ctrl + Shift + R : Open Shorashon web page" + Globals.NL +
+                        "Ctrl + Alt + R : Open Shorashim web page" + Globals.NL +
                         "Ctrl + N : New window" + Globals.NL +
                         "Alt + T : Show tools menu" + Globals.NL +
                         "Alt + L : Show web links menu" + Globals.NL +
@@ -67,17 +68,18 @@ namespace Ordisoftware.Hebrew.Letters
                         "F1 : Vue d'analyse" + Globals.NL +
                         "F2 : Vue des paramètres" + Globals.NL +
                         "F3 : Recherche d'un terme" + Globals.NL +
-                        "Ctrl + Ins (ou +) : Ajoute une signification" + Globals.NL +
-                        "Ctrl + Suppr (ou -) : Efface une signification" + Globals.NL +
                         "Ctrl + Début : Première lettre" + Globals.NL +
                         "Ctrl + Fin : Dernière lettre" + Globals.NL +
                         "Ctrl + PagePrec : Letter précédente" + Globals.NL +
                         "Ctrl + PageSuiv : Letter suivante" + Globals.NL +
+                        "Ctrl + Ins (ou +) : Ajoute une signification" + Globals.NL +
+                        "Ctrl + Suppr (ou -) : Efface une signification" + Globals.NL +
                         "Ctrl + S : Sauve les changements" + Globals.NL +
                         "Ctrl + Back : Annule les changements" + Globals.NL +
                         "Ctrl + M : Ouvre la notice de la méthode d'analyse lettrique" + Globals.NL +
                         "Ctrl + G : Ouvre le guide de grammaire" + Globals.NL +
-                        "Ctrl + L : Ouvre la page web Shorashon" + Globals.NL +
+                        "Ctrl + Maj + R : Ouvre la page web Shorashon" + Globals.NL +
+                        "Ctrl + Alt + R : Ouvre la page web Shorashim" + Globals.NL +
                         "Ctrl + N : Nouvelle fenêtre" + Globals.NL +
                         "Alt + T : Montre le menu des outils" + Globals.NL +
                         "Alt + L : Montre le menu des liens web" + Globals.NL +
