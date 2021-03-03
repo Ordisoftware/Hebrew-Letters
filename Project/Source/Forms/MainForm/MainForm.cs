@@ -20,6 +20,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
 using Microsoft.Win32;
+using Humanizer;
 using Ordisoftware.Core;
 
 namespace Ordisoftware.Hebrew.Letters
@@ -124,7 +125,7 @@ namespace Ordisoftware.Hebrew.Letters
       string str = Clipboard.GetText();
       if ( str.IsNullOrEmpty() )
       {
-        LabelClipboardContentType.Text = SysTranslations.EmptySlot.GetLang().Trim('(', ')');
+        LabelClipboardContentType.Text = SysTranslations.UnknownSlot.GetLang().Trim('(', ')').Titleize();
         ActionPaste.Enabled = false;
         return;
       }
@@ -1202,6 +1203,11 @@ namespace Ordisoftware.Hebrew.Letters
       if ( !Globals.IsReady ) return;
       e.Exception.Manage();
       DataSet.RejectChanges();
+    }
+
+    private void LabelClipboardContentType_MouseHover(object sender, EventArgs e)
+    {
+      ToolTipClipboard.Show(Clipboard.GetText(), LabelClipboardContentType);
     }
 
   }

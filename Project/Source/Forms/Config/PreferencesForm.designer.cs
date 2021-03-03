@@ -56,6 +56,8 @@
       this.EditCheckUpdateAtStartupInterval = new System.Windows.Forms.NumericUpDown();
       this.LabelCheckUpdateAtStartupInfo = new System.Windows.Forms.Label();
       this.TabPageTheme = new System.Windows.Forms.TabPage();
+      this.ActionOpenTheme = new System.Windows.Forms.Button();
+      this.ActionSaveTheme = new System.Windows.Forms.Button();
       this.label3 = new System.Windows.Forms.Label();
       this.EditLettersBack = new System.Windows.Forms.Panel();
       this.EditAnalyseBack = new System.Windows.Forms.Panel();
@@ -88,6 +90,8 @@
       this.DialogColor = new System.Windows.Forms.ColorDialog();
       this.OpenSettingsDialog = new System.Windows.Forms.OpenFileDialog();
       this.SaveSettingsDialog = new System.Windows.Forms.SaveFileDialog();
+      this.SaveThemeDialog = new System.Windows.Forms.SaveFileDialog();
+      this.OpenThemeDialog = new System.Windows.Forms.OpenFileDialog();
       LabelVolume = new System.Windows.Forms.Label();
       LabelCheckUpdateFrequency = new System.Windows.Forms.Label();
       this.PanelBottom.SuspendLayout();
@@ -313,6 +317,8 @@
       // 
       this.TabPageTheme.BackColor = System.Drawing.Color.White;
       this.TabPageTheme.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.TabPageTheme.Controls.Add(this.ActionOpenTheme);
+      this.TabPageTheme.Controls.Add(this.ActionSaveTheme);
       this.TabPageTheme.Controls.Add(this.label3);
       this.TabPageTheme.Controls.Add(this.EditLettersBack);
       this.TabPageTheme.Controls.Add(this.EditAnalyseBack);
@@ -327,6 +333,22 @@
       this.TabPageTheme.Controls.Add(this.ActionUseColorsSystem);
       resources.ApplyResources(this.TabPageTheme, "TabPageTheme");
       this.TabPageTheme.Name = "TabPageTheme";
+      // 
+      // ActionOpenTheme
+      // 
+      this.ActionOpenTheme.FlatAppearance.BorderSize = 0;
+      resources.ApplyResources(this.ActionOpenTheme, "ActionOpenTheme");
+      this.ActionOpenTheme.Name = "ActionOpenTheme";
+      this.ActionOpenTheme.UseVisualStyleBackColor = true;
+      this.ActionOpenTheme.Click += new System.EventHandler(this.ActionOpenTheme_Click);
+      // 
+      // ActionSaveTheme
+      // 
+      this.ActionSaveTheme.FlatAppearance.BorderSize = 0;
+      resources.ApplyResources(this.ActionSaveTheme, "ActionSaveTheme");
+      this.ActionSaveTheme.Name = "ActionSaveTheme";
+      this.ActionSaveTheme.UseVisualStyleBackColor = true;
+      this.ActionSaveTheme.Click += new System.EventHandler(this.ActionSaveTheme_Click);
       // 
       // label3
       // 
@@ -581,6 +603,15 @@
       // 
       this.DialogColor.FullOpen = true;
       // 
+      // SaveThemeDialog
+      // 
+      resources.ApplyResources(this.SaveThemeDialog, "SaveThemeDialog");
+      // 
+      // OpenThemeDialog
+      // 
+      this.OpenThemeDialog.FileName = "openFileDialog1";
+      resources.ApplyResources(this.OpenThemeDialog, "OpenThemeDialog");
+      // 
       // PreferencesForm
       // 
       this.AcceptButton = this.ActionClose;
@@ -675,5 +706,9 @@
     private System.Windows.Forms.Button ActionImportSettings;
     private System.Windows.Forms.OpenFileDialog OpenSettingsDialog;
     private System.Windows.Forms.SaveFileDialog SaveSettingsDialog;
+    private System.Windows.Forms.Button ActionOpenTheme;
+    private System.Windows.Forms.Button ActionSaveTheme;
+    private System.Windows.Forms.SaveFileDialog SaveThemeDialog;
+    private System.Windows.Forms.OpenFileDialog OpenThemeDialog;
   }
 }

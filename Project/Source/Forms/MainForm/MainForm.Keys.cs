@@ -43,10 +43,12 @@ namespace Ordisoftware.Hebrew.Letters
           return true;
         // Change view
         case Keys.Control | Keys.Shift | Keys.Tab:
-          SetView(Settings.CurrentView.Previous());
+          if ( Globals.AllowClose )
+            SetView(Settings.CurrentView.Previous());
           return true;
         case Keys.Control | Keys.Tab:
-          SetView(Settings.CurrentView.Next());
+          if ( Globals.AllowClose )
+            SetView(Settings.CurrentView.Next());
           return true;
         case Keys.F1:
           ActionViewAnalysis.PerformClick();
@@ -86,7 +88,7 @@ namespace Ordisoftware.Hebrew.Letters
           return true;
       }
       // Letters navigation
-      if ( Settings.CurrentView == ViewMode.Settings && !ActionSave.Enabled )
+      if ( Globals.AllowClose )
         switch ( keyData )
         {
           case Keys.Control | Keys.Home:
