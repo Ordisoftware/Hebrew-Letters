@@ -30,22 +30,22 @@ namespace Ordisoftware.Hebrew.Letters
 
         ["1.x"] = new TranslationsDictionary
         {
-          [Language.EN] = "Initial release.",
+          [Language.EN] = "Initial release with basic combo boxes.",
 
-          [Language.FR] = "Version initiale."
+          [Language.FR] = "Version initiale avec boites combos de base."
         },
 
         ["2.x"] = new TranslationsDictionary
         {
           [Language.EN] = "Added copy list of meanings for current word." + Globals.NL +
-                          "Improved user interface." + Globals.NL +
-                          "Improved preferences." + Globals.NL +
-                          "Improved meanings.",
+                          "Improved meanings." + Globals.NL +
+                          "Improved interface." + Globals.NL +
+                          "Improved preferences.",
 
           [Language.FR] = "Ajout de la copie de la liste des significations du mot actuel." + Globals.NL +
-                          "Interface utilisateur améliorée." + Globals.NL +
-                          "Préférences améliorées." + Globals.NL +
-                          "Significations améliorées."
+                          "Significations améliorées." + Globals.NL +
+                          "Interface améliorée." + Globals.NL +
+                          "Préférences améliorées."
         },
 
         ["3.x"] = new TranslationsDictionary
@@ -61,7 +61,7 @@ namespace Ordisoftware.Hebrew.Letters
                           "Ajout de boutons pour copier et coller à partir de caractères Unicode." + Globals.NL +
                           "Ajout d'un bouton de recherche en ligne pour plusieurs fournisseurs comme Pealim et Wiktionary." + Globals.NL +
                           "Ajout de quelques options de préférences." + Globals.NL +
-                          "Utilisation d'un TextBox avancée pour permettre de copier, couper, coller, tout sélectionner et supprimer." + Globals.NL +
+                          "Utilisation d'un TextBox avancé pour permettre de copier, couper, coller, tout sélectionner et supprimer." + Globals.NL +
                           "Améliorations générales et quelques corrections."
         },
 
@@ -78,7 +78,7 @@ namespace Ordisoftware.Hebrew.Letters
                           "Ajout d'un guide de grammaire." + Globals.NL +
                           "Ajout d'un menu de liens Web." + Globals.NL +
                           "Ajout de quelques options de préférences." + Globals.NL +
-                          "Ajout d'un débogueur et d'un logger" + Globals.NL +
+                          "Ajout d'un débogueur et d'un logguer" + Globals.NL +
                           "Améliorations générales et quelques corrections."
         },
 
@@ -88,7 +88,7 @@ namespace Ordisoftware.Hebrew.Letters
                           "Startup speed and analysis combo boxes creation are optimized." + Globals.NL +
                           "Data edition is only possible by one instance at a time." + Globals.NL +
                           "Data edition is improved to have save and cancel behavior." + Globals.NL +
-                          "Improved and fixed copy, paste and delete for both Hebrew font chars and unicode." + Globals.NL +
+                          "Improved and fixed copy, cut and paste for both Hebrew font chars and unicode." + Globals.NL +
                           "Added New in version in the Information menu." + Globals.NL +
                           "Added link to online Shorashim roots database." + Globals.NL +
                           "New top menu icon to open a new window." + Globals.NL +
@@ -97,24 +97,24 @@ namespace Ordisoftware.Hebrew.Letters
                           "New usage statistics window." + Globals.NL +
                           "Rework of the preferences window design with more options." + Globals.NL +
                           "Some improvements in appearance and function." + Globals.NL +
-                          "Modification and addition of web links and online providers for the study of words and verses of the Bible." + Globals.NL +
-                          "Incorporate common code written since more than one year for Hebrew Calendar.",
+                          "Incorporate common code written since more than one year for Hebrew Calendar." + Globals.NL +
+                          "Modification and addition of web links and online providers for the study of words and verses of the Bible.",
 
           [Language.FR] = "Ajout d'options de ligne de commande (voir la FAQ de l'aide)." + Globals.NL +
                           "Le temps de démarrage et la création des boites combos d'analyse sont optimisé." + Globals.NL +
                           "L'édition des données est possible seulement par une seule instance à la fois." + Globals.NL +
                           "L'édition des données est améliorée pour avoir le comportement sauver et annuler." + Globals.NL +
-                          "Amélioration et correction du copier, coller et supprimer pour les caractères de police hébreu et unicode." + Globals.NL +
+                          "Amélioration et correction du copier, couper et coller pour les caractères de police hébreu et unicode." + Globals.NL +
                           "Ajout des Nouveautés de version dans le menu Information." + Globals.NL +
-                          "Ajout d'un lien vers une base de données en ligne des racines Shorashim." + Globals.NL +
+                          "Ajout d'un lien vers une base de données en ligne de racines Shorashim." + Globals.NL +
                           "Nouvelle icône de menu principal pour ouvrir une nouvelle fenêtre." + Globals.NL +
                           "Nouveau menu contextuel pour les boutons des lettres." + Globals.NL +
                           "Nouveau bouton de capture d'écran." + Globals.NL +
                           "Nouvelle fenêtre de statistiques d'utilisation." + Globals.NL +
                           "Refonte de la fenêtre des préférences avec ajout d'options." + Globals.NL +
                           "Quelques améliorations d'aspect et de fonctionnement." + Globals.NL +
-                          "Modification et ajouts de liens web et de fournisseurs en ligne pour l'étude des mots et des versets de la Bible." + Globals.NL +
-                          "Incorporation du code commun écrit depuis plus d'un an pour Hebrew Calendar."
+                          "Incorporation du code commun écrit depuis plus d'un an pour Hebrew Calendar." + Globals.NL +
+                          "Modification et ajouts de liens web et de fournisseurs en ligne pour l'étude des mots et des versets de la Bible."
         }
 
       };
