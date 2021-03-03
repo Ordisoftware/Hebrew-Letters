@@ -46,19 +46,21 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 
 **What's new in the latest version**
 
+- Added command-line options(see FAQ)
 - Startup speed and analysis combo boxes creation are optimized.
-- Modification of the database is only possible by one instance at a time.
+- Data edition is only possible by one instance at a time.
 - Data edition is improved to have save and cancel behavior.
-- Fixed and improved copy, paste and delete for both Hebrew font chars and unicode.
+- Improved and fixed copy, paste and delete for both Hebrew font chars and unicode.
+- Added New in version in the Information menu.
+- Added link to online Shorashim roots database.
 - New top menu icon to open a new window.
 - New context menu on letters' buttons.
-- New screenshot and save buttons.
+- New screenshot button.
 - New usage statistics window.
 - Rework of the preferences window design with more options.
-- Incorporate common code written since more than one year for Hebrew Calendar.
-- Added new in version in the Information menu.
-- Modification and addition of web links and online providers for the study of words and verses of the Bible.
 - Some improvements in appearance and function.
+- Modification and addition of web links and online providers for the study of words and verses of the Bible.
+- Incorporate common code written since more than one year for Hebrew Calendar.
 
 [Last release](https://github.com/Ordisoftware/Hebrew-Letters/releases/latest)
 
@@ -149,18 +151,19 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 | F1 | Analyze view |
 | F2 | Data view |
 | F3 | Search a term |
-| Ctrl + Ins (or +) | Add meaning |
-| Ctrl + Del (or -) | Delete meaning |
 | Ctrl + Home | First letter |
 | Ctrl + End | Last letter |
 | Ctrl + PageUp | Previous letter |
 | Ctrl + PageDn | Next letter |
+| Ctrl + Ins (or +) | Add meaning |
+| Ctrl + Del (or -) | Delete meaning |
 | Ctrl + S | Save changes |
 | Ctrl + Back | Cancel changes |
-| Ctrl+M | Open the lettriq analysis method notice |
-| Ctrl+G | Open the grammar guide |
-| Ctrl+L | Open Shorashon web page |
-| Ctrl+N | New window |
+| Ctrl + M | Open the lettriq analysis method notice |
+| Ctrl + G | Open the grammar guide |
+| Ctrl + Shift + R | Open Shorashon web page |
+| Ctrl + Alt + R | Open Shorashim web page |
+| Ctrl + N | New window |
 | Alt + T | Show tools menu |
 | Alt + L | Show web links menu |
 | Alt + S | Show settings menu |
@@ -169,8 +172,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 | F10 | Log file window |
 | F11 | Usage statistics window |
 | F12 | About |
-| Alt + F4 (or Escape) | Close window |
-| Ctrl + Alt + F4 | Exit application |
+| Alt + F4 (or Escape) | Exit application |
 
 ## Future improvements
 
@@ -189,6 +191,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Optimize ComboBoxes creation (the old system is really much slower on Windows 10 than 7).
 - Add Windows double-buffering drawing to optimize startup.
 - Add context menu on letters' buttons to allow inserting a letter or open its data.
+- Add link to *hebrew.ch* shorashim database.
 - Add create and save a screenshot of the form.
 - Add open new window top menu button.
 - Add concurrency control to avoid database editing when multiple instances are running.

@@ -90,6 +90,7 @@ namespace Ordisoftware.Hebrew.Letters
                           "Data edition is improved to have save and cancel behavior." + Globals.NL +
                           "Improved and fixed copy, paste and delete for both Hebrew font chars and unicode." + Globals.NL +
                           "Added New in version in the Information menu." + Globals.NL +
+                          "Added link to online Shorashim roots database." + Globals.NL +
                           "New top menu icon to open a new window." + Globals.NL +
                           "New context menu on letters' buttons." + Globals.NL +
                           "New screenshot button." + Globals.NL +
@@ -105,6 +106,7 @@ namespace Ordisoftware.Hebrew.Letters
                           "L'édition des données est améliorée pour avoir le comportement sauver et annuler." + Globals.NL +
                           "Amélioration et correction du copier, coller et supprimer pour les caractères de police hébreu et unicode." + Globals.NL +
                           "Ajout des Nouveautés de version dans le menu Information." + Globals.NL +
+                          "Ajout d'un lien vers une base de données en ligne des racines Shorashim." + Globals.NL +
                           "Nouvelle icône de menu principal pour ouvrir une nouvelle fenêtre." + Globals.NL +
                           "Nouveau menu contextuel pour les boutons des lettres." + Globals.NL +
                           "Nouveau bouton de capture d'écran." + Globals.NL +

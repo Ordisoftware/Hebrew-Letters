@@ -14,7 +14,6 @@
 /// <edited> 2021-02 </edited>
 using System;
 using System.IO;
-using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Diagnostics;
@@ -177,12 +176,10 @@ namespace Ordisoftware.Hebrew.Letters
                                                            ActionWebCheckUpdate_Click,
                                                            ActionViewLog_Click,
                                                            ActionViewStats_Click);
-      var menu = CommonMenusControl.Instance.MenuInformation;
-      var list = new List<ToolStripItem>();
-      foreach ( ToolStripItem item in menu.DropDownItems ) list.Add(item);
-      menu.DropDownItems.Clear();
-      ActionInformation.DropDownItems.Clear();
-      ActionInformation.DropDownItems.AddRange(list.ToArray());
+      Controls.Add(CommonMenusControl.Instance);
+      ToolStrip.Items.Remove(ActionInformation);
+      ActionInformation = CommonMenusControl.Instance.ActionInformation;
+      ToolStrip.Items.Add(ActionInformation);
       CommonMenusControl.Instance.InitializeVersionNewsMenuItems(AppTranslations.NoticeNewFeatures);
       InitializeSpecialMenus();
     }
@@ -345,7 +342,7 @@ namespace Ordisoftware.Hebrew.Letters
       }
       Globals.NoticeKeyboardShortcutsForm = new ShowTextForm(AppTranslations.NoticeKeyboardShortcutsTitle,
                                                              AppTranslations.NoticeKeyboardShortcuts,
-                                                             true, false, 340, 460, false, false);
+                                                             true, false, 340, 470, false, false);
       Globals.NoticeKeyboardShortcutsForm.TextBox.BackColor = Globals.NoticeKeyboardShortcutsForm.BackColor;
       Globals.NoticeKeyboardShortcutsForm.TextBox.BorderStyle = BorderStyle.None;
       Globals.NoticeKeyboardShortcutsForm.Padding = new Padding(20, 20, 10, 10);
@@ -666,11 +663,7 @@ namespace Ordisoftware.Hebrew.Letters
                                      Settings.CheckUpdateAtStartupDaysInterval,
                                      e == null);
       Settings.CheckUpdateLastDone = lastdone;
-      if ( exit )
-        Close();
-      else
-      if ( Visible )
-        BringToFront();
+      if ( exit ) Close();
     }
 
     public void ActionViewLog_Click(object sender, EventArgs e)
@@ -841,7 +834,10 @@ namespace Ordisoftware.Hebrew.Letters
     private void ActionViewAllMeaningsList_Click(object sender, EventArgs e)
     {
       if ( EditLetters.Input.Text == "" ) return;
-      new ShowTextForm("", GetMeaningsText().Replace(Globals.NL, Globals.NL2), false, true, 600, 400, true, true).ShowDialog();
+      new ShowTextForm(AppTranslations.LettersWordMeaningsList.GetLang(),
+                       GetMeaningsText().Replace(Globals.NL, Globals.NL2),
+                       false, true,
+                       600, 400).ShowDialog();
       EditLetters.Focus();
     }
 
