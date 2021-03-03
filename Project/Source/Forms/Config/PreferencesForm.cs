@@ -13,10 +13,12 @@
 /// <created> 2019-09 </created>
 /// <edited> 2021-02 </edited>
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
 using System.Xml.XPath;
 using System.Configuration;
+using System.IO;
 using System.Drawing;
 using System.Windows.Forms;
 using Ordisoftware.Core;
@@ -290,6 +292,7 @@ namespace Ordisoftware.Hebrew.Letters
       DialogColor.Color = panel.BackColor;
       if ( DialogColor.ShowDialog() == DialogResult.Cancel ) return;
       panel.BackColor = DialogColor.Color;
+      SaveColors();
       MainForm.Instance.InitializeTheme();
     }
 
@@ -359,6 +362,41 @@ namespace Ordisoftware.Hebrew.Letters
       Settings.Store();
       var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.PerUserRoamingAndLocal);
       config.SaveAs(SaveSettingsDialog.FileName);
+    }
+
+    private void ActionOpenTheme_Click(object sender, EventArgs e)
+    {
+      SystemManager.TryCatch(() =>
+      {
+        OpenThemeDialog.InitialDirectory = Settings.GetExportDirectory();
+      });
+      if ( OpenThemeDialog.ShowDialog() != DialogResult.OK ) return;
+      var items = new NullSafeOfStringDictionary<string>();
+      if ( !items.LoadKeyValuePairs(OpenThemeDialog.FileName, "=") ) return;
+      TabPageTheme.Controls.OfType<Panel>().ToList().ForEach(panel =>
+      {
+        string name = panel.Name.Substring(4);
+        if ( items.ContainsKey(name) )
+          panel.BackColor = ColorTranslator.FromHtml(items[name]);
+      });
+      SaveColors();
+      MainForm.Instance.InitializeTheme();
+    }
+
+    private void ActionSaveTheme_Click(object sender, EventArgs e)
+    {
+      SystemManager.TryCatch(() =>
+      {
+        SaveThemeDialog.InitialDirectory = Settings.GetExportDirectory();
+        SaveThemeDialog.FileName = "Theme.ini";
+      });
+      if ( SaveThemeDialog.ShowDialog() != DialogResult.OK ) return;
+      var items = new List<string>();
+      TabPageTheme.Controls.OfType<Panel>().ToList().ForEach(panel =>
+      {
+        items.Add(panel.Name.Substring(4) + "=" + ColorTranslator.ToHtml(panel.BackColor));
+      });
+      File.WriteAllLines(SaveThemeDialog.FileName, items);
     }
 
   }
