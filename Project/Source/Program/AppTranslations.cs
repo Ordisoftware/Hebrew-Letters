@@ -31,6 +31,13 @@ namespace Ordisoftware.Hebrew.Letters
         [Language.FR] = "Analyseur lettrique lettre-par-lettre des mots hébreux"
       };
 
+    static public readonly TranslationsDictionary LettersWordMeaningsList
+      = new TranslationsDictionary
+      {
+        [Language.EN] = "Meanings of the letters of the word",
+        [Language.FR] = "Significations des lettres du mot"
+      };
+
     static public readonly TranslationsDictionary ReadOnly
       = new TranslationsDictionary
       {
