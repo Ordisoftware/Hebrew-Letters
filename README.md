@@ -161,8 +161,8 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 | Ctrl + Back | Cancel changes |
 | Ctrl + M | Open the lettriq analysis method notice |
 | Ctrl + G | Open the grammar guide |
-| Ctrl + Shift + R | Open Shorashon web page |
-| Ctrl + Alt + R | Open Shorashim web page |
+| Ctrl + L | Open Shorashon web page |
+| Ctrl + R | Open Shorashim web page |
 | Ctrl + N | New window |
 | Alt + T | Show tools menu |
 | Alt + L | Show web links menu |
