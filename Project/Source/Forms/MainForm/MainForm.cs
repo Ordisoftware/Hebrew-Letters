@@ -23,9 +23,6 @@ using Microsoft.Win32;
 using Humanizer;
 using Ordisoftware.Core;
 
-// TODO clear meanings & doanalyse if data restored
-// TODO bouton del start & end or reset => undoable
-
 namespace Ordisoftware.Hebrew.Letters
 {
 
@@ -321,8 +318,7 @@ namespace Ordisoftware.Hebrew.Letters
       {
         ActionReset.Visible = true;
         EditLetters.Input.Text = Program.StartupWord;
-        EditLetters.Input.SelectionStart = 0;
-        EditLetters.Input.SelectionLength = 0;
+        EditLetters.Focus(LettersControlFocusSelect.None);
         EditLetters.TextBox.Refresh();
       }
       else
@@ -733,22 +729,25 @@ namespace Ordisoftware.Hebrew.Letters
     private void ActionDelFirst_Click(object sender, EventArgs e)
     {
       if ( EditLetters.Input.Text.Length < 1 ) return;
-      EditLetters.Input.Text = EditLetters.Input.Text.Remove(EditLetters.Input.Text.Length - 1, 1);
-      EditLetters.Focus(false);
-      EditLetters.Input.SelectionStart = EditLetters.Input.TextLength;
+      EditLetters.Input.SelectionStart = EditLetters.Input.TextLength - 1;
+      EditLetters.Input.SelectionLength = 1;
+      EditLetters.Focus(LettersControlFocusSelect.Keep);
+      TextBoxEx.ActionDelete.PerformClick();
     }
 
     private void ActionDelLast_Click(object sender, EventArgs e)
     {
       if ( EditLetters.Input.Text.Length < 1 ) return;
-      EditLetters.Input.Text = EditLetters.Input.Text.Remove(0, 1);
-      EditLetters.Focus(false);
+      EditLetters.Input.SelectionStart = 0;
+      EditLetters.Input.SelectionLength = 1;
+      EditLetters.Focus(LettersControlFocusSelect.Keep);
+      TextBoxEx.ActionDelete.PerformClick();
     }
 
     private void ActionReset_Click(object sender, EventArgs e)
     {
       EditLetters.Input.Text = Program.StartupWord;
-      EditLetters.Focus(false);
+      EditLetters.Focus(LettersControlFocusSelect.None);
     }
 
     private void EditLetters_InputTextChanged(object sender, EventArgs e)
@@ -792,7 +791,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void ActionPaste_Click(object sender, EventArgs e)
     {
-      EditLetters.Focus(true);
+      EditLetters.Focus(LettersControlFocusSelect.All);
       TextBoxEx.ActionPaste.PerformClick();
     }
 
@@ -805,7 +804,7 @@ namespace Ordisoftware.Hebrew.Letters
       Clipboard.SetText(str);
       DisplayManager.ShowSuccessOrSound(SysTranslations.DataCopiedToClipboard.GetLang(),
                                         Globals.ClipboardSoundFilePath);
-      EditLetters.Focus(true);
+      EditLetters.Focus(LettersControlFocusSelect.All);
     }
 
     private void ActionCopyToUnicode_Click(object sender, EventArgs e)
@@ -817,7 +816,7 @@ namespace Ordisoftware.Hebrew.Letters
       Clipboard.SetText(HebrewAlphabet.ToUnicode(str));
       DisplayManager.ShowSuccessOrSound(SysTranslations.DataCopiedToClipboard.GetLang(),
                                         Globals.ClipboardSoundFilePath);
-      EditLetters.Focus(true);
+      EditLetters.Focus(LettersControlFocusSelect.All);
     }
 
     private void MeaningComboBox_SelectedIndexChanged(object sender, EventArgs e)
