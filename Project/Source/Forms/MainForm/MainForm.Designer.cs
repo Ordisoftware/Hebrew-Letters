@@ -136,12 +136,6 @@
       this.ActionTools = new System.Windows.Forms.ToolStripDropDownButton();
       this.ActionShowMethodNotice = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionShowGrammarGuide = new System.Windows.Forms.ToolStripMenuItem();
-      this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-      this.ActionOpenShorashim = new System.Windows.Forms.ToolStripMenuItem();
-      this.ActionOpenShorashon = new System.Windows.Forms.ToolStripMenuItem();
-      this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-      this.ActionOpenLexilogosOld = new System.Windows.Forms.ToolStripMenuItem();
-      this.ActionOpenLexilogosModern = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionWebLinks = new System.Windows.Forms.ToolStripDropDownButton();
       this.ActionInformation = new System.Windows.Forms.ToolStripDropDownButton();
       this.TimerProcesses = new System.Windows.Forms.Timer(this.components);
@@ -1057,13 +1051,7 @@
       this.ActionTools.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
       this.ActionTools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ActionShowMethodNotice,
-            this.ActionShowGrammarGuide,
-            this.toolStripSeparator4,
-            this.ActionOpenShorashim,
-            this.ActionOpenShorashon,
-            this.toolStripSeparator3,
-            this.ActionOpenLexilogosOld,
-            this.ActionOpenLexilogosModern});
+            this.ActionShowGrammarGuide});
       this.ActionTools.Name = "ActionTools";
       this.ActionTools.Padding = new System.Windows.Forms.Padding(5);
       // 
@@ -1078,44 +1066,6 @@
       resources.ApplyResources(this.ActionShowGrammarGuide, "ActionShowGrammarGuide");
       this.ActionShowGrammarGuide.Name = "ActionShowGrammarGuide";
       this.ActionShowGrammarGuide.Click += new System.EventHandler(this.ActionShowGrammarGuide_Click);
-      // 
-      // toolStripSeparator4
-      // 
-      this.toolStripSeparator4.Name = "toolStripSeparator4";
-      resources.ApplyResources(this.toolStripSeparator4, "toolStripSeparator4");
-      // 
-      // ActionOpenShorashim
-      // 
-      resources.ApplyResources(this.ActionOpenShorashim, "ActionOpenShorashim");
-      this.ActionOpenShorashim.Name = "ActionOpenShorashim";
-      this.ActionOpenShorashim.Tag = "www.hebrew.ch/verb-roots/";
-      this.ActionOpenShorashim.Click += new System.EventHandler(this.ActionOpenWebsiteURL_Click);
-      // 
-      // ActionOpenShorashon
-      // 
-      resources.ApplyResources(this.ActionOpenShorashon, "ActionOpenShorashon");
-      this.ActionOpenShorashon.Name = "ActionOpenShorashon";
-      this.ActionOpenShorashon.Tag = "http://shorashon.free.fr/online/";
-      this.ActionOpenShorashon.Click += new System.EventHandler(this.ActionOpenWebsiteURL_Click);
-      // 
-      // toolStripSeparator3
-      // 
-      this.toolStripSeparator3.Name = "toolStripSeparator3";
-      resources.ApplyResources(this.toolStripSeparator3, "toolStripSeparator3");
-      // 
-      // ActionOpenLexilogosOld
-      // 
-      resources.ApplyResources(this.ActionOpenLexilogosOld, "ActionOpenLexilogosOld");
-      this.ActionOpenLexilogosOld.Name = "ActionOpenLexilogosOld";
-      this.ActionOpenLexilogosOld.Tag = "https://www.lexilogos.com/hebreu_ancien_dictionnaire.htm";
-      this.ActionOpenLexilogosOld.Click += new System.EventHandler(this.ActionOpenWebsiteURL_Click);
-      // 
-      // ActionOpenLexilogosModern
-      // 
-      resources.ApplyResources(this.ActionOpenLexilogosModern, "ActionOpenLexilogosModern");
-      this.ActionOpenLexilogosModern.Name = "ActionOpenLexilogosModern";
-      this.ActionOpenLexilogosModern.Tag = "https://www.lexilogos.com/hebreu_moderne_dictionnaire.htm";
-      this.ActionOpenLexilogosModern.Click += new System.EventHandler(this.ActionOpenWebsiteURL_Click);
       // 
       // ActionWebLinks
       // 
@@ -1251,16 +1201,11 @@
     private System.Windows.Forms.ContextMenuStrip ContextMenuSearchOnline;
     private System.Windows.Forms.ToolStripButton ActionSearchTerm;
     private System.Windows.Forms.ToolStripDropDownButton ActionTools;
-    private System.Windows.Forms.ToolStripMenuItem ActionOpenShorashon;
-    private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-    private System.Windows.Forms.ToolStripMenuItem ActionOpenLexilogosOld;
-    private System.Windows.Forms.ToolStripMenuItem ActionOpenLexilogosModern;
     private System.Windows.Forms.ToolStripMenuItem ActionOpenWordOnline;
     public Ordisoftware.Core.TextBoxEx EditSentence;
     public System.Windows.Forms.ToolStripMenuItem EditESCtoExit;
     private System.Windows.Forms.ToolStripDropDownButton ActionWebLinks;
     private System.Windows.Forms.ToolStripMenuItem ActionShowGrammarGuide;
-    private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
     private System.Windows.Forms.ToolStripMenuItem ActionShowMethodNotice;
     public Ordisoftware.Core.TextBoxEx TextBoxStructure;
     public Ordisoftware.Core.TextBoxEx TextBoxFunction;
@@ -1303,7 +1248,6 @@
     private System.Windows.Forms.Button ActionFirst;
     private System.Windows.Forms.Button ActionPrevious;
     public System.Windows.Forms.Label LabelClipboardContentType;
-    private System.Windows.Forms.ToolStripMenuItem ActionOpenShorashim;
     private System.Windows.Forms.ToolTip ToolTipClipboard;
   }
 }
