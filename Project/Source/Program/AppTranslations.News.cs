@@ -84,7 +84,7 @@ namespace Ordisoftware.Hebrew.Letters
 
         ["5.0"] = new TranslationsDictionary
         {
-          [Language.EN] = "Added command-line options(see help FAQ)" + Globals.NL +
+          [Language.EN] = "Added command-line options (see help FAQ)" + Globals.NL +
                           "Startup speed and analysis combo boxes creation are optimized." + Globals.NL +
                           "Data edition is only possible by one instance at a time." + Globals.NL +
                           "Data edition is improved to have save and cancel behavior." + Globals.NL +
