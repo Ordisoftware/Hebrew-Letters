@@ -198,8 +198,13 @@ namespace Ordisoftware.Hebrew.Letters
       ContextMenuSearchOnline.InitializeFromProviders(OnlineProviders.OnlineWordProviders, (sender, e) =>
       {
         var menuitem = (ToolStripMenuItem)sender;
-        string str = HebrewAlphabet.ToUnicode(HebrewAlphabet.SetFinal(EditLetters.Input.Text, true));
-        SystemManager.OpenWebLink(( (string)menuitem.Tag ).Replace("%WORD%", str));
+        string str = EditLetters.Input.Text;
+        if (str.Length > 1)
+          HebrewAlphabet.SetFinal(str, true);
+        str = HebrewAlphabet.ToUnicode(str);
+        string link = (string)menuitem.Tag;
+        link = link.Replace("%WORD%", str).Replace("%FIRSTLETTER%", str[0].ToString());
+        SystemManager.OpenWebLink(link);
         EditLetters.Focus();
       });
     }
@@ -335,7 +340,7 @@ namespace Ordisoftware.Hebrew.Letters
       }
       Globals.NoticeKeyboardShortcutsForm = new ShowTextForm(AppTranslations.NoticeKeyboardShortcutsTitle,
                                                              AppTranslations.NoticeKeyboardShortcuts,
-                                                             true, false, 340, 470, false, false);
+                                                             true, false, 340, 440, false, false);
       Globals.NoticeKeyboardShortcutsForm.TextBox.BackColor = Globals.NoticeKeyboardShortcutsForm.BackColor;
       Globals.NoticeKeyboardShortcutsForm.TextBox.BorderStyle = BorderStyle.None;
       Globals.NoticeKeyboardShortcutsForm.Padding = new Padding(20, 20, 10, 10);
@@ -693,12 +698,6 @@ namespace Ordisoftware.Hebrew.Letters
     private void ActionShowGrammarGuide_Click(object sender, EventArgs e)
     {
       ProcessHTMLBrowser(Program.GrammarGuideForm);
-    }
-
-    private void ActionOpenWebsiteURL_Click(object sender, EventArgs e)
-    {
-      string url = (string)( (ToolStripItem)sender ).Tag;
-      SystemManager.OpenWebLink(url);
     }
 
     private void ActionRestoreDefaults_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -1212,6 +1211,10 @@ namespace Ordisoftware.Hebrew.Letters
       ToolTipClipboard.Show(Clipboard.GetText(), LabelClipboardContentType);
     }
 
+    private void toolStripSeparator3_Click(object sender, EventArgs e)
+    {
+
+    }
   }
 
 }
