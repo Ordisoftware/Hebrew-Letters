@@ -49,9 +49,9 @@ namespace Ordisoftware.Hebrew.Letters
                         "Ctrl + Back : Cancel changes" + Globals.NL +
                         "Ctrl + M : Open lettriq analysis method notice" + Globals.NL +
                         "Ctrl + G : Open grammar guide" + Globals.NL +
-                        "Ctrl + Shift + R : Open Shorashon web page" + Globals.NL +
-                        "Ctrl + Alt + R : Open Shorashim web page" + Globals.NL +
-                        "Ctrl + N : New window" + Globals.NL +
+                        "Ctrl + L : Open Shorashon web page" + Globals.NL +
+                        "Ctrl + R : Open Shorashim web page" + Globals.NL +
+                        "Alt + N : New window" + Globals.NL +
                         "Alt + T : Show tools menu" + Globals.NL +
                         "Alt + L : Show web links menu" + Globals.NL +
                         "Alt + I : Show information menu" + Globals.NL +
@@ -78,9 +78,9 @@ namespace Ordisoftware.Hebrew.Letters
                         "Ctrl + Back : Annule les changements" + Globals.NL +
                         "Ctrl + M : Ouvre la notice de la méthode d'analyse lettrique" + Globals.NL +
                         "Ctrl + G : Ouvre le guide de grammaire" + Globals.NL +
-                        "Ctrl + Maj + R : Ouvre la page web Shorashon" + Globals.NL +
-                        "Ctrl + Alt + R : Ouvre la page web Shorashim" + Globals.NL +
-                        "Ctrl + N : Nouvelle fenêtre" + Globals.NL +
+                        "Ctrl + L : Ouvre la page web Shorashon" + Globals.NL +
+                        "Ctrl + R : Ouvre la page web Shorashim" + Globals.NL +
+                        "Alt + N : Nouvelle fenêtre" + Globals.NL +
                         "Alt + T : Montre le menu des outils" + Globals.NL +
                         "Alt + L : Montre le menu des liens web" + Globals.NL +
                         "Alt + I : Montre le menu des informations" + Globals.NL +
