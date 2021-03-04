@@ -46,7 +46,7 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 
 **What's new in the latest version**
 
-- Added command-line options(see FAQ)
+- Added command-line options (see FAQ)
 - Startup speed and analysis combo boxes creation are optimized.
 - Data edition is only possible by one instance at a time.
 - Data edition is improved to have save and cancel behavior.
