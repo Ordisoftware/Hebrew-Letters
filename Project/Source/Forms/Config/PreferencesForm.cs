@@ -190,7 +190,7 @@ namespace Ordisoftware.Hebrew.Letters
       UpdateLanguagesButtons();
       LanguageChanged = true;
       MainForm.Instance.EditLetters.Input.Text = temp;
-      MainForm.Instance.EditLetters.Focus(false);
+      MainForm.Instance.EditLetters.Focus(LettersControlFocusSelect.Keep);
       Close();
     }
 
@@ -204,7 +204,7 @@ namespace Ordisoftware.Hebrew.Letters
       UpdateLanguagesButtons();
       LanguageChanged = true;
       MainForm.Instance.EditLetters.Input.Text = temp;
-      MainForm.Instance.EditLetters.Focus(false);
+      MainForm.Instance.EditLetters.Focus(LettersControlFocusSelect.Keep);
       Close();
     }
 

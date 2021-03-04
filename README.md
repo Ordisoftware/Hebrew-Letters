@@ -66,9 +66,9 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 
 ## Screenshots
 
-[![Analyze](https://www.ordisoftware.com/uploads/2021/03/hebrew-letters-analyze-en-300x293.png)](http://www.ordisoftware.com/uploads/2020/04/hebrew-letters-data-en.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Data](https://www.ordisoftware.com/uploads/2021/03/hebrew-letters-data-en-276x300.png)](https://www.ordisoftware.com/uploads/2021/03/hebrew-letters-data-en.png)
+[![Analyze](https://www.ordisoftware.com/uploads/2021/03/hebrew-letters-analyze-en-400x390.png)](http://www.ordisoftware.com/uploads/2020/04/hebrew-letters-data-en.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Data](https://www.ordisoftware.com/uploads/2021/03/hebrew-letters-data-en-330x390.png)](https://www.ordisoftware.com/uploads/2021/03/hebrew-letters-data-en.png)
 
-[![Preferences](https://www.ordisoftware.com/uploads/2021/03/hebrew-letters-preferences-en-300x236.png)](https://www.ordisoftware.com/uploads/2021/03/hebrew-letters-preferences-en.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Search results](https://www.ordisoftware.com/uploads/2021/03/hebrew-letters-searchresult-en.png)](https://www.ordisoftware.com/uploads/2021/03/hebrew-letters-searchresult-en.png)
+[![Preferences](https://www.ordisoftware.com/uploads/2021/03/hebrew-letters-preferences-en-325x255.png)](https://www.ordisoftware.com/uploads/2021/03/hebrew-letters-preferences-en.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Search results](https://www.ordisoftware.com/uploads/2021/03/hebrew-letters-searchresult-en.png)](https://www.ordisoftware.com/uploads/2021/03/hebrew-letters-searchresult-en.png)
 
 ## Videos
 
