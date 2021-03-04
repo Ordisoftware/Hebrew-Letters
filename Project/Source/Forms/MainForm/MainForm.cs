@@ -612,6 +612,8 @@ namespace Ordisoftware.Hebrew.Letters
         EditLetters.InputMaxLength = (int)Settings.HebrewTextBoxMaxLength;
         InitializeSpecialMenus();
         InitializeDialogsDirectory();
+        ClearLettersMeanings();
+        DoAnalyse();
       }
       catch ( Exception ex )
       {
@@ -717,6 +719,8 @@ namespace Ordisoftware.Hebrew.Letters
         ApplicationStatistics.UpdateDBFileSizeRequired = true;
         ApplicationStatistics.UpdateDBMemorySizeRequired = true;
         UpdateButtons(null);
+        ClearLettersMeanings();
+        DoAnalyse();
       }
     }
 
@@ -947,6 +951,8 @@ namespace Ordisoftware.Hebrew.Letters
         }
       UpdateButtons(sender);
       EditMeanings.Focus();
+      ClearLettersMeanings();
+      DoAnalyse();
     }
 
     private void ActionFirst_Click(object sender, EventArgs e)
