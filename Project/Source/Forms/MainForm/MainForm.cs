@@ -198,13 +198,7 @@ namespace Ordisoftware.Hebrew.Letters
       ContextMenuSearchOnline.InitializeFromProviders(OnlineProviders.OnlineWordProviders, (sender, e) =>
       {
         var menuitem = (ToolStripMenuItem)sender;
-        string str = EditLetters.Input.Text;
-        if (str.Length > 1)
-          HebrewAlphabet.SetFinal(str, true);
-        str = HebrewAlphabet.ToUnicode(str);
-        string link = (string)menuitem.Tag;
-        link = link.Replace("%WORD%", str).Replace("%FIRSTLETTER%", str[0].ToString());
-        SystemManager.OpenWebLink(link);
+        HebrewTools.OpenOnlineWordProvider((string)menuitem.Tag, EditLetters.Input.Text);
         EditLetters.Focus();
       });
     }
