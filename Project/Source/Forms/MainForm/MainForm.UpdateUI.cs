@@ -26,15 +26,15 @@ namespace Ordisoftware.Hebrew.Letters
   partial class MainForm
   {
 
+    private bool DoScreenPositionMutex;
+
     /// <summary>
     /// Center the form to the screen.
     /// </summary>
-    protected internal new void CenterToScreen()
+    public new void CenterToScreen()
     {
       base.CenterToScreen();
     }
-
-    private bool DoScreenPositionMutex;
 
     /// <summary>
     /// Execute the screen location operation.

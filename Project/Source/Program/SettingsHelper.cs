@@ -59,7 +59,7 @@ namespace Ordisoftware.Hebrew.Letters
       MainForm.EditShowSuccessDialogs.Checked = false;
       DisplayManager.ShowSuccessDialogs = false;
       settings.ApplicationVolume = 100;
-      MediaMixer.SetApplicationVolume(System.Diagnostics.Process.GetCurrentProcess().Id, settings.ApplicationVolume);
+      MediaMixer.SetApplicationVolume(Globals.ProcessId, settings.ApplicationVolume);
       MainForm.SetView(ViewMode.Analyse);
       settings.Store();
     }

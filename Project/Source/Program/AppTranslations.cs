@@ -38,34 +38,6 @@ namespace Ordisoftware.Hebrew.Letters
         [Language.FR] = "Significations des lettres du mot"
       };
 
-    static public readonly TranslationsDictionary ReadOnly
-      = new TranslationsDictionary
-      {
-        [Language.EN] = "Read only",
-        [Language.FR] = "Lecture seule"
-      };
-
-    static public readonly TranslationsDictionary ClipboardHebrew
-      = new TranslationsDictionary
-      {
-        [Language.EN] = "Hébrew",
-        [Language.FR] = "Hébreu"
-      };
-
-    static public readonly TranslationsDictionary ClipboardUnicode
-      = new TranslationsDictionary
-      {
-        [Language.EN] = "Unicode",
-        [Language.FR] = "Unicode"
-      };
-
-    static public readonly TranslationsDictionary ClipboardUncertain 
-      = new TranslationsDictionary
-      {
-        [Language.EN] = "Uncertain",
-        [Language.FR] = "Incertain"
-      };
-
   }
 
 }

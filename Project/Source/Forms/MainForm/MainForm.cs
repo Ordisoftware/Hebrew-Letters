@@ -126,18 +126,18 @@ namespace Ordisoftware.Hebrew.Letters
       }
       if ( HebrewAlphabet.IsValidHebrew(str) )
       {
-        LabelClipboardContentType.Text = AppTranslations.ClipboardHebrew.GetLang();
+        LabelClipboardContentType.Text = HebrewTranslations.Hebrew.GetLang();
         ActionPaste.Enabled = true;
       }
       else
       if ( HebrewAlphabet.IsValidUnicode(str) )
       {
-        LabelClipboardContentType.Text = AppTranslations.ClipboardUnicode.GetLang();
+        LabelClipboardContentType.Text = HebrewTranslations.Unicode.GetLang();
         ActionPaste.Enabled = true;
       }
       else
       {
-        LabelClipboardContentType.Text = AppTranslations.ClipboardUncertain.GetLang();
+        LabelClipboardContentType.Text = SysTranslations.Uncertain.GetLang();
         ActionPaste.Enabled = true;
       }
       LabelClipboardContentType.Text += Globals.NL + $"({str.Length})";
@@ -228,8 +228,7 @@ namespace Ordisoftware.Hebrew.Letters
       EditSentence.Font = new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence);
       EditSentence_FontChanged(null, null);
       SystemManager.TryCatch(() => new System.Media.SoundPlayer(Globals.EmptySoundFilePath).Play());
-      SystemManager.TryCatch(() => MediaMixer.SetApplicationVolume(Process.GetCurrentProcess().Id,
-                                                                   Settings.ApplicationVolume));
+      SystemManager.TryCatch(() => MediaMixer.SetApplicationVolume(Globals.ProcessId, Settings.ApplicationVolume));
       StatisticsForm.Run(true, Settings.UsageStatisticsEnabled);
       Globals.ChronoLoadApp.Stop();
       var lastdone = Settings.CheckUpdateLastDone;
@@ -434,7 +433,7 @@ namespace Ordisoftware.Hebrew.Letters
       //if ( !SQLiteOdbcHelper.CheckProcessConcurency() ) return;
       Globals.IsReadOnly = ProcessLocksTable.IsReadOnly();
       Text = Globals.AssemblyTitle;
-      if ( Globals.IsReadOnly ) Text += " - " + AppTranslations.ReadOnly.GetLang();
+      if ( Globals.IsReadOnly ) Text += " - " + SysTranslations.ReadOnly.GetLang();
       TextBoxPositive.ReadOnly = Globals.IsReadOnly;
       TextBoxNegative.ReadOnly = Globals.IsReadOnly;
       TextBoxVerb.ReadOnly = Globals.IsReadOnly;
