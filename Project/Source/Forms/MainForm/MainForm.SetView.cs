@@ -79,7 +79,7 @@ namespace Ordisoftware.Hebrew.Letters
           }
         },
         {
-          ViewMode.Settings,
+          ViewMode.Data,
           new ViewConnector
           {
             MenuItem = ActionViewLetters,
@@ -89,7 +89,7 @@ namespace Ordisoftware.Hebrew.Letters
         }
       };
       if ( Program.Settings.CurrentView == view && !first ) return;
-      if ( Program.Settings.CurrentView == ViewMode.Settings )
+      if ( Program.Settings.CurrentView == ViewMode.Data )
       {
         ViewPanels[Program.Settings.CurrentView].Focused.Focus();
       }

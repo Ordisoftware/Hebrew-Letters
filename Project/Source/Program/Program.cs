@@ -134,7 +134,7 @@ namespace Ordisoftware.Hebrew.Letters
         var temp = Settings.CurrentView;
         MainForm.Instance.SetView(ViewMode.Analyse);
         update(MainForm.Instance);
-        MainForm.Instance.SetView(ViewMode.Settings);
+        MainForm.Instance.SetView(ViewMode.Data);
         update(MainForm.Instance);
         MainForm.Instance.SetView(temp);
         string tempLogTitle = DebugManager.TraceForm.Text;
