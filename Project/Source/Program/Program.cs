@@ -113,6 +113,7 @@ namespace Ordisoftware.Hebrew.Letters
     {
       try
       {
+        MainForm.Instance.PanelMainCenter.Visible = false;
         void update(Form form)
         {
           new Infralution.Localization.CultureManager().ManagedControl = form;
@@ -167,6 +168,10 @@ namespace Ordisoftware.Hebrew.Letters
       catch ( Exception ex )
       {
         ex.Manage();
+      }
+      finally
+      {
+        MainForm.Instance.PanelMainCenter.Visible = true;
       }
     }
 
