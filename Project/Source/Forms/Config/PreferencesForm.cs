@@ -241,7 +241,7 @@ namespace Ordisoftware.Hebrew.Letters
     private void EditVolume_ValueChanged(object sender, EventArgs e)
     {
       if ( !IsReady ) return;
-      MediaMixer.SetApplicationVolume(System.Diagnostics.Process.GetCurrentProcess().Id, EditVolume.Value);
+      MediaMixer.SetApplicationVolume(Globals.ProcessId, EditVolume.Value);
       LabelVolumeValue.Text = EditVolume.Value + "%";
       Settings.ApplicationVolume = EditVolume.Value;
       Settings.Save();
