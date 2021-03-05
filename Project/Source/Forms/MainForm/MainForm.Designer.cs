@@ -1165,7 +1165,6 @@
     private System.Windows.Forms.Label LabelTitle;
     private System.Windows.Forms.Panel PanelMainOuter;
     private System.Windows.Forms.Panel PanelMainInner;
-    private System.Windows.Forms.Panel PanelMainCenter;
     private System.Windows.Forms.Timer TimerTooltip;
     public Ordisoftware.Hebrew.LettersControl EditLetters;
     private System.Windows.Forms.TabControl TabControl;
@@ -1249,5 +1248,6 @@
     private System.Windows.Forms.Button ActionPrevious;
     public System.Windows.Forms.Label LabelClipboardContentType;
     private System.Windows.Forms.ToolTip ToolTipClipboard;
+    internal System.Windows.Forms.Panel PanelMainCenter;
   }
 }
