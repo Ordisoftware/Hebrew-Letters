@@ -46,21 +46,21 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 
 **What's new in the latest version**
 
-- Added command-line options (see FAQ)
-- Startup speed and analysis combo boxes creation are optimized.
-- Data edition is only possible by one instance at a time.
-- Data edition is improved to have save and cancel behavior.
-- Improved and fixed copy, cut and paste for both Hebrew font chars and unicode.
-- Added New in version in the Information menu.
-- Added link to online Shorashim roots database.
-- New top menu icon to open a new window.
-- New context menu on letters' buttons.
-- New screenshot button.
-- New usage statistics window.
-- Rework of the preferences window design with more options.
-- Some improvements in appearance and function.
-- Incorporate common code written since more than one year for Hebrew Calendar.
-- Modification and addition of web links and online providers for the study of words and verses of the Bible.
+Added command-line options (see FAQ)
+Startup speed and analysis combo boxes creation are optimized.
+Data edition is only possible by one instance at a time.
+Data edition is improved to have save and cancel behavior.
+Improved and fixed copy, cut and paste for both Hebrew font chars and unicode.
+Added New in version in the Information menu.
+Added link to online Shorashim roots database.
+New top menu icon to open a new window.
+New context menu on letters' buttons.
+New screenshot button.
+New usage statistics window.
+Rework of the preferences window design with more options.
+Some improvements in appearance and function.
+Incorporate common code written since more than one year for Hebrew Calendar.
+Modification and addition of web links and online providers for the study of words and verses of the Bible.
 
 [Last release](https://github.com/Ordisoftware/Hebrew-Letters/releases/latest)
 
@@ -150,9 +150,9 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 |-|-|
 | Ctrl + Tab | Next view |
 | Shift + Ctrl + Tab | Previous view |
-| F1 | Analyze view |
+| F1 | Analysis view |
 | F2 | Data view |
-| F3 | Search a term |
+| F3 | Search |
 | Ctrl + Home | First letter |
 | Ctrl + End | Last letter |
 | Ctrl + PageUp | Previous letter |
@@ -161,13 +161,13 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 | Ctrl + Del (or -) | Delete meaning |
 | Ctrl + S | Save changes |
 | Ctrl + Back | Cancel changes |
-| Ctrl + M | Open the lettriq analysis method notice |
-| Ctrl + G | Open the grammar guide |
+| Ctrl + M | Lettriq analysis method notice |
+| Ctrl + G | Grammar guide |
 | Alt + N | New window |
-| Alt + T | Show tools menu |
-| Alt + L | Show web links menu |
-| Alt + S | Show settings menu |
-| Alt + I | Show information menu |
+| Alt + T | Tools menu |
+| Alt + L | Web links menu |
+| Alt + S | Settings menu |
+| Alt + I | Information menu |
 | F9 | Preferences |
 | F10 | Log file window |
 | F11 | Usage statistics window |
@@ -235,7 +235,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Add Serilog NuGet package.
 - Add Serilog-sinks-file NuGet package.
 - Add Serilog-sinks-winforms NuGet package.
-- Replace simple internal command-line parser by CommandLineParser NuGet package.
+- Replace simple command-line parser by CommandLineParser NuGet package.
 - The application now automatically creates the ODBC DSN in the Windows registry.
 - files and code refactoring.
 - Incorporate common code written since more than one year for Calendar.
