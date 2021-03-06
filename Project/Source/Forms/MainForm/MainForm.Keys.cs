@@ -84,6 +84,7 @@ namespace Ordisoftware.Hebrew.Letters
           ActionSave.PerformClick();
           return true;
         case Keys.Control | Keys.Back:
+          ActionUndo.Focus();
           ActionUndo.PerformClick();
           return true;
       }
