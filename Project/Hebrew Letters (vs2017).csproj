@@ -260,6 +260,7 @@
       <DependentUpon>WebUpdateForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Common\Hebrew\Classes\HebrewGlobals.cs" />
+    <Compile Include="Source\Common\Hebrew\Classes\HebrewGlobals.providers.cs" />
     <Compile Include="Source\Common\Hebrew\Classes\HebrewTools.cs" />
     <Compile Include="Source\Common\Hebrew\Classes\HebrewTranslations.cs" />
     <Compile Include="Source\Common\Hebrew\Database\Parashah.cs" />
@@ -281,7 +282,6 @@
     <Compile Include="Source\Common\Hebrew\Entities\HebrewMonths.cs" />
     <Compile Include="Source\Common\Hebrew\Providers\OnlineProviderItem.cs" />
     <Compile Include="Source\Common\Hebrew\Providers\OnlineProviders.cs" />
-    <Compile Include="Source\Common\Hebrew\Providers\OnlineProviders.Static.cs" />
     <Compile Include="Source\Common\Hebrew\Providers\OnlineProvidersHelper.cs" />
     <Compile Include="Source\Common\Hebrew\WinForms\CommonMenusControl.cs">
       <SubType>UserControl</SubType>
@@ -449,7 +449,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Common\Hebrew\WinForms\LettersControl.resx">
       <DependentUpon>LettersControl.cs</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Common\Hebrew\WinForms\SelectValueComboBox.resx">
       <DependentUpon>SelectValueComboBox.cs</DependentUpon>

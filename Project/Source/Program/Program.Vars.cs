@@ -50,7 +50,7 @@ namespace Ordisoftware.Hebrew.Letters
     /// Indicate file path of the letters meanings.
     /// </summary>
     static public string MeaningsFilePath
-      => Path.Combine(MeaningsFolderPath, "Alphabet-{0}.txt");
+      => Path.Combine(MeaningsFolderPath, $"Alphabet-Meanings-{Languages.CurrentCode}.txt");
 
     /// <summary>
     /// Indicate the grammar guide form.
@@ -61,7 +61,7 @@ namespace Ordisoftware.Hebrew.Letters
       {
         if ( _GrammarGuideForm == null )
           _GrammarGuideForm = new HTMLBrowserForm(HebrewTranslations.GrammarGuideTitle,
-                                                  OnlineProviders.HebrewGrammarGuideFilePath,
+                                                  HebrewGlobals.HebrewGrammarGuideFilePath,
                                                   nameof(Settings.GrammarGuideFormLocation),
                                                   nameof(Settings.GrammarGuideFormSize));
         return _GrammarGuideForm;
@@ -78,7 +78,7 @@ namespace Ordisoftware.Hebrew.Letters
       {
         if ( _MethodGuideForm == null )
           _MethodGuideForm = new HTMLBrowserForm(HebrewTranslations.MethodNoticeTitle,
-                                                 OnlineProviders.LettriqMethodNoticeFilePath,
+                                                 HebrewGlobals.LettriqMethodNoticeFilePath,
                                                  nameof(Settings.MethodNoticeFormLocation),
                                                  nameof(Settings.MethodNoticeFormSize));
         return _MethodGuideForm;
