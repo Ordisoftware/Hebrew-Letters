@@ -321,7 +321,7 @@ namespace Ordisoftware.Hebrew.Letters
         ActionReset.Visible = false;
       Globals.ChronoLoadApp.Stop();
       Settings.BenchmarkStartingApp = Globals.ChronoLoadApp.ElapsedMilliseconds;
-      if ( IsDBUpgraded && DisplayManager.QueryYesNo(SysTranslations.AskToCheckParametersAfterDatabaseUpgraded.GetLang()) )
+      if ( IsDBUpgraded && DisplayManager.QueryYesNo(SysTranslations.AskToCheckDataAfterDatabaseUpgraded.GetLang()) )
         SetView(ViewMode.Data, false);
       else
         SetView(ViewMode.Analyse, false);
@@ -420,8 +420,10 @@ namespace Ordisoftware.Hebrew.Letters
     }
 
     /// <summary>
-    /// Update preferences menu state.
+    /// Event handler. Called by TimerProcesses for tick events.
     /// </summary>
+    /// <param name="sender">Source of the event.</param>
+    /// <param name="e">Form closing event information.</param>
     private void TimerProcesses_Tick(object sender, EventArgs e)
     {
       //if ( !SQLiteOdbcHelper.CheckProcessConcurency() ) return;
@@ -443,8 +445,10 @@ namespace Ordisoftware.Hebrew.Letters
     }
 
     /// <summary>
-    /// Timer event for tooltips.
+    /// Event handler. Called by TimerTooltip for tick events.
     /// </summary>
+    /// <param name="sender">Source of the event.</param>
+    /// <param name="e">Form closing event information.</param>
     private void TimerTooltip_Tick(object sender, EventArgs e)
     {
       if ( !EditShowTips.Checked ) return;
@@ -456,9 +460,11 @@ namespace Ordisoftware.Hebrew.Letters
     }
 
     /// <summary>
-    /// Show tooltip on mouse enter event.
+    /// Event handler. Called by ShowToolTip for on mouse enter events.
     /// </summary>
-    private void ShowToolTipOnMouseEnter(object sender, EventArgs e)
+    /// <param name="sender">Source of the event.</param>
+    /// <param name="e">Form closing event information.</param>
+    private void ShowToolTip_OnMouseEnter(object sender, EventArgs e)
     {
       if ( !EditShowTips.Checked ) return;
       if ( !( sender is ToolStripItem ) ) return;
@@ -469,9 +475,11 @@ namespace Ordisoftware.Hebrew.Letters
     }
 
     /// <summary>
-    /// Hide tooltip on mouse leave event.
+    /// Event handler. Called by ShowToolTip for on mouse leave events.
     /// </summary>
-    private void ShowToolTipOnMouseLeave(object sender, EventArgs e)
+    /// <param name="sender">Source of the event.</param>
+    /// <param name="e">Form closing event information.</param>
+    private void ShowToolTip_OnMouseLeave(object sender, EventArgs e)
     {
       if ( !EditShowTips.Checked ) return;
       TimerTooltip.Enabled = false;
@@ -480,7 +488,17 @@ namespace Ordisoftware.Hebrew.Letters
     }
 
     /// <summary>
-    /// Event handler. Called by EditSentence for font changed.
+    /// Event handler. Called by LabelClipboardContentType for mouse hover events.
+    /// </summary>
+    /// <param name="sender">Source of the event.</param>
+    /// <param name="e">Form closing event information.</param>
+    private void LabelClipboardContentType_MouseHover(object sender, EventArgs e)
+    {
+      ToolTipClipboard.Show(Clipboard.GetText(), LabelClipboardContentType);
+    }
+
+    /// <summary>
+    /// Event handler. Called by EditSentence for font changed events.
     /// </summary>
     /// <param name="sender">Source of the event.</param>
     /// <param name="e">Form closing event information.</param>
@@ -839,7 +857,8 @@ namespace Ordisoftware.Hebrew.Letters
       var list = SelectAnalyze.Controls
                               .OfType<Label>()
                               .Where(label => label.Text != "")
-                              .Select(label => label.Text + " : " + string.Join(", ", (object[])( (ComboBox)label.Tag ).Tag));
+                              .Select(label => label.Text + " : " + 
+                                               string.Join(", ", (object[])( (ComboBox)label.Tag ).Tag));
       return string.Join(Globals.NL, list);
     }
 
@@ -1199,15 +1218,6 @@ namespace Ordisoftware.Hebrew.Letters
       DataSet.RejectChanges();
     }
 
-    private void LabelClipboardContentType_MouseHover(object sender, EventArgs e)
-    {
-      ToolTipClipboard.Show(Clipboard.GetText(), LabelClipboardContentType);
-    }
-
-    private void toolStripSeparator3_Click(object sender, EventArgs e)
-    {
-
-    }
   }
 
 }
