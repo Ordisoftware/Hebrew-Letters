@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-01 </created>
-/// <edited> 2019-01 </edited>
+/// <edited> 2021-02 </edited>
 
 namespace Ordisoftware.Hebrew.Letters
 {
@@ -28,9 +28,9 @@ namespace Ordisoftware.Hebrew.Letters
     Analyse,
 
     /// <summary>
-    /// Settings view mode.
+    /// Data view mode.
     /// </summary>
-    Settings
+    Data
 
   }
 

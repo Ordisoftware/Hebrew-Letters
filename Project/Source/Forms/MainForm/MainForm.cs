@@ -322,7 +322,7 @@ namespace Ordisoftware.Hebrew.Letters
       Globals.ChronoLoadApp.Stop();
       Settings.BenchmarkStartingApp = Globals.ChronoLoadApp.ElapsedMilliseconds;
       if ( IsDBUpgraded && DisplayManager.QueryYesNo(SysTranslations.AskToCheckParametersAfterDatabaseUpgraded.GetLang()) )
-        SetView(ViewMode.Settings, false);
+        SetView(ViewMode.Data, false);
       else
         SetView(ViewMode.Analyse, false);
       if ( Settings.FirstLaunch )
@@ -509,7 +509,7 @@ namespace Ordisoftware.Hebrew.Letters
     /// <param name="e">Event information.</param>
     private void ActionViewLetters_Click(object sender, EventArgs e)
     {
-      SetView(ViewMode.Settings);
+      SetView(ViewMode.Data);
     }
 
     /// <summary>

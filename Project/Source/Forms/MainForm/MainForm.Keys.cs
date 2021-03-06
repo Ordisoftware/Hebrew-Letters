@@ -88,7 +88,7 @@ namespace Ordisoftware.Hebrew.Letters
           return true;
       }
       // Letters navigation
-      if ( Globals.AllowClose )
+      if ( Globals.AllowClose && Program.Settings.CurrentView == ViewMode.Data )
         switch ( keyData )
         {
           case Keys.Control | Keys.Home:
