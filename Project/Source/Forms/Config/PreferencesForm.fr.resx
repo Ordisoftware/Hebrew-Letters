@@ -274,4 +274,7 @@
   <data name="LabelLastStartupCheck.Text" xml:space="preserve">
     <value>Dernière vérification :</value>
   </data>
+  <data name="LabelChangeLangNotice.Text" xml:space="preserve">
+    <value>Le changement de langue n'affectera pas les données à moins de restaurer les valeurs par défaut</value>
+  </data>
 </root>

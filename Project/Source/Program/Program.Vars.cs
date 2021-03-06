@@ -41,10 +41,16 @@ namespace Ordisoftware.Hebrew.Letters
       = ExportHelper.CreateExportTargets<ImageExportTarget>().SetUnsupported(ImageExportTarget.GIF);
 
     /// <summary>
+    /// Indicate the application meanings folder.
+    /// </summary>
+    static public string MeaningsFolderPath
+      => Path.Combine(Globals.DocumentsFolderPath, "Alphabet");
+
+    /// <summary>
     /// Indicate file path of the letters meanings.
     /// </summary>
     static public string MeaningsFilePath
-      => Path.Combine(Globals.DocumentsFolderPath, "Alphabet-{0}.txt");
+      => Path.Combine(MeaningsFolderPath, "Alphabet-{0}.txt");
 
     /// <summary>
     /// Indicate the grammar guide form.

@@ -42,6 +42,7 @@
       this.MenuSelectOnlineVerseURL = new System.Windows.Forms.ContextMenuStrip(this.components);
       this.TabControl = new System.Windows.Forms.TabControl();
       this.TabPageApplication = new System.Windows.Forms.TabPage();
+      this.EditWindowsDoubleBufferingEnabled = new System.Windows.Forms.CheckBox();
       this.EditUsageStatisticsEnabled = new System.Windows.Forms.CheckBox();
       this.EditVolume = new System.Windows.Forms.TrackBar();
       this.ActionSelectLangEN = new System.Windows.Forms.Button();
@@ -52,6 +53,10 @@
       this.EditWebLinksMenuEnabled = new System.Windows.Forms.CheckBox();
       this.EditLogEnabled = new System.Windows.Forms.CheckBox();
       this.TabPageCheckUpdate = new System.Windows.Forms.TabPage();
+      this.LabelLastDBOptimizeDate = new System.Windows.Forms.Label();
+      this.LabelLastDBOptimize = new System.Windows.Forms.Label();
+      this.LabelLastStartupCheckDate = new System.Windows.Forms.Label();
+      this.LabelLastStartupCheck = new System.Windows.Forms.Label();
       this.EditCheckUpdateAtStartup = new System.Windows.Forms.CheckBox();
       this.EditCheckUpdateAtStartupInterval = new System.Windows.Forms.NumericUpDown();
       this.LabelCheckUpdateAtStartupInfo = new System.Windows.Forms.Label();
@@ -86,17 +91,13 @@
       this.LabelImageExportFileFormat = new System.Windows.Forms.Label();
       this.EditAutoOpenExportedFile = new System.Windows.Forms.CheckBox();
       this.EditAutoOpenExportFolder = new System.Windows.Forms.CheckBox();
-      this.EditExportFolder = new Ordisoftware.Core.TextBoxEx();
       this.DialogColor = new System.Windows.Forms.ColorDialog();
       this.OpenSettingsDialog = new System.Windows.Forms.OpenFileDialog();
       this.SaveSettingsDialog = new System.Windows.Forms.SaveFileDialog();
       this.SaveThemeDialog = new System.Windows.Forms.SaveFileDialog();
       this.OpenThemeDialog = new System.Windows.Forms.OpenFileDialog();
-      this.EditWindowsDoubleBufferingEnabled = new System.Windows.Forms.CheckBox();
-      this.LabelLastDBOptimizeDate = new System.Windows.Forms.Label();
-      this.LabelLastDBOptimize = new System.Windows.Forms.Label();
-      this.LabelLastStartupCheckDate = new System.Windows.Forms.Label();
-      this.LabelLastStartupCheck = new System.Windows.Forms.Label();
+      this.LabelChangeLangNotice = new System.Windows.Forms.Label();
+      this.EditExportFolder = new Ordisoftware.Core.TextBoxEx();
       LabelVolume = new System.Windows.Forms.Label();
       LabelCheckUpdateFrequency = new System.Windows.Forms.Label();
       this.PanelBottom.SuspendLayout();
@@ -192,6 +193,7 @@
       // 
       this.TabPageApplication.BackColor = System.Drawing.SystemColors.Window;
       this.TabPageApplication.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.TabPageApplication.Controls.Add(this.LabelChangeLangNotice);
       this.TabPageApplication.Controls.Add(this.EditWindowsDoubleBufferingEnabled);
       this.TabPageApplication.Controls.Add(this.EditUsageStatisticsEnabled);
       this.TabPageApplication.Controls.Add(this.EditVolume);
@@ -205,6 +207,12 @@
       this.TabPageApplication.Controls.Add(this.EditLogEnabled);
       resources.ApplyResources(this.TabPageApplication, "TabPageApplication");
       this.TabPageApplication.Name = "TabPageApplication";
+      // 
+      // EditWindowsDoubleBufferingEnabled
+      // 
+      resources.ApplyResources(this.EditWindowsDoubleBufferingEnabled, "EditWindowsDoubleBufferingEnabled");
+      this.EditWindowsDoubleBufferingEnabled.Name = "EditWindowsDoubleBufferingEnabled";
+      this.EditWindowsDoubleBufferingEnabled.UseVisualStyleBackColor = true;
       // 
       // EditUsageStatisticsEnabled
       // 
@@ -288,6 +296,30 @@
       this.TabPageCheckUpdate.Controls.Add(LabelCheckUpdateFrequency);
       resources.ApplyResources(this.TabPageCheckUpdate, "TabPageCheckUpdate");
       this.TabPageCheckUpdate.Name = "TabPageCheckUpdate";
+      // 
+      // LabelLastDBOptimizeDate
+      // 
+      resources.ApplyResources(this.LabelLastDBOptimizeDate, "LabelLastDBOptimizeDate");
+      this.LabelLastDBOptimizeDate.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+      this.LabelLastDBOptimizeDate.Name = "LabelLastDBOptimizeDate";
+      // 
+      // LabelLastDBOptimize
+      // 
+      resources.ApplyResources(this.LabelLastDBOptimize, "LabelLastDBOptimize");
+      this.LabelLastDBOptimize.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+      this.LabelLastDBOptimize.Name = "LabelLastDBOptimize";
+      // 
+      // LabelLastStartupCheckDate
+      // 
+      resources.ApplyResources(this.LabelLastStartupCheckDate, "LabelLastStartupCheckDate");
+      this.LabelLastStartupCheckDate.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+      this.LabelLastStartupCheckDate.Name = "LabelLastStartupCheckDate";
+      // 
+      // LabelLastStartupCheck
+      // 
+      resources.ApplyResources(this.LabelLastStartupCheck, "LabelLastStartupCheck");
+      this.LabelLastStartupCheck.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+      this.LabelLastStartupCheck.Name = "LabelLastStartupCheck";
       // 
       // EditCheckUpdateAtStartup
       // 
@@ -601,14 +633,6 @@
       this.EditAutoOpenExportFolder.UseVisualStyleBackColor = true;
       this.EditAutoOpenExportFolder.CheckedChanged += new System.EventHandler(this.EditAutoOpenExportFolder_CheckedChanged);
       // 
-      // EditExportFolder
-      // 
-      this.EditExportFolder.BackColor = System.Drawing.SystemColors.Control;
-      this.EditExportFolder.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
-      resources.ApplyResources(this.EditExportFolder, "EditExportFolder");
-      this.EditExportFolder.Name = "EditExportFolder";
-      this.EditExportFolder.ReadOnly = true;
-      // 
       // DialogColor
       // 
       this.DialogColor.FullOpen = true;
@@ -622,35 +646,19 @@
       this.OpenThemeDialog.FileName = "openFileDialog1";
       resources.ApplyResources(this.OpenThemeDialog, "OpenThemeDialog");
       // 
-      // EditWindowsDoubleBufferingEnabled
+      // LabelChangeLangNotice
       // 
-      resources.ApplyResources(this.EditWindowsDoubleBufferingEnabled, "EditWindowsDoubleBufferingEnabled");
-      this.EditWindowsDoubleBufferingEnabled.Name = "EditWindowsDoubleBufferingEnabled";
-      this.EditWindowsDoubleBufferingEnabled.UseVisualStyleBackColor = true;
+      resources.ApplyResources(this.LabelChangeLangNotice, "LabelChangeLangNotice");
+      this.LabelChangeLangNotice.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+      this.LabelChangeLangNotice.Name = "LabelChangeLangNotice";
       // 
-      // LabelLastDBOptimizeDate
+      // EditExportFolder
       // 
-      resources.ApplyResources(this.LabelLastDBOptimizeDate, "LabelLastDBOptimizeDate");
-      this.LabelLastDBOptimizeDate.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-      this.LabelLastDBOptimizeDate.Name = "LabelLastDBOptimizeDate";
-      // 
-      // LabelLastDBOptimize
-      // 
-      resources.ApplyResources(this.LabelLastDBOptimize, "LabelLastDBOptimize");
-      this.LabelLastDBOptimize.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-      this.LabelLastDBOptimize.Name = "LabelLastDBOptimize";
-      // 
-      // LabelLastStartupCheckDate
-      // 
-      resources.ApplyResources(this.LabelLastStartupCheckDate, "LabelLastStartupCheckDate");
-      this.LabelLastStartupCheckDate.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-      this.LabelLastStartupCheckDate.Name = "LabelLastStartupCheckDate";
-      // 
-      // LabelLastStartupCheck
-      // 
-      resources.ApplyResources(this.LabelLastStartupCheck, "LabelLastStartupCheck");
-      this.LabelLastStartupCheck.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-      this.LabelLastStartupCheck.Name = "LabelLastStartupCheck";
+      this.EditExportFolder.BackColor = System.Drawing.SystemColors.Control;
+      this.EditExportFolder.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
+      resources.ApplyResources(this.EditExportFolder, "EditExportFolder");
+      this.EditExportFolder.Name = "EditExportFolder";
+      this.EditExportFolder.ReadOnly = true;
       // 
       // PreferencesForm
       // 
@@ -755,5 +763,6 @@
     private System.Windows.Forms.Label LabelLastDBOptimize;
     private System.Windows.Forms.Label LabelLastStartupCheckDate;
     private System.Windows.Forms.Label LabelLastStartupCheck;
+    private System.Windows.Forms.Label LabelChangeLangNotice;
   }
 }
