@@ -151,7 +151,7 @@
     <value>PanelLetter</value>
   </data>
   <data name="&gt;&gt;LabelName.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>13</value>
   </data>
   <metadata name="LabelStructure.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
@@ -184,7 +184,7 @@
     <value>PanelLetter</value>
   </data>
   <data name="&gt;&gt;LabelStructure.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>5</value>
   </data>
   <metadata name="LabelFunction.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
@@ -217,7 +217,7 @@
     <value>PanelLetter</value>
   </data>
   <data name="&gt;&gt;LabelFunction.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>7</value>
   </data>
   <metadata name="LabelValueSimple.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
@@ -250,7 +250,7 @@
     <value>PanelLetter</value>
   </data>
   <data name="&gt;&gt;LabelValueSimple.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>15</value>
   </data>
   <metadata name="LabelValueFull.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
@@ -283,7 +283,7 @@
     <value>PanelLetter</value>
   </data>
   <data name="&gt;&gt;LabelValueFull.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>18</value>
   </data>
   <metadata name="LabelMeanings.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
@@ -349,7 +349,7 @@
     <value>PanelLetter</value>
   </data>
   <data name="&gt;&gt;LabelVerb.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>14</value>
   </data>
   <metadata name="LabelPositive.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
@@ -382,7 +382,7 @@
     <value>PanelLetter</value>
   </data>
   <data name="&gt;&gt;LabelPositive.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>10</value>
   </data>
   <metadata name="LabelNegative.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>False</value>
@@ -415,7 +415,7 @@
     <value>PanelLetter</value>
   </data>
   <data name="&gt;&gt;LabelNegative.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>6</value>
   </data>
   <data name="PanelViewSearch.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1539,65 +1539,11 @@
   <data name="PanelSettingsDetails.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="ActionLast.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="ActionLast.Location" type="System.Drawing.Point, System.Drawing">
-    <value>107, 77</value>
-  </data>
-  <data name="ActionLast.Size" type="System.Drawing.Size, System.Drawing">
-    <value>28, 23</value>
-  </data>
-  <data name="ActionLast.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="ActionLast.Text" xml:space="preserve">
-    <value>&gt;&gt;</value>
-  </data>
-  <data name="&gt;&gt;ActionLast.Name" xml:space="preserve">
-    <value>ActionLast</value>
-  </data>
-  <data name="&gt;&gt;ActionLast.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ActionLast.Parent" xml:space="preserve">
-    <value>PanelLetter</value>
-  </data>
-  <data name="&gt;&gt;ActionLast.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="ActionNext.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="ActionNext.Location" type="System.Drawing.Point, System.Drawing">
-    <value>78, 77</value>
-  </data>
-  <data name="ActionNext.Size" type="System.Drawing.Size, System.Drawing">
-    <value>28, 23</value>
-  </data>
-  <data name="ActionNext.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="ActionNext.Text" xml:space="preserve">
-    <value>&gt;</value>
-  </data>
-  <data name="&gt;&gt;ActionNext.Name" xml:space="preserve">
-    <value>ActionNext</value>
-  </data>
-  <data name="&gt;&gt;ActionNext.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ActionNext.Parent" xml:space="preserve">
-    <value>PanelLetter</value>
-  </data>
-  <data name="&gt;&gt;ActionNext.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="ActionFirst.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="ActionFirst.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 77</value>
+    <value>0, 0</value>
   </data>
   <data name="ActionFirst.Size" type="System.Drawing.Size, System.Drawing">
     <value>28, 23</value>
@@ -1615,16 +1561,43 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ActionFirst.Parent" xml:space="preserve">
-    <value>PanelLetter</value>
+    <value>PanelLettersNavigation</value>
   </data>
   <data name="&gt;&gt;ActionFirst.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>0</value>
+  </data>
+  <data name="ActionLast.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ActionLast.Location" type="System.Drawing.Point, System.Drawing">
+    <value>87, 0</value>
+  </data>
+  <data name="ActionLast.Size" type="System.Drawing.Size, System.Drawing">
+    <value>28, 23</value>
+  </data>
+  <data name="ActionLast.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="ActionLast.Text" xml:space="preserve">
+    <value>&gt;&gt;</value>
+  </data>
+  <data name="&gt;&gt;ActionLast.Name" xml:space="preserve">
+    <value>ActionLast</value>
+  </data>
+  <data name="&gt;&gt;ActionLast.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ActionLast.Parent" xml:space="preserve">
+    <value>PanelLettersNavigation</value>
+  </data>
+  <data name="&gt;&gt;ActionLast.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="ActionPrevious.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="ActionPrevious.Location" type="System.Drawing.Point, System.Drawing">
-    <value>49, 77</value>
+    <value>29, 0</value>
   </data>
   <data name="ActionPrevious.Size" type="System.Drawing.Size, System.Drawing">
     <value>28, 23</value>
@@ -1642,10 +1615,58 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ActionPrevious.Parent" xml:space="preserve">
-    <value>PanelLetter</value>
+    <value>PanelLettersNavigation</value>
   </data>
   <data name="&gt;&gt;ActionPrevious.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="ActionNext.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ActionNext.Location" type="System.Drawing.Point, System.Drawing">
+    <value>58, 0</value>
+  </data>
+  <data name="ActionNext.Size" type="System.Drawing.Size, System.Drawing">
+    <value>28, 23</value>
+  </data>
+  <data name="ActionNext.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
+  </data>
+  <data name="ActionNext.Text" xml:space="preserve">
+    <value>&gt;</value>
+  </data>
+  <data name="&gt;&gt;ActionNext.Name" xml:space="preserve">
+    <value>ActionNext</value>
+  </data>
+  <data name="&gt;&gt;ActionNext.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ActionNext.Parent" xml:space="preserve">
+    <value>PanelLettersNavigation</value>
+  </data>
+  <data name="&gt;&gt;ActionNext.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="PanelLettersNavigation.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 77</value>
+  </data>
+  <data name="PanelLettersNavigation.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 30</value>
+  </data>
+  <data name="PanelLettersNavigation.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="&gt;&gt;PanelLettersNavigation.Name" xml:space="preserve">
+    <value>PanelLettersNavigation</value>
+  </data>
+  <data name="&gt;&gt;PanelLettersNavigation.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PanelLettersNavigation.Parent" xml:space="preserve">
+    <value>PanelLetter</value>
+  </data>
+  <data name="&gt;&gt;PanelLettersNavigation.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="LettersBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>600, 19</value>
@@ -1675,7 +1696,7 @@
     <value>PanelLetter</value>
   </data>
   <data name="&gt;&gt;SelectLetter.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>1</value>
   </data>
   <data name="TextBoxStructure.Location" type="System.Drawing.Point, System.Drawing">
     <value>20, 422</value>
@@ -1696,7 +1717,7 @@
     <value>PanelLetter</value>
   </data>
   <data name="&gt;&gt;TextBoxStructure.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>2</value>
   </data>
   <data name="LabelHebrew.Font" type="System.Drawing.Font, System.Drawing">
     <value>Hebrew, 17.9999981pt</value>
@@ -1726,7 +1747,7 @@
     <value>PanelLetter</value>
   </data>
   <data name="&gt;&gt;LabelHebrew.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>3</value>
   </data>
   <data name="ActionRestoreDefaults.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1756,7 +1777,7 @@
     <value>PanelLetter</value>
   </data>
   <data name="&gt;&gt;ActionRestoreDefaults.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>4</value>
   </data>
   <data name="TextBoxNegative.Location" type="System.Drawing.Point, System.Drawing">
     <value>20, 332</value>
@@ -1777,7 +1798,7 @@
     <value>PanelLetter</value>
   </data>
   <data name="&gt;&gt;TextBoxNegative.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>8</value>
   </data>
   <data name="TextBoxName.Location" type="System.Drawing.Point, System.Drawing">
     <value>20, 132</value>
@@ -1798,7 +1819,7 @@
     <value>PanelLetter</value>
   </data>
   <data name="&gt;&gt;TextBoxName.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>9</value>
   </data>
   <data name="TextBoxFunction.Location" type="System.Drawing.Point, System.Drawing">
     <value>20, 467</value>
@@ -1819,7 +1840,7 @@
     <value>PanelLetter</value>
   </data>
   <data name="&gt;&gt;TextBoxFunction.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>11</value>
   </data>
   <data name="TextBoxPositive.Location" type="System.Drawing.Point, System.Drawing">
     <value>20, 287</value>
@@ -1840,7 +1861,7 @@
     <value>PanelLetter</value>
   </data>
   <data name="&gt;&gt;TextBoxPositive.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>12</value>
   </data>
   <data name="TextBoxVerb.Location" type="System.Drawing.Point, System.Drawing">
     <value>20, 377</value>
@@ -1861,7 +1882,7 @@
     <value>PanelLetter</value>
   </data>
   <data name="&gt;&gt;TextBoxVerb.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>16</value>
   </data>
   <data name="TextBoxValueSimple.Location" type="System.Drawing.Point, System.Drawing">
     <value>20, 187</value>
@@ -1882,7 +1903,7 @@
     <value>PanelLetter</value>
   </data>
   <data name="&gt;&gt;TextBoxValueSimple.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>17</value>
   </data>
   <data name="TextBoxValueFull.Location" type="System.Drawing.Point, System.Drawing">
     <value>20, 232</value>
@@ -1903,7 +1924,7 @@
     <value>PanelLetter</value>
   </data>
   <data name="&gt;&gt;TextBoxValueFull.ZOrder" xml:space="preserve">
-    <value>22</value>
+    <value>19</value>
   </data>
   <data name="PanelLetter.Location" type="System.Drawing.Point, System.Drawing">
     <value>7, 8</value>

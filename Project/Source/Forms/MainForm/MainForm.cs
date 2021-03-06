@@ -979,6 +979,7 @@ namespace Ordisoftware.Hebrew.Letters
         ActionUndo.Enabled = ActionSave.Enabled;
         Globals.AllowClose = !ActionSave.Enabled && !forceEditMode;
         SelectLetter.Enabled = Globals.AllowClose;
+        PanelLettersNavigation.Enabled = Globals.AllowClose;
         ActionViewAnalysis.Enabled = Globals.AllowClose;
         ActionViewLetters.Enabled = Globals.AllowClose;
         ActionExit.Enabled = Globals.AllowClose;

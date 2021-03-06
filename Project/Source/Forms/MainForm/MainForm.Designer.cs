@@ -144,6 +144,7 @@
       this.MeaningsTableAdapter = new Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.MeaningsTableAdapter();
       this.SaveImageDialog = new System.Windows.Forms.SaveFileDialog();
       this.ToolTipClipboard = new System.Windows.Forms.ToolTip(this.components);
+      this.PanelLettersNavigation = new System.Windows.Forms.Panel();
       LabelName = new System.Windows.Forms.Label();
       LabelStructure = new System.Windows.Forms.Label();
       LabelFunction = new System.Windows.Forms.Label();
@@ -171,6 +172,7 @@
       ((System.ComponentModel.ISupportInitialize)(this.MeaningsBindingSource)).BeginInit();
       this.PanelTitle.SuspendLayout();
       this.ToolStrip.SuspendLayout();
+      this.PanelLettersNavigation.SuspendLayout();
       this.SuspendLayout();
       // 
       // LabelName
@@ -522,10 +524,7 @@
       // 
       // PanelLetter
       // 
-      this.PanelLetter.Controls.Add(this.ActionLast);
-      this.PanelLetter.Controls.Add(this.ActionNext);
-      this.PanelLetter.Controls.Add(this.ActionFirst);
-      this.PanelLetter.Controls.Add(this.ActionPrevious);
+      this.PanelLetter.Controls.Add(this.PanelLettersNavigation);
       this.PanelLetter.Controls.Add(this.SelectLetter);
       this.PanelLetter.Controls.Add(this.TextBoxStructure);
       this.PanelLetter.Controls.Add(this.LabelHebrew);
@@ -1104,6 +1103,15 @@
       // 
       this.MeaningsTableAdapter.ClearBeforeFill = true;
       // 
+      // PanelLettersNavigation
+      // 
+      this.PanelLettersNavigation.Controls.Add(this.ActionFirst);
+      this.PanelLettersNavigation.Controls.Add(this.ActionLast);
+      this.PanelLettersNavigation.Controls.Add(this.ActionPrevious);
+      this.PanelLettersNavigation.Controls.Add(this.ActionNext);
+      resources.ApplyResources(this.PanelLettersNavigation, "PanelLettersNavigation");
+      this.PanelLettersNavigation.Name = "PanelLettersNavigation";
+      // 
       // MainForm
       // 
       resources.ApplyResources(this, "$this");
@@ -1141,6 +1149,7 @@
       this.PanelTitle.ResumeLayout(false);
       this.ToolStrip.ResumeLayout(false);
       this.ToolStrip.PerformLayout();
+      this.PanelLettersNavigation.ResumeLayout(false);
       this.ResumeLayout(false);
 
     }
@@ -1252,5 +1261,6 @@
     public System.Windows.Forms.Label LabelClipboardContentType;
     private System.Windows.Forms.ToolTip ToolTipClipboard;
     internal System.Windows.Forms.Panel PanelMainCenter;
+    private System.Windows.Forms.Panel PanelLettersNavigation;
   }
 }
