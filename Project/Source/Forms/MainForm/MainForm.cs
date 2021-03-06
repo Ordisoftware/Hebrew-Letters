@@ -1233,7 +1233,7 @@ namespace Ordisoftware.Hebrew.Letters
       if ( !Globals.IsReady ) return;
       if ( e.Exception is ArgumentOutOfRangeException || e.Exception is IndexOutOfRangeException )
       {
-        DisplayManager.ShowError("public index error.");
+        DisplayManager.ShowError($"DB Index error.{Globals.NL2}Application will exit.");
         DataSet.RejectChanges();
         e.Exception.Manage();
         Application.Exit();
