@@ -22,10 +22,10 @@ A libre and open-source software written in C# that helps for the lettriq letter
 
 ## Functionalities
 
-- Database of Hebrew letters with their customizable meanings.
+- Hebrew letters database with their customizable meanings.
 - Analyze a word letter by letter to get a sentence describing its sense.
 - Online research with Pealim, Sefaria, Shorashim, Wiktionary, Translator, etc.
-- Copy to the clipboard the analysis and the sentence or a screenshot.
+- Copy the result or a screenshot to the clipboard.
 - English, French.
 
 ## Review
