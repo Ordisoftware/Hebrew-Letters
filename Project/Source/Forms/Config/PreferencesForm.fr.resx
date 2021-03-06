@@ -265,4 +265,13 @@
   <data name="TabPageTheme.Text" xml:space="preserve">
     <value>Thème</value>
   </data>
+  <data name="EditWindowsDoubleBufferingEnabled.Text" xml:space="preserve">
+    <value>Activer le double tampon pour le dessin des fenêtres</value>
+  </data>
+  <data name="LabelLastDBOptimize.Text" xml:space="preserve">
+    <value>Dernière optimisation :</value>
+  </data>
+  <data name="LabelLastStartupCheck.Text" xml:space="preserve">
+    <value>Dernière vérification :</value>
+  </data>
 </root>

@@ -92,6 +92,11 @@
       this.SaveSettingsDialog = new System.Windows.Forms.SaveFileDialog();
       this.SaveThemeDialog = new System.Windows.Forms.SaveFileDialog();
       this.OpenThemeDialog = new System.Windows.Forms.OpenFileDialog();
+      this.EditWindowsDoubleBufferingEnabled = new System.Windows.Forms.CheckBox();
+      this.LabelLastDBOptimizeDate = new System.Windows.Forms.Label();
+      this.LabelLastDBOptimize = new System.Windows.Forms.Label();
+      this.LabelLastStartupCheckDate = new System.Windows.Forms.Label();
+      this.LabelLastStartupCheck = new System.Windows.Forms.Label();
       LabelVolume = new System.Windows.Forms.Label();
       LabelCheckUpdateFrequency = new System.Windows.Forms.Label();
       this.PanelBottom.SuspendLayout();
@@ -187,6 +192,7 @@
       // 
       this.TabPageApplication.BackColor = System.Drawing.SystemColors.Window;
       this.TabPageApplication.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.TabPageApplication.Controls.Add(this.EditWindowsDoubleBufferingEnabled);
       this.TabPageApplication.Controls.Add(this.EditUsageStatisticsEnabled);
       this.TabPageApplication.Controls.Add(this.EditVolume);
       this.TabPageApplication.Controls.Add(this.ActionSelectLangEN);
@@ -272,6 +278,10 @@
       // 
       this.TabPageCheckUpdate.BackColor = System.Drawing.SystemColors.Window;
       this.TabPageCheckUpdate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.TabPageCheckUpdate.Controls.Add(this.LabelLastDBOptimizeDate);
+      this.TabPageCheckUpdate.Controls.Add(this.LabelLastDBOptimize);
+      this.TabPageCheckUpdate.Controls.Add(this.LabelLastStartupCheckDate);
+      this.TabPageCheckUpdate.Controls.Add(this.LabelLastStartupCheck);
       this.TabPageCheckUpdate.Controls.Add(this.EditCheckUpdateAtStartup);
       this.TabPageCheckUpdate.Controls.Add(this.EditCheckUpdateAtStartupInterval);
       this.TabPageCheckUpdate.Controls.Add(this.LabelCheckUpdateAtStartupInfo);
@@ -612,6 +622,36 @@
       this.OpenThemeDialog.FileName = "openFileDialog1";
       resources.ApplyResources(this.OpenThemeDialog, "OpenThemeDialog");
       // 
+      // EditWindowsDoubleBufferingEnabled
+      // 
+      resources.ApplyResources(this.EditWindowsDoubleBufferingEnabled, "EditWindowsDoubleBufferingEnabled");
+      this.EditWindowsDoubleBufferingEnabled.Name = "EditWindowsDoubleBufferingEnabled";
+      this.EditWindowsDoubleBufferingEnabled.UseVisualStyleBackColor = true;
+      // 
+      // LabelLastDBOptimizeDate
+      // 
+      resources.ApplyResources(this.LabelLastDBOptimizeDate, "LabelLastDBOptimizeDate");
+      this.LabelLastDBOptimizeDate.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+      this.LabelLastDBOptimizeDate.Name = "LabelLastDBOptimizeDate";
+      // 
+      // LabelLastDBOptimize
+      // 
+      resources.ApplyResources(this.LabelLastDBOptimize, "LabelLastDBOptimize");
+      this.LabelLastDBOptimize.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+      this.LabelLastDBOptimize.Name = "LabelLastDBOptimize";
+      // 
+      // LabelLastStartupCheckDate
+      // 
+      resources.ApplyResources(this.LabelLastStartupCheckDate, "LabelLastStartupCheckDate");
+      this.LabelLastStartupCheckDate.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+      this.LabelLastStartupCheckDate.Name = "LabelLastStartupCheckDate";
+      // 
+      // LabelLastStartupCheck
+      // 
+      resources.ApplyResources(this.LabelLastStartupCheck, "LabelLastStartupCheck");
+      this.LabelLastStartupCheck.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+      this.LabelLastStartupCheck.Name = "LabelLastStartupCheck";
+      // 
       // PreferencesForm
       // 
       this.AcceptButton = this.ActionClose;
@@ -710,5 +750,10 @@
     private System.Windows.Forms.Button ActionSaveTheme;
     private System.Windows.Forms.SaveFileDialog SaveThemeDialog;
     private System.Windows.Forms.OpenFileDialog OpenThemeDialog;
+    private System.Windows.Forms.CheckBox EditWindowsDoubleBufferingEnabled;
+    private System.Windows.Forms.Label LabelLastDBOptimizeDate;
+    private System.Windows.Forms.Label LabelLastDBOptimize;
+    private System.Windows.Forms.Label LabelLastStartupCheckDate;
+    private System.Windows.Forms.Label LabelLastStartupCheck;
   }
 }
