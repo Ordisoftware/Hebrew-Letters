@@ -172,5 +172,8 @@
     <Setting Name="ColorGematriaTextBox" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">LavenderBlush</Value>
     </Setting>
+    <Setting Name="WindowsDoubleBufferingEnabled" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

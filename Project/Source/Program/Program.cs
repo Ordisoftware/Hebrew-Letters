@@ -75,6 +75,7 @@ namespace Ordisoftware.Hebrew.Letters
     {
       try
       {
+        Settings.CurrentView = ViewMode.Analysis;
         if ( force /*|| Settings.UpgradeResetRequiredVx_y*/ )
         {
           if ( !force && !Settings.FirstLaunch )
@@ -132,7 +133,7 @@ namespace Ordisoftware.Hebrew.Letters
         MessageBoxEx.CloseAll();
         AboutBox.Instance.Hide();
         var temp = Settings.CurrentView;
-        MainForm.Instance.SetView(ViewMode.Analyse);
+        MainForm.Instance.SetView(ViewMode.Analysis);
         update(MainForm.Instance);
         MainForm.Instance.SetView(ViewMode.Data);
         update(MainForm.Instance);

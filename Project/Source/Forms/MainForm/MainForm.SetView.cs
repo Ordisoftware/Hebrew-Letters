@@ -70,7 +70,7 @@ namespace Ordisoftware.Hebrew.Letters
       var ViewPanels = new Dictionary<ViewMode, ViewConnector>()
       {
         {
-          ViewMode.Analyse,
+          ViewMode.Analysis,
           new ViewConnector
           {
             MenuItem = ActionViewAnalysis,
@@ -99,7 +99,7 @@ namespace Ordisoftware.Hebrew.Letters
       ViewPanels[view].Panel.Parent = PanelMainCenter;
       ViewPanels[view].Focused.Focus();
       Program.Settings.CurrentView = view;
-      if ( view == ViewMode.Analyse )
+      if ( view == ViewMode.Analysis )
       {
         EditLetters.Input.SelectionStart = SavedSelectionStart;
         EditLetters.Input.SelectionLength = SavedSelectionLength;
