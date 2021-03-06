@@ -188,10 +188,10 @@ namespace Ordisoftware.Hebrew.Letters
     /// </summary>
     private void CreateProvidersLinks()
     {
-      ContextMenuSearchOnline.InitializeFromProviders(OnlineProviders.OnlineWordProviders, (sender, e) =>
+      ContextMenuSearchOnline.InitializeFromProviders(HebrewGlobals.WebProvidersWord, (sender, e) =>
       {
         var menuitem = (ToolStripMenuItem)sender;
-        HebrewTools.OpenOnlineWordProvider((string)menuitem.Tag, EditLetters.Input.Text);
+        HebrewTools.OpenWordProvider((string)menuitem.Tag, EditLetters.Input.Text);
         EditLetters.Focus();
       });
     }
