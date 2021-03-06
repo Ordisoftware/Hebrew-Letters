@@ -88,9 +88,12 @@ namespace Ordisoftware.Hebrew.Letters
     {
       get
       {
-        CreateParams cp = base.CreateParams;
-        cp.ExStyle |= 0x02000000; // + WS_EX_COMPOSITED
-        //cp.Style &= ~0x02000000;  // - WS_CLIPCHILDREN
+        var cp = base.CreateParams;
+        if ( Settings.WindowsDoubleBufferingEnabled )
+        {
+          cp.ExStyle |= 0x02000000; // + WS_EX_COMPOSITED
+          //cp.Style &= ~0x02000000;  // - WS_CLIPCHILDREN
+        }
         return cp;
       }
     }
@@ -164,6 +167,19 @@ namespace Ordisoftware.Hebrew.Letters
     }
 
     /// <summary>
+    /// Create providers links menu items.
+    /// </summary>
+    private void CreateProvidersLinks()
+    {
+      ContextMenuSearchOnline.InitializeFromProviders(OnlineProviders.OnlineWordProviders, (sender, e) =>
+      {
+        var menuitem = (ToolStripMenuItem)sender;
+        HebrewTools.OpenOnlineWordProvider((string)menuitem.Tag, EditLetters.Input.Text);
+        EditLetters.Focus();
+      });
+    }
+
+    /// <summary>
     /// Create system information menu items.
     /// </summary>
     public void CreateSystemInformationMenu()
@@ -179,7 +195,7 @@ namespace Ordisoftware.Hebrew.Letters
     }
 
     /// <summary>
-    /// Create providers and web links menu items.
+    /// Initialize special menus.
     /// </summary>
     public void InitializeSpecialMenus()
     {
@@ -188,19 +204,6 @@ namespace Ordisoftware.Hebrew.Letters
       ActionWebLinks.Visible = Settings.WebLinksMenuEnabled;
       if ( Settings.WebLinksMenuEnabled )
         ActionWebLinks.InitializeFromWebLinks(InitializeSpecialMenus);
-    }
-
-    /// <summary>
-    /// Create providers links menu items.
-    /// </summary>
-    private void CreateProvidersLinks()
-    {
-      ContextMenuSearchOnline.InitializeFromProviders(OnlineProviders.OnlineWordProviders, (sender, e) =>
-      {
-        var menuitem = (ToolStripMenuItem)sender;
-        HebrewTools.OpenOnlineWordProvider((string)menuitem.Tag, EditLetters.Input.Text);
-        EditLetters.Focus();
-      });
     }
 
     /// <summary>
@@ -218,7 +221,7 @@ namespace Ordisoftware.Hebrew.Letters
       LabelClipboardContentType.Left = ActionCopyToUnicode.Left + ActionCopyToUnicode.Width / 2
                                      - LabelClipboardContentType.Width / 2;
       EditLetters.Input.MaxLength = (int)Settings.HebrewTextBoxMaxLength;
-      Program.Settings.CurrentView = ViewMode.Analyse;
+      Program.Settings.CurrentView = ViewMode.Analysis;
       EditSentence.Font = new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence);
       EditSentence_FontChanged(null, null);
       SystemManager.TryCatch(() => new System.Media.SoundPlayer(Globals.EmptySoundFilePath).Play());
@@ -239,14 +242,13 @@ namespace Ordisoftware.Hebrew.Letters
       Globals.ChronoLoadApp.Start();
       try
       {
-        var Chrono = new Stopwatch();
-        Chrono.Start();
+        Globals.ChronoLoadData.Start();
         IsDBUpgraded = CreateSchemaIfNotExists();
         CreateDataIfNotExists(false);
         MeaningsTableAdapter.Fill(DataSet.Meanings);
         LettersTableAdapter.Fill(DataSet.Letters);
-        Chrono.Stop();
-        Settings.BenchmarkLoadData = Chrono.ElapsedMilliseconds;
+        Globals.ChronoLoadData.Stop();
+        Settings.BenchmarkLoadData = Globals.ChronoLoadData.ElapsedMilliseconds;
         SystemManager.TryCatch(Settings.Save);
       }
       catch ( Exception ex )
@@ -287,10 +289,10 @@ namespace Ordisoftware.Hebrew.Letters
       EditSentence.BackColor = Settings.ColorSentenceTextBox;
       EditGematriaFull.BackColor = Settings.ColorGematriaTextBox;
       EditGematriaSimple.BackColor = Settings.ColorGematriaTextBox;
-      // Parameters
+      // Data
       SelectLetter.BackColor = Settings.ColorLettersPanel == SystemColors.Window
-                              ? Settings.ColorGematriaTextBox
-                              : Settings.ColorLettersPanel;
+                               ? Settings.ColorGematriaTextBox
+                               : Settings.ColorLettersPanel;
       TextBoxName.BackColor = SelectLetter.BackColor;
       TextBoxValueSimple.BackColor = Settings.ColorGematriaTextBox;
       TextBoxValueFull.BackColor = Settings.ColorGematriaTextBox;
@@ -324,7 +326,7 @@ namespace Ordisoftware.Hebrew.Letters
       if ( IsDBUpgraded && DisplayManager.QueryYesNo(SysTranslations.AskToCheckDataAfterDatabaseUpgraded.GetLang()) )
         SetView(ViewMode.Data, false);
       else
-        SetView(ViewMode.Analyse, false);
+        SetView(ViewMode.Analysis, false);
       if ( Settings.FirstLaunch )
       {
         Settings.FirstLaunch = false;
@@ -341,12 +343,12 @@ namespace Ordisoftware.Hebrew.Letters
       if ( Globals.SettingsUpgraded )
         SystemManager.TryCatch(() =>
         {
-          var menuitem = CommonMenusControl.Instance
-                                           .ActionViewVersionNews
-                                           .DropDownItems
-                                           .Cast<ToolStripItem>()
-                                           .LastOrDefault();
-          if ( menuitem != null ) menuitem.PerformClick();
+          CommonMenusControl.Instance
+                            .ActionViewVersionNews
+                            .DropDownItems
+                            .Cast<ToolStripItem>()
+                            .LastOrDefault()?
+                            .PerformClick();
         });
     }
 
@@ -383,7 +385,7 @@ namespace Ordisoftware.Hebrew.Letters
     /// <param name="e">Form closing event information.</param>
     private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
     {
-      Program.Settings.CurrentView = ViewMode.Analyse;
+      Program.Settings.CurrentView = ViewMode.Analysis;
       Settings.Store();
       ProcessLocksTable.Unlock();
     }
@@ -409,13 +411,15 @@ namespace Ordisoftware.Hebrew.Letters
     /// <param name="e">Session ending event information.</param>
     private void SessionEnding(object sender, SessionEndingEventArgs e)
     {
+      if ( Globals.IsSessionEnding ) return;
       Globals.IsExiting = true;
       Globals.IsSessionEnding = true;
       Globals.AllowClose = true;
+      TimerTooltip.Stop();
+      MessageBoxEx.CloseAll();
       foreach ( Form form in Application.OpenForms )
         if ( form != this && form.Visible )
-          try { form.Close(); }
-          catch { }
+          SystemManager.TryCatch(() => form.Close());
       Close();
     }
 
@@ -517,7 +521,7 @@ namespace Ordisoftware.Hebrew.Letters
     /// <param name="e">Event information.</param>
     private void ActionViewAnalysis_Click(object sender, EventArgs e)
     {
-      SetView(ViewMode.Analyse);
+      SetView(ViewMode.Analysis);
     }
 
     /// <summary>
@@ -602,6 +606,31 @@ namespace Ordisoftware.Hebrew.Letters
     private void ActionShowKeyboardNotice_Click(object sender, EventArgs e)
     {
       Globals.NoticeKeyboardShortcutsForm.Popup();
+    }
+
+    /// <summary>
+    /// Event handler. Called by EditDialogBoxesSettings for checked changed events.
+    /// </summary>
+    /// <param name="sender">Source of the event.</param>
+    /// <param name="e">Event information.</param>
+    public void EditDialogBoxesSettings_CheckedChanged(object sender, EventArgs e)
+    {
+      DisplayManager.AdvancedFormUseSounds = EditSoundsEnabled.Checked;
+      DisplayManager.FormStyle = EditUseAdvancedDialogBoxes.Checked
+                                 ? MessageBoxFormStyle.Advanced
+                                 : MessageBoxFormStyle.System;
+      switch ( DisplayManager.FormStyle )
+      {
+        case MessageBoxFormStyle.System:
+          DisplayManager.IconStyle = EditSoundsEnabled.Checked
+                                     ? MessageBoxIconStyle.ForceInformation
+                                     : MessageBoxIconStyle.ForceNone;
+          break;
+        case MessageBoxFormStyle.Advanced:
+          DisplayManager.IconStyle = MessageBoxIconStyle.ForceInformation;
+          break;
+      }
+
     }
 
     /// <summary>
@@ -711,27 +740,16 @@ namespace Ordisoftware.Hebrew.Letters
       ProcessHTMLBrowser(Program.GrammarGuideForm);
     }
 
-    private void ActionRestoreDefaults_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-    {
-      if ( DisplayManager.QueryYesNo(SysTranslations.AskToResetData.GetLang()) )
-      {
-        string word = EditLetters.Input.Text;
-        CreateDataIfNotExists(true);
-        ActionClear.PerformClick();
-        ActionReset.PerformClick();
-        EditLetters.Input.Text = word;
-        ApplicationStatistics.UpdateDBFileSizeRequired = true;
-        ApplicationStatistics.UpdateDBMemorySizeRequired = true;
-        UpdateButtons(null);
-        ClearLettersMeanings();
-        DoAnalyse();
-      }
-    }
-
     private void EditGematriaSimple_TextChanged(object sender, EventArgs e)
     {
       var textbox = sender as TextBox;
       if ( textbox.Text == "0" ) textbox.Text = "";
+    }
+
+    private void EditLetters_ViewLetterDetails(LettersControl sender, string code)
+    {
+      ActionViewLetters.PerformClick();
+      SelectLetter.SelectedIndex = SelectLetter.FindStringExact(code);
     }
 
     private void ActionDelFirst_Click(object sender, EventArgs e)
@@ -842,6 +860,8 @@ namespace Ordisoftware.Hebrew.Letters
       ActionCopyToResult.Enabled = EditSentence.Text != "";
     }
 
+    // Copy to clipboard and screenshor
+
     private void ActionViewAllMeaningsList_Click(object sender, EventArgs e)
     {
       if ( EditLetters.Input.Text == "" ) return;
@@ -911,39 +931,7 @@ namespace Ordisoftware.Hebrew.Letters
       EditSentence.Focus();
     }
 
-    private void EditLetters_ViewLetterDetails(LettersControl sender, string code)
-    {
-      ActionViewLetters.PerformClick();
-      SelectLetter.SelectedIndex = SelectLetter.FindStringExact(code);
-    }
-
-    public void EditDialogBoxesSettings_CheckedChanged(object sender, EventArgs e)
-    {
-      DisplayManager.AdvancedFormUseSounds = EditSoundsEnabled.Checked;
-      DisplayManager.FormStyle = EditUseAdvancedDialogBoxes.Checked
-                                 ? MessageBoxFormStyle.Advanced
-                                 : MessageBoxFormStyle.System;
-      switch ( DisplayManager.FormStyle )
-      {
-        case MessageBoxFormStyle.System:
-          DisplayManager.IconStyle = EditSoundsEnabled.Checked
-                                     ? MessageBoxIconStyle.ForceInformation
-                                     : MessageBoxIconStyle.ForceNone;
-          break;
-        case MessageBoxFormStyle.Advanced:
-          DisplayManager.IconStyle = MessageBoxIconStyle.ForceInformation;
-          break;
-      }
-
-    }
-
-    private void ActionUndo_Click(object sender, EventArgs e)
-    {
-      if ( DataSet.HasChanges() )
-        DataSet.RejectChanges();
-      UpdateButtons(sender);
-      EditMeanings.Focus();
-    }
+    // Save, undo and restore
 
     private void ActionSave_Click(object sender, EventArgs e)
     {
@@ -961,6 +949,44 @@ namespace Ordisoftware.Hebrew.Letters
       EditMeanings.Focus();
       ClearLettersMeanings();
       DoAnalyse();
+    }
+
+    private void ActionUndo_Click(object sender, EventArgs e)
+    {
+      if ( DataSet.HasChanges() )
+        DataSet.RejectChanges();
+      UpdateButtons(sender);
+      EditMeanings.Focus();
+    }
+
+    private void ActionRestoreDefaults_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      if ( DisplayManager.QueryYesNo(SysTranslations.AskToResetData.GetLang()) )
+      {
+        string word = EditLetters.Input.Text;
+        CreateDataIfNotExists(true);
+        ActionClear.PerformClick();
+        ActionReset.PerformClick();
+        EditLetters.Input.Text = word;
+        ApplicationStatistics.UpdateDBFileSizeRequired = true;
+        ApplicationStatistics.UpdateDBMemorySizeRequired = true;
+        UpdateButtons(null);
+        ClearLettersMeanings();
+        DoAnalyse();
+      }
+    }
+
+    // Select letter
+
+    private void SelectLetter_SelectedIndexChanged(object sender, EventArgs e)
+    {
+      if ( !Globals.IsReady ) return;
+      if ( !SelectLetter.Enabled ) return;
+      EditMutex = true;
+      ActionFirst.Enabled = SelectLetter.SelectedIndex > 0;
+      ActionPrevious.Enabled = ActionFirst.Enabled;
+      ActionLast.Enabled = SelectLetter.SelectedIndex < SelectLetter.Items.Count - 1;
+      ActionNext.Enabled = ActionLast.Enabled;
     }
 
     private void ActionFirst_Click(object sender, EventArgs e)
@@ -989,17 +1015,6 @@ namespace Ordisoftware.Hebrew.Letters
       EditMeanings.Focus();
     }
 
-    private void SelectLetter_SelectedIndexChanged(object sender, EventArgs e)
-    {
-      if ( !Globals.IsReady ) return;
-      if ( !SelectLetter.Enabled ) return;
-      EditMutex = true;
-      ActionFirst.Enabled = SelectLetter.SelectedIndex > 0;
-      ActionPrevious.Enabled = ActionFirst.Enabled;
-      ActionLast.Enabled = SelectLetter.SelectedIndex < SelectLetter.Items.Count - 1;
-      ActionNext.Enabled = ActionLast.Enabled;
-    }
-
     private void LettersBindingSource_PositionChanged(object sender, EventArgs e)
     {
       if ( !Globals.IsReady ) return;
@@ -1007,37 +1022,7 @@ namespace Ordisoftware.Hebrew.Letters
       UpdateButtons(sender);
     }
 
-    private void ActionAddMeaning_Click(object sender, EventArgs e)
-    {
-      var row = DataSet.Meanings.NewMeaningsRow();
-      row.ID = Guid.NewGuid().ToString();
-      row.LetterCode = SelectLetter.Text;
-      row.Meaning = "";
-      DataSet.Meanings.AddMeaningsRow(row);
-      MeaningsBindingSource.ResetBindings(false);
-      MeaningsBindingSource.MoveLast();
-      EditMeanings.BeginEdit(false);
-      AddNewRowMutex = true;
-      UpdateButtons(sender);
-    }
-
-    private void ActionDeleteMeaning_Click(object sender, EventArgs e)
-    {
-      if ( MeaningsBindingSource.Count < 1 ) return;
-      int pos = MeaningsBindingSource.Position;
-      MeaningsBindingSource.RemoveCurrent();
-      EditMeanings.EndEdit();
-      int count = MeaningsBindingSource.Count;
-      if ( count > 1 )
-        if ( pos >= count )
-        {
-          MeaningsBindingSource.MoveFirst();
-          MeaningsBindingSource.MoveLast();
-        }
-        else
-          MeaningsBindingSource.Position = pos;
-      UpdateButtons(sender);
-    }
+    // Edit textboxes
 
     private bool TextBoxDataContextMenuMutex;
 
@@ -1078,6 +1063,40 @@ namespace Ordisoftware.Hebrew.Letters
         if ( textbox.Tag is string )
           if ( (string)textbox.Tag == "data" )
             TextBoxData_TextChanged(sender, e);
+    }
+
+    // Edit meanings
+
+    private void ActionAddMeaning_Click(object sender, EventArgs e)
+    {
+      var row = DataSet.Meanings.NewMeaningsRow();
+      row.ID = Guid.NewGuid().ToString();
+      row.LetterCode = SelectLetter.Text;
+      row.Meaning = "";
+      DataSet.Meanings.AddMeaningsRow(row);
+      MeaningsBindingSource.ResetBindings(false);
+      MeaningsBindingSource.MoveLast();
+      EditMeanings.BeginEdit(false);
+      AddNewRowMutex = true;
+      UpdateButtons(sender);
+    }
+
+    private void ActionDeleteMeaning_Click(object sender, EventArgs e)
+    {
+      if ( MeaningsBindingSource.Count < 1 ) return;
+      int pos = MeaningsBindingSource.Position;
+      MeaningsBindingSource.RemoveCurrent();
+      EditMeanings.EndEdit();
+      int count = MeaningsBindingSource.Count;
+      if ( count > 1 )
+        if ( pos >= count )
+        {
+          MeaningsBindingSource.MoveFirst();
+          MeaningsBindingSource.MoveLast();
+        }
+        else
+          MeaningsBindingSource.Position = pos;
+      UpdateButtons(sender);
     }
 
     private void EditMeanings_KeyDown(object sender, KeyEventArgs e)
@@ -1171,6 +1190,8 @@ namespace Ordisoftware.Hebrew.Letters
         UpdateButtons(sender);
     }
 
+    // Update buttons
+
     private void UpdateButtons(object sender, bool forceEditMode = false)
     {
       try
@@ -1196,6 +1217,8 @@ namespace Ordisoftware.Hebrew.Letters
         ex.Manage();
       }
     }
+
+    // DB Errors
 
     private void EditMeanings_DataError(object sender, DataGridViewDataErrorEventArgs e)
     {

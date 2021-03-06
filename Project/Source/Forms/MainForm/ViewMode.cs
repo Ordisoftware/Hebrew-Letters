@@ -23,9 +23,9 @@ namespace Ordisoftware.Hebrew.Letters
   {
 
     /// <summary>
-    /// Analyse view mode.
+    /// Analysis view mode.
     /// </summary>
-    Analyse,
+    Analysis,
 
     /// <summary>
     /// Data view mode.
