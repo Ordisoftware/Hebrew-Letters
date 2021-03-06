@@ -41,7 +41,7 @@ namespace Ordisoftware.Hebrew.Letters
       = ExportHelper.CreateExportTargets<ImageExportTarget>().SetUnsupported(ImageExportTarget.GIF);
 
     /// <summary>
-    /// Indicate the application meanings folder.
+    /// Indicate application alphabet folder.
     /// </summary>
     static public string MeaningsFolderPath
       => Path.Combine(Globals.DocumentsFolderPath, "Alphabet");
