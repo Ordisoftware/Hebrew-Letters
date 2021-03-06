@@ -81,6 +81,22 @@ namespace Ordisoftware.Hebrew.Letters
     /// </summary>
     private bool AddNewRowMutex;
 
+    // https://stackoverflow.com/questions/2097164/how-to-change-system-windows-forms-toolstripbutton-highlight-background-color-wh#2097341
+    private class ToolStripRenderer : ToolStripProfessionalRenderer
+    {
+      protected override void OnRenderButtonBackground(ToolStripItemRenderEventArgs e)
+      {
+        var button = e.Item as ToolStripButton;
+        if ( button != null && button.Checked )
+        {
+          var bounds = new Rectangle(0, 0, e.Item.Width - 1, e.Item.Height - 1);
+          e.Graphics.FillRectangle(SystemBrushes.ControlLight, bounds);
+          e.Graphics.DrawRectangle(SystemPens.ControlDark, bounds);
+        }
+        else base.OnRenderButtonBackground(e);
+      }
+    }
+    
     /// <summary>
     /// Enable double-buffering.
     /// </summary>
@@ -153,6 +169,7 @@ namespace Ordisoftware.Hebrew.Letters
     {
       Globals.ChronoLoadApp.Start();
       InitializeComponent();
+      ToolStrip.Renderer = new ToolStripRenderer();
       SoundItem.Initialize();
       Text = Globals.AssemblyTitle;
       SystemEvents.SessionEnding += SessionEnding;
@@ -522,13 +539,21 @@ namespace Ordisoftware.Hebrew.Letters
     /// <param name="e">Event information.</param>
     private void ActionSearchTerm_Click(object sender, EventArgs e)
     {
+      var tempView = Settings.CurrentView;
       ActionViewLetters.PerformClick();
       var formSearch = new SearchTermBox();
       formSearch.EditTerm.Text = LastTermSearched;
-      if ( formSearch.ShowDialog() != DialogResult.OK ) return;
+      if ( formSearch.ShowDialog() != DialogResult.OK )
+      {
+        SetView(tempView);
+        return;
+      }
       LastTermSearched = formSearch.EditTerm.Text.ToLower().RemoveDiacritics();
-      if ( !SearchTermResultsBox.Run(LastTermSearched, out var code, out var meaning) ) return;
-
+      if ( !SearchTermResultsBox.Run(LastTermSearched, out var code, out var meaning) )
+      {
+        SetView(tempView);
+        return;
+      }
       LettersBindingSource.Position = LettersBindingSource.Find("Code", code);
       var prop = MeaningsBindingSource.GetItemProperties(null).Find("Meaning", true);
       int pos = MeaningsBindingSource.Find(prop, meaning);
