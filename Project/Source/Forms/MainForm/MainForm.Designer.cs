@@ -1040,6 +1040,8 @@
       this.ActionNewInstance.Name = "ActionNewInstance";
       this.ActionNewInstance.Padding = new System.Windows.Forms.Padding(5);
       this.ActionNewInstance.Click += new System.EventHandler(this.ActionNewInstance_Click);
+      this.ActionNewInstance.MouseEnter += new System.EventHandler(this.ShowToolTip_OnMouseEnter);
+      this.ActionNewInstance.MouseLeave += new System.EventHandler(this.ShowToolTip_OnMouseLeave);
       // 
       // toolStripSeparator7
       // 
