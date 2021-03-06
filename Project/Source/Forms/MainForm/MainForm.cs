@@ -1119,11 +1119,11 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void TextBoxData_ContextMenuAction_Click(object sender, EventArgs e)
     {
-      var textbox = TextBoxEx.GetTextBox(sender);
+      /*var textbox = TextBoxEx.GetTextBox(sender);
       if ( textbox != null )
         if ( textbox.Tag is string )
           if ( (string)textbox.Tag == "data" )
-            TextBoxData_TextChanged(sender, e);
+            ;// TextBoxData_TextChanged(sender, e);*/
     }
 
     // Edit meanings
