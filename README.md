@@ -47,21 +47,21 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 
 **What's new in the latest version**
 
-Added command-line options (see FAQ)
-Startup speed and analysis combo boxes creation are optimized.
-Data edition is only possible by one instance at a time.
-Data edition is improved to have save and cancel behavior.
-Improved and fixed copy, cut and paste for both Hebrew font chars and unicode.
-Added New in version in the Information menu.
-Added link to online Shorashim roots database.
-New top menu icon to open a new window.
-New context menu on letters' buttons.
-New screenshot button.
-New usage statistics window.
-Rework of the preferences window design with more options.
-Some improvements in appearance and function.
-Incorporate common code written since more than one year for Hebrew Calendar.
-Modification and addition of web links and online providers for the study of words and verses of the Bible.
+- Added command-line options (see FAQ)
+- Startup speed and analysis combo boxes creation are optimized.
+- Data edition is only possible by one instance at a time.
+- Data edition is improved to have save and cancel behavior.
+- Improved and fixed copy, cut and paste for both Hebrew font chars and unicode.
+- Added New in version in the Information menu.
+- Added link to online Shorashim roots database.
+- New top menu icon to open a new window.
+- New context menu on letters' buttons.
+- New screenshot button.
+- New usage statistics window.
+- Rework of the preferences window design with more options.
+- Some improvements in appearance and function.
+- Incorporate common code written since more than one year for Hebrew Calendar.
+- Modification and addition of web links and online providers for the study of words and verses of the Bible.
 
 [Last release](https://github.com/Ordisoftware/Hebrew-Letters/releases/latest)
 
