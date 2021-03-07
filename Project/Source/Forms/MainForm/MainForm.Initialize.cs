@@ -148,6 +148,7 @@ namespace Ordisoftware.Hebrew.Letters
       TimerProcesses_Tick(null, null);
       Globals.IsReady = true;
       SelectLetter_SelectedIndexChanged(SelectLetter, EventArgs.Empty);
+      LettersNavigator.Refresh();
       UpdateDataControls(SelectLetter);
     }
 
@@ -185,6 +186,9 @@ namespace Ordisoftware.Hebrew.Letters
       TextBoxVerb.BackColor = Settings.ColorSentenceTextBox;
       TextBoxNegative.BackColor = Settings.ColorSentenceTextBox;
       TextBoxPositive.BackColor = Settings.ColorSentenceTextBox;
+      EditMeanings.RowTemplate.DefaultCellStyle.BackColor = Settings.ColorSentenceTextBox;
+      foreach ( DataGridViewRow row in EditMeanings.Rows)
+        row.DefaultCellStyle.BackColor = Settings.ColorSentenceTextBox;
     }
 
     /// <summary>

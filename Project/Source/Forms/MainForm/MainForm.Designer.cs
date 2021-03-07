@@ -76,10 +76,7 @@
       this.PanelViewSettings = new System.Windows.Forms.Panel();
       this.PanelSettingsDetails = new System.Windows.Forms.Panel();
       this.PanelLetter = new System.Windows.Forms.Panel();
-      this.ActionLast = new System.Windows.Forms.Button();
-      this.ActionNext = new System.Windows.Forms.Button();
-      this.ActionFirst = new System.Windows.Forms.Button();
-      this.ActionPrevious = new System.Windows.Forms.Button();
+      this.LettersNavigator = new Ordisoftware.Core.ComboBoxNavigator();
       this.SelectLetter = new System.Windows.Forms.ComboBox();
       this.LettersBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.DataSet = new Ordisoftware.Hebrew.Letters.Data.DataSet();
@@ -144,7 +141,6 @@
       this.MeaningsTableAdapter = new Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.MeaningsTableAdapter();
       this.SaveImageDialog = new System.Windows.Forms.SaveFileDialog();
       this.ToolTipClipboard = new System.Windows.Forms.ToolTip(this.components);
-      this.PanelLettersNavigation = new System.Windows.Forms.Panel();
       LabelName = new System.Windows.Forms.Label();
       LabelStructure = new System.Windows.Forms.Label();
       LabelFunction = new System.Windows.Forms.Label();
@@ -172,7 +168,6 @@
       ((System.ComponentModel.ISupportInitialize)(this.MeaningsBindingSource)).BeginInit();
       this.PanelTitle.SuspendLayout();
       this.ToolStrip.SuspendLayout();
-      this.PanelLettersNavigation.SuspendLayout();
       this.SuspendLayout();
       // 
       // LabelName
@@ -524,7 +519,7 @@
       // 
       // PanelLetter
       // 
-      this.PanelLetter.Controls.Add(this.PanelLettersNavigation);
+      this.PanelLetter.Controls.Add(this.LettersNavigator);
       this.PanelLetter.Controls.Add(this.SelectLetter);
       this.PanelLetter.Controls.Add(this.TextBoxStructure);
       this.PanelLetter.Controls.Add(this.LabelHebrew);
@@ -547,29 +542,14 @@
       resources.ApplyResources(this.PanelLetter, "PanelLetter");
       this.PanelLetter.Name = "PanelLetter";
       // 
-      // ActionLast
+      // LettersNavigator
       // 
-      resources.ApplyResources(this.ActionLast, "ActionLast");
-      this.ActionLast.Name = "ActionLast";
-      this.ActionLast.Click += new System.EventHandler(this.ActionLast_Click);
-      // 
-      // ActionNext
-      // 
-      resources.ApplyResources(this.ActionNext, "ActionNext");
-      this.ActionNext.Name = "ActionNext";
-      this.ActionNext.Click += new System.EventHandler(this.ActionNext_Click);
-      // 
-      // ActionFirst
-      // 
-      resources.ApplyResources(this.ActionFirst, "ActionFirst");
-      this.ActionFirst.Name = "ActionFirst";
-      this.ActionFirst.Click += new System.EventHandler(this.ActionFirst_Click);
-      // 
-      // ActionPrevious
-      // 
-      resources.ApplyResources(this.ActionPrevious, "ActionPrevious");
-      this.ActionPrevious.Name = "ActionPrevious";
-      this.ActionPrevious.Click += new System.EventHandler(this.ActionPrevious_Click);
+      resources.ApplyResources(this.LettersNavigator, "LettersNavigator");
+      this.LettersNavigator.ComboBox = this.SelectLetter;
+      this.LettersNavigator.Name = "LettersNavigator";
+      this.LettersNavigator.SelectedIndex = -1;
+      this.LettersNavigator.SelectedItem = null;
+      this.LettersNavigator.Navigated += new System.EventHandler(this.LettersNavigator_Navigated);
       // 
       // SelectLetter
       // 
@@ -1103,15 +1083,6 @@
       // 
       this.MeaningsTableAdapter.ClearBeforeFill = true;
       // 
-      // PanelLettersNavigation
-      // 
-      this.PanelLettersNavigation.Controls.Add(this.ActionFirst);
-      this.PanelLettersNavigation.Controls.Add(this.ActionLast);
-      this.PanelLettersNavigation.Controls.Add(this.ActionPrevious);
-      this.PanelLettersNavigation.Controls.Add(this.ActionNext);
-      resources.ApplyResources(this.PanelLettersNavigation, "PanelLettersNavigation");
-      this.PanelLettersNavigation.Name = "PanelLettersNavigation";
-      // 
       // MainForm
       // 
       resources.ApplyResources(this, "$this");
@@ -1149,7 +1120,6 @@
       this.PanelTitle.ResumeLayout(false);
       this.ToolStrip.ResumeLayout(false);
       this.ToolStrip.PerformLayout();
-      this.PanelLettersNavigation.ResumeLayout(false);
       this.ResumeLayout(false);
 
     }
@@ -1254,13 +1224,9 @@
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
     public System.Windows.Forms.CheckBox EditCopyWithFinalLetter;
     private System.Windows.Forms.SaveFileDialog SaveImageDialog;
-    private System.Windows.Forms.Button ActionLast;
-    private System.Windows.Forms.Button ActionNext;
-    private System.Windows.Forms.Button ActionFirst;
-    private System.Windows.Forms.Button ActionPrevious;
     public System.Windows.Forms.Label LabelClipboardContentType;
     private System.Windows.Forms.ToolTip ToolTipClipboard;
     internal System.Windows.Forms.Panel PanelMainCenter;
-    private System.Windows.Forms.Panel PanelLettersNavigation;
+    private Core.ComboBoxNavigator LettersNavigator;
   }
 }

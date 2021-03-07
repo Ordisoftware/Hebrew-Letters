@@ -1539,134 +1539,8 @@
   <data name="PanelSettingsDetails.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="ActionFirst.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="ActionFirst.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="ActionFirst.Size" type="System.Drawing.Size, System.Drawing">
-    <value>28, 23</value>
-  </data>
-  <data name="ActionFirst.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="ActionFirst.Text" xml:space="preserve">
-    <value>&lt;&lt;</value>
-  </data>
-  <data name="&gt;&gt;ActionFirst.Name" xml:space="preserve">
-    <value>ActionFirst</value>
-  </data>
-  <data name="&gt;&gt;ActionFirst.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ActionFirst.Parent" xml:space="preserve">
-    <value>PanelLettersNavigation</value>
-  </data>
-  <data name="&gt;&gt;ActionFirst.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="ActionLast.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="ActionLast.Location" type="System.Drawing.Point, System.Drawing">
-    <value>87, 0</value>
-  </data>
-  <data name="ActionLast.Size" type="System.Drawing.Size, System.Drawing">
-    <value>28, 23</value>
-  </data>
-  <data name="ActionLast.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="ActionLast.Text" xml:space="preserve">
-    <value>&gt;&gt;</value>
-  </data>
-  <data name="&gt;&gt;ActionLast.Name" xml:space="preserve">
-    <value>ActionLast</value>
-  </data>
-  <data name="&gt;&gt;ActionLast.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ActionLast.Parent" xml:space="preserve">
-    <value>PanelLettersNavigation</value>
-  </data>
-  <data name="&gt;&gt;ActionLast.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="ActionPrevious.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="ActionPrevious.Location" type="System.Drawing.Point, System.Drawing">
-    <value>29, 0</value>
-  </data>
-  <data name="ActionPrevious.Size" type="System.Drawing.Size, System.Drawing">
-    <value>28, 23</value>
-  </data>
-  <data name="ActionPrevious.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="ActionPrevious.Text" xml:space="preserve">
-    <value>&lt;</value>
-  </data>
-  <data name="&gt;&gt;ActionPrevious.Name" xml:space="preserve">
-    <value>ActionPrevious</value>
-  </data>
-  <data name="&gt;&gt;ActionPrevious.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ActionPrevious.Parent" xml:space="preserve">
-    <value>PanelLettersNavigation</value>
-  </data>
-  <data name="&gt;&gt;ActionPrevious.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="ActionNext.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="ActionNext.Location" type="System.Drawing.Point, System.Drawing">
-    <value>58, 0</value>
-  </data>
-  <data name="ActionNext.Size" type="System.Drawing.Size, System.Drawing">
-    <value>28, 23</value>
-  </data>
-  <data name="ActionNext.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="ActionNext.Text" xml:space="preserve">
-    <value>&gt;</value>
-  </data>
-  <data name="&gt;&gt;ActionNext.Name" xml:space="preserve">
-    <value>ActionNext</value>
-  </data>
-  <data name="&gt;&gt;ActionNext.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ActionNext.Parent" xml:space="preserve">
-    <value>PanelLettersNavigation</value>
-  </data>
-  <data name="&gt;&gt;ActionNext.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="PanelLettersNavigation.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 77</value>
-  </data>
-  <data name="PanelLettersNavigation.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 30</value>
-  </data>
-  <data name="PanelLettersNavigation.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
-  </data>
-  <data name="&gt;&gt;PanelLettersNavigation.Name" xml:space="preserve">
-    <value>PanelLettersNavigation</value>
-  </data>
-  <data name="&gt;&gt;PanelLettersNavigation.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;PanelLettersNavigation.Parent" xml:space="preserve">
-    <value>PanelLetter</value>
-  </data>
-  <data name="&gt;&gt;PanelLettersNavigation.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="LettersNavigator.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <metadata name="LettersBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>600, 19</value>
@@ -1697,6 +1571,30 @@
   </data>
   <data name="&gt;&gt;SelectLetter.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="LettersNavigator.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 77</value>
+  </data>
+  <data name="LettersNavigator.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="LettersNavigator.Size" type="System.Drawing.Size, System.Drawing">
+    <value>117, 25</value>
+  </data>
+  <data name="LettersNavigator.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="&gt;&gt;LettersNavigator.Name" xml:space="preserve">
+    <value>LettersNavigator</value>
+  </data>
+  <data name="&gt;&gt;LettersNavigator.Type" xml:space="preserve">
+    <value>Ordisoftware.Core.ComboBoxNavigator, Ordisoftware.Hebrew.Letters, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;LettersNavigator.Parent" xml:space="preserve">
+    <value>PanelLetter</value>
+  </data>
+  <data name="&gt;&gt;LettersNavigator.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="TextBoxStructure.Location" type="System.Drawing.Point, System.Drawing">
     <value>20, 422</value>

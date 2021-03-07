@@ -75,11 +75,11 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void LoadColors()
     {
-      EditLettersBack.BackColor = Settings.ColorLettersPanel;
-      EditWordBack.BackColor = Settings.ColorHebrewWordTextBox;
-      EditAnalyseBack.BackColor = Settings.ColorMeaningsPanel;
-      EditEditableBack.BackColor = Settings.ColorSentenceTextBox;
-      EditReadonlyBack.BackColor = Settings.ColorGematriaTextBox;
+      SystemManager.TryCatch(() => { EditLettersBack.BackColor = Settings.ColorLettersPanel; });
+      SystemManager.TryCatch(() => { EditWordBack.BackColor = Settings.ColorHebrewWordTextBox; });
+      SystemManager.TryCatch(() => { EditAnalyseBack.BackColor = Settings.ColorMeaningsPanel; });
+      SystemManager.TryCatch(() => { EditEditableBack.BackColor = Settings.ColorSentenceTextBox; });
+      SystemManager.TryCatch(() => { EditReadonlyBack.BackColor = Settings.ColorGematriaTextBox; });
     }
 
     private void SaveColors()

@@ -13,6 +13,7 @@
 /// <created> 2016-04 </created>
 /// <edited> 2020-08 </edited>
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
@@ -33,7 +34,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void ClearLettersMeanings()
     {
-      for ( int index = 0; index < LettersMeanings[0].Length; index++ )
+      for ( int index = 0; index < LettersMeanings.GetUpperBound(0); index++ )
         LettersMeanings[index] = null;
     }
 
@@ -68,7 +69,7 @@ namespace Ordisoftware.Hebrew.Letters
           label.Text = letter.Name;
           SelectAnalyze.Controls.Add(label);
           // Combobox
-          var combobox = new ComboBox();
+          var combobox = new ComboBoxEx();
           label.Tag = combobox;
           combobox.Width = 200;
           combobox.Height = 21;
@@ -82,12 +83,13 @@ namespace Ordisoftware.Hebrew.Letters
           {
             int indexMeaning = 0;
             var rowsMeanings = letter.GetMeaningsRows();
-            LettersMeanings[letter.ValueSimple] = new object[rowsMeanings.Length + 5];
+            LettersMeanings[letter.ValueSimple] = new object[rowsMeanings.Length + 5 + 1];
             LettersMeanings[letter.ValueSimple][indexMeaning++] = letter.Positive;
             LettersMeanings[letter.ValueSimple][indexMeaning++] = letter.Negative;
             LettersMeanings[letter.ValueSimple][indexMeaning++] = letter.Verb;
             LettersMeanings[letter.ValueSimple][indexMeaning++] = letter.Structure;
             LettersMeanings[letter.ValueSimple][indexMeaning++] = letter.Function;
+            LettersMeanings[letter.ValueSimple][indexMeaning++] = Globals.ListSeparator;
             if ( Program.Settings.AutoSortAnalysisMeanings )
               Array.Sort(rowsMeanings, (x, y) => x.Meaning.CompareTo(y.Meaning));
             foreach ( var meaning in rowsMeanings )
@@ -118,7 +120,7 @@ namespace Ordisoftware.Hebrew.Letters
       if ( combobox.Items.Count > 0 ) return;
       combobox.Items.AddRange((object[])combobox.Tag);
     }
-    
+
   }
 
 }

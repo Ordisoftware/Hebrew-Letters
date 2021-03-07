@@ -696,7 +696,7 @@ namespace Ordisoftware.Hebrew.Letters
         ActionUndo.Enabled = ActionSave.Enabled;
         Globals.AllowClose = !ActionSave.Enabled && !forceEditMode;
         SelectLetter.Enabled = Globals.AllowClose;
-        PanelLettersNavigation.Enabled = Globals.AllowClose;
+        LettersNavigator.Enabled = Globals.AllowClose;
         ActionViewAnalysis.Enabled = Globals.AllowClose;
         ActionViewLetters.Enabled = Globals.AllowClose;
         ActionExit.Enabled = Globals.AllowClose;
@@ -754,6 +754,7 @@ namespace Ordisoftware.Hebrew.Letters
         UpdateDataControls(null);
         ClearLettersMeanings();
         DoAnalyse();
+        EditMeanings.Focus();
       }
     }
 
@@ -766,36 +767,6 @@ namespace Ordisoftware.Hebrew.Letters
       if ( !Globals.IsReady ) return;
       if ( !SelectLetter.Enabled ) return;
       DataEditMutex = true;
-      ActionFirst.Enabled = SelectLetter.SelectedIndex > 0;
-      ActionPrevious.Enabled = ActionFirst.Enabled;
-      ActionLast.Enabled = SelectLetter.SelectedIndex < SelectLetter.Items.Count - 1;
-      ActionNext.Enabled = ActionLast.Enabled;
-    }
-
-    private void ActionFirst_Click(object sender, EventArgs e)
-    {
-      SelectLetter.SelectedIndex = 0;
-      EditMeanings.Focus();
-    }
-
-    private void ActionPrevious_Click(object sender, EventArgs e)
-    {
-      if ( SelectLetter.SelectedIndex > 0 ) SelectLetter.SelectedIndex--;
-      if ( SelectLetter.SelectedIndex == 0 ) ActiveControl = ActionNext;
-      EditMeanings.Focus();
-    }
-
-    private void ActionNext_Click(object sender, EventArgs e)
-    {
-      if ( SelectLetter.SelectedIndex < SelectLetter.Items.Count - 1 ) SelectLetter.SelectedIndex++;
-      if ( SelectLetter.SelectedIndex == SelectLetter.Items.Count - 1 ) ActiveControl = ActionPrevious;
-      EditMeanings.Focus();
-    }
-
-    private void ActionLast_Click(object sender, EventArgs e)
-    {
-      SelectLetter.SelectedIndex = SelectLetter.Items.Count - 1;
-      EditMeanings.Focus();
     }
 
     private void LettersBindingSource_PositionChanged(object sender, EventArgs e)
@@ -803,6 +774,11 @@ namespace Ordisoftware.Hebrew.Letters
       if ( !Globals.IsReady ) return;
       DataEditMutex = false;
       UpdateDataControls(sender);
+    }
+
+    private void LettersNavigator_Navigated(object sender, EventArgs e)
+    {
+      EditMeanings.Focus();
     }
 
     #endregion
@@ -986,7 +962,7 @@ namespace Ordisoftware.Hebrew.Letters
       if ( !Globals.IsReady ) return;
       if ( e.Exception is ArgumentOutOfRangeException || e.Exception is IndexOutOfRangeException )
       {
-        DisplayManager.ShowError($"DB Index error.{Globals.NL2}Application will exit.");
+        DisplayManager.ShowError($"DB Index error.{Globals.NL2}{SysTranslations.ApplicationMustExit.GetLang()}");
         DataSet.RejectChanges();
         e.Exception.Manage();
         Application.Exit();
