@@ -29,8 +29,8 @@
     private void InitializeComponent()
     {
       this.components = new System.ComponentModel.Container();
-      System.Windows.Forms.Label LabelVolume;
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PreferencesForm));
+      System.Windows.Forms.Label LabelVolume;
       System.Windows.Forms.Label LabelCheckUpdateFrequency;
       this.ActionClose = new System.Windows.Forms.Button();
       this.PanelBottom = new System.Windows.Forms.Panel();
@@ -40,6 +40,11 @@
       this.OpenFileDialog = new System.Windows.Forms.OpenFileDialog();
       this.FolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
       this.MenuSelectOnlineVerseURL = new System.Windows.Forms.ContextMenuStrip(this.components);
+      this.DialogColor = new System.Windows.Forms.ColorDialog();
+      this.OpenSettingsDialog = new System.Windows.Forms.OpenFileDialog();
+      this.SaveSettingsDialog = new System.Windows.Forms.SaveFileDialog();
+      this.SaveThemeDialog = new System.Windows.Forms.SaveFileDialog();
+      this.OpenThemeDialog = new System.Windows.Forms.OpenFileDialog();
       this.TabControl = new System.Windows.Forms.TabControl();
       this.TabPageApplication = new System.Windows.Forms.TabPage();
       this.LabelChangeLangNotice = new System.Windows.Forms.Label();
@@ -69,6 +74,8 @@
       this.EditAnalyseBack = new System.Windows.Forms.Panel();
       this.EditWordBack = new System.Windows.Forms.Panel();
       this.EditEditableBack = new System.Windows.Forms.Panel();
+      this.LabelTextColor = new System.Windows.Forms.Label();
+      this.EditTextColor = new System.Windows.Forms.Panel();
       this.label5 = new System.Windows.Forms.Label();
       this.EditReadonlyBack = new System.Windows.Forms.Panel();
       this.label4 = new System.Windows.Forms.Label();
@@ -93,13 +100,6 @@
       this.EditAutoOpenExportedFile = new System.Windows.Forms.CheckBox();
       this.EditAutoOpenExportFolder = new System.Windows.Forms.CheckBox();
       this.EditExportFolder = new Ordisoftware.Core.TextBoxEx();
-      this.DialogColor = new System.Windows.Forms.ColorDialog();
-      this.OpenSettingsDialog = new System.Windows.Forms.OpenFileDialog();
-      this.SaveSettingsDialog = new System.Windows.Forms.SaveFileDialog();
-      this.SaveThemeDialog = new System.Windows.Forms.SaveFileDialog();
-      this.OpenThemeDialog = new System.Windows.Forms.OpenFileDialog();
-      this.EditTextColor = new System.Windows.Forms.Panel();
-      this.LabelTextColor = new System.Windows.Forms.Label();
       LabelVolume = new System.Windows.Forms.Label();
       LabelCheckUpdateFrequency = new System.Windows.Forms.Label();
       this.PanelBottom.SuspendLayout();
@@ -114,16 +114,6 @@
       ((System.ComponentModel.ISupportInitialize)(this.EditFontSize)).BeginInit();
       this.TabPageExport.SuspendLayout();
       this.SuspendLayout();
-      // 
-      // LabelVolume
-      // 
-      resources.ApplyResources(LabelVolume, "LabelVolume");
-      LabelVolume.Name = "LabelVolume";
-      // 
-      // LabelCheckUpdateFrequency
-      // 
-      resources.ApplyResources(LabelCheckUpdateFrequency, "LabelCheckUpdateFrequency");
-      LabelCheckUpdateFrequency.Name = "LabelCheckUpdateFrequency";
       // 
       // ActionClose
       // 
@@ -177,6 +167,19 @@
       // 
       this.MenuSelectOnlineVerseURL.Name = "MenuSelectOnlineVerseURL";
       resources.ApplyResources(this.MenuSelectOnlineVerseURL, "MenuSelectOnlineVerseURL");
+      // 
+      // DialogColor
+      // 
+      this.DialogColor.FullOpen = true;
+      // 
+      // SaveThemeDialog
+      // 
+      resources.ApplyResources(this.SaveThemeDialog, "SaveThemeDialog");
+      // 
+      // OpenThemeDialog
+      // 
+      this.OpenThemeDialog.FileName = "openFileDialog1";
+      resources.ApplyResources(this.OpenThemeDialog, "OpenThemeDialog");
       // 
       // TabControl
       // 
@@ -247,6 +250,11 @@
       this.ActionSelectLangEN.TabStop = false;
       this.ActionSelectLangEN.UseVisualStyleBackColor = true;
       this.ActionSelectLangEN.Click += new System.EventHandler(this.ActionSelectLangEN_Click);
+      // 
+      // LabelVolume
+      // 
+      resources.ApplyResources(LabelVolume, "LabelVolume");
+      LabelVolume.Name = "LabelVolume";
       // 
       // LabelVolumeValue
       // 
@@ -363,6 +371,11 @@
       this.LabelCheckUpdateAtStartupInfo.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
       this.LabelCheckUpdateAtStartupInfo.Name = "LabelCheckUpdateAtStartupInfo";
       // 
+      // LabelCheckUpdateFrequency
+      // 
+      resources.ApplyResources(LabelCheckUpdateFrequency, "LabelCheckUpdateFrequency");
+      LabelCheckUpdateFrequency.Name = "LabelCheckUpdateFrequency";
+      // 
       // TabPageTheme
       // 
       this.TabPageTheme.BackColor = System.Drawing.Color.White;
@@ -442,6 +455,20 @@
       this.EditEditableBack.ForeColor = System.Drawing.SystemColors.Control;
       this.EditEditableBack.Name = "EditEditableBack";
       this.EditEditableBack.Click += new System.EventHandler(this.EditColor_Click);
+      // 
+      // LabelTextColor
+      // 
+      resources.ApplyResources(this.LabelTextColor, "LabelTextColor");
+      this.LabelTextColor.Name = "LabelTextColor";
+      // 
+      // EditTextColor
+      // 
+      this.EditTextColor.BackColor = System.Drawing.SystemColors.Control;
+      this.EditTextColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      resources.ApplyResources(this.EditTextColor, "EditTextColor");
+      this.EditTextColor.ForeColor = System.Drawing.SystemColors.Control;
+      this.EditTextColor.Name = "EditTextColor";
+      this.EditTextColor.Click += new System.EventHandler(this.EditColor_Click);
       // 
       // label5
       // 
@@ -650,33 +677,6 @@
       resources.ApplyResources(this.EditExportFolder, "EditExportFolder");
       this.EditExportFolder.Name = "EditExportFolder";
       this.EditExportFolder.ReadOnly = true;
-      // 
-      // DialogColor
-      // 
-      this.DialogColor.FullOpen = true;
-      // 
-      // SaveThemeDialog
-      // 
-      resources.ApplyResources(this.SaveThemeDialog, "SaveThemeDialog");
-      // 
-      // OpenThemeDialog
-      // 
-      this.OpenThemeDialog.FileName = "openFileDialog1";
-      resources.ApplyResources(this.OpenThemeDialog, "OpenThemeDialog");
-      // 
-      // EditTextColor
-      // 
-      this.EditTextColor.BackColor = System.Drawing.SystemColors.Control;
-      this.EditTextColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      resources.ApplyResources(this.EditTextColor, "EditTextColor");
-      this.EditTextColor.ForeColor = System.Drawing.SystemColors.Control;
-      this.EditTextColor.Name = "EditTextColor";
-      this.EditTextColor.Click += new System.EventHandler(this.EditColor_Click);
-      // 
-      // LabelTextColor
-      // 
-      resources.ApplyResources(this.LabelTextColor, "LabelTextColor");
-      this.LabelTextColor.Name = "LabelTextColor";
       // 
       // PreferencesForm
       // 
