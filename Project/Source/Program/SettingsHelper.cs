@@ -158,11 +158,17 @@ namespace Ordisoftware.Hebrew.Letters
       }
     }
 
+    /// <summary>
+    /// Clear all upgrade required flags.
+    /// </summary>
     static internal void SetUpgradeFlagsOff(this Settings settings)
     {
       settings.UpgradeRequired = false;
     }
 
+    /// <summary>
+    /// Clear all first launch and upgrade requires flags.
+    /// </summary>
     static internal void SetFirstAndUpgradeFlagsOff(this Settings settings)
     {
       settings.SetUpgradeFlagsOff();
@@ -170,6 +176,9 @@ namespace Ordisoftware.Hebrew.Letters
       settings.FirstLaunchV4 = false;
     }
 
+    /// <summary>
+    /// Get export directory.
+    /// </summary>
     static internal string GetExportDirectory(this Settings settings)
     {
       string directory = settings.ExportFolder;

@@ -20,7 +20,7 @@ namespace Ordisoftware.Hebrew.Letters
 {
 
   /// <summary>
-  /// provide application statistics.
+  /// Provide application statistics.
   /// </summary>
   class ApplicationStatistics
   {

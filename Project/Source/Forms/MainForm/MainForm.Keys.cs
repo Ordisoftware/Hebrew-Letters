@@ -18,6 +18,10 @@ using Ordisoftware.Core;
 namespace Ordisoftware.Hebrew.Letters
 {
 
+  /// <summary>
+  /// The application's main form.
+  /// </summary>
+  /// <seealso cref="T:System.Windows.Forms.Form"/>
   partial class MainForm
   {
 

@@ -47,10 +47,10 @@ namespace Ordisoftware.Hebrew.Letters
         // No IPCAnswers
         // No IPCRequests
         bool upgrade = Settings.UpgradeRequired;
-        Globals.SettingsUpgraded = upgrade;
+        Globals.IsSettingsUpgraded = upgrade;
         Settings.CheckUpgradeRequired(ref upgrade);
         Settings.UpgradeRequired = upgrade;
-        Globals.SettingsUpgraded = Globals.SettingsUpgraded && !Settings.FirstLaunch;
+        Globals.IsSettingsUpgraded = Globals.IsSettingsUpgraded && !Settings.FirstLaunch;
         CheckSettingsReset();
         if (lang != Language.None) Settings.LanguageSelected = lang;
         Settings.Save();

@@ -24,27 +24,22 @@ namespace Ordisoftware.Hebrew.Letters
     protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
     {
       if ( keyData >= Keys.F1 && keyData < Keys.F1 + TabControl.TabCount )
-      {
         TabControl.SelectTab(keyData - Keys.F1);
-        return true;
-      }
+      else
       if ( keyData == ( Keys.Control | Keys.Tab ) )
-      {
         if ( TabControl.SelectedIndex == TabControl.TabCount - 1 )
           TabControl.SelectedIndex = 0;
         else
           TabControl.SelectedIndex++;
-        return true;
-      }
+      else
       if ( keyData == ( Keys.Control | Keys.Shift | Keys.Tab ) )
-      {
         if ( TabControl.SelectedIndex == 0 )
           TabControl.SelectedIndex = TabControl.TabCount - 1;
         else
           TabControl.SelectedIndex--;
-        return true;
-      }
-      return base.ProcessCmdKey(ref msg, keyData);
+      else
+        return base.ProcessCmdKey(ref msg, keyData);
+      return true;
     }
 
   }

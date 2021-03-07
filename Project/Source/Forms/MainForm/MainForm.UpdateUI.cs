@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2020-04 </edited>
+/// <edited> 2021-02 </edited>
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -79,6 +79,23 @@ namespace Ordisoftware.Hebrew.Letters
       finally
       {
         DoScreenPositionMutex = false;
+      }
+    }
+
+    /// <summary>
+    /// Enable double-buffering.
+    /// </summary>
+    protected override CreateParams CreateParams
+    {
+      get
+      {
+        var cp = base.CreateParams;
+        if ( Settings.WindowsDoubleBufferingEnabled )
+        {
+          cp.ExStyle |= 0x02000000; // + WS_EX_COMPOSITED
+          //cp.Style &= ~0x02000000;  // - WS_CLIPCHILDREN
+        }
+        return cp;
       }
     }
 

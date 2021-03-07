@@ -24,6 +24,15 @@ namespace Ordisoftware.Hebrew.Letters
   partial class SearchTermResultsBox : Form
   {
 
+    class LetterItem
+    {
+      public Data.DataSet.LettersRow Letter;
+      public override string ToString()
+      {
+        return Letter.Name;
+      }
+    }
+
     static public bool Run(string term, out string code, out string meaning)
     {
       code = "";
@@ -148,15 +157,6 @@ namespace Ordisoftware.Hebrew.Letters
       e.DrawFocusRectangle();
     }
 
-  }
-
-  class LetterItem
-  {
-    public Data.DataSet.LettersRow Letter;
-    public override string ToString()
-    {
-      return Letter.Name;
-    }
   }
 
 }

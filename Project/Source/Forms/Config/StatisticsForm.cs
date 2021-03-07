@@ -96,8 +96,7 @@ namespace Ordisoftware.Hebrew.Letters
     private void ActionScreenshot_Click(object sender, EventArgs e)
     {
       Clipboard.SetImage(PanelMain.GetBitmap());
-      DisplayManager.ShowSuccessOrSound(SysTranslations.ScreenshotDone.GetLang(),
-                                        Globals.ScreenshotSoundFilePath);
+      DisplayManager.ShowSuccessOrSound(SysTranslations.ScreenshotDone.GetLang(), Globals.ScreenshotSoundFilePath);
     }
 
     private void ActionOpenFolderApplication_Click(object sender, EventArgs e)

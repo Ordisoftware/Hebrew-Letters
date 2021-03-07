@@ -22,6 +22,10 @@ using Ordisoftware.Core;
 namespace Ordisoftware.Hebrew.Letters
 {
 
+  /// <summary>
+  /// The application's main form.
+  /// </summary>
+  /// <seealso cref="T:System.Windows.Forms.Form"/>
   partial class MainForm
   {
 
@@ -29,7 +33,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void ClearLettersMeanings()
     {
-      for ( int index = 0; index < LettersMeanings.GetUpperBound(0); index++ )
+      for ( int index = 0; index < LettersMeanings[0].Length; index++ )
         LettersMeanings[index] = null;
     }
 
@@ -114,131 +118,47 @@ namespace Ordisoftware.Hebrew.Letters
       if ( combobox.Items.Count > 0 ) return;
       combobox.Items.AddRange((object[])combobox.Tag);
     }
-
-    /*
-    private AnalysisItems AnalysisItems = new AnalysisItems();
-   
-    class AnalysisItem
-    {
-      public Data.DataSet.LettersRow Letter;
-      public Label Label;
-      public ComboBox ComboBox;
-      public string Meaning;
-    }
-
-    class AnalysisItems : List<AnalysisItem>
-    {
-      public IEnumerable<Label> Labels 
-      {
-        get
-        {
-          foreach ( var item in this )
-            yield return item.Label;
-        }
-      }
-      public IEnumerable<ComboBox> ComboBoxes
-      {
-        get
-        {
-          foreach ( var item in this )
-            yield return item.ComboBox;
-        }
-      }
-      public IEnumerable<string> Meanings
-      {
-        get
-        {
-          foreach ( var item in this )
-            yield return item.Meaning;
-        }
-      }
-    }*/
-
-    /*private void DoAnalyse()
-      {
-        try
-        {
-          Cursor = Cursors.WaitCursor;
-          EditSentence.Text = "";
-          EditGematriaSimple.Text = "";
-          EditGematriaFull.Text = "";
-
-          EditAnalyze.Controls.Clear();
-
-          string word = EditLetters.Input.Text;
-          int sumSimple = 0;
-          int sumFull = 0;
-          int dy = 0;
-          if ( AnalysisItems.Count > word.Length)
-            AnalysisItems.RemoveRange(word.Length, AnalysisItems.Count - word.Length);
-          if ( AnalysisItems.Count < word.Length )
-            AnalysisItems.AddRange(Enumerable.Repeat(new AnalysisItem(), word.Length - AnalysisItems.Count));
-          for ( int pos = word.Length - 1; pos >= 0; pos-- )
-          {
-            // Letter
-            var letter = DataSet.Letters.FindByCode(Convert.ToString(word[pos]));
-            if ( letter == null ) continue;
-            var item = AnalysisItems[pos];
-            sumSimple += letter.ValueSimple;
-            sumFull += letter.ValueFull;
-            if ( item.Letter != letter )
-            {
-              // Label
-              var label = new Label();
-              label.Text = letter.Name;
-              label.AutoSize = false;
-              label.Size = new Size(50, 13);
-              label.Location = new Point(100, 20 + dy);
-              label.TextAlign = ContentAlignment.TopRight;
-              item.Label = label;
-              // Combobox
-              var combobox = new ComboBox();
-              combobox.DropDownStyle = ComboBoxStyle.DropDownList;
-              combobox.Size = new Size(200, 21);
-              combobox.Location = new Point(155, 16 + dy);
-              combobox.SelectedIndexChanged += MeaningComboBox_SelectedIndexChanged;
-              item.ComboBox = combobox;
-              // Meanings
-              var meanings = new List<string>();
-              Action<string> processMeaning = str =>
-              {
-                combobox.Items.Add(str);
-                meanings.Add(str);
-              };
-              processMeaning(letter.Positive);
-              processMeaning(letter.Negative);
-              processMeaning(letter.Verb);
-              processMeaning(letter.Structure);
-              processMeaning(letter.Function);
-              var list = letter.GetMeaningsRows().ToList();
-              if ( Program.Settings.AutoSortAnalysisMeanings )
-                list = list.OrderBy(m => m.Meaning).ToList();
-              foreach ( var meaning in list )
-                processMeaning(meaning.Meaning);
-              item.Meaning = letter.Name + " : " + string.Join(", ", meanings);
-            }
-            // Loop
-            dy += 30;
-          }
-          EditGematriaSimple.Text = sumSimple.ToString();
-          EditGematriaFull.Text = sumFull.ToString();
-          WordMeanings = string.Join(Globals.NL, AnalysisItems.Meanings);
-          ActionCopyToClipboardMeanings.Enabled = EditAnalyze.Controls.Count > 0;
-          ActionScreenshot.Enabled = ActionCopyToClipboardMeanings.Enabled;
-
-          EditAnalyze.Controls.AddRange(AnalysisItems.Labels.ToArray());
-          EditAnalyze.Controls.AddRange(AnalysisItems.ComboBoxes.ToArray());
-        }
-        catch ( Exception ex )
-        {
-          ex.Manage();
-        }
-        finally
-        {
-          Cursor = Cursors.Default;
-        }
-      }*/
-
+    
   }
 
 }
+
+/*
+private AnalysisItems AnalysisItems = new AnalysisItems();
+
+class AnalysisItem
+{
+  public Data.DataSet.LettersRow Letter;
+  public Label Label;
+  public ComboBox ComboBox;
+  public string Meaning;
+}
+
+class AnalysisItems : List<AnalysisItem>
+{
+  public IEnumerable<Label> Labels 
+  {
+    get
+    {
+      foreach ( var item in this )
+        yield return item.Label;
+    }
+  }
+  public IEnumerable<ComboBox> ComboBoxes
+  {
+    get
+    {
+      foreach ( var item in this )
+        yield return item.ComboBox;
+    }
+  }
+  public IEnumerable<string> Meanings
+  {
+    get
+    {
+      foreach ( var item in this )
+        yield return item.Meaning;
+    }
+  }
+}
+*/

@@ -15,13 +15,16 @@
 using System;
 using System.Data.Odbc;
 using System.IO;
-using System.Windows.Forms;
 using Ordisoftware.Core;
 
 namespace Ordisoftware.Hebrew.Letters
 {
 
-  partial class MainForm : Form
+  /// <summary>
+  /// The application's main form.
+  /// </summary>
+  /// <seealso cref="T:System.Windows.Forms.Form"/>
+  partial class MainForm
   {
 
     /// <summary>

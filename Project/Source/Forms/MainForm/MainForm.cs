@@ -19,8 +19,6 @@ using System.Drawing;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
-using Microsoft.Win32;
-using Humanizer;
 using Ordisoftware.Core;
 
 namespace Ordisoftware.Hebrew.Letters
@@ -32,6 +30,8 @@ namespace Ordisoftware.Hebrew.Letters
   /// <seealso cref="T:System.Windows.Forms.Form"/>
   partial class MainForm : Form
   {
+
+    #region Static members
 
     /// <summary>
     /// Indicate the singleton instance.
@@ -46,181 +46,16 @@ namespace Ordisoftware.Hebrew.Letters
       Instance = new MainForm();
     }
 
-    /// <summary>
-    /// Indicate the default Settings instance.
-    /// </summary>
-    private readonly Properties.Settings Settings = Program.Settings;
+    #endregion
 
-    /// <summary>
-    /// INdicate last showned tooltip.
-    /// </summary>
-    private ToolTip LastToolTip = new ToolTip();
-
-    /// <summary>
-    /// Indicate if database has been upgraded.
-    /// </summary>
-    private bool IsDBUpgraded;
-
-    /// <summary>
-    /// Indicate the last term searched.
-    /// </summary>
-    private string LastTermSearched;
-
-    /// <summary>
-    /// Indicate if data has changed to refrech the analysis.
-    /// </summary>
-    private bool DataChanged;
-
-    /// <summary>
-    /// Indicate data edition mutex.
-    /// </summary>
-    private bool EditMutex;
-
-    /// <summary>
-    /// Indicate add new meaning mutex.
-    /// </summary>
-    private bool AddNewRowMutex;
-
-    // https://stackoverflow.com/questions/2097164/how-to-change-system-windows-forms-toolstripbutton-highlight-background-color-wh#2097341
-    private class ToolStripRenderer : ToolStripProfessionalRenderer
-    {
-      protected override void OnRenderButtonBackground(ToolStripItemRenderEventArgs e)
-      {
-        var button = e.Item as ToolStripButton;
-        if ( button != null && button.Checked )
-        {
-          var bounds = new Rectangle(0, 0, e.Item.Width - 1, e.Item.Height - 1);
-          e.Graphics.FillRectangle(SystemBrushes.ControlLight, bounds);
-          e.Graphics.DrawRectangle(SystemPens.ControlDark, bounds);
-        }
-        else base.OnRenderButtonBackground(e);
-      }
-    }
-    
-    /// <summary>
-    /// Enable double-buffering.
-    /// </summary>
-    protected override CreateParams CreateParams
-    {
-      get
-      {
-        var cp = base.CreateParams;
-        if ( Settings.WindowsDoubleBufferingEnabled )
-        {
-          cp.ExStyle |= 0x02000000; // + WS_EX_COMPOSITED
-          //cp.Style &= ~0x02000000;  // - WS_CLIPCHILDREN
-        }
-        return cp;
-      }
-    }
-
-    /// <summary>
-    /// Clipboard monitoring.
-    /// </summary>
-    protected override void WndProc(ref Message m)
-    {
-      const int WM_DRAWCLIPBOARD = 0x308;
-      switch ( m.Msg )
-      {
-        case WM_DRAWCLIPBOARD:
-          CheckClipboardContentType();
-          break;
-        default:
-          base.WndProc(ref m);
-          break;
-      }
-    }
-
-    /// <summary>
-    /// Check clipboard content type.
-    /// </summary>
-    internal void CheckClipboardContentType()
-    {
-      string str = Clipboard.GetText();
-      if ( str.IsNullOrEmpty() )
-      {
-        LabelClipboardContentType.Text = SysTranslations.UnknownSlot.GetLang().Trim('(', ')').Titleize();
-        ActionPaste.Enabled = false;
-        return;
-      }
-      if ( HebrewAlphabet.IsValidHebrew(str) )
-      {
-        LabelClipboardContentType.Text = HebrewTranslations.Hebrew.GetLang();
-        ActionPaste.Enabled = true;
-      }
-      else
-      if ( HebrewAlphabet.IsValidUnicode(str) )
-      {
-        LabelClipboardContentType.Text = HebrewTranslations.Unicode.GetLang();
-        ActionPaste.Enabled = true;
-      }
-      else
-      {
-        LabelClipboardContentType.Text = SysTranslations.Uncertain.GetLang();
-        ActionPaste.Enabled = true;
-      }
-      LabelClipboardContentType.Text += Globals.NL + $"({str.Length})";
-    }
+    #region Form management
 
     /// <summary>
     /// Default constructor.
     /// </summary>
     private MainForm()
     {
-      Globals.ChronoLoadApp.Start();
-      InitializeComponent();
-      ToolStrip.Renderer = new ToolStripRenderer();
-      SoundItem.Initialize();
-      Text = Globals.AssemblyTitle;
-      SystemEvents.SessionEnding += SessionEnding;
-      SystemManager.TryCatch(() => { Icon = new Icon(Globals.ApplicationIconFilePath); });
-      CreateProvidersLinks();
-      TextBoxEx.ActionUndo.Click += TextBoxData_ContextMenuAction_Click;
-      TextBoxEx.ActionRedo.Click += TextBoxData_ContextMenuAction_Click;
-      TextBoxEx.ActionCut.Click += TextBoxData_ContextMenuAction_Click;
-      TextBoxEx.ActionPaste.Click += TextBoxData_ContextMenuAction_Click;
-      TextBoxEx.ActionDelete.Click += TextBoxData_ContextMenuAction_Click;
-      NativeMethods.ClipboardViewerNext = NativeMethods.SetClipboardViewer(Handle);
-    }
-
-    /// <summary>
-    /// Create providers links menu items.
-    /// </summary>
-    private void CreateProvidersLinks()
-    {
-      ContextMenuSearchOnline.InitializeFromProviders(HebrewGlobals.WebProvidersWord, (sender, e) =>
-      {
-        var menuitem = (ToolStripMenuItem)sender;
-        HebrewTools.OpenWordProvider((string)menuitem.Tag, EditLetters.Input.Text);
-        EditLetters.Focus();
-      });
-    }
-
-    /// <summary>
-    /// Create system information menu items.
-    /// </summary>
-    public void CreateSystemInformationMenu()
-    {
-      CommonMenusControl.CreateInstance(ToolStrip,
-                                        ref ActionInformation,
-                                        AppTranslations.NoticeNewFeatures,
-                                        ActionAbout_Click,
-                                        ActionWebCheckUpdate_Click,
-                                        ActionViewLog_Click,
-                                        ActionViewStats_Click);
-      InitializeSpecialMenus();
-    }
-
-    /// <summary>
-    /// Initialize special menus.
-    /// </summary>
-    public void InitializeSpecialMenus()
-    {
-      CommonMenusControl.Instance.ActionViewStats.Enabled = Settings.UsageStatisticsEnabled;
-      CommonMenusControl.Instance.ActionViewLog.Enabled = DebugManager.TraceEnabled;
-      ActionWebLinks.Visible = Settings.WebLinksMenuEnabled;
-      if ( Settings.WebLinksMenuEnabled )
-        ActionWebLinks.InitializeFromWebLinks(InitializeSpecialMenus);
+      DoConstructor();
     }
 
     /// <summary>
@@ -230,221 +65,58 @@ namespace Ordisoftware.Hebrew.Letters
     /// <param name="e">Event information.</param>
     private void MainForm_Load(object sender, EventArgs e)
     {
-      if ( Globals.IsExiting ) return;
-      Settings.Retrieve();
-      InitializeTheme();
-      InitializeDialogsDirectory();
-      ProcessLocksTable.Lock();
-      LabelClipboardContentType.Left = ActionCopyToUnicode.Left + ActionCopyToUnicode.Width / 2
-                                     - LabelClipboardContentType.Width / 2;
-      EditLetters.Input.MaxLength = (int)Settings.HebrewTextBoxMaxLength;
-      Program.Settings.CurrentView = ViewMode.Analysis;
-      EditSentence.Font = new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence);
-      EditSentence_FontChanged(null, null);
-      SystemManager.TryCatch(() => new System.Media.SoundPlayer(Globals.EmptySoundFilePath).Play());
-      SystemManager.TryCatch(() => MediaMixer.SetApplicationVolume(Globals.ProcessId, Settings.ApplicationVolume));
-      StatisticsForm.Run(true, Settings.UsageStatisticsEnabled);
-      Globals.ChronoLoadApp.Stop();
-      var lastdone = Settings.CheckUpdateLastDone;
-      bool exit = WebCheckUpdate.Run(Settings.CheckUpdateAtStartup,
-                                     ref lastdone,
-                                     Settings.CheckUpdateAtStartupDaysInterval,
-                                     true);
-      Settings.CheckUpdateLastDone = lastdone;
-      if ( exit )
-      {
-        SystemManager.Exit();
-        return;
-      }
-      Globals.ChronoLoadApp.Start();
-      try
-      {
-        Globals.ChronoLoadData.Start();
-        IsDBUpgraded = CreateSchemaIfNotExists();
-        CreateDataIfNotExists(false);
-        MeaningsTableAdapter.Fill(DataSet.Meanings);
-        LettersTableAdapter.Fill(DataSet.Letters);
-        Globals.ChronoLoadData.Stop();
-        Settings.BenchmarkLoadData = Globals.ChronoLoadData.ElapsedMilliseconds;
-        SystemManager.TryCatch(Settings.Save);
-      }
-      catch ( Exception ex )
-      {
-        DisplayManager.ShowError(SysTranslations.ApplicationMustExit[Language.FR] + Globals.NL2 +
-                                 SysTranslations.ContactSupport[Language.FR]);
-        ex.Manage();
-        Environment.Exit(-1);
-      }
-      CommonMenusControl.Instance.ActionViewStats.Enabled = Settings.UsageStatisticsEnabled;
-      CommonMenusControl.Instance.ActionViewLog.Enabled = DebugManager.TraceEnabled;
-      DebugManager.TraceEnabledChanged += value => CommonMenusControl.Instance.ActionViewLog.Enabled = value;
-      TimerProcesses_Tick(null, null);
-      Globals.IsReady = true;
-      SelectLetter_SelectedIndexChanged(SelectLetter, EventArgs.Empty);
-      UpdateDataControls(SelectLetter);
-    }
-
-    /// <summary>
-    /// Set the initial directories of dialog boxes.
-    /// </summary>
-    private void InitializeDialogsDirectory()
-    {
-      string directory = Settings.GetExportDirectory();
-      SaveImageDialog.InitialDirectory = directory;
-      SaveImageDialog.Filter = Program.ImageExportTargets.CreateFilters();
-    }
-
-    /// <summary>
-    /// Set colors.
-    /// </summary>
-    internal void InitializeTheme()
-    {
-      // Analyser
-      EditLetters.LettersBackColor = Settings.ColorLettersPanel;
-      EditLetters.InputBackColor = Settings.ColorHebrewWordTextBox;
-      SelectAnalyze.BackColor = Settings.ColorMeaningsPanel;
-      EditSentence.BackColor = Settings.ColorSentenceTextBox;
-      EditGematriaFull.BackColor = Settings.ColorGematriaTextBox;
-      EditGematriaSimple.BackColor = Settings.ColorGematriaTextBox;
-      // Data
-      SelectLetter.BackColor = Settings.ColorLettersPanel == SystemColors.Window
-                               ? Settings.ColorGematriaTextBox
-                               : Settings.ColorLettersPanel;
-      TextBoxName.BackColor = SelectLetter.BackColor;
-      TextBoxValueSimple.BackColor = Settings.ColorGematriaTextBox;
-      TextBoxValueFull.BackColor = Settings.ColorGematriaTextBox;
-      TextBoxStructure.BackColor = Settings.ColorSentenceTextBox;
-      TextBoxFunction.BackColor = Settings.ColorSentenceTextBox;
-      TextBoxVerb.BackColor = Settings.ColorSentenceTextBox;
-      TextBoxNegative.BackColor = Settings.ColorSentenceTextBox;
-      TextBoxPositive.BackColor = Settings.ColorSentenceTextBox;
+      DoFormLoad(sender, e);
     }
 
     /// <summary>
     /// Event handler. Called by MainForm for form shown events.
     /// </summary>
     /// <param name="sender">Source of the event.</param>
-    /// <param name="e">Form closing event information.</param>
+    /// <param name="e">Event information.</param>
     private void MainForm_Shown(object sender, EventArgs e)
     {
-      SystemManager.TryCatch(Settings.Save);
-      if ( Globals.IsExiting ) return;
-      if ( !Program.StartupWord.IsNullOrEmpty() )
-      {
-        ActionReset.Visible = true;
-        EditLetters.Input.Text = Program.StartupWord;
-        EditLetters.Focus(LettersControlFocusSelect.None);
-        EditLetters.TextBox.Refresh();
-      }
-      else
-        ActionReset.Visible = false;
-      Globals.ChronoLoadApp.Stop();
-      Settings.BenchmarkStartingApp = Globals.ChronoLoadApp.ElapsedMilliseconds;
-      if ( IsDBUpgraded && DisplayManager.QueryYesNo(SysTranslations.AskToCheckDataAfterDatabaseUpgraded.GetLang()) )
-        SetView(ViewMode.Data, false);
-      else
-        SetView(ViewMode.Analysis, false);
-      if ( Settings.FirstLaunch )
-      {
-        Settings.FirstLaunch = false;
-        SystemManager.TryCatch(Settings.Save);
-        ActionShowMethodNotice.PerformClick();
-      }
-      Globals.NoticeKeyboardShortcutsForm = new ShowTextForm(AppTranslations.NoticeKeyboardShortcutsTitle,
-                                                             AppTranslations.NoticeKeyboardShortcuts,
-                                                             true, false, 340, 440, false, false);
-      Globals.NoticeKeyboardShortcutsForm.TextBox.BackColor = Globals.NoticeKeyboardShortcutsForm.BackColor;
-      Globals.NoticeKeyboardShortcutsForm.TextBox.BorderStyle = BorderStyle.None;
-      Globals.NoticeKeyboardShortcutsForm.Padding = new Padding(20, 20, 10, 10);
-      Globals.ChronoLoadApp.Stop();
-      if ( Globals.SettingsUpgraded )
-        SystemManager.TryCatch(() =>
-        {
-          CommonMenusControl.Instance
-                            .ActionViewVersionNews
-                            .DropDownItems
-                            .Cast<ToolStripItem>()
-                            .LastOrDefault()?
-                            .PerformClick();
-        });
+      DoFormShown(sender, e);
     }
 
     /// <summary>
     /// Event handler. Called by MainForm for form closing events.
     /// </summary>
     /// <param name="sender">Source of the event.</param>
-    /// <param name="e">Form closing event information.</param>
+    /// <param name="e">Event information.</param>
     private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
     {
-      if ( Globals.IsExiting ) return;
-      if ( !Globals.IsReady ) return;
-      if ( e.CloseReason != CloseReason.None && e.CloseReason != CloseReason.UserClosing )
-      {
-        Globals.IsExiting = true;
-        return;
-      }
-      if ( !Globals.AllowClose )
-      {
-        e.Cancel = true;
-        return;
-      }
-      if ( EditConfirmClosing.Checked && !Globals.IsSessionEnding )
-        if ( !DisplayManager.QueryYesNo(SysTranslations.AskToExitApplication.GetLang()) )
-          e.Cancel = true;
-        else
-          Globals.IsExiting = true;
+      DoFormClosing(sender, e);
     }
 
     /// <summary>
     /// Event handler. Called by MainForm for form closed events.
     /// </summary>
     /// <param name="sender">Source of the event.</param>
-    /// <param name="e">Form closing event information.</param>
+    /// <param name="e">Event information.</param>
     private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
     {
-      Program.Settings.CurrentView = ViewMode.Analysis;
-      Settings.Store();
-      ProcessLocksTable.Unlock();
+      DoFormClosed(sender, e);
     }
 
     /// <summary>
-    /// Event handler. Called by MainForm for form location and size changed events.
+    /// Event handler. Called by MainForm for windows changed events.
     /// </summary>
     /// <param name="sender">Source of the event.</param>
-    /// <param name="e">Form closing event information.</param>
+    /// <param name="e">Event information.</param>
     private void MainForm_WindowsChanged(object sender, EventArgs e)
     {
-      if ( Globals.IsExiting ) return;
-      if ( !Globals.IsReady ) return;
       if ( !Visible ) return;
+      if ( !Globals.IsReady ) return;
+      if ( Globals.IsExiting ) return;
       if ( WindowState != FormWindowState.Normal ) return;
       EditScreenNone.PerformClick();
-    }
-
-    /// <summary>
-    /// Session ending.
-    /// </summary>
-    /// <param name="sender">Source of the event.</param>
-    /// <param name="e">Session ending event information.</param>
-    private void SessionEnding(object sender, SessionEndingEventArgs e)
-    {
-      if ( Globals.IsSessionEnding ) return;
-      Globals.IsExiting = true;
-      Globals.IsSessionEnding = true;
-      Globals.AllowClose = true;
-      TimerTooltip.Stop();
-      MessageBoxEx.CloseAll();
-      foreach ( Form form in Application.OpenForms )
-        if ( form != this && form.Visible )
-          SystemManager.TryCatch(() => form.Close());
-      Close();
     }
 
     /// <summary>
     /// Event handler. Called by TimerProcesses for tick events.
     /// </summary>
     /// <param name="sender">Source of the event.</param>
-    /// <param name="e">Form closing event information.</param>
+    /// <param name="e">Event information.</param>
     private void TimerProcesses_Tick(object sender, EventArgs e)
     {
       //if ( !SQLiteOdbcHelper.CheckProcessConcurency() ) return;
@@ -465,13 +137,15 @@ namespace Ordisoftware.Hebrew.Letters
       TimerProcesses.Enabled = Globals.IsReadOnly;
     }
 
-    // Menu tooltips
+    #endregion
+
+    #region Menu tooltips
 
     /// <summary>
     /// Event handler. Called by TimerTooltip for tick events.
     /// </summary>
     /// <param name="sender">Source of the event.</param>
-    /// <param name="e">Form closing event information.</param>
+    /// <param name="e">Event information.</param>
     private void TimerTooltip_Tick(object sender, EventArgs e)
     {
       if ( !EditShowTips.Checked ) return;
@@ -486,14 +160,14 @@ namespace Ordisoftware.Hebrew.Letters
     /// Event handler. Called by ShowToolTip for on mouse enter events.
     /// </summary>
     /// <param name="sender">Source of the event.</param>
-    /// <param name="e">Form closing event information.</param>
+    /// <param name="e">Event information.</param>
     private void ShowToolTip_OnMouseEnter(object sender, EventArgs e)
     {
       if ( !EditShowTips.Checked ) return;
       if ( !( sender is ToolStripItem ) ) return;
       if ( LastToolTip.Tag == sender ) return;
       LastToolTip.Tag = sender;
-      if ( ( (ToolStripItem)sender ).ToolTipText == "" ) return;
+      if ( ( (ToolStripItem)sender ).ToolTipText == string.Empty ) return;
       TimerTooltip.Enabled = true;
     }
 
@@ -501,7 +175,7 @@ namespace Ordisoftware.Hebrew.Letters
     /// Event handler. Called by ShowToolTip for on mouse leave events.
     /// </summary>
     /// <param name="sender">Source of the event.</param>
-    /// <param name="e">Form closing event information.</param>
+    /// <param name="e">Event information.</param>
     private void ShowToolTip_OnMouseLeave(object sender, EventArgs e)
     {
       if ( !EditShowTips.Checked ) return;
@@ -510,7 +184,207 @@ namespace Ordisoftware.Hebrew.Letters
       LastToolTip.Hide(ToolStrip);
     }
 
-    // Menu items
+    #endregion
+
+    #region Menu system
+
+    /// <summary>
+    /// Event handler. Called by ActionExit for click events.
+    /// </summary>
+    /// <param name="sender">Source of the event.</param>
+    /// <param name="e">Event information.</param>
+    private void ActionExit_Click(object sender, EventArgs e)
+    {
+      Close();
+    }
+
+    /// <summary>
+    /// Event handler. Called by ActionExit for mouse up events.
+    /// </summary>
+    /// <param name="sender">Source of the event.</param>
+    /// <param name="e">Event information.</param>
+    private void ActionExit_MouseUp(object sender, MouseEventArgs e)
+    {
+      if ( e.Button == MouseButtons.Right )
+        ActionExit_Click(ActionExit, null);
+    }
+
+    /// <summary>
+    /// Event handler. Called by ActionPreferences for click events.
+    /// </summary>
+    /// <param name="sender">Source of the event.</param>
+    /// <param name="e">Event information.</param>
+    private void ActionPreferences_Click(object sender, EventArgs e)
+    {
+      if ( SystemManager.ApplicationInstancesCount > 1 )
+      {
+        ActionPreferences.Enabled = false;
+        return;
+      }
+      try
+      {
+        PreferencesForm.Run();
+        EditLetters.InputMaxLength = (int)Settings.HebrewTextBoxMaxLength;
+        InitializeSpecialMenus();
+        InitializeDialogsDirectory();
+        ClearLettersMeanings();
+        DoAnalyse();
+      }
+      catch ( Exception ex )
+      {
+        ex.Manage();
+      }
+    }
+
+    #endregion
+
+    #region Menu settings
+
+    /// <summary>
+    /// Event handler. Called by ActionResetWinSettings for click events.
+    /// </summary>
+    /// <param name="sender">Source of the event.</param>
+    /// <param name="e">Event information.</param>
+    private void ActionResetWinSettings_Click(object sender, EventArgs e)
+    {
+      if ( DisplayManager.QueryYesNo(SysTranslations.AskToRestoreWindowPosition.GetLang()) )
+        Settings.RestoreMainForm();
+    }
+
+    /// <summary>
+    /// Event handler. Called by EditScreenPosition for click events.
+    /// </summary>
+    /// <param name="sender">Source of the event.</param>
+    /// <param name="e">Event information.</param>
+    public void EditScreenPosition_Click(object sender, EventArgs e)
+    {
+      DoScreenPosition(sender, e);
+    }
+
+    /// <summary>
+    /// Event handler. Called by ActionShowKeyboardNotice for click events.
+    /// </summary>
+    /// <param name="sender">Source of the event.</param>
+    /// <param name="e">Event information.</param>
+    private void ActionShowKeyboardNotice_Click(object sender, EventArgs e)
+    {
+      Globals.NoticeKeyboardShortcutsForm.Popup();
+    }
+
+    /// <summary>
+    /// Event handler. Called by EditDialogBoxesSettings for checked changed events.
+    /// </summary>
+    /// <param name="sender">Source of the event.</param>
+    /// <param name="e">Event information.</param>
+    public void EditDialogBoxesSettings_CheckedChanged(object sender, EventArgs e)
+    {
+      Settings.SoundsEnabled = EditSoundsEnabled.Checked;
+      DisplayManager.AdvancedFormUseSounds = EditSoundsEnabled.Checked;
+      DisplayManager.FormStyle = EditUseAdvancedDialogBoxes.Checked
+                                 ? MessageBoxFormStyle.Advanced
+                                 : MessageBoxFormStyle.System;
+      switch ( DisplayManager.FormStyle )
+      {
+        case MessageBoxFormStyle.System:
+          DisplayManager.IconStyle = EditSoundsEnabled.Checked
+                                     ? MessageBoxIconStyle.ForceInformation
+                                     : MessageBoxIconStyle.ForceNone;
+          break;
+        case MessageBoxFormStyle.Advanced:
+          DisplayManager.IconStyle = MessageBoxIconStyle.ForceInformation;
+          break;
+      }
+    }
+
+    /// <summary>
+    /// Event handler. Called by EditShowSuccessDialogs for checked changed events.
+    /// </summary>
+    /// <param name="sender">Source of the event.</param>
+    /// <param name="e">Event information.</param>
+    private void EditShowSuccessDialogs_CheckedChanged(object sender, EventArgs e)
+    {
+      Settings.ShowSuccessDialogs = EditShowSuccessDialogs.Checked;
+      DisplayManager.ShowSuccessDialogs = EditShowSuccessDialogs.Checked;
+    }
+
+    #endregion
+
+    #region Menu information
+
+    /// <summary>
+    /// Event handler. Called by ActionAbout for click events.
+    /// </summary>
+    /// <param name="sender">Source of the event.</param>
+    /// <param name="e">Event information.</param>
+    public void ActionAbout_Click(object sender, EventArgs e)
+    {
+      if ( AboutBox.Instance.Visible )
+        AboutBox.Instance.BringToFront();
+      else
+        AboutBox.Instance.ShowDialog();
+    }
+
+    /// <summary>
+    /// Event handler. Called by ActionWebCheckUpdate for click events.
+    /// </summary>
+    /// <param name="sender">Source of the event.</param>
+    /// <param name="e">Event information.</param>
+    public void ActionWebCheckUpdate_Click(object sender, EventArgs e)
+    {
+      var lastdone = Settings.CheckUpdateLastDone;
+      bool exit = WebCheckUpdate.Run(Settings.CheckUpdateAtStartup,
+                                     ref lastdone,
+                                     Settings.CheckUpdateAtStartupDaysInterval,
+                                     e == null);
+      Settings.CheckUpdateLastDone = lastdone;
+      if ( exit ) Close();
+    }
+
+    /// <summary>
+    /// Event handler. Called by ActionViewLog for click events.
+    /// </summary>
+    /// <param name="sender">Source of the event.</param>
+    /// <param name="e">Event information.</param>
+    public void ActionViewLog_Click(object sender, EventArgs e)
+    {
+      DebugManager.TraceForm.Popup();
+    }
+
+    /// <summary>
+    /// Event handler. Called by ActionViewStats for click events.
+    /// </summary>
+    /// <param name="sender">Source of the event.</param>
+    /// <param name="e">Event information.</param>
+    public void ActionViewStats_Click(object sender, EventArgs e)
+    {
+      StatisticsForm.Run();
+    }
+
+    #endregion
+
+    #region Menu tools
+
+    private void ProcessHTMLBrowser(HTMLBrowserForm form)
+    {
+      if ( form.WindowState == FormWindowState.Minimized )
+        form.WindowState = FormWindowState.Normal;
+      form.Show();
+      form.BringToFront();
+    }
+
+    private void ActionShowMethodNotice_Click(object sender, EventArgs e)
+    {
+      ProcessHTMLBrowser(Program.MethodNoticeForm);
+    }
+
+    private void ActionShowGrammarGuide_Click(object sender, EventArgs e)
+    {
+      ProcessHTMLBrowser(Program.GrammarGuideForm);
+    }
+
+    #endregion
+
+    #region Menu application
 
     /// <summary>
     /// Event handler. Called by ActionViewAnalysis for click events.
@@ -583,176 +457,9 @@ namespace Ordisoftware.Hebrew.Letters
       SystemManager.RunShell(Process.GetCurrentProcess().MainModule.FileName);
     }
 
-    /// <summary>
-    /// Event handler. Called by ActionPreferences for click events.
-    /// </summary>
-    /// <param name="sender">Source of the event.</param>
-    /// <param name="e">Event information.</param>
-    private void ActionPreferences_Click(object sender, EventArgs e)
-    {
-      if ( SystemManager.ApplicationInstancesCount > 1 )
-      {
-        ActionPreferences.Enabled = false;
-        return;
-      }
-      try
-      {
-        PreferencesForm.Run();
-        EditLetters.InputMaxLength = (int)Settings.HebrewTextBoxMaxLength;
-        InitializeSpecialMenus();
-        InitializeDialogsDirectory();
-        ClearLettersMeanings();
-        DoAnalyse();
-      }
-      catch ( Exception ex )
-      {
-        ex.Manage();
-      }
-    }
+    #endregion
 
-    /// <summary>
-    /// Event handler. Called by ActionExit for click events.
-    /// </summary>
-    /// <param name="sender">Source of the event.</param>
-    /// <param name="e">Event information.</param>
-    private void ActionExit_Click(object sender, EventArgs e)
-    {
-      Close();
-    }
-
-    /// <summary>
-    /// Event handler. Called by ActionExit for mouse up events.
-    /// </summary>
-    /// <param name="sender">Source of the event.</param>
-    /// <param name="e">Event information.</param>
-    private void ActionExit_MouseUp(object sender, MouseEventArgs e)
-    {
-      if ( e.Button == MouseButtons.Right )
-        ActionExit_Click(ActionExit, null);
-    }
-
-    // Menu preferences
-
-    /// <summary>
-    /// Event handler. Called by ActionResetWinSettings for click events.
-    /// </summary>
-    /// <param name="sender">Source of the event.</param>
-    /// <param name="e">Event information.</param>
-    private void ActionResetWinSettings_Click(object sender, EventArgs e)
-    {
-      if ( DisplayManager.QueryYesNo(SysTranslations.AskToRestoreWindowPosition.GetLang()) )
-        Settings.RestoreMainForm();
-    }
-
-    /// <summary>
-    /// Event handler. Called by SelectScreenPosition for click events.
-    /// </summary>
-    /// <param name="sender">Source of the event.</param>
-    /// <param name="e">Event information.</param>
-    public void EditScreenPosition_Click(object sender, EventArgs e)
-    {
-      DoScreenPosition(sender, e);
-    }
-
-    /// <summary>
-    /// Event handler. Called by ActionShowKeyboardNotice for click events.
-    /// </summary>
-    /// <param name="sender">Source of the event.</param>
-    /// <param name="e">Event information.</param>
-    private void ActionShowKeyboardNotice_Click(object sender, EventArgs e)
-    {
-      Globals.NoticeKeyboardShortcutsForm.Popup();
-    }
-
-    /// <summary>
-    /// Event handler. Called by EditDialogBoxesSettings for checked changed events.
-    /// </summary>
-    /// <param name="sender">Source of the event.</param>
-    /// <param name="e">Event information.</param>
-    public void EditDialogBoxesSettings_CheckedChanged(object sender, EventArgs e)
-    {
-      DisplayManager.AdvancedFormUseSounds = EditSoundsEnabled.Checked;
-      DisplayManager.FormStyle = EditUseAdvancedDialogBoxes.Checked
-                                 ? MessageBoxFormStyle.Advanced
-                                 : MessageBoxFormStyle.System;
-      switch ( DisplayManager.FormStyle )
-      {
-        case MessageBoxFormStyle.System:
-          DisplayManager.IconStyle = EditSoundsEnabled.Checked
-                                     ? MessageBoxIconStyle.ForceInformation
-                                     : MessageBoxIconStyle.ForceNone;
-          break;
-        case MessageBoxFormStyle.Advanced:
-          DisplayManager.IconStyle = MessageBoxIconStyle.ForceInformation;
-          break;
-      }
-
-    }
-
-    private void EditShowSuccessDialogs_CheckedChanged(object sender, EventArgs e)
-    {
-      DisplayManager.ShowSuccessDialogs = EditShowSuccessDialogs.Checked;
-    }
-
-    // Menu information
-
-    /// <summary>
-    /// Event handler. Called by ActionAbout for click events.
-    /// </summary>
-    /// <param name="sender">Source of the event.</param>
-    /// <param name="e">Event information.</param>
-    public void ActionAbout_Click(object sender, EventArgs e)
-    {
-      AboutBox.Instance.ShowDialog();
-    }
-
-    /// <summary>
-    /// Event handler. Called by ActionWebCheckUpdate for click events.
-    /// </summary>
-    /// <param name="sender">Source of the event.</param>
-    /// <param name="e">Event information.</param>
-    public void ActionWebCheckUpdate_Click(object sender, EventArgs e)
-    {
-      var lastdone = Settings.CheckUpdateLastDone;
-      bool exit = WebCheckUpdate.Run(Settings.CheckUpdateAtStartup,
-                                     ref lastdone,
-                                     Settings.CheckUpdateAtStartupDaysInterval,
-                                     e == null);
-      Settings.CheckUpdateLastDone = lastdone;
-      if ( exit ) Close();
-    }
-
-    public void ActionViewLog_Click(object sender, EventArgs e)
-    {
-      DebugManager.TraceForm.Popup();
-    }
-
-    private void ActionViewStats_Click(object sender, EventArgs e)
-    {
-      StatisticsForm.Run();
-    }
-
-    // Menu tools
-
-    private void ProcessHTMLBrowser(HTMLBrowserForm form)
-    {
-      if ( form.WindowState == FormWindowState.Minimized )
-        form.WindowState = FormWindowState.Normal;
-      form.Show();
-      form.BringToFront();
-    }
-
-    private void ActionShowMethodNotice_Click(object sender, EventArgs e)
-    {
-      ProcessHTMLBrowser(Program.MethodNoticeForm);
-    }
-
-    private void ActionShowGrammarGuide_Click(object sender, EventArgs e)
-    {
-      ProcessHTMLBrowser(Program.GrammarGuideForm);
-    }
-
-    // Update analysis controls
+    #region Update analysis controls
 
     private void UpdateAnalysisControls()
     {
@@ -784,7 +491,9 @@ namespace Ordisoftware.Hebrew.Letters
       if ( textbox.Text == "0" ) textbox.Text = "";
     }
 
-    // Panel letters
+    #endregion
+
+    #region Panel letters
 
     private void EditLetters_ViewLetterDetails(LettersControl sender, string code)
     {
@@ -839,7 +548,9 @@ namespace Ordisoftware.Hebrew.Letters
       ContextMenuSearchOnline.Show(ActionSearchOnline, new Point(0, ActionSearchOnline.Height));
     }
 
-    // Copy and paste
+    #endregion
+
+    #region Copy and paste
 
     private void LabelClipboardContentType_MouseHover(object sender, EventArgs e)
     {
@@ -876,7 +587,9 @@ namespace Ordisoftware.Hebrew.Letters
       EditLetters.Focus(LettersControlFocusSelect.All);
     }
 
-    // Analysis by user
+    #endregion
+
+    #region Analysis by user
 
     private void MeaningComboBox_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -901,7 +614,9 @@ namespace Ordisoftware.Hebrew.Letters
       EditSentence.Focus();
     }
 
-    // Analysis copy and screenshot
+    #endregion
+
+    #region Analysis copy and screenshot
 
     private void ActionViewAllMeaningsList_Click(object sender, EventArgs e)
     {
@@ -964,13 +679,15 @@ namespace Ordisoftware.Hebrew.Letters
       EditLetters.Focus();
     }
 
-    // Update data controls
+    #endregion
+
+    #region Letter update data controls
 
     private void UpdateDataControls(object sender, bool forceEditMode = false)
     {
       try
       {
-        forceEditMode = forceEditMode || EditMeanings.IsCurrentCellInEditMode || AddNewRowMutex;
+        forceEditMode = forceEditMode || EditMeanings.IsCurrentCellInEditMode || DataAddNewRowMutex;
         if ( SelectLetter.SelectedItem == null ) return;
         var row = (Data.DataSet.LettersRow)( (DataRowView)SelectLetter.SelectedItem ).Row;
         ActionAddMeaning.Enabled = !Globals.IsReadOnly && !forceEditMode;
@@ -993,7 +710,9 @@ namespace Ordisoftware.Hebrew.Letters
       }
     }
 
-    // Save, undo and restore
+    #endregion
+
+    #region Letter data save, undo and restore
 
     private void ActionSave_Click(object sender, EventArgs e)
     {
@@ -1038,13 +757,15 @@ namespace Ordisoftware.Hebrew.Letters
       }
     }
 
-    // Select letter
+    #endregion
+
+    #region Letter data select
 
     private void SelectLetter_SelectedIndexChanged(object sender, EventArgs e)
     {
       if ( !Globals.IsReady ) return;
       if ( !SelectLetter.Enabled ) return;
-      EditMutex = true;
+      DataEditMutex = true;
       ActionFirst.Enabled = SelectLetter.SelectedIndex > 0;
       ActionPrevious.Enabled = ActionFirst.Enabled;
       ActionLast.Enabled = SelectLetter.SelectedIndex < SelectLetter.Items.Count - 1;
@@ -1080,11 +801,13 @@ namespace Ordisoftware.Hebrew.Letters
     private void LettersBindingSource_PositionChanged(object sender, EventArgs e)
     {
       if ( !Globals.IsReady ) return;
-      EditMutex = false;
+      DataEditMutex = false;
       UpdateDataControls(sender);
     }
 
-    // Edit textboxes
+    #endregion
+
+    #region Letter data textboxes 
 
     private bool TextBoxDataContextMenuMutex;
 
@@ -1104,11 +827,11 @@ namespace Ordisoftware.Hebrew.Letters
     private void TextBoxData_TextChanged(object sender, EventArgs e)
     {
       if ( !Globals.IsReady ) return;
-      if ( EditMutex ) return;
-      EditMutex = true;
+      if ( DataEditMutex ) return;
+      DataEditMutex = true;
       LettersBindingSource.EndEdit();
       if ( sender != null ) UpdateDataControls(sender, true);
-      EditMutex = false;
+      DataEditMutex = false;
     }
 
     private void TextBoxData_Leave(object sender, EventArgs e)
@@ -1127,7 +850,9 @@ namespace Ordisoftware.Hebrew.Letters
             ;// TextBoxData_TextChanged(sender, e);*/
     }
 
-    // Edit meanings
+    #endregion
+
+    #region Letter data grid
 
     private void ActionAddMeaning_Click(object sender, EventArgs e)
     {
@@ -1139,7 +864,7 @@ namespace Ordisoftware.Hebrew.Letters
       MeaningsBindingSource.ResetBindings(false);
       MeaningsBindingSource.MoveLast();
       EditMeanings.BeginEdit(false);
-      AddNewRowMutex = true;
+      DataAddNewRowMutex = true;
       UpdateDataControls(sender);
     }
 
@@ -1181,15 +906,15 @@ namespace Ordisoftware.Hebrew.Letters
     {
       if ( e.KeyCode == Keys.Enter )
       {
-        if ( AddNewRowMutex && ( (string)EditMeanings.CurrentCell.Value ).IsNullOrEmpty() )
+        if ( DataAddNewRowMutex && ( (string)EditMeanings.CurrentCell.Value ).IsNullOrEmpty() )
         {
           EditMeanings.BeginEdit(false);
-          AddNewRowMutex = true;
+          DataAddNewRowMutex = true;
         }
         else
         if ( DataSet.HasChanges() )
         {
-          AddNewRowMutex = false;
+          DataAddNewRowMutex = false;
           UpdateDataControls(sender);
         }
       }
@@ -1203,7 +928,7 @@ namespace Ordisoftware.Hebrew.Letters
           EditMeanings.Rows.Remove(EditMeanings.CurrentRow);
           if ( EditMeanings.Rows.Count > 0 )
             EditMeanings.Rows[EditMeanings.Rows.Count - 1].Selected = true;
-          AddNewRowMutex = false;
+          DataAddNewRowMutex = false;
           UpdateDataControls(sender);
         }
         else
@@ -1224,7 +949,7 @@ namespace Ordisoftware.Hebrew.Letters
     {
       if ( !Globals.IsReady ) return;
       UpdateDataControls(sender, true);
-      AddNewRowMutex = false;
+      DataAddNewRowMutex = false;
     }
 
     private void EditMeanings_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -1252,7 +977,9 @@ namespace Ordisoftware.Hebrew.Letters
         UpdateDataControls(sender);
     }
 
-    // DB Errors
+    #endregion
+
+    #region DB Errors
 
     private void EditMeanings_DataError(object sender, DataGridViewDataErrorEventArgs e)
     {
@@ -1276,5 +1003,7 @@ namespace Ordisoftware.Hebrew.Letters
     }
 
   }
+
+  #endregion
 
 }
