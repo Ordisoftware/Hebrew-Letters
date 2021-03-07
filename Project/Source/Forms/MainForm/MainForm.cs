@@ -633,8 +633,10 @@ namespace Ordisoftware.Hebrew.Letters
       var list = SelectAnalyze.Controls
                               .OfType<Label>()
                               .Where(label => label.Text != "")
-                              .Select(label => label.Text + " : " + 
-                                               string.Join(", ", (object[])( (ComboBox)label.Tag ).Tag));
+                              .Select(label => label.Text + " : " +
+                                               string.Join(", ",
+                                                           ((object[])( (ComboBox)label.Tag ).Tag).Cast<string>()
+                                                                                                  .Where(s => s != "-")));
       return string.Join(Globals.NL, list);
     }
 
