@@ -52,15 +52,6 @@ namespace Ordisoftware.Hebrew.Letters
       LoadColors();
     }
 
-    private void LoadColors()
-    {
-      EditLettersBack.BackColor = Settings.ColorLettersPanel;
-      EditWordBack.BackColor = Settings.ColorHebrewWordTextBox;
-      EditAnalyseBack.BackColor = Settings.ColorMeaningsPanel;
-      EditEditableBack.BackColor = Settings.ColorSentenceTextBox;
-      EditReadonlyBack.BackColor = Settings.ColorGematriaTextBox;
-    }
-
     private void SaveSettings()
     {
       Settings.VacuumAtStartup = EditVacuumAtStartup.Checked;
@@ -80,6 +71,15 @@ namespace Ordisoftware.Hebrew.Letters
       Settings.WindowsDoubleBufferingEnabled = EditWindowsDoubleBufferingEnabled.Checked;
       SaveColors();
       Settings.Save();
+    }
+
+    private void LoadColors()
+    {
+      EditLettersBack.BackColor = Settings.ColorLettersPanel;
+      EditWordBack.BackColor = Settings.ColorHebrewWordTextBox;
+      EditAnalyseBack.BackColor = Settings.ColorMeaningsPanel;
+      EditEditableBack.BackColor = Settings.ColorSentenceTextBox;
+      EditReadonlyBack.BackColor = Settings.ColorGematriaTextBox;
     }
 
     private void SaveColors()

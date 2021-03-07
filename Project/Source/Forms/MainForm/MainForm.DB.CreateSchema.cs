@@ -14,23 +14,28 @@
 /// <edited> 2021-02 </edited>
 using System;
 using System.Data.Odbc;
-using System.Windows.Forms;
 using Ordisoftware.Core;
 
 namespace Ordisoftware.Hebrew.Letters
 {
 
-  partial class MainForm : Form
+  /// <summary>
+  /// The application's main form.
+  /// </summary>
+  /// <seealso cref="T:System.Windows.Forms.Form"/>
+  partial class MainForm
   {
 
+    /// <summary>
+    /// Indicate persistent database connection.
+    /// </summary>
     private OdbcConnection LockFileConnection;
 
     /// <summary>
     /// Check if tables and columns exists or create them.
     /// </summary>
-    public bool CreateSchemaIfNotExists()
+    public void CreateSchemaIfNotExists()
     {
-      bool upgraded = false;
       SystemManager.TryCatchManage(() =>
       {
         SQLiteOdbcHelper.CreateOrUpdateDSN();
@@ -89,11 +94,12 @@ namespace Ordisoftware.Hebrew.Letters
             new OdbcCommand("DROP TABLE Meanings_Temp", LockFileConnection).ExecuteNonQuery();
           }
         string sqlColumn = "ALTER TABLE %TABLE% ADD COLUMN %COLUMN% TEXT DEFAULT '' NOT NULL";
-        upgraded = !LockFileConnection.CheckColumn("Letters", "Hebrew", sqlColumn) || upgraded;
-        upgraded = !LockFileConnection.CheckColumn("Letters", "Positive", sqlColumn) || upgraded;
-        upgraded = !LockFileConnection.CheckColumn("Letters", "Negative", sqlColumn) || upgraded;
+        bool b = Globals.IsDatabaseUpgraded;
+        b = !LockFileConnection.CheckColumn("Letters", "Hebrew", sqlColumn) || b;
+        b = !LockFileConnection.CheckColumn("Letters", "Positive", sqlColumn) || b;
+        b = !LockFileConnection.CheckColumn("Letters", "Negative", sqlColumn) || b;
+        Globals.IsDatabaseUpgraded = b;
       });
-      return upgraded;
     }
 
   }
