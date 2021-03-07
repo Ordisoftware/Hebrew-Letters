@@ -186,6 +186,7 @@ namespace Ordisoftware.Hebrew.Letters
       TextBoxVerb.BackColor = Settings.ColorSentenceTextBox;
       TextBoxNegative.BackColor = Settings.ColorSentenceTextBox;
       TextBoxPositive.BackColor = Settings.ColorSentenceTextBox;
+      EditMeanings.BackgroundColor = Settings.ColorSentenceTextBox;
     }
 
     /// <summary>

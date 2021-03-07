@@ -42,6 +42,7 @@
       this.MenuSelectOnlineVerseURL = new System.Windows.Forms.ContextMenuStrip(this.components);
       this.TabControl = new System.Windows.Forms.TabControl();
       this.TabPageApplication = new System.Windows.Forms.TabPage();
+      this.LabelChangeLangNotice = new System.Windows.Forms.Label();
       this.EditWindowsDoubleBufferingEnabled = new System.Windows.Forms.CheckBox();
       this.EditUsageStatisticsEnabled = new System.Windows.Forms.CheckBox();
       this.EditVolume = new System.Windows.Forms.TrackBar();
@@ -91,13 +92,14 @@
       this.LabelImageExportFileFormat = new System.Windows.Forms.Label();
       this.EditAutoOpenExportedFile = new System.Windows.Forms.CheckBox();
       this.EditAutoOpenExportFolder = new System.Windows.Forms.CheckBox();
+      this.EditExportFolder = new Ordisoftware.Core.TextBoxEx();
       this.DialogColor = new System.Windows.Forms.ColorDialog();
       this.OpenSettingsDialog = new System.Windows.Forms.OpenFileDialog();
       this.SaveSettingsDialog = new System.Windows.Forms.SaveFileDialog();
       this.SaveThemeDialog = new System.Windows.Forms.SaveFileDialog();
       this.OpenThemeDialog = new System.Windows.Forms.OpenFileDialog();
-      this.LabelChangeLangNotice = new System.Windows.Forms.Label();
-      this.EditExportFolder = new Ordisoftware.Core.TextBoxEx();
+      this.EditTextColor = new System.Windows.Forms.Panel();
+      this.LabelTextColor = new System.Windows.Forms.Label();
       LabelVolume = new System.Windows.Forms.Label();
       LabelCheckUpdateFrequency = new System.Windows.Forms.Label();
       this.PanelBottom.SuspendLayout();
@@ -207,6 +209,12 @@
       this.TabPageApplication.Controls.Add(this.EditLogEnabled);
       resources.ApplyResources(this.TabPageApplication, "TabPageApplication");
       this.TabPageApplication.Name = "TabPageApplication";
+      // 
+      // LabelChangeLangNotice
+      // 
+      resources.ApplyResources(this.LabelChangeLangNotice, "LabelChangeLangNotice");
+      this.LabelChangeLangNotice.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+      this.LabelChangeLangNotice.Name = "LabelChangeLangNotice";
       // 
       // EditWindowsDoubleBufferingEnabled
       // 
@@ -366,6 +374,8 @@
       this.TabPageTheme.Controls.Add(this.EditAnalyseBack);
       this.TabPageTheme.Controls.Add(this.EditWordBack);
       this.TabPageTheme.Controls.Add(this.EditEditableBack);
+      this.TabPageTheme.Controls.Add(this.LabelTextColor);
+      this.TabPageTheme.Controls.Add(this.EditTextColor);
       this.TabPageTheme.Controls.Add(this.label5);
       this.TabPageTheme.Controls.Add(this.EditReadonlyBack);
       this.TabPageTheme.Controls.Add(this.label4);
@@ -378,16 +388,16 @@
       // 
       // ActionOpenTheme
       // 
-      this.ActionOpenTheme.FlatAppearance.BorderSize = 0;
       resources.ApplyResources(this.ActionOpenTheme, "ActionOpenTheme");
+      this.ActionOpenTheme.FlatAppearance.BorderSize = 0;
       this.ActionOpenTheme.Name = "ActionOpenTheme";
       this.ActionOpenTheme.UseVisualStyleBackColor = true;
       this.ActionOpenTheme.Click += new System.EventHandler(this.ActionOpenTheme_Click);
       // 
       // ActionSaveTheme
       // 
-      this.ActionSaveTheme.FlatAppearance.BorderSize = 0;
       resources.ApplyResources(this.ActionSaveTheme, "ActionSaveTheme");
+      this.ActionSaveTheme.FlatAppearance.BorderSize = 0;
       this.ActionSaveTheme.Name = "ActionSaveTheme";
       this.ActionSaveTheme.UseVisualStyleBackColor = true;
       this.ActionSaveTheme.Click += new System.EventHandler(this.ActionSaveTheme_Click);
@@ -633,6 +643,14 @@
       this.EditAutoOpenExportFolder.UseVisualStyleBackColor = true;
       this.EditAutoOpenExportFolder.CheckedChanged += new System.EventHandler(this.EditAutoOpenExportFolder_CheckedChanged);
       // 
+      // EditExportFolder
+      // 
+      this.EditExportFolder.BackColor = System.Drawing.SystemColors.Control;
+      this.EditExportFolder.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
+      resources.ApplyResources(this.EditExportFolder, "EditExportFolder");
+      this.EditExportFolder.Name = "EditExportFolder";
+      this.EditExportFolder.ReadOnly = true;
+      // 
       // DialogColor
       // 
       this.DialogColor.FullOpen = true;
@@ -646,19 +664,19 @@
       this.OpenThemeDialog.FileName = "openFileDialog1";
       resources.ApplyResources(this.OpenThemeDialog, "OpenThemeDialog");
       // 
-      // LabelChangeLangNotice
+      // EditTextColor
       // 
-      resources.ApplyResources(this.LabelChangeLangNotice, "LabelChangeLangNotice");
-      this.LabelChangeLangNotice.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-      this.LabelChangeLangNotice.Name = "LabelChangeLangNotice";
+      this.EditTextColor.BackColor = System.Drawing.SystemColors.Control;
+      this.EditTextColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      resources.ApplyResources(this.EditTextColor, "EditTextColor");
+      this.EditTextColor.ForeColor = System.Drawing.SystemColors.Control;
+      this.EditTextColor.Name = "EditTextColor";
+      this.EditTextColor.Click += new System.EventHandler(this.EditColor_Click);
       // 
-      // EditExportFolder
+      // LabelTextColor
       // 
-      this.EditExportFolder.BackColor = System.Drawing.SystemColors.Control;
-      this.EditExportFolder.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
-      resources.ApplyResources(this.EditExportFolder, "EditExportFolder");
-      this.EditExportFolder.Name = "EditExportFolder";
-      this.EditExportFolder.ReadOnly = true;
+      resources.ApplyResources(this.LabelTextColor, "LabelTextColor");
+      this.LabelTextColor.Name = "LabelTextColor";
       // 
       // PreferencesForm
       // 
@@ -764,5 +782,7 @@
     private System.Windows.Forms.Label LabelLastStartupCheckDate;
     private System.Windows.Forms.Label LabelLastStartupCheck;
     private System.Windows.Forms.Label LabelChangeLangNotice;
+    private System.Windows.Forms.Label LabelTextColor;
+    public System.Windows.Forms.Panel EditTextColor;
   }
 }

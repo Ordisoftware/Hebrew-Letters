@@ -1036,6 +1036,9 @@
   <data name="&gt;&gt;TabPageCheckUpdate.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="ActionOpenTheme.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
   <data name="ActionOpenTheme.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
@@ -1058,7 +1061,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionOpenTheme.Location" type="System.Drawing.Point, System.Drawing">
-    <value>352, 205</value>
+    <value>357, 225</value>
   </data>
   <data name="ActionOpenTheme.Size" type="System.Drawing.Size, System.Drawing">
     <value>26, 26</value>
@@ -1077,6 +1080,9 @@
   </data>
   <data name="&gt;&gt;ActionOpenTheme.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="ActionSaveTheme.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
   </data>
   <data name="ActionSaveTheme.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -1102,7 +1108,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionSaveTheme.Location" type="System.Drawing.Point, System.Drawing">
-    <value>382, 205</value>
+    <value>387, 225</value>
   </data>
   <data name="ActionSaveTheme.Size" type="System.Drawing.Size, System.Drawing">
     <value>26, 26</value>
@@ -1231,7 +1237,7 @@
     <value>Microsoft Sans Serif, 8.25pt</value>
   </data>
   <data name="EditEditableBack.Location" type="System.Drawing.Point, System.Drawing">
-    <value>136, 104</value>
+    <value>136, 99</value>
   </data>
   <data name="EditEditableBack.Size" type="System.Drawing.Size, System.Drawing">
     <value>25, 25</value>
@@ -1251,6 +1257,63 @@
   <data name="&gt;&gt;EditEditableBack.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
+  <data name="LabelTextColor.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LabelTextColor.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="LabelTextColor.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="LabelTextColor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 140</value>
+  </data>
+  <data name="LabelTextColor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>28, 13</value>
+  </data>
+  <data name="LabelTextColor.TabIndex" type="System.Int32, mscorlib">
+    <value>54</value>
+  </data>
+  <data name="LabelTextColor.Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="&gt;&gt;LabelTextColor.Name" xml:space="preserve">
+    <value>LabelTextColor</value>
+  </data>
+  <data name="&gt;&gt;LabelTextColor.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LabelTextColor.Parent" xml:space="preserve">
+    <value>TabPageTheme</value>
+  </data>
+  <data name="&gt;&gt;LabelTextColor.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="EditTextColor.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="EditTextColor.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 159</value>
+  </data>
+  <data name="EditTextColor.Size" type="System.Drawing.Size, System.Drawing">
+    <value>25, 25</value>
+  </data>
+  <data name="EditTextColor.TabIndex" type="System.Int32, mscorlib">
+    <value>51</value>
+  </data>
+  <data name="&gt;&gt;EditTextColor.Name" xml:space="preserve">
+    <value>EditTextColor</value>
+  </data>
+  <data name="&gt;&gt;EditTextColor.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;EditTextColor.Parent" xml:space="preserve">
+    <value>TabPageTheme</value>
+  </data>
+  <data name="&gt;&gt;EditTextColor.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
   <data name="label5.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -1261,7 +1324,7 @@
     <value>NoControl</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 85</value>
+    <value>21, 80</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
     <value>79, 13</value>
@@ -1282,13 +1345,13 @@
     <value>TabPageTheme</value>
   </data>
   <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>9</value>
   </data>
   <data name="EditReadonlyBack.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 8.25pt</value>
   </data>
   <data name="EditReadonlyBack.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 104</value>
+    <value>24, 99</value>
   </data>
   <data name="EditReadonlyBack.Size" type="System.Drawing.Size, System.Drawing">
     <value>25, 25</value>
@@ -1306,7 +1369,7 @@
     <value>TabPageTheme</value>
   </data>
   <data name="&gt;&gt;EditReadonlyBack.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>10</value>
   </data>
   <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1318,7 +1381,7 @@
     <value>NoControl</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>131, 85</value>
+    <value>131, 80</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>72, 13</value>
@@ -1339,7 +1402,7 @@
     <value>TabPageTheme</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>11</value>
   </data>
   <data name="label6.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1372,7 +1435,7 @@
     <value>TabPageTheme</value>
   </data>
   <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>12</value>
   </data>
   <data name="label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1405,7 +1468,7 @@
     <value>TabPageTheme</value>
   </data>
   <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>13</value>
   </data>
   <data name="ActionUseColorsPastel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1417,7 +1480,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionUseColorsPastel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 192</value>
+    <value>20, 212</value>
   </data>
   <data name="ActionUseColorsPastel.Size" type="System.Drawing.Size, System.Drawing">
     <value>36, 13</value>
@@ -1438,7 +1501,7 @@
     <value>TabPageTheme</value>
   </data>
   <data name="&gt;&gt;ActionUseColorsPastel.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>14</value>
   </data>
   <data name="ActionUseColorsSystem.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1450,7 +1513,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionUseColorsSystem.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 212</value>
+    <value>20, 232</value>
   </data>
   <data name="ActionUseColorsSystem.Size" type="System.Drawing.Size, System.Drawing">
     <value>41, 13</value>
@@ -1471,7 +1534,7 @@
     <value>TabPageTheme</value>
   </data>
   <data name="&gt;&gt;ActionUseColorsSystem.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>15</value>
   </data>
   <data name="TabPageTheme.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 25</value>
@@ -2071,9 +2134,6 @@
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>454, 341</value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="$this.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>10, 10, 10, 10</value>

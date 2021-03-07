@@ -38,7 +38,7 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="CurrentView" Type="Ordisoftware.Hebrew.Letters.ViewMode" Scope="User">
-      <Value Profile="(Default)">Analyse</Value>
+      <Value Profile="(Default)">Analysis</Value>
     </Setting>
     <Setting Name="CopyToClipboardCloseApp" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
