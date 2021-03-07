@@ -193,10 +193,19 @@
     <Compile Include="Source\Common\Core\Managers.System\SystemManager.Platform.cs" />
     <Compile Include="Source\Common\Core\Managers.System\SystemManager.Shell.cs" />
     <Compile Include="Source\Common\Core\Managers.System\SystemManager.SSL.cs" />
+    <Compile Include="Source\Common\Core\WinForms.Controls\ComboBoxEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Source\Common\Core\WinForms.Controls\ControlLocation.cs" />
     <Compile Include="Source\Common\Core\WinForms.Controls\FormsHelper.cs" />
     <Compile Include="Source\Common\Core\WinForms.Controls\RichTextBoxEx.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Source\Common\Core\WinForms.Controls\ComboBoxNavigator.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Source\Common\Core\WinForms.Controls\ComboBoxNavigator.Designer.cs">
+      <DependentUpon>ComboBoxNavigator.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Common\Core\WinForms.Controls\ToolStripMenuItemHelper.cs" />
     <Compile Include="Source\Common\Core\WinForms.Controls\TextBoxEx.Actions.cs">
@@ -298,12 +307,6 @@
     <Compile Include="Source\Common\Hebrew\WinForms\LettersControl.Redraw.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Source\Common\Hebrew\WinForms\SelectValueComboBox.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Source\Common\Hebrew\WinForms\SelectValueComboBox.Designer.cs">
-      <DependentUpon>SelectValueComboBox.cs</DependentUpon>
-    </Compile>
     <Compile Include="Source\Forms\Boxes\SearchTermResultsBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -392,6 +395,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Source\Common\Core\WinForms.Controls\ComboBoxNavigator.resx">
+      <DependentUpon>ComboBoxNavigator.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Source\Common\Core\WinForms.Controls\TextBoxEx.fr.resx">
       <DependentUpon>TextBoxEx.cs</DependentUpon>
     </EmbeddedResource>
@@ -458,9 +464,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Common\Hebrew\WinForms\LettersControl.resx">
       <DependentUpon>LettersControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Source\Common\Hebrew\WinForms\SelectValueComboBox.resx">
-      <DependentUpon>SelectValueComboBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\Boxes\SearchTermResultsBox.fr.resx">
       <DependentUpon>SearchTermResultsBox.cs</DependentUpon>

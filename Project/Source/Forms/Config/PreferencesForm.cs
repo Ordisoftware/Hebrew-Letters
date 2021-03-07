@@ -42,7 +42,7 @@ namespace Ordisoftware.Hebrew.Letters
       }
     }
 
-    private NullSafeOfStringDictionary<DataExportTarget> ExportTarget
+    private readonly NullSafeOfStringDictionary<DataExportTarget> ExportTarget
       = ExportHelper.CreateExportTargets(DataExportTarget.XML);
 
     private bool IsReady;

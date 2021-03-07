@@ -97,16 +97,16 @@ namespace Ordisoftware.Hebrew.Letters
         switch ( keyData )
         {
           case Keys.Control | Keys.Home:
-            ActionFirst.PerformClick();
+            LettersNavigator.ActionFirst.PerformClick();
             return true;
           case Keys.Control | Keys.End:
-            ActionLast.PerformClick();
+            LettersNavigator.ActionLast.PerformClick();
             return true;
           case Keys.Control | Keys.PageUp:
-            ActionPrevious.PerformClick();
+            LettersNavigator.ActionPrevious.PerformClick();
             return true;
           case Keys.Control | Keys.PageDown:
-            ActionNext.PerformClick();
+            LettersNavigator.ActionNext.PerformClick();
             return true;
         }
       return base.ProcessCmdKey(ref msg, keyData);

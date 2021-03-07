@@ -148,6 +148,7 @@ namespace Ordisoftware.Hebrew.Letters
       TimerProcesses_Tick(null, null);
       Globals.IsReady = true;
       SelectLetter_SelectedIndexChanged(SelectLetter, EventArgs.Empty);
+      LettersNavigator.Refresh();
       UpdateDataControls(SelectLetter);
     }
 
