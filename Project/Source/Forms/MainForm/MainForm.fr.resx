@@ -364,4 +364,7 @@
   <data name="ActionOpenLexilogosModern.Size" type="System.Drawing.Size, System.Drawing">
     <value>332, 22</value>
   </data>
+  <data name="ActionGematriaCombinations.Text" xml:space="preserve">
+    <value>Combinaisons de gematria</value>
+  </data>
 </root>

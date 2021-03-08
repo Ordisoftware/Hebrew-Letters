@@ -56,6 +56,8 @@ namespace Ordisoftware.Hebrew.Letters
     private MainForm()
     {
       DoConstructor();
+      ActionGematriaCombinations.Visible = Globals.IsDevExecutable; // TODO remove when ready
+      toolStripSeparator1.Visible = Globals.IsDevExecutable; // TODO remove when ready
     }
 
     /// <summary>
@@ -380,6 +382,13 @@ namespace Ordisoftware.Hebrew.Letters
     private void ActionShowGrammarGuide_Click(object sender, EventArgs e)
     {
       ProcessHTMLBrowser(Program.GrammarGuideForm);
+    }
+
+    private void ActionGematriaCombinations_Click(object sender, EventArgs e)
+    {
+      int value = 0;
+      if ( DisplayManager.QueryValue("Gematria", ref value) != InputValueResult.Modified ) return;
+      DisplayManager.Show(value.ToString());
     }
 
     #endregion

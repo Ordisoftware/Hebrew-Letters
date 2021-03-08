@@ -141,6 +141,8 @@
       this.MeaningsTableAdapter = new Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.MeaningsTableAdapter();
       this.SaveImageDialog = new System.Windows.Forms.SaveFileDialog();
       this.ToolTipClipboard = new System.Windows.Forms.ToolTip(this.components);
+      this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+      this.ActionGematriaCombinations = new System.Windows.Forms.ToolStripMenuItem();
       LabelName = new System.Windows.Forms.Label();
       LabelStructure = new System.Windows.Forms.Label();
       LabelFunction = new System.Windows.Forms.Label();
@@ -1033,7 +1035,9 @@
       this.ActionTools.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
       this.ActionTools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ActionShowMethodNotice,
-            this.ActionShowGrammarGuide});
+            this.ActionShowGrammarGuide,
+            this.toolStripSeparator1,
+            this.ActionGematriaCombinations});
       this.ActionTools.Name = "ActionTools";
       this.ActionTools.Padding = new System.Windows.Forms.Padding(5);
       // 
@@ -1082,6 +1086,17 @@
       // MeaningsTableAdapter
       // 
       this.MeaningsTableAdapter.ClearBeforeFill = true;
+      // 
+      // toolStripSeparator1
+      // 
+      this.toolStripSeparator1.Name = "toolStripSeparator1";
+      resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
+      // 
+      // ActionGematriaCombinations
+      // 
+      resources.ApplyResources(this.ActionGematriaCombinations, "ActionGematriaCombinations");
+      this.ActionGematriaCombinations.Name = "ActionGematriaCombinations";
+      this.ActionGematriaCombinations.Click += new System.EventHandler(this.ActionGematriaCombinations_Click);
       // 
       // MainForm
       // 
@@ -1228,5 +1243,7 @@
     private System.Windows.Forms.ToolTip ToolTipClipboard;
     internal System.Windows.Forms.Panel PanelMainCenter;
     private Core.ComboBoxNavigator LettersNavigator;
+    private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+    private System.Windows.Forms.ToolStripMenuItem ActionGematriaCombinations;
   }
 }
