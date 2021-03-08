@@ -133,6 +133,8 @@
       this.ActionTools = new System.Windows.Forms.ToolStripDropDownButton();
       this.ActionShowMethodNotice = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionShowGrammarGuide = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+      this.ActionGematriaCombinations = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionWebLinks = new System.Windows.Forms.ToolStripDropDownButton();
       this.ActionInformation = new System.Windows.Forms.ToolStripDropDownButton();
       this.TimerProcesses = new System.Windows.Forms.Timer(this.components);
@@ -141,8 +143,6 @@
       this.MeaningsTableAdapter = new Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.MeaningsTableAdapter();
       this.SaveImageDialog = new System.Windows.Forms.SaveFileDialog();
       this.ToolTipClipboard = new System.Windows.Forms.ToolTip(this.components);
-      this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-      this.ActionGematriaCombinations = new System.Windows.Forms.ToolStripMenuItem();
       LabelName = new System.Windows.Forms.Label();
       LabelStructure = new System.Windows.Forms.Label();
       LabelFunction = new System.Windows.Forms.Label();
@@ -300,6 +300,7 @@
       this.EditGematriaFull.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
       this.EditGematriaFull.Name = "EditGematriaFull";
       this.EditGematriaFull.ReadOnly = true;
+      this.EditGematriaFull.TextChanged += new System.EventHandler(this.EditGematria_TextChanged);
       // 
       // LabelGematriaFull
       // 
@@ -479,6 +480,7 @@
       this.EditGematriaSimple.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
       this.EditGematriaSimple.Name = "EditGematriaSimple";
       this.EditGematriaSimple.ReadOnly = true;
+      this.EditGematriaSimple.TextChanged += new System.EventHandler(this.EditGematria_TextChanged);
       // 
       // LabelGematria
       // 
@@ -1053,6 +1055,17 @@
       this.ActionShowGrammarGuide.Name = "ActionShowGrammarGuide";
       this.ActionShowGrammarGuide.Click += new System.EventHandler(this.ActionShowGrammarGuide_Click);
       // 
+      // toolStripSeparator1
+      // 
+      this.toolStripSeparator1.Name = "toolStripSeparator1";
+      resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
+      // 
+      // ActionGematriaCombinations
+      // 
+      resources.ApplyResources(this.ActionGematriaCombinations, "ActionGematriaCombinations");
+      this.ActionGematriaCombinations.Name = "ActionGematriaCombinations";
+      this.ActionGematriaCombinations.Click += new System.EventHandler(this.ActionGematriaCombinations_Click);
+      // 
       // ActionWebLinks
       // 
       resources.ApplyResources(this.ActionWebLinks, "ActionWebLinks");
@@ -1086,17 +1099,6 @@
       // MeaningsTableAdapter
       // 
       this.MeaningsTableAdapter.ClearBeforeFill = true;
-      // 
-      // toolStripSeparator1
-      // 
-      this.toolStripSeparator1.Name = "toolStripSeparator1";
-      resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
-      // 
-      // ActionGematriaCombinations
-      // 
-      resources.ApplyResources(this.ActionGematriaCombinations, "ActionGematriaCombinations");
-      this.ActionGematriaCombinations.Name = "ActionGematriaCombinations";
-      this.ActionGematriaCombinations.Click += new System.EventHandler(this.ActionGematriaCombinations_Click);
       // 
       // MainForm
       // 
@@ -1178,7 +1180,6 @@
     private System.Windows.Forms.LinkLabel ActionRestoreDefaults;
     private System.Windows.Forms.Button ActionDeleteMeaning;
     private System.Windows.Forms.Button ActionAddMeaning;
-    private System.Windows.Forms.Button ActionCopyToResult;
     private System.Windows.Forms.Panel SelectAnalyze;
     public System.Windows.Forms.CheckBox EditCopyToClipboardCloseApp;
     private System.Windows.Forms.Button ActionCopyToMeanings;
@@ -1192,7 +1193,7 @@
     private System.Windows.Forms.Label LabelHebrew;
     private System.Windows.Forms.ComboBox SelectLetter;
     private System.Windows.Forms.Panel PanelLetter;
-    private System.Windows.Forms.Button ActionCopyToUnicode;
+    internal System.Windows.Forms.Button ActionCopyToUnicode;
     private System.Windows.Forms.Button ActionSearchOnline;
     private System.Windows.Forms.ContextMenuStrip ContextMenuSearchOnline;
     private System.Windows.Forms.ToolStripButton ActionSearchTerm;
@@ -1245,5 +1246,6 @@
     private Core.ComboBoxNavigator LettersNavigator;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     private System.Windows.Forms.ToolStripMenuItem ActionGematriaCombinations;
+    internal System.Windows.Forms.Button ActionCopyToResult;
   }
 }
