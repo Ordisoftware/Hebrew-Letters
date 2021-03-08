@@ -139,6 +139,7 @@
     <Compile Include="Source\Common\Core\Classes\ExportHelper.cs" />
     <Compile Include="Source\Common\Core\Classes\ExportTarget.cs" />
     <Compile Include="Source\Common\Core\Classes\NativeMethods.cs" />
+    <Compile Include="Source\Common\Core\Classes\ObjectHelper.cs" />
     <Compile Include="Source\Common\Core\Classes\ShellIcons.cs" />
     <Compile Include="Source\Common\Core\Classes\SoundItem.cs" />
     <Compile Include="Source\Common\Core\Classes\SoundSource.cs" />
@@ -188,6 +189,7 @@
     <Compile Include="Source\Common\Core\Managers.Debug\DebugManager.Trace.cs" />
     <Compile Include="Source\Common\Core\Managers.Display\DisplayManager.cs" />
     <Compile Include="Source\Common\Core\Managers.Display\DisplayManager.Query.cs" />
+    <Compile Include="Source\Common\Core\Managers.Display\DisplayManager.QueryValue.cs" />
     <Compile Include="Source\Common\Core\Managers.Display\DisplayManager.Show.cs" />
     <Compile Include="Source\Common\Core\Managers.System\SystemManager.cs" />
     <Compile Include="Source\Common\Core\Managers.System\SystemManager.Platform.cs" />
@@ -238,6 +240,13 @@
     <Compile Include="Source\Common\Core\WinForms\HTMLBrowserForm.Designer.cs">
       <DependentUpon>HTMLBrowserForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Source\Common\Core\WinForms\InputBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Common\Core\WinForms\InputBox.designer.cs">
+      <DependentUpon>InputBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Common\Core\WinForms\InputValueResult.cs" />
     <Compile Include="Source\Common\Core\WinForms\LoadingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -422,6 +431,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Common\Core\WinForms\HTMLBrowserForm.resx">
       <DependentUpon>HTMLBrowserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Common\Core\WinForms\InputBox.fr.resx">
+      <DependentUpon>InputBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Common\Core\WinForms\InputBox.resx">
+      <DependentUpon>InputBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Common\Core\WinForms\LoadingForm.fr.resx">
       <DependentUpon>LoadingForm.cs</DependentUpon>

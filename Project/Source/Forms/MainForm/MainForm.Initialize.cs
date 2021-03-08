@@ -102,8 +102,6 @@ namespace Ordisoftware.Hebrew.Letters
       InitializeTheme();
       InitializeDialogsDirectory();
       ProcessLocksTable.Lock();
-      LabelClipboardContentType.Left = ActionCopyToUnicode.Left + ActionCopyToUnicode.Width / 2
-                                     - LabelClipboardContentType.Width / 2;
       EditLetters.Input.MaxLength = (int)Settings.HebrewTextBoxMaxLength;
       Program.Settings.CurrentView = ViewMode.Analysis;
       EditSentence.Font = new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence);

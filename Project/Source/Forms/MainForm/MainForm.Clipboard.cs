@@ -48,16 +48,16 @@ namespace Ordisoftware.Hebrew.Letters
     /// </summary>
     internal void CheckClipboardContentType()
     {
-      string str = Clipboard.GetText();
-      ActionPaste.Enabled = !str.IsNullOrEmpty();
+      string strContent = Clipboard.GetText();
+      ActionPaste.Enabled = !strContent.IsNullOrEmpty();
       if ( ActionPaste.Enabled )
       {
-        str = HebrewAlphabet.IsValidUnicode(str)
-              ? HebrewTranslations.Unicode.GetLang()
-              : HebrewAlphabet.IsValidHebrew(str)
-                ? HebrewTranslations.Hebrew.GetLang()
-                : SysTranslations.Uncertain.GetLang();
-        LabelClipboardContentType.Text = $"{str}{Globals.NL}({str.Length})";
+        var strLabel = HebrewAlphabet.IsValidUnicode(strContent)
+                       ? HebrewTranslations.Unicode.GetLang()
+                       : HebrewAlphabet.IsValidHebrew(strContent)
+                         ? HebrewTranslations.Hebrew.GetLang()
+                         : SysTranslations.Uncertain.GetLang();
+        LabelClipboardContentType.Text = $"{strLabel}{Globals.NL}({strContent.Length})";
       }
       else
         LabelClipboardContentType.Text = SysTranslations.UnknownSlot.GetLang().Trim('(', ')').Titleize();

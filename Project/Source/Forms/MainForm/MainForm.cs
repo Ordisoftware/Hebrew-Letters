@@ -31,7 +31,7 @@ namespace Ordisoftware.Hebrew.Letters
   partial class MainForm : Form
   {
 
-    #region Static members
+    #region Singleton
 
     /// <summary>
     /// Indicate the singleton instance.
@@ -48,7 +48,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     #endregion
 
-    #region Form management
+    #region Form Management
 
     /// <summary>
     /// Default constructor.
@@ -56,6 +56,11 @@ namespace Ordisoftware.Hebrew.Letters
     private MainForm()
     {
       DoConstructor();
+      if ( !Globals.IsDevExecutable ) // TODO remove when ready
+      {
+        ActionGematriaCombinations.Visible = false;
+        toolStripSeparator1.Visible = false; 
+      }
     }
 
     /// <summary>
@@ -119,7 +124,6 @@ namespace Ordisoftware.Hebrew.Letters
     /// <param name="e">Event information.</param>
     private void TimerProcesses_Tick(object sender, EventArgs e)
     {
-      //if ( !SQLiteOdbcHelper.CheckProcessConcurency() ) return;
       Globals.IsReadOnly = ProcessLocksTable.IsReadOnly();
       Text = Globals.AssemblyTitle;
       if ( Globals.IsReadOnly ) Text += " - " + SysTranslations.ReadOnly.GetLang();
@@ -139,7 +143,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     #endregion
 
-    #region Menu tooltips
+    #region Top Menu Tooltips
 
     /// <summary>
     /// Event handler. Called by TimerTooltip for tick events.
@@ -186,7 +190,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     #endregion
 
-    #region Menu system
+    #region Menu System
 
     /// <summary>
     /// Event handler. Called by ActionExit for click events.
@@ -238,7 +242,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     #endregion
 
-    #region Menu settings
+    #region Menu Settings
 
     /// <summary>
     /// Event handler. Called by ActionResetWinSettings for click events.
@@ -309,7 +313,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     #endregion
 
-    #region Menu information
+    #region Menu Information
 
     /// <summary>
     /// Event handler. Called by ActionAbout for click events.
@@ -362,7 +366,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     #endregion
 
-    #region Menu tools
+    #region Menu Tools
 
     private void ProcessHTMLBrowser(HTMLBrowserForm form)
     {
@@ -380,6 +384,13 @@ namespace Ordisoftware.Hebrew.Letters
     private void ActionShowGrammarGuide_Click(object sender, EventArgs e)
     {
       ProcessHTMLBrowser(Program.GrammarGuideForm);
+    }
+
+    private void ActionGematriaCombinations_Click(object sender, EventArgs e)
+    {
+      int value = 0;
+      if ( DisplayManager.QueryValue(LabelGematriaSimple.Text, ref value) != InputValueResult.Modified ) return;
+      DisplayManager.Show(value.ToString());
     }
 
     #endregion
@@ -459,7 +470,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     #endregion
 
-    #region Update analysis controls
+    #region Update Analysis Controls
 
     private void UpdateAnalysisControls()
     {
@@ -485,7 +496,7 @@ namespace Ordisoftware.Hebrew.Letters
       EditSentence.Top = (int)Math.Round(top, MidpointRounding.AwayFromZero);
     }
 
-    private void EditGematriaSimple_TextChanged(object sender, EventArgs e)
+    private void EditGematria_TextChanged(object sender, EventArgs e)
     {
       var textbox = sender as TextBox;
       if ( textbox.Text == "0" ) textbox.Text = "";
@@ -493,7 +504,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     #endregion
 
-    #region Panel letters
+    #region Panel Letters
 
     private void EditLetters_ViewLetterDetails(LettersControl sender, string code)
     {
@@ -550,7 +561,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     #endregion
 
-    #region Copy and paste
+    #region Copy and Paste
 
     private void LabelClipboardContentType_MouseHover(object sender, EventArgs e)
     {
@@ -589,7 +600,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     #endregion
 
-    #region Analysis by user
+    #region User Analysis
 
     private void MeaningComboBox_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -616,7 +627,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     #endregion
 
-    #region Analysis copy and screenshot
+    #region Analysis Copy and Screenshot
 
     private void ActionViewAllMeaningsList_Click(object sender, EventArgs e)
     {
@@ -683,7 +694,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     #endregion
 
-    #region Letter update data controls
+    #region Letter Update Data Controls
 
     private void UpdateDataControls(object sender, bool forceEditMode = false)
     {
@@ -714,7 +725,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     #endregion
 
-    #region Letter data save, undo and restore
+    #region Letter Data Save, Undo and Restore
 
     private void ActionSave_Click(object sender, EventArgs e)
     {
@@ -762,7 +773,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     #endregion
 
-    #region Letter data select
+    #region Letter Data Select
 
     private void SelectLetter_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -785,7 +796,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     #endregion
 
-    #region Letter data textboxes 
+    #region Letter Data TextBoxes 
 
     private bool TextBoxDataContextMenuMutex;
 
@@ -830,7 +841,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     #endregion
 
-    #region Letter data grid
+    #region Letter Data Grid
 
     private void ActionAddMeaning_Click(object sender, EventArgs e)
     {
@@ -980,8 +991,8 @@ namespace Ordisoftware.Hebrew.Letters
       DataSet.RejectChanges();
     }
 
-  }
+    #endregion
 
-  #endregion
+  }
 
 }
