@@ -165,6 +165,11 @@ namespace Ordisoftware.Hebrew.Letters
         updateLabel(MainForm.Instance.LabelGematria, MainForm.Instance.EditGematriaSimple, -19);
         updateLabel(MainForm.Instance.LabelGematriaSimple, MainForm.Instance.EditGematriaSimple, 3);
         updateLabel(MainForm.Instance.LabelGematriaFull, MainForm.Instance.EditGematriaFull, 3);
+        MainForm.Instance.LabelClipboardContentType.Left = MainForm.Instance.ActionCopyToUnicode.Left 
+                                                         + MainForm.Instance.ActionCopyToUnicode.Width / 2
+                                                         - MainForm.Instance.LabelClipboardContentType.Width / 2;
+        MainForm.Instance.EditCopyToClipboardCloseApp.Left = MainForm.Instance.ActionCopyToResult.Left
+                                                           + MainForm.Instance.ActionCopyToResult.Width + 5;
       }
       catch ( Exception ex )
       {

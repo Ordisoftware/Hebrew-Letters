@@ -56,8 +56,11 @@ namespace Ordisoftware.Hebrew.Letters
     private MainForm()
     {
       DoConstructor();
-      ActionGematriaCombinations.Visible = Globals.IsDevExecutable; // TODO remove when ready
-      toolStripSeparator1.Visible = Globals.IsDevExecutable; // TODO remove when ready
+      if ( !Globals.IsDevExecutable ) // TODO remove when ready
+      {
+        ActionGematriaCombinations.Visible = false;
+        toolStripSeparator1.Visible = false; 
+      }
     }
 
     /// <summary>
@@ -121,7 +124,6 @@ namespace Ordisoftware.Hebrew.Letters
     /// <param name="e">Event information.</param>
     private void TimerProcesses_Tick(object sender, EventArgs e)
     {
-      //if ( !SQLiteOdbcHelper.CheckProcessConcurency() ) return;
       Globals.IsReadOnly = ProcessLocksTable.IsReadOnly();
       Text = Globals.AssemblyTitle;
       if ( Globals.IsReadOnly ) Text += " - " + SysTranslations.ReadOnly.GetLang();
@@ -387,7 +389,7 @@ namespace Ordisoftware.Hebrew.Letters
     private void ActionGematriaCombinations_Click(object sender, EventArgs e)
     {
       int value = 0;
-      if ( DisplayManager.QueryValue("Gematria", ref value) != InputValueResult.Modified ) return;
+      if ( DisplayManager.QueryValue(LabelGematriaSimple.Text, ref value) != InputValueResult.Modified ) return;
       DisplayManager.Show(value.ToString());
     }
 
@@ -494,7 +496,7 @@ namespace Ordisoftware.Hebrew.Letters
       EditSentence.Top = (int)Math.Round(top, MidpointRounding.AwayFromZero);
     }
 
-    private void EditGematriaSimple_TextChanged(object sender, EventArgs e)
+    private void EditGematria_TextChanged(object sender, EventArgs e)
     {
       var textbox = sender as TextBox;
       if ( textbox.Text == "0" ) textbox.Text = "";
