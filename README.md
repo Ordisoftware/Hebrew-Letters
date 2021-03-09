@@ -140,7 +140,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
   appPath := "C:\Program Files\Ordisoftware\Hebrew Letters\Bin\"
   appExe := "Ordisoftware.Hebrew.Letters.exe"
   Run %appPath%%appExe% "%word%"
-  ;sleep 500 ; Increase delay in case of problems
+  ;sleep 1000
   WinActive("A")
   return 
 ```

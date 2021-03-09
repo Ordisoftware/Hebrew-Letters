@@ -86,13 +86,13 @@ Hebrew font chars are used and all non-font chars are removed.</p>
 &nbsp;&nbsp;WinActive(&quot;A&quot;)<br>
 &nbsp;&nbsp;ControlGetFocus, ctrl<br>
 &nbsp;&nbsp;Send, ^c<br>
-&nbsp;&nbsp;sleep 100 ; Increase delay in case of problems<br>
+&nbsp;&nbsp;sleep 100<br>
 &nbsp;&nbsp;word := Clipboard<br>
 &nbsp;&nbsp;Clipboard := clipboardOld<br>
 &nbsp;&nbsp;appPath := &quot;C:\Program Files\Ordisoftware\Hebrew Letters\Bin\&quot;<br>
 &nbsp;&nbsp;appExe := &quot;Ordisoftware.Hebrew.Letters.exe&quot;<br>
 &nbsp;&nbsp;Run %appPath%%appExe% &quot;%word%&quot;<br>
-&nbsp;&nbsp;;sleep 500 ; Increase delay in case of problems<br>
+&nbsp;&nbsp;;sleep 1000<br>
 &nbsp;&nbsp;WinActive(&quot;A&quot;)<br>
 &nbsp;&nbsp;return</code></p>
     <h3><span id="Keyboard_shortcuts">Keyboard shortcuts</span></h3>
