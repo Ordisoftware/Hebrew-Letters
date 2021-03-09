@@ -95,13 +95,13 @@ application telle qu'un navigateur ou un traitement de texte?</h4>
 &nbsp;&nbsp;WinActive(&quot;A&quot;)<br>
 &nbsp;&nbsp;ControlGetFocus, ctrl<br>
 &nbsp;&nbsp;Send, ^c<br>
-&nbsp;&nbsp;sleep 100 ; Increase delay in case of problems<br>
+&nbsp;&nbsp;sleep 100<br>
 &nbsp;&nbsp;word := Clipboard<br>
 &nbsp;&nbsp;Clipboard := clipboardOld<br>
 &nbsp;&nbsp;appPath := &quot;C:\Program Files\Ordisoftware\Hebrew Letters\Bin\&quot;<br>
 &nbsp;&nbsp;appExe := &quot;Ordisoftware.Hebrew.Letters.exe&quot;<br>
 &nbsp;&nbsp;Run %appPath%%appExe% &quot;%word%&quot;<br>
-&nbsp;&nbsp;;sleep 1000&nbsp;; Increase delay in case of problems<br>
+&nbsp;&nbsp;;sleep 1000<br>
 &nbsp;&nbsp;WinActive(&quot;A&quot;)<br>
 &nbsp;&nbsp;return</code></p>
     <h3><span id="Raccourcis_clavier">Raccourcis clavier</span></h3>
