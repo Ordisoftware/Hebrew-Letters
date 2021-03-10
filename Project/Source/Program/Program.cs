@@ -104,7 +104,24 @@ namespace Ordisoftware.Hebrew.Letters
     /// </summary>
     static private void ProcessCommandLineOptions()
     {
-      // Nothing to do at startup
+      try
+      {
+        if ( SystemManager.CommandLineOptions == null ) return;
+        if ( SystemManager.CommandLineOptions.ResetSettings )
+        {
+          SystemManager.CleanAllLocalAppSettingsFolders();
+          CheckSettingsReset(true);
+        }
+        else
+        if ( !Settings.FirstLaunch
+          && SystemManager.CommandLineOptions != null
+          && SystemManager.CommandLineOptions.HideMainForm )
+          Globals.ForceStartupHide = true;
+      }
+      catch ( Exception ex )
+      {
+        ex.Manage();
+      }
     }
 
     /// <summary>
