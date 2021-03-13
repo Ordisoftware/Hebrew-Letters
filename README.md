@@ -187,6 +187,10 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 ## Changelog
 
+#### 2021.03.20 - Version 5.1
+
+- Maintenance release.
+
 #### 2021.03.07 - Version 5.0
 
 - Optimize ComboBoxes creation (the old system is really much slower on Windows 10 than 7).
