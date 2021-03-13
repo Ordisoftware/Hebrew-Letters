@@ -187,9 +187,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 ## Changelog
 
-#### 2021.03.20 - Version 5.1
-
-- Maintenance release.
+#### In progress - Version 5.1
 
 #### 2021.03.07 - Version 5.0
 
