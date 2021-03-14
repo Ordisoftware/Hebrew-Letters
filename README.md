@@ -131,17 +131,16 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 ```
 !^+H::
   clipboardOld := ClipboardAll
-  WinActive("A")
   ControlGetFocus, ctrl
   Send, ^c
-  sleep 100 ; Increase delay in case of problems
+  sleep 100
   word := Clipboard
   Clipboard := clipboardOld
-  appPath := "C:\Program Files\Ordisoftware\Hebrew Letters\Bin\"
+  ;appPath := "C:\Program Files\Ordisoftware\Hebrew Letters\Bin\"
+  appPath := "c:\Users\Olivier\Projects\Software\Public\Hebrew Letters\Bin\Debug\"
   appExe := "Ordisoftware.Hebrew.Letters.exe"
+  sleep 200
   Run %appPath%%appExe% "%word%"
-  ;sleep 1000
-  WinActive("A")
   return 
 ```
 
