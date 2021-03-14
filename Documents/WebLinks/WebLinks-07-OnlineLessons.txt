@@ -56,6 +56,9 @@ URL = https://www.hidabroot.fr
 Name = (FR) Israël Torah
 URL = https://www.israeltorah.com
 
+Name = (FR) Massorti France
+URL = https://www.massorti.com
+
 Name = (FR) Pureté Juive
 URL = https://www.puretejuive.com
 
@@ -93,6 +96,9 @@ URL = https://www.torahanytime.com
 Name = (EN) Torah Café
 URL = https://www.torahcafe.com
 
+Name = (EN) Torah.org
+URL = https://torah.org
+
 -
 
 Name = (FR) Hassidout
@@ -106,6 +112,17 @@ URL = https://fr.chabad.org
 
 Name = (EN) 'Habad Loubavitch
 URL = https://www.chabad.org
+
+-
+
+Name = (FR) Halacha Yomit
+URL = http://halachayomit.co.il/fr/
+
+Name = (EN) Halacha Yomit
+URL = http://halachayomit.co.il/en/
+
+Name = (IW) Halacha Yomit
+URL = http://halachayomit.co.il/he/
 
 -
 
