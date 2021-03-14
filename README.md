@@ -188,6 +188,9 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 #### In progress - Version 5.1
 
+- Add button at the right of comboboxes to view letter's details.
+- Update SSL verification.
+
 #### 2021.03.07 - Version 5.0
 
 - Optimize ComboBoxes creation (the old system is really much slower on Windows 10 than 7).
