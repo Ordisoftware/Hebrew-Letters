@@ -91,7 +91,6 @@ application telle qu'un navigateur ou un traitement de texte?</h4>
     <p>Il est possible d'utiliser <a href="https://www.autohotkey.com" target="_blank" rel="noopener">AutoHotKey</a> pour d&eacute;finir par exemple cette commande Maj + Ctrl + Alt + H sur un mot s&eacute;lectionn&eacute; :</p>
     <p><code>!^+H::<br>
 &nbsp;&nbsp;clipboardOld := ClipboardAll<br>
-&nbsp;&nbsp;WinActive(&quot;A&quot;)<br>
 &nbsp;&nbsp;ControlGetFocus, ctrl<br>
 &nbsp;&nbsp;Send, ^c<br>
 &nbsp;&nbsp;sleep 100<br>
@@ -99,10 +98,9 @@ application telle qu'un navigateur ou un traitement de texte?</h4>
 &nbsp;&nbsp;Clipboard := clipboardOld<br>
 &nbsp;&nbsp;appPath := &quot;C:\Program Files\Ordisoftware\Hebrew Letters\Bin\&quot;<br>
 &nbsp;&nbsp;appExe := &quot;Ordisoftware.Hebrew.Letters.exe&quot;<br>
+&nbsp;&nbsp;sleep 200<br>
 &nbsp;&nbsp;Run %appPath%%appExe% &quot;%word%&quot;<br>
-&nbsp;&nbsp;;sleep 1000<br>
-&nbsp;&nbsp;WinActive(&quot;A&quot;)<br>
-&nbsp;&nbsp;return</code></p>
+</code><code>&nbsp;&nbsp;return</code></p>
     <h3><span id="Raccourcis_clavier">Raccourcis clavier</span></h3>
     <ul>
         <li>Ctrl &nbsp;+ &nbsp;Tab : Vue suivante</li>
