@@ -13,7 +13,6 @@
 /// <created> 2021-02 </created>
 /// <edited> 2021-02 </edited>
 using System.Windows.Forms;
-using Humanizer;
 using Ordisoftware.Core;
 
 namespace Ordisoftware.Hebrew.Letters
