@@ -189,7 +189,6 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 - Add button at the right of comboboxes to view letter's details.
 - Update web links.
-- Update SSL verification.
 
 #### 2021.03.07 - Version 5.0
 
