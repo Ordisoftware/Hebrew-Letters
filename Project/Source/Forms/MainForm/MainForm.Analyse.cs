@@ -11,13 +11,11 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2020-08 </edited>
+/// <edited> 2021-03 </edited>
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
-
 using Ordisoftware.Core;
 
 namespace Ordisoftware.Hebrew.Letters
@@ -67,6 +65,8 @@ namespace Ordisoftware.Hebrew.Letters
           label.Left = 100;
           label.Top = 20 + dy;
           label.Text = letter.Name;
+          label.Cursor = Cursors.Hand;
+          label.Click += LabelLetter_Click;
           SelectAnalyze.Controls.Add(label);
           // Combobox
           var combobox = new ComboBoxEx();
@@ -95,7 +95,7 @@ namespace Ordisoftware.Hebrew.Letters
             foreach ( var meaning in rowsMeanings )
               LettersMeanings[letter.ValueSimple][indexMeaning++] = meaning.Meaning;
           }
-          combobox.Tag = LettersMeanings[letter.ValueSimple];
+          combobox.Tag = letter;
           SelectAnalyze.Controls.Add(combobox);
           // Loop
           dy += 30;
@@ -112,6 +112,15 @@ namespace Ordisoftware.Hebrew.Letters
       {
         ex.Manage();
       }
+    }
+
+    private void LabelLetter_Click(object sender, EventArgs e)
+    {
+      var label = (Label)sender;
+      var combobox = (ComboBox)label.Tag;
+      var letter = (Data.DataSet.LettersRow)combobox.Tag;
+      ActionViewLetters.PerformClick();
+      SelectLetter.SelectedIndex = SelectLetter.FindStringExact(letter.Code);
     }
 
     private void Combobox_Enter(object sender, EventArgs e)

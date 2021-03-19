@@ -185,9 +185,9 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 ## Changelog
 
-#### 2021.03.20 - Version 5.1
+#### 2021.03.21 - Version 5.1
 
-- Add button at the right of comboboxes to view letter's details.
+- Improve analysis labels to be clickable to switch to letter's details.
 - Update web links.
 
 #### 2021.03.07 - Version 5.0

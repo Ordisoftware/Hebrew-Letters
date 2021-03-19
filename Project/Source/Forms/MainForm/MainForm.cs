@@ -642,12 +642,13 @@ namespace Ordisoftware.Hebrew.Letters
     private string GetMeaningsText()
     {
       var list = SelectAnalyze.Controls
-                              .OfType<Label>()
-                              .Where(label => label.Text != "")
-                              .Select(label => label.Text + " : " +
-                                               string.Join(", ",
-                                                           ((object[])( (ComboBox)label.Tag ).Tag).Cast<string>()
-                                                                                                  .Where(s => s != "-")));
+                              .OfType<ComboBox>()
+                              .Select(combo =>
+                              {
+                                var letter = (Data.DataSet.LettersRow)combo.Tag;
+                                var meanings = LettersMeanings[letter.ValueSimple];
+                                return letter.Name + " : " + string.Join(", ", meanings);
+                              });
       return string.Join(Globals.NL, list);
     }
 
