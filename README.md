@@ -49,6 +49,7 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 
 - Added command-line options (see FAQ)
 - Startup speed and analysis combo boxes creation are optimized.
+- Analysis labels are clickable to switch to letter's details.
 - Data edition is only possible by one instance at a time.
 - Data edition is improved to have save and cancel behavior.
 - Improved and fixed copy, cut and paste for both Hebrew font chars and unicode.
@@ -185,7 +186,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 ## Changelog
 
-#### 2021.03.21 - Version 5.1
+#### 2021.03.19 - Version 5.1
 
 - Improve analysis labels to be clickable to switch to letter's details.
 - Update web links.
