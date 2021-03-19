@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2021-02 </created>
-/// <edited> 2021-02 </edited>
+/// <edited> 2021-03 </edited>
 using System;
 using Ordisoftware.Core;
 
@@ -115,7 +115,16 @@ namespace Ordisoftware.Hebrew.Letters
                           "Quelques améliorations d'aspect et de fonctionnement." + Globals.NL +
                           "Incorporation du code commun écrit depuis plus d'un an pour Hebrew Calendar." + Globals.NL +
                           "Modification et ajouts de liens web et de fournisseurs en ligne pour l'étude des mots et des versets de la Bible."
-        }
+        },
+
+        ["5.1"] = new TranslationsDictionary
+        {
+          [Language.EN] = "Analysis labels are clickable to switch to letter's details." + Globals.NL +
+                          "Web links updated.",
+
+          [Language.FR] = "Les labels d'analyse sont cliquables pour basculer vers les détails de la lettre." + Globals.NL +
+                          "Mise à jour des liens web."
+        },
 
       };
 
