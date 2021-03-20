@@ -99,7 +99,8 @@ namespace Ordisoftware.Hebrew.Letters
             string word = ApplicationCommandLine.Instance?.WordHebrew ?? string.Empty;
             if ( word.IsNullOrEmpty() )
               if ( SystemManager.CommandLineArguments != null && SystemManager.CommandLineArguments.Length == 1 )
-                word = SystemManager.CommandLineArguments[0];
+                if ( !SystemManager.CommandLineArguments[0].StartsWith("--") )
+                  word = SystemManager.CommandLineArguments[0];
             word = HebrewAlphabet.ContainsUnicode(word) 
                    ? HebrewAlphabet.ToHebrewFont(word)
                    : HebrewAlphabet.OnlyHebrewFont(word);
