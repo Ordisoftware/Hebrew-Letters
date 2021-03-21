@@ -86,7 +86,7 @@ namespace Ordisoftware.Hebrew.Letters
         }
         if ( Settings.FirstLaunchV4 )
         {
-          Settings.FirstLaunchV4 = false;
+          Settings.SetFirstAndUpgradeFlagsOff();
           Settings.FirstLaunch = true;
         }
         if ( Settings.LanguageSelected == Language.None )
