@@ -177,14 +177,19 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 ## Future improvements
 
-- Add find gematria possible combinations.
-- Add import and export data to TXT/CSV/JSON.
-- Add export and import database.
-- Add print data.
 - Rewrite advanced undo/redo.
 - Optimize more ComboBoxes creation.
+- Add find gematria possible combinations.
+- Add export and import database.
+- Add import data from TXT/CSV/JSON.
+- Add print data.
 
 ## Changelog
+
+#### In progress - Version 5.2
+
+- Add export data to TXT/CSV/JSON.
+- Update web links.
 
 #### 2021.03.19 - Version 5.1
 
