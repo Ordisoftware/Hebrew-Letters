@@ -177,6 +177,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 ## Future improvements
 
+- Add export data to TXT/CSV/JSON.
 - Rewrite advanced undo/redo.
 - Optimize more ComboBoxes creation.
 - Add find gematria possible combinations.
@@ -186,9 +187,9 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 ## Changelog
 
-#### In progress - Version 5.2
+#### 2021.03.27 - Version 5.2
 
-- Add export data to TXT/CSV/JSON.
+- Fix exception in analysis meanings comboboxes introduced in previous version.
 - Update web links.
 
 #### 2021.03.19 - Version 5.1
