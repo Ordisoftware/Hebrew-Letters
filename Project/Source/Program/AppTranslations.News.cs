@@ -126,6 +126,15 @@ namespace Ordisoftware.Hebrew.Letters
                           "Mise à jour des liens web."
         },
 
+        ["5.2"] = new TranslationsDictionary
+        {
+          [Language.EN] = "Fix exception in analysis meanings comboboxes introduced in previous version." + Globals.NL +
+                          "Web links updated.",
+
+          [Language.FR] = "Correction d'une exception dans les listes déroulantes des significations d'analyse introduite dans la version précédente.." + Globals.NL +
+                          "Mise à jour des liens web."
+        },
+
       };
 
   }
