@@ -436,7 +436,7 @@
     <value>EditGematriaFull</value>
   </data>
   <data name="&gt;&gt;EditGematriaFull.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;EditGematriaFull.Parent" xml:space="preserve">
     <value>PanelViewSearch</value>
@@ -1390,7 +1390,7 @@
     <value>EditSentence</value>
   </data>
   <data name="&gt;&gt;EditSentence.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;EditSentence.Parent" xml:space="preserve">
     <value>PanelViewSearch</value>
@@ -1414,7 +1414,7 @@
     <value>EditGematriaSimple</value>
   </data>
   <data name="&gt;&gt;EditGematriaSimple.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;EditGematriaSimple.Parent" xml:space="preserve">
     <value>PanelViewSearch</value>
@@ -1471,7 +1471,7 @@
     <value>EditLetters</value>
   </data>
   <data name="&gt;&gt;EditLetters.Type" xml:space="preserve">
-    <value>Ordisoftware.Hebrew.LettersControl, Ordisoftware.Hebrew.Letters, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Hebrew.LettersControl, Ordisoftware.Hebrew.Letters, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;EditLetters.Parent" xml:space="preserve">
     <value>PanelViewSearch</value>
@@ -1588,7 +1588,7 @@
     <value>LettersNavigator</value>
   </data>
   <data name="&gt;&gt;LettersNavigator.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.ComboBoxNavigator, Ordisoftware.Hebrew.Letters, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.ComboBoxNavigator, Ordisoftware.Hebrew.Letters, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;LettersNavigator.Parent" xml:space="preserve">
     <value>PanelLetter</value>
@@ -1609,7 +1609,7 @@
     <value>TextBoxStructure</value>
   </data>
   <data name="&gt;&gt;TextBoxStructure.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;TextBoxStructure.Parent" xml:space="preserve">
     <value>PanelLetter</value>
@@ -1690,7 +1690,7 @@
     <value>TextBoxNegative</value>
   </data>
   <data name="&gt;&gt;TextBoxNegative.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;TextBoxNegative.Parent" xml:space="preserve">
     <value>PanelLetter</value>
@@ -1711,7 +1711,7 @@
     <value>TextBoxName</value>
   </data>
   <data name="&gt;&gt;TextBoxName.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;TextBoxName.Parent" xml:space="preserve">
     <value>PanelLetter</value>
@@ -1732,7 +1732,7 @@
     <value>TextBoxFunction</value>
   </data>
   <data name="&gt;&gt;TextBoxFunction.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;TextBoxFunction.Parent" xml:space="preserve">
     <value>PanelLetter</value>
@@ -1753,7 +1753,7 @@
     <value>TextBoxPositive</value>
   </data>
   <data name="&gt;&gt;TextBoxPositive.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;TextBoxPositive.Parent" xml:space="preserve">
     <value>PanelLetter</value>
@@ -1774,7 +1774,7 @@
     <value>TextBoxVerb</value>
   </data>
   <data name="&gt;&gt;TextBoxVerb.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;TextBoxVerb.Parent" xml:space="preserve">
     <value>PanelLetter</value>
@@ -1795,7 +1795,7 @@
     <value>TextBoxValueSimple</value>
   </data>
   <data name="&gt;&gt;TextBoxValueSimple.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;TextBoxValueSimple.Parent" xml:space="preserve">
     <value>PanelLetter</value>
@@ -1816,7 +1816,7 @@
     <value>TextBoxValueFull</value>
   </data>
   <data name="&gt;&gt;TextBoxValueFull.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;TextBoxValueFull.Parent" xml:space="preserve">
     <value>PanelLetter</value>
@@ -2989,19 +2989,6 @@
   <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
     <value>275, 6</value>
   </data>
-  <data name="ActionGematriaCombinations.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAAa9JREFUOE+dUssuA1EYnmewFkTrlrCqohIJsbCWIKGYMbbuJCQaFjyNqFZQEhY2
-        3sBTqLr0otVp+/m/M3N0Fgj+5Ot3Oef/e87MGLrmrEXTtGwQ9FprzFsLCebkz9y0r5ipMs0FRy8oX9eh
-        n3Jm0mxb0ejs/VcbNSYmp5L+nFoqpH69oNO/6NPfncAty7Jsubzcpw7mv9WGPTuNsdGRmPgQNcFFrTWm
-        J8ZvmJN1NjM5fseM92igkKJ271XXGq0CFllnQWP48DoT2b9EOJZS6PXQ50F7f8Z97Bk+uD4xInsp/LfY
-        a4RjF54FWlbinqqhcem47msVlTWLD6yduJlUePdcBuy6A4LrCXRtncq+MirvRcVAVQbFlXdKksGRAQlh
-        rgG9/gFAET3bZ0DlDeVCVvYW0LEpA6tFlPJZFLKvqJXyyjctuyfj6Y0+7wrtG0k1oG3jFE7+GUHhbvHk
-        wmsGuZcMWlaTCKwnUc49qR72GoP77kOs5dPAW0b4EU42rVj70suDQiX3iGourTRLPcShnaPbQXklkT2B
-        xwPUPt/vgTnRL438Y/bywwj4Pow/wgh8AO1NIVWnOosQAAAAAElFTkSuQmCC
-</value>
-  </data>
   <data name="ActionGematriaCombinations.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
   </data>
@@ -3233,7 +3220,7 @@
     <value>DataSet</value>
   </data>
   <data name="&gt;&gt;DataSet.Type" xml:space="preserve">
-    <value>Ordisoftware.Hebrew.Letters.Data.DataSet, Ordisoftware.Hebrew.Letters, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Hebrew.Letters.Data.DataSet, Ordisoftware.Hebrew.Letters, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;dataGridViewTextBoxColumn2.Name" xml:space="preserve">
     <value>dataGridViewTextBoxColumn2</value>
@@ -3473,19 +3460,19 @@
     <value>LettersTableAdapter</value>
   </data>
   <data name="&gt;&gt;LettersTableAdapter.Type" xml:space="preserve">
-    <value>Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.LettersTableAdapter, Ordisoftware.Hebrew.Letters, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.LettersTableAdapter, Ordisoftware.Hebrew.Letters, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;TableAdapterManager.Name" xml:space="preserve">
     <value>TableAdapterManager</value>
   </data>
   <data name="&gt;&gt;TableAdapterManager.Type" xml:space="preserve">
-    <value>Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.TableAdapterManager, Ordisoftware.Hebrew.Letters, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.TableAdapterManager, Ordisoftware.Hebrew.Letters, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;MeaningsTableAdapter.Name" xml:space="preserve">
     <value>MeaningsTableAdapter</value>
   </data>
   <data name="&gt;&gt;MeaningsTableAdapter.Type" xml:space="preserve">
-    <value>Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.MeaningsTableAdapter, Ordisoftware.Hebrew.Letters, Version=5.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.MeaningsTableAdapter, Ordisoftware.Hebrew.Letters, Version=5.1.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;SaveImageDialog.Name" xml:space="preserve">
     <value>SaveImageDialog</value>
