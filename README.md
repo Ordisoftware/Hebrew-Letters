@@ -34,7 +34,7 @@ A libre and open-source software written in C# that helps for the lettriq letter
 
 _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 
-[![Note](https://www.ordisoftware.com/theme/softpedia4.5-white.png)](https://www.softpedia.com/get/Others/Home-Education/Hebrew-Letters.shtml)
+[![Note](https://www.ordisoftware.com/wp-content/theming/softpedia4.5-white.png)](https://www.softpedia.com/get/Others/Home-Education/Hebrew-Letters.shtml)
 
 ## Requirements
 
