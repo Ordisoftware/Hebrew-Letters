@@ -184,6 +184,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Add export and import database.
 - Add import data from TXT/CSV/JSON.
 - Add print data.
+- Add analyzed word table.
 
 ## Changelog
 
