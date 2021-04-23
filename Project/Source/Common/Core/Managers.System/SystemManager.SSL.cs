@@ -11,8 +11,9 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2020-09 </created>
-/// <edited> 2021-03 </edited>
+/// <edited> 2021-04 </edited>
 using System;
+using System.IO;
 using System.Linq;
 using System.Net;
 
@@ -35,6 +36,7 @@ namespace Ordisoftware.Core
       var point = ServicePointManager.FindServicePoint(uri);
       var request = WebRequest.Create(uri);
       request.ConnectionGroupName = id;
+      request.Timeout = WebClientEx.DefaultTimeOutSeconds * 1000;
       using ( var response = request.GetResponse() ) { }
       point.CloseConnectionGroup(id);
       if ( AuthorWebsiteSSLCertificate["Issuer"] != point.Certificate.Issuer
@@ -69,7 +71,8 @@ namespace Ordisoftware.Core
     static public void LoadSSLCertificate()
     {
       if ( Globals.IsVisualStudioDesigner ) return;
-      AuthorWebsiteSSLCertificate.LoadKeyValuePairs(Globals.ApplicationHomeSSLFilePath, "=>");
+      if ( File.Exists(Globals.ApplicationHomeSSLFilePath) )
+        AuthorWebsiteSSLCertificate.LoadKeyValuePairs(Globals.ApplicationHomeSSLFilePath, "=>");
     }
 
     /// <summary>
