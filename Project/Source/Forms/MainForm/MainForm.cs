@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2021-02 </edited>
+/// <edited> 2021-04 </edited>
 using System;
 using System.IO;
 using System.Data;
@@ -491,8 +491,8 @@ namespace Ordisoftware.Hebrew.Letters
     private void EditSentence_FontChanged(object sender, EventArgs e)
     {
       double top = ActionCopyToResult.Top;
-      top += ActionCopyToResult.Height / 2;
-      top -= EditSentence.Height / 2;
+      top += ActionCopyToResult.Height / 2d;
+      top -= EditSentence.Height / 2d;
       EditSentence.Top = (int)Math.Round(top, MidpointRounding.AwayFromZero);
     }
 
@@ -604,12 +604,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void MeaningComboBox_SelectedIndexChanged(object sender, EventArgs e)
     {
-      string str = "";
-      foreach ( var control in SelectAnalyze.Controls )
-        if ( control is ComboBox )
-          str += ( ( control as ComboBox ).Text ?? "" ) + " ";
-      str = str == "" ? "" : str.Remove(str.Length - 1, 1);
-      EditSentence.Text = str;
+      EditSentence.Text = string.Join(" ", SelectAnalyze.Controls.OfType<ComboBox>().Select(c => c.Text));
     }
 
     private void EditSentence_TextChanged(object sender, EventArgs e)

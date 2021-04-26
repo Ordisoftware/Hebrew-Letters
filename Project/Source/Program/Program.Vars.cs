@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2021-02 </edited>
+/// <edited> 2021-04 </edited>
 using System;
 using System.IO;
 using System.Linq;
@@ -67,7 +67,7 @@ namespace Ordisoftware.Hebrew.Letters
         return _GrammarGuideForm;
       }
     }
-    static public HTMLBrowserForm _GrammarGuideForm;
+    static private HTMLBrowserForm _GrammarGuideForm;
 
     /// <summary>
     /// Indicate the method notice form.
@@ -84,7 +84,7 @@ namespace Ordisoftware.Hebrew.Letters
         return _MethodGuideForm;
       }
     }
-    static public HTMLBrowserForm _MethodGuideForm;
+    static private HTMLBrowserForm _MethodGuideForm;
 
     /// <summary>
     /// Indicate the command line argument for hebrew word used at startup.

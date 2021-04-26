@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2021-02 </edited>
+/// <edited> 2021-04 </edited>
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -51,7 +51,7 @@ namespace Ordisoftware.Hebrew.Letters
         int top = SystemInformation.WorkingArea.Top;
         int width = SystemInformation.WorkingArea.Width;
         int height = SystemInformation.WorkingArea.Height;
-        if ( sender != null && sender is ToolStripMenuItem )
+        if ( sender is ToolStripMenuItem )
         {
           var value = sender as ToolStripMenuItem;
           var list = ( (ToolStripMenuItem)value.OwnerItem ).DropDownItems;

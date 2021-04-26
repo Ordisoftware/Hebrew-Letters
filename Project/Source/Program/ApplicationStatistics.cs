@@ -11,9 +11,8 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2020-08 </created>
-/// <edited> 2021-02 </edited>
+/// <edited> 2021-04 </edited>
 using System;
-using System.Linq;
 using Ordisoftware.Core;
 
 namespace Ordisoftware.Hebrew.Letters
@@ -25,7 +24,7 @@ namespace Ordisoftware.Hebrew.Letters
   class ApplicationStatistics
   {
 
-    static public ApplicationStatistics Instance
+    static public readonly ApplicationStatistics Instance
       = new ApplicationStatistics();
 
     public string StartingTime
@@ -35,10 +34,10 @@ namespace Ordisoftware.Hebrew.Letters
       => Program.Settings.BenchmarkLoadData.FormatMilliseconds();
 
     public string DBLettersCount
-      => MainForm.Instance.DataSet.Letters.Count().ToString();
+      => MainForm.Instance.DataSet.Letters.Count.ToString();
 
     public string DBMeaningsCount
-      => MainForm.Instance.DataSet.Meanings.Count().ToString();
+      => MainForm.Instance.DataSet.Meanings.Count.ToString();
 
     public string DBEngine
       => SQLiteOdbcHelper.EngineNameAndVersion;
@@ -59,7 +58,7 @@ namespace Ordisoftware.Hebrew.Letters
       }
     }
     static private string _DBFileSize;
-    static public bool UpdateDBFileSizeRequired = true;
+    static internal bool UpdateDBFileSizeRequired { get; set; } = true;
 
     public string DBMemorySize
     {
@@ -74,7 +73,7 @@ namespace Ordisoftware.Hebrew.Letters
       }
     }
     static private string _DBMemorySize;
-    static public bool UpdateDBMemorySizeRequired = true;
+    static internal bool UpdateDBMemorySizeRequired { get; set; } = true;
 
     public string DBCommonFileSize
     {
@@ -89,7 +88,7 @@ namespace Ordisoftware.Hebrew.Letters
       }
     }
     static private string _DBCommonFileSize;
-    static public bool UpdateDBCommonFileSizeRequired = true;
+    static internal bool UpdateDBCommonFileSizeRequired { get; set; } = true;
 
   }
 

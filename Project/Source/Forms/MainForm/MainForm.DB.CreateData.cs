@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-01 </created>
-/// <edited> 2021-02 </edited>
+/// <edited> 2021-04 </edited>
 using System;
 using System.Data.Odbc;
 using System.IO;
@@ -54,17 +54,17 @@ namespace Ordisoftware.Hebrew.Letters
           string data = File.ReadAllText(string.Format(Program.MeaningsFilePath, Languages.CurrentCode.ToUpper()),
                                          System.Text.Encoding.Default);
           int indexStart = 0;
-          Func<string, string> getStrValue = (name) =>
+          string getStrValue(string name)
           {
             int p = data.IndexOf(name, indexStart);
             string s = data.Substring(p + name.Length, data.IndexOf("\r\n", p) - p - name.Length);
             indexStart = data.IndexOf("\r\n", p) + 2;
             return s.Trim();
-          };
-          Func<string, int> getIntValue = (name) =>
+          }
+          int getIntValue(string name)
           {
             return Convert.ToInt32(getStrValue(name));
-          };
+          }
           for ( int index = 0; index < HebrewAlphabet.Codes.Length; index++ )
           {
             var rowLetter = DataSet.Letters.NewLettersRow();
