@@ -28,6 +28,8 @@
     <NoWarn>1587, 1591, 0649</NoWarn>
     <DocumentationFile>..\Bin\Debug\Ordisoftware.Hebrew.Letters.xml</DocumentationFile>
     <LangVersion>latest</LangVersion>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -173,6 +175,7 @@
     <Compile Include="Source\Common\Core\Globalization\SysTranslations.Processing.cs" />
     <Compile Include="Source\Common\Core\Globalization\SysTranslations.Settings.cs" />
     <Compile Include="Source\Common\Core\Globalization\SysTranslations.WebUpdate.cs" />
+    <Compile Include="Source\Common\Core\GlobalSuppressions.cs" />
     <Compile Include="Source\Common\Core\Globals\Globals.Assembly.cs" />
     <Compile Include="Source\Common\Core\Globals\Globals.cs" />
     <Compile Include="Source\Common\Core\Globals\Globals.Files.cs" />

@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2021-02 </edited>
+/// <edited> 2021-04 </edited>
 using System;
 using System.ComponentModel;
 using System.Globalization;
@@ -78,8 +78,10 @@ namespace Ordisoftware.Hebrew.Letters
         Settings.CurrentView = ViewMode.Analysis;
         if ( force /*|| Settings.UpgradeResetRequiredVx_y*/ )
         {
+#pragma warning disable S2583 // Conditionally executed code should be reachable
           if ( !force && !Settings.FirstLaunch )
             DisplayManager.ShowInformation(SysTranslations.UpgradeResetRequired.GetLang());
+#pragma warning restore S2583 // Conditionally executed code should be reachable
           Settings.Reset();
           Settings.LanguageSelected = Languages.Current;
           Settings.SetUpgradeFlagsOff();
@@ -182,7 +184,7 @@ namespace Ordisoftware.Hebrew.Letters
         updateLabel(MainForm.Instance.LabelGematria, MainForm.Instance.EditGematriaSimple, -19);
         updateLabel(MainForm.Instance.LabelGematriaSimple, MainForm.Instance.EditGematriaSimple, 3);
         updateLabel(MainForm.Instance.LabelGematriaFull, MainForm.Instance.EditGematriaFull, 3);
-        MainForm.Instance.LabelClipboardContentType.Left = MainForm.Instance.ActionCopyToUnicode.Left 
+        MainForm.Instance.LabelClipboardContentType.Left = MainForm.Instance.ActionCopyToUnicode.Left
                                                          + MainForm.Instance.ActionCopyToUnicode.Width / 2
                                                          - MainForm.Instance.LabelClipboardContentType.Width / 2;
         MainForm.Instance.EditCopyToClipboardCloseApp.Left = MainForm.Instance.ActionCopyToResult.Left

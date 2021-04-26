@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2021-02 </edited>
+/// <edited> 2021-04 </edited>
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -48,6 +48,9 @@ namespace Ordisoftware.Hebrew.Letters
 
     }
 
+    private int SavedSelectionStart;
+    private int SavedSelectionLength;
+
     /// <summary>
     /// Set the view panel.
     /// </summary>
@@ -56,9 +59,6 @@ namespace Ordisoftware.Hebrew.Letters
     {
       SetView(view, false);
     }
-
-    private int SavedSelectionStart;
-    private int SavedSelectionLength;
 
     /// <summary>
     /// Set the view panel.

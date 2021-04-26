@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2020-03 </created>
-/// <edited> 2021-02 </edited>
+/// <edited> 2021-04 </edited>
 using System;
 using System.Linq;
 using System.Drawing;
@@ -37,13 +37,13 @@ namespace Ordisoftware.Hebrew.Letters
     {
       code = "";
       meaning = "";
-      Func<Data.DataSet.MeaningsRow[], string, bool> contains = (rows, str) =>
+      bool contains(Data.DataSet.MeaningsRow[] rows, string str)
       {
         foreach ( var row in rows )
           if ( row.Meaning.ToLower().RemoveDiacritics().Contains(str) )
             return true;
         return false;
-      };
+      }
       var query = from letter in MainForm.Instance.DataSet.Letters
                   where letter.Function.ToLower().RemoveDiacritics().Contains(term)
                      || letter.Verb.ToLower().RemoveDiacritics().Contains(term)
@@ -52,7 +52,7 @@ namespace Ordisoftware.Hebrew.Letters
                      || letter.Negative.ToLower().RemoveDiacritics().Contains(term)
                      || contains(letter.GetMeaningsRows(), term)
                   select letter;
-      if ( query.Count() < 1 )
+      if ( !query.Any() )
       {
         DisplayManager.ShowInformation(SysTranslations.TermNotFound.GetLang(term));
         return false;
@@ -101,10 +101,10 @@ namespace Ordisoftware.Hebrew.Letters
       ActionSearch.Enabled = ListBoxLetters.SelectedItem != null;
       if ( !ActionSearch.Enabled ) return;
       var item = (LetterItem)ListBoxLetters.SelectedItem;
-      Action<string> check = (meaning) =>
+      void check(string meaning)
       {
         if ( meaning.ToLower().RemoveDiacritics().Contains(Term) ) ListBoxMeanings.Items.Add(meaning);
-      };
+      }
       check(item.Letter.Positive);
       check(item.Letter.Negative);
       check(item.Letter.Verb);
@@ -118,7 +118,6 @@ namespace Ordisoftware.Hebrew.Letters
     private void ListBoxMeanings_SelectedIndexChanged(object sender, EventArgs e)
     {
       ActionSearch.Enabled = ListBoxLetters.SelectedItem != null && ListBoxMeanings.SelectedItem != null;
-      if ( !ActionSearch.Enabled ) return;
     }
 
     private void ListBox_KeyDown(object sender, KeyEventArgs e)
