@@ -188,6 +188,11 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 ## Changelog
 
+#### In progress - Version 5.3
+
+- Maintenance release.
+- Code refactoring and quality improvement.
+
 #### 2021.03.27 - Version 5.2
 
 - Fix exception in analysis meanings comboboxes introduced in previous version.
