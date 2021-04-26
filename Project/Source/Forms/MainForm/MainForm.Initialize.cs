@@ -185,7 +185,7 @@ namespace Ordisoftware.Hebrew.Letters
       TextBoxNegative.BackColor = Settings.ColorSentenceTextBox;
       TextBoxPositive.BackColor = Settings.ColorSentenceTextBox;
       EditMeanings.RowTemplate.DefaultCellStyle.BackColor = Settings.ColorSentenceTextBox;
-      foreach ( DataGridViewRow row in EditMeanings.Rows)
+      foreach ( DataGridViewRow row in EditMeanings.Rows )
         row.DefaultCellStyle.BackColor = Settings.ColorSentenceTextBox;
     }
 

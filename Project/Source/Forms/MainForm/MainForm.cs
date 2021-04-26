@@ -59,7 +59,7 @@ namespace Ordisoftware.Hebrew.Letters
       if ( !Globals.IsDevExecutable ) // TODO remove when ready
       {
         ActionGematriaCombinations.Visible = false;
-        toolStripSeparator1.Visible = false; 
+        toolStripSeparator1.Visible = false;
       }
     }
 

@@ -167,8 +167,8 @@
       this.GroupBoxFolders.SuspendLayout();
       this.PanelBottomOuter.SuspendLayout();
       this.PanelFolders.SuspendLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.ApplicationStatisticsDataBindingSource)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.SystemStatisticsDataBindingSource)).BeginInit();
+      ( (System.ComponentModel.ISupportInitialize)( this.ApplicationStatisticsDataBindingSource ) ).BeginInit();
+      ( (System.ComponentModel.ISupportInitialize)( this.SystemStatisticsDataBindingSource ) ).BeginInit();
       this.SuspendLayout();
       // 
       // dBFileSizeLabel
@@ -823,8 +823,8 @@
       this.GroupBoxFolders.PerformLayout();
       this.PanelBottomOuter.ResumeLayout(false);
       this.PanelFolders.ResumeLayout(false);
-      ((System.ComponentModel.ISupportInitialize)(this.ApplicationStatisticsDataBindingSource)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.SystemStatisticsDataBindingSource)).EndInit();
+      ( (System.ComponentModel.ISupportInitialize)( this.ApplicationStatisticsDataBindingSource ) ).EndInit();
+      ( (System.ComponentModel.ISupportInitialize)( this.SystemStatisticsDataBindingSource ) ).EndInit();
       this.ResumeLayout(false);
 
     }
