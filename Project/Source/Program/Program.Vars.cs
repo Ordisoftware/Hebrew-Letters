@@ -101,7 +101,7 @@ namespace Ordisoftware.Hebrew.Letters
               if ( SystemManager.CommandLineArguments != null && SystemManager.CommandLineArguments.Length == 1 )
                 if ( !SystemManager.CommandLineArguments[0].StartsWith("--") )
                   word = SystemManager.CommandLineArguments[0];
-            word = HebrewAlphabet.ContainsUnicode(word) 
+            word = HebrewAlphabet.ContainsUnicode(word)
                    ? HebrewAlphabet.ToHebrewFont(word)
                    : HebrewAlphabet.OnlyHebrewFont(word);
             _StartupWordHebrew = new string(word.Where(c => c != ' ')

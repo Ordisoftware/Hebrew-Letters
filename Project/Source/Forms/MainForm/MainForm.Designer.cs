@@ -13,7 +13,7 @@
     /// <param name="disposing">true si les ressources managées doivent être supprimées ; sinon, false.</param>
     protected override void Dispose(bool disposing)
     {
-      if ( disposing && (components != null) )
+      if ( disposing && ( components != null ) )
       {
         components.Dispose();
       }
@@ -164,10 +164,10 @@
       this.PanelViewSettings.SuspendLayout();
       this.PanelSettingsDetails.SuspendLayout();
       this.PanelLetter.SuspendLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.LettersBindingSource)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.DataSet)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.EditMeanings)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.MeaningsBindingSource)).BeginInit();
+      ( (System.ComponentModel.ISupportInitialize)( this.LettersBindingSource ) ).BeginInit();
+      ( (System.ComponentModel.ISupportInitialize)( this.DataSet ) ).BeginInit();
+      ( (System.ComponentModel.ISupportInitialize)( this.EditMeanings ) ).BeginInit();
+      ( (System.ComponentModel.ISupportInitialize)( this.MeaningsBindingSource ) ).BeginInit();
       this.PanelTitle.SuspendLayout();
       this.ToolStrip.SuspendLayout();
       this.SuspendLayout();
@@ -1130,10 +1130,10 @@
       this.PanelSettingsDetails.PerformLayout();
       this.PanelLetter.ResumeLayout(false);
       this.PanelLetter.PerformLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.LettersBindingSource)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.DataSet)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.EditMeanings)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.MeaningsBindingSource)).EndInit();
+      ( (System.ComponentModel.ISupportInitialize)( this.LettersBindingSource ) ).EndInit();
+      ( (System.ComponentModel.ISupportInitialize)( this.DataSet ) ).EndInit();
+      ( (System.ComponentModel.ISupportInitialize)( this.EditMeanings ) ).EndInit();
+      ( (System.ComponentModel.ISupportInitialize)( this.MeaningsBindingSource ) ).EndInit();
       this.PanelTitle.ResumeLayout(false);
       this.ToolStrip.ResumeLayout(false);
       this.ToolStrip.PerformLayout();

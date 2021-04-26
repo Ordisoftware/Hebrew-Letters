@@ -126,7 +126,7 @@ namespace Ordisoftware.Hebrew.Letters
     {
       var combobox = (ComboBox)sender;
       if ( combobox.Items.Count > 0 ) return;
-      combobox.Items.AddRange(LettersMeanings[((Data.DataSet.LettersRow)combobox.Tag).ValueSimple]);
+      combobox.Items.AddRange(LettersMeanings[( (Data.DataSet.LettersRow)combobox.Tag ).ValueSimple]);
     }
 
   }
