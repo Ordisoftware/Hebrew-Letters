@@ -191,6 +191,8 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 #### In progress - Version 5.3
 
 - Maintenance release.
+- Improve web check update timeout to 5s.
+- Fix drop down menus shown on another monitor instead of the same screen.
 - Code refactoring and quality improvement.
 
 #### 2021.03.27 - Version 5.2
