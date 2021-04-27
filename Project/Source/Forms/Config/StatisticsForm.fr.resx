@@ -325,4 +325,7 @@
   <data name="dBCommonFileSizeLabel.Text" xml:space="preserve">
     <value>Taille fichier commun :</value>
   </data>
+  <data name="translateTimeLabel.Text" xml:space="preserve">
+    <value>Traduction</value>
+  </data>
 </root>

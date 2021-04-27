@@ -131,6 +131,7 @@ namespace Ordisoftware.Hebrew.Letters
     /// </summary>
     static public void UpdateLocalization()
     {
+      Globals.ChronoTranslate.Restart();
       try
       {
         MainForm.Instance.PanelMainCenter.Visible = false;
@@ -197,6 +198,8 @@ namespace Ordisoftware.Hebrew.Letters
       finally
       {
         MainForm.Instance.PanelMainCenter.Visible = true;
+        Globals.ChronoTranslate.Stop();
+        Settings.BenchmarkTranslate = Globals.ChronoTranslate.ElapsedMilliseconds;
       }
     }
 

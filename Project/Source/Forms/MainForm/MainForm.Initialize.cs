@@ -36,7 +36,7 @@ namespace Ordisoftware.Hebrew.Letters
     private void DoConstructor()
     {
 
-      Globals.ChronoLoadApp.Start();
+      Globals.ChronoStartingApp.Start();
       InitializeComponent();
       SoundItem.Initialize();
       Text = Globals.AssemblyTitle;
@@ -109,7 +109,7 @@ namespace Ordisoftware.Hebrew.Letters
       SystemManager.TryCatch(() => new System.Media.SoundPlayer(Globals.EmptySoundFilePath).Play());
       SystemManager.TryCatch(() => MediaMixer.SetApplicationVolume(Globals.ProcessId, Settings.ApplicationVolume));
       StatisticsForm.Run(true, Settings.UsageStatisticsEnabled);
-      Globals.ChronoLoadApp.Stop();
+      Globals.ChronoStartingApp.Stop();
       var lastdone = Settings.CheckUpdateLastDone;
       bool exit = WebCheckUpdate.Run(Settings.CheckUpdateAtStartup,
                                      ref lastdone,
@@ -121,7 +121,7 @@ namespace Ordisoftware.Hebrew.Letters
         SystemManager.Exit();
         return;
       }
-      Globals.ChronoLoadApp.Start();
+      Globals.ChronoStartingApp.Start();
       try
       {
         Globals.ChronoLoadData.Start();
@@ -208,8 +208,8 @@ namespace Ordisoftware.Hebrew.Letters
       else
         ActionReset.Visible = false;
       ToolStrip.SetDropDownOpening();
-      Globals.ChronoLoadApp.Stop();
-      Settings.BenchmarkStartingApp = Globals.ChronoLoadApp.ElapsedMilliseconds;
+      Globals.ChronoStartingApp.Stop();
+      Settings.BenchmarkStartingApp = Globals.ChronoStartingApp.ElapsedMilliseconds;
       if ( Globals.IsDatabaseUpgraded && DisplayManager.QueryYesNo(SysTranslations.AskToCheckDataAfterDbUpgraded.GetLang()) )
         SetView(ViewMode.Data, false);
       else
@@ -226,7 +226,6 @@ namespace Ordisoftware.Hebrew.Letters
       Globals.NoticeKeyboardShortcutsForm.TextBox.BackColor = Globals.NoticeKeyboardShortcutsForm.BackColor;
       Globals.NoticeKeyboardShortcutsForm.TextBox.BorderStyle = BorderStyle.None;
       Globals.NoticeKeyboardShortcutsForm.Padding = new Padding(20, 20, 10, 10);
-      Globals.ChronoLoadApp.Stop();
       if ( Globals.IsSettingsUpgraded )
         SystemManager.TryCatch(() =>
         {
