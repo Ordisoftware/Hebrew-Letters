@@ -192,6 +192,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 - Maintenance release.
 - Improve web check update timeout to 5s.
+- Fix drop down menus shown on another monitor instead of the same screen.
 - Code refactoring and quality improvement.
 
 #### 2021.03.27 - Version 5.2
