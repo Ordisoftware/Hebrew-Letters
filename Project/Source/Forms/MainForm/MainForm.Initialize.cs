@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-01 </created>
-/// <edited> 2021-02 </edited>
+/// <edited> 2021-04 </edited>
 using System;
 using System.Data;
 using System.Drawing;
@@ -207,6 +207,7 @@ namespace Ordisoftware.Hebrew.Letters
       }
       else
         ActionReset.Visible = false;
+      ToolStrip.SetDropDownOpening();
       Globals.ChronoLoadApp.Stop();
       Settings.BenchmarkStartingApp = Globals.ChronoLoadApp.ElapsedMilliseconds;
       if ( Globals.IsDatabaseUpgraded && DisplayManager.QueryYesNo(SysTranslations.AskToCheckDataAfterDbUpgraded.GetLang()) )
