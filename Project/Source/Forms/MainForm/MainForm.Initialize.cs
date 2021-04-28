@@ -36,7 +36,6 @@ namespace Ordisoftware.Hebrew.Letters
     private void DoConstructor()
     {
 
-      Globals.ChronoStartingApp.Start();
       InitializeComponent();
       SoundItem.Initialize();
       Text = Globals.AssemblyTitle;
@@ -211,9 +210,15 @@ namespace Ordisoftware.Hebrew.Letters
       Globals.ChronoStartingApp.Stop();
       Settings.BenchmarkStartingApp = Globals.ChronoStartingApp.ElapsedMilliseconds;
       if ( Globals.IsDatabaseUpgraded && DisplayManager.QueryYesNo(SysTranslations.AskToCheckDataAfterDbUpgraded.GetLang()) )
+      {
+        Globals.ChronoStartingApp.Start();
         SetView(ViewMode.Data, false);
+      }
       else
+      {
+        Globals.ChronoStartingApp.Start();
         SetView(ViewMode.Analysis, false);
+      }
       if ( Settings.FirstLaunch )
       {
         Settings.FirstLaunch = false;
@@ -226,6 +231,7 @@ namespace Ordisoftware.Hebrew.Letters
       Globals.NoticeKeyboardShortcutsForm.TextBox.BackColor = Globals.NoticeKeyboardShortcutsForm.BackColor;
       Globals.NoticeKeyboardShortcutsForm.TextBox.BorderStyle = BorderStyle.None;
       Globals.NoticeKeyboardShortcutsForm.Padding = new Padding(20, 20, 10, 10);
+      Globals.ChronoStartingApp.Stop();
       if ( Globals.IsSettingsUpgraded )
         SystemManager.TryCatch(() =>
         {
