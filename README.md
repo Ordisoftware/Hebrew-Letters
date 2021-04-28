@@ -47,30 +47,15 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 
 **What's new in the latest version**
 
-- Added command-line options (see FAQ)
-- Startup speed and analysis combo boxes creation are optimized.
-- Analysis labels are clickable to switch to letter's details.
-- Data edition is only possible by one instance at a time.
-- Data edition is improved to have save and cancel behavior.
-- Improved and fixed copy, cut and paste for both Hebrew font chars and unicode.
-- Added New in version in the Information menu.
-- Added link to online Shorashim roots database.
-- New top menu icon to open a new window.
-- New context menu on letters' buttons.
-- New screenshot button.
-- New usage statistics window.
-- Rework of the preferences window design with more options.
-- Some improvements in appearance and function.
-- Incorporate common code written since more than one year for Hebrew Calendar.
-- Modification and addition of web links and online providers for the study of words and verses of the Bible.
+- Maintenance release.
 
 [Last release](https://github.com/Ordisoftware/Hebrew-Letters/releases/latest)
 
 ## Screenshots
 
-[![Analyze](https://www.ordisoftware.com/uploads/2021/03/hebrew-letters-analyze-en-400x390.png)](http://www.ordisoftware.com/uploads/2020/04/hebrew-letters-data-en.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Data](https://www.ordisoftware.com/uploads/2021/03/hebrew-letters-data-en-330x390.png)](https://www.ordisoftware.com/uploads/2021/03/hebrew-letters-data-en.png)
+[![Analyze view](https://www.ordisoftware.com/uploads/2021/03/hebrew-letters-analyze-en-400x390.png)](http://www.ordisoftware.com/uploads/2020/04/hebrew-letters-data-en.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Data view](https://www.ordisoftware.com/uploads/2021/03/hebrew-letters-data-en-330x390.png)](https://www.ordisoftware.com/uploads/2021/03/hebrew-letters-data-en.png)
 
-[![Preferences](https://www.ordisoftware.com/uploads/2021/03/hebrew-letters-preferences-en-325x255.png)](https://www.ordisoftware.com/uploads/2021/03/hebrew-letters-preferences-en.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Search results](https://www.ordisoftware.com/uploads/2021/03/hebrew-letters-searchresult-en.png)](https://www.ordisoftware.com/uploads/2021/03/hebrew-letters-searchresult-en.png)
+[![Preferences window](https://www.ordisoftware.com/uploads/2021/03/hebrew-letters-preferences-en-325x255.png)](https://www.ordisoftware.com/uploads/2021/03/hebrew-letters-preferences-en.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Search results](https://www.ordisoftware.com/uploads/2021/03/hebrew-letters-searchresult-en.png)](https://www.ordisoftware.com/uploads/2021/03/hebrew-letters-searchresult-en.png)
 
 ## Videos
 
@@ -177,22 +162,21 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 ## Future improvements
 
-- Add export data to TXT/CSV/JSON.
-- Rewrite advanced undo/redo.
-- Optimize more ComboBoxes creation.
-- Add find gematria possible combinations.
 - Add export and import database.
+- Add export data to TXT/CSV/JSON.
 - Add import data from TXT/CSV/JSON.
 - Add print data.
-- Add analyzed word table.
+- Add analyzed word data table and view panel.
+- Add find gematria possible combinations.
+- Rewrite advanced undo/redo.
+- Optimize more ComboBoxes creation.
 
 ## Changelog
 
 #### In progress - Version 5.3
 
-- Maintenance release.
-- Improve web check update timeout to 5s.
 - Fix drop down menus shown on another monitor instead of the same screen.
+- Improve web check update timeout to 5s.
 - Code refactoring and quality improvement.
 
 #### 2021.03.27 - Version 5.2

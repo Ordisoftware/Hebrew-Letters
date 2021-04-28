@@ -65,6 +65,7 @@
       System.Windows.Forms.Label cPUProcessLoadAvgLabel;
       System.Windows.Forms.Label LabelCompiled;
       System.Windows.Forms.Label dBCommonFileSizeLabel;
+      System.Windows.Forms.Label translateTimeLabel;
       this.PanelBottom = new System.Windows.Forms.Panel();
       this.ActionViewLog = new System.Windows.Forms.Button();
       this.ActionScreenshot = new System.Windows.Forms.Button();
@@ -91,6 +92,7 @@
       this.currentThreadPriorityLabel1 = new System.Windows.Forms.Label();
       this.GroupBoxTimings = new System.Windows.Forms.GroupBox();
       this.GroupBoxDatabase = new System.Windows.Forms.GroupBox();
+      this.dBCommonFileSizeLabel1 = new System.Windows.Forms.Label();
       this.dBLettersRecordsCountLabel1 = new System.Windows.Forms.Label();
       this.dBADONETAccessLabel1 = new System.Windows.Forms.Label();
       this.dBEngineversionLabel1 = new System.Windows.Forms.Label();
@@ -120,7 +122,7 @@
       this.EditOpenFolderUserLocalData = new Ordisoftware.Core.TextBoxEx();
       this.EditFolderUserData = new Ordisoftware.Core.TextBoxEx();
       this.EditFolderApplication = new Ordisoftware.Core.TextBoxEx();
-      this.dBCommonFileSizeLabel1 = new System.Windows.Forms.Label();
+      this.translateTimeLabel1 = new System.Windows.Forms.Label();
       dBFileSizeLabel = new System.Windows.Forms.Label();
       dBMeaningsRecordsCountLabel = new System.Windows.Forms.Label();
       loadDataTimeLabel = new System.Windows.Forms.Label();
@@ -156,6 +158,7 @@
       cPUProcessLoadAvgLabel = new System.Windows.Forms.Label();
       LabelCompiled = new System.Windows.Forms.Label();
       dBCommonFileSizeLabel = new System.Windows.Forms.Label();
+      translateTimeLabel = new System.Windows.Forms.Label();
       this.PanelBottom.SuspendLayout();
       this.GroupBoxTimings.SuspendLayout();
       this.GroupBoxDatabase.SuspendLayout();
@@ -167,8 +170,8 @@
       this.GroupBoxFolders.SuspendLayout();
       this.PanelBottomOuter.SuspendLayout();
       this.PanelFolders.SuspendLayout();
-      ( (System.ComponentModel.ISupportInitialize)( this.ApplicationStatisticsDataBindingSource ) ).BeginInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.SystemStatisticsDataBindingSource ) ).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.ApplicationStatisticsDataBindingSource)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.SystemStatisticsDataBindingSource)).BeginInit();
       this.SuspendLayout();
       // 
       // dBFileSizeLabel
@@ -341,6 +344,11 @@
       resources.ApplyResources(LabelCompiled, "LabelCompiled");
       LabelCompiled.Name = "LabelCompiled";
       // 
+      // dBCommonFileSizeLabel
+      // 
+      resources.ApplyResources(dBCommonFileSizeLabel, "dBCommonFileSizeLabel");
+      dBCommonFileSizeLabel.Name = "dBCommonFileSizeLabel";
+      // 
       // PanelBottom
       // 
       this.PanelBottom.Controls.Add(this.ActionViewLog);
@@ -500,7 +508,9 @@
       // 
       this.GroupBoxTimings.Controls.Add(this.startingTimeLabel1);
       this.GroupBoxTimings.Controls.Add(startingTimeLabel);
+      this.GroupBoxTimings.Controls.Add(this.translateTimeLabel1);
       this.GroupBoxTimings.Controls.Add(this.loadDataTimeLabel1);
+      this.GroupBoxTimings.Controls.Add(translateTimeLabel);
       this.GroupBoxTimings.Controls.Add(loadDataTimeLabel);
       resources.ApplyResources(this.GroupBoxTimings, "GroupBoxTimings");
       this.GroupBoxTimings.Name = "GroupBoxTimings";
@@ -525,6 +535,12 @@
       resources.ApplyResources(this.GroupBoxDatabase, "GroupBoxDatabase");
       this.GroupBoxDatabase.Name = "GroupBoxDatabase";
       this.GroupBoxDatabase.TabStop = false;
+      // 
+      // dBCommonFileSizeLabel1
+      // 
+      resources.ApplyResources(this.dBCommonFileSizeLabel1, "dBCommonFileSizeLabel1");
+      this.dBCommonFileSizeLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ApplicationStatisticsDataBindingSource, "DBCommonFileSize", true));
+      this.dBCommonFileSizeLabel1.Name = "dBCommonFileSizeLabel1";
       // 
       // dBLettersRecordsCountLabel1
       // 
@@ -726,11 +742,6 @@
       resources.ApplyResources(this.PanelFolders, "PanelFolders");
       this.PanelFolders.Name = "PanelFolders";
       // 
-      // dBCommonFileSizeLabel
-      // 
-      resources.ApplyResources(dBCommonFileSizeLabel, "dBCommonFileSizeLabel");
-      dBCommonFileSizeLabel.Name = "dBCommonFileSizeLabel";
-      // 
       // ApplicationStatisticsDataBindingSource
       // 
       this.ApplicationStatisticsDataBindingSource.AllowNew = false;
@@ -783,11 +794,16 @@
       this.EditFolderApplication.ReadOnly = true;
       this.EditFolderApplication.TabStop = false;
       // 
-      // dBCommonFileSizeLabel1
+      // translateTimeLabel
       // 
-      resources.ApplyResources(this.dBCommonFileSizeLabel1, "dBCommonFileSizeLabel1");
-      this.dBCommonFileSizeLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ApplicationStatisticsDataBindingSource, "DBCommonFileSize", true));
-      this.dBCommonFileSizeLabel1.Name = "dBCommonFileSizeLabel1";
+      resources.ApplyResources(translateTimeLabel, "translateTimeLabel");
+      translateTimeLabel.Name = "translateTimeLabel";
+      // 
+      // translateTimeLabel1
+      // 
+      resources.ApplyResources(this.translateTimeLabel1, "translateTimeLabel1");
+      this.translateTimeLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ApplicationStatisticsDataBindingSource, "TranslateTime", true));
+      this.translateTimeLabel1.Name = "translateTimeLabel1";
       // 
       // StatisticsForm
       // 
@@ -823,8 +839,8 @@
       this.GroupBoxFolders.PerformLayout();
       this.PanelBottomOuter.ResumeLayout(false);
       this.PanelFolders.ResumeLayout(false);
-      ( (System.ComponentModel.ISupportInitialize)( this.ApplicationStatisticsDataBindingSource ) ).EndInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.SystemStatisticsDataBindingSource ) ).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.ApplicationStatisticsDataBindingSource)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.SystemStatisticsDataBindingSource)).EndInit();
       this.ResumeLayout(false);
 
     }
@@ -887,5 +903,6 @@
     public System.Windows.Forms.Button ActionViewLog;
     private System.Windows.Forms.Label LabelCompiled1;
     private System.Windows.Forms.Label dBCommonFileSizeLabel1;
+    private System.Windows.Forms.Label translateTimeLabel1;
   }
 }
