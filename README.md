@@ -173,7 +173,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 ## Changelog
 
-#### In progress - Version 5.3
+#### 2021.04.30 - Version 5.3
 
 - Fix drop down menus shown on another monitor instead of the same screen.
 - Improve web check update timeout to 5s.
