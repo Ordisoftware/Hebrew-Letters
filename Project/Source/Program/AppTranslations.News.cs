@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2021-02 </created>
-/// <edited> 2021-03 </edited>
+/// <edited> 2021-04 </edited>
 using System;
 using Ordisoftware.Core;
 
@@ -133,6 +133,13 @@ namespace Ordisoftware.Hebrew.Letters
 
           [Language.FR] = "Correction d'une exception dans les listes déroulantes des significations d'analyse introduite dans la version précédente.." + Globals.NL +
                           "Mise à jour des liens web."
+        },
+
+        ["5.3"] = new TranslationsDictionary
+        {
+          [Language.EN] = "Maintenance release.",
+
+          [Language.FR] = "Version de maintenance."
         },
 
       };
