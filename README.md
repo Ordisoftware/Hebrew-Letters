@@ -166,12 +166,15 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Add export data to TXT/CSV/JSON.
 - Add import data from TXT/CSV/JSON.
 - Add print data.
-- Add analyzed word data table and view panel.
 - Add find gematria possible combinations.
 - Rewrite advanced undo/redo.
 - Optimize more ComboBoxes creation.
 
 ## Changelog
+
+#### In progress - Version 6.0
+
+- Add analyzed word data table and view panel.
 
 #### 2021.04.30 - Version 5.3
 
