@@ -21,16 +21,16 @@ using Ordisoftware.Core;
 namespace Ordisoftware.Hebrew
 {
 
-  static partial class ParashotTable
+  static partial class Parashot
   {
 
-    static public readonly string TableName = nameof(ParashotTable).Replace("Table", string.Empty);
+    static public readonly string TableName = nameof(Parashot);
 
     static public DataTable DataTable { get; private set; }
 
     static private bool CreateDataMutex;
 
-    static ParashotTable()
+    static Parashot()
     {
       if ( Globals.IsVisualStudioDesigner ) return;
       LoadDefaults();
@@ -57,13 +57,13 @@ namespace Ordisoftware.Hebrew
 
     static public bool IsReadOnly()
     {
-      return ProcessLocksTable.GetCount(TableName) > 1;
+      return ProcessLocks.GetCount(TableName) > 1;
     }
 
     static public void Take()
     {
       if ( DataTable != null ) return;
-      ProcessLocksTable.Lock(TableName);
+      ProcessLocks.Lock(TableName);
       DataTable = new DataTable(TableName);
       string sql = "SELECT * FROM " + TableName;
       using ( var connection = new SQLiteConnection(Globals.CommonSQLiteConnectionString) )
@@ -81,7 +81,7 @@ namespace Ordisoftware.Hebrew
       if ( DataTable == null ) return;
       DataTable.Dispose();
       DataTable = null;
-      ProcessLocksTable.Unlock(TableName);
+      ProcessLocks.Unlock(TableName);
     }
 
     static public void Update()

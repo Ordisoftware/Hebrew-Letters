@@ -100,7 +100,7 @@ namespace Ordisoftware.Hebrew.Letters
       Settings.Retrieve();
       InitializeTheme();
       InitializeDialogsDirectory();
-      ProcessLocksTable.Lock();
+      ProcessLocks.Lock();
       EditLetters.Input.MaxLength = (int)Settings.HebrewTextBoxMaxLength;
       Program.Settings.CurrentView = ViewMode.Analysis;
       EditSentence.Font = new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence);
@@ -286,7 +286,7 @@ namespace Ordisoftware.Hebrew.Letters
       Globals.IsExiting = true;
       Globals.IsSessionEnding = true;
       Globals.AllowClose = true;
-      ProcessLocksTable.Unlock();
+      ProcessLocks.Unlock();
       Settings.Store();
       TimerTooltip.Stop();
       FormsHelper.CloseAll();

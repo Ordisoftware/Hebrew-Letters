@@ -124,7 +124,7 @@ namespace Ordisoftware.Hebrew.Letters
     /// <param name="e">Event information.</param>
     private void TimerProcesses_Tick(object sender, EventArgs e)
     {
-      Globals.IsReadOnly = ProcessLocksTable.IsReadOnly();
+      Globals.IsReadOnly = ProcessLocks.IsReadOnly();
       Text = Globals.AssemblyTitle;
       if ( Globals.IsReadOnly ) Text += " - " + SysTranslations.ReadOnly.GetLang();
       TextBoxPositive.ReadOnly = Globals.IsReadOnly;

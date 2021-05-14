@@ -22,31 +22,19 @@ using Ordisoftware.Core;
 namespace Ordisoftware.Hebrew
 {
 
-  static class ProcessLocksTable
+  static class ProcessLocks
   {
 
-    static public readonly string TableName = nameof(ProcessLocksTable).Replace("Table", string.Empty);
+    static public readonly string TableName = nameof(ProcessLocks);
 
     static private void Purge()
     {
-      string sqlSelect = $"SELECT ProcessID, count(ProcessID) FROM {TableName} GROUP BY ProcessID";
-      foreach ( var item in HebrewDatabase.Instance.Connection.Query<ProcessLock>(sqlSelect) )
+      string sql = $"SELECT ProcessID, count(ProcessID) FROM {TableName} GROUP BY ProcessID";
+      foreach ( var item in HebrewDatabase.Instance.Connection.Query<ProcessLock>(sql) )
       {
         if ( Process.GetProcesses().Any(p => p.Id == item.ProcessID) ) continue;
-        string sqlDelete = $"SELECT ID FROM {TableName} WHERE ProcessID = (?)";
-        var query = HebrewDatabase.Instance.Connection.Query<ProcessLock>(sqlDelete, item.ProcessID);
-        HebrewDatabase.Instance.Connection.BeginTransaction();
-        try
-        {
-          foreach ( ProcessLock row in query )
-            HebrewDatabase.Instance.Connection.Delete(row);
-          HebrewDatabase.Instance.Connection.Commit();
-        }
-        catch
-        {
-          HebrewDatabase.Instance.Connection.Rollback();
-          throw;
-        }
+        sql = $"DELETE FROM {TableName} WHERE ProcessID = (?)";
+        HebrewDatabase.Instance.Connection.Execute(sql, item.ProcessID);
       }
     }
 
@@ -54,6 +42,22 @@ namespace Ordisoftware.Hebrew
     {
       Purge();
       return name.IsNullOrEmpty() ? Globals.ApplicationCode : name;
+    }
+
+    static public void Lock(string name = null)
+    {
+      if ( IsLockedByCurrentProcess(name) ) return;
+      name = Convert(name);
+      var item = new ProcessLock { ProcessID = Globals.ProcessId, Name = name };
+      HebrewDatabase.Instance.Connection.Insert(item);
+    }
+
+    static public void Unlock(string name = null)
+    {
+      if ( !IsLockedByCurrentProcess(name) ) return;
+      name = Convert(name);
+      string sql = $"DELETE FROM {TableName} WHERE ProcessID = (?)";
+      HebrewDatabase.Instance.Connection.Execute(sql, Globals.ProcessId);
     }
 
     static public bool IsLockedByCurrentProcess(string name = null)
@@ -75,7 +79,7 @@ namespace Ordisoftware.Hebrew
       return HebrewDatabase.Instance.Connection.ExecuteScalar<long>(sql, name);
     }
 
-    /*static public List<string> GetLockers(string name = null)
+    static public List<string> GetLockers(string name = null)
     {
       name = Convert(name);
       string sql = $"SELECT ProcessID FROM {TableName} WHERE Name = (?)";
@@ -92,22 +96,6 @@ namespace Ordisoftware.Hebrew
           dictionary.Add(processName, 1);
       }
       return dictionary.Select(pair => $"{pair.Key} ({pair.Value})").ToList();
-    }*/
-
-    static public void Lock(string name = null)
-    {
-      if ( IsLockedByCurrentProcess(name) ) return;
-      name = Convert(name);
-      var item = new ProcessLock { ProcessID = Globals.ProcessId, Name = name };
-      HebrewDatabase.Instance.Connection.Insert(item);
-    }
-
-    static public void Unlock(string name = null)
-    {
-      if ( !IsLockedByCurrentProcess(name) ) return;
-      name = Convert(name);
-      var item = new ProcessLock { ProcessID = Globals.ProcessId, Name = name };
-      HebrewDatabase.Instance.Connection.Delete(item.ID);
     }
 
   }

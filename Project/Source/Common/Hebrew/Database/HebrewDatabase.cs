@@ -30,7 +30,7 @@ namespace Ordisoftware.Hebrew
       SQLiteDatabase.Instance = Instance;
     }
 
-    public List<ProcessLock> ProcessLocks { get; private set; }
+    //public List<ProcessLock> ProcessLocks { get; private set; }
 
     private HebrewDatabase() : base(Globals.CommonDatabaseFilePath)
     {
@@ -39,29 +39,23 @@ namespace Ordisoftware.Hebrew
 
     protected override void CreateTables()
     {
-      // TODO delete old on install new version
+      // TODO delete old on install new version or use upgrade event to add ID
       Connection.CreateTable<ProcessLock>();
     }
 
     protected override void LoadAll()
     {
-      LoadProcessLocks();
-    }
-
-    public List<ProcessLock> LoadProcessLocks()
-    {
-      ProcessLocks = Load(Connection.Table<ProcessLock>());
-      return ProcessLocks;
+      //Load(Connection.Table<ProcessLock>());
     }
 
     protected override void DoUpdateAll()
     {
-      UpdateProcessLocks();
+      //UpdateProcessLocks();
     }
 
     public void UpdateProcessLocks()
     {
-      Connection.UpdateAll(ProcessLocks);
+      //Connection.UpdateAll(ProcessLocks);
     }
 
   }

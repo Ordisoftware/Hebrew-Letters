@@ -68,9 +68,13 @@ namespace Ordisoftware.Core
       Connection = null;
     }
 
-    protected abstract void CreateTables();
+    protected virtual void CreateTables()
+    {
+    }
 
-    protected abstract void LoadAll();
+    protected virtual void LoadAll()
+    {
+    }
 
     public List<T> Load<T>(TableQuery<T> query)
     {
@@ -102,20 +106,27 @@ namespace Ordisoftware.Core
 
     public void UpdateAll(bool useTransaction)
     {
-      if ( useTransaction ) Connection.BeginTransaction();
+      if ( !useTransaction )
+      {
+        DoUpdateAll();
+        return;
+      }
+      Connection.BeginTransaction();
       try
       {
         DoUpdateAll();
-        if ( useTransaction ) Connection.Commit();
+        Connection.Commit();
       }
       catch
       {
-        if ( useTransaction ) Connection.Rollback();
+        Connection.Rollback();
         throw;
       }
     }
 
-    protected abstract void DoUpdateAll();
+    protected virtual void DoUpdateAll()
+    {
+    }
 
   }
 
