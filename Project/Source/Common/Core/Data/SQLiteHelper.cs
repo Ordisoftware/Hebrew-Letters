@@ -11,11 +11,10 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-01 </created>
-/// <edited> 2021-04 </edited>
+/// <edited> 2021-05 </edited>
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Odbc;
 using System.IO;
 using System.Text;
 using System.Linq;
@@ -24,7 +23,7 @@ using System.Windows.Forms;
 using FileHelpers;
 using FileHelpers.Options;
 using Newtonsoft.Json;
-using Microsoft.Win32;
+using System.Data.SQLite;
 
 namespace Ordisoftware.Core
 {
@@ -32,7 +31,7 @@ namespace Ordisoftware.Core
   /// <summary>
   /// Provide SQLite ODBC helper.
   /// </summary>
-  static partial class SQLiteOdbcHelper
+  static partial class SQLiteHelper
   {
 
     static public int DefaultOptimizeDaysInterval { get; set; } = 7;
@@ -71,44 +70,10 @@ namespace Ordisoftware.Core
     }
 
     /// <summary>
-    /// Create or update the ODBC DSN.
-    /// </summary>
-    static public void CreateOrUpdateDSN()
-    {
-      CreateOrUpdateDSN(Globals.ApplicationDatabaseOdbcDSN, Globals.ApplicationDatabaseFilePath);
-    }
-
-    /// <summary>
-    /// Create or update the ODBC DSN.
-    /// </summary>
-    static public void CreateOrUpdateDSN(string dsnName, string filePath, int timeout = 0)
-    {
-      try
-      {
-        Directory.CreateDirectory(Path.GetDirectoryName(filePath));
-        var key = Registry.CurrentUser.OpenSubKey(@"Software", true);
-        key = key.CreateSubKey("ODBC", true);
-        key = key.CreateSubKey("ODBC.INI", true);
-        key = key.CreateSubKey("ODBC Data Sources", true);
-        key.SetValue(Globals.ApplicationDatabaseOdbcDSN, "SQLite3 ODBC Driver");
-        key = Registry.CurrentUser.OpenSubKey(@"Software\ODBC\ODBC.INI", true);
-        key = key.CreateSubKey(dsnName);
-        key.SetValue("Driver", Globals.SQLiteSystemDLLFilePath);
-        key.SetValue("Database", filePath);
-        key.SetValue("FKSupport", "1");
-        key.SetValue("Timeout", timeout.ToString());
-      }
-      catch ( Exception ex )
-      {
-        throw new SQLiteException(SysTranslations.DatabaseSetDSNError.GetLang(), ex);
-      }
-    }
-
-    /// <summary>
     /// Get the version of the engine.
     /// </summary>
     /// <param name="connection">The connection.</param>
-    static public void InitializeVersion(this OdbcConnection connection)
+    static public void InitializeVersion(this SQLiteConnection connection)
     {
       ADOdotNETProviderName = connection?.GetType().Name ?? SysTranslations.ErrorSlot.GetLang();
       EngineNameAndVersion = ( "SQLite " + connection?.ServerVersion ) ?? SysTranslations.ErrorSlot.GetLang();
@@ -122,7 +87,7 @@ namespace Ordisoftware.Core
     /// <param name="interval">Days interval to check.</param>
     /// <param name="force">True to force check.</param>
     /// <returns>The new date if done else lastdone.</returns>
-    static public DateTime Optimize(this OdbcConnection connection, DateTime lastdone, int interval = -1, bool force = false)
+    static public DateTime Optimize(this SQLiteConnection connection, DateTime lastdone, int interval = -1, bool force = false)
     {
       if ( interval == -1 ) interval = DefaultOptimizeDaysInterval;
       InitializeVersion(connection);
@@ -139,12 +104,12 @@ namespace Ordisoftware.Core
     /// Vacuum the database.
     /// </summary>
     /// <param name="connection">The connection.</param>
-    static public void CheckIntegrity(this OdbcConnection connection)
+    static public void CheckIntegrity(this SQLiteConnection connection)
     {
       SystemManager.TryCatchManage(() =>
       {
         var errors = new List<string>();
-        using ( var command = new OdbcCommand("SELECT integrity_check FROM pragma_integrity_check()", connection) )
+        using ( var command = new SQLiteCommand("SELECT integrity_check FROM pragma_integrity_check()", connection) )
         using ( var reader = command.ExecuteReader() )
           while ( reader.Read() )
           {
@@ -163,11 +128,11 @@ namespace Ordisoftware.Core
     ///  Vacuum the database.
     /// </summary>
     /// <param name="connection">The connection.</param>
-    static public void Vacuum(this OdbcConnection connection)
+    static public void Vacuum(this SQLiteConnection connection)
     {
       SystemManager.TryCatchManage(() =>
       {
-        using ( var command = new OdbcCommand("VACUUM", connection) )
+        using ( var command = new SQLiteCommand("VACUUM", connection) )
           if ( command.ExecuteNonQuery() != 0 )
             throw new SQLiteException(SysTranslations.DatabaseVacuumError.GetLang());
       });
@@ -178,13 +143,13 @@ namespace Ordisoftware.Core
     /// </summary>
     /// <param name="connection"></param>
     /// <param name="table"></param>
-    static public void DropTableIfExists(this OdbcConnection connection, string table)
+    static public void DropTableIfExists(this SQLiteConnection connection, string table)
     {
       string argnameTable = nameof(table);
       SystemManager.TryCatchManage(() =>
       {
         if ( table.IsNullOrEmpty() ) throw new ArgumentNullException(argnameTable);
-        using ( var command = new OdbcCommand($"DROP TABLE IF EXISTS {table}", connection) )
+        using ( var command = new SQLiteCommand($"DROP TABLE IF EXISTS {table}", connection) )
           try
           {
             command.ExecuteNonQuery();
@@ -203,7 +168,7 @@ namespace Ordisoftware.Core
     /// <param name="table">The table name.</param>
     /// <param name="sql">The sql query to create the table, can be empty to only check.</param>
     /// <returns>True if the table exists else false even if created.</returns>
-    static public bool CheckTable(this OdbcConnection connection, string table, string sql = "")
+    static public bool CheckTable(this SQLiteConnection connection, string table, string sql = "")
     {
       try
       {
@@ -211,10 +176,10 @@ namespace Ordisoftware.Core
         using ( var commandCheck = connection.CreateCommand() )
         {
           commandCheck.CommandText = $"SELECT count(*) FROM sqlite_master WHERE type = 'table' AND name = ?";
-          commandCheck.Parameters.Add("@table", OdbcType.Text).Value = table;
-          if ( (int)commandCheck.ExecuteScalar() != 0 ) return true;
+          commandCheck.Parameters.Add("@table", DbType.String).Value = table;
+          if ( (long)commandCheck.ExecuteScalar() != 0 ) return true;
           if ( !sql.IsNullOrEmpty() )
-            using ( var commandCreate = new OdbcCommand(sql, connection) )
+            using ( var commandCreate = new SQLiteCommand(sql, connection) )
               try
               {
                 commandCreate.ExecuteNonQuery();
@@ -239,7 +204,7 @@ namespace Ordisoftware.Core
     /// <param name="index">The index name.</param>
     /// <param name="sql">The sql query to create the table, can be empty to only check.</param>
     /// <returns>True if the index exists else false even if created.</returns>
-    static public bool CheckIndex(this OdbcConnection connection, string index, string sql = "")
+    static public bool CheckIndex(this SQLiteConnection connection, string index, string sql = "")
     {
       try
       {
@@ -247,10 +212,10 @@ namespace Ordisoftware.Core
         using ( var commandCheck = connection.CreateCommand() )
         {
           commandCheck.CommandText = $"SELECT count(*) FROM sqlite_master WHERE type = 'index' AND name = ?";
-          commandCheck.Parameters.Add("@index", OdbcType.Text).Value = index;
-          if ( (int)commandCheck.ExecuteScalar() != 0 ) return true;
+          commandCheck.Parameters.Add("@index", DbType.String).Value = index;
+          if ( (long)commandCheck.ExecuteScalar() != 0 ) return true;
           if ( !sql.IsNullOrEmpty() )
-            using ( var commandCreate = new OdbcCommand(sql, connection) )
+            using ( var commandCreate = new SQLiteCommand(sql, connection) )
               try
               {
                 commandCreate.ExecuteNonQuery();
@@ -276,13 +241,13 @@ namespace Ordisoftware.Core
     /// <param name="column">The column name.</param>
     /// <param name="sql">The sql query to create the column, can be empty to only check</param>
     /// <returns>True if the column exists else false even if created.</returns>
-    static public bool CheckColumn(this OdbcConnection connection, string table, string column, string sql = "")
+    static public bool CheckColumn(this SQLiteConnection connection, string table, string column, string sql = "")
     {
       try
       {
         if ( table.IsNullOrEmpty() ) throw new ArgumentNullException(nameof(table));
         if ( column.IsNullOrEmpty() ) throw new ArgumentNullException(nameof(column));
-        using ( var commandCheck = new OdbcCommand($"PRAGMA table_info({table})", connection) )
+        using ( var commandCheck = new SQLiteCommand($"PRAGMA table_info({table})", connection) )
         using ( var readerCheck = commandCheck.ExecuteReader() )
         {
           int nameIndex = readerCheck.GetOrdinal("Name");
@@ -292,7 +257,7 @@ namespace Ordisoftware.Core
           if ( !sql.IsNullOrEmpty() )
           {
             sql = sql.Replace("%TABLE%", table).Replace("%COLUMN%", column);
-            using ( var commandCreate = new OdbcCommand(sql, connection) )
+            using ( var commandCreate = new SQLiteCommand(sql, connection) )
               try
               {
                 commandCreate.ExecuteNonQuery();
@@ -321,7 +286,7 @@ namespace Ordisoftware.Core
     /// <param name="valueDefault">The default value.</param>
     /// <param name="valueNotNull">Indicate if not null.</param>
     /// <returns>True if the column exists else false even if created.</returns>
-    static public bool CheckColumn(this OdbcConnection connection,
+    static public bool CheckColumn(this SQLiteConnection connection,
                                    string table,
                                    string column,
                                    string type,
@@ -343,12 +308,12 @@ namespace Ordisoftware.Core
     /// <param name="connection">The connection.</param>
     /// <param name="table">The table name.</param>
     /// <returns></returns>
-    static public int GetRowsCount(this OdbcConnection connection, string table)
+    static public int GetRowsCount(this SQLiteConnection connection, string table)
     {
       int count = -1;
       try
       {
-        using ( var command = new OdbcCommand($"SELECT COUNT(ID) FROM [{table}]", connection) )
+        using ( var command = new SQLiteCommand($"SELECT COUNT(ID) FROM [{table}]", connection) )
         {
           var reader = command.ExecuteReader();
           if ( reader.Read() ) count = (int)reader[0];

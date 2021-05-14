@@ -124,17 +124,18 @@ namespace Ordisoftware.Hebrew.Letters
       try
       {
         Globals.ChronoLoadData.Start();
+
+        ApplicationDatabase.Instance.Open();
         CreateSchemaIfNotExists();
         CreateDataIfNotExists(false);
 
-        //MeaningsTableAdapter.Fill(DataSet.Meanings);
-        //LettersTableAdapter.Fill(DataSet.Letters);
+        MeaningsTableAdapter.Fill(DataSet.Meanings);
+        LettersTableAdapter.Fill(DataSet.Letters);
 
         //Database.Instance.LoadingData += (type) => LoadingForm.Instance.Initialize(type.Name, 0);
         //Database.Instance.DataLoaded += LoadingForm.Instance.Hide;
-        Database.Instance.Open();
 
-        LettersBindingSource.DataSource = new BindingList<Letter>(Database.Instance.Letters);
+        //LettersBindingSource.DataSource = new BindingList<Letter>(Database.Instance.Letters);
 
         Globals.ChronoLoadData.Stop();
         Settings.BenchmarkLoadData = Globals.ChronoLoadData.ElapsedMilliseconds;

@@ -11,57 +11,41 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2021-02 </created>
-/// <edited> 2021-02 </edited>
+/// <edited> 2021-05 </edited>
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Diagnostics;
-using System.Data.Odbc;
+using System.Data;
 using Ordisoftware.Core;
 
 namespace Ordisoftware.Hebrew
 {
 
-  static partial class ProcessLocksTable
+  static class ProcessLocksTable
   {
 
     static public readonly string TableName = nameof(ProcessLocksTable).Replace("Table", string.Empty);
 
-    static private OdbcConnection LockFileConnection;
-
-    static ProcessLocksTable()
-    {
-      if ( Globals.IsVisualStudioDesigner ) return;
-      CreateSchemaIfNotExists();
-    }
-
-    static private void CreateSchemaIfNotExists()
-    {
-      SystemManager.TryCatchManage(() =>
-      {
-        SQLiteOdbcHelper.CreateOrUpdateDSN(Globals.CommonDatabaseOdbcDSN, Globals.CommonDatabaseFilePath, 0);
-        LockFileConnection = new OdbcConnection(Globals.CommonConnectionString);
-        LockFileConnection.Open();
-        LockFileConnection.CheckTable(TableName, $@"CREATE TABLE {TableName} ( ProcessID INTEGER, Name TEXT)");
-      });
-    }
-
     static private void Purge()
     {
-      string sql = $"SELECT ProcessID, count(ProcessID) FROM {TableName} GROUP BY ProcessID";
-      using ( var commandSelect = new OdbcCommand(sql, LockFileConnection) )
+      string sqlSelect = $"SELECT ProcessID, count(ProcessID) FROM {TableName} GROUP BY ProcessID";
+      foreach ( var item in HebrewDatabase.Instance.Connection.Query<ProcessLock>(sqlSelect) )
       {
-        var reader = commandSelect.ExecuteReader();
-        while ( reader.Read() )
+        if ( Process.GetProcesses().Any(p => p.Id == item.ProcessID) ) continue;
+        string sqlDelete = $"SELECT ID FROM {TableName} WHERE ProcessID = (?)";
+        var query = HebrewDatabase.Instance.Connection.Query<ProcessLock>(sqlDelete, item.ProcessID);
+        HebrewDatabase.Instance.Connection.BeginTransaction();
+        try
         {
-          int id = (int)reader["ProcessID"];
-          if ( Process.GetProcesses().Any(p => p.Id == id) ) continue;
-          string sqlDelete = $"DELETE FROM {TableName} WHERE ProcessID = (?)";
-          using ( var commandDelete = new OdbcCommand(sqlDelete, LockFileConnection) )
-          {
-            commandDelete.Parameters.Add("@ID", OdbcType.Int).Value = id;
-            commandDelete.ExecuteNonQuery();
-          }
+          foreach ( ProcessLock row in query )
+            HebrewDatabase.Instance.Connection.Delete(row);
+          HebrewDatabase.Instance.Connection.Commit();
+        }
+        catch
+        {
+          HebrewDatabase.Instance.Connection.Rollback();
+          throw;
         }
       }
     }
@@ -76,12 +60,7 @@ namespace Ordisoftware.Hebrew
     {
       name = Convert(name);
       string sql = $"SELECT Count(ProcessID) FROM {TableName} WHERE ProcessID = (?) AND Name = (?)";
-      using ( var command = new OdbcCommand(sql, LockFileConnection) )
-      {
-        command.Parameters.Add("@ID", OdbcType.Int).Value = Globals.ProcessId;
-        command.Parameters.Add("@Name", OdbcType.Text).Value = name;
-        return (int)command.ExecuteScalar() > 0;
-      }
+      return HebrewDatabase.Instance.Connection.ExecuteScalar<long>(sql, Globals.ProcessId, name) > 0;
     }
 
     static public bool IsReadOnly(string name = null)
@@ -89,64 +68,46 @@ namespace Ordisoftware.Hebrew
       return GetCount() > 1;
     }
 
-    static public int GetCount(string name = null)
+    static public long GetCount(string name = null)
     {
       name = Convert(name);
       string sql = $"SELECT Count(Name) FROM {TableName} WHERE Name = (?)";
-      using ( var command = new OdbcCommand(sql, LockFileConnection) )
-      {
-        command.Parameters.Add("@Name", OdbcType.Text).Value = name;
-        return (int)command.ExecuteScalar();
-      }
+      return HebrewDatabase.Instance.Connection.ExecuteScalar<long>(sql, name);
     }
 
-    static public List<string> GetLockers(string name = null)
+    /*static public List<string> GetLockers(string name = null)
     {
       name = Convert(name);
       string sql = $"SELECT ProcessID FROM {TableName} WHERE Name = (?)";
-      using ( var command = new OdbcCommand(sql, LockFileConnection) )
+      var dictionary = new Dictionary<string, int>();
+      foreach ( var item in HebrewDatabase.Instance.Connection.Query<ProcessLock>(sql, name) )
       {
-        command.Parameters.Add("@Name", OdbcType.Text).Value = name;
-        var reader = command.ExecuteReader();
-        var dictionary = new Dictionary<string, int>();
-        while ( reader.Read() )
-        {
-          int id = (int)reader["ProcessID"];
-          if ( id == Globals.ProcessId ) continue;
-          var process = Process.GetProcesses().FirstOrDefault(p => p.Id == id);
-          string processName = process?.ProcessName ?? "PID " + id;
-          if ( dictionary.ContainsKey(processName) )
-            dictionary[processName]++;
-          else
-            dictionary.Add(processName, 1);
-        }
-        return dictionary.Select(pair => $"{pair.Key} ({pair.Value})").ToList();
+        var id = item.ProcessID;
+        if ( id == Globals.ProcessId ) continue;
+        var process = Process.GetProcesses().FirstOrDefault(p => p.Id == id);
+        string processName = process?.ProcessName ?? "PID " + id;
+        if ( dictionary.ContainsKey(processName) )
+          dictionary[processName]++;
+        else
+          dictionary.Add(processName, 1);
       }
-    }
+      return dictionary.Select(pair => $"{pair.Key} ({pair.Value})").ToList();
+    }*/
 
     static public void Lock(string name = null)
     {
       if ( IsLockedByCurrentProcess(name) ) return;
-      string sql = $"INSERT INTO {TableName} VALUES (?, (?))";
-      UpdateLock(name, sql);
+      name = Convert(name);
+      var item = new ProcessLock { ProcessID = Globals.ProcessId, Name = name };
+      HebrewDatabase.Instance.Connection.Insert(item);
     }
 
     static public void Unlock(string name = null)
     {
       if ( !IsLockedByCurrentProcess(name) ) return;
-      string sql = $"DELETE FROM {TableName} WHERE ProcessID = (?) AND Name = (?)";
-      UpdateLock(name, sql);
-    }
-
-    static private void UpdateLock(string name, string sql)
-    {
       name = Convert(name);
-      using ( var command = new OdbcCommand(sql, LockFileConnection) )
-      {
-        command.Parameters.Add("@ID", OdbcType.Int).Value = Globals.ProcessId;
-        command.Parameters.Add("@Name", OdbcType.Text).Value = name;
-        command.ExecuteNonQuery();
-      }
+      var item = new ProcessLock { ProcessID = Globals.ProcessId, Name = name };
+      HebrewDatabase.Instance.Connection.Delete(item.ID);
     }
 
   }

@@ -11,11 +11,11 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2021-02 </created>
-/// <edited> 2021-02 </edited>
+/// <edited> 2021-05 </edited>
 using System;
 using System.Linq;
 using System.Data;
-using System.Data.Odbc;
+using System.Data.SQLite;
 using Ordisoftware.Core;
 
 namespace Ordisoftware.Hebrew
@@ -34,7 +34,6 @@ namespace Ordisoftware.Hebrew
     {
       if ( Globals.IsVisualStudioDesigner ) return;
       LoadDefaults();
-      CreateIfNotExists();
       for ( int index = 0; index < DefaultsAsList.Count; index++ )
         if ( DefaultsAsList[index].IsLinkedToNext )
           DefaultsAsList[index].Linked = DefaultsAsList[++index];
@@ -56,35 +55,6 @@ namespace Ordisoftware.Hebrew
       }
     }
 
-    static private void CreateIfNotExists()
-    {
-      SystemManager.TryCatchManage(() =>
-      {
-        SQLiteOdbcHelper.CreateOrUpdateDSN(Globals.CommonDatabaseOdbcDSN, Globals.CommonDatabaseFilePath, 0);
-        using ( var connection = new OdbcConnection(Globals.CommonConnectionString) )
-        {
-          connection.Open();
-          connection.CheckTable(TableName,
-                                $@"CREATE TABLE {TableName}
-                                  (
-                                    {nameof(Parashah.ID)} TEXT NOT NULL,
-                                    {nameof(Parashah.Book)} INTEGER NOT NULL,
-                                    {nameof(Parashah.Number)} INTEGER NOT NULL,
-                                    {nameof(Parashah.VerseBegin)} TEXT DEFAULT '' NOT NULL,
-                                    {nameof(Parashah.VerseEnd)} TEXT DEFAULT '' NOT NULL,
-                                    {nameof(Parashah.IsLinkedToNext)} INTEGER DEFAULT 0 NOT NULL,
-                                    {nameof(Parashah.Name)} TEXT DEFAULT '' NOT NULL,
-                                    {nameof(Parashah.Hebrew)} TEXT DEFAULT '' NOT NULL,
-                                    {nameof(Parashah.Unicode)} TEXT DEFAULT '' NOT NULL,
-                                    {nameof(Parashah.Translation)} TEXT DEFAULT '' NOT NULL,
-                                    {nameof(Parashah.Lettriq)} TEXT DEFAULT '' NOT NULL,
-                                    {nameof(Parashah.Memo)} TEXT DEFAULT '' NOT NULL,
-                                    PRIMARY KEY ({nameof(Parashah.ID)})
-                                  )");
-        }
-      });
-    }
-
     static public bool IsReadOnly()
     {
       return ProcessLocksTable.GetCount(TableName) > 1;
@@ -96,9 +66,9 @@ namespace Ordisoftware.Hebrew
       ProcessLocksTable.Lock(TableName);
       DataTable = new DataTable(TableName);
       string sql = "SELECT * FROM " + TableName;
-      using ( var connection = new OdbcConnection(Globals.CommonConnectionString) )
-      using ( var command = new OdbcCommand(sql, connection) )
-      using ( var adapter = new OdbcDataAdapter(command) )
+      using ( var connection = new SQLiteConnection(Globals.CommonSQLiteConnectionString) )
+      using ( var command = new SQLiteCommand(sql, connection) )
+      using ( var adapter = new SQLiteDataAdapter(command) )
       {
         connection.Open();
         adapter.Fill(DataTable);
@@ -118,10 +88,10 @@ namespace Ordisoftware.Hebrew
     {
       if ( DataTable == null ) throw new ArgumentNullException(TableName);
       string sql = "SELECT * FROM " + TableName;
-      using ( var connection = new OdbcConnection(Globals.CommonConnectionString) )
-      using ( var command = new OdbcCommand(sql, connection) )
-      using ( var adapter = new OdbcDataAdapter(command) )
-      using ( var builder = new OdbcCommandBuilder(adapter) )
+      using ( var connection = new SQLiteConnection(Globals.CommonSQLiteConnectionString) )
+      using ( var command = new SQLiteCommand(sql, connection) )
+      using ( var adapter = new SQLiteDataAdapter(command) )
+      using ( var builder = new SQLiteCommandBuilder(adapter) )
       {
         connection.Open();
         adapter.Update(DataTable);
@@ -141,8 +111,8 @@ namespace Ordisoftware.Hebrew
           if ( !reset && DataTable.Rows.Count == 54 ) return;
           Release();
           string sql = "DELETE FROM " + TableName;
-          using ( var connection = new OdbcConnection(Globals.CommonConnectionString) )
-          using ( var command = new OdbcCommand(sql, connection) )
+          using ( var connection = new SQLiteConnection(Globals.CommonSQLiteConnectionString) )
+          using ( var command = new SQLiteCommand(sql, connection) )
           {
             connection.Open();
             command.ExecuteNonQuery();

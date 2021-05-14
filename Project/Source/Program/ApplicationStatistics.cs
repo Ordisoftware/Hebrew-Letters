@@ -55,7 +55,7 @@ namespace Ordisoftware.Hebrew.Letters
         if ( UpdateDBFileSizeRequired )
         {
           UpdateDBFileSizeRequired = false;
-          _DBFileSize = SystemManager.GetFileSize(Globals.DatabaseFilePath).FormatBytesSize().ToString();
+          _DBFileSize = SystemManager.GetFileSize(Globals.ApplicationDatabaseFilePath).FormatBytesSize().ToString();
         }
         return _DBFileSize;
       }

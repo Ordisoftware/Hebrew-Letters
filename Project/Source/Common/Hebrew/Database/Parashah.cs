@@ -13,6 +13,7 @@
 /// <created> 2021-02 </created>
 /// <edited> 2021-02 </edited>
 using System;
+using SQLite;
 
 namespace Ordisoftware.Hebrew
 {
@@ -20,6 +21,7 @@ namespace Ordisoftware.Hebrew
   public partial class Parashah
   {
 
+    [PrimaryKey]
     public string ID { get; }
     public TorahBooks Book { get; }
     public int Number { get; }
@@ -32,6 +34,7 @@ namespace Ordisoftware.Hebrew
     public string Translation { get; set; }
     public string Lettriq { get; set; }
     public string Memo { get; set; }
+    [Ignore]
     public Parashah Linked { get; set; }
 
     /*public override string ToString()

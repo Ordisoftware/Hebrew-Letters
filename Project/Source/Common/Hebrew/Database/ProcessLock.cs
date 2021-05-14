@@ -13,30 +13,18 @@
 /// <created> 2021-05 </created>
 /// <edited> 2021-05 </edited>
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using SQLite;
 
-namespace Ordisoftware.Hebrew.Letters
+namespace Ordisoftware.Hebrew
 {
 
-  [Table("Letters")]
-  public class Letter
+  [Table("ProcessLocks")]
+  public class ProcessLock
   {
-    [PrimaryKey]
-    public string Code { get; set; }
+    [PrimaryKey, AutoIncrement]
+    public int ID { get; set; }
+    public int ProcessID { get; set; }
     public string Name { get; set; }
-    public string Hebrew { get; set; }
-    public string Positive { get; set; }
-    public string Negative { get; set; }
-    public string Structure { get; set; }
-    public string Function { get; set; }
-    public string Verb { get; set; }
-    public int ValueSimple { get; set; }
-    public int ValueFull { get; set; }
-    [Ignore]
-    public List<Meaning> Meanings 
-      => ApplicationDatabase.Instance.Meanings.Where(item => item.LetterCode == Code).ToList();
   }
 
 }

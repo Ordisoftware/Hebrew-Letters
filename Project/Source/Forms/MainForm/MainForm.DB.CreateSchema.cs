@@ -11,9 +11,10 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-01 </created>
-/// <edited> 2021-02 </edited>
+/// <edited> 2021-05 </edited>
 using System;
-using System.Data.Odbc;
+using System.Data;
+using System.Data.SQLite;
 using Ordisoftware.Core;
 
 namespace Ordisoftware.Hebrew.Letters
@@ -29,7 +30,7 @@ namespace Ordisoftware.Hebrew.Letters
     /// <summary>
     /// Indicate persistent database connection.
     /// </summary>
-    private OdbcConnection LockFileConnection;
+    private SQLiteConnection LockFileConnection;
 
     /// <summary>
     /// Check if tables and columns exists or create them.
@@ -38,8 +39,9 @@ namespace Ordisoftware.Hebrew.Letters
     {
       SystemManager.TryCatchManage(() =>
       {
+        // TODO change to check upgrade schema because tables already created by sqlite-net database static class
         SQLiteOdbcHelper.CreateOrUpdateDSN();
-        LockFileConnection = new OdbcConnection(Settings.ConnectionString);
+        LockFileConnection = new SQLiteConnection(Globals.ApplicationSQLiteConnectionString);
         LockFileConnection.Open();
         if ( Program.Settings.VacuumAtStartup )
           Program.Settings.VacuumLastDone = LockFileConnection.Optimize(Program.Settings.VacuumLastDone);
@@ -71,17 +73,17 @@ namespace Ordisoftware.Hebrew.Letters
           try
           {
             if ( LockFileConnection.CheckTable("Meanings_Temp") )
-              new OdbcCommand("DROP TABLE Meanings_Temp", LockFileConnection).ExecuteNonQuery();
-            new OdbcCommand("ALTER TABLE Meanings RENAME TO Meanings_Temp", LockFileConnection).ExecuteNonQuery();
+              new SQLiteCommand("DROP TABLE Meanings_Temp", LockFileConnection).ExecuteNonQuery();
+            new SQLiteCommand("ALTER TABLE Meanings RENAME TO Meanings_Temp", LockFileConnection).ExecuteNonQuery();
             LockFileConnection.CheckTable("Meanings", sqlMeanings);
-            var reader = new OdbcCommand("SELECT * FROM Meanings_Temp", LockFileConnection).ExecuteReader();
+            var reader = new SQLiteCommand("SELECT * FROM Meanings_Temp", LockFileConnection).ExecuteReader();
             while ( reader.Read() )
             {
-              var command = new OdbcCommand("INSERT INTO Meanings (ID, LetterCode, Meaning) " +
+              var command = new SQLiteCommand("INSERT INTO Meanings (ID, LetterCode, Meaning) " +
                                             "VALUES (?,?,?)", LockFileConnection);
-              command.Parameters.Add("@ID", OdbcType.Text).Value = Guid.NewGuid().ToString();
-              command.Parameters.Add("@LetterCode", OdbcType.Text).Value = (string)reader["LetterCode"];
-              command.Parameters.Add("@Meaning", OdbcType.Text).Value = (string)reader["Meaning"];
+              command.Parameters.Add("@ID", DbType.String).Value = Guid.NewGuid().ToString();
+              command.Parameters.Add("@LetterCode", DbType.String).Value = (string)reader["LetterCode"];
+              command.Parameters.Add("@Meaning", DbType.String).Value = (string)reader["Meaning"];
               command.ExecuteNonQuery();
             }
           }
@@ -91,7 +93,7 @@ namespace Ordisoftware.Hebrew.Letters
           }
           finally
           {
-            new OdbcCommand("DROP TABLE Meanings_Temp", LockFileConnection).ExecuteNonQuery();
+            new SQLiteCommand("DROP TABLE Meanings_Temp", LockFileConnection).ExecuteNonQuery();
           }
         string sqlColumn = "ALTER TABLE %TABLE% ADD COLUMN %COLUMN% TEXT DEFAULT '' NOT NULL";
         bool b = Globals.IsDatabaseUpgraded;
