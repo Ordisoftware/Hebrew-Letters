@@ -18,6 +18,7 @@ using System.Linq;
 using System.Diagnostics;
 using System.Data;
 using Ordisoftware.Core;
+using static Ordisoftware.Hebrew.HebrewDatabase;
 
 namespace Ordisoftware.Hebrew
 {
@@ -30,11 +31,11 @@ namespace Ordisoftware.Hebrew
     static private void Purge()
     {
       string sql = $"SELECT ProcessID, count(ProcessID) FROM {TableName} GROUP BY ProcessID";
-      foreach ( var item in HebrewDatabase.Instance.Connection.Query<ProcessLock>(sql) )
+      foreach ( var item in Instance.Connection.Query<ProcessLock>(sql) )
       {
         if ( Process.GetProcesses().Any(p => p.Id == item.ProcessID) ) continue;
         sql = $"DELETE FROM {TableName} WHERE ProcessID = (?)";
-        HebrewDatabase.Instance.Connection.Execute(sql, item.ProcessID);
+        Instance.Connection.Execute(sql, item.ProcessID);
       }
     }
 
@@ -49,7 +50,7 @@ namespace Ordisoftware.Hebrew
       if ( IsLockedByCurrentProcess(name) ) return;
       name = Convert(name);
       var item = new ProcessLock { ProcessID = Globals.ProcessId, Name = name };
-      HebrewDatabase.Instance.Connection.Insert(item);
+      Instance.Connection.Insert(item);
     }
 
     static public void Unlock(string name = null)
@@ -57,14 +58,14 @@ namespace Ordisoftware.Hebrew
       if ( !IsLockedByCurrentProcess(name) ) return;
       name = Convert(name);
       string sql = $"DELETE FROM {TableName} WHERE ProcessID = (?)";
-      HebrewDatabase.Instance.Connection.Execute(sql, Globals.ProcessId);
+      Instance.Connection.Execute(sql, Globals.ProcessId);
     }
 
     static public bool IsLockedByCurrentProcess(string name = null)
     {
       name = Convert(name);
       string sql = $"SELECT Count(ProcessID) FROM {TableName} WHERE ProcessID = (?) AND Name = (?)";
-      return HebrewDatabase.Instance.Connection.ExecuteScalar<long>(sql, Globals.ProcessId, name) > 0;
+      return Instance.Connection.ExecuteScalar<long>(sql, Globals.ProcessId, name) > 0;
     }
 
     static public bool IsReadOnly(string name = null)
@@ -76,7 +77,7 @@ namespace Ordisoftware.Hebrew
     {
       name = Convert(name);
       string sql = $"SELECT Count(Name) FROM {TableName} WHERE Name = (?)";
-      return HebrewDatabase.Instance.Connection.ExecuteScalar<long>(sql, name);
+      return Instance.Connection.ExecuteScalar<long>(sql, name);
     }
 
     static public List<string> GetLockers(string name = null)
@@ -84,7 +85,7 @@ namespace Ordisoftware.Hebrew
       name = Convert(name);
       string sql = $"SELECT ProcessID FROM {TableName} WHERE Name = (?)";
       var dictionary = new Dictionary<string, int>();
-      foreach ( var item in HebrewDatabase.Instance.Connection.Query<ProcessLock>(sql, name) )
+      foreach ( var item in Instance.Connection.Query<ProcessLock>(sql, name) )
       {
         var id = item.ProcessID;
         if ( id == Globals.ProcessId ) continue;

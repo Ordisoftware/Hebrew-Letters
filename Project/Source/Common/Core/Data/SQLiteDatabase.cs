@@ -13,6 +13,7 @@
 /// <created> 2021-05 </created>
 /// <edited> 2021-05 </edited>
 using System;
+using System.Data;
 using System.Linq;
 using System.Collections.Generic;
 using SQLite;
@@ -34,8 +35,6 @@ namespace Ordisoftware.Core
 
     public bool UseTransactionByDefault { get; set; } = true;
 
-    public event Func<bool> CheckSchema;
-
     public event LoadingDataEventHandler LoadingData;
 
     public event DataLoadedEventHandler DataLoaded;
@@ -51,14 +50,14 @@ namespace Ordisoftware.Core
                         .ToDictionary(pair => pair.name, pair => pair.instance);
     }
 
-    public bool Open()
+    public virtual bool Open()
     {
       if ( Connection != null ) return false;
-      
       Connection = new SQLiteConnection(ConnectionString);
       CreateTables();
-      bool upgraded = CheckSchema?.Invoke() ?? false;
+      bool upgraded = UpgradeSchema();
       LoadAll();
+      CreateDataIfNotExist();
       return upgraded;
     }
 
@@ -72,11 +71,20 @@ namespace Ordisoftware.Core
     {
     }
 
-    protected virtual void LoadAll()
+    public virtual bool UpgradeSchema()
+    {
+      return false;
+    }
+
+    public virtual void CreateDataIfNotExist(bool reset = false)
     {
     }
 
-    public List<T> Load<T>(TableQuery<T> query)
+    public virtual void LoadAll()
+    {
+    }
+
+    protected List<T> Load<T>(TableQuery<T> query)
     {
       LoadingData?.Invoke(typeof(T));
       var result = query.ToList();
@@ -99,22 +107,22 @@ namespace Ordisoftware.Core
       Connection.Rollback();
     }
 
-    public void UpdateAll()
+    public void SaveAll()
     {
-      UpdateAll(UseTransactionByDefault);
+      SaveAll(UseTransactionByDefault);
     }
 
-    public void UpdateAll(bool useTransaction)
+    public void SaveAll(bool useTransaction)
     {
       if ( !useTransaction )
       {
-        DoUpdateAll();
+        DoSaveAll();
         return;
       }
       Connection.BeginTransaction();
       try
       {
-        DoUpdateAll();
+        DoSaveAll();
         Connection.Commit();
       }
       catch
@@ -124,7 +132,7 @@ namespace Ordisoftware.Core
       }
     }
 
-    protected virtual void DoUpdateAll()
+    protected virtual void DoSaveAll()
     {
     }
 

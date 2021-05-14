@@ -43,16 +43,21 @@ namespace Ordisoftware.Hebrew.Letters
       Connection.CreateTable<Meaning>();
     }
 
-    protected override void LoadAll()
+    public override void LoadAll()
     {
       Letters = Load(Connection.Table<Letter>());
       Meanings = Load(Connection.Table<Meaning>());
     }
 
-    protected override void DoUpdateAll()
+    protected override void DoSaveAll()
     {
       Connection.UpdateAll(Letters);
       Connection.UpdateAll(Meanings);
+    }
+
+    public override bool UpgradeSchema()
+    {
+      return false;
     }
 
   }

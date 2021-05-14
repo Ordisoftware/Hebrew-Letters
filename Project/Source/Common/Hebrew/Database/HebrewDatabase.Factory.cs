@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2021-02 </created>
-/// <edited> 2021-02 </edited>
+/// <edited> 2021-05 </edited>
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,15 +21,15 @@ using Ordisoftware.Core;
 namespace Ordisoftware.Hebrew
 {
 
-  static partial class Parashot
+  public partial class HebrewDatabase
   {
 
-    static public Parashah GetDefaultByID(string id)
+    static public Parashah GetFactoryParashahByID(string id)
     {
-      return DefaultsAsList.FirstOrDefault(p => p.ID == id);
+      return FactoryParashotAsList.FirstOrDefault(p => p.ID == id);
     }
 
-    static public readonly NullSafeDictionary<TorahBooks, NullSafeList<Parashah>> Defaults
+    static public readonly NullSafeDictionary<TorahBooks, NullSafeList<Parashah>> FactoryParashot
       = new NullSafeDictionary<TorahBooks, NullSafeList<Parashah>>
       {
         [TorahBooks.Bereshit] = new NullSafeList<Parashah>
@@ -103,9 +103,9 @@ namespace Ordisoftware.Hebrew
         }
       };
 
-    static public readonly List<Parashah> DefaultsAsList
+    static public readonly List<Parashah> FactoryParashotAsList
       = ( from book in Enums.GetValues<TorahBooks>()
-          from parashah in Defaults[book]
+          from parashah in FactoryParashot[book]
           select parashah ).ToList();
 
   }

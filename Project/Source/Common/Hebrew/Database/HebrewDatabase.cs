@@ -13,16 +13,21 @@
 /// <created> 2021-05 </created>
 /// <edited> 2021-05 </edited>
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using Ordisoftware.Core;
 
 namespace Ordisoftware.Hebrew
 {
 
-  public class HebrewDatabase : SQLiteDatabase
+  public partial class HebrewDatabase : SQLiteDatabase
   {
 
     static new public HebrewDatabase Instance { get; protected set; }
+
+    public List<Parashah> Parashot { get; private set; }
+
+    public bool ParashotFirstTake = true;
 
     static HebrewDatabase()
     {
@@ -30,7 +35,7 @@ namespace Ordisoftware.Hebrew
       SQLiteDatabase.Instance = Instance;
     }
 
-    //public List<ProcessLock> ProcessLocks { get; private set; }
+    private bool CreateDataMutex;
 
     private HebrewDatabase() : base(Globals.CommonDatabaseFilePath)
     {
@@ -39,25 +44,107 @@ namespace Ordisoftware.Hebrew
 
     protected override void CreateTables()
     {
-      // TODO delete old on install new version or use upgrade event to add ID
       Connection.CreateTable<ProcessLock>();
+      Connection.CreateTable<Parashah>();
     }
 
-    protected override void LoadAll()
+    public bool IsParashotReadOnly()
     {
-      //Load(Connection.Table<ProcessLock>());
+      return ProcessLocks.GetCount(nameof(Parashot)) > 1;
     }
 
-    protected override void DoUpdateAll()
+    public List<Parashah> TakeParashot()
     {
-      //UpdateProcessLocks();
+      //if ( Globals.IsVisualStudioDesigner ) return;
+      if ( Parashot != null ) return Parashot;
+      ProcessLocks.Lock(nameof(Parashot));
+      Parashot = Load(Connection.Table<Parashah>());
+      if ( ParashotFirstTake ) LoadDefaults();
+      return Parashot;
     }
 
-    public void UpdateProcessLocks()
+    public void ReleaseParashot()
     {
-      //Connection.UpdateAll(ProcessLocks);
+      if ( Parashot == null ) return;
+      Parashot.Clear();
+      Parashot = null;
+      ProcessLocks.Unlock(nameof(Parashot));
     }
 
+    public void SaveParashot()
+    {
+      Connection.UpdateAll(Parashot);
+    }
+
+    public override bool UpgradeSchema()
+    {
+      // TODO add ID autoinc
+      return false;
+    }
+
+    private void LoadDefaults()
+    {
+      ParashotFirstTake = false;
+      var query = from book in FactoryParashot from parashah in book.Value select parashah;
+      var linesTranslation = new NullSafeOfStringDictionary<string>();
+      var linesLettriq = new NullSafeOfStringDictionary<string>();
+      linesTranslation.LoadKeyValuePairs(HebrewGlobals.ParashotTranslationsFilePath, "=");
+      linesLettriq.LoadKeyValuePairs(HebrewGlobals.ParashotLettriqsFilePath, "=");
+      int index = 0;
+      foreach ( Parashah item in query )
+      {
+        if ( index < linesTranslation.Count ) item.Translation = linesTranslation.Values.ElementAt(index).Trim();
+        if ( index < linesLettriq.Count ) item.Lettriq = linesLettriq.Values.ElementAt(index).Trim();
+        index++;
+      }
+      for ( index = 0; index < FactoryParashotAsList.Count; index++ )
+        if ( FactoryParashotAsList[index].IsLinkedToNext )
+          FactoryParashotAsList[index].Linked = FactoryParashotAsList[++index];
+      CreateParashotDataIfNotExist(false);
+    }
+
+    public void CreateParashotDataIfNotExist(bool reset = false)
+    {
+      if ( CreateDataMutex ) return;
+      SystemManager.TryCatchManage(() =>
+      {
+        bool temp = Globals.IsReady;
+        Globals.IsReady = false;
+        CreateDataMutex = true;
+        Connection.BeginTransaction()
+        try
+        {
+          if ( !reset && Parashot.Count == 54 ) return;
+          Connection.DeleteAll<Parashah>();
+          var query = from book in FactoryParashot
+                      from parashah in book.Value
+                      select parashah;
+          foreach ( Parashah parashah in query.ToList() )
+          {
+            Connection.Insert(new Parashah(parashah.Book,
+                                           parashah.Number,
+                                           parashah.Name,
+                                           parashah.Unicode,
+                                           parashah.VerseBegin,
+                                           parashah.VerseEnd,
+                                           parashah.IsLinkedToNext,
+                                           parashah.Translation,
+                                           parashah.Lettriq));
+          }
+          Connection.Commit();
+        }
+        catch
+        {
+          Connection.Rollback();
+          throw;
+        }
+        finally
+        {
+          CreateDataMutex = false;
+          Globals.IsReady = temp;
+        }
+      });
+    }
   }
 
 }
