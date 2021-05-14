@@ -13,6 +13,7 @@
 /// <created> 2019-01 </created>
 /// <edited> 2021-04 </edited>
 using System;
+using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -35,7 +36,6 @@ namespace Ordisoftware.Hebrew.Letters
     /// </summary>
     private void DoConstructor()
     {
-
       InitializeComponent();
       SoundItem.Initialize();
       Text = Globals.AssemblyTitle;
@@ -126,8 +126,16 @@ namespace Ordisoftware.Hebrew.Letters
         Globals.ChronoLoadData.Start();
         CreateSchemaIfNotExists();
         CreateDataIfNotExists(false);
-        MeaningsTableAdapter.Fill(DataSet.Meanings);
-        LettersTableAdapter.Fill(DataSet.Letters);
+
+        //MeaningsTableAdapter.Fill(DataSet.Meanings);
+        //LettersTableAdapter.Fill(DataSet.Letters);
+
+        //Database.Instance.LoadingData += (type) => LoadingForm.Instance.Initialize(type.Name, 0);
+        //Database.Instance.DataLoaded += LoadingForm.Instance.Hide;
+        Database.Instance.Open();
+
+        LettersBindingSource.DataSource = new BindingList<Letter>(Database.Instance.Letters);
+
         Globals.ChronoLoadData.Stop();
         Settings.BenchmarkLoadData = Globals.ChronoLoadData.ElapsedMilliseconds;
         SystemManager.TryCatch(Settings.Save);
