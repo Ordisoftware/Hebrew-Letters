@@ -14,7 +14,7 @@
 /// <edited> 2021-05 </edited>
 using System;
 using System.Data;
-using System.Data.SQLite;
+using SQLite;
 using Ordisoftware.Core;
 
 namespace Ordisoftware.Hebrew.Letters
@@ -40,11 +40,12 @@ namespace Ordisoftware.Hebrew.Letters
       SystemManager.TryCatchManage(() =>
       {
         // TODO change to check upgrade schema because tables already created by sqlite-net database static class
-        SQLiteOdbcHelper.CreateOrUpdateDSN();
-        LockFileConnection = new SQLiteConnection(Globals.ApplicationSQLiteConnectionString);
-        LockFileConnection.Open();
+        //SQLiteOdbcHelper.CreateOrUpdateDSN();
+        LockFileConnection = ApplicationDatabase.Instance.Connection; //new SQLiteConnection(Globals.ApplicationSQLiteConnectionString);
+        //LockFileConnection.Open();
         if ( Program.Settings.VacuumAtStartup )
           Program.Settings.VacuumLastDone = LockFileConnection.Optimize(Program.Settings.VacuumLastDone);
+
         LockFileConnection.CheckTable(@"Letters",
                                       @"CREATE TABLE Letters
                                         ( 
@@ -69,6 +70,7 @@ namespace Ordisoftware.Hebrew.Letters
                                  PRIMARY KEY(ID) 
                                )";
         LockFileConnection.CheckTable("Meanings", sqlMeanings);
+        /*
         if ( !LockFileConnection.CheckColumn("Meanings", "ID") )
           try
           {
@@ -100,7 +102,7 @@ namespace Ordisoftware.Hebrew.Letters
         b = !LockFileConnection.CheckColumn("Letters", "Hebrew", sqlColumn) || b;
         b = !LockFileConnection.CheckColumn("Letters", "Positive", sqlColumn) || b;
         b = !LockFileConnection.CheckColumn("Letters", "Negative", sqlColumn) || b;
-        Globals.IsDatabaseUpgraded = b;
+        Globals.IsDatabaseUpgraded = b;*/
       });
     }
 

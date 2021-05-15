@@ -54,8 +54,8 @@ namespace Ordisoftware.Core
     {
       if ( Connection != null ) return false;
       Connection = new SQLiteConnection(ConnectionString);
-      CreateTables();
       bool upgraded = UpgradeSchema();
+      CreateTables();
       LoadAll();
       CreateDataIfNotExist();
       return upgraded;
@@ -134,6 +134,7 @@ namespace Ordisoftware.Core
 
     protected virtual void DoSaveAll()
     {
+      throw new NotImplementedException();
     }
 
   }

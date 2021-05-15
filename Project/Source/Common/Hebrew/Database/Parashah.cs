@@ -11,9 +11,10 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2021-02 </created>
-/// <edited> 2021-02 </edited>
+/// <edited> 2021-05 </edited>
 using System;
 using SQLite;
+using Ordisoftware.Core;
 
 namespace Ordisoftware.Hebrew
 {
@@ -35,19 +36,25 @@ namespace Ordisoftware.Hebrew
     public string Translation { get; set; }
     public string Lettriq { get; set; }
     public string Memo { get; set; }
+
     [Ignore]
     public Parashah Linked { get; set; }
 
-    /*public override string ToString()
-      => ToString(false);
+    public string FullReferenceBegin
+      => $"{Book}.{VerseBegin}";
 
     public string ToString(bool useHebrewFont)
-      => $"Sefer {Book}, " +
-         $"Parashah n°{Number}, " +
-         $"{VerseBegin} - {VerseEnd}, " +
+      => $"Sefer {Book} " +
+         $"{VerseBegin} - {VerseEnd} " +
+         $"Parashah n°{Number} " +
          $"{Name}{( IsLinkedToNext ? "*" : string.Empty )} " +
          $"({( useHebrewFont ? Hebrew : Unicode )}) : " +
-         $"{Translation} ; {Lettriq} : {Memo}";*/
+         $"{Translation.GetOrEmpty()} ; " +
+         $"{Lettriq.GetOrEmpty()} ; " +
+         $"{Memo.GetOrEmpty()} ";
+
+    public override string ToString()
+      => ToString(false);
 
     public string ToStringLinked()
       => Name + ( Linked != null ? " - " + Linked.Name : "" );

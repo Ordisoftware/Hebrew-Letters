@@ -108,6 +108,25 @@ namespace Ordisoftware.Hebrew
           from parashah in FactoryParashot[book]
           select parashah ).ToList();
 
+    static public void FactoryReset()
+    {
+      var query = from book in FactoryParashot from parashah in book.Value select parashah;
+      var linesTranslation = new NullSafeOfStringDictionary<string>();
+      var linesLettriq = new NullSafeOfStringDictionary<string>();
+      linesTranslation.LoadKeyValuePairs(HebrewGlobals.ParashotTranslationsFilePath, "=");
+      linesLettriq.LoadKeyValuePairs(HebrewGlobals.ParashotLettriqsFilePath, "=");
+      int index = 0;
+      foreach ( Parashah item in query )
+      {
+        if ( index < linesTranslation.Count ) item.Translation = linesTranslation.Values.ElementAt(index).Trim();
+        if ( index < linesLettriq.Count ) item.Lettriq = linesLettriq.Values.ElementAt(index).Trim();
+        index++;
+      }
+      for ( index = 0; index < FactoryParashotAsList.Count; index++ )
+        if ( FactoryParashotAsList[index].IsLinkedToNext )
+          FactoryParashotAsList[index].Linked = FactoryParashotAsList[++index];
+    }
+
   }
 
 }

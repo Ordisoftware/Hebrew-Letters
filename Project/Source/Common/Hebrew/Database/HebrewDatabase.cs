@@ -15,6 +15,7 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.ComponentModel;
 using Ordisoftware.Core;
 
 namespace Ordisoftware.Hebrew
@@ -25,9 +26,14 @@ namespace Ordisoftware.Hebrew
 
     static new public HebrewDatabase Instance { get; protected set; }
 
+    public readonly string ParashotTableName = nameof(Parashot);
+    public readonly string ProcessLocksTableName = nameof(ProcessLocks);
+
     public List<Parashah> Parashot { get; private set; }
 
-    public bool ParashotFirstTake = true;
+    public BindingList<Parashah> ParashotAsBindingList => new BindingList<Parashah>(Parashot);
+
+    private bool ParashotFirstTake = true;
 
     static HebrewDatabase()
     {
@@ -50,16 +56,21 @@ namespace Ordisoftware.Hebrew
 
     public bool IsParashotReadOnly()
     {
-      return ProcessLocks.GetCount(nameof(Parashot)) > 1;
+      return ProcessLocks.GetCount(ParashotTableName) > 1;
     }
 
     public List<Parashah> TakeParashot()
     {
       //if ( Globals.IsVisualStudioDesigner ) return;
       if ( Parashot != null ) return Parashot;
-      ProcessLocks.Lock(nameof(Parashot));
+      ProcessLocks.Lock(ParashotTableName);
+      if ( ParashotFirstTake )
+      {
+        FactoryReset();
+        CreateParashotDataIfNotExist(false);
+        ParashotFirstTake = false;
+      }
       Parashot = Load(Connection.Table<Parashah>());
-      if ( ParashotFirstTake ) LoadDefaults();
       return Parashot;
     }
 
@@ -68,82 +79,83 @@ namespace Ordisoftware.Hebrew
       if ( Parashot == null ) return;
       Parashot.Clear();
       Parashot = null;
-      ProcessLocks.Unlock(nameof(Parashot));
+      ProcessLocks.Unlock(ParashotTableName);
     }
 
     public void SaveParashot()
     {
-      Connection.UpdateAll(Parashot);
+      Connection.BeginTransaction();
+      try
+      {
+        Connection.UpdateAll(Parashot);
+        Connection.Commit();
+      }
+      catch
+      {
+        Connection.Rollback();
+        throw;
+      }
     }
 
     public override bool UpgradeSchema()
     {
-      // TODO add ID autoinc
-      return false;
-    }
-
-    private void LoadDefaults()
-    {
-      ParashotFirstTake = false;
-      var query = from book in FactoryParashot from parashah in book.Value select parashah;
-      var linesTranslation = new NullSafeOfStringDictionary<string>();
-      var linesLettriq = new NullSafeOfStringDictionary<string>();
-      linesTranslation.LoadKeyValuePairs(HebrewGlobals.ParashotTranslationsFilePath, "=");
-      linesLettriq.LoadKeyValuePairs(HebrewGlobals.ParashotLettriqsFilePath, "=");
-      int index = 0;
-      foreach ( Parashah item in query )
+      // TODO bloquer et considérer comme locké if table does not exist while other apps are running
+      // but that must be impossible because of the setup process => keep force close all apps...
+      if ( !Connection.CheckColumn(ProcessLocksTableName, "ID") )
       {
-        if ( index < linesTranslation.Count ) item.Translation = linesTranslation.Values.ElementAt(index).Trim();
-        if ( index < linesLettriq.Count ) item.Lettriq = linesLettriq.Values.ElementAt(index).Trim();
-        index++;
+        ProcessLocksMigration.AddID(Connection);
+        return true;
       }
-      for ( index = 0; index < FactoryParashotAsList.Count; index++ )
-        if ( FactoryParashotAsList[index].IsLinkedToNext )
-          FactoryParashotAsList[index].Linked = FactoryParashotAsList[++index];
-      CreateParashotDataIfNotExist(false);
+      return false;
     }
 
     public void CreateParashotDataIfNotExist(bool reset = false)
     {
       if ( CreateDataMutex ) return;
-      SystemManager.TryCatchManage(() =>
+      bool temp = Globals.IsReady;
+      Globals.IsReady = false;
+      CreateDataMutex = true;
+      try
       {
-        bool temp = Globals.IsReady;
-        Globals.IsReady = false;
-        CreateDataMutex = true;
-        Connection.BeginTransaction()
-        try
+        SystemManager.TryCatchManage(() =>
         {
-          if ( !reset && Parashot.Count == 54 ) return;
-          Connection.DeleteAll<Parashah>();
-          var query = from book in FactoryParashot
-                      from parashah in book.Value
-                      select parashah;
-          foreach ( Parashah parashah in query.ToList() )
+          if ( !reset )
+            // TODO create a count method in SQLiteHelper
+            if ( Connection.ExecuteScalar<long>($"SELECT Count(*) FROM {ParashotTableName}") == 54 )
+              return;
+          Connection.BeginTransaction();
+          try
           {
-            Connection.Insert(new Parashah(parashah.Book,
-                                           parashah.Number,
-                                           parashah.Name,
-                                           parashah.Unicode,
-                                           parashah.VerseBegin,
-                                           parashah.VerseEnd,
-                                           parashah.IsLinkedToNext,
-                                           parashah.Translation,
-                                           parashah.Lettriq));
+            Connection.DeleteAll<Parashah>();
+            var query = from book in FactoryParashot
+                        from parashah in book.Value
+                        select parashah;
+            foreach ( Parashah parashah in query.ToList() )
+            {
+              Connection.Insert(new Parashah(parashah.Book,
+                                             parashah.Number,
+                                             parashah.Name,
+                                             parashah.Unicode,
+                                             parashah.VerseBegin,
+                                             parashah.VerseEnd,
+                                             parashah.IsLinkedToNext,
+                                             parashah.Translation,
+                                             parashah.Lettriq));
+            }
+            Connection.Commit();
           }
-          Connection.Commit();
-        }
-        catch
-        {
-          Connection.Rollback();
-          throw;
-        }
-        finally
-        {
-          CreateDataMutex = false;
-          Globals.IsReady = temp;
-        }
-      });
+          catch
+          {
+            Connection.Rollback();
+            throw;
+          }
+        });
+      }
+      finally
+      {
+        CreateDataMutex = false;
+        Globals.IsReady = temp;
+      }
     }
   }
 
