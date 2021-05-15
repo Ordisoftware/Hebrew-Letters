@@ -305,7 +305,7 @@
     <Compile Include="Source\Common\Hebrew\Classes\HebrewTranslations.cs" />
     <Compile Include="Source\Common\Hebrew\Database\HebrewDatabase.cs" />
     <Compile Include="Source\Common\Hebrew\Database\Parashah.cs" />
-    <Compile Include="Source\Common\Hebrew\Database\HebrewDatabase.Factory.cs" />
+    <Compile Include="Source\Common\Hebrew\Database\ParashotFactory.cs" />
     <Compile Include="Source\Common\Hebrew\Database\ProcessLock.cs" />
     <Compile Include="Source\Common\Hebrew\Database\ProcessLocks.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\Books.cs" />
@@ -348,9 +348,9 @@
     <Compile Include="Source\Common\Hebrew\WinForms\LettersControl.Redraw.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Source\Entities\ApplicationDatabase.cs" />
-    <Compile Include="Source\Entities\Letter.cs" />
-    <Compile Include="Source\Entities\Meaning.cs" />
+    <Compile Include="Source\Database\ApplicationDatabase.cs" />
+    <Compile Include="Source\Database\Letter.cs" />
+    <Compile Include="Source\Database\Meaning.cs" />
     <Compile Include="Source\Forms\Boxes\SearchTermResultsBox.cs">
       <SubType>Form</SubType>
     </Compile>

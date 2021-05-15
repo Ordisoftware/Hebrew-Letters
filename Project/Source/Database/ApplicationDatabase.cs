@@ -37,6 +37,14 @@ namespace Ordisoftware.Hebrew.Letters
     {
     }
 
+    public override bool Open()
+    {
+      bool result = base.Open();
+      if ( Program.Settings.VacuumAtStartup )
+        Program.Settings.VacuumLastDone = Connection.Optimize(Program.Settings.VacuumLastDone);
+      return result;
+    }
+
     protected override void CreateTables()
     {
       Connection.CreateTable<Letter>();

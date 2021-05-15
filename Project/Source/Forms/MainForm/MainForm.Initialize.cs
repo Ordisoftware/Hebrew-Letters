@@ -125,15 +125,14 @@ namespace Ordisoftware.Hebrew.Letters
       {
         Globals.ChronoLoadData.Start();
 
+        ApplicationDatabase.Instance.LoadingData += (type) => LoadingForm.Instance.Initialize(type.Name, 0);
+        ApplicationDatabase.Instance.DataLoaded += LoadingForm.Instance.Hide;
+
         ApplicationDatabase.Instance.Open();
-        CreateSchemaIfNotExists();
         CreateDataIfNotExists(false);
 
         MeaningsTableAdapter.Fill(DataSet.Meanings);
         LettersTableAdapter.Fill(DataSet.Letters);
-
-        //Database.Instance.LoadingData += (type) => LoadingForm.Instance.Initialize(type.Name, 0);
-        //Database.Instance.DataLoaded += LoadingForm.Instance.Hide;
 
         //LettersBindingSource.DataSource = new BindingList<Letter>(Database.Instance.Letters);
 

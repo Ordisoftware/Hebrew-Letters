@@ -21,15 +21,39 @@ using Ordisoftware.Core;
 namespace Ordisoftware.Hebrew
 {
 
-  public partial class HebrewDatabase
+  static class ParashotFactory
   {
 
-    static public Parashah GetFactoryParashahByID(string id)
+    static public Parashah Get(string id)
     {
-      return FactoryParashotAsList.FirstOrDefault(p => p.ID == id);
+      return All.FirstOrDefault(p => p.ID == id);
     }
 
-    static public readonly NullSafeDictionary<TorahBooks, NullSafeList<Parashah>> FactoryParashot
+    static public void Reset()
+    {
+      var query = from book in Defaults from parashah in book.Value select parashah;
+      var linesTranslation = new NullSafeOfStringDictionary<string>();
+      var linesLettriq = new NullSafeOfStringDictionary<string>();
+      linesTranslation.LoadKeyValuePairs(HebrewGlobals.ParashotTranslationsFilePath, "=");
+      linesLettriq.LoadKeyValuePairs(HebrewGlobals.ParashotLettriqsFilePath, "=");
+      int index = 0;
+      foreach ( Parashah item in query )
+      {
+        if ( index < linesTranslation.Count ) item.Translation = linesTranslation.Values.ElementAt(index).Trim();
+        if ( index < linesLettriq.Count ) item.Lettriq = linesLettriq.Values.ElementAt(index).Trim();
+        index++;
+      }
+      for ( index = 0; index < All.Count(); index++ )
+        if ( All.ElementAt(index).IsLinkedToNext )
+          All.ElementAt(index).Linked = All.ElementAt(++index);
+    }
+
+    static public IEnumerable<Parashah> All
+      => from book in Enums.GetValues<TorahBooks>()
+         from parashah in Defaults[book]
+         select parashah;
+
+    static public readonly NullSafeDictionary<TorahBooks, NullSafeList<Parashah>> Defaults
       = new NullSafeDictionary<TorahBooks, NullSafeList<Parashah>>
       {
         [TorahBooks.Bereshit] = new NullSafeList<Parashah>
@@ -102,30 +126,6 @@ namespace Ordisoftware.Hebrew
           new Parashah(TorahBooks.Devarim, 11, "Vezot HaBerakah", "וזאת הברכה", "33.1", "34.12")
         }
       };
-
-    static public readonly List<Parashah> FactoryParashotAsList
-      = ( from book in Enums.GetValues<TorahBooks>()
-          from parashah in FactoryParashot[book]
-          select parashah ).ToList();
-
-    static public void FactoryReset()
-    {
-      var query = from book in FactoryParashot from parashah in book.Value select parashah;
-      var linesTranslation = new NullSafeOfStringDictionary<string>();
-      var linesLettriq = new NullSafeOfStringDictionary<string>();
-      linesTranslation.LoadKeyValuePairs(HebrewGlobals.ParashotTranslationsFilePath, "=");
-      linesLettriq.LoadKeyValuePairs(HebrewGlobals.ParashotLettriqsFilePath, "=");
-      int index = 0;
-      foreach ( Parashah item in query )
-      {
-        if ( index < linesTranslation.Count ) item.Translation = linesTranslation.Values.ElementAt(index).Trim();
-        if ( index < linesLettriq.Count ) item.Lettriq = linesLettriq.Values.ElementAt(index).Trim();
-        index++;
-      }
-      for ( index = 0; index < FactoryParashotAsList.Count; index++ )
-        if ( FactoryParashotAsList[index].IsLinkedToNext )
-          FactoryParashotAsList[index].Linked = FactoryParashotAsList[++index];
-    }
 
   }
 

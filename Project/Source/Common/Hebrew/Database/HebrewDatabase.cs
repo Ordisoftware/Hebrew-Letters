@@ -66,7 +66,7 @@ namespace Ordisoftware.Hebrew
       ProcessLocks.Lock(ParashotTableName);
       if ( ParashotFirstTake )
       {
-        FactoryReset();
+        ParashotFactory.Reset();
         CreateParashotDataIfNotExist(false);
         ParashotFirstTake = false;
       }
@@ -99,10 +99,9 @@ namespace Ordisoftware.Hebrew
 
     public override bool UpgradeSchema()
     {
-      // TODO bloquer et considérer comme locké if table does not exist while other apps are running
-      // but that must be impossible because of the setup process => keep force close all apps...
       if ( !Connection.CheckColumn(ProcessLocksTableName, "ID") )
       {
+        SystemManager.CloseRunningApplications(SysTranslations.UpgradeCommonDatabaseRequired.GetLang(ProcessLocksTableName));
         ProcessLocksMigration.AddID(Connection);
         return true;
       }
@@ -119,15 +118,12 @@ namespace Ordisoftware.Hebrew
       {
         SystemManager.TryCatchManage(() =>
         {
-          if ( !reset )
-            // TODO create a count method in SQLiteHelper
-            if ( Connection.ExecuteScalar<long>($"SELECT Count(*) FROM {ParashotTableName}") == 54 )
-              return;
+          if ( !reset && Connection.GetRowsCount(ParashotTableName) == 54 ) return;
           Connection.BeginTransaction();
           try
           {
             Connection.DeleteAll<Parashah>();
-            var query = from book in FactoryParashot
+            var query = from book in ParashotFactory.Defaults
                         from parashah in book.Value
                         select parashah;
             foreach ( Parashah parashah in query.ToList() )

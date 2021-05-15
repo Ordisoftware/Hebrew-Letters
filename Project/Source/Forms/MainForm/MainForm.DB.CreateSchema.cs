@@ -39,39 +39,10 @@ namespace Ordisoftware.Hebrew.Letters
     {
       SystemManager.TryCatchManage(() =>
       {
-        // TODO change to check upgrade schema because tables already created by sqlite-net database static class
-        //SQLiteOdbcHelper.CreateOrUpdateDSN();
         LockFileConnection = ApplicationDatabase.Instance.Connection; //new SQLiteConnection(Globals.ApplicationSQLiteConnectionString);
-        //LockFileConnection.Open();
-        if ( Program.Settings.VacuumAtStartup )
-          Program.Settings.VacuumLastDone = LockFileConnection.Optimize(Program.Settings.VacuumLastDone);
 
-        LockFileConnection.CheckTable(@"Letters",
-                                      @"CREATE TABLE Letters
-                                        ( 
-                                          Code TEXT DEFAULT '' NOT NULL, 
-                                          Name TEXT DEFAULT '' NOT NULL, 
-                                          Hebrew TEXT DEFAULT '' NOT NULL, 
-                                          Positive TEXT DEFAULT '' NOT NULL, 
-                                          Negative TEXT DEFAULT '' NOT NULL, 
-                                          Structure TEXT DEFAULT '' NOT NULL, 
-                                          Function TEXT DEFAULT '' NOT NULL, 
-                                          Verb TEXT DEFAULT '' NOT NULL,
-                                          ValueSimple INTEGER DEFAULT 0 NOT NULL, 
-                                          ValueFull INTEGER DEFAULT 0 NOT NULL, 
-                                          PRIMARY KEY(Code) 
-                                        )");
-        string sqlMeanings = @"CREATE TABLE Meanings
-                               (
-                                 ID TEXT DEFAULT '' NOT NULL, 
-                                 LetterCode TEXT DEFAULT '' NOT NULL,
-                                 Meaning TEXT DEFAULT '' NOT NULL,
-                                 FOREIGN KEY(LetterCode) REFERENCES Letters(Code)
-                                 PRIMARY KEY(ID) 
-                               )";
-        LockFileConnection.CheckTable("Meanings", sqlMeanings);
-        /*
-        if ( !LockFileConnection.CheckColumn("Meanings", "ID") )
+        
+        /*if ( !LockFileConnection.CheckColumn("Meanings", "ID") )
           try
           {
             if ( LockFileConnection.CheckTable("Meanings_Temp") )
