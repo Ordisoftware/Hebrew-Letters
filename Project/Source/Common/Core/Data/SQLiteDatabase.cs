@@ -13,8 +13,6 @@
 /// <created> 2021-05 </created>
 /// <edited> 2021-05 </edited>
 using System;
-using System.Data;
-using System.Linq;
 using System.Collections.Generic;
 using SQLite;
 
