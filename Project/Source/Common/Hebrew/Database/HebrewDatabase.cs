@@ -59,10 +59,10 @@ namespace Ordisoftware.Hebrew
       return ProcessLocks.GetCount(ParashotTableName) > 1;
     }
 
-    public List<Parashah> TakeParashot()
+    public List<Parashah> TakeParashot(bool reload = false)
     {
       //if ( Globals.IsVisualStudioDesigner ) return;
-      if ( Parashot != null ) return Parashot;
+      if ( !reload && Parashot != null ) return Parashot;
       ProcessLocks.Lock(ParashotTableName);
       if ( ParashotFirstTake )
       {
