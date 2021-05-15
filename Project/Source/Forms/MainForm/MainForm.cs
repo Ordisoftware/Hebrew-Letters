@@ -640,7 +640,7 @@ namespace Ordisoftware.Hebrew.Letters
                               .OfType<ComboBox>()
                               .Select(combo =>
                               {
-                                var letter = (Data.DataSet.LettersRow)combo.Tag;
+                                var letter = (Letter)combo.Tag;
                                 var meanings = LettersMeanings[letter.ValueSimple];
                                 return letter.Name + " : " + string.Join(", ", meanings);
                               });
@@ -696,7 +696,7 @@ namespace Ordisoftware.Hebrew.Letters
     {
       try
       {
-        forceEditMode = forceEditMode || EditMeanings.IsCurrentCellInEditMode || DataAddNewRowMutex;
+        /*forceEditMode = forceEditMode || EditMeanings.IsCurrentCellInEditMode || DataAddNewRowMutex;
         if ( SelectLetter.SelectedItem == null ) return;
         var row = (Data.DataSet.LettersRow)( (DataRowView)SelectLetter.SelectedItem ).Row;
         ActionAddMeaning.Enabled = !Globals.IsReadOnly && !forceEditMode;
@@ -712,6 +712,7 @@ namespace Ordisoftware.Hebrew.Letters
         ActionSearchTerm.Enabled = Globals.AllowClose;
         CommonMenusControl.Instance.ActionCheckUpdate.Enabled = Globals.AllowClose;
         AboutBox.Instance.ActionCheckUpdate.Enabled = Globals.AllowClose;
+        */
       }
       catch ( Exception ex )
       {
@@ -725,7 +726,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void ActionSave_Click(object sender, EventArgs e)
     {
-      if ( DataSet.HasChanges() )
+      /*if ( DataSet.HasChanges() )
         if ( Globals.IsReadOnly )
           DataSet.RejectChanges();
         else
@@ -738,15 +739,15 @@ namespace Ordisoftware.Hebrew.Letters
       UpdateDataControls(sender);
       EditMeanings.Focus();
       ClearLettersMeanings();
-      DoAnalyse();
+      DoAnalyse();*/
     }
 
     private void ActionUndo_Click(object sender, EventArgs e)
     {
-      if ( DataSet.HasChanges() )
+      /*if ( DataSet.HasChanges() )
         DataSet.RejectChanges();
       UpdateDataControls(sender);
-      EditMeanings.Focus();
+      EditMeanings.Focus();*/
     }
 
     private void ActionRestoreDefaults_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -754,7 +755,8 @@ namespace Ordisoftware.Hebrew.Letters
       if ( DisplayManager.QueryYesNo(SysTranslations.AskToResetData.GetLang()) )
       {
         string word = EditLetters.Input.Text;
-        CreateDataIfNotExists(true);
+        // TODO retake & rebind
+        ApplicationDatabase.Instance.CreateDataIfNotExists(true);
         ActionClear.PerformClick();
         ActionReset.PerformClick();
         EditLetters.Input.Text = word;
@@ -841,7 +843,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void ActionAddMeaning_Click(object sender, EventArgs e)
     {
-      var row = DataSet.Meanings.NewMeaningsRow();
+      /*var row = DataSet.Meanings.NewMeaningsRow();
       row.ID = Guid.NewGuid().ToString();
       row.LetterCode = SelectLetter.Text;
       row.Meaning = "";
@@ -850,12 +852,12 @@ namespace Ordisoftware.Hebrew.Letters
       MeaningsBindingSource.MoveLast();
       EditMeanings.BeginEdit(false);
       DataAddNewRowMutex = true;
-      UpdateDataControls(sender);
+      UpdateDataControls(sender);*/
     }
 
     private void ActionDeleteMeaning_Click(object sender, EventArgs e)
     {
-      if ( MeaningsBindingSource.Count < 1 ) return;
+      /*if ( MeaningsBindingSource.Count < 1 ) return;
       int pos = MeaningsBindingSource.Position;
       MeaningsBindingSource.RemoveCurrent();
       EditMeanings.EndEdit();
@@ -868,7 +870,7 @@ namespace Ordisoftware.Hebrew.Letters
         }
         else
           MeaningsBindingSource.Position = pos;
-      UpdateDataControls(sender);
+      UpdateDataControls(sender);*/
     }
 
     private void EditMeanings_KeyDown(object sender, KeyEventArgs e)
@@ -897,7 +899,7 @@ namespace Ordisoftware.Hebrew.Letters
           DataAddNewRowMutex = true;
         }
         else
-        if ( DataSet.HasChanges() )
+        if ( false/*DataSet.HasChanges()*/ )
         {
           DataAddNewRowMutex = false;
           UpdateDataControls(sender);
@@ -972,7 +974,7 @@ namespace Ordisoftware.Hebrew.Letters
       if ( e.Exception is ArgumentOutOfRangeException || e.Exception is IndexOutOfRangeException )
       {
         DisplayManager.ShowError($"DB Index error.{Globals.NL2}{SysTranslations.ApplicationMustExit.GetLang()}");
-        DataSet.RejectChanges();
+        ApplicationDatabase.Instance.Connection.Rollback();//DataSet.RejectChanges();
         e.Exception.Manage();
         Application.Exit();
       }
@@ -984,7 +986,7 @@ namespace Ordisoftware.Hebrew.Letters
     {
       if ( !Globals.IsReady ) return;
       e.Exception.Manage();
-      DataSet.RejectChanges();
+      ApplicationDatabase.Instance.Connection.Rollback();//DataSet.RejectChanges();
     }
 
     #endregion

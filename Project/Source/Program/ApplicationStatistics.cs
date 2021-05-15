@@ -37,10 +37,10 @@ namespace Ordisoftware.Hebrew.Letters
       => Program.Settings.BenchmarkLoadData.FormatMilliseconds();
 
     public string DBLettersCount
-      => MainForm.Instance.DataSet.Letters.Count.ToString();
+      => ApplicationDatabase.Instance.Letters.Count.ToString();
 
     public string DBMeaningsCount
-      => MainForm.Instance.DataSet.Meanings.Count.ToString();
+      => ApplicationDatabase.Instance.Meanings.Count.ToString();
 
     public string DBEngine
       => SQLiteOdbcHelper.EngineNameAndVersion;
@@ -70,7 +70,7 @@ namespace Ordisoftware.Hebrew.Letters
         if ( UpdateDBMemorySizeRequired )
         {
           UpdateDBMemorySizeRequired = false;
-          _DBMemorySize = MainForm.Instance.DataSet.SizeOf().FormatBytesSize();
+          _DBMemorySize = ApplicationDatabase.Instance.SizeOf().FormatBytesSize();
         }
         return _DBMemorySize;
       }
