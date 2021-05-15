@@ -162,6 +162,8 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 ## Future improvements
 
+- Add analyzed word data table and view panel.
+- Add reset only some columns to factory defaults.
 - Add export and import database.
 - Add export data to TXT/CSV/JSON.
 - Add import data from TXT/CSV/JSON.
@@ -174,7 +176,9 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 #### In progress - Version 6.0
 
-- Add analyzed word data table and view panel.
+- Switch from SQLite ODBC Driver to SQLite-Net with SQLitePCLraw nugets.
+- Code refactoring and quality improvement.
+- Optimize Performances.
 
 #### 2021.04.30 - Version 5.3
 

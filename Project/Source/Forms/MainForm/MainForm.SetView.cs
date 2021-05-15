@@ -105,7 +105,7 @@ namespace Ordisoftware.Hebrew.Letters
         EditLetters.Input.SelectionLength = SavedSelectionLength;
         if ( DataChanged )
         {
-          foreach ( Data.DataSet.LettersRow row in DataSet.Letters )
+          foreach ( var row in ApplicationDatabase.Instance.Letters )
             LettersMeanings[row.ValueSimple] = null;
           DoAnalyse();
           DataChanged = false;

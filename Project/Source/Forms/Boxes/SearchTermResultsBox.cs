@@ -17,6 +17,7 @@ using System.Linq;
 using System.Drawing;
 using System.Windows.Forms;
 using Ordisoftware.Core;
+using System.Collections.Generic;
 
 namespace Ordisoftware.Hebrew.Letters
 {
@@ -26,7 +27,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     class LetterItem
     {
-      public Data.DataSet.LettersRow Letter;
+      public Letter Letter;
       public override string ToString()
       {
         return Letter.Name;
@@ -37,20 +38,20 @@ namespace Ordisoftware.Hebrew.Letters
     {
       code = "";
       meaning = "";
-      bool contains(Data.DataSet.MeaningsRow[] rows, string str)
+      bool contains(List<Meaning> rows, string str)
       {
         foreach ( var row in rows )
-          if ( row.Meaning.ToLower().RemoveDiacritics().Contains(str) )
+          if ( row.Text.ToLower().RemoveDiacritics().Contains(str) )
             return true;
         return false;
       }
-      var query = from letter in MainForm.Instance.DataSet.Letters
+      var query = from letter in ApplicationDatabase.Instance.Letters
                   where letter.Function.ToLower().RemoveDiacritics().Contains(term)
                      || letter.Verb.ToLower().RemoveDiacritics().Contains(term)
                      || letter.Structure.ToLower().RemoveDiacritics().Contains(term)
                      || letter.Positive.ToLower().RemoveDiacritics().Contains(term)
                      || letter.Negative.ToLower().RemoveDiacritics().Contains(term)
-                     || contains(letter.GetMeaningsRows(), term)
+                     || contains(letter.Meanings, term)
                   select letter;
       if ( !query.Any() )
       {
@@ -110,8 +111,8 @@ namespace Ordisoftware.Hebrew.Letters
       check(item.Letter.Verb);
       check(item.Letter.Structure);
       check(item.Letter.Function);
-      foreach ( var itemMeaning in item.Letter.GetMeaningsRows() )
-        check(itemMeaning.Meaning);
+      foreach ( var itemMeaning in item.Letter.Meanings )
+        check(itemMeaning.Text);
       ListBoxMeanings.SelectedItem = ListBoxMeanings.Items[0];
     }
 

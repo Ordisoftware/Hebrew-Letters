@@ -13,7 +13,7 @@
 /// <created> 2016-04 </created>
 /// <edited> 2021-04 </edited>
 using System;
-using System.Data;
+using System.Linq;
 using System.Drawing;
 using System.Windows.Forms;
 using Ordisoftware.Core;
@@ -51,7 +51,7 @@ namespace Ordisoftware.Hebrew.Letters
         for ( int pos = word.Length - 1, index = 0; pos >= 0; index++, pos-- )
         {
           // Letter
-          var letter = DataSet.Letters.FindByCode(word[pos].ToString());
+          var letter = ApplicationDatabase.Instance.Letters.Find(l => l.Code == word[pos].ToString());
           if ( letter == null ) continue;
           sumSimple += letter.ValueSimple;
           sumFull += letter.ValueFull;
@@ -81,7 +81,7 @@ namespace Ordisoftware.Hebrew.Letters
           if ( LettersMeanings[letter.ValueSimple] == null )
           {
             int indexMeaning = 0;
-            var rowsMeanings = letter.GetMeaningsRows();
+            var rowsMeanings = letter.Meanings.ToArray();
             LettersMeanings[letter.ValueSimple] = new object[rowsMeanings.Length + 5 + 1];
             LettersMeanings[letter.ValueSimple][indexMeaning++] = letter.Positive;
             LettersMeanings[letter.ValueSimple][indexMeaning++] = letter.Negative;
@@ -90,9 +90,9 @@ namespace Ordisoftware.Hebrew.Letters
             LettersMeanings[letter.ValueSimple][indexMeaning++] = letter.Function;
             LettersMeanings[letter.ValueSimple][indexMeaning++] = Globals.ListSeparator;
             if ( Program.Settings.AutoSortAnalysisMeanings )
-              Array.Sort(rowsMeanings, (x, y) => x.Meaning.CompareTo(y.Meaning));
+              Array.Sort(rowsMeanings, (x, y) => x.Text.CompareTo(y.Text));
             foreach ( var meaning in rowsMeanings )
-              LettersMeanings[letter.ValueSimple][indexMeaning++] = meaning.Meaning;
+              LettersMeanings[letter.ValueSimple][indexMeaning++] = meaning.Text;
           }
           combobox.Tag = letter;
           SelectAnalyze.Controls.Add(combobox);
@@ -117,7 +117,7 @@ namespace Ordisoftware.Hebrew.Letters
     {
       var label = (Label)sender;
       var combobox = (ComboBox)label.Tag;
-      var letter = (Data.DataSet.LettersRow)combobox.Tag;
+      var letter = (Letter)combobox.Tag;
       ActionViewLetters.PerformClick();
       SelectLetter.SelectedIndex = SelectLetter.FindStringExact(letter.Code);
     }
@@ -126,7 +126,7 @@ namespace Ordisoftware.Hebrew.Letters
     {
       var combobox = (ComboBox)sender;
       if ( combobox.Items.Count > 0 ) return;
-      combobox.Items.AddRange(LettersMeanings[( (Data.DataSet.LettersRow)combobox.Tag ).ValueSimple]);
+      combobox.Items.AddRange(LettersMeanings[( (Letter)combobox.Tag ).ValueSimple]);
     }
 
   }

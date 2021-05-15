@@ -13,6 +13,7 @@
 /// <created> 2019-01 </created>
 /// <edited> 2021-04 </edited>
 using System;
+using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -35,7 +36,6 @@ namespace Ordisoftware.Hebrew.Letters
     /// </summary>
     private void DoConstructor()
     {
-
       InitializeComponent();
       SoundItem.Initialize();
       Text = Globals.AssemblyTitle;
@@ -100,7 +100,7 @@ namespace Ordisoftware.Hebrew.Letters
       Settings.Retrieve();
       InitializeTheme();
       InitializeDialogsDirectory();
-      ProcessLocksTable.Lock();
+      ProcessLocks.Lock();
       EditLetters.Input.MaxLength = (int)Settings.HebrewTextBoxMaxLength;
       Program.Settings.CurrentView = ViewMode.Analysis;
       EditSentence.Font = new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence);
@@ -124,10 +124,8 @@ namespace Ordisoftware.Hebrew.Letters
       try
       {
         Globals.ChronoLoadData.Start();
-        CreateSchemaIfNotExists();
-        CreateDataIfNotExists(false);
-        MeaningsTableAdapter.Fill(DataSet.Meanings);
-        LettersTableAdapter.Fill(DataSet.Letters);
+        ApplicationDatabase.Instance.Open();
+        LettersBindingSource.DataSource = ApplicationDatabase.Instance.LettersAsBindingList;
         Globals.ChronoLoadData.Stop();
         Settings.BenchmarkLoadData = Globals.ChronoLoadData.ElapsedMilliseconds;
         SystemManager.TryCatch(Settings.Save);
@@ -273,11 +271,13 @@ namespace Ordisoftware.Hebrew.Letters
     /// </summary>
     private void DoFormClosed(object sender, FormClosedEventArgs e)
     {
+      ActionSave_Click(null, null);
+
       Program.Settings.CurrentView = ViewMode.Analysis;
       Globals.IsExiting = true;
       Globals.IsSessionEnding = true;
       Globals.AllowClose = true;
-      ProcessLocksTable.Unlock();
+      ProcessLocks.Unlock();
       Settings.Store();
       TimerTooltip.Stop();
       FormsHelper.CloseAll();
