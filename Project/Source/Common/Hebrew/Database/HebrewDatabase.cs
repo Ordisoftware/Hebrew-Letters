@@ -21,6 +21,7 @@ using Ordisoftware.Core;
 namespace Ordisoftware.Hebrew
 {
 
+  [Serializable]
   public partial class HebrewDatabase : SQLiteDatabase
   {
 
@@ -46,12 +47,23 @@ namespace Ordisoftware.Hebrew
     private HebrewDatabase() : base(Globals.CommonDatabaseFilePath)
     {
       Open();
+      Connection.CheckIntegrity();
+      Connection.Vacuum();
     }
 
     protected override void CreateTables()
     {
       Connection.CreateTable<ProcessLock>();
       Connection.CreateTable<Parashah>();
+    }
+
+    public override void LoadAll()
+    {
+    }
+
+    protected override void DoSaveAll()
+    {
+      throw new NotImplementedException();
     }
 
     public bool IsParashotReadOnly()
@@ -61,7 +73,6 @@ namespace Ordisoftware.Hebrew
 
     public List<Parashah> TakeParashot(bool reload = false)
     {
-      //if ( Globals.IsVisualStudioDesigner ) return;
       if ( !reload && Parashot != null ) return Parashot;
       ProcessLocks.Lock(ParashotTableName);
       if ( ParashotFirstTake )
@@ -123,21 +134,7 @@ namespace Ordisoftware.Hebrew
           try
           {
             Connection.DeleteAll<Parashah>();
-            var query = from book in ParashotFactory.Defaults
-                        from parashah in book.Value
-                        select parashah;
-            foreach ( Parashah parashah in query.ToList() )
-            {
-              Connection.Insert(new Parashah(parashah.Book,
-                                             parashah.Number,
-                                             parashah.Name,
-                                             parashah.Unicode,
-                                             parashah.VerseBegin,
-                                             parashah.VerseEnd,
-                                             parashah.IsLinkedToNext,
-                                             parashah.Translation,
-                                             parashah.Lettriq));
-            }
+            Connection.InsertAll(ParashotFactory.All.Select(p => p.Clone()));
             Connection.Commit();
           }
           catch
@@ -153,6 +150,7 @@ namespace Ordisoftware.Hebrew
         Globals.IsReady = temp;
       }
     }
+
   }
 
 }

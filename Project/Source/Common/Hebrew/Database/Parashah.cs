@@ -59,6 +59,11 @@ namespace Ordisoftware.Hebrew
     public string ToStringLinked()
       => Name + ( Linked != null ? " - " + Linked.Name : "" );
 
+    public object Clone()
+    {
+      return new Parashah(Book, Number, Name, Unicode, VerseBegin, VerseEnd, IsLinkedToNext, Translation, Lettriq);
+    }
+
     public Parashah()
     {
     }

@@ -16,11 +16,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using SQLite;
+using SQLiteNetExtensions.Attributes;
 
 namespace Ordisoftware.Hebrew.Letters
 {
 
   [Table("Letters")]
+  [Serializable]
   public class Letter
   {
     [PrimaryKey]
@@ -34,9 +36,10 @@ namespace Ordisoftware.Hebrew.Letters
     public string Verb { get; set; }
     public int ValueSimple { get; set; }
     public int ValueFull { get; set; }
-    [Ignore]
-    public List<Meaning> Meanings 
-      => ApplicationDatabase.Instance.Meanings.Where(item => item.LetterCode == Code).ToList();
+
+    [OneToMany(CascadeOperations = CascadeOperation.All)]
+    public List<Meaning> Meanings { get; set; } = new List<Meaning>();
+    //=> ApplicationDatabase.Instance.Meanings.Where(item => item.LetterCode == Code).ToList();
   }
 
 }

@@ -40,13 +40,13 @@ namespace Ordisoftware.Hebrew.Letters
       => ApplicationDatabase.Instance.Letters.Count.ToString();
 
     public string DBMeaningsCount
-      => ApplicationDatabase.Instance.Meanings.Count.ToString();
+      => ApplicationDatabase.Instance.Connection.GetRowsCount(nameof(Letter.Meanings)).ToString();
 
     public string DBEngine
-      => SQLiteOdbcHelper.EngineNameAndVersion;
+      => SQLiteNetHelper.EngineNameAndVersion;
 
-    public string DBADOdotNETProvider
-      => SQLiteOdbcHelper.ADOdotNETProviderName;
+    public string DBProvider
+      => SQLiteNetHelper.ProviderName;
 
     public string DBFileSize
     {

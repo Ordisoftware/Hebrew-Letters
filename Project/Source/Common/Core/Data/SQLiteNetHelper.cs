@@ -16,6 +16,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using MoreLinq;
 using SQLite;
 
 namespace Ordisoftware.Core
@@ -24,7 +25,7 @@ namespace Ordisoftware.Core
   /// <summary>
   /// Provide SQLite-Net helper.
   /// </summary>
-  static partial class SQLiteHelper
+  static partial class SQLiteNetHelper
   {
 
     static public int DefaultOptimizeDaysInterval { get; set; } = 7;
@@ -35,9 +36,9 @@ namespace Ordisoftware.Core
     static public string EngineNameAndVersion { get; private set; }
 
     /// <summary>
-    /// Indicate the ADO.NET provider name.
+    /// Indicate the provider name.
     /// </summary>
-    static public string ADOdotNETProviderName { get; private set; }
+    static public string ProviderName { get; private set; }
 
     /// <summary>
     /// Get a single line of a string.
@@ -68,8 +69,18 @@ namespace Ordisoftware.Core
     /// <param name="connection">The connection.</param>
     static public void InitializeVersion(this SQLiteConnection connection)
     {
-      ADOdotNETProviderName = connection?.GetType().Name ?? SysTranslations.ErrorSlot.GetLang();
-      EngineNameAndVersion = ( "SQLite " + connection?.LibVersionNumber ) ?? SysTranslations.ErrorSlot.GetLang();
+      ProviderName = connection?.GetType().Name ?? SysTranslations.ErrorSlot.GetLang();
+      int vernum = connection?.LibVersionNumber ?? -1;
+      if ( vernum == -1 )
+        EngineNameAndVersion = SysTranslations.UnknownSlot.GetLang();
+      else
+      {
+        string version = vernum.ToString();
+        string build = int.Parse(new string(version.TakeLast(3).ToArray())).ToString();
+        string minor = int.Parse(new string(version.SkipLast(3).TakeLast(3).ToArray())).ToString();
+        string major = int.Parse(new string(version.SkipLast(6).ToArray())).ToString();
+        EngineNameAndVersion = $"SQLite {major}.{minor}.{build}";
+      }
     }
 
     /// <summary>
@@ -267,8 +278,7 @@ namespace Ordisoftware.Core
           try
           {
             sql = sql.Replace("%TABLE%", table).Replace("%COLUMN%", column);
-            if ( connection.Execute(sql) == 0 )
-              throw new SQLiteException("Column not created."); // TODO translate
+            connection.Execute(sql);
           }
           catch ( Exception ex )
           {

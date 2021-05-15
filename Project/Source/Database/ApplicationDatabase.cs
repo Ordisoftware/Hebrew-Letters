@@ -13,12 +13,16 @@
 /// <created> 2021-05 </created>
 /// <edited> 2021-05 </edited>
 using System;
+using System.IO;
+using System.ComponentModel;
 using System.Collections.Generic;
+using SQLiteNetExtensions.Extensions;
 using Ordisoftware.Core;
 
 namespace Ordisoftware.Hebrew.Letters
 {
 
+  [Serializable]
   public class ApplicationDatabase : SQLiteDatabase
   {
 
@@ -31,18 +35,18 @@ namespace Ordisoftware.Hebrew.Letters
     }
 
     public List<Letter> Letters { get; private set; }
-    public List<Meaning> Meanings { get; private set; }
+
+    public BindingList<Letter> LettersAsBindingList => new BindingList<Letter>(Letters);
 
     private ApplicationDatabase() : base(Globals.ApplicationDatabaseFilePath)
     {
     }
 
-    public override bool Open()
+    public override void Open()
     {
-      bool result = base.Open();
+      base.Open();
       if ( Program.Settings.VacuumAtStartup )
         Program.Settings.VacuumLastDone = Connection.Optimize(Program.Settings.VacuumLastDone);
-      return result;
     }
 
     protected override void CreateTables()
@@ -53,15 +57,12 @@ namespace Ordisoftware.Hebrew.Letters
 
     public override void LoadAll()
     {
-      CreateDataIfNotExists(false);
-      Letters = Load(Connection.Table<Letter>());
-      Meanings = Load(Connection.Table<Meaning>());
+      Letters = Connection.GetAllWithChildren<Letter>();
     }
 
     protected override void DoSaveAll()
     {
-      Connection.UpdateAll(Letters);
-      Connection.UpdateAll(Meanings);
+      Connection.InsertOrReplaceAllWithChildren(Letters);
     }
 
     public override bool UpgradeSchema()
@@ -91,44 +92,36 @@ namespace Ordisoftware.Hebrew.Letters
         finally
         {
           new SQLiteCommand("DROP TABLE Meanings_Temp", LockFileConnection).ExecuteNonQuery();
-        }
+        }*/
       string sqlColumn = "ALTER TABLE %TABLE% ADD COLUMN %COLUMN% TEXT DEFAULT '' NOT NULL";
       bool b = Globals.IsDatabaseUpgraded;
-      b = !LockFileConnection.CheckColumn("Letters", "Hebrew", sqlColumn) || b;
-      b = !LockFileConnection.CheckColumn("Letters", "Positive", sqlColumn) || b;
-      b = !LockFileConnection.CheckColumn("Letters", "Negative", sqlColumn) || b;
+      b = !Connection.CheckColumn(nameof(Letters), nameof(Letter.Hebrew), sqlColumn) || b;
+      b = !Connection.CheckColumn(nameof(Letters), nameof(Letter.Positive), sqlColumn) || b;
+      b = !Connection.CheckColumn(nameof(Letters), nameof(Letter.Negative), sqlColumn) || b;
       Globals.IsDatabaseUpgraded = b;
-      });*/
-      return false;
+      return Globals.IsDatabaseUpgraded;
     }
 
-    public void CreateDataIfNotExists(bool reset)
+    public override void CreateDataIfNotExist(bool reset = false)
     {
-      /*try
+      try
       {
-        var connection = new OdbcConnection(Program.Settings.ConnectionString);
-        connection.Open();
-        var command = new OdbcCommand("SELECT count(*) FROM Letters", connection);
-        if ( !reset && (int)command.ExecuteScalar() == 22 ) return;
+        if ( !reset && Connection.GetRowsCount(nameof(Letters)) == 22 ) return;
         bool temp = Globals.IsReady;
         Globals.IsReady = false;
+        Connection.BeginTransaction();
         try
         {
-          command = new OdbcCommand("DELETE FROM Meanings", connection);
-          command.ExecuteNonQuery();
-          command = new OdbcCommand("DELETE FROM Letters", connection);
-          command.ExecuteNonQuery();
-          connection.Close();
-          MeaningsTableAdapter.Fill(DataSet.Meanings);
-          LettersTableAdapter.Fill(DataSet.Letters);
+          Connection.DeleteAll(Letters, true);
+          Letters.Clear();
           string data = File.ReadAllText(string.Format(Program.MeaningsFilePath, Languages.CurrentCode.ToUpper()),
                                          System.Text.Encoding.Default);
           int indexStart = 0;
           string getStrValue(string name)
           {
             int p = data.IndexOf(name, indexStart);
-            string s = data.Substring(p + name.Length, data.IndexOf("\r\n", p) - p - name.Length);
-            indexStart = data.IndexOf("\r\n", p) + 2;
+            string s = data.Substring(p + name.Length, data.IndexOf(Environment.NewLine, p) - p - name.Length);
+            indexStart = data.IndexOf(Environment.NewLine, p) + 2;
             return s.Trim();
           }
           int getIntValue(string name)
@@ -137,7 +130,7 @@ namespace Ordisoftware.Hebrew.Letters
           }
           for ( int index = 0; index < HebrewAlphabet.Codes.Length; index++ )
           {
-            var rowLetter = DataSet.Letters.NewLettersRow();
+            var rowLetter = new Letter();
             rowLetter.Code = HebrewAlphabet.Codes[index];
             rowLetter.Name = HebrewAlphabet.Translitterations.GetLang()[index];
             rowLetter.Hebrew = HebrewAlphabet.Names[index];
@@ -148,29 +141,33 @@ namespace Ordisoftware.Hebrew.Letters
             rowLetter.Verb = getStrValue("Verb: ");
             rowLetter.Structure = getStrValue("Structure: ");
             rowLetter.Function = getStrValue("Function: ");
-            var meanings = getStrValue("Meanings: ").Split(',');
-            foreach ( var meaning in meanings )
+            Letters.Add(rowLetter);
+            foreach ( var meaning in getStrValue("Meanings: ").Split(',') )
             {
-              var rowMeaning = DataSet.Meanings.NewMeaningsRow();
+              var rowMeaning = new Meaning();
               rowMeaning.ID = Guid.NewGuid().ToString();
               rowMeaning.LetterCode = rowLetter.Code;
-              rowMeaning.Meaning = meaning.Trim();
-              DataSet.Meanings.AddMeaningsRow(rowMeaning);
+              rowMeaning.Text = meaning.Trim();
+              rowLetter.Meanings.Add(rowMeaning);
             }
-            DataSet.Letters.AddLettersRow(rowLetter);
           }
-          TableAdapterManager.UpdateAll(DataSet);
+          Connection.InsertAllWithChildren(Letters);
+          Connection.Commit();
+        }
+        catch
+        {
+          Connection.Rollback();
+          throw;
         }
         finally
         {
-          command.Dispose();
           Globals.IsReady = temp;
         }
       }
       catch ( Exception ex )
       {
         ex.Manage();
-      }*/
+      }
     }
 
   }

@@ -726,28 +726,26 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void ActionSave_Click(object sender, EventArgs e)
     {
-      /*if ( DataSet.HasChanges() )
-        if ( Globals.IsReadOnly )
-          DataSet.RejectChanges();
-        else
-        {
-          TableAdapterManager.UpdateAll(DataSet);
-          ApplicationStatistics.UpdateDBFileSizeRequired = true;
-          ApplicationStatistics.UpdateDBMemorySizeRequired = true;
-          DataChanged = true;
-        }
+      if ( Globals.IsReadOnly )
+        ApplicationDatabase.Instance.LoadAll();
+      else
+      {
+        ApplicationDatabase.Instance.SaveAll();
+        ApplicationStatistics.UpdateDBFileSizeRequired = true;
+        ApplicationStatistics.UpdateDBMemorySizeRequired = true;
+        DataChanged = true;
+      }
       UpdateDataControls(sender);
       EditMeanings.Focus();
       ClearLettersMeanings();
-      DoAnalyse();*/
+      DoAnalyse();
     }
 
     private void ActionUndo_Click(object sender, EventArgs e)
     {
-      /*if ( DataSet.HasChanges() )
-        DataSet.RejectChanges();
+      ApplicationDatabase.Instance.LoadAll();
       UpdateDataControls(sender);
-      EditMeanings.Focus();*/
+      EditMeanings.Focus();
     }
 
     private void ActionRestoreDefaults_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -755,8 +753,9 @@ namespace Ordisoftware.Hebrew.Letters
       if ( DisplayManager.QueryYesNo(SysTranslations.AskToResetData.GetLang()) )
       {
         string word = EditLetters.Input.Text;
-        // TODO retake & rebind
-        ApplicationDatabase.Instance.CreateDataIfNotExists(true);
+        ApplicationDatabase.Instance.CreateDataIfNotExist(true);
+        ApplicationDatabase.Instance.LoadAll();
+        LettersBindingSource.DataSource = ApplicationDatabase.Instance.LettersAsBindingList;
         ActionClear.PerformClick();
         ActionReset.PerformClick();
         EditLetters.Input.Text = word;

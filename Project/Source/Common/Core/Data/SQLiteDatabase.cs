@@ -24,6 +24,7 @@ namespace Ordisoftware.Core
   public delegate void LoadingDataEventHandler(Type type);
   public delegate void DataLoadedEventHandler();
 
+  [Serializable]
   public abstract class SQLiteDatabase
   {
 
@@ -31,7 +32,13 @@ namespace Ordisoftware.Core
 
     static public string ConnectionString { get; private set; }
 
-    public SQLiteConnection Connection { get; private set; }
+    public SQLiteConnection Connection
+    {
+      get => _Connection;
+      private set => _Connection = value;
+    }
+    [NonSerialized]
+    public SQLiteConnection _Connection;
 
     public bool UseTransactionByDefault { get; set; } = true;
 
@@ -50,15 +57,14 @@ namespace Ordisoftware.Core
                         .ToDictionary(pair => pair.name, pair => pair.instance);
     }
 
-    public virtual bool Open()
+    public virtual void Open()
     {
-      if ( Connection != null ) return false;
+      if ( Connection != null ) return;
       Connection = new SQLiteConnection(ConnectionString);
-      bool upgraded = UpgradeSchema();
       CreateTables();
+      UpgradeSchema();
       LoadAll();
       CreateDataIfNotExist();
-      return upgraded;
     }
 
     public void Close()
@@ -67,22 +73,18 @@ namespace Ordisoftware.Core
       Connection = null;
     }
 
-    protected virtual void CreateTables()
-    {
-    }
-
     public virtual bool UpgradeSchema()
     {
       return false;
     }
 
+    protected abstract void CreateTables();
+
     public virtual void CreateDataIfNotExist(bool reset = false)
     {
     }
 
-    public virtual void LoadAll()
-    {
-    }
+    public abstract void LoadAll();
 
     protected List<T> Load<T>(TableQuery<T> query)
     {
@@ -132,10 +134,7 @@ namespace Ordisoftware.Core
       }
     }
 
-    protected virtual void DoSaveAll()
-    {
-      throw new NotImplementedException();
-    }
+    protected abstract void DoSaveAll();
 
   }
 

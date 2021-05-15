@@ -14,16 +14,21 @@
 /// <edited> 2021-05 </edited>
 using System;
 using SQLite;
+using SQLiteNetExtensions.Attributes;
 
 namespace Ordisoftware.Hebrew.Letters
 {
 
   [Table("Meanings")]
+  [Serializable]
   public class Meaning
   {
     [PrimaryKey]
     public string ID { get; set; }
+
+    [ForeignKey(typeof(Letter))]
     public string LetterCode { get; set; }
+
     [Column("Meaning")]
     public string Text { get; set; }
   }

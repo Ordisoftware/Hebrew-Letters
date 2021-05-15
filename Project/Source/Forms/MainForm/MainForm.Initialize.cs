@@ -124,12 +124,8 @@ namespace Ordisoftware.Hebrew.Letters
       try
       {
         Globals.ChronoLoadData.Start();
-        //ApplicationDatabase.Instance.LoadingData += (type) => LoadingForm.Instance.Initialize(type.Name, 0);
-        //ApplicationDatabase.Instance.DataLoaded += LoadingForm.Instance.Hide;
         ApplicationDatabase.Instance.Open();
-
-        LettersBindingSource.DataSource = new BindingList<Letter>(ApplicationDatabase.Instance.Letters);
-
+        LettersBindingSource.DataSource = ApplicationDatabase.Instance.LettersAsBindingList;
         Globals.ChronoLoadData.Stop();
         Settings.BenchmarkLoadData = Globals.ChronoLoadData.ElapsedMilliseconds;
         SystemManager.TryCatch(Settings.Save);
@@ -275,6 +271,8 @@ namespace Ordisoftware.Hebrew.Letters
     /// </summary>
     private void DoFormClosed(object sender, FormClosedEventArgs e)
     {
+      ActionSave_Click(null, null);
+
       Program.Settings.CurrentView = ViewMode.Analysis;
       Globals.IsExiting = true;
       Globals.IsSessionEnding = true;
