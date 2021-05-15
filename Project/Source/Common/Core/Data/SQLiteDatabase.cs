@@ -24,12 +24,12 @@ namespace Ordisoftware.Core
   public delegate void LoadingDataEventHandler(Type type);
   public delegate void DataLoadedEventHandler();
 
-  public abstract class SQLiteDatabase
+  abstract class SQLiteDatabase
   {
 
     static public SQLiteDatabase Instance { get; protected set; }
 
-    static public string ConnectionString { get; private set; }
+    public string ConnectionString { get; private set; }
 
     public SQLiteConnection Connection
     {
@@ -50,10 +50,6 @@ namespace Ordisoftware.Core
     protected SQLiteDatabase(string connectionString)
     {
       ConnectionString = connectionString;
-      Tables = GetType().GetFields()
-                        .Where(field => field.FieldType == typeof(List<>))
-                        .Select(field => new { name = field.Name, instance = field.GetValue(null) })
-                        .ToDictionary(pair => pair.name, pair => pair.instance);
     }
 
     public virtual void Open()

@@ -20,8 +20,8 @@ using SQLite;
 namespace Ordisoftware.Hebrew.Letters
 {
 
-  [Table("Letters")]
   [Serializable]
+  [Table("Letters")]
   public class Letter
   {
     [PrimaryKey]

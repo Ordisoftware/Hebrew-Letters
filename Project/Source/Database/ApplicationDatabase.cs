@@ -21,7 +21,7 @@ using Ordisoftware.Core;
 namespace Ordisoftware.Hebrew.Letters
 {
 
-  public class ApplicationDatabase : SQLiteDatabase
+  class ApplicationDatabase : SQLiteDatabase
   {
 
     static new public ApplicationDatabase Instance { get; protected set; }

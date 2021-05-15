@@ -19,8 +19,8 @@ using Ordisoftware.Core;
 namespace Ordisoftware.Hebrew.Letters
 {
 
-  [Table("Meanings")]
   [Serializable]
+  [Table("Meanings")]
   public class Meaning : Meaning_No_ID
   {
     [PrimaryKey]

@@ -19,6 +19,7 @@ using Ordisoftware.Core;
 namespace Ordisoftware.Hebrew
 {
 
+  [Serializable]
   [Table("Parashot")]
   public class Parashah
   {

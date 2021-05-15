@@ -21,7 +21,7 @@ using Ordisoftware.Core;
 namespace Ordisoftware.Hebrew
 {
 
-  public partial class HebrewDatabase : SQLiteDatabase
+  partial class HebrewDatabase : SQLiteDatabase
   {
 
     static new public HebrewDatabase Instance { get; protected set; }
