@@ -21,7 +21,6 @@ using Ordisoftware.Core;
 namespace Ordisoftware.Hebrew
 {
 
-  [Serializable]
   public partial class HebrewDatabase : SQLiteDatabase
   {
 
@@ -108,15 +107,13 @@ namespace Ordisoftware.Hebrew
       }
     }
 
-    public override bool UpgradeSchema()
+    public override void UpgradeSchema()
     {
       if ( !Connection.CheckColumn(ProcessLocksTableName, "ID") )
       {
         SystemManager.CloseRunningApplications(SysTranslations.UpgradeCommonDatabaseRequired.GetLang(ProcessLocksTableName));
-        ProcessLocksMigration.AddID(Connection);
-        return true;
+        ProcessLocksUpgrade.AddID(Connection);
       }
-      return false;
     }
 
     public void CreateParashotDataIfNotExist(bool reset = false)

@@ -13,10 +13,9 @@
 /// <created> 2021-05 </created>
 /// <edited> 2021-05 </edited>
 using System;
-using System.Collections.Generic;
 using System.Linq;
+using System.Collections.Generic;
 using SQLite;
-using SQLiteNetExtensions.Attributes;
 
 namespace Ordisoftware.Hebrew.Letters
 {
@@ -36,10 +35,8 @@ namespace Ordisoftware.Hebrew.Letters
     public string Verb { get; set; }
     public int ValueSimple { get; set; }
     public int ValueFull { get; set; }
-
-    [OneToMany(CascadeOperations = CascadeOperation.All)]
-    public List<Meaning> Meanings { get; set; } = new List<Meaning>();
-    //=> ApplicationDatabase.Instance.Meanings.Where(item => item.LetterCode == Code).ToList();
+    public List<Meaning> Meanings
+      => ApplicationDatabase.Instance.Meanings.Where(item => item.LetterCode == Code).ToList();
   }
 
 }

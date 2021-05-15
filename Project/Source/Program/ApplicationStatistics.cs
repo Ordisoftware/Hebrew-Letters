@@ -70,7 +70,7 @@ namespace Ordisoftware.Hebrew.Letters
         if ( UpdateDBMemorySizeRequired )
         {
           UpdateDBMemorySizeRequired = false;
-          _DBMemorySize = ApplicationDatabase.Instance.SizeOf().FormatBytesSize();
+          _DBMemorySize = ApplicationDatabase.Instance.Letters.SizeOf().FormatBytesSize();
         }
         return _DBMemorySize;
       }

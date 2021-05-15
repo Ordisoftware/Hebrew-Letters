@@ -272,6 +272,7 @@ namespace Ordisoftware.Core
       {
         if ( table.IsNullOrEmpty() ) throw new ArgumentNullException(nameof(table));
         if ( column.IsNullOrEmpty() ) throw new ArgumentNullException(nameof(column));
+        if ( !connection.CheckTable(table) ) return true;
         string sqlCheck = $"SELECT COUNT(*) AS CNTREC FROM pragma_table_info(?) WHERE name = ?";
         if ( connection.ExecuteScalar<long>(sqlCheck, table, column) > 0 ) return true;
         if ( !sql.IsNullOrEmpty() )

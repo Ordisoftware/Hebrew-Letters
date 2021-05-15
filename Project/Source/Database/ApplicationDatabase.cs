@@ -16,13 +16,11 @@ using System;
 using System.IO;
 using System.ComponentModel;
 using System.Collections.Generic;
-using SQLiteNetExtensions.Extensions;
 using Ordisoftware.Core;
 
 namespace Ordisoftware.Hebrew.Letters
 {
 
-  [Serializable]
   public class ApplicationDatabase : SQLiteDatabase
   {
 
@@ -35,6 +33,7 @@ namespace Ordisoftware.Hebrew.Letters
     }
 
     public List<Letter> Letters { get; private set; }
+    public List<Meaning> Meanings { get; private set; }
 
     public BindingList<Letter> LettersAsBindingList => new BindingList<Letter>(Letters);
 
@@ -55,51 +54,32 @@ namespace Ordisoftware.Hebrew.Letters
       Connection.CreateTable<Meaning>();
     }
 
+
     public override void LoadAll()
     {
-      Letters = Connection.GetAllWithChildren<Letter>();
+      Letters = Connection.Table<Letter>().ToList();
+      Meanings = Connection.Table<Meaning>().ToList();
     }
 
     protected override void DoSaveAll()
     {
-      Connection.InsertOrReplaceAllWithChildren(Letters);
+      Connection.UpdateAll(Letters);
+      Connection.UpdateAll(Meanings);
     }
 
-    public override bool UpgradeSchema()
+    public override void UpgradeSchema()
     {
-      /*if ( !LockFileConnection.CheckColumn("Meanings", "ID") )
-        try
-        {
-          if ( LockFileConnection.CheckTable("Meanings_Temp") )
-            new SQLiteCommand("DROP TABLE Meanings_Temp", LockFileConnection).ExecuteNonQuery();
-          new SQLiteCommand("ALTER TABLE Meanings RENAME TO Meanings_Temp", LockFileConnection).ExecuteNonQuery();
-          LockFileConnection.CheckTable("Meanings", sqlMeanings);
-          var reader = new SQLiteCommand("SELECT * FROM Meanings_Temp", LockFileConnection).ExecuteReader();
-          while ( reader.Read() )
-          {
-            var command = new SQLiteCommand("INSERT INTO Meanings (ID, LetterCode, Meaning) " +
-                                          "VALUES (?,?,?)", LockFileConnection);
-            command.Parameters.Add("@ID", DbType.String).Value = Guid.NewGuid().ToString();
-            command.Parameters.Add("@LetterCode", DbType.String).Value = (string)reader["LetterCode"];
-            command.Parameters.Add("@Meaning", DbType.String).Value = (string)reader["Meaning"];
-            command.ExecuteNonQuery();
-          }
-        }
-        catch ( Exception ex )
-        {
-          ex.Manage();
-        }
-        finally
-        {
-          new SQLiteCommand("DROP TABLE Meanings_Temp", LockFileConnection).ExecuteNonQuery();
-        }*/
+      if ( !Connection.CheckColumn(nameof(Meanings), "ID") )
+      {
+        MeaningsUpgrade.AddID(Connection);
+        Globals.IsDatabaseUpgraded = true;
+      }
       string sqlColumn = "ALTER TABLE %TABLE% ADD COLUMN %COLUMN% TEXT DEFAULT '' NOT NULL";
       bool b = Globals.IsDatabaseUpgraded;
       b = !Connection.CheckColumn(nameof(Letters), nameof(Letter.Hebrew), sqlColumn) || b;
       b = !Connection.CheckColumn(nameof(Letters), nameof(Letter.Positive), sqlColumn) || b;
       b = !Connection.CheckColumn(nameof(Letters), nameof(Letter.Negative), sqlColumn) || b;
       Globals.IsDatabaseUpgraded = b;
-      return Globals.IsDatabaseUpgraded;
     }
 
     public override void CreateDataIfNotExist(bool reset = false)
@@ -112,7 +92,8 @@ namespace Ordisoftware.Hebrew.Letters
         Connection.BeginTransaction();
         try
         {
-          Connection.DeleteAll(Letters, true);
+          Connection.DeleteAll<Meaning>();
+          Connection.DeleteAll<Letter>();
           Letters.Clear();
           string data = File.ReadAllText(string.Format(Program.MeaningsFilePath, Languages.CurrentCode.ToUpper()),
                                          System.Text.Encoding.Default);
@@ -142,16 +123,17 @@ namespace Ordisoftware.Hebrew.Letters
             rowLetter.Structure = getStrValue("Structure: ");
             rowLetter.Function = getStrValue("Function: ");
             Letters.Add(rowLetter);
+            Connection.Insert(rowLetter);
             foreach ( var meaning in getStrValue("Meanings: ").Split(',') )
             {
               var rowMeaning = new Meaning();
               rowMeaning.ID = Guid.NewGuid().ToString();
               rowMeaning.LetterCode = rowLetter.Code;
               rowMeaning.Text = meaning.Trim();
-              rowLetter.Meanings.Add(rowMeaning);
+              Meanings.Add(rowMeaning);
+              Connection.Insert(rowMeaning);
             }
           }
-          Connection.InsertAllWithChildren(Letters);
           Connection.Commit();
         }
         catch

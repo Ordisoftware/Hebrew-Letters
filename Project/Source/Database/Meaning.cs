@@ -14,23 +14,43 @@
 /// <edited> 2021-05 </edited>
 using System;
 using SQLite;
-using SQLiteNetExtensions.Attributes;
+using Ordisoftware.Core;
 
 namespace Ordisoftware.Hebrew.Letters
 {
 
   [Table("Meanings")]
   [Serializable]
-  public class Meaning
+  public class Meaning : Meaning_No_ID
   {
     [PrimaryKey]
     public string ID { get; set; }
+  }
 
-    [ForeignKey(typeof(Letter))]
+  public class Meaning_No_ID
+  {
     public string LetterCode { get; set; }
-
     [Column("Meaning")]
     public string Text { get; set; }
+  }
+
+  static class MeaningsUpgrade
+  {
+    static public void AddID(SQLiteConnection connection)
+    {
+      connection.Execute($@"PRAGMA foreign_keys = 0;");
+      connection.DropTableIfExists(nameof(Meaning_No_ID));
+      connection.RenameTableIfExists(nameof(ApplicationDatabase.Instance.Meanings), nameof(ProcessLock_No_ID));
+      connection.CreateTable<Meaning>();
+      var rows = connection.Table<Meaning_No_ID>();
+      connection.BeginTransaction();
+      int index = 1;
+      foreach ( var row in rows )
+        connection.Insert(new Meaning { ID = Guid.NewGuid().ToString(), LetterCode = row.LetterCode, Text = row.Text });
+      connection.Commit();
+      connection.DropTableIfExists(nameof(Meaning_No_ID));
+      connection.Execute($@"PRAGMA foreign_keys = 1;");
+    }
   }
 
 }

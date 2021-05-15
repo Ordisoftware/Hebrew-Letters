@@ -41,7 +41,7 @@ namespace Ordisoftware.Hebrew
     public Parashah Linked { get; set; }
 
     public string FullReferenceBegin
-      => $"{Book}.{VerseBegin}";
+      => $"{(int)Book}.{VerseBegin}";
 
     public string ToString(bool useHebrewFont)
       => $"Sefer {Book} " +

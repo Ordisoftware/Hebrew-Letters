@@ -32,7 +32,7 @@ namespace Ordisoftware.Hebrew
     public string Name { get; set; }
   }
 
-  static class ProcessLocksMigration
+  static class ProcessLocksUpgrade
   {
     static public void AddID(SQLiteConnection connection)
     {

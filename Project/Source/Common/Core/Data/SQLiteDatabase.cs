@@ -24,7 +24,6 @@ namespace Ordisoftware.Core
   public delegate void LoadingDataEventHandler(Type type);
   public delegate void DataLoadedEventHandler();
 
-  [Serializable]
   public abstract class SQLiteDatabase
   {
 
@@ -61,8 +60,8 @@ namespace Ordisoftware.Core
     {
       if ( Connection != null ) return;
       Connection = new SQLiteConnection(ConnectionString);
-      CreateTables();
       UpgradeSchema();
+      CreateTables();
       LoadAll();
       CreateDataIfNotExist();
     }
@@ -73,9 +72,8 @@ namespace Ordisoftware.Core
       Connection = null;
     }
 
-    public virtual bool UpgradeSchema()
+    public virtual void UpgradeSchema()
     {
-      return false;
     }
 
     protected abstract void CreateTables();
