@@ -175,7 +175,9 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 #### In progress - Version 6.0
 
 - Add analyzed word data table and view panel.
-- Switch from SQLite-ODBC-Driver to SQLite-Net with SQLite-PCL-Raw.
+- Switch from SQLite ODBC Driver to SQLite-Net with SQLitePCLraw nugets.
+- Code refactoring and quality improvement.
+- Optimize Performances.
 
 #### 2021.04.30 - Version 5.3
 
