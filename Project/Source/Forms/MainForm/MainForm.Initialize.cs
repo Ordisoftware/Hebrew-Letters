@@ -13,9 +13,7 @@
 /// <created> 2019-01 </created>
 /// <edited> 2021-04 </edited>
 using System;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Win32;
@@ -128,7 +126,6 @@ namespace Ordisoftware.Hebrew.Letters
         LettersBindingSource.DataSource = ApplicationDatabase.Instance.LettersAsBindingList;
         Globals.ChronoLoadData.Stop();
         Settings.BenchmarkLoadData = Globals.ChronoLoadData.ElapsedMilliseconds;
-        SystemManager.TryCatch(Settings.Save);
       }
       catch ( Exception ex )
       {
@@ -193,7 +190,6 @@ namespace Ordisoftware.Hebrew.Letters
     /// <param name="e">Form closing event information.</param>
     private void DoFormShown(object sender, EventArgs e)
     {
-      SystemManager.TryCatch(Settings.Save);
       if ( Globals.IsExiting ) return;
       if ( !Program.StartupWord.IsNullOrEmpty() )
       {
@@ -230,17 +226,16 @@ namespace Ordisoftware.Hebrew.Letters
       Globals.ChronoStartingApp.Stop();
       Settings.BenchmarkStartingApp = Globals.ChronoStartingApp.ElapsedMilliseconds;
       SystemManager.TryCatch(Settings.Save);
-      if ( Globals.IsSettingsUpgraded )
-        SystemManager.TryCatch(() =>
-        {
-          CommonMenusControl.Instance
-                            .ActionViewVersionNews
-                            .DropDownItems
-                            .Cast<ToolStripItem>()
-                            .Where(item => item.Text == Globals.AssemblyVersion.ToString())?
-                            .SingleOrDefault()
-                            .PerformClick();
-        });
+      ProcessNewsAndCommandLine();
+    }
+
+    /// <summary>
+    /// Show news and process command line options.
+    /// </summary>
+    private void ProcessNewsAndCommandLine()
+    {
+      if ( Globals.IsSettingsUpgraded && Settings.ShowLastNewInVersionAfterUpdate )
+        SystemManager.TryCatch(CommonMenusControl.Instance.ShowLastNews);
     }
 
     /// <summary>

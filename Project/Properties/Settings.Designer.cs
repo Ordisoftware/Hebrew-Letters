@@ -704,5 +704,17 @@ namespace Ordisoftware.Hebrew.Letters.Properties {
                 this["BenchmarkTranslate"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ShowLastNewInVersionAfterUpdate {
+            get {
+                return ((bool)(this["ShowLastNewInVersionAfterUpdate"]));
+            }
+            set {
+                this["ShowLastNewInVersionAfterUpdate"] = value;
+            }
+        }
     }
 }
