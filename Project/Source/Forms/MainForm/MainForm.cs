@@ -410,7 +410,12 @@ namespace Ordisoftware.Hebrew.Letters
     /// <param name="e">Event information.</param>
     private void ActionViewLetters_Click(object sender, EventArgs e)
     {
-      SetView(ViewMode.Data);
+      SetView(ViewMode.Letters);
+    }
+
+    private void ActionViewNotebook_Click(object sender, EventArgs e)
+    {
+      SetView(ViewMode.Notebook);
     }
 
     /// <summary>

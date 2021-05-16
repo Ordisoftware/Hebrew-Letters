@@ -133,7 +133,7 @@ namespace Ordisoftware.Hebrew.Letters
       if ( Globals.IsDatabaseUpgraded && DisplayManager.QueryYesNo(SysTranslations.AskToCheckDataAfterDbUpgraded.GetLang()) )
       {
         Globals.ChronoStartingApp.Start();
-        SetView(ViewMode.Data, false);
+        SetView(ViewMode.Letters, false);
       }
       else
       {

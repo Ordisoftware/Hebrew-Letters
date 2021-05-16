@@ -313,7 +313,7 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;LabelMeanings.Parent" xml:space="preserve">
-    <value>PanelSettingsDetails</value>
+    <value>PanelLettersInner</value>
   </data>
   <data name="&gt;&gt;LabelMeanings.ZOrder" xml:space="preserve">
     <value>7</value>
@@ -417,14 +417,14 @@
   <data name="&gt;&gt;LabelNegative.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="PanelViewSearch.AutoScroll" type="System.Boolean, mscorlib">
+  <data name="PanelViewAnalysis.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="EditGematriaFull.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
   </data>
   <data name="EditGematriaFull.Location" type="System.Drawing.Point, System.Drawing">
-    <value>540, 477</value>
+    <value>540, 460</value>
   </data>
   <data name="EditGematriaFull.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 20</value>
@@ -436,10 +436,10 @@
     <value>EditGematriaFull</value>
   </data>
   <data name="&gt;&gt;EditGematriaFull.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;EditGematriaFull.Parent" xml:space="preserve">
-    <value>PanelViewSearch</value>
+    <value>PanelViewAnalysis</value>
   </data>
   <data name="&gt;&gt;EditGematriaFull.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -457,7 +457,7 @@
     <value>NoControl</value>
   </data>
   <data name="LabelGematriaFull.Location" type="System.Drawing.Point, System.Drawing">
-    <value>589, 480</value>
+    <value>589, 463</value>
   </data>
   <data name="LabelGematriaFull.Size" type="System.Drawing.Size, System.Drawing">
     <value>23, 13</value>
@@ -475,7 +475,7 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;LabelGematriaFull.Parent" xml:space="preserve">
-    <value>PanelViewSearch</value>
+    <value>PanelViewAnalysis</value>
   </data>
   <data name="&gt;&gt;LabelGematriaFull.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -517,7 +517,7 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;LabelClipboardContentType.Parent" xml:space="preserve">
-    <value>PanelViewSearch</value>
+    <value>PanelViewAnalysis</value>
   </data>
   <data name="&gt;&gt;LabelClipboardContentType.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -535,7 +535,7 @@
     <value>NoControl</value>
   </data>
   <data name="LabelGematriaSimple.Location" type="System.Drawing.Point, System.Drawing">
-    <value>589, 454</value>
+    <value>589, 437</value>
   </data>
   <data name="LabelGematriaSimple.Size" type="System.Drawing.Size, System.Drawing">
     <value>38, 13</value>
@@ -553,7 +553,7 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;LabelGematriaSimple.Parent" xml:space="preserve">
-    <value>PanelViewSearch</value>
+    <value>PanelViewAnalysis</value>
   </data>
   <data name="&gt;&gt;LabelGematriaSimple.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -586,7 +586,7 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ActionReset.Parent" xml:space="preserve">
-    <value>PanelViewSearch</value>
+    <value>PanelViewAnalysis</value>
   </data>
   <data name="&gt;&gt;ActionReset.ZOrder" xml:space="preserve">
     <value>4</value>
@@ -622,7 +622,7 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ActionDelLast.Parent" xml:space="preserve">
-    <value>PanelViewSearch</value>
+    <value>PanelViewAnalysis</value>
   </data>
   <data name="&gt;&gt;ActionDelLast.ZOrder" xml:space="preserve">
     <value>5</value>
@@ -658,7 +658,7 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ActionDelFirst.Parent" xml:space="preserve">
-    <value>PanelViewSearch</value>
+    <value>PanelViewAnalysis</value>
   </data>
   <data name="&gt;&gt;ActionDelFirst.ZOrder" xml:space="preserve">
     <value>6</value>
@@ -688,7 +688,7 @@
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;EditCopyWithFinalLetter.Parent" xml:space="preserve">
-    <value>PanelViewSearch</value>
+    <value>PanelViewAnalysis</value>
   </data>
   <data name="&gt;&gt;EditCopyWithFinalLetter.ZOrder" xml:space="preserve">
     <value>7</value>
@@ -703,7 +703,7 @@
     <value>NoControl</value>
   </data>
   <data name="EditCopyToClipboardCloseApp.Location" type="System.Drawing.Point, System.Drawing">
-    <value>574, 522</value>
+    <value>574, 505</value>
   </data>
   <data name="EditCopyToClipboardCloseApp.Size" type="System.Drawing.Size, System.Drawing">
     <value>52, 17</value>
@@ -721,7 +721,7 @@
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;EditCopyToClipboardCloseApp.Parent" xml:space="preserve">
-    <value>PanelViewSearch</value>
+    <value>PanelViewAnalysis</value>
   </data>
   <data name="&gt;&gt;EditCopyToClipboardCloseApp.ZOrder" xml:space="preserve">
     <value>8</value>
@@ -739,7 +739,7 @@
     <value>10, 10, 10, 10</value>
   </data>
   <data name="SelectAnalyze.Size" type="System.Drawing.Size, System.Drawing">
-    <value>510, 210</value>
+    <value>510, 193</value>
   </data>
   <data name="SelectAnalyze.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -751,7 +751,7 @@
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;SelectAnalyze.Parent" xml:space="preserve">
-    <value>PanelViewSearch</value>
+    <value>PanelViewAnalysis</value>
   </data>
   <data name="&gt;&gt;SelectAnalyze.ZOrder" xml:space="preserve">
     <value>9</value>
@@ -847,7 +847,7 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ActionSearchOnline.Parent" xml:space="preserve">
-    <value>PanelViewSearch</value>
+    <value>PanelViewAnalysis</value>
   </data>
   <data name="&gt;&gt;ActionSearchOnline.ZOrder" xml:space="preserve">
     <value>10</value>
@@ -900,7 +900,7 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ActionPaste.Parent" xml:space="preserve">
-    <value>PanelViewSearch</value>
+    <value>PanelViewAnalysis</value>
   </data>
   <data name="&gt;&gt;ActionPaste.ZOrder" xml:space="preserve">
     <value>11</value>
@@ -948,7 +948,7 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ActionCopyToHebrew.Parent" xml:space="preserve">
-    <value>PanelViewSearch</value>
+    <value>PanelViewAnalysis</value>
   </data>
   <data name="&gt;&gt;ActionCopyToHebrew.ZOrder" xml:space="preserve">
     <value>12</value>
@@ -997,7 +997,7 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ActionCopyToUnicode.Parent" xml:space="preserve">
-    <value>PanelViewSearch</value>
+    <value>PanelViewAnalysis</value>
   </data>
   <data name="&gt;&gt;ActionCopyToUnicode.ZOrder" xml:space="preserve">
     <value>13</value>
@@ -1053,7 +1053,7 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ActionClear.Parent" xml:space="preserve">
-    <value>PanelViewSearch</value>
+    <value>PanelViewAnalysis</value>
   </data>
   <data name="&gt;&gt;ActionClear.ZOrder" xml:space="preserve">
     <value>14</value>
@@ -1116,7 +1116,7 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ActionSaveScreenshot.Parent" xml:space="preserve">
-    <value>PanelViewSearch</value>
+    <value>PanelViewAnalysis</value>
   </data>
   <data name="&gt;&gt;ActionSaveScreenshot.ZOrder" xml:space="preserve">
     <value>15</value>
@@ -1184,7 +1184,7 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ActionScreenshot.Parent" xml:space="preserve">
-    <value>PanelViewSearch</value>
+    <value>PanelViewAnalysis</value>
   </data>
   <data name="&gt;&gt;ActionScreenshot.ZOrder" xml:space="preserve">
     <value>16</value>
@@ -1241,7 +1241,7 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ActionViewAllMeaningsList.Parent" xml:space="preserve">
-    <value>PanelViewSearch</value>
+    <value>PanelViewAnalysis</value>
   </data>
   <data name="&gt;&gt;ActionViewAllMeaningsList.ZOrder" xml:space="preserve">
     <value>17</value>
@@ -1302,7 +1302,7 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ActionCopyToMeanings.Parent" xml:space="preserve">
-    <value>PanelViewSearch</value>
+    <value>PanelViewAnalysis</value>
   </data>
   <data name="&gt;&gt;ActionCopyToMeanings.ZOrder" xml:space="preserve">
     <value>18</value>
@@ -1351,7 +1351,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionCopyToResult.Location" type="System.Drawing.Point, System.Drawing">
-    <value>531, 501</value>
+    <value>531, 484</value>
   </data>
   <data name="ActionCopyToResult.Size" type="System.Drawing.Size, System.Drawing">
     <value>42, 42</value>
@@ -1366,7 +1366,7 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ActionCopyToResult.Parent" xml:space="preserve">
-    <value>PanelViewSearch</value>
+    <value>PanelViewAnalysis</value>
   </data>
   <data name="&gt;&gt;ActionCopyToResult.ZOrder" xml:space="preserve">
     <value>19</value>
@@ -1378,7 +1378,7 @@
     <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="EditSentence.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 510</value>
+    <value>13, 493</value>
   </data>
   <data name="EditSentence.Size" type="System.Drawing.Size, System.Drawing">
     <value>510, 26</value>
@@ -1390,10 +1390,10 @@
     <value>EditSentence</value>
   </data>
   <data name="&gt;&gt;EditSentence.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;EditSentence.Parent" xml:space="preserve">
-    <value>PanelViewSearch</value>
+    <value>PanelViewAnalysis</value>
   </data>
   <data name="&gt;&gt;EditSentence.ZOrder" xml:space="preserve">
     <value>20</value>
@@ -1402,7 +1402,7 @@
     <value>Bottom, Left</value>
   </data>
   <data name="EditGematriaSimple.Location" type="System.Drawing.Point, System.Drawing">
-    <value>540, 451</value>
+    <value>540, 434</value>
   </data>
   <data name="EditGematriaSimple.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 20</value>
@@ -1414,10 +1414,10 @@
     <value>EditGematriaSimple</value>
   </data>
   <data name="&gt;&gt;EditGematriaSimple.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;EditGematriaSimple.Parent" xml:space="preserve">
-    <value>PanelViewSearch</value>
+    <value>PanelViewAnalysis</value>
   </data>
   <data name="&gt;&gt;EditGematriaSimple.ZOrder" xml:space="preserve">
     <value>21</value>
@@ -1435,7 +1435,7 @@
     <value>NoControl</value>
   </data>
   <data name="LabelGematria.Location" type="System.Drawing.Point, System.Drawing">
-    <value>537, 432</value>
+    <value>537, 415</value>
   </data>
   <data name="LabelGematria.Size" type="System.Drawing.Size, System.Drawing">
     <value>49, 13</value>
@@ -1453,7 +1453,7 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;LabelGematria.Parent" xml:space="preserve">
-    <value>PanelViewSearch</value>
+    <value>PanelViewAnalysis</value>
   </data>
   <data name="&gt;&gt;LabelGematria.ZOrder" xml:space="preserve">
     <value>22</value>
@@ -1471,39 +1471,39 @@
     <value>EditLetters</value>
   </data>
   <data name="&gt;&gt;EditLetters.Type" xml:space="preserve">
-    <value>Ordisoftware.Hebrew.LettersControl, Ordisoftware.Hebrew.Letters, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Hebrew.LettersControl, Ordisoftware.Hebrew.Letters, Version=6.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;EditLetters.Parent" xml:space="preserve">
-    <value>PanelViewSearch</value>
+    <value>PanelViewAnalysis</value>
   </data>
   <data name="&gt;&gt;EditLetters.ZOrder" xml:space="preserve">
     <value>23</value>
   </data>
-  <data name="PanelViewSearch.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="PanelViewAnalysis.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="PanelViewSearch.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="PanelViewAnalysis.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
   </data>
-  <data name="PanelViewSearch.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="PanelViewAnalysis.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>10, 10, 10, 10</value>
   </data>
-  <data name="PanelViewSearch.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="PanelViewAnalysis.Size" type="System.Drawing.Size, System.Drawing">
     <value>628, 549</value>
   </data>
-  <data name="PanelViewSearch.TabIndex" type="System.Int32, mscorlib">
+  <data name="PanelViewAnalysis.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;PanelViewSearch.Name" xml:space="preserve">
-    <value>PanelViewSearch</value>
+  <data name="&gt;&gt;PanelViewAnalysis.Name" xml:space="preserve">
+    <value>PanelViewAnalysis</value>
   </data>
-  <data name="&gt;&gt;PanelViewSearch.Type" xml:space="preserve">
+  <data name="&gt;&gt;PanelViewAnalysis.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;PanelViewSearch.Parent" xml:space="preserve">
+  <data name="&gt;&gt;PanelViewAnalysis.Parent" xml:space="preserve">
     <value>TabPageText</value>
   </data>
-  <data name="&gt;&gt;PanelViewSearch.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;PanelViewAnalysis.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="TabPageText.Location" type="System.Drawing.Point, System.Drawing">
@@ -1533,10 +1533,10 @@
   <data name="&gt;&gt;TabPageText.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="PanelViewSettings.AutoScroll" type="System.Boolean, mscorlib">
+  <data name="PanelViewLetters.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="PanelSettingsDetails.AutoScroll" type="System.Boolean, mscorlib">
+  <data name="PanelLettersInner.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="dataGridViewTextBoxColumn11.HeaderText" xml:space="preserve">
@@ -1570,7 +1570,7 @@
     <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;meaningsDataGridView.Parent" xml:space="preserve">
-    <value>PanelSettingsDetails</value>
+    <value>PanelLettersInner</value>
   </data>
   <data name="&gt;&gt;meaningsDataGridView.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -1621,7 +1621,7 @@
     <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;letterDataGridView.Parent" xml:space="preserve">
-    <value>PanelSettingsDetails</value>
+    <value>PanelLettersInner</value>
   </data>
   <data name="&gt;&gt;letterDataGridView.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -1669,7 +1669,7 @@
     <value>LettersNavigator</value>
   </data>
   <data name="&gt;&gt;LettersNavigator.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.ComboBoxNavigator, Ordisoftware.Hebrew.Letters, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.ComboBoxNavigator, Ordisoftware.Hebrew.Letters, Version=6.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;LettersNavigator.Parent" xml:space="preserve">
     <value>PanelLetter</value>
@@ -1690,7 +1690,7 @@
     <value>TextBoxStructure</value>
   </data>
   <data name="&gt;&gt;TextBoxStructure.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;TextBoxStructure.Parent" xml:space="preserve">
     <value>PanelLetter</value>
@@ -1771,7 +1771,7 @@
     <value>TextBoxNegative</value>
   </data>
   <data name="&gt;&gt;TextBoxNegative.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;TextBoxNegative.Parent" xml:space="preserve">
     <value>PanelLetter</value>
@@ -1792,7 +1792,7 @@
     <value>TextBoxName</value>
   </data>
   <data name="&gt;&gt;TextBoxName.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;TextBoxName.Parent" xml:space="preserve">
     <value>PanelLetter</value>
@@ -1813,7 +1813,7 @@
     <value>TextBoxFunction</value>
   </data>
   <data name="&gt;&gt;TextBoxFunction.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;TextBoxFunction.Parent" xml:space="preserve">
     <value>PanelLetter</value>
@@ -1834,7 +1834,7 @@
     <value>TextBoxPositive</value>
   </data>
   <data name="&gt;&gt;TextBoxPositive.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;TextBoxPositive.Parent" xml:space="preserve">
     <value>PanelLetter</value>
@@ -1855,7 +1855,7 @@
     <value>TextBoxVerb</value>
   </data>
   <data name="&gt;&gt;TextBoxVerb.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;TextBoxVerb.Parent" xml:space="preserve">
     <value>PanelLetter</value>
@@ -1876,7 +1876,7 @@
     <value>TextBoxValueSimple</value>
   </data>
   <data name="&gt;&gt;TextBoxValueSimple.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;TextBoxValueSimple.Parent" xml:space="preserve">
     <value>PanelLetter</value>
@@ -1897,7 +1897,7 @@
     <value>TextBoxValueFull</value>
   </data>
   <data name="&gt;&gt;TextBoxValueFull.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=5.3.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;TextBoxValueFull.Parent" xml:space="preserve">
     <value>PanelLetter</value>
@@ -1921,7 +1921,7 @@
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;PanelLetter.Parent" xml:space="preserve">
-    <value>PanelSettingsDetails</value>
+    <value>PanelLettersInner</value>
   </data>
   <data name="&gt;&gt;PanelLetter.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -1959,7 +1959,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionUndo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>565, 476</value>
+    <value>548, 484</value>
   </data>
   <data name="ActionUndo.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 45</value>
@@ -1974,7 +1974,7 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ActionUndo.Parent" xml:space="preserve">
-    <value>PanelSettingsDetails</value>
+    <value>PanelLettersInner</value>
   </data>
   <data name="&gt;&gt;ActionUndo.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -2023,7 +2023,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionSave.Location" type="System.Drawing.Point, System.Drawing">
-    <value>565, 425</value>
+    <value>548, 433</value>
   </data>
   <data name="ActionSave.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 45</value>
@@ -2038,7 +2038,7 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ActionSave.Parent" xml:space="preserve">
-    <value>PanelSettingsDetails</value>
+    <value>PanelLettersInner</value>
   </data>
   <data name="&gt;&gt;ActionSave.ZOrder" xml:space="preserve">
     <value>4</value>
@@ -2078,7 +2078,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionDeleteMeaning.Location" type="System.Drawing.Point, System.Drawing">
-    <value>565, 85</value>
+    <value>548, 85</value>
   </data>
   <data name="ActionDeleteMeaning.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 45</value>
@@ -2093,7 +2093,7 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ActionDeleteMeaning.Parent" xml:space="preserve">
-    <value>PanelSettingsDetails</value>
+    <value>PanelLettersInner</value>
   </data>
   <data name="&gt;&gt;ActionDeleteMeaning.ZOrder" xml:space="preserve">
     <value>5</value>
@@ -2133,7 +2133,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionAddMeaning.Location" type="System.Drawing.Point, System.Drawing">
-    <value>565, 34</value>
+    <value>548, 34</value>
   </data>
   <data name="ActionAddMeaning.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 45</value>
@@ -2148,7 +2148,7 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ActionAddMeaning.Parent" xml:space="preserve">
-    <value>PanelSettingsDetails</value>
+    <value>PanelLettersInner</value>
   </data>
   <data name="&gt;&gt;ActionAddMeaning.ZOrder" xml:space="preserve">
     <value>6</value>
@@ -2160,7 +2160,7 @@
     <value>222, 34</value>
   </data>
   <data name="EditMeanings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>332, 487</value>
+    <value>315, 495</value>
   </data>
   <data name="EditMeanings.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2172,88 +2172,145 @@
     <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;EditMeanings.Parent" xml:space="preserve">
-    <value>PanelSettingsDetails</value>
+    <value>PanelLettersInner</value>
   </data>
   <data name="&gt;&gt;EditMeanings.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="PanelSettingsDetails.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="PanelLettersInner.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="PanelSettingsDetails.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="PanelLettersInner.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="PanelSettingsDetails.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="PanelLettersInner.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>20, 20, 20, 20</value>
   </data>
-  <data name="PanelSettingsDetails.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="PanelLettersInner.Size" type="System.Drawing.Size, System.Drawing">
     <value>628, 549</value>
   </data>
-  <data name="PanelSettingsDetails.TabIndex" type="System.Int32, mscorlib">
+  <data name="PanelLettersInner.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
   </data>
-  <data name="&gt;&gt;PanelSettingsDetails.Name" xml:space="preserve">
-    <value>PanelSettingsDetails</value>
+  <data name="&gt;&gt;PanelLettersInner.Name" xml:space="preserve">
+    <value>PanelLettersInner</value>
   </data>
-  <data name="&gt;&gt;PanelSettingsDetails.Type" xml:space="preserve">
+  <data name="&gt;&gt;PanelLettersInner.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;PanelSettingsDetails.Parent" xml:space="preserve">
-    <value>PanelViewSettings</value>
+  <data name="&gt;&gt;PanelLettersInner.Parent" xml:space="preserve">
+    <value>PanelViewLetters</value>
   </data>
-  <data name="&gt;&gt;PanelSettingsDetails.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;PanelLettersInner.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="PanelViewSettings.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="PanelViewLetters.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="PanelViewSettings.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="PanelViewLetters.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
   </data>
-  <data name="PanelViewSettings.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="PanelViewLetters.Size" type="System.Drawing.Size, System.Drawing">
     <value>628, 549</value>
   </data>
-  <data name="PanelViewSettings.TabIndex" type="System.Int32, mscorlib">
+  <data name="PanelViewLetters.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;PanelViewSettings.Name" xml:space="preserve">
-    <value>PanelViewSettings</value>
+  <data name="&gt;&gt;PanelViewLetters.Name" xml:space="preserve">
+    <value>PanelViewLetters</value>
   </data>
-  <data name="&gt;&gt;PanelViewSettings.Type" xml:space="preserve">
+  <data name="&gt;&gt;PanelViewLetters.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;PanelViewSettings.Parent" xml:space="preserve">
-    <value>TabPageMonth</value>
+  <data name="&gt;&gt;PanelViewLetters.Parent" xml:space="preserve">
+    <value>TabPageLetters</value>
   </data>
-  <data name="&gt;&gt;PanelViewSettings.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;PanelViewLetters.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="TabPageMonth.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="TabPageLetters.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
   </data>
-  <data name="TabPageMonth.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="TabPageLetters.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 3, 3, 3</value>
   </data>
-  <data name="TabPageMonth.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="TabPageLetters.Size" type="System.Drawing.Size, System.Drawing">
     <value>634, 555</value>
   </data>
-  <data name="TabPageMonth.TabIndex" type="System.Int32, mscorlib">
+  <data name="TabPageLetters.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="TabPageMonth.Text" xml:space="preserve">
-    <value>Data</value>
+  <data name="TabPageLetters.Text" xml:space="preserve">
+    <value>Letters</value>
   </data>
-  <data name="&gt;&gt;TabPageMonth.Name" xml:space="preserve">
-    <value>TabPageMonth</value>
+  <data name="&gt;&gt;TabPageLetters.Name" xml:space="preserve">
+    <value>TabPageLetters</value>
   </data>
-  <data name="&gt;&gt;TabPageMonth.Type" xml:space="preserve">
+  <data name="&gt;&gt;TabPageLetters.Type" xml:space="preserve">
     <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;TabPageMonth.Parent" xml:space="preserve">
+  <data name="&gt;&gt;TabPageLetters.Parent" xml:space="preserve">
     <value>TabControl</value>
   </data>
-  <data name="&gt;&gt;TabPageMonth.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;TabPageLetters.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="PanelViewNotebook.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="PanelViewNotebook.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="PanelViewNotebook.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="PanelViewNotebook.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>10, 10, 10, 10</value>
+  </data>
+  <data name="PanelViewNotebook.Size" type="System.Drawing.Size, System.Drawing">
+    <value>628, 549</value>
+  </data>
+  <data name="PanelViewNotebook.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;PanelViewNotebook.Name" xml:space="preserve">
+    <value>PanelViewNotebook</value>
+  </data>
+  <data name="&gt;&gt;PanelViewNotebook.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PanelViewNotebook.Parent" xml:space="preserve">
+    <value>TabPageNotebook</value>
+  </data>
+  <data name="&gt;&gt;PanelViewNotebook.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="TabPageNotebook.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="TabPageNotebook.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="TabPageNotebook.Size" type="System.Drawing.Size, System.Drawing">
+    <value>634, 555</value>
+  </data>
+  <data name="TabPageNotebook.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="TabPageNotebook.Text" xml:space="preserve">
+    <value>Notebook</value>
+  </data>
+  <data name="&gt;&gt;TabPageNotebook.Name" xml:space="preserve">
+    <value>TabPageNotebook</value>
+  </data>
+  <data name="&gt;&gt;TabPageNotebook.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TabPageNotebook.Parent" xml:space="preserve">
+    <value>TabControl</value>
+  </data>
+  <data name="&gt;&gt;TabPageNotebook.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="TabControl.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -2888,32 +2945,30 @@
   <data name="ActionViewLetters.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         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
-        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
-        KTGF6IwZ/wITHqgmpKNVuAAAAABJRU5ErkJggg==
+        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
 </value>
   </data>
   <data name="ActionViewLetters.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
@@ -2923,10 +2978,52 @@
     <value>46, 46</value>
   </data>
   <data name="ActionViewLetters.Text" xml:space="preserve">
-    <value>Data</value>
+    <value>Letters</value>
   </data>
   <data name="ActionViewLetters.ToolTipText" xml:space="preserve">
-    <value>Data (F2)</value>
+    <value>Letters (F2)</value>
+  </data>
+  <data name="ActionViewNotebook.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        H6dvCMeO/QtvnUwyWI3VKgAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="ActionViewNotebook.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="ActionViewNotebook.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 46</value>
+  </data>
+  <data name="ActionViewNotebook.Text" xml:space="preserve">
+    <value>Notebook </value>
+  </data>
+  <data name="ActionViewNotebook.ToolTipText" xml:space="preserve">
+    <value>Notebook (F5)</value>
   </data>
   <data name="toolStripSeparator6.Size" type="System.Drawing.Size, System.Drawing">
     <value>6, 49</value>
@@ -3061,7 +3158,7 @@
   <data name="ActionShowGrammarGuide.Text" xml:space="preserve">
     <value>Grammar guide</value>
   </data>
-  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="ActionGematriaCombinationsSeparator.Size" type="System.Drawing.Size, System.Drawing">
     <value>275, 6</value>
   </data>
   <data name="ActionGematriaCombinations.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
@@ -3276,6 +3373,96 @@
   <data name="&gt;&gt;ActionOpenWordOnline.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn11.Name" xml:space="preserve">
+    <value>dataGridViewTextBoxColumn11</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn11.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn12.Name" xml:space="preserve">
+    <value>dataGridViewTextBoxColumn12</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn12.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn13.Name" xml:space="preserve">
+    <value>dataGridViewTextBoxColumn13</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn13.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MeaningsBindingSource.Name" xml:space="preserve">
+    <value>MeaningsBindingSource</value>
+  </data>
+  <data name="&gt;&gt;MeaningsBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LettersBindingSource.Name" xml:space="preserve">
+    <value>LettersBindingSource</value>
+  </data>
+  <data name="&gt;&gt;LettersBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn1.Name" xml:space="preserve">
+    <value>dataGridViewTextBoxColumn1</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn2.Name" xml:space="preserve">
+    <value>dataGridViewTextBoxColumn2</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn3.Name" xml:space="preserve">
+    <value>dataGridViewTextBoxColumn3</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn4.Name" xml:space="preserve">
+    <value>dataGridViewTextBoxColumn4</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn5.Name" xml:space="preserve">
+    <value>dataGridViewTextBoxColumn5</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn6.Name" xml:space="preserve">
+    <value>dataGridViewTextBoxColumn6</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn7.Name" xml:space="preserve">
+    <value>dataGridViewTextBoxColumn7</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn8.Name" xml:space="preserve">
+    <value>dataGridViewTextBoxColumn8</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn9.Name" xml:space="preserve">
+    <value>dataGridViewTextBoxColumn9</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn10.Name" xml:space="preserve">
+    <value>dataGridViewTextBoxColumn10</value>
+  </data>
+  <data name="&gt;&gt;dataGridViewTextBoxColumn10.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;TimerTooltip.Name" xml:space="preserve">
     <value>TimerTooltip</value>
   </data>
@@ -3426,6 +3613,12 @@
   <data name="&gt;&gt;ActionViewLetters.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;ActionViewNotebook.Name" xml:space="preserve">
+    <value>ActionViewNotebook</value>
+  </data>
+  <data name="&gt;&gt;ActionViewNotebook.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;toolStripSeparator6.Name" xml:space="preserve">
     <value>toolStripSeparator6</value>
   </data>
@@ -3468,10 +3661,10 @@
   <data name="&gt;&gt;ActionShowGrammarGuide.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripSeparator1.Name" xml:space="preserve">
-    <value>toolStripSeparator1</value>
+  <data name="&gt;&gt;ActionGematriaCombinationsSeparator.Name" xml:space="preserve">
+    <value>ActionGematriaCombinationsSeparator</value>
   </data>
-  <data name="&gt;&gt;toolStripSeparator1.Type" xml:space="preserve">
+  <data name="&gt;&gt;ActionGematriaCombinationsSeparator.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ActionGematriaCombinations.Name" xml:space="preserve">
@@ -3509,96 +3702,6 @@
   </data>
   <data name="&gt;&gt;ToolTipClipboard.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LettersBindingSource.Name" xml:space="preserve">
-    <value>LettersBindingSource</value>
-  </data>
-  <data name="&gt;&gt;LettersBindingSource.Type" xml:space="preserve">
-    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn1.Name" xml:space="preserve">
-    <value>dataGridViewTextBoxColumn1</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn2.Name" xml:space="preserve">
-    <value>dataGridViewTextBoxColumn2</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn3.Name" xml:space="preserve">
-    <value>dataGridViewTextBoxColumn3</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn4.Name" xml:space="preserve">
-    <value>dataGridViewTextBoxColumn4</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn5.Name" xml:space="preserve">
-    <value>dataGridViewTextBoxColumn5</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn6.Name" xml:space="preserve">
-    <value>dataGridViewTextBoxColumn6</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn7.Name" xml:space="preserve">
-    <value>dataGridViewTextBoxColumn7</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn8.Name" xml:space="preserve">
-    <value>dataGridViewTextBoxColumn8</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn8.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn9.Name" xml:space="preserve">
-    <value>dataGridViewTextBoxColumn9</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn9.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn10.Name" xml:space="preserve">
-    <value>dataGridViewTextBoxColumn10</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn10.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MeaningsBindingSource.Name" xml:space="preserve">
-    <value>MeaningsBindingSource</value>
-  </data>
-  <data name="&gt;&gt;MeaningsBindingSource.Type" xml:space="preserve">
-    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn11.Name" xml:space="preserve">
-    <value>dataGridViewTextBoxColumn11</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn11.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn12.Name" xml:space="preserve">
-    <value>dataGridViewTextBoxColumn12</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn12.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn13.Name" xml:space="preserve">
-    <value>dataGridViewTextBoxColumn13</value>
-  </data>
-  <data name="&gt;&gt;dataGridViewTextBoxColumn13.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainForm</value>

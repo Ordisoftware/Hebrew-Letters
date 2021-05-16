@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-01 </created>
-/// <edited> 2021-02 </edited>
+/// <edited> 2021-05 </edited>
 using System.Windows.Forms;
 using Ordisoftware.Core;
 
@@ -61,6 +61,9 @@ namespace Ordisoftware.Hebrew.Letters
           if ( ActiveControl == EditMeanings ) break;
           ActionViewLetters.PerformClick();
           return true;
+        case Keys.F5:
+          ActionViewNotebook.PerformClick();
+          return true;
         // Application functions
         case Keys.F3:
         case Keys.Control | Keys.F:
@@ -93,7 +96,7 @@ namespace Ordisoftware.Hebrew.Letters
           return true;
       }
       // Letters navigation
-      if ( Globals.AllowClose && Program.Settings.CurrentView == ViewMode.Data )
+      if ( Globals.AllowClose && Program.Settings.CurrentView == ViewMode.Letters )
         switch ( keyData )
         {
           case Keys.Control | Keys.Home:

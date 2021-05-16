@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2021-04 </edited>
+/// <edited> 2021-05 </edited>
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -74,22 +74,31 @@ namespace Ordisoftware.Hebrew.Letters
           new ViewConnector
           {
             MenuItem = ActionViewAnalysis,
-            Panel = PanelViewSearch,
+            Panel = PanelViewAnalysis,
             Focused = EditLetters
           }
         },
         {
-          ViewMode.Data,
+          ViewMode.Letters,
           new ViewConnector
           {
             MenuItem = ActionViewLetters,
-            Panel = PanelViewSettings,
+            Panel = PanelLettersInner,
             Focused = EditMeanings
+          }
+        },
+        {
+          ViewMode.Notebook,
+          new ViewConnector
+          {
+            MenuItem = ActionViewNotebook,
+            Panel = PanelViewNotebook,
+            Focused = PanelViewNotebook
           }
         }
       };
       if ( Program.Settings.CurrentView == view && !first ) return;
-      if ( Program.Settings.CurrentView == ViewMode.Data )
+      if ( Program.Settings.CurrentView == ViewMode.Letters )
       {
         ViewPanels[Program.Settings.CurrentView].Focused.Focus();
       }
