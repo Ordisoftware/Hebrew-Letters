@@ -34,59 +34,26 @@ namespace Ordisoftware.Hebrew.Letters
     /// </summary>
     private void DoConstructor()
     {
-      InitializeComponent();
-      SoundItem.Initialize();
-      Text = Globals.AssemblyTitle;
-      SystemEvents.SessionEnding += SessionEnding;
+      new Task(() => ProcessLocks.Lock()).Start();
+      new Task(InitializeIconsAndSound).Start();
       SystemManager.TryCatch(() => { Icon = new Icon(Globals.ApplicationIconFilePath); });
+      Text = Globals.AssemblyTitle;
       ToolStrip.Renderer = new CheckedButtonsToolStripRenderer();
-      new Task(CreateProvidersLinks);
+      SystemEvents.SessionEnding += SessionEnding;
       TextBoxEx.ActionUndo.Click += TextBoxData_ContextMenuAction_Click;
       TextBoxEx.ActionRedo.Click += TextBoxData_ContextMenuAction_Click;
       TextBoxEx.ActionCut.Click += TextBoxData_ContextMenuAction_Click;
       TextBoxEx.ActionPaste.Click += TextBoxData_ContextMenuAction_Click;
       TextBoxEx.ActionDelete.Click += TextBoxData_ContextMenuAction_Click;
       NativeMethods.ClipboardViewerNext = NativeMethods.SetClipboardViewer(Handle);
-    }
-
-    /// <summary>
-    /// Create providers links menu items.
-    /// </summary>
-    private void CreateProvidersLinks()
-    {
-      ContextMenuSearchOnline.InitializeFromProviders(HebrewGlobals.WebProvidersWord, (sender, e) =>
+      new Task(CreateProvidersLinks).Start();
+      if ( !Globals.IsDevExecutable ) // TODO remove when ready
       {
-        var menuitem = (ToolStripMenuItem)sender;
-        HebrewTools.OpenWordProvider((string)menuitem.Tag, EditLetters.Input.Text);
-        EditLetters.Focus();
-      });
-    }
-
-    /// <summary>
-    /// Create system information menu items.
-    /// </summary>
-    public void CreateSystemInformationMenu()
-    {
-      CommonMenusControl.CreateInstance(ToolStrip,
-                                        ref ActionInformation,
-                                        AppTranslations.NoticeNewFeatures,
-                                        ActionAbout_Click,
-                                        ActionWebCheckUpdate_Click,
-                                        ActionViewLog_Click,
-                                        ActionViewStats_Click);
-      InitializeSpecialMenus();
-    }
-
-    /// <summary>
-    /// Initialize special menus.
-    /// </summary>
-    public void InitializeSpecialMenus()
-    {
-      CommonMenusControl.Instance.ActionViewStats.Enabled = Settings.UsageStatisticsEnabled;
-      CommonMenusControl.Instance.ActionViewLog.Enabled = DebugManager.TraceEnabled;
-      ActionWebLinks.Visible = Settings.WebLinksMenuEnabled;
-      if ( Settings.WebLinksMenuEnabled )
-        ActionWebLinks.InitializeFromWebLinks(InitializeSpecialMenus);
+        ActionGematriaCombinations.Visible = false;
+        ActionGematriaCombinations.Tag = int.MinValue;
+        ActionGematriaCombinationsSeparator.Visible = false;
+        ActionGematriaCombinationsSeparator.Tag = int.MinValue;
+      }
     }
 
     /// <summary>
@@ -96,15 +63,6 @@ namespace Ordisoftware.Hebrew.Letters
     {
       if ( Globals.IsExiting ) return;
       Settings.Retrieve();
-      InitializeTheme();
-      InitializeDialogsDirectory();
-      ProcessLocks.Lock();
-      EditLetters.Input.MaxLength = (int)Settings.HebrewTextBoxMaxLength;
-      Program.Settings.CurrentView = ViewMode.Analysis;
-      EditSentence.Font = new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence);
-      EditSentence_FontChanged(null, null);
-      SystemManager.TryCatch(() => new System.Media.SoundPlayer(Globals.EmptySoundFilePath).Play());
-      SystemManager.TryCatch(() => MediaMixer.SetApplicationVolume(Globals.ProcessId, Settings.ApplicationVolume));
       StatisticsForm.Run(true, Settings.UsageStatisticsEnabled);
       Globals.ChronoStartingApp.Stop();
       var lastdone = Settings.CheckUpdateLastDone;
@@ -119,68 +77,38 @@ namespace Ordisoftware.Hebrew.Letters
         return;
       }
       Globals.ChronoStartingApp.Start();
-      try
-      {
-        Globals.ChronoLoadData.Start();
-        ApplicationDatabase.Instance.Open();
-        LettersBindingSource.DataSource = ApplicationDatabase.Instance.LettersAsBindingList;
-        Globals.ChronoLoadData.Stop();
-        Settings.BenchmarkLoadData = Globals.ChronoLoadData.ElapsedMilliseconds;
-      }
-      catch ( Exception ex )
-      {
-        DisplayManager.ShowError(SysTranslations.ApplicationMustExit.GetLang() + Globals.NL2 +
-                                 SysTranslations.ContactSupport.GetLang());
-        ex.Manage();
-        Environment.Exit(-1);
-      }
+      InitializeTheme();
+      InitializeDialogsDirectory();
+      Program.Settings.CurrentView = ViewMode.Analysis;
+      EditSentence.Font = new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence);
+      EditLetters.Input.MaxLength = (int)Settings.HebrewTextBoxMaxLength;
+      EditSentence_FontChanged(null, null);
       CommonMenusControl.Instance.ActionViewStats.Enabled = Settings.UsageStatisticsEnabled;
       CommonMenusControl.Instance.ActionViewLog.Enabled = DebugManager.TraceEnabled;
       DebugManager.TraceEnabledChanged += value => CommonMenusControl.Instance.ActionViewLog.Enabled = value;
+      new Task(() =>
+      {
+        try
+        {
+          Globals.ChronoLoadData.Start();
+          ApplicationDatabase.Instance.Open();
+          LettersBindingSource.DataSource = ApplicationDatabase.Instance.LettersAsBindingList;
+          Globals.ChronoLoadData.Stop();
+          Settings.BenchmarkLoadData = Globals.ChronoLoadData.ElapsedMilliseconds;
+        }
+        catch ( Exception ex )
+        {
+          DisplayManager.ShowError(SysTranslations.ApplicationMustExit.GetLang() + Globals.NL2 +
+                                   SysTranslations.ContactSupport.GetLang());
+          ex.Manage();
+          Environment.Exit(-1);
+        }
+      }).Start();
       TimerProcesses_Tick(null, null);
       Globals.IsReady = true;
       SelectLetter_SelectedIndexChanged(SelectLetter, EventArgs.Empty);
       LettersNavigator.Refresh();
       UpdateDataControls(SelectLetter);
-    }
-
-    /// <summary>
-    /// Set the initial directories of dialog boxes.
-    /// </summary>
-    private void InitializeDialogsDirectory()
-    {
-      string directory = Settings.GetExportDirectory();
-      SaveImageDialog.InitialDirectory = directory;
-      SaveImageDialog.Filter = Program.ImageExportTargets.CreateFilters();
-    }
-
-    /// <summary>
-    /// Set colors.
-    /// </summary>
-    internal void InitializeTheme()
-    {
-      // Analyser
-      EditLetters.LettersBackColor = Settings.ColorLettersPanel;
-      EditLetters.InputBackColor = Settings.ColorHebrewWordTextBox;
-      SelectAnalyze.BackColor = Settings.ColorMeaningsPanel;
-      EditSentence.BackColor = Settings.ColorSentenceTextBox;
-      EditGematriaFull.BackColor = Settings.ColorGematriaTextBox;
-      EditGematriaSimple.BackColor = Settings.ColorGematriaTextBox;
-      // Data
-      SelectLetter.BackColor = Settings.ColorLettersPanel == SystemColors.Window
-                               ? Settings.ColorGematriaTextBox
-                               : Settings.ColorLettersPanel;
-      TextBoxName.BackColor = SelectLetter.BackColor;
-      TextBoxValueSimple.BackColor = Settings.ColorGematriaTextBox;
-      TextBoxValueFull.BackColor = Settings.ColorGematriaTextBox;
-      TextBoxStructure.BackColor = Settings.ColorSentenceTextBox;
-      TextBoxFunction.BackColor = Settings.ColorSentenceTextBox;
-      TextBoxVerb.BackColor = Settings.ColorSentenceTextBox;
-      TextBoxNegative.BackColor = Settings.ColorSentenceTextBox;
-      TextBoxPositive.BackColor = Settings.ColorSentenceTextBox;
-      EditMeanings.RowTemplate.DefaultCellStyle.BackColor = Settings.ColorSentenceTextBox;
-      foreach ( DataGridViewRow row in EditMeanings.Rows )
-        row.DefaultCellStyle.BackColor = Settings.ColorSentenceTextBox;
     }
 
     /// <summary>
@@ -230,6 +158,121 @@ namespace Ordisoftware.Hebrew.Letters
     }
 
     /// <summary>
+    /// Do Form CLosed event.
+    /// </summary>
+    private void DoFormClosed(object sender, FormClosedEventArgs e)
+    {
+      ActionSave_Click(null, null);
+
+      Program.Settings.CurrentView = ViewMode.Analysis;
+      Globals.IsExiting = true;
+      Globals.IsSessionEnding = true;
+      Globals.AllowClose = true;
+      ProcessLocks.Unlock();
+      Settings.Store();
+      TimerTooltip.Stop();
+      FormsHelper.CloseAll();
+    }
+
+    /// <summary>
+    /// Do Session Ending event.
+    /// </summary>
+    private void SessionEnding(object sender, SessionEndingEventArgs e)
+    {
+      if ( Globals.IsExiting || Globals.IsSessionEnding ) return;
+      Close();
+    }
+
+    /// <summary>
+    /// Set the initial directories of dialog boxes.
+    /// </summary>
+    private void InitializeDialogsDirectory()
+    {
+      string directory = Settings.GetExportDirectory();
+      SaveImageDialog.InitialDirectory = directory;
+      SaveImageDialog.Filter = Program.ImageExportTargets.CreateFilters();
+    }
+
+    /// <summary>
+    /// Initialize icons
+    /// </summary>
+    private void InitializeIconsAndSound()
+    {
+      SystemManager.TryCatch(() => new System.Media.SoundPlayer(Globals.EmptySoundFilePath).Play());
+      SystemManager.TryCatch(() => MediaMixer.SetApplicationVolume(Globals.ProcessId, Settings.ApplicationVolume));
+      SoundItem.Initialize();
+    }
+
+    /// <summary>
+    /// Create system information menu items.
+    /// </summary>
+    public void CreateSystemInformationMenu()
+    {
+      CommonMenusControl.CreateInstance(ToolStrip,
+                                        ref ActionInformation,
+                                        AppTranslations.NoticeNewFeatures,
+                                        ActionAbout_Click,
+                                        ActionWebCheckUpdate_Click,
+                                        ActionViewLog_Click,
+                                        ActionViewStats_Click);
+      InitializeSpecialMenus();
+    }
+
+    /// <summary>
+    /// Initialize special menus.
+    /// </summary>
+    public void InitializeSpecialMenus()
+    {
+      CommonMenusControl.Instance.ActionViewStats.Enabled = Settings.UsageStatisticsEnabled;
+      CommonMenusControl.Instance.ActionViewLog.Enabled = DebugManager.TraceEnabled;
+      ActionWebLinks.Visible = Settings.WebLinksMenuEnabled;
+      if ( Settings.WebLinksMenuEnabled )
+        ActionWebLinks.InitializeFromWebLinks(InitializeSpecialMenus);
+    }
+
+    /// <summary>
+    /// Create providers links menu items.
+    /// </summary>
+    private void CreateProvidersLinks()
+    {
+      ContextMenuSearchOnline.InitializeFromProviders(HebrewGlobals.WebProvidersWord, (sender, e) =>
+      {
+        var menuitem = (ToolStripMenuItem)sender;
+        HebrewTools.OpenWordProvider((string)menuitem.Tag, EditLetters.Input.Text);
+        EditLetters.Focus();
+      });
+    }
+
+    /// <summary>
+    /// Set colors.
+    /// </summary>
+    internal void InitializeTheme()
+    {
+      // Analyser
+      EditLetters.LettersBackColor = Settings.ColorLettersPanel;
+      EditLetters.InputBackColor = Settings.ColorHebrewWordTextBox;
+      SelectAnalyze.BackColor = Settings.ColorMeaningsPanel;
+      EditSentence.BackColor = Settings.ColorSentenceTextBox;
+      EditGematriaFull.BackColor = Settings.ColorGematriaTextBox;
+      EditGematriaSimple.BackColor = Settings.ColorGematriaTextBox;
+      // Data
+      SelectLetter.BackColor = Settings.ColorLettersPanel == SystemColors.Window
+                               ? Settings.ColorGematriaTextBox
+                               : Settings.ColorLettersPanel;
+      TextBoxName.BackColor = SelectLetter.BackColor;
+      TextBoxValueSimple.BackColor = Settings.ColorGematriaTextBox;
+      TextBoxValueFull.BackColor = Settings.ColorGematriaTextBox;
+      TextBoxStructure.BackColor = Settings.ColorSentenceTextBox;
+      TextBoxFunction.BackColor = Settings.ColorSentenceTextBox;
+      TextBoxVerb.BackColor = Settings.ColorSentenceTextBox;
+      TextBoxNegative.BackColor = Settings.ColorSentenceTextBox;
+      TextBoxPositive.BackColor = Settings.ColorSentenceTextBox;
+      EditMeanings.RowTemplate.DefaultCellStyle.BackColor = Settings.ColorSentenceTextBox;
+      foreach ( DataGridViewRow row in EditMeanings.Rows )
+        row.DefaultCellStyle.BackColor = Settings.ColorSentenceTextBox;
+    }
+
+    /// <summary>
     /// Show news and process command line options.
     /// </summary>
     private void ProcessNewsAndCommandLine()
@@ -260,32 +303,6 @@ namespace Ordisoftware.Hebrew.Letters
           e.Cancel = true;
         else
           Globals.IsExiting = true;
-    }
-
-    /// <summary>
-    /// Do Form CLosed event.
-    /// </summary>
-    private void DoFormClosed(object sender, FormClosedEventArgs e)
-    {
-      ActionSave_Click(null, null);
-
-      Program.Settings.CurrentView = ViewMode.Analysis;
-      Globals.IsExiting = true;
-      Globals.IsSessionEnding = true;
-      Globals.AllowClose = true;
-      ProcessLocks.Unlock();
-      Settings.Store();
-      TimerTooltip.Stop();
-      FormsHelper.CloseAll();
-    }
-
-    /// <summary>
-    /// Do Session Ending event.
-    /// </summary>
-    private void SessionEnding(object sender, SessionEndingEventArgs e)
-    {
-      if ( Globals.IsExiting || Globals.IsSessionEnding ) return;
-      Close();
     }
 
   }

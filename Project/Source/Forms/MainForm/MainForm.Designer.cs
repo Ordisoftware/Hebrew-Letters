@@ -129,7 +129,7 @@
       this.ActionTools = new System.Windows.Forms.ToolStripDropDownButton();
       this.ActionShowMethodNotice = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionShowGrammarGuide = new System.Windows.Forms.ToolStripMenuItem();
-      this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+      this.ActionGematriaCombinationsSeparator = new System.Windows.Forms.ToolStripSeparator();
       this.ActionGematriaCombinations = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionWebLinks = new System.Windows.Forms.ToolStripDropDownButton();
       this.ActionInformation = new System.Windows.Forms.ToolStripDropDownButton();
@@ -1012,7 +1012,7 @@
       this.ActionTools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ActionShowMethodNotice,
             this.ActionShowGrammarGuide,
-            this.toolStripSeparator1,
+            this.ActionGematriaCombinationsSeparator,
             this.ActionGematriaCombinations});
       this.ActionTools.Name = "ActionTools";
       this.ActionTools.Padding = new System.Windows.Forms.Padding(5);
@@ -1031,8 +1031,8 @@
       // 
       // toolStripSeparator1
       // 
-      this.toolStripSeparator1.Name = "toolStripSeparator1";
-      resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
+      this.ActionGematriaCombinationsSeparator.Name = "toolStripSeparator1";
+      resources.ApplyResources(this.ActionGematriaCombinationsSeparator, "toolStripSeparator1");
       // 
       // ActionGematriaCombinations
       // 
@@ -1315,7 +1315,7 @@
     private System.Windows.Forms.ToolTip ToolTipClipboard;
     internal System.Windows.Forms.Panel PanelMainCenter;
     private Core.ComboBoxNavigator LettersNavigator;
-    private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+    private System.Windows.Forms.ToolStripSeparator ActionGematriaCombinationsSeparator;
     private System.Windows.Forms.ToolStripMenuItem ActionGematriaCombinations;
     internal System.Windows.Forms.Button ActionCopyToResult;
     private System.Windows.Forms.DataGridView meaningsDataGridView;

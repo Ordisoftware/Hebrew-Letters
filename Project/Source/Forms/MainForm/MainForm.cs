@@ -55,12 +55,8 @@ namespace Ordisoftware.Hebrew.Letters
     /// </summary>
     private MainForm()
     {
+      InitializeComponent();
       DoConstructor();
-      if ( !Globals.IsDevExecutable ) // TODO remove when ready
-      {
-        ActionGematriaCombinations.Visible = false;
-        toolStripSeparator1.Visible = false;
-      }
     }
 
     /// <summary>
