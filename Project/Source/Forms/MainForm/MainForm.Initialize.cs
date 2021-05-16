@@ -13,10 +13,10 @@
 /// <created> 2019-01 </created>
 /// <edited> 2021-04 </edited>
 using System;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Win32;
 using Ordisoftware.Core;
@@ -42,7 +42,7 @@ namespace Ordisoftware.Hebrew.Letters
       SystemEvents.SessionEnding += SessionEnding;
       SystemManager.TryCatch(() => { Icon = new Icon(Globals.ApplicationIconFilePath); });
       ToolStrip.Renderer = new CheckedButtonsToolStripRenderer();
-      CreateProvidersLinks();
+      new Task(CreateProvidersLinks);
       TextBoxEx.ActionUndo.Click += TextBoxData_ContextMenuAction_Click;
       TextBoxEx.ActionRedo.Click += TextBoxData_ContextMenuAction_Click;
       TextBoxEx.ActionCut.Click += TextBoxData_ContextMenuAction_Click;
@@ -206,7 +206,6 @@ namespace Ordisoftware.Hebrew.Letters
         ActionReset.Visible = false;
       ToolStrip.SetDropDownOpening();
       Globals.ChronoStartingApp.Stop();
-      Settings.BenchmarkStartingApp = Globals.ChronoStartingApp.ElapsedMilliseconds;
       if ( Globals.IsDatabaseUpgraded && DisplayManager.QueryYesNo(SysTranslations.AskToCheckDataAfterDbUpgraded.GetLang()) )
       {
         Globals.ChronoStartingApp.Start();
@@ -220,7 +219,6 @@ namespace Ordisoftware.Hebrew.Letters
       if ( Settings.FirstLaunch )
       {
         Settings.FirstLaunch = false;
-        SystemManager.TryCatch(Settings.Save);
         ActionShowMethodNotice.PerformClick();
       }
       Globals.NoticeKeyboardShortcutsForm = new ShowTextForm(AppTranslations.NoticeKeyboardShortcutsTitle,
@@ -230,6 +228,8 @@ namespace Ordisoftware.Hebrew.Letters
       Globals.NoticeKeyboardShortcutsForm.TextBox.BorderStyle = BorderStyle.None;
       Globals.NoticeKeyboardShortcutsForm.Padding = new Padding(20, 20, 10, 10);
       Globals.ChronoStartingApp.Stop();
+      Settings.BenchmarkStartingApp = Globals.ChronoStartingApp.ElapsedMilliseconds;
+      SystemManager.TryCatch(Settings.Save);
       if ( Globals.IsSettingsUpgraded )
         SystemManager.TryCatch(() =>
         {
@@ -237,7 +237,8 @@ namespace Ordisoftware.Hebrew.Letters
                             .ActionViewVersionNews
                             .DropDownItems
                             .Cast<ToolStripItem>()
-                            .LastOrDefault()?
+                            .Where(item => item.Text == Globals.AssemblyVersion.ToString())?
+                            .SingleOrDefault()
                             .PerformClick();
         });
     }
