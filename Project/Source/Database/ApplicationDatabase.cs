@@ -68,19 +68,29 @@ namespace Ordisoftware.Hebrew.Letters
       Connection.UpdateAll(Meanings);
     }
 
+    public override void DeleteAll()
+    {
+      Connection.DeleteAll<Meaning>();
+      Connection.DeleteAll<Letter>();
+      Letters.Clear();
+    }
+
     public override void UpgradeSchema()
     {
-      if ( !Connection.CheckColumn(nameof(Meanings), "ID") )
+      if ( Connection.CheckTable(nameof(Meanings)) )
       {
-        MeaningsUpgrade.AddID(Connection);
-        Globals.IsDatabaseUpgraded = true;
+        if ( !Connection.CheckColumn(nameof(Meanings), "ID") )
+        {
+          MeaningsUpgrade.AddID(Connection);
+          Globals.IsDatabaseUpgraded = true;
+        }
+        string sqlColumn = "ALTER TABLE %TABLE% ADD COLUMN %COLUMN% TEXT DEFAULT '' NOT NULL";
+        bool b = Globals.IsDatabaseUpgraded;
+        b = !Connection.CheckColumn(nameof(Letters), nameof(Letter.Hebrew), sqlColumn) || b;
+        b = !Connection.CheckColumn(nameof(Letters), nameof(Letter.Positive), sqlColumn) || b;
+        b = !Connection.CheckColumn(nameof(Letters), nameof(Letter.Negative), sqlColumn) || b;
+        Globals.IsDatabaseUpgraded = b;
       }
-      string sqlColumn = "ALTER TABLE %TABLE% ADD COLUMN %COLUMN% TEXT DEFAULT '' NOT NULL";
-      bool b = Globals.IsDatabaseUpgraded;
-      b = !Connection.CheckColumn(nameof(Letters), nameof(Letter.Hebrew), sqlColumn) || b;
-      b = !Connection.CheckColumn(nameof(Letters), nameof(Letter.Positive), sqlColumn) || b;
-      b = !Connection.CheckColumn(nameof(Letters), nameof(Letter.Negative), sqlColumn) || b;
-      Globals.IsDatabaseUpgraded = b;
     }
 
     public override void CreateDataIfNotExist(bool reset = false)
@@ -93,9 +103,7 @@ namespace Ordisoftware.Hebrew.Letters
         Connection.BeginTransaction();
         try
         {
-          Connection.DeleteAll<Meaning>();
-          Connection.DeleteAll<Letter>();
-          Letters.Clear();
+          DeleteAll();
           string data = File.ReadAllText(string.Format(Program.MeaningsFilePath, Languages.CurrentCode.ToUpper()),
                                          System.Text.Encoding.Default);
           int indexStart = 0;
