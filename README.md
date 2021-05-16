@@ -46,7 +46,9 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 
 **What's new in the latest version**
 
-- Maintenance release.
+- SQLite ODBC Driver is no more needed.
+- Overall performances are Optimized.
+- Some UI improvements and some fixes.
 
 [Last release](https://github.com/Ordisoftware/Hebrew-Letters/releases/latest)
 
