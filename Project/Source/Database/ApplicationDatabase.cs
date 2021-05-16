@@ -64,19 +64,38 @@ namespace Ordisoftware.Hebrew.Letters
 
     protected override void DoSaveAll()
     {
+      CheckAccess(Letters, nameof(Letters));
+      CheckAccess(Meanings, nameof(Meanings));
       Connection.UpdateAll(Letters);
       Connection.UpdateAll(Meanings);
-    }
-
-    public override void DeleteAll()
-    {
-      Connection.DeleteAll<Meaning>();
-      Connection.DeleteAll<Letter>();
+      Connection.Commit();
+      Meanings.Clear();
       Letters.Clear();
     }
 
-    public override void UpgradeSchema()
+    public void DeleteAll()
     {
+      CheckConnected();
+      CheckAccess(Letters, nameof(Letters));
+      CheckAccess(Meanings, nameof(Meanings));
+      Connection.BeginTransaction();
+      try
+      {
+        Connection.DeleteAll<Meaning>();
+        Connection.DeleteAll<Letter>();
+        Connection.Commit();
+        Meanings.Clear();
+        Letters.Clear();
+      }
+      catch
+      {
+        Connection.Rollback();
+      }
+    }
+
+    protected override void UpgradeSchema()
+    {
+      base.UpgradeSchema();
       if ( Connection.CheckTable(nameof(Meanings)) )
       {
         if ( !Connection.CheckColumn(nameof(Meanings), "ID") )
@@ -95,6 +114,9 @@ namespace Ordisoftware.Hebrew.Letters
 
     public override void CreateDataIfNotExist(bool reset = false)
     {
+      base.CreateDataIfNotExist(reset);
+      CheckAccess(Letters, nameof(Letters));
+      CheckAccess(Meanings, nameof(Meanings));
       try
       {
         if ( !reset && Connection.GetRowsCount(nameof(Letters)) == 22 ) return;
