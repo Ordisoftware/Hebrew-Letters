@@ -39,6 +39,7 @@
       System.Windows.Forms.Label LabelVerb;
       System.Windows.Forms.Label LabelPositive;
       System.Windows.Forms.Label LabelNegative;
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
       this.PanelMain = new System.Windows.Forms.Panel();
       this.PanelMainOuter = new System.Windows.Forms.Panel();
       this.PanelMainInner = new System.Windows.Forms.Panel();
@@ -71,7 +72,7 @@
       this.EditSentence = new Ordisoftware.Core.TextBoxEx();
       this.EditGematriaSimple = new Ordisoftware.Core.TextBoxEx();
       this.LabelGematria = new System.Windows.Forms.Label();
-      this.EditLetters = new Ordisoftware.Hebrew.LettersControl();
+      this.EditWord = new Ordisoftware.Hebrew.LettersControl();
       this.TabPageLetters = new System.Windows.Forms.TabPage();
       this.PanelViewLetters = new System.Windows.Forms.Panel();
       this.PanelLettersInner = new System.Windows.Forms.Panel();
@@ -112,6 +113,15 @@
       this.EditMeanings = new System.Windows.Forms.DataGridView();
       this.TabPageNotebook = new System.Windows.Forms.TabPage();
       this.PanelViewNotebook = new System.Windows.Forms.Panel();
+      this.SplitContainerNotebook = new System.Windows.Forms.SplitContainer();
+      this.ListWords = new System.Windows.Forms.DataGridView();
+      this.hebrewDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.WordsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+      this.ListSentences = new System.Windows.Forms.DataGridView();
+      this.sentenceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.LettriqsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+      this.PanelNotebookTop = new System.Windows.Forms.Panel();
+      this.ActionDeleteTerm = new System.Windows.Forms.Button();
       this.PanelSepTop = new System.Windows.Forms.Panel();
       this.PanelTitle = new System.Windows.Forms.Panel();
       this.LabelTitle = new System.Windows.Forms.Label();
@@ -183,6 +193,16 @@
       this.PanelLetter.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.EditMeanings)).BeginInit();
       this.TabPageNotebook.SuspendLayout();
+      this.PanelViewNotebook.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.SplitContainerNotebook)).BeginInit();
+      this.SplitContainerNotebook.Panel1.SuspendLayout();
+      this.SplitContainerNotebook.Panel2.SuspendLayout();
+      this.SplitContainerNotebook.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.ListWords)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.WordsBindingSource)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.ListSentences)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.LettriqsBindingSource)).BeginInit();
+      this.PanelNotebookTop.SuspendLayout();
       this.PanelTitle.SuspendLayout();
       this.ToolStrip.SuspendLayout();
       this.SuspendLayout();
@@ -305,7 +325,7 @@
       this.PanelViewAnalysis.Controls.Add(this.EditSentence);
       this.PanelViewAnalysis.Controls.Add(this.EditGematriaSimple);
       this.PanelViewAnalysis.Controls.Add(this.LabelGematria);
-      this.PanelViewAnalysis.Controls.Add(this.EditLetters);
+      this.PanelViewAnalysis.Controls.Add(this.EditWord);
       this.PanelViewAnalysis.Name = "PanelViewAnalysis";
       // 
       // EditGematriaFull
@@ -505,11 +525,11 @@
       // 
       // EditLetters
       // 
-      this.EditLetters.BackColor = System.Drawing.Color.Transparent;
-      resources.ApplyResources(this.EditLetters, "EditLetters");
-      this.EditLetters.Name = "EditLetters";
-      this.EditLetters.ViewLetterDetails += new Ordisoftware.Hebrew.ViewLetterDetails(this.EditLetters_ViewLetterDetails);
-      this.EditLetters.InputTextChanged += new System.EventHandler(this.EditLetters_InputTextChanged);
+      this.EditWord.BackColor = System.Drawing.Color.Transparent;
+      resources.ApplyResources(this.EditWord, "EditLetters");
+      this.EditWord.Name = "EditLetters";
+      this.EditWord.ViewLetterDetails += new Ordisoftware.Hebrew.ViewLetterDetails(this.EditLetters_ViewLetterDetails);
+      this.EditWord.InputTextChanged += new System.EventHandler(this.EditLetters_InputTextChanged);
       // 
       // TabPageLetters
       // 
@@ -866,7 +886,105 @@
       // 
       resources.ApplyResources(this.PanelViewNotebook, "PanelViewNotebook");
       this.PanelViewNotebook.BackColor = System.Drawing.SystemColors.Control;
+      this.PanelViewNotebook.Controls.Add(this.SplitContainerNotebook);
+      this.PanelViewNotebook.Controls.Add(this.PanelNotebookTop);
       this.PanelViewNotebook.Name = "PanelViewNotebook";
+      // 
+      // SplitContainerNotebook
+      // 
+      resources.ApplyResources(this.SplitContainerNotebook, "SplitContainerNotebook");
+      this.SplitContainerNotebook.Name = "SplitContainerNotebook";
+      // 
+      // SplitContainerNotebook.Panel1
+      // 
+      this.SplitContainerNotebook.Panel1.Controls.Add(this.ListWords);
+      // 
+      // SplitContainerNotebook.Panel2
+      // 
+      this.SplitContainerNotebook.Panel2.Controls.Add(this.ListSentences);
+      // 
+      // ListWords
+      // 
+      this.ListWords.AllowUserToAddRows = false;
+      this.ListWords.AllowUserToDeleteRows = false;
+      this.ListWords.AllowUserToResizeColumns = false;
+      this.ListWords.AllowUserToResizeRows = false;
+      this.ListWords.AutoGenerateColumns = false;
+      this.ListWords.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+      this.ListWords.ColumnHeadersVisible = false;
+      this.ListWords.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.hebrewDataGridViewTextBoxColumn});
+      this.ListWords.DataSource = this.WordsBindingSource;
+      resources.ApplyResources(this.ListWords, "ListWords");
+      this.ListWords.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+      this.ListWords.MultiSelect = false;
+      this.ListWords.Name = "ListWords";
+      this.ListWords.ReadOnly = true;
+      this.ListWords.RowHeadersVisible = false;
+      dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+      dataGridViewCellStyle1.Font = new System.Drawing.Font("Hebrew", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.ListWords.RowsDefaultCellStyle = dataGridViewCellStyle1;
+      this.ListWords.RowTemplate.Height = 28;
+      this.ListWords.ShowCellToolTips = false;
+      this.ListWords.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListWords_CellDoubleClick);
+      // 
+      // hebrewDataGridViewTextBoxColumn
+      // 
+      this.hebrewDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+      this.hebrewDataGridViewTextBoxColumn.DataPropertyName = "Hebrew";
+      resources.ApplyResources(this.hebrewDataGridViewTextBoxColumn, "hebrewDataGridViewTextBoxColumn");
+      this.hebrewDataGridViewTextBoxColumn.Name = "hebrewDataGridViewTextBoxColumn";
+      this.hebrewDataGridViewTextBoxColumn.ReadOnly = true;
+      // 
+      // WordsBindingSource
+      // 
+      this.WordsBindingSource.DataSource = typeof(Ordisoftware.Hebrew.TermHebrew);
+      // 
+      // ListSentences
+      // 
+      this.ListSentences.AllowUserToAddRows = false;
+      this.ListSentences.AllowUserToDeleteRows = false;
+      this.ListSentences.AllowUserToResizeColumns = false;
+      this.ListSentences.AllowUserToResizeRows = false;
+      this.ListSentences.AutoGenerateColumns = false;
+      this.ListSentences.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+      this.ListSentences.ColumnHeadersVisible = false;
+      this.ListSentences.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.sentenceDataGridViewTextBoxColumn});
+      this.ListSentences.DataSource = this.LettriqsBindingSource;
+      resources.ApplyResources(this.ListSentences, "ListSentences");
+      this.ListSentences.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+      this.ListSentences.MultiSelect = false;
+      this.ListSentences.Name = "ListSentences";
+      this.ListSentences.ReadOnly = true;
+      this.ListSentences.RowHeadersVisible = false;
+      // 
+      // sentenceDataGridViewTextBoxColumn
+      // 
+      this.sentenceDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+      this.sentenceDataGridViewTextBoxColumn.DataPropertyName = "Sentence";
+      resources.ApplyResources(this.sentenceDataGridViewTextBoxColumn, "sentenceDataGridViewTextBoxColumn");
+      this.sentenceDataGridViewTextBoxColumn.Name = "sentenceDataGridViewTextBoxColumn";
+      this.sentenceDataGridViewTextBoxColumn.ReadOnly = true;
+      // 
+      // LettriqsBindingSource
+      // 
+      this.LettriqsBindingSource.DataMember = "Lettriqs";
+      this.LettriqsBindingSource.DataSource = this.WordsBindingSource;
+      // 
+      // PanelNotebookTop
+      // 
+      this.PanelNotebookTop.Controls.Add(this.ActionDeleteTerm);
+      resources.ApplyResources(this.PanelNotebookTop, "PanelNotebookTop");
+      this.PanelNotebookTop.Name = "PanelNotebookTop";
+      // 
+      // ActionDeleteTerm
+      // 
+      this.ActionDeleteTerm.AllowDrop = true;
+      resources.ApplyResources(this.ActionDeleteTerm, "ActionDeleteTerm");
+      this.ActionDeleteTerm.FlatAppearance.BorderSize = 0;
+      this.ActionDeleteTerm.Name = "ActionDeleteTerm";
+      this.ActionDeleteTerm.UseVisualStyleBackColor = true;
       // 
       // PanelSepTop
       // 
@@ -1242,6 +1360,16 @@
       this.PanelLetter.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.EditMeanings)).EndInit();
       this.TabPageNotebook.ResumeLayout(false);
+      this.PanelViewNotebook.ResumeLayout(false);
+      this.SplitContainerNotebook.Panel1.ResumeLayout(false);
+      this.SplitContainerNotebook.Panel2.ResumeLayout(false);
+      ((System.ComponentModel.ISupportInitialize)(this.SplitContainerNotebook)).EndInit();
+      this.SplitContainerNotebook.ResumeLayout(false);
+      ((System.ComponentModel.ISupportInitialize)(this.ListWords)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.WordsBindingSource)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.ListSentences)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.LettriqsBindingSource)).EndInit();
+      this.PanelNotebookTop.ResumeLayout(false);
       this.PanelTitle.ResumeLayout(false);
       this.ToolStrip.ResumeLayout(false);
       this.ToolStrip.PerformLayout();
@@ -1273,7 +1401,7 @@
     private System.Windows.Forms.Panel PanelMainOuter;
     private System.Windows.Forms.Panel PanelMainInner;
     private System.Windows.Forms.Timer TimerTooltip;
-    public Ordisoftware.Hebrew.LettersControl EditLetters;
+    public Ordisoftware.Hebrew.LettersControl EditWord;
     private System.Windows.Forms.TabControl TabControl;
     private System.Windows.Forms.TabPage TabPageText;
     private System.Windows.Forms.Panel PanelViewAnalysis;
@@ -1368,5 +1496,14 @@
     private System.Windows.Forms.TabPage TabPageNotebook;
     private System.Windows.Forms.Panel PanelViewNotebook;
     private System.Windows.Forms.Panel PanelViewLetters;
+    private System.Windows.Forms.SplitContainer SplitContainerNotebook;
+    private System.Windows.Forms.DataGridView ListWords;
+    private System.Windows.Forms.BindingSource WordsBindingSource;
+    private System.Windows.Forms.DataGridView ListSentences;
+    private System.Windows.Forms.BindingSource LettriqsBindingSource;
+    private System.Windows.Forms.Panel PanelNotebookTop;
+    private System.Windows.Forms.DataGridViewTextBoxColumn hebrewDataGridViewTextBoxColumn;
+    private System.Windows.Forms.DataGridViewTextBoxColumn sentenceDataGridViewTextBoxColumn;
+    private System.Windows.Forms.Button ActionDeleteTerm;
   }
 }

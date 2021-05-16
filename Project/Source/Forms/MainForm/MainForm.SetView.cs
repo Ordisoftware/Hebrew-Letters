@@ -75,7 +75,7 @@ namespace Ordisoftware.Hebrew.Letters
           {
             MenuItem = ActionViewAnalysis,
             Panel = PanelViewAnalysis,
-            Focused = EditLetters
+            Focused = EditWord
           }
         },
         {
@@ -110,8 +110,8 @@ namespace Ordisoftware.Hebrew.Letters
       Program.Settings.CurrentView = view;
       if ( view == ViewMode.Analysis )
       {
-        EditLetters.Input.SelectionStart = SavedSelectionStart;
-        EditLetters.Input.SelectionLength = SavedSelectionLength;
+        EditWord.TextBox.SelectionStart = SavedSelectionStart;
+        EditWord.TextBox.SelectionLength = SavedSelectionLength;
         if ( DataChanged )
         {
           foreach ( var row in ApplicationDatabase.Instance.Letters )
@@ -122,8 +122,8 @@ namespace Ordisoftware.Hebrew.Letters
       }
       else
       {
-        SavedSelectionStart = EditLetters.Input.SelectionStart;
-        SavedSelectionLength = EditLetters.Input.SelectionLength;
+        SavedSelectionStart = EditWord.TextBox.SelectionStart;
+        SavedSelectionLength = EditWord.TextBox.SelectionLength;
         DataEditMutex = false;
       }
     }

@@ -134,6 +134,8 @@ namespace Ordisoftware.Hebrew.Letters
       ActionSettings.Enabled = !Globals.IsReadOnly;
       ActionPreferences.Enabled = !Globals.IsReadOnly;
       ActionRestoreDefaults.Enabled = !Globals.IsReadOnly;
+      ActionDeleteTerm.Enabled = !Globals.IsReadOnly;
+      // TODO add others terms controls
       TimerProcesses.Enabled = Globals.IsReadOnly;
     }
 
@@ -224,7 +226,7 @@ namespace Ordisoftware.Hebrew.Letters
       try
       {
         PreferencesForm.Run();
-        EditLetters.InputMaxLength = (int)Settings.HebrewTextBoxMaxLength;
+        EditWord.InputMaxLength = (int)Settings.HebrewTextBoxMaxLength;
         InitializeSpecialMenus();
         InitializeDialogsDirectory();
         ClearLettersMeanings();
@@ -475,7 +477,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void UpdateAnalysisControls()
     {
-      bool enabled = EditLetters.Input.Text.Length >= 1;
+      bool enabled = EditWord.TextBox.Text.Length >= 1;
       ActionReset.Enabled = !Program.StartupWord.IsNullOrEmpty();
       ActionClear.Enabled = enabled;
       ActionDelFirst.Enabled = enabled;
@@ -515,26 +517,26 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void ActionDelFirst_Click(object sender, EventArgs e)
     {
-      if ( EditLetters.Input.Text.Length < 1 ) return;
-      EditLetters.Input.SelectionStart = EditLetters.Input.TextLength - 1;
-      EditLetters.Input.SelectionLength = 1;
-      EditLetters.Focus(LettersControlFocusSelect.Keep);
+      if ( EditWord.TextBox.Text.Length < 1 ) return;
+      EditWord.TextBox.SelectionStart = EditWord.TextBox.TextLength - 1;
+      EditWord.TextBox.SelectionLength = 1;
+      EditWord.Focus(LettersControlFocusSelect.Keep);
       TextBoxEx.ActionDelete.PerformClick();
     }
 
     private void ActionDelLast_Click(object sender, EventArgs e)
     {
-      if ( EditLetters.Input.Text.Length < 1 ) return;
-      EditLetters.Input.SelectionStart = 0;
-      EditLetters.Input.SelectionLength = 1;
-      EditLetters.Focus(LettersControlFocusSelect.Keep);
+      if ( EditWord.TextBox.Text.Length < 1 ) return;
+      EditWord.TextBox.SelectionStart = 0;
+      EditWord.TextBox.SelectionLength = 1;
+      EditWord.Focus(LettersControlFocusSelect.Keep);
       TextBoxEx.ActionDelete.PerformClick();
     }
 
     private void ActionReset_Click(object sender, EventArgs e)
     {
-      EditLetters.Input.Text = Program.StartupWord;
-      EditLetters.Focus(LettersControlFocusSelect.None);
+      EditWord.TextBox.Text = Program.StartupWord;
+      EditWord.Focus(LettersControlFocusSelect.None);
     }
 
     private void EditLetters_InputTextChanged(object sender, EventArgs e)
@@ -545,14 +547,14 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void ActionClear_Click(object sender, EventArgs e)
     {
-      EditLetters.Input.SelectAll();
-      EditLetters.Input.Paste("");
+      EditWord.TextBox.SelectAll();
+      EditWord.TextBox.Paste("");
       EditSentence.Text = "";
       EditGematriaSimple.Text = "";
       EditGematriaFull.Text = "";
       SelectAnalyze.Controls.Clear();
       UpdateAnalysisControls();
-      EditLetters.Focus();
+      EditWord.Focus();
     }
 
     private void ActionSearchOnline_Click(object sender, EventArgs e)
@@ -571,32 +573,32 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void ActionPaste_Click(object sender, EventArgs e)
     {
-      EditLetters.Focus(LettersControlFocusSelect.All);
+      EditWord.Focus(LettersControlFocusSelect.All);
       TextBoxEx.ActionPaste.PerformClick();
     }
 
     private void ActionCopyToHebrew_Click(object sender, EventArgs e)
     {
-      if ( EditLetters.Input.Text == "" ) return;
-      string str = EditLetters.Input.Text;
+      if ( EditWord.TextBox.Text == "" ) return;
+      string str = EditWord.TextBox.Text;
       if ( EditCopyWithFinalLetter.Checked )
         str = HebrewAlphabet.SetFinal(str, true);
       Clipboard.SetText(str);
       DisplayManager.ShowSuccessOrSound(SysTranslations.DataCopiedToClipboard.GetLang(),
                                         Globals.ClipboardSoundFilePath);
-      EditLetters.Focus(LettersControlFocusSelect.All);
+      EditWord.Focus(LettersControlFocusSelect.All);
     }
 
     private void ActionCopyToUnicode_Click(object sender, EventArgs e)
     {
-      if ( EditLetters.Input.Text == "" ) return;
-      string str = EditLetters.Input.Text;
+      if ( EditWord.TextBox.Text == "" ) return;
+      string str = EditWord.TextBox.Text;
       if ( EditCopyWithFinalLetter.Checked )
         str = HebrewAlphabet.SetFinal(str, true);
       Clipboard.SetText(HebrewAlphabet.ToUnicode(str));
       DisplayManager.ShowSuccessOrSound(SysTranslations.DataCopiedToClipboard.GetLang(),
                                         Globals.ClipboardSoundFilePath);
-      EditLetters.Focus(LettersControlFocusSelect.All);
+      EditWord.Focus(LettersControlFocusSelect.All);
     }
 
     #endregion
@@ -627,12 +629,12 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void ActionViewAllMeaningsList_Click(object sender, EventArgs e)
     {
-      if ( EditLetters.Input.Text == "" ) return;
+      if ( EditWord.TextBox.Text == "" ) return;
       new ShowTextForm(AppTranslations.LettersWordMeaningsList.GetLang(),
                        GetMeaningsText().Replace(Globals.NL, Globals.NL2),
                        false, true,
                        600, 400).ShowDialog();
-      EditLetters.Focus();
+      EditWord.Focus();
     }
 
     private string GetMeaningsText()
@@ -650,26 +652,26 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void ActionCopyToMeanings_Click(object sender, EventArgs e)
     {
-      if ( EditLetters.Input.Text == "" ) return;
+      if ( EditWord.TextBox.Text == "" ) return;
       Clipboard.SetText(GetMeaningsText());
       DisplayManager.ShowSuccessOrSound(SysTranslations.DataCopiedToClipboard.GetLang(),
                                         Globals.ClipboardSoundFilePath);
-      EditLetters.Focus();
+      EditWord.Focus();
     }
 
     private void ActionScreenshot_Click(object sender, EventArgs e)
     {
-      if ( EditLetters.Input.Text == "" ) return;
+      if ( EditWord.TextBox.Text == "" ) return;
       Clipboard.SetImage(this.GetBitmap());
       DisplayManager.ShowSuccessOrSound(SysTranslations.ScreenshotDone.GetLang(),
                                         Globals.ScreenshotSoundFilePath);
-      EditLetters.Focus();
+      EditWord.Focus();
     }
 
     private void ActionSaveScreenshot_Click(object sender, EventArgs e)
     {
-      if ( EditLetters.Input.Text == "" ) return;
-      string str = EditLetters.Input.Text;
+      if ( EditWord.TextBox.Text == "" ) return;
+      string str = EditWord.TextBox.Text;
       if ( EditCopyWithFinalLetter.Checked )
         str = HebrewAlphabet.SetFinal(str, true);
       SaveImageDialog.FileName = HebrewAlphabet.ToUnicode(str);
@@ -686,7 +688,7 @@ namespace Ordisoftware.Hebrew.Letters
         SystemManager.RunShell(Path.GetDirectoryName(filePath));
       if ( Settings.AutoOpenExportedFile )
         SystemManager.RunShell(filePath);
-      EditLetters.Focus();
+      EditWord.Focus();
     }
 
     #endregion
@@ -753,13 +755,13 @@ namespace Ordisoftware.Hebrew.Letters
     {
       if ( DisplayManager.QueryYesNo(SysTranslations.AskToResetData.GetLang()) )
       {
-        string word = EditLetters.Input.Text;
+        string word = EditWord.TextBox.Text;
         ApplicationDatabase.Instance.CreateDataIfNotExist(true);
         ApplicationDatabase.Instance.LoadAll();
         LettersBindingSource.DataSource = ApplicationDatabase.Instance.LettersAsBindingList;
         ActionClear.PerformClick();
         ActionReset.PerformClick();
-        EditLetters.Input.Text = word;
+        EditWord.TextBox.Text = word;
         ApplicationStatistics.UpdateDBFileSizeRequired = true;
         ApplicationStatistics.UpdateDBMemorySizeRequired = true;
         UpdateDataControls(null);
@@ -987,6 +989,22 @@ namespace Ordisoftware.Hebrew.Letters
       if ( !Globals.IsReady ) return;
       e.Exception.Manage();
       ApplicationDatabase.Instance.Connection.Rollback();//DataSet.RejectChanges();
+    }
+
+    #endregion
+
+    #region Terms
+
+    private void ListWords_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+    {
+      string word = ListWords[e.ColumnIndex, e.RowIndex].Value.ToString();
+      bool b1 = EditWord.TextBox.Text != string.Empty;
+      bool b2 = EditWord.TextBox.Text != word;
+      if ( b1 && b2 && !DisplayManager.QueryOkCancel("Replace current word?") )
+        return;
+      SetView(ViewMode.Analysis);
+      if ( b2 )
+        EditWord.TextBox.Text = word;
     }
 
     #endregion

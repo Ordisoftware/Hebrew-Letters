@@ -12,7 +12,9 @@
 /// </license>
 /// <created> 2019-01 </created>
 /// <edited> 2021-05 </edited>
-using System.Windows.Forms;
+using System;
+
+using Ordisoftware.Core;
 
 namespace Ordisoftware.Hebrew.Letters
 {
@@ -24,40 +26,26 @@ namespace Ordisoftware.Hebrew.Letters
   partial class MainForm
   {
 
-    /// <summary>
-    /// Indicate the default Settings instance.
-    /// </summary>
-    private readonly Properties.Settings Settings = Program.Settings;
-
-    /// <summary>
-    /// Indicate last showned menu tooltip.
-    /// </summary>
-    private ToolTip LastToolTip = new ToolTip();
-
-    /// <summary>
-    /// Indicate the last term searched.
-    /// </summary>
-    private string LastTermSearched;
-
-    /// <summary>
-    /// Indicate if data has changed to refresh the analysis.
-    /// </summary>
-    private bool DataChanged;
-
-    /// <summary>
-    /// Indicate data edition mutex.
-    /// </summary>
-    private bool DataEditMutex;
-
-    /// <summary>
-    /// Indicate add new meaning mutex.
-    /// </summary>
-    private bool DataAddNewRowMutex;
-
-    /// <summary>
-    /// Indicate if terms tables are readonly, else writable.
-    /// </summary>
-    private bool IsTermsReadOnly;
+    private void LoadData()
+    {
+      try
+      {
+        Globals.ChronoLoadData.Start();
+        ApplicationDatabase.Instance.Open();
+        HebrewDatabase.Instance.TakeLettriqs();
+        LettersBindingSource.DataSource = ApplicationDatabase.Instance.LettersAsBindingList;
+        WordsBindingSource.DataSource = HebrewDatabase.Instance.TermsHebrewAsBindingList;
+        Globals.ChronoLoadData.Stop();
+        Settings.BenchmarkLoadData = Globals.ChronoLoadData.ElapsedMilliseconds;
+      }
+      catch ( Exception ex )
+      {
+        DisplayManager.ShowError(SysTranslations.ApplicationMustExit.GetLang() + Globals.NL2 +
+                                 SysTranslations.ContactSupport.GetLang());
+        ex.Manage();
+        Environment.Exit(-1);
+      }
+    }
 
   }
 

@@ -1555,7 +1555,7 @@
     <value>27, 50</value>
   </metadata>
   <data name="meaningsDataGridView.Location" type="System.Drawing.Point, System.Drawing">
-    <value>277, 275</value>
+    <value>193, 275</value>
   </data>
   <data name="meaningsDataGridView.Size" type="System.Drawing.Size, System.Drawing">
     <value>300, 220</value>
@@ -1606,7 +1606,7 @@
     <value>ValueFull</value>
   </data>
   <data name="letterDataGridView.Location" type="System.Drawing.Point, System.Drawing">
-    <value>277, 15</value>
+    <value>181, 35</value>
   </data>
   <data name="letterDataGridView.Size" type="System.Drawing.Size, System.Drawing">
     <value>300, 220</value>
@@ -1959,10 +1959,10 @@
     <value>NoControl</value>
   </data>
   <data name="ActionUndo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>548, 484</value>
+    <value>550, 485</value>
   </data>
   <data name="ActionUndo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 45</value>
+    <value>42, 42</value>
   </data>
   <data name="ActionUndo.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -2023,10 +2023,10 @@
     <value>NoControl</value>
   </data>
   <data name="ActionSave.Location" type="System.Drawing.Point, System.Drawing">
-    <value>548, 433</value>
+    <value>550, 435</value>
   </data>
   <data name="ActionSave.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 45</value>
+    <value>42, 42</value>
   </data>
   <data name="ActionSave.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -2078,10 +2078,10 @@
     <value>NoControl</value>
   </data>
   <data name="ActionDeleteMeaning.Location" type="System.Drawing.Point, System.Drawing">
-    <value>548, 85</value>
+    <value>550, 85</value>
   </data>
   <data name="ActionDeleteMeaning.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 45</value>
+    <value>42, 42</value>
   </data>
   <data name="ActionDeleteMeaning.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -2133,10 +2133,10 @@
     <value>NoControl</value>
   </data>
   <data name="ActionAddMeaning.Location" type="System.Drawing.Point, System.Drawing">
-    <value>548, 34</value>
+    <value>550, 35</value>
   </data>
   <data name="ActionAddMeaning.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 45</value>
+    <value>42, 42</value>
   </data>
   <data name="ActionAddMeaning.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -2257,6 +2257,218 @@
   </data>
   <data name="PanelViewNotebook.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="SplitContainerNotebook.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="SplitContainerNotebook.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 65</value>
+  </data>
+  <data name="hebrewDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Hebrew</value>
+  </data>
+  <metadata name="WordsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>378, 50</value>
+  </metadata>
+  <data name="ListWords.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="ListWords.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="ListWords.Size" type="System.Drawing.Size, System.Drawing">
+    <value>175, 474</value>
+  </data>
+  <data name="ListWords.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;ListWords.Name" xml:space="preserve">
+    <value>ListWords</value>
+  </data>
+  <data name="&gt;&gt;ListWords.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ListWords.Parent" xml:space="preserve">
+    <value>SplitContainerNotebook.Panel1</value>
+  </data>
+  <data name="&gt;&gt;ListWords.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;SplitContainerNotebook.Panel1.Name" xml:space="preserve">
+    <value>SplitContainerNotebook.Panel1</value>
+  </data>
+  <data name="&gt;&gt;SplitContainerNotebook.Panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SplitContainerNotebook.Panel1.Parent" xml:space="preserve">
+    <value>SplitContainerNotebook</value>
+  </data>
+  <data name="&gt;&gt;SplitContainerNotebook.Panel1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="SplitContainerNotebook.Panel1MinSize" type="System.Int32, mscorlib">
+    <value>120</value>
+  </data>
+  <data name="sentenceDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Sentence</value>
+  </data>
+  <metadata name="LettriqsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>576, 50</value>
+  </metadata>
+  <data name="ListSentences.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="ListSentences.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="ListSentences.Size" type="System.Drawing.Size, System.Drawing">
+    <value>423, 474</value>
+  </data>
+  <data name="ListSentences.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;ListSentences.Name" xml:space="preserve">
+    <value>ListSentences</value>
+  </data>
+  <data name="&gt;&gt;ListSentences.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ListSentences.Parent" xml:space="preserve">
+    <value>SplitContainerNotebook.Panel2</value>
+  </data>
+  <data name="&gt;&gt;ListSentences.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;SplitContainerNotebook.Panel2.Name" xml:space="preserve">
+    <value>SplitContainerNotebook.Panel2</value>
+  </data>
+  <data name="&gt;&gt;SplitContainerNotebook.Panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SplitContainerNotebook.Panel2.Parent" xml:space="preserve">
+    <value>SplitContainerNotebook</value>
+  </data>
+  <data name="&gt;&gt;SplitContainerNotebook.Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="SplitContainerNotebook.Panel2MinSize" type="System.Int32, mscorlib">
+    <value>250</value>
+  </data>
+  <data name="SplitContainerNotebook.Size" type="System.Drawing.Size, System.Drawing">
+    <value>608, 474</value>
+  </data>
+  <data name="SplitContainerNotebook.SplitterDistance" type="System.Int32, mscorlib">
+    <value>175</value>
+  </data>
+  <data name="SplitContainerNotebook.SplitterWidth" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="SplitContainerNotebook.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;SplitContainerNotebook.Name" xml:space="preserve">
+    <value>SplitContainerNotebook</value>
+  </data>
+  <data name="&gt;&gt;SplitContainerNotebook.Type" xml:space="preserve">
+    <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SplitContainerNotebook.Parent" xml:space="preserve">
+    <value>PanelViewNotebook</value>
+  </data>
+  <data name="&gt;&gt;SplitContainerNotebook.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ActionDeleteTerm.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="ActionDeleteTerm.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="ActionDeleteTerm.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+</value>
+  </data>
+  <data name="ActionDeleteTerm.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ActionDeleteTerm.Location" type="System.Drawing.Point, System.Drawing">
+    <value>563, 3</value>
+  </data>
+  <data name="ActionDeleteTerm.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 42</value>
+  </data>
+  <data name="ActionDeleteTerm.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;ActionDeleteTerm.Name" xml:space="preserve">
+    <value>ActionDeleteTerm</value>
+  </data>
+  <data name="&gt;&gt;ActionDeleteTerm.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ActionDeleteTerm.Parent" xml:space="preserve">
+    <value>PanelNotebookTop</value>
+  </data>
+  <data name="&gt;&gt;ActionDeleteTerm.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="PanelNotebookTop.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="PanelNotebookTop.Location" type="System.Drawing.Point, System.Drawing">
+    <value>10, 10</value>
+  </data>
+  <data name="PanelNotebookTop.Size" type="System.Drawing.Size, System.Drawing">
+    <value>608, 55</value>
+  </data>
+  <data name="PanelNotebookTop.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;PanelNotebookTop.Name" xml:space="preserve">
+    <value>PanelNotebookTop</value>
+  </data>
+  <data name="&gt;&gt;PanelNotebookTop.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PanelNotebookTop.Parent" xml:space="preserve">
+    <value>PanelViewNotebook</value>
+  </data>
+  <data name="&gt;&gt;PanelNotebookTop.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="PanelViewNotebook.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
@@ -3462,6 +3674,30 @@
   </data>
   <data name="&gt;&gt;dataGridViewTextBoxColumn10.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;hebrewDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>hebrewDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;hebrewDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;WordsBindingSource.Name" xml:space="preserve">
+    <value>WordsBindingSource</value>
+  </data>
+  <data name="&gt;&gt;WordsBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;sentenceDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>sentenceDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;sentenceDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LettriqsBindingSource.Name" xml:space="preserve">
+    <value>LettriqsBindingSource</value>
+  </data>
+  <data name="&gt;&gt;LettriqsBindingSource.Type" xml:space="preserve">
+    <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;TimerTooltip.Name" xml:space="preserve">
     <value>TimerTooltip</value>

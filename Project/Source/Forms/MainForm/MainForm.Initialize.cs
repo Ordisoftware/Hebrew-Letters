@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-01 </created>
-/// <edited> 2021-04 </edited>
+/// <edited> 2021-05 </edited>
 using System;
 using System.Drawing;
 using System.Threading.Tasks;
@@ -81,30 +81,13 @@ namespace Ordisoftware.Hebrew.Letters
       InitializeDialogsDirectory();
       Program.Settings.CurrentView = ViewMode.Analysis;
       EditSentence.Font = new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence);
-      EditLetters.Input.MaxLength = (int)Settings.HebrewTextBoxMaxLength;
+      EditWord.TextBox.MaxLength = (int)Settings.HebrewTextBoxMaxLength;
       EditSentence_FontChanged(null, null);
       CommonMenusControl.Instance.ActionViewStats.Enabled = Settings.UsageStatisticsEnabled;
       CommonMenusControl.Instance.ActionViewLog.Enabled = DebugManager.TraceEnabled;
       DebugManager.TraceEnabledChanged += value => CommonMenusControl.Instance.ActionViewLog.Enabled = value;
-      new Task(() =>
-      {
-        try
-        {
-          Globals.ChronoLoadData.Start();
-          ApplicationDatabase.Instance.Open();
-          LettersBindingSource.DataSource = ApplicationDatabase.Instance.LettersAsBindingList;
-          Globals.ChronoLoadData.Stop();
-          Settings.BenchmarkLoadData = Globals.ChronoLoadData.ElapsedMilliseconds;
-        }
-        catch ( Exception ex )
-        {
-          DisplayManager.ShowError(SysTranslations.ApplicationMustExit.GetLang() + Globals.NL2 +
-                                   SysTranslations.ContactSupport.GetLang());
-          ex.Manage();
-          Environment.Exit(-1);
-        }
-      }).Start();
       TimerProcesses_Tick(null, null);
+      LoadData();
       Globals.IsReady = true;
       SelectLetter_SelectedIndexChanged(SelectLetter, EventArgs.Empty);
       LettersNavigator.Refresh();
@@ -122,9 +105,9 @@ namespace Ordisoftware.Hebrew.Letters
       if ( !Program.StartupWord.IsNullOrEmpty() )
       {
         ActionReset.Visible = true;
-        EditLetters.Input.Text = Program.StartupWord;
-        EditLetters.Focus(LettersControlFocusSelect.None);
-        EditLetters.TextBox.Refresh();
+        EditWord.TextBox.Text = Program.StartupWord;
+        EditWord.Focus(LettersControlFocusSelect.None);
+        EditWord.TextBox.Refresh();
       }
       else
         ActionReset.Visible = false;
@@ -238,8 +221,8 @@ namespace Ordisoftware.Hebrew.Letters
       ContextMenuSearchOnline.InitializeFromProviders(HebrewGlobals.WebProvidersWord, (sender, e) =>
       {
         var menuitem = (ToolStripMenuItem)sender;
-        HebrewTools.OpenWordProvider((string)menuitem.Tag, EditLetters.Input.Text);
-        EditLetters.Focus();
+        HebrewTools.OpenWordProvider((string)menuitem.Tag, EditWord.TextBox.Text);
+        EditWord.Focus();
       });
     }
 
@@ -249,8 +232,8 @@ namespace Ordisoftware.Hebrew.Letters
     internal void InitializeTheme()
     {
       // Analyser
-      EditLetters.LettersBackColor = Settings.ColorLettersPanel;
-      EditLetters.InputBackColor = Settings.ColorHebrewWordTextBox;
+      EditWord.LettersBackColor = Settings.ColorLettersPanel;
+      EditWord.InputBackColor = Settings.ColorHebrewWordTextBox;
       SelectAnalyze.BackColor = Settings.ColorMeaningsPanel;
       EditSentence.BackColor = Settings.ColorSentenceTextBox;
       EditGematriaFull.BackColor = Settings.ColorGematriaTextBox;

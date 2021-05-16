@@ -47,7 +47,7 @@ namespace Ordisoftware.Hebrew.Letters
         int sumSimple = 0;
         int sumFull = 0;
         int dy = 0;
-        string word = EditLetters.Input.Text;
+        string word = EditWord.TextBox.Text;
         for ( int pos = word.Length - 1, index = 0; pos >= 0; index++, pos-- )
         {
           // Letter
