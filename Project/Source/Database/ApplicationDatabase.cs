@@ -35,7 +35,7 @@ namespace Ordisoftware.Hebrew.Letters
     public List<Letter> Letters { get; private set; }
     public List<Meaning> Meanings { get; private set; }
 
-    public BindingList<Letter> LettersAsBindingList => new BindingList<Letter>(Letters);
+    public BindingList<Letter> LettersAsBindingList { get; private set; }
 
     private ApplicationDatabase() : base(Globals.ApplicationDatabaseFilePath)
     {
@@ -59,6 +59,7 @@ namespace Ordisoftware.Hebrew.Letters
     {
       Letters = Connection.Table<Letter>().ToList();
       Meanings = Connection.Table<Meaning>().ToList();
+      LettersAsBindingList = new BindingList<Letter>(Letters);
     }
 
     protected override void DoSaveAll()

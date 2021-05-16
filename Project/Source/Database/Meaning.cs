@@ -36,7 +36,7 @@ namespace Ordisoftware.Hebrew.Letters
 
   static class MeaningsUpgrade
   {
-    static public void AddID(SQLiteConnection connection)
+    static public void AddID(SQLiteNetORM connection)
     {
       connection.Execute($@"PRAGMA foreign_keys = 0;");
       connection.DropTableIfExists(nameof(Meaning_No_ID));
