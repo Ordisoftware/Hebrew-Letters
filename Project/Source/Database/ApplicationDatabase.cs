@@ -79,7 +79,6 @@ namespace Ordisoftware.Hebrew.Letters
       CheckAccess(Meanings, nameof(Meanings));
       Connection.UpdateAll(Letters);
       Connection.UpdateAll(Meanings);
-      Connection.Commit();
     }
 
     public void DeleteAll()
@@ -87,18 +86,27 @@ namespace Ordisoftware.Hebrew.Letters
       CheckConnected();
       CheckAccess(Letters, nameof(Letters));
       CheckAccess(Meanings, nameof(Meanings));
-      Connection.BeginTransaction();
-      try
+      if ( Connection.IsInTransaction )
+        delete();
+      else
+        try
+        {
+          Connection.BeginTransaction();
+          delete();
+          Connection.Commit();
+        }
+        catch
+        {
+          Connection.Rollback();
+          throw;
+        }
+      Meanings.Clear();
+      Letters.Clear();
+      //
+      void delete()
       {
         Connection.DeleteAll<Meaning>();
         Connection.DeleteAll<Letter>();
-        Connection.Commit();
-        Meanings.Clear();
-        Letters.Clear();
-      }
-      catch
-      {
-        Connection.Rollback();
       }
     }
 
