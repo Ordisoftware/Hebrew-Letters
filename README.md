@@ -25,7 +25,7 @@ A libre and open-source software written in C# that helps for the lettriq letter
 - Hebrew letters database with their customizable meanings.
 - Analyze a word letter by letter to get a sentence describing its sense.
 - Online research with Pealim, Sefaria, Shorashim, Wiktionary, Translator, etc.
-- Store results in a notebook that can be used in Hebrew Words.
+- Store results in a notebook that can also be used in Hebrew Words.
 - Copy the result or a screenshot to the clipboard.
 - Export and import of letters meanings and notebook.
 - English, French.
@@ -48,7 +48,7 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 
 **What's new in the latest version**
 
-- Added terms table to store lettriq sentences for words.
+- Added notebook and terms table to store lettriq sentences for words.
 - Overall performances are Optimized.
 - Some UI improvements and some fixes.
 - SQLite ODBC Driver is no more needed.
@@ -141,7 +141,6 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 ## Future improvements
 
-- Add analyzed word data table and view panel.
 - Add reset only some columns to factory defaults.
 - Add export and import database.
 - Add export data to TXT/CSV/JSON.
@@ -155,7 +154,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 #### In progress - Version 6.0
 
-- Add terms table to store lettriq sentences.
+- Add analyzed word data table and view panel.
 - Optimize overall performances.
 - Switch from SQLite ODBC Driver to SQLite-Net with SQLitePCLraw nugets.
 - Code refactoring and quality improvement.
