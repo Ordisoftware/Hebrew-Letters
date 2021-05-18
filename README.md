@@ -48,7 +48,6 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 
 **What's new in the latest version 6.0**
 
-- Added notebook and terms table to store lettriq sentences for words.
 - Overall performances are Optimized.
 - Some UI improvements and some fixes.
 - SQLite ODBC Driver is no more needed.
@@ -141,6 +140,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 ## Future improvements
 
+- Add analyzed word data table and view panel.
 - Add reset only some columns to factory defaults.
 - Add export and import database.
 - Add export data to TXT/CSV/JSON.
@@ -154,7 +154,6 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 #### In progress - Version 6.0
 
-- Add analyzed word data table and view panel.
 - Optimize overall performances.
 - Switch from SQLite ODBC Driver to SQLite-Net with SQLitePCLraw nugets.
 - Code refactoring and quality improvement.
