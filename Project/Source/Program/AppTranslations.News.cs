@@ -30,18 +30,18 @@ namespace Ordisoftware.Hebrew.Letters
 
         ["6.0"] = new TranslationsDictionary
         {
-          [Language.EN] = "SQLite ODBC Driver is no more needed." + Globals.NL +
-                          "Overall performances are Optimized." + Globals.NL +
-                          "Some UI improvements and some fixes.",
+          [Language.EN] = "Overall performances are optimized." + Globals.NL +
+                          "Some improvements and fixes." + Globals.NL +
+                          "SQLite ODBC Driver is no more needed.",
 
-          [Language.FR] = "SQLite ODBC Driver is no more needed." + Globals.NL +
-                          "Overall performances are Optimized." + Globals.NL +
-                          "Some UI improvements and some fixes."
+          [Language.FR] = "Les performances globales sont optimisées." + Globals.NL +
+                          "Quelques améliorations et quelques corrections." + Globals.NL +
+                          "Le pilote SQLite ODBC n'est plus nécessaire. "
         },
 
         ["5.x"] = new TranslationsDictionary
         {
-          [Language.EN] = "Added command-line options (see help FAQ)" + Globals.NL +
+          [Language.EN] = "Added command-line options (see help FAQ)." + Globals.NL +
                           "Startup speed and analysis combo boxes creation are optimized." + Globals.NL +
                           "Data edition is only possible by one instance at a time." + Globals.NL +
                           "Data edition is improved to have save and cancel behavior." + Globals.NL +
