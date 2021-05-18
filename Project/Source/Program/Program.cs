@@ -152,8 +152,8 @@ namespace Ordisoftware.Hebrew.Letters
         var culture = new CultureInfo(lang);
         Thread.CurrentThread.CurrentCulture = culture;
         Thread.CurrentThread.CurrentUICulture = culture;
-        string tempLogTitle = string.Empty;
-        string tempLogContent = string.Empty;
+        string tempLogTitle = DebugManager.TraceForm.Text;
+        string tempLogContent = DebugManager.TraceForm.TextBox.Text;
         if ( Globals.IsReady )
         {
           MessageBoxEx.CloseAll();
@@ -165,8 +165,6 @@ namespace Ordisoftware.Hebrew.Letters
           MainForm.Instance.SetView(ViewMode.Letters);
           update(MainForm.Instance);
           MainForm.Instance.SetView(temp);
-          tempLogTitle = DebugManager.TraceForm.Text;
-          tempLogContent = DebugManager.TraceForm.TextBox.Text;
         }
         else
         {
@@ -188,22 +186,20 @@ namespace Ordisoftware.Hebrew.Letters
         // Various updates
         if ( Globals.IsReady )
         {
-          DebugManager.TraceForm.Text = tempLogTitle;
-          DebugManager.TraceForm.AppendText(tempLogContent);
           LoadingForm.Instance.Relocalize();
           TextBoxEx.Relocalize();
           AboutBox.Instance.AboutBox_Shown(null, null);
           GrammarGuideForm.HTMLBrowserForm_Shown(null, null);
           MethodNoticeForm.HTMLBrowserForm_Shown(null, null);
-          updateLabel(MainForm.Instance.LabelGematria, MainForm.Instance.EditGematriaSimple, -19);
-          updateLabel(MainForm.Instance.LabelGematriaSimple, MainForm.Instance.EditGematriaSimple, 3);
-          updateLabel(MainForm.Instance.LabelGematriaFull, MainForm.Instance.EditGematriaFull, 3);
-          MainForm.Instance.LabelClipboardContentType.Left = MainForm.Instance.ActionCopyToUnicode.Left
-                                                           + MainForm.Instance.ActionCopyToUnicode.Width / 2
-                                                           - MainForm.Instance.LabelClipboardContentType.Width / 2;
-          MainForm.Instance.EditCopyToClipboardCloseApp.Left = MainForm.Instance.ActionCopyToResult.Left
-                                                             + MainForm.Instance.ActionCopyToResult.Width + 5;
         }
+        updateLabel(MainForm.Instance.LabelGematria, MainForm.Instance.EditGematriaSimple, -19);
+        updateLabel(MainForm.Instance.LabelGematriaSimple, MainForm.Instance.EditGematriaSimple, 3);
+        updateLabel(MainForm.Instance.LabelGematriaFull, MainForm.Instance.EditGematriaFull, 3);
+        MainForm.Instance.LabelClipboardContentType.Left = MainForm.Instance.ActionCopyToUnicode.Left
+                                                         + MainForm.Instance.ActionCopyToUnicode.Width / 2
+                                                         - MainForm.Instance.LabelClipboardContentType.Width / 2;
+        MainForm.Instance.EditCopyToClipboardCloseApp.Left = MainForm.Instance.ActionCopyToResult.Left
+                                                           + MainForm.Instance.ActionCopyToResult.Width + 5;
         MainForm.Instance.CheckClipboardContentType();
         MainForm.Instance.CreateSystemInformationMenu();
       }

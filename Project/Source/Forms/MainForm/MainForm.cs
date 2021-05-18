@@ -851,7 +851,8 @@ namespace Ordisoftware.Hebrew.Letters
       row.Text = "";
       ApplicationDatabase.Instance.Connection.Insert(row);
       ApplicationDatabase.Instance.Meanings.Add(row);
-      MeaningsBindingSource.ResetBindings(false);
+      ApplicationDatabase.Instance.LettersAsBindingList.ResetBindings();
+      //MeaningsBindingSource.ResetBindings(false);
       MeaningsBindingSource.MoveLast();
       EditMeanings.BeginEdit(false);
       DataAddNewRowMutex = true;
@@ -898,7 +899,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void EditMeanings_KeyUp(object sender, KeyEventArgs e)
     {
-      /*if ( e.KeyCode == Keys.Enter )
+      if ( e.KeyCode == Keys.Enter )
       {
         if ( DataAddNewRowMutex && ( (string)EditMeanings.CurrentCell.Value ).IsNullOrEmpty() )
         {
@@ -930,7 +931,7 @@ namespace Ordisoftware.Hebrew.Letters
           EditMeanings.CancelEdit();
           EditMeanings.EndEdit();
         }
-      }*/
+      }
     }
 
     private void EditMeanings_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
