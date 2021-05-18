@@ -68,6 +68,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     public override void LoadAll()
     {
+      base.LoadAll();
       Letters = Connection.Table<Letter>().ToList();
       Meanings = Connection.Table<Meaning>().ToList();
       LettersAsBindingList = new BindingList<Letter>(Letters);
@@ -86,28 +87,10 @@ namespace Ordisoftware.Hebrew.Letters
       CheckConnected();
       CheckAccess(Letters, nameof(Letters));
       CheckAccess(Meanings, nameof(Meanings));
-      if ( Connection.IsInTransaction )
-        delete();
-      else
-        try
-        {
-          Connection.BeginTransaction();
-          delete();
-          Connection.Commit();
-        }
-        catch
-        {
-          Connection.Rollback();
-          throw;
-        }
+      Connection.DeleteAll<Meaning>();
+      Connection.DeleteAll<Letter>();
       Meanings.Clear();
       Letters.Clear();
-      //
-      void delete()
-      {
-        Connection.DeleteAll<Meaning>();
-        Connection.DeleteAll<Letter>();
-      }
     }
 
     protected override void UpgradeSchema()
@@ -139,7 +122,7 @@ namespace Ordisoftware.Hebrew.Letters
         if ( !reset && Connection.GetRowsCount(nameof(Letters)) == 22 ) return;
         bool temp = Globals.IsReady;
         Globals.IsReady = false;
-        Connection.BeginTransaction();
+        BeginTransaction();
         try
         {
           DeleteAll();
@@ -182,11 +165,11 @@ namespace Ordisoftware.Hebrew.Letters
               Connection.Insert(rowMeaning);
             }
           }
-          Connection.Commit();
+          Commit();
         }
         catch
         {
-          Connection.Rollback();
+          Rollback();
           throw;
         }
         finally

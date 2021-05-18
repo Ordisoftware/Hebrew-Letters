@@ -120,7 +120,7 @@ namespace Ordisoftware.Hebrew.Letters
     /// <param name="e">Event information.</param>
     private void TimerProcesses_Tick(object sender, EventArgs e)
     {
-      Globals.IsReadOnly = ProcessLocks.IsReadOnly();
+      Globals.IsReadOnly = Interlocks.IsReadOnly();
       Text = Globals.AssemblyTitle;
       if ( Globals.IsReadOnly ) Text += " - " + SysTranslations.ReadOnly.GetLang();
       TextBoxPositive.ReadOnly = Globals.IsReadOnly;
@@ -135,7 +135,7 @@ namespace Ordisoftware.Hebrew.Letters
       ActionPreferences.Enabled = !Globals.IsReadOnly;
       ActionRestoreDefaults.Enabled = !Globals.IsReadOnly;
       ActionDeleteTerm.Enabled = !Globals.IsReadOnly;
-      // TODO add others terms controls
+      // TODO add notebook controls
       TimerProcesses.Enabled = Globals.IsReadOnly;
     }
 
@@ -699,12 +699,12 @@ namespace Ordisoftware.Hebrew.Letters
     {
       try
       {
-        /*forceEditMode = forceEditMode || EditMeanings.IsCurrentCellInEditMode || DataAddNewRowMutex;
+        forceEditMode = forceEditMode || EditMeanings.IsCurrentCellInEditMode || DataAddNewRowMutex;
         if ( SelectLetter.SelectedItem == null ) return;
-        var row = (Data.DataSet.LettersRow)( (DataRowView)SelectLetter.SelectedItem ).Row;
+        var letter = (Letter)SelectLetter.SelectedItem;
         ActionAddMeaning.Enabled = !Globals.IsReadOnly && !forceEditMode;
-        ActionDeleteMeaning.Enabled = !Globals.IsReadOnly && !forceEditMode && row.GetMeaningsRows().Length > 0;
-        ActionSave.Enabled = ( DataSet.HasChanges() && !forceEditMode ) || ( forceEditMode && sender is TextBox );
+        ActionDeleteMeaning.Enabled = !Globals.IsReadOnly && !forceEditMode && letter.Meanings.Count > 0;
+        ActionSave.Enabled = ( ApplicationDatabase.Instance.IsInTransaction && !forceEditMode ) || ( forceEditMode && sender is TextBox );
         ActionUndo.Enabled = ActionSave.Enabled;
         Globals.AllowClose = !ActionSave.Enabled && !forceEditMode;
         SelectLetter.Enabled = Globals.AllowClose;
@@ -715,7 +715,6 @@ namespace Ordisoftware.Hebrew.Letters
         ActionSearchTerm.Enabled = Globals.AllowClose;
         CommonMenusControl.Instance.ActionCheckUpdate.Enabled = Globals.AllowClose;
         AboutBox.Instance.ActionCheckUpdate.Enabled = Globals.AllowClose;
-        */
       }
       catch ( Exception ex )
       {
@@ -747,6 +746,7 @@ namespace Ordisoftware.Hebrew.Letters
     private void ActionUndo_Click(object sender, EventArgs e)
     {
       ApplicationDatabase.Instance.LoadAll();
+      LettersBindingSource.DataSource = ApplicationDatabase.Instance.LettersAsBindingList;
       UpdateDataControls(sender);
       EditMeanings.Focus();
     }
@@ -845,22 +845,28 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void ActionAddMeaning_Click(object sender, EventArgs e)
     {
-      /*var row = DataSet.Meanings.NewMeaningsRow();
+      ApplicationDatabase.Instance.BeginTransaction();
+      var row = new Meaning();
       row.ID = Guid.NewGuid().ToString();
       row.LetterCode = SelectLetter.Text;
-      row.Meaning = "";
-      DataSet.Meanings.AddMeaningsRow(row);
+      row.Text = "";
+      ApplicationDatabase.Instance.Connection.Insert(row);
+      ApplicationDatabase.Instance.Meanings.Add(row);
       MeaningsBindingSource.ResetBindings(false);
       MeaningsBindingSource.MoveLast();
       EditMeanings.BeginEdit(false);
       DataAddNewRowMutex = true;
-      UpdateDataControls(sender);*/
+      UpdateDataControls(sender);
     }
 
     private void ActionDeleteMeaning_Click(object sender, EventArgs e)
     {
-      /*if ( MeaningsBindingSource.Count < 1 ) return;
+      if ( MeaningsBindingSource.Count < 1 ) return;
+      ApplicationDatabase.Instance.BeginTransaction();
       int pos = MeaningsBindingSource.Position;
+      var row = (Meaning)MeaningsBindingSource.Current;
+      ApplicationDatabase.Instance.Connection.Delete(row);
+      ApplicationDatabase.Instance.Meanings.Remove(row);
       MeaningsBindingSource.RemoveCurrent();
       EditMeanings.EndEdit();
       int count = MeaningsBindingSource.Count;
@@ -872,7 +878,7 @@ namespace Ordisoftware.Hebrew.Letters
         }
         else
           MeaningsBindingSource.Position = pos;
-      UpdateDataControls(sender);*/
+      UpdateDataControls(sender);
     }
 
     private void EditMeanings_KeyDown(object sender, KeyEventArgs e)
@@ -893,7 +899,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void EditMeanings_KeyUp(object sender, KeyEventArgs e)
     {
-      if ( e.KeyCode == Keys.Enter )
+      /*if ( e.KeyCode == Keys.Enter )
       {
         if ( DataAddNewRowMutex && ( (string)EditMeanings.CurrentCell.Value ).IsNullOrEmpty() )
         {
@@ -901,7 +907,7 @@ namespace Ordisoftware.Hebrew.Letters
           DataAddNewRowMutex = true;
         }
         else
-        if ( false/*DataSet.HasChanges()*/ )
+        if ( false )//DataSet.HasChanges()
         {
           DataAddNewRowMutex = false;
           UpdateDataControls(sender);
@@ -925,7 +931,7 @@ namespace Ordisoftware.Hebrew.Letters
           EditMeanings.CancelEdit();
           EditMeanings.EndEdit();
         }
-      }
+      }*/
     }
 
     private void EditMeanings_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

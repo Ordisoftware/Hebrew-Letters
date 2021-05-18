@@ -48,11 +48,11 @@ namespace Ordisoftware.Hebrew.Letters
         // Change view
         case Keys.Control | Keys.Shift | Keys.Tab:
           if ( Globals.AllowClose )
-            SetView(Settings.CurrentView.Previous());
+            SetView(Settings.CurrentView.Previous(ViewMode.Notebook));// TODO remove when ready
           return true;
         case Keys.Control | Keys.Tab:
           if ( Globals.AllowClose )
-            SetView(Settings.CurrentView.Next());
+            SetView(Settings.CurrentView.Next(ViewMode.Notebook));// TODO remove when ready
           return true;
         case Keys.F1:
           ActionViewAnalysis.PerformClick();
@@ -62,7 +62,10 @@ namespace Ordisoftware.Hebrew.Letters
           ActionViewLetters.PerformClick();
           return true;
         case Keys.F5:
-          ActionViewNotebook.PerformClick();
+          if ( !Globals.IsDevExecutable ) // TODO remove when ready
+            ActionViewNotebook.PerformClick();
+          else
+            break;
           return true;
         // Application functions
         case Keys.F3:

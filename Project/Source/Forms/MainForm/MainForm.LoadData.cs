@@ -32,9 +32,12 @@ namespace Ordisoftware.Hebrew.Letters
       {
         Globals.ChronoLoadData.Start();
         ApplicationDatabase.Instance.Open();
-        HebrewDatabase.Instance.TakeLettriqs();
         LettersBindingSource.DataSource = ApplicationDatabase.Instance.LettersAsBindingList;
-        WordsBindingSource.DataSource = HebrewDatabase.Instance.TermsHebrewAsBindingList;
+        if ( !Globals.IsDevExecutable ) // TODO remove when ready
+        {
+          HebrewDatabase.Instance.TakeLettriqs();
+          WordsBindingSource.DataSource = HebrewDatabase.Instance.TermsHebrewAsBindingList;
+        }
         Globals.ChronoLoadData.Stop();
         Settings.BenchmarkLoadData = Globals.ChronoLoadData.ElapsedMilliseconds;
       }

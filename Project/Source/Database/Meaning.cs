@@ -40,7 +40,7 @@ namespace Ordisoftware.Hebrew.Letters
     {
       connection.Execute($@"PRAGMA foreign_keys = 0;");
       connection.DropTableIfExists(nameof(Meaning_No_ID));
-      connection.RenameTableIfExists(nameof(ApplicationDatabase.Instance.Meanings), nameof(ProcessLock_No_ID));
+      connection.RenameTableIfExists(nameof(ApplicationDatabase.Instance.Meanings), nameof(Meaning_No_ID));
       connection.CreateTable<Meaning>();
       var rows = connection.Table<Meaning_No_ID>();
       connection.BeginTransaction();

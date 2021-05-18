@@ -35,7 +35,7 @@ namespace Ordisoftware.Hebrew.Letters
     private void DoConstructor()
     {
       new Task(InitializeIconsAndSound).Start();
-      ProcessLocks.Lock();
+      Interlocks.Take();
       SystemManager.TryCatch(() => { Icon = new Icon(Globals.ApplicationIconFilePath); });
       Text = Globals.AssemblyTitle;
       ToolStrip.Renderer = new CheckedButtonsToolStripRenderer();
@@ -49,6 +49,7 @@ namespace Ordisoftware.Hebrew.Letters
       new Task(CreateProvidersLinks).Start();
       if ( !Globals.IsDevExecutable ) // TODO remove when ready
       {
+        ActionViewNotebook.Visible = false;
         ActionGematriaCombinations.Visible = false;
         ActionGematriaCombinations.Tag = int.MinValue;
         ActionGematriaCombinationsSeparator.Visible = false;
@@ -151,7 +152,7 @@ namespace Ordisoftware.Hebrew.Letters
       Globals.IsExiting = true;
       Globals.IsSessionEnding = true;
       Globals.AllowClose = true;
-      ProcessLocks.Unlock();
+      Interlocks.Release();
       Settings.Store();
       TimerTooltip.Stop();
       FormsHelper.CloseAll();

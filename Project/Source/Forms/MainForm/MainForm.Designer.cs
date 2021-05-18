@@ -76,26 +76,10 @@
       this.TabPageLetters = new System.Windows.Forms.TabPage();
       this.PanelViewLetters = new System.Windows.Forms.Panel();
       this.PanelLettersInner = new System.Windows.Forms.Panel();
-      this.meaningsDataGridView = new System.Windows.Forms.DataGridView();
-      this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.MeaningsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-      this.LettersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-      this.letterDataGridView = new System.Windows.Forms.DataGridView();
-      this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.PanelLetter = new System.Windows.Forms.Panel();
       this.LettersNavigator = new Ordisoftware.Core.ComboBoxNavigator();
       this.SelectLetter = new System.Windows.Forms.ComboBox();
+      this.LettersBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.TextBoxStructure = new Ordisoftware.Core.TextBoxEx();
       this.LabelHebrew = new System.Windows.Forms.Label();
       this.ActionRestoreDefaults = new System.Windows.Forms.LinkLabel();
@@ -111,6 +95,8 @@
       this.ActionDeleteMeaning = new System.Windows.Forms.Button();
       this.ActionAddMeaning = new System.Windows.Forms.Button();
       this.EditMeanings = new System.Windows.Forms.DataGridView();
+      this.ColumnMeaningsText = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.MeaningsBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.TabPageNotebook = new System.Windows.Forms.TabPage();
       this.PanelViewNotebook = new System.Windows.Forms.Panel();
       this.SplitContainerNotebook = new System.Windows.Forms.SplitContainer();
@@ -186,12 +172,10 @@
       this.TabPageLetters.SuspendLayout();
       this.PanelViewLetters.SuspendLayout();
       this.PanelLettersInner.SuspendLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.meaningsDataGridView)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.MeaningsBindingSource)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.LettersBindingSource)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.letterDataGridView)).BeginInit();
       this.PanelLetter.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.LettersBindingSource)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.EditMeanings)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.MeaningsBindingSource)).BeginInit();
       this.TabPageNotebook.SuspendLayout();
       this.PanelViewNotebook.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.SplitContainerNotebook)).BeginInit();
@@ -523,11 +507,11 @@
       resources.ApplyResources(this.LabelGematria, "LabelGematria");
       this.LabelGematria.Name = "LabelGematria";
       // 
-      // EditLetters
+      // EditWord
       // 
       this.EditWord.BackColor = System.Drawing.Color.Transparent;
-      resources.ApplyResources(this.EditWord, "EditLetters");
-      this.EditWord.Name = "EditLetters";
+      resources.ApplyResources(this.EditWord, "EditWord");
+      this.EditWord.Name = "EditWord";
       this.EditWord.ViewLetterDetails += new Ordisoftware.Hebrew.ViewLetterDetails(this.EditLetters_ViewLetterDetails);
       this.EditWord.InputTextChanged += new System.EventHandler(this.EditLetters_InputTextChanged);
       // 
@@ -548,8 +532,6 @@
       // 
       resources.ApplyResources(this.PanelLettersInner, "PanelLettersInner");
       this.PanelLettersInner.BackColor = System.Drawing.SystemColors.Control;
-      this.PanelLettersInner.Controls.Add(this.meaningsDataGridView);
-      this.PanelLettersInner.Controls.Add(this.letterDataGridView);
       this.PanelLettersInner.Controls.Add(this.PanelLetter);
       this.PanelLettersInner.Controls.Add(this.ActionUndo);
       this.PanelLettersInner.Controls.Add(this.ActionSave);
@@ -558,124 +540,6 @@
       this.PanelLettersInner.Controls.Add(LabelMeanings);
       this.PanelLettersInner.Controls.Add(this.EditMeanings);
       this.PanelLettersInner.Name = "PanelLettersInner";
-      // 
-      // meaningsDataGridView
-      // 
-      this.meaningsDataGridView.AutoGenerateColumns = false;
-      this.meaningsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-      this.meaningsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn11,
-            this.dataGridViewTextBoxColumn12,
-            this.dataGridViewTextBoxColumn13});
-      this.meaningsDataGridView.DataSource = this.MeaningsBindingSource;
-      resources.ApplyResources(this.meaningsDataGridView, "meaningsDataGridView");
-      this.meaningsDataGridView.Name = "meaningsDataGridView";
-      // 
-      // dataGridViewTextBoxColumn11
-      // 
-      this.dataGridViewTextBoxColumn11.DataPropertyName = "ID";
-      resources.ApplyResources(this.dataGridViewTextBoxColumn11, "dataGridViewTextBoxColumn11");
-      this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-      // 
-      // dataGridViewTextBoxColumn12
-      // 
-      this.dataGridViewTextBoxColumn12.DataPropertyName = "LetterCode";
-      resources.ApplyResources(this.dataGridViewTextBoxColumn12, "dataGridViewTextBoxColumn12");
-      this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-      // 
-      // dataGridViewTextBoxColumn13
-      // 
-      this.dataGridViewTextBoxColumn13.DataPropertyName = "Text";
-      resources.ApplyResources(this.dataGridViewTextBoxColumn13, "dataGridViewTextBoxColumn13");
-      this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-      // 
-      // MeaningsBindingSource
-      // 
-      this.MeaningsBindingSource.DataMember = "Meanings";
-      this.MeaningsBindingSource.DataSource = this.LettersBindingSource;
-      // 
-      // LettersBindingSource
-      // 
-      this.LettersBindingSource.DataSource = typeof(Ordisoftware.Hebrew.Letters.Letter);
-      // 
-      // letterDataGridView
-      // 
-      this.letterDataGridView.AutoGenerateColumns = false;
-      this.letterDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-      this.letterDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10});
-      this.letterDataGridView.DataSource = this.LettersBindingSource;
-      resources.ApplyResources(this.letterDataGridView, "letterDataGridView");
-      this.letterDataGridView.Name = "letterDataGridView";
-      // 
-      // dataGridViewTextBoxColumn1
-      // 
-      this.dataGridViewTextBoxColumn1.DataPropertyName = "Code";
-      resources.ApplyResources(this.dataGridViewTextBoxColumn1, "dataGridViewTextBoxColumn1");
-      this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-      // 
-      // dataGridViewTextBoxColumn2
-      // 
-      this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
-      resources.ApplyResources(this.dataGridViewTextBoxColumn2, "dataGridViewTextBoxColumn2");
-      this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-      // 
-      // dataGridViewTextBoxColumn3
-      // 
-      this.dataGridViewTextBoxColumn3.DataPropertyName = "Hebrew";
-      resources.ApplyResources(this.dataGridViewTextBoxColumn3, "dataGridViewTextBoxColumn3");
-      this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-      // 
-      // dataGridViewTextBoxColumn4
-      // 
-      this.dataGridViewTextBoxColumn4.DataPropertyName = "Positive";
-      resources.ApplyResources(this.dataGridViewTextBoxColumn4, "dataGridViewTextBoxColumn4");
-      this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-      // 
-      // dataGridViewTextBoxColumn5
-      // 
-      this.dataGridViewTextBoxColumn5.DataPropertyName = "Negative";
-      resources.ApplyResources(this.dataGridViewTextBoxColumn5, "dataGridViewTextBoxColumn5");
-      this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-      // 
-      // dataGridViewTextBoxColumn6
-      // 
-      this.dataGridViewTextBoxColumn6.DataPropertyName = "Structure";
-      resources.ApplyResources(this.dataGridViewTextBoxColumn6, "dataGridViewTextBoxColumn6");
-      this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-      // 
-      // dataGridViewTextBoxColumn7
-      // 
-      this.dataGridViewTextBoxColumn7.DataPropertyName = "Function";
-      resources.ApplyResources(this.dataGridViewTextBoxColumn7, "dataGridViewTextBoxColumn7");
-      this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-      // 
-      // dataGridViewTextBoxColumn8
-      // 
-      this.dataGridViewTextBoxColumn8.DataPropertyName = "Verb";
-      resources.ApplyResources(this.dataGridViewTextBoxColumn8, "dataGridViewTextBoxColumn8");
-      this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-      // 
-      // dataGridViewTextBoxColumn9
-      // 
-      this.dataGridViewTextBoxColumn9.DataPropertyName = "ValueSimple";
-      resources.ApplyResources(this.dataGridViewTextBoxColumn9, "dataGridViewTextBoxColumn9");
-      this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-      // 
-      // dataGridViewTextBoxColumn10
-      // 
-      this.dataGridViewTextBoxColumn10.DataPropertyName = "ValueFull";
-      resources.ApplyResources(this.dataGridViewTextBoxColumn10, "dataGridViewTextBoxColumn10");
-      this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
       // 
       // PanelLetter
       // 
@@ -714,16 +578,23 @@
       // SelectLetter
       // 
       this.SelectLetter.BackColor = System.Drawing.Color.LightYellow;
+      this.SelectLetter.DataSource = this.LettersBindingSource;
+      this.SelectLetter.DisplayMember = "Code";
       this.SelectLetter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
       resources.ApplyResources(this.SelectLetter, "SelectLetter");
       this.SelectLetter.FormattingEnabled = true;
       this.SelectLetter.Name = "SelectLetter";
       this.SelectLetter.SelectedIndexChanged += new System.EventHandler(this.SelectLetter_SelectedIndexChanged);
       // 
+      // LettersBindingSource
+      // 
+      this.LettersBindingSource.DataSource = typeof(Ordisoftware.Hebrew.Letters.Letter);
+      // 
       // TextBoxStructure
       // 
       this.TextBoxStructure.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.TextBoxStructure.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
+      this.TextBoxStructure.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Structure", true));
       resources.ApplyResources(this.TextBoxStructure, "TextBoxStructure");
       this.TextBoxStructure.Name = "TextBoxStructure";
       this.TextBoxStructure.Tag = "data";
@@ -750,6 +621,7 @@
       // 
       this.TextBoxNegative.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.TextBoxNegative.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
+      this.TextBoxNegative.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Negative", true));
       resources.ApplyResources(this.TextBoxNegative, "TextBoxNegative");
       this.TextBoxNegative.Name = "TextBoxNegative";
       this.TextBoxNegative.Tag = "data";
@@ -763,6 +635,7 @@
       this.TextBoxName.BackColor = System.Drawing.Color.LightYellow;
       this.TextBoxName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.TextBoxName.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
+      this.TextBoxName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Name", true));
       resources.ApplyResources(this.TextBoxName, "TextBoxName");
       this.TextBoxName.Name = "TextBoxName";
       this.TextBoxName.ReadOnly = true;
@@ -771,6 +644,7 @@
       // 
       this.TextBoxFunction.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.TextBoxFunction.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
+      this.TextBoxFunction.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Function", true));
       resources.ApplyResources(this.TextBoxFunction, "TextBoxFunction");
       this.TextBoxFunction.Name = "TextBoxFunction";
       this.TextBoxFunction.Tag = "data";
@@ -783,6 +657,7 @@
       // 
       this.TextBoxPositive.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.TextBoxPositive.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
+      this.TextBoxPositive.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Positive", true));
       resources.ApplyResources(this.TextBoxPositive, "TextBoxPositive");
       this.TextBoxPositive.Name = "TextBoxPositive";
       this.TextBoxPositive.Tag = "data";
@@ -795,6 +670,7 @@
       // 
       this.TextBoxVerb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.TextBoxVerb.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
+      this.TextBoxVerb.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Verb", true));
       resources.ApplyResources(this.TextBoxVerb, "TextBoxVerb");
       this.TextBoxVerb.Name = "TextBoxVerb";
       this.TextBoxVerb.Tag = "data";
@@ -808,6 +684,7 @@
       this.TextBoxValueSimple.BackColor = System.Drawing.Color.LavenderBlush;
       this.TextBoxValueSimple.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.TextBoxValueSimple.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
+      this.TextBoxValueSimple.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "ValueSimple", true));
       resources.ApplyResources(this.TextBoxValueSimple, "TextBoxValueSimple");
       this.TextBoxValueSimple.Name = "TextBoxValueSimple";
       this.TextBoxValueSimple.ReadOnly = true;
@@ -817,6 +694,7 @@
       this.TextBoxValueFull.BackColor = System.Drawing.Color.LavenderBlush;
       this.TextBoxValueFull.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.TextBoxValueFull.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
+      this.TextBoxValueFull.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "ValueFull", true));
       resources.ApplyResources(this.TextBoxValueFull, "TextBoxValueFull");
       this.TextBoxValueFull.Name = "TextBoxValueFull";
       this.TextBoxValueFull.ReadOnly = true;
@@ -860,8 +738,12 @@
       this.EditMeanings.AllowUserToResizeColumns = false;
       this.EditMeanings.AllowUserToResizeRows = false;
       resources.ApplyResources(this.EditMeanings, "EditMeanings");
+      this.EditMeanings.AutoGenerateColumns = false;
       this.EditMeanings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
       this.EditMeanings.ColumnHeadersVisible = false;
+      this.EditMeanings.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnMeaningsText});
+      this.EditMeanings.DataSource = this.MeaningsBindingSource;
       this.EditMeanings.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
       this.EditMeanings.MultiSelect = false;
       this.EditMeanings.Name = "EditMeanings";
@@ -874,6 +756,18 @@
       this.EditMeanings.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.EditMeanings_DataError);
       this.EditMeanings.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EditMeanings_KeyDown);
       this.EditMeanings.KeyUp += new System.Windows.Forms.KeyEventHandler(this.EditMeanings_KeyUp);
+      // 
+      // ColumnMeaningsText
+      // 
+      this.ColumnMeaningsText.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+      this.ColumnMeaningsText.DataPropertyName = "Text";
+      resources.ApplyResources(this.ColumnMeaningsText, "ColumnMeaningsText");
+      this.ColumnMeaningsText.Name = "ColumnMeaningsText";
+      // 
+      // MeaningsBindingSource
+      // 
+      this.MeaningsBindingSource.DataMember = "Meanings";
+      this.MeaningsBindingSource.DataSource = this.LettersBindingSource;
       // 
       // TabPageNotebook
       // 
@@ -1352,13 +1246,11 @@
       this.PanelViewLetters.ResumeLayout(false);
       this.PanelLettersInner.ResumeLayout(false);
       this.PanelLettersInner.PerformLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.meaningsDataGridView)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.MeaningsBindingSource)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.LettersBindingSource)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.letterDataGridView)).EndInit();
       this.PanelLetter.ResumeLayout(false);
       this.PanelLetter.PerformLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.LettersBindingSource)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.EditMeanings)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.MeaningsBindingSource)).EndInit();
       this.TabPageNotebook.ResumeLayout(false);
       this.PanelViewNotebook.ResumeLayout(false);
       this.SplitContainerNotebook.Panel1.ResumeLayout(false);
@@ -1475,23 +1367,8 @@
     private System.Windows.Forms.ToolStripSeparator ActionGematriaCombinationsSeparator;
     private System.Windows.Forms.ToolStripMenuItem ActionGematriaCombinations;
     internal System.Windows.Forms.Button ActionCopyToResult;
-    private System.Windows.Forms.DataGridView meaningsDataGridView;
-    private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-    private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-    private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
     private System.Windows.Forms.BindingSource MeaningsBindingSource;
     private System.Windows.Forms.BindingSource LettersBindingSource;
-    private System.Windows.Forms.DataGridView letterDataGridView;
-    private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-    private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-    private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-    private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-    private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-    private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-    private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-    private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-    private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-    private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
     private System.Windows.Forms.ToolStripButton ActionViewNotebook;
     private System.Windows.Forms.TabPage TabPageNotebook;
     private System.Windows.Forms.Panel PanelViewNotebook;
@@ -1505,5 +1382,6 @@
     private System.Windows.Forms.DataGridViewTextBoxColumn hebrewDataGridViewTextBoxColumn;
     private System.Windows.Forms.DataGridViewTextBoxColumn sentenceDataGridViewTextBoxColumn;
     private System.Windows.Forms.Button ActionDeleteTerm;
+    private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMeaningsText;
   }
 }
