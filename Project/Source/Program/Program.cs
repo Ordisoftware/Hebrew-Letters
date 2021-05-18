@@ -137,7 +137,6 @@ namespace Ordisoftware.Hebrew.Letters
       Globals.ChronoTranslate.Restart();
       try
       {
-        MainForm.Instance.PanelMainCenter.Visible = false;
         void update(Form form)
         {
           new Infralution.Localization.CultureManager().ManagedControl = form;
@@ -153,16 +152,27 @@ namespace Ordisoftware.Hebrew.Letters
         var culture = new CultureInfo(lang);
         Thread.CurrentThread.CurrentCulture = culture;
         Thread.CurrentThread.CurrentUICulture = culture;
-        MessageBoxEx.CloseAll();
-        AboutBox.Instance.Hide();
-        var temp = Settings.CurrentView;
-        MainForm.Instance.SetView(ViewMode.Analysis);
-        update(MainForm.Instance);
-        MainForm.Instance.SetView(ViewMode.Letters);
-        update(MainForm.Instance);
-        MainForm.Instance.SetView(temp);
-        string tempLogTitle = DebugManager.TraceForm.Text;
-        string tempLogContent = DebugManager.TraceForm.TextBox.Text;
+        string tempLogTitle = string.Empty;
+        string tempLogContent = string.Empty;
+        if ( Globals.IsReady )
+        {
+          MessageBoxEx.CloseAll();
+          AboutBox.Instance.Hide();
+          MainForm.Instance.PanelMainCenter.Visible = false;
+          var temp = Settings.CurrentView;
+          MainForm.Instance.SetView(ViewMode.Analysis);
+          update(MainForm.Instance);
+          MainForm.Instance.SetView(ViewMode.Letters);
+          update(MainForm.Instance);
+          MainForm.Instance.SetView(temp);
+          tempLogTitle = DebugManager.TraceForm.Text;
+          tempLogContent = DebugManager.TraceForm.TextBox.Text;
+        }
+        else
+        {
+          MainForm.Instance.SetView(ViewMode.Analysis, true);
+          update(MainForm.Instance);
+        }
         new Infralution.Localization.CultureManager().ManagedControl = AboutBox.Instance;
         new Infralution.Localization.CultureManager().ManagedControl = DebugManager.TraceForm;
         new Infralution.Localization.CultureManager().ManagedControl = GrammarGuideForm;
@@ -176,23 +186,26 @@ namespace Ordisoftware.Hebrew.Letters
             formShowText.Relocalize();
         }
         // Various updates
-        DebugManager.TraceForm.Text = tempLogTitle;
-        DebugManager.TraceForm.AppendText(tempLogContent);
-        LoadingForm.Instance.Relocalize();
-        TextBoxEx.Relocalize();
-        AboutBox.Instance.AboutBox_Shown(null, null);
-        GrammarGuideForm.HTMLBrowserForm_Shown(null, null);
-        MethodNoticeForm.HTMLBrowserForm_Shown(null, null);
-        MainForm.Instance.CreateSystemInformationMenu();
+        if ( Globals.IsReady )
+        {
+          DebugManager.TraceForm.Text = tempLogTitle;
+          DebugManager.TraceForm.AppendText(tempLogContent);
+          LoadingForm.Instance.Relocalize();
+          TextBoxEx.Relocalize();
+          AboutBox.Instance.AboutBox_Shown(null, null);
+          GrammarGuideForm.HTMLBrowserForm_Shown(null, null);
+          MethodNoticeForm.HTMLBrowserForm_Shown(null, null);
+          updateLabel(MainForm.Instance.LabelGematria, MainForm.Instance.EditGematriaSimple, -19);
+          updateLabel(MainForm.Instance.LabelGematriaSimple, MainForm.Instance.EditGematriaSimple, 3);
+          updateLabel(MainForm.Instance.LabelGematriaFull, MainForm.Instance.EditGematriaFull, 3);
+          MainForm.Instance.LabelClipboardContentType.Left = MainForm.Instance.ActionCopyToUnicode.Left
+                                                           + MainForm.Instance.ActionCopyToUnicode.Width / 2
+                                                           - MainForm.Instance.LabelClipboardContentType.Width / 2;
+          MainForm.Instance.EditCopyToClipboardCloseApp.Left = MainForm.Instance.ActionCopyToResult.Left
+                                                             + MainForm.Instance.ActionCopyToResult.Width + 5;
+        }
         MainForm.Instance.CheckClipboardContentType();
-        updateLabel(MainForm.Instance.LabelGematria, MainForm.Instance.EditGematriaSimple, -19);
-        updateLabel(MainForm.Instance.LabelGematriaSimple, MainForm.Instance.EditGematriaSimple, 3);
-        updateLabel(MainForm.Instance.LabelGematriaFull, MainForm.Instance.EditGematriaFull, 3);
-        MainForm.Instance.LabelClipboardContentType.Left = MainForm.Instance.ActionCopyToUnicode.Left
-                                                         + MainForm.Instance.ActionCopyToUnicode.Width / 2
-                                                         - MainForm.Instance.LabelClipboardContentType.Width / 2;
-        MainForm.Instance.EditCopyToClipboardCloseApp.Left = MainForm.Instance.ActionCopyToResult.Left
-                                                           + MainForm.Instance.ActionCopyToResult.Width + 5;
+        MainForm.Instance.CreateSystemInformationMenu();
       }
       catch ( Exception ex )
       {
