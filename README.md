@@ -46,7 +46,7 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 
 ## Download
 
-**What's new in the latest version**
+**What's new in the latest version 6.0**
 
 - Added notebook and terms table to store lettriq sentences for words.
 - Overall performances are Optimized.
