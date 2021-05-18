@@ -218,7 +218,7 @@ namespace Ordisoftware.Hebrew.Letters
     /// <param name="e">Event information.</param>
     private void ActionPreferences_Click(object sender, EventArgs e)
     {
-      if ( SystemManager.ApplicationInstancesCount > 1 )
+      if ( Globals.ApplicationInstancesCount > 1 )
       {
         ActionPreferences.Enabled = false;
         return;
