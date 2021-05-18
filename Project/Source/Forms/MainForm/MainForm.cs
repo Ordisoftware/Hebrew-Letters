@@ -442,9 +442,8 @@ namespace Ordisoftware.Hebrew.Letters
         SetView(tempView);
         return;
       }
-      LettersBindingSource.Position = LettersBindingSource.Find("Code", code);
-      var prop = MeaningsBindingSource.GetItemProperties(null).Find("Meaning", true);
-      int pos = MeaningsBindingSource.Find(prop, meaning);
+      LettersBindingSource.Position = LettersBindingSource.IndexOf(ApplicationDatabase.Instance.Letters.Find(l => l.Code == code));
+      int pos = MeaningsBindingSource.IndexOf(ApplicationDatabase.Instance.Meanings.Find(m => m.Text == meaning));
       if ( pos >= 0 )
       {
         MeaningsBindingSource.Position = pos;
