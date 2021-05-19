@@ -48,8 +48,8 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 
 **What's new in the latest version 6.0**
 
-- Overall performances are Optimized.
-- Some UI improvements and some fixes.
+- Overall performances are optimized.
+- Some fixes and UI improvements.
 - SQLite ODBC Driver is no more needed.
 
 [Last release](https://github.com/Ordisoftware/Hebrew-Letters/releases/latest)
@@ -154,9 +154,11 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 #### In progress - Version 6.0
 
-- Optimize overall performances.
 - Switch from SQLite ODBC Driver to SQLite-Net with SQLitePCLraw nugets.
+- Optimize overall performances.
+- Some fixes and improvements.
 - Code refactoring and quality improvement.
+- Replace proprietary simple TraceListener by SeriLog.
 
 #### 2021.04.30 - Version 5.3
 
