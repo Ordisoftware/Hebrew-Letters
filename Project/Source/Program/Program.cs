@@ -59,7 +59,6 @@ namespace Ordisoftware.Hebrew.Letters
         Globals.MainForm = MainForm.Instance;
         DebugManager.Enabled = Settings.DebuggerEnabled;
         DebugManager.TraceEnabled = Settings.TraceEnabled;
-        UpdateLocalization();
         Globals.ChronoStartingApp.Stop();
         ProcessCommandLineOptions();
         Globals.ChronoStartingApp.Start();
@@ -152,8 +151,6 @@ namespace Ordisoftware.Hebrew.Letters
         var culture = new CultureInfo(lang);
         Thread.CurrentThread.CurrentCulture = culture;
         Thread.CurrentThread.CurrentUICulture = culture;
-        string tempLogTitle = DebugManager.TraceForm.Text;
-        string tempLogContent = DebugManager.TraceForm.TextBox.Text;
         if ( Globals.IsReady )
         {
           MessageBoxEx.CloseAll();
@@ -172,13 +169,12 @@ namespace Ordisoftware.Hebrew.Letters
           update(MainForm.Instance);
         }
         new Infralution.Localization.CultureManager().ManagedControl = AboutBox.Instance;
-        new Infralution.Localization.CultureManager().ManagedControl = DebugManager.TraceForm;
         new Infralution.Localization.CultureManager().ManagedControl = GrammarGuideForm;
         new Infralution.Localization.CultureManager().ManagedControl = MethodNoticeForm;
         Infralution.Localization.CultureManager.ApplicationUICulture = culture;
         foreach ( Form form in Application.OpenForms )
         {
-          if ( form != AboutBox.Instance && form != GrammarGuideForm && form != MethodNoticeForm )
+          if ( form != DebugManager.TraceForm && form != AboutBox.Instance && form != GrammarGuideForm && form != MethodNoticeForm )
             update(form);
           if ( form is ShowTextForm formShowText )
             formShowText.Relocalize();

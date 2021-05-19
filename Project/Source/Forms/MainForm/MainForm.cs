@@ -55,8 +55,10 @@ namespace Ordisoftware.Hebrew.Letters
     /// </summary>
     private MainForm()
     {
+      DebugManager.Enter();
       InitializeComponent();
       DoConstructor();
+      DebugManager.Leave();
     }
 
     /// <summary>
@@ -66,7 +68,10 @@ namespace Ordisoftware.Hebrew.Letters
     /// <param name="e">Event information.</param>
     private void MainForm_Load(object sender, EventArgs e)
     {
+      DebugManager.Enter();
+      DebugManager.Trace(LogTraceEvent.Message, "Main form load.");
       DoFormLoad(sender, e);
+      DebugManager.Leave();
     }
 
     /// <summary>
