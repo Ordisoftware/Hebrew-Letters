@@ -17,6 +17,7 @@ using System.IO;
 using System.ComponentModel;
 using System.Collections.Generic;
 using Ordisoftware.Core;
+using Equin.ApplicationFramework;
 
 namespace Ordisoftware.Hebrew.Letters
 {
@@ -35,7 +36,7 @@ namespace Ordisoftware.Hebrew.Letters
     public List<Letter> Letters { get; private set; }
     public List<Meaning> Meanings { get; private set; }
 
-    public BindingList<Letter> LettersAsBindingList { get; private set; }
+    public BindingListView<Letter> LettersAsBindingList { get; private set; }
 
     private ApplicationDatabase() : base(Globals.ApplicationDatabaseFilePath)
     {
@@ -71,7 +72,7 @@ namespace Ordisoftware.Hebrew.Letters
       base.LoadAll();
       Letters = Connection.Table<Letter>().ToList();
       Meanings = Connection.Table<Meaning>().ToList();
-      LettersAsBindingList = new BindingList<Letter>(Letters);
+      LettersAsBindingList = new BindingListView<Letter>(Letters);
     }
 
     protected override void DoSaveAll()

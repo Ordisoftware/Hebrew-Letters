@@ -35,6 +35,7 @@ namespace Ordisoftware.Hebrew.Letters
     private void DoConstructor()
     {
       new Task(InitializeIconsAndSound).Start();
+      new Task(CreateProvidersLinks).Start();
       Interlocks.Take();
       SystemManager.TryCatch(() => { Icon = new Icon(Globals.ApplicationIconFilePath); });
       Text = Globals.AssemblyTitle;
@@ -46,7 +47,6 @@ namespace Ordisoftware.Hebrew.Letters
       TextBoxEx.ActionPaste.Click += TextBoxData_ContextMenuAction_Click;
       TextBoxEx.ActionDelete.Click += TextBoxData_ContextMenuAction_Click;
       NativeMethods.ClipboardViewerNext = NativeMethods.SetClipboardViewer(Handle);
-      new Task(CreateProvidersLinks).Start();
       if ( !Globals.IsDevExecutable ) // TODO remove when ready
       {
         ActionViewNotebook.Visible = false;

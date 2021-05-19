@@ -20,6 +20,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
 using Ordisoftware.Core;
+using Equin.ApplicationFramework;
 
 namespace Ordisoftware.Hebrew.Letters
 {
@@ -700,9 +701,9 @@ namespace Ordisoftware.Hebrew.Letters
     {
       try
       {
-        forceEditMode = forceEditMode || EditMeanings.IsCurrentCellInEditMode || DataAddNewRowMutex;
+        forceEditMode = forceEditMode || EditMeanings.IsCurrentCellInEditMode;// || DataAddNewRowMutex;
         if ( SelectLetter.SelectedItem == null ) return;
-        var letter = (Letter)SelectLetter.SelectedItem;
+        var letter = ((ObjectView<Letter>)SelectLetter.SelectedItem).Object;
         ActionAddMeaning.Enabled = !Globals.IsReadOnly && !forceEditMode;
         ActionDeleteMeaning.Enabled = !Globals.IsReadOnly && !forceEditMode && letter.Meanings.Count > 0;
         ActionSave.Enabled = ( ApplicationDatabase.Instance.IsInTransaction && !forceEditMode ) || ( forceEditMode && sender is TextBox );
@@ -780,13 +781,13 @@ namespace Ordisoftware.Hebrew.Letters
     {
       if ( !Globals.IsReady ) return;
       if ( !SelectLetter.Enabled ) return;
-      DataEditMutex = true;
+      //DataEditMutex = true;
     }
 
     private void LettersBindingSource_PositionChanged(object sender, EventArgs e)
     {
       if ( !Globals.IsReady ) return;
-      DataEditMutex = false;
+      //DataEditMutex = false;
       UpdateDataControls(sender);
     }
 
@@ -817,11 +818,11 @@ namespace Ordisoftware.Hebrew.Letters
     private void TextBoxData_TextChanged(object sender, EventArgs e)
     {
       if ( !Globals.IsReady ) return;
-      if ( DataEditMutex ) return;
-      DataEditMutex = true;
+      //if ( DataEditMutex ) return;
+      //DataEditMutex = true;
       LettersBindingSource.EndEdit();
       if ( sender != null ) UpdateDataControls(sender, true);
-      DataEditMutex = false;
+      //DataEditMutex = false;
     }
 
     private void TextBoxData_Leave(object sender, EventArgs e)
@@ -846,40 +847,38 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void ActionAddMeaning_Click(object sender, EventArgs e)
     {
+      string text = "";
+      if ( DisplayManager.QueryValue("", ref text) != InputValueResult.Modified ) return;
+      var meaning = new Meaning();
+      meaning.ID = Guid.NewGuid().ToString();
+      meaning.LetterCode = SelectLetter.Text;
+      meaning.Text = text;
       ApplicationDatabase.Instance.BeginTransaction();
-      var row = new Meaning();
-      row.ID = Guid.NewGuid().ToString();
-      row.LetterCode = SelectLetter.Text;
-      row.Text = "";
-      ApplicationDatabase.Instance.Connection.Insert(row);
-      ApplicationDatabase.Instance.Meanings.Add(row);
-      ApplicationDatabase.Instance.LettersAsBindingList.ResetBindings();
-      //MeaningsBindingSource.ResetBindings(false);
+      ApplicationDatabase.Instance.Connection.Insert(meaning);
+      ApplicationDatabase.Instance.Meanings.Add(meaning);
+      MeaningsBindingSource.Add(meaning);
       MeaningsBindingSource.MoveLast();
-      EditMeanings.BeginEdit(false);
-      DataAddNewRowMutex = true;
       UpdateDataControls(sender);
     }
 
     private void ActionDeleteMeaning_Click(object sender, EventArgs e)
     {
       if ( MeaningsBindingSource.Count < 1 ) return;
+      int index = MeaningsBindingSource.Position;
+      var meaning = (Meaning)MeaningsBindingSource.Current;
       ApplicationDatabase.Instance.BeginTransaction();
-      int pos = MeaningsBindingSource.Position;
-      var row = (Meaning)MeaningsBindingSource.Current;
-      ApplicationDatabase.Instance.Connection.Delete(row);
-      ApplicationDatabase.Instance.Meanings.Remove(row);
+      ApplicationDatabase.Instance.Connection.Delete(meaning);
+      ApplicationDatabase.Instance.Meanings.Remove(meaning);
       MeaningsBindingSource.RemoveCurrent();
-      EditMeanings.EndEdit();
       int count = MeaningsBindingSource.Count;
       if ( count > 1 )
-        if ( pos >= count )
+        if ( index >= count )
         {
           MeaningsBindingSource.MoveFirst();
           MeaningsBindingSource.MoveLast();
         }
         else
-          MeaningsBindingSource.Position = pos;
+          MeaningsBindingSource.Position = index;
       UpdateDataControls(sender);
     }
 
@@ -901,7 +900,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void EditMeanings_KeyUp(object sender, KeyEventArgs e)
     {
-      if ( e.KeyCode == Keys.Enter )
+      /*if ( e.KeyCode == Keys.Enter )
       {
         if ( DataAddNewRowMutex && ( (string)EditMeanings.CurrentCell.Value ).IsNullOrEmpty() )
         {
@@ -933,7 +932,7 @@ namespace Ordisoftware.Hebrew.Letters
           EditMeanings.CancelEdit();
           EditMeanings.EndEdit();
         }
-      }
+      }*/
     }
 
     private void EditMeanings_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -946,7 +945,7 @@ namespace Ordisoftware.Hebrew.Letters
     {
       if ( !Globals.IsReady ) return;
       UpdateDataControls(sender, true);
-      DataAddNewRowMutex = false;
+      //DataAddNewRowMutex = false;
     }
 
     private void EditMeanings_CellEndEdit(object sender, DataGridViewCellEventArgs e)

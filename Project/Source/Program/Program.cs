@@ -142,10 +142,6 @@ namespace Ordisoftware.Hebrew.Letters
           ComponentResourceManager resources = new ComponentResourceManager(form.GetType());
           resources.Apply(form.Controls);
         }
-        void updateLabel(Label label, TextBox textbox, int dy)
-        {
-          label.Location = new System.Drawing.Point(label.Location.X, textbox.Location.Y + dy);
-        }
         string lang = "en-US";
         if ( Settings.LanguageSelected == Language.FR ) lang = "fr-FR";
         var culture = new CultureInfo(lang);
@@ -198,6 +194,10 @@ namespace Ordisoftware.Hebrew.Letters
                                                            + MainForm.Instance.ActionCopyToResult.Width + 5;
         MainForm.Instance.CheckClipboardContentType();
         MainForm.Instance.CreateSystemInformationMenu();
+        void updateLabel(Label label, TextBox textbox, int dy)
+        {
+          label.Location = new System.Drawing.Point(label.Location.X, textbox.Location.Y + dy);
+        }
       }
       catch ( Exception ex )
       {

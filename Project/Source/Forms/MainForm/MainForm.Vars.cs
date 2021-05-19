@@ -47,12 +47,12 @@ namespace Ordisoftware.Hebrew.Letters
     /// <summary>
     /// Indicate data edition mutex.
     /// </summary>
-    private bool DataEditMutex;
+    //private bool DataEditMutex;
 
     /// <summary>
     /// Indicate add new meaning mutex.
     /// </summary>
-    private bool DataAddNewRowMutex;
+    //private bool DataAddNewRowMutex;
 
     /// <summary>
     /// Indicate if terms tables are readonly, else writable.
