@@ -13,6 +13,7 @@
 /// <created> 2021-05 </created>
 /// <edited> 2021-05 </edited>
 using System;
+using System.ComponentModel;
 using SQLite;
 using Ordisoftware.Core;
 
@@ -23,15 +24,57 @@ namespace Ordisoftware.Hebrew.Letters
   [Table("Meanings")]
   public class Meaning : Meaning_No_ID
   {
+
     [PrimaryKey]
-    public string ID { get; set; }
+    public string ID
+    {
+      get => _ID;
+      set
+      {
+        if ( _ID == value ) return;
+        _ID = value;
+        NotifyPropertyChanged(nameof(ID));
+      }
+    }
+    private string _ID;
+
   }
 
-  public class Meaning_No_ID
+  public class Meaning_No_ID : INotifyPropertyChanged
   {
-    public string LetterCode { get; set; }
+
+    public string LetterCode
+    {
+      get => _LetterCode;
+      set
+      {
+        if ( _LetterCode == value ) return;
+        _LetterCode = value;
+        NotifyPropertyChanged(nameof(LetterCode));
+      }
+    }
+    private string _LetterCode;
+
     [Column("Meaning")]
-    public string Text { get; set; }
+    public string Text
+    {
+      get => _Text;
+      set
+      {
+        if ( _Text == value ) return;
+        _Text = value;
+        NotifyPropertyChanged(nameof(Text));
+      }
+    }
+    private string _Text;
+
+    public event PropertyChangedEventHandler PropertyChanged;
+
+    protected void NotifyPropertyChanged(string p)
+    {
+      PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(p));
+    }
+
   }
 
   static class MeaningsUpgrade
@@ -44,7 +87,6 @@ namespace Ordisoftware.Hebrew.Letters
       connection.CreateTable<Meaning>();
       var rows = connection.Table<Meaning_No_ID>();
       connection.BeginTransaction();
-      int index = 1;
       foreach ( var row in rows )
         connection.Insert(new Meaning { ID = Guid.NewGuid().ToString(), LetterCode = row.LetterCode, Text = row.Text });
       connection.Commit();

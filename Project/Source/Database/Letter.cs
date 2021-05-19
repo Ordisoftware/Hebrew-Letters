@@ -15,6 +15,7 @@
 using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.ComponentModel;
 using SQLite;
 
 namespace Ordisoftware.Hebrew.Letters
@@ -22,21 +23,140 @@ namespace Ordisoftware.Hebrew.Letters
 
   [Serializable]
   [Table("Letters")]
-  public class Letter
+  public class Letter : INotifyPropertyChanged
   {
+
     [PrimaryKey]
-    public string Code { get; set; }
-    public string Name { get; set; }
-    public string Hebrew { get; set; }
-    public string Positive { get; set; }
-    public string Negative { get; set; }
-    public string Structure { get; set; }
-    public string Function { get; set; }
-    public string Verb { get; set; }
-    public int ValueSimple { get; set; }
-    public int ValueFull { get; set; }
+    public string Code
+    {
+      get => _Code;
+      set
+      {
+        if ( _Code == value ) return;
+        _Code = value;
+        NotifyPropertyChanged(nameof(Code));
+      }
+    }
+    private string _Code;
+
+    public string Name
+    {
+      get => _Name;
+      set
+      {
+        if ( _Name == value ) return;
+        _Name = value;
+        NotifyPropertyChanged(nameof(Name));
+      }
+    }
+    private string _Name;
+
+    public string Hebrew
+    {
+      get => _Hebrew;
+      set
+      {
+        if ( _Hebrew == value ) return;
+        _Hebrew = value;
+        NotifyPropertyChanged(nameof(Hebrew));
+      }
+    }
+    private string _Hebrew;
+
+    public string Positive
+    {
+      get => _Positive;
+      set
+      {
+        if ( _Positive == value ) return;
+        _Positive = value;
+        NotifyPropertyChanged(nameof(Positive));
+      }
+    }
+    private string _Positive;
+
+    public string Negative
+    {
+      get => _Negative;
+      set
+      {
+        if ( _Negative == value ) return;
+        _Negative = value;
+        NotifyPropertyChanged(nameof(Negative));
+      }
+    }
+    private string _Negative;
+
+    public string Structure
+    {
+      get => _Structure;
+      set
+      {
+        if ( _Structure == value ) return;
+        _Structure = value;
+        NotifyPropertyChanged(nameof(Structure));
+      }
+    }
+    private string _Structure;
+
+    public string Function
+    {
+      get => _Function;
+      set
+      {
+        if ( _Function == value ) return;
+        _Function = value;
+        NotifyPropertyChanged(nameof(Function));
+      }
+    }
+    private string _Function;
+
+    public string Verb
+    {
+      get => _Verb;
+      set
+      {
+        if ( _Verb == value ) return;
+        _Verb = value;
+        NotifyPropertyChanged(nameof(Verb));
+      }
+    }
+    private string _Verb;
+
+    public int ValueSimple
+    {
+      get => _ValueSimple;
+      set
+      {
+        if ( _ValueSimple == value ) return;
+        _ValueSimple = value;
+        NotifyPropertyChanged(nameof(ValueSimple));
+      }
+    }
+    private int _ValueSimple;
+
+    public int ValueFull
+    {
+      get => _ValueFull;
+      set
+      {
+        if ( _ValueFull == value ) return;
+        _ValueFull = value;
+        NotifyPropertyChanged(nameof(ValueFull));
+      }
+    }
+    private int _ValueFull;
+
     public List<Meaning> Meanings
       => ApplicationDatabase.Instance.Meanings.Where(item => item.LetterCode == Code).ToList();
+
+    public event PropertyChangedEventHandler PropertyChanged;
+
+    protected void NotifyPropertyChanged(string p)
+    {
+      PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(p));
+    }
+
   }
 
 }
