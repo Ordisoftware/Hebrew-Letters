@@ -159,6 +159,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Some fixes and improvements.
 - Code refactoring and quality improvement.
 - Replace proprietary simple TraceListener by SeriLog.
+- Improve trace form.
 
 #### 2021.04.30 - Version 5.3
 
