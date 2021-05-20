@@ -160,7 +160,7 @@ namespace Ordisoftware.Hebrew.Letters
       MediaMixer.SetApplicationVolume(Globals.ProcessId, EditVolume.Value);
       LabelVolumeValue.Text = EditVolume.Value + "%";
       Settings.ApplicationVolume = EditVolume.Value;
-      Settings.Save();
+      SystemManager.TryCatch(Settings.Save);
       DisplayManager.DoSound(Globals.ClipboardSoundFilePath);
     }
 

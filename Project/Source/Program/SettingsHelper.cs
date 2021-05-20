@@ -150,7 +150,7 @@ namespace Ordisoftware.Hebrew.Letters
         settings.AdvancedDialogBoxes = MainForm.EditUseAdvancedDialogBoxes.Checked;
         settings.ShowSuccessDialogs = MainForm.EditShowSuccessDialogs.Checked;
         settings.CopyToClipboardCloseApp = MainForm.EditCopyToClipboardCloseApp.Checked;
-        settings.Save();
+        SystemManager.TryCatch(settings.Save);
       }
       finally
       {

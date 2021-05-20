@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2021-04 </edited>
+/// <edited> 2021-05 </edited>
 using System;
 using System.ComponentModel;
 using System.Globalization;
@@ -54,7 +54,7 @@ namespace Ordisoftware.Hebrew.Letters
         Globals.IsSettingsUpgraded = Globals.IsSettingsUpgraded && !Settings.FirstLaunch;
         CheckSettingsReset();
         if ( lang != Language.None ) Settings.LanguageSelected = lang;
-        Settings.Save();
+        SystemManager.TryCatch(Settings.Save);
         Globals.Settings = Settings;
         Globals.MainForm = MainForm.Instance;
         DebugManager.Enabled = Settings.DebuggerEnabled;
@@ -95,7 +95,7 @@ namespace Ordisoftware.Hebrew.Letters
         }
         if ( Settings.LanguageSelected == Language.None )
           Settings.LanguageSelected = Languages.Current;
-        Settings.Save();
+        SystemManager.TryCatch(Settings.Save);
       }
       catch ( Exception ex )
       {
