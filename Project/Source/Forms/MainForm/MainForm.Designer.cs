@@ -40,9 +40,9 @@
       System.Windows.Forms.Label LabelPositive;
       System.Windows.Forms.Label LabelNegative;
       System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
       System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
       System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
       this.PanelMain = new System.Windows.Forms.Panel();
       this.PanelMainOuter = new System.Windows.Forms.Panel();
       this.PanelMainInner = new System.Windows.Forms.Panel();
@@ -70,6 +70,8 @@
       this.ActionSaveScreenshot = new System.Windows.Forms.Button();
       this.ActionScreenshot = new System.Windows.Forms.Button();
       this.ActionViewAllMeaningsList = new System.Windows.Forms.Button();
+      this.ActionSaveTermLettriq = new System.Windows.Forms.Button();
+      this.ActionOpenTermLettriq = new System.Windows.Forms.Button();
       this.ActionCopyToMeanings = new System.Windows.Forms.Button();
       this.ActionCopyToResult = new System.Windows.Forms.Button();
       this.EditSentence = new Ordisoftware.Core.TextBoxEx();
@@ -103,15 +105,23 @@
       this.TabPageNotebook = new System.Windows.Forms.TabPage();
       this.PanelViewNotebook = new System.Windows.Forms.Panel();
       this.SplitContainerNotebook = new System.Windows.Forms.SplitContainer();
-      this.ListNotebookWord = new System.Windows.Forms.DataGridView();
+      this.ListNotebookWords = new System.Windows.Forms.DataGridView();
+      this.hebrewDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.TermsBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.panel1 = new System.Windows.Forms.Panel();
-      this.ListNotebookLetter = new System.Windows.Forms.DataGridView();
+      this.ListNotebookLetters = new System.Windows.Forms.DataGridView();
+      this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.panel2 = new System.Windows.Forms.Panel();
+      this.ActionNotebookClearLetter = new System.Windows.Forms.Button();
+      this.ActionNotebookClearWord = new System.Windows.Forms.Button();
+      this.ActionNotebookDeleteWord = new System.Windows.Forms.Button();
       this.ListNotebookSentences = new System.Windows.Forms.DataGridView();
       this.sentenceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.LettriqsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-      this.PanelNotebookTop = new System.Windows.Forms.Panel();
-      this.ActionDeleteTerm = new System.Windows.Forms.Button();
+      this.panel3 = new System.Windows.Forms.Panel();
+      this.ActionNotebookDeleteSentence = new System.Windows.Forms.Button();
+      this.ActionNotebookClearFilter = new System.Windows.Forms.Button();
+      this.EditNotebookFilterSentence = new System.Windows.Forms.TextBox();
       this.PanelSepTop = new System.Windows.Forms.Panel();
       this.PanelTitle = new System.Windows.Forms.Panel();
       this.LabelTitle = new System.Windows.Forms.Label();
@@ -156,8 +166,7 @@
       this.TimerProcesses = new System.Windows.Forms.Timer(this.components);
       this.SaveImageDialog = new System.Windows.Forms.SaveFileDialog();
       this.ToolTipClipboard = new System.Windows.Forms.ToolTip(this.components);
-      this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.hebrewDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.ContextMenuOpenTermLettriq = new System.Windows.Forms.ContextMenuStrip(this.components);
       LabelName = new System.Windows.Forms.Label();
       LabelStructure = new System.Windows.Forms.Label();
       LabelFunction = new System.Windows.Forms.Label();
@@ -188,12 +197,13 @@
       this.SplitContainerNotebook.Panel1.SuspendLayout();
       this.SplitContainerNotebook.Panel2.SuspendLayout();
       this.SplitContainerNotebook.SuspendLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.ListNotebookWord)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.ListNotebookWords)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.TermsBindingSource)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.ListNotebookLetter)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.ListNotebookLetters)).BeginInit();
+      this.panel2.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.ListNotebookSentences)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.LettriqsBindingSource)).BeginInit();
-      this.PanelNotebookTop.SuspendLayout();
+      this.panel3.SuspendLayout();
       this.PanelTitle.SuspendLayout();
       this.ToolStrip.SuspendLayout();
       this.SuspendLayout();
@@ -311,6 +321,8 @@
       this.PanelViewAnalysis.Controls.Add(this.ActionSaveScreenshot);
       this.PanelViewAnalysis.Controls.Add(this.ActionScreenshot);
       this.PanelViewAnalysis.Controls.Add(this.ActionViewAllMeaningsList);
+      this.PanelViewAnalysis.Controls.Add(this.ActionSaveTermLettriq);
+      this.PanelViewAnalysis.Controls.Add(this.ActionOpenTermLettriq);
       this.PanelViewAnalysis.Controls.Add(this.ActionCopyToMeanings);
       this.PanelViewAnalysis.Controls.Add(this.ActionCopyToResult);
       this.PanelViewAnalysis.Controls.Add(this.EditSentence);
@@ -376,6 +388,9 @@
       // EditCopyWithFinalLetter
       // 
       resources.ApplyResources(this.EditCopyWithFinalLetter, "EditCopyWithFinalLetter");
+      this.EditCopyWithFinalLetter.Checked = global::Ordisoftware.Hebrew.Letters.Properties.Settings.Default.CopyWithFinalLetter;
+      this.EditCopyWithFinalLetter.CheckState = System.Windows.Forms.CheckState.Checked;
+      this.EditCopyWithFinalLetter.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::Ordisoftware.Hebrew.Letters.Properties.Settings.Default, "CopyWithFinalLetter", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
       this.EditCopyWithFinalLetter.Name = "EditCopyWithFinalLetter";
       // 
       // EditCopyToClipboardCloseApp
@@ -468,6 +483,22 @@
       this.ActionViewAllMeaningsList.Name = "ActionViewAllMeaningsList";
       this.ActionViewAllMeaningsList.UseVisualStyleBackColor = true;
       this.ActionViewAllMeaningsList.Click += new System.EventHandler(this.ActionViewAllMeaningsList_Click);
+      // 
+      // ActionSaveTermLettriq
+      // 
+      resources.ApplyResources(this.ActionSaveTermLettriq, "ActionSaveTermLettriq");
+      this.ActionSaveTermLettriq.FlatAppearance.BorderSize = 0;
+      this.ActionSaveTermLettriq.Name = "ActionSaveTermLettriq";
+      this.ActionSaveTermLettriq.UseVisualStyleBackColor = true;
+      this.ActionSaveTermLettriq.Click += new System.EventHandler(this.ActionSaveTermLettriq_Click);
+      // 
+      // ActionOpenTermLettriq
+      // 
+      resources.ApplyResources(this.ActionOpenTermLettriq, "ActionOpenTermLettriq");
+      this.ActionOpenTermLettriq.FlatAppearance.BorderSize = 0;
+      this.ActionOpenTermLettriq.Name = "ActionOpenTermLettriq";
+      this.ActionOpenTermLettriq.UseVisualStyleBackColor = true;
+      this.ActionOpenTermLettriq.Click += new System.EventHandler(this.ActionOpenTermLettriq_Click);
       // 
       // ActionCopyToMeanings
       // 
@@ -784,7 +815,6 @@
       resources.ApplyResources(this.PanelViewNotebook, "PanelViewNotebook");
       this.PanelViewNotebook.BackColor = System.Drawing.SystemColors.Control;
       this.PanelViewNotebook.Controls.Add(this.SplitContainerNotebook);
-      this.PanelViewNotebook.Controls.Add(this.PanelNotebookTop);
       this.PanelViewNotebook.Name = "PanelViewNotebook";
       // 
       // SplitContainerNotebook
@@ -794,39 +824,54 @@
       // 
       // SplitContainerNotebook.Panel1
       // 
-      this.SplitContainerNotebook.Panel1.Controls.Add(this.ListNotebookWord);
+      this.SplitContainerNotebook.Panel1.Controls.Add(this.ListNotebookWords);
       this.SplitContainerNotebook.Panel1.Controls.Add(this.panel1);
-      this.SplitContainerNotebook.Panel1.Controls.Add(this.ListNotebookLetter);
+      this.SplitContainerNotebook.Panel1.Controls.Add(this.ListNotebookLetters);
+      this.SplitContainerNotebook.Panel1.Controls.Add(this.panel2);
       // 
       // SplitContainerNotebook.Panel2
       // 
       this.SplitContainerNotebook.Panel2.Controls.Add(this.ListNotebookSentences);
+      this.SplitContainerNotebook.Panel2.Controls.Add(this.panel3);
       // 
-      // ListNotebookWord
+      // ListNotebookWords
       // 
-      this.ListNotebookWord.AllowUserToAddRows = false;
-      this.ListNotebookWord.AllowUserToDeleteRows = false;
-      this.ListNotebookWord.AllowUserToResizeColumns = false;
-      this.ListNotebookWord.AllowUserToResizeRows = false;
-      this.ListNotebookWord.AutoGenerateColumns = false;
-      this.ListNotebookWord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-      this.ListNotebookWord.ColumnHeadersVisible = false;
-      this.ListNotebookWord.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+      this.ListNotebookWords.AllowUserToAddRows = false;
+      this.ListNotebookWords.AllowUserToDeleteRows = false;
+      this.ListNotebookWords.AllowUserToResizeColumns = false;
+      this.ListNotebookWords.AllowUserToResizeRows = false;
+      this.ListNotebookWords.AutoGenerateColumns = false;
+      this.ListNotebookWords.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+      this.ListNotebookWords.ColumnHeadersVisible = false;
+      this.ListNotebookWords.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.hebrewDataGridViewTextBoxColumn});
-      this.ListNotebookWord.DataSource = this.TermsBindingSource;
-      resources.ApplyResources(this.ListNotebookWord, "ListNotebookWord");
-      this.ListNotebookWord.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-      this.ListNotebookWord.MultiSelect = false;
-      this.ListNotebookWord.Name = "ListNotebookWord";
-      this.ListNotebookWord.ReadOnly = true;
-      this.ListNotebookWord.RowHeadersVisible = false;
+      this.ListNotebookWords.DataSource = this.TermsBindingSource;
+      resources.ApplyResources(this.ListNotebookWords, "ListNotebookWords");
+      this.ListNotebookWords.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+      this.ListNotebookWords.MultiSelect = false;
+      this.ListNotebookWords.Name = "ListNotebookWords";
+      this.ListNotebookWords.ReadOnly = true;
+      this.ListNotebookWords.RowHeadersVisible = false;
       dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
       dataGridViewCellStyle2.Font = new System.Drawing.Font("Hebrew", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.ListNotebookWord.RowsDefaultCellStyle = dataGridViewCellStyle2;
-      this.ListNotebookWord.RowTemplate.Height = 28;
-      this.ListNotebookWord.ShowCellToolTips = false;
-      this.ListNotebookWord.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListWords_CellDoubleClick);
-      this.ListNotebookWord.CurrentCellChanged += new System.EventHandler(this.ListWords_CurrentCellChanged);
+      this.ListNotebookWords.RowsDefaultCellStyle = dataGridViewCellStyle2;
+      this.ListNotebookWords.RowTemplate.Height = 28;
+      this.ListNotebookWords.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+      this.ListNotebookWords.ShowCellToolTips = false;
+      this.ListNotebookWords.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListNotebookWord_CellDoubleClick);
+      this.ListNotebookWords.SelectionChanged += new System.EventHandler(this.ListNotebookWords_SelectionChanged);
+      // 
+      // hebrewDataGridViewTextBoxColumn
+      // 
+      this.hebrewDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+      this.hebrewDataGridViewTextBoxColumn.DataPropertyName = "Hebrew";
+      dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+      dataGridViewCellStyle1.BackColor = System.Drawing.Color.AliceBlue;
+      dataGridViewCellStyle1.Font = new System.Drawing.Font("Hebrew", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.hebrewDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+      resources.ApplyResources(this.hebrewDataGridViewTextBoxColumn, "hebrewDataGridViewTextBoxColumn");
+      this.hebrewDataGridViewTextBoxColumn.Name = "hebrewDataGridViewTextBoxColumn";
+      this.hebrewDataGridViewTextBoxColumn.ReadOnly = true;
       // 
       // TermsBindingSource
       // 
@@ -837,30 +882,72 @@
       resources.ApplyResources(this.panel1, "panel1");
       this.panel1.Name = "panel1";
       // 
-      // ListNotebookLetter
+      // ListNotebookLetters
       // 
-      this.ListNotebookLetter.AllowUserToAddRows = false;
-      this.ListNotebookLetter.AllowUserToDeleteRows = false;
-      this.ListNotebookLetter.AllowUserToResizeColumns = false;
-      this.ListNotebookLetter.AllowUserToResizeRows = false;
-      this.ListNotebookLetter.AutoGenerateColumns = false;
-      this.ListNotebookLetter.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-      this.ListNotebookLetter.ColumnHeadersVisible = false;
-      this.ListNotebookLetter.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+      this.ListNotebookLetters.AllowUserToAddRows = false;
+      this.ListNotebookLetters.AllowUserToDeleteRows = false;
+      this.ListNotebookLetters.AllowUserToResizeColumns = false;
+      this.ListNotebookLetters.AllowUserToResizeRows = false;
+      this.ListNotebookLetters.AutoGenerateColumns = false;
+      this.ListNotebookLetters.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+      this.ListNotebookLetters.ColumnHeadersVisible = false;
+      this.ListNotebookLetters.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codeDataGridViewTextBoxColumn});
-      this.ListNotebookLetter.DataSource = this.LettersBindingSource;
-      resources.ApplyResources(this.ListNotebookLetter, "ListNotebookLetter");
-      this.ListNotebookLetter.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-      this.ListNotebookLetter.MultiSelect = false;
-      this.ListNotebookLetter.Name = "ListNotebookLetter";
-      this.ListNotebookLetter.ReadOnly = true;
-      this.ListNotebookLetter.RowHeadersVisible = false;
+      this.ListNotebookLetters.DataSource = this.LettersBindingSource;
+      resources.ApplyResources(this.ListNotebookLetters, "ListNotebookLetters");
+      this.ListNotebookLetters.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+      this.ListNotebookLetters.MultiSelect = false;
+      this.ListNotebookLetters.Name = "ListNotebookLetters";
+      this.ListNotebookLetters.ReadOnly = true;
+      this.ListNotebookLetters.RowHeadersVisible = false;
       dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
       dataGridViewCellStyle4.Font = new System.Drawing.Font("Hebrew", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.ListNotebookLetter.RowsDefaultCellStyle = dataGridViewCellStyle4;
-      this.ListNotebookLetter.RowTemplate.Height = 28;
-      this.ListNotebookLetter.ShowCellToolTips = false;
-      this.ListNotebookLetter.CurrentCellChanged += new System.EventHandler(this.DataGridViewLetters_CurrentCellChanged);
+      this.ListNotebookLetters.RowsDefaultCellStyle = dataGridViewCellStyle4;
+      this.ListNotebookLetters.RowTemplate.Height = 28;
+      this.ListNotebookLetters.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+      this.ListNotebookLetters.ShowCellToolTips = false;
+      this.ListNotebookLetters.SelectionChanged += new System.EventHandler(this.ListNotebookLetters_SelectionChanged);
+      // 
+      // codeDataGridViewTextBoxColumn
+      // 
+      this.codeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+      this.codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
+      dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+      dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightYellow;
+      dataGridViewCellStyle3.Font = new System.Drawing.Font("Hebrew", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.codeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+      resources.ApplyResources(this.codeDataGridViewTextBoxColumn, "codeDataGridViewTextBoxColumn");
+      this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
+      this.codeDataGridViewTextBoxColumn.ReadOnly = true;
+      // 
+      // panel2
+      // 
+      this.panel2.Controls.Add(this.ActionNotebookClearLetter);
+      this.panel2.Controls.Add(this.ActionNotebookClearWord);
+      this.panel2.Controls.Add(this.ActionNotebookDeleteWord);
+      resources.ApplyResources(this.panel2, "panel2");
+      this.panel2.Name = "panel2";
+      // 
+      // ActionNotebookClearLetter
+      // 
+      resources.ApplyResources(this.ActionNotebookClearLetter, "ActionNotebookClearLetter");
+      this.ActionNotebookClearLetter.Name = "ActionNotebookClearLetter";
+      this.ActionNotebookClearLetter.UseVisualStyleBackColor = true;
+      this.ActionNotebookClearLetter.Click += new System.EventHandler(this.ActionNotebookClearLetter_Click);
+      // 
+      // ActionNotebookClearWord
+      // 
+      resources.ApplyResources(this.ActionNotebookClearWord, "ActionNotebookClearWord");
+      this.ActionNotebookClearWord.Name = "ActionNotebookClearWord";
+      this.ActionNotebookClearWord.UseVisualStyleBackColor = true;
+      this.ActionNotebookClearWord.Click += new System.EventHandler(this.ActionNotebookClearWord_Click);
+      // 
+      // ActionNotebookDeleteWord
+      // 
+      resources.ApplyResources(this.ActionNotebookDeleteWord, "ActionNotebookDeleteWord");
+      this.ActionNotebookDeleteWord.Name = "ActionNotebookDeleteWord";
+      this.ActionNotebookDeleteWord.UseVisualStyleBackColor = true;
+      this.ActionNotebookDeleteWord.Click += new System.EventHandler(this.ActionNotebookDeleteWord_Click);
       // 
       // ListNotebookSentences
       // 
@@ -876,10 +963,10 @@
       this.ListNotebookSentences.DataSource = this.LettriqsBindingSource;
       resources.ApplyResources(this.ListNotebookSentences, "ListNotebookSentences");
       this.ListNotebookSentences.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-      this.ListNotebookSentences.MultiSelect = false;
       this.ListNotebookSentences.Name = "ListNotebookSentences";
       this.ListNotebookSentences.ReadOnly = true;
       this.ListNotebookSentences.RowHeadersVisible = false;
+      this.ListNotebookSentences.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
       // 
       // sentenceDataGridViewTextBoxColumn
       // 
@@ -893,19 +980,33 @@
       // 
       this.LettriqsBindingSource.DataSource = typeof(Ordisoftware.Hebrew.TermLettriq);
       // 
-      // PanelNotebookTop
+      // panel3
       // 
-      this.PanelNotebookTop.Controls.Add(this.ActionDeleteTerm);
-      resources.ApplyResources(this.PanelNotebookTop, "PanelNotebookTop");
-      this.PanelNotebookTop.Name = "PanelNotebookTop";
+      this.panel3.Controls.Add(this.ActionNotebookDeleteSentence);
+      this.panel3.Controls.Add(this.ActionNotebookClearFilter);
+      this.panel3.Controls.Add(this.EditNotebookFilterSentence);
+      resources.ApplyResources(this.panel3, "panel3");
+      this.panel3.Name = "panel3";
       // 
-      // ActionDeleteTerm
+      // ActionNotebookDeleteSentence
       // 
-      this.ActionDeleteTerm.AllowDrop = true;
-      resources.ApplyResources(this.ActionDeleteTerm, "ActionDeleteTerm");
-      this.ActionDeleteTerm.FlatAppearance.BorderSize = 0;
-      this.ActionDeleteTerm.Name = "ActionDeleteTerm";
-      this.ActionDeleteTerm.UseVisualStyleBackColor = true;
+      resources.ApplyResources(this.ActionNotebookDeleteSentence, "ActionNotebookDeleteSentence");
+      this.ActionNotebookDeleteSentence.Name = "ActionNotebookDeleteSentence";
+      this.ActionNotebookDeleteSentence.UseVisualStyleBackColor = true;
+      this.ActionNotebookDeleteSentence.Click += new System.EventHandler(this.ActionNotebookDeleteSentence_Click);
+      // 
+      // ActionNotebookClearFilter
+      // 
+      resources.ApplyResources(this.ActionNotebookClearFilter, "ActionNotebookClearFilter");
+      this.ActionNotebookClearFilter.Name = "ActionNotebookClearFilter";
+      this.ActionNotebookClearFilter.UseVisualStyleBackColor = true;
+      this.ActionNotebookClearFilter.Click += new System.EventHandler(this.ActionNotebookClearFilter_Click);
+      // 
+      // EditNotebookFilterSentence
+      // 
+      resources.ApplyResources(this.EditNotebookFilterSentence, "EditNotebookFilterSentence");
+      this.EditNotebookFilterSentence.Name = "EditNotebookFilterSentence";
+      this.EditNotebookFilterSentence.TextChanged += new System.EventHandler(this.EditNotebookFilterSentence_TextChanged);
       // 
       // PanelSepTop
       // 
@@ -1245,29 +1346,11 @@
       this.TimerProcesses.Interval = 5000;
       this.TimerProcesses.Tick += new System.EventHandler(this.TimerProcesses_Tick);
       // 
-      // codeDataGridViewTextBoxColumn
+      // ContextMenuOpenTermLettriq
       // 
-      this.codeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-      this.codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
-      dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-      dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightYellow;
-      dataGridViewCellStyle3.Font = new System.Drawing.Font("Hebrew", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.codeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
-      resources.ApplyResources(this.codeDataGridViewTextBoxColumn, "codeDataGridViewTextBoxColumn");
-      this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
-      this.codeDataGridViewTextBoxColumn.ReadOnly = true;
-      // 
-      // hebrewDataGridViewTextBoxColumn
-      // 
-      this.hebrewDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-      this.hebrewDataGridViewTextBoxColumn.DataPropertyName = "Hebrew";
-      dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-      dataGridViewCellStyle1.BackColor = System.Drawing.Color.AliceBlue;
-      dataGridViewCellStyle1.Font = new System.Drawing.Font("Hebrew", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.hebrewDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
-      resources.ApplyResources(this.hebrewDataGridViewTextBoxColumn, "hebrewDataGridViewTextBoxColumn");
-      this.hebrewDataGridViewTextBoxColumn.Name = "hebrewDataGridViewTextBoxColumn";
-      this.hebrewDataGridViewTextBoxColumn.ReadOnly = true;
+      this.ContextMenuOpenTermLettriq.Name = "ContextMenuOpenTermLettriq";
+      this.ContextMenuOpenTermLettriq.ShowImageMargin = false;
+      resources.ApplyResources(this.ContextMenuOpenTermLettriq, "ContextMenuOpenTermLettriq");
       // 
       // MainForm
       // 
@@ -1308,12 +1391,14 @@
       this.SplitContainerNotebook.Panel2.ResumeLayout(false);
       ((System.ComponentModel.ISupportInitialize)(this.SplitContainerNotebook)).EndInit();
       this.SplitContainerNotebook.ResumeLayout(false);
-      ((System.ComponentModel.ISupportInitialize)(this.ListNotebookWord)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.ListNotebookWords)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.TermsBindingSource)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.ListNotebookLetter)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.ListNotebookLetters)).EndInit();
+      this.panel2.ResumeLayout(false);
       ((System.ComponentModel.ISupportInitialize)(this.ListNotebookSentences)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.LettriqsBindingSource)).EndInit();
-      this.PanelNotebookTop.ResumeLayout(false);
+      this.panel3.ResumeLayout(false);
+      this.panel3.PerformLayout();
       this.PanelTitle.ResumeLayout(false);
       this.ToolStrip.ResumeLayout(false);
       this.ToolStrip.PerformLayout();
@@ -1426,17 +1511,26 @@
     private System.Windows.Forms.Panel PanelViewNotebook;
     private System.Windows.Forms.Panel PanelViewLetters;
     private System.Windows.Forms.SplitContainer SplitContainerNotebook;
-    private System.Windows.Forms.DataGridView ListNotebookWord;
+    private System.Windows.Forms.DataGridView ListNotebookWords;
     private System.Windows.Forms.BindingSource TermsBindingSource;
     private System.Windows.Forms.DataGridView ListNotebookSentences;
     private System.Windows.Forms.BindingSource LettriqsBindingSource;
-    private System.Windows.Forms.Panel PanelNotebookTop;
     private System.Windows.Forms.DataGridViewTextBoxColumn sentenceDataGridViewTextBoxColumn;
-    private System.Windows.Forms.Button ActionDeleteTerm;
     private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMeaningsText;
     private System.Windows.Forms.Panel panel1;
-    private System.Windows.Forms.DataGridView ListNotebookLetter;
+    private System.Windows.Forms.DataGridView ListNotebookLetters;
     private System.Windows.Forms.DataGridViewTextBoxColumn hebrewDataGridViewTextBoxColumn;
     private System.Windows.Forms.DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
+    public System.Windows.Forms.TextBox EditNotebookFilterSentence;
+    public System.Windows.Forms.Button ActionNotebookDeleteSentence;
+    public System.Windows.Forms.Button ActionNotebookClearWord;
+    public System.Windows.Forms.Button ActionNotebookClearLetter;
+    private System.Windows.Forms.Button ActionSaveTermLettriq;
+    private System.Windows.Forms.Button ActionOpenTermLettriq;
+    private System.Windows.Forms.ContextMenuStrip ContextMenuOpenTermLettriq;
+    public System.Windows.Forms.Button ActionNotebookClearFilter;
+    public System.Windows.Forms.Button ActionNotebookDeleteWord;
+    private System.Windows.Forms.Panel panel2;
+    private System.Windows.Forms.Panel panel3;
   }
 }
