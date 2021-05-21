@@ -39,7 +39,7 @@
       System.Windows.Forms.Label LabelVerb;
       System.Windows.Forms.Label LabelPositive;
       System.Windows.Forms.Label LabelNegative;
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
       this.PanelMain = new System.Windows.Forms.Panel();
       this.PanelMainOuter = new System.Windows.Forms.Panel();
       this.PanelMainInner = new System.Windows.Forms.Panel();
@@ -600,8 +600,8 @@
       this.TextBoxStructure.Tag = "data";
       this.TextBoxStructure.ContextMenuEditOpening += new System.ComponentModel.CancelEventHandler(this.TextBoxData_ContextMenuEditOpening);
       this.TextBoxStructure.ContextMenuEditOpened += new System.EventHandler(this.TextBoxData_ContextMenuEditOpened);
-      this.TextBoxStructure.TextChanged += new System.EventHandler(this.TextBoxData_TextChanged);
-      this.TextBoxStructure.Leave += new System.EventHandler(this.TextBoxData_Leave);
+      this.TextBoxStructure.TextChanged += new System.EventHandler(this.TextBoxPositive_TextChanged);
+      this.TextBoxStructure.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxData_KeyDown);
       // 
       // LabelHebrew
       // 
@@ -627,8 +627,8 @@
       this.TextBoxNegative.Tag = "data";
       this.TextBoxNegative.ContextMenuEditOpening += new System.ComponentModel.CancelEventHandler(this.TextBoxData_ContextMenuEditOpening);
       this.TextBoxNegative.ContextMenuEditOpened += new System.EventHandler(this.TextBoxData_ContextMenuEditOpened);
-      this.TextBoxNegative.TextChanged += new System.EventHandler(this.TextBoxData_TextChanged);
-      this.TextBoxNegative.Leave += new System.EventHandler(this.TextBoxData_Leave);
+      this.TextBoxNegative.TextChanged += new System.EventHandler(this.TextBoxPositive_TextChanged);
+      this.TextBoxNegative.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxData_KeyDown);
       // 
       // TextBoxName
       // 
@@ -650,8 +650,8 @@
       this.TextBoxFunction.Tag = "data";
       this.TextBoxFunction.ContextMenuEditOpening += new System.ComponentModel.CancelEventHandler(this.TextBoxData_ContextMenuEditOpening);
       this.TextBoxFunction.ContextMenuEditOpened += new System.EventHandler(this.TextBoxData_ContextMenuEditOpened);
-      this.TextBoxFunction.TextChanged += new System.EventHandler(this.TextBoxData_TextChanged);
-      this.TextBoxFunction.Leave += new System.EventHandler(this.TextBoxData_Leave);
+      this.TextBoxFunction.TextChanged += new System.EventHandler(this.TextBoxPositive_TextChanged);
+      this.TextBoxFunction.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxData_KeyDown);
       // 
       // TextBoxPositive
       // 
@@ -663,8 +663,8 @@
       this.TextBoxPositive.Tag = "data";
       this.TextBoxPositive.ContextMenuEditOpening += new System.ComponentModel.CancelEventHandler(this.TextBoxData_ContextMenuEditOpening);
       this.TextBoxPositive.ContextMenuEditOpened += new System.EventHandler(this.TextBoxData_ContextMenuEditOpened);
-      this.TextBoxPositive.TextChanged += new System.EventHandler(this.TextBoxData_TextChanged);
-      this.TextBoxPositive.Leave += new System.EventHandler(this.TextBoxData_Leave);
+      this.TextBoxPositive.TextChanged += new System.EventHandler(this.TextBoxPositive_TextChanged);
+      this.TextBoxPositive.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxData_KeyDown);
       // 
       // TextBoxVerb
       // 
@@ -676,8 +676,8 @@
       this.TextBoxVerb.Tag = "data";
       this.TextBoxVerb.ContextMenuEditOpening += new System.ComponentModel.CancelEventHandler(this.TextBoxData_ContextMenuEditOpening);
       this.TextBoxVerb.ContextMenuEditOpened += new System.EventHandler(this.TextBoxData_ContextMenuEditOpened);
-      this.TextBoxVerb.TextChanged += new System.EventHandler(this.TextBoxData_TextChanged);
-      this.TextBoxVerb.Leave += new System.EventHandler(this.TextBoxData_Leave);
+      this.TextBoxVerb.TextChanged += new System.EventHandler(this.TextBoxPositive_TextChanged);
+      this.TextBoxVerb.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxData_KeyDown);
       // 
       // TextBoxValueSimple
       // 
@@ -815,9 +815,9 @@
       this.ListWords.Name = "ListWords";
       this.ListWords.ReadOnly = true;
       this.ListWords.RowHeadersVisible = false;
-      dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-      dataGridViewCellStyle3.Font = new System.Drawing.Font("Hebrew", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.ListWords.RowsDefaultCellStyle = dataGridViewCellStyle3;
+      dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+      dataGridViewCellStyle1.Font = new System.Drawing.Font("Hebrew", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.ListWords.RowsDefaultCellStyle = dataGridViewCellStyle1;
       this.ListWords.RowTemplate.Height = 28;
       this.ListWords.ShowCellToolTips = false;
       this.ListWords.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListWords_CellDoubleClick);

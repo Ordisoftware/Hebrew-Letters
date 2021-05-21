@@ -695,15 +695,40 @@ namespace Ordisoftware.Hebrew.Letters
 
     #endregion
 
+    #region DB Errors
+
+    private void EditMeanings_DataError(object sender, DataGridViewDataErrorEventArgs e)
+    {
+      if ( !Globals.IsReady ) return;
+      if ( e.Exception is ArgumentOutOfRangeException || e.Exception is IndexOutOfRangeException )
+      {
+        DisplayManager.ShowError($"DB Index error.{Globals.NL2}{SysTranslations.ApplicationMustExit.GetLang()}");
+        e.Exception.Manage();
+        ApplicationDatabase.Instance.Connection.Rollback();
+        Application.Exit();
+      }
+      else
+        e.Exception.Manage();
+    }
+
+    private void BindingSource_DataError(object sender, BindingManagerDataErrorEventArgs e)
+    {
+      if ( !Globals.IsReady ) return;
+      e.Exception.Manage();
+      ApplicationDatabase.Instance.Connection.Rollback();
+    }
+
+    #endregion
+
     #region Letter Update Data Controls
 
     private void UpdateDataControls(object sender, bool forceEditMode = false)
     {
       try
       {
-        forceEditMode = forceEditMode || EditMeanings.IsCurrentCellInEditMode;// || DataAddNewRowMutex;
+        forceEditMode = forceEditMode || EditMeanings.IsCurrentCellInEditMode;
         if ( SelectLetter.SelectedItem == null ) return;
-        var letter = ((ObjectView<Letter>)SelectLetter.SelectedItem).Object;
+        var letter = ( (ObjectView<Letter>)SelectLetter.SelectedItem ).Object;
         ActionAddMeaning.Enabled = !Globals.IsReadOnly && !forceEditMode;
         ActionDeleteMeaning.Enabled = !Globals.IsReadOnly && !forceEditMode && letter.Meanings.Count > 0;
         ActionSave.Enabled = ( ApplicationDatabase.Instance.IsInTransaction && !forceEditMode ) || ( forceEditMode && sender is TextBox );
@@ -779,15 +804,13 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void SelectLetter_SelectedIndexChanged(object sender, EventArgs e)
     {
-      if ( !Globals.IsReady ) return;
-      if ( !SelectLetter.Enabled ) return;
-      //DataEditMutex = true;
+      //if ( !Globals.IsReady ) return;
+      //if ( !SelectLetter.Enabled ) return;
     }
 
     private void LettersBindingSource_PositionChanged(object sender, EventArgs e)
     {
       if ( !Globals.IsReady ) return;
-      //DataEditMutex = false;
       UpdateDataControls(sender);
     }
 
@@ -799,6 +822,8 @@ namespace Ordisoftware.Hebrew.Letters
     #endregion
 
     #region Letter Data TextBoxes 
+
+    private bool IsLetterEditing;
 
     private bool TextBoxDataContextMenuMutex;
 
@@ -815,30 +840,37 @@ namespace Ordisoftware.Hebrew.Letters
       TextBoxDataContextMenuMutex = false;
     }
 
-    private void TextBoxData_TextChanged(object sender, EventArgs e)
-    {
-      if ( !Globals.IsReady ) return;
-      //if ( DataEditMutex ) return;
-      //DataEditMutex = true;
-      LettersBindingSource.EndEdit();
-      if ( sender != null ) UpdateDataControls(sender, true);
-      //DataEditMutex = false;
-    }
-
-    private void TextBoxData_Leave(object sender, EventArgs e)
-    {
-      if ( !Globals.IsReady ) return;
-      TextBoxData_TextChanged(null, null);
-      UpdateDataControls(null);
-    }
-
     private void TextBoxData_ContextMenuAction_Click(object sender, EventArgs e)
     {
-      /*var textbox = TextBoxEx.GetTextBox(sender);
+      var textbox = TextBoxEx.GetTextBox(sender);
       if ( textbox != null )
         if ( textbox.Tag is string )
           if ( (string)textbox.Tag == "data" )
-            ;// TextBoxData_TextChanged(sender, e);*/
+          {
+            IsLetterEditing = true;
+            TextBoxPositive_TextChanged(textbox, e);
+          }
+    }
+
+    private void TextBoxData_KeyDown(object sender, KeyEventArgs e)
+    {
+      IsLetterEditing = true;
+    }
+
+    private void TextBoxPositive_TextChanged(object sender, EventArgs e)
+    {
+      if ( !IsLetterEditing ) return;
+      if ( !( sender is TextBox textbox ) ) return;
+      var letter = ( (ObjectView<Letter>)LettersBindingSource.Current ).Object;
+      var binding = textbox.DataBindings[nameof(TextBox.Text)];
+      string dataname = binding.BindingMemberInfo.BindingField;
+      var type = letter.GetType();
+      var prop = type.GetProperty(dataname);
+      string value = (string)prop.GetValue(letter);
+      if ( textbox.Text != value )
+        ApplicationDatabase.Instance.BeginTransaction();
+      IsLetterEditing = false;
+      UpdateDataControls(sender);
     }
 
     #endregion
@@ -879,6 +911,44 @@ namespace Ordisoftware.Hebrew.Letters
         }
         else
           MeaningsBindingSource.Position = index;
+      UpdateDataControls(sender);
+    }
+
+    private void EditMeanings_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+    {
+      if ( EditMeanings.IsCurrentCellInEditMode ) return;
+      EditMeanings.BeginEdit(false);
+    }
+
+    private void EditMeanings_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+    {
+      if ( !Globals.IsReady ) return;
+      UpdateDataControls(sender, true);
+    }
+
+    private void EditMeanings_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+    {
+      if ( !Globals.IsReady ) return;
+      var cell = EditMeanings[e.ColumnIndex, e.ColumnIndex];
+      var str = (string)cell.Value;
+      if ( str.StartsWith(" ") || str.EndsWith(" ") )
+        cell.Value = str.Trim();
+      UpdateDataControls(sender);
+    }
+
+    private void EditMeanings_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+    {
+      if ( !Globals.IsReady ) return;
+      if ( e.FormattedValue == DBNull.Value || (string)e.FormattedValue == "" )
+        e.Cancel = true;
+      else
+        UpdateDataControls(sender);
+    }
+
+    private void EditMeanings_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+    {
+      if ( !Globals.IsReady ) return;
+      ApplicationDatabase.Instance.BeginTransaction();
       UpdateDataControls(sender);
     }
 
@@ -933,69 +1003,6 @@ namespace Ordisoftware.Hebrew.Letters
           EditMeanings.EndEdit();
         }
       }*/
-    }
-
-    private void EditMeanings_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-    {
-      if ( EditMeanings.IsCurrentCellInEditMode ) return;
-      EditMeanings.BeginEdit(false);
-    }
-
-    private void EditMeanings_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
-    {
-      if ( !Globals.IsReady ) return;
-      UpdateDataControls(sender, true);
-      //DataAddNewRowMutex = false;
-    }
-
-    private void EditMeanings_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-    {
-      if ( !Globals.IsReady ) return;
-      var cell = EditMeanings[e.ColumnIndex, e.ColumnIndex];
-      var str = (string)cell.Value;
-      if ( str.StartsWith(" ") || str.EndsWith(" ") )
-        cell.Value = str.Trim();
-      UpdateDataControls(sender);
-    }
-
-    private void EditMeanings_CellValueChanged(object sender, DataGridViewCellEventArgs e)
-    {
-      if ( !Globals.IsReady ) return;
-      UpdateDataControls(sender);
-    }
-
-    private void EditMeanings_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
-    {
-      if ( !Globals.IsReady ) return;
-      if ( e.FormattedValue == DBNull.Value || (string)e.FormattedValue == "" )
-        e.Cancel = true;
-      else
-        UpdateDataControls(sender);
-    }
-
-    #endregion
-
-    #region DB Errors
-
-    private void EditMeanings_DataError(object sender, DataGridViewDataErrorEventArgs e)
-    {
-      if ( !Globals.IsReady ) return;
-      if ( e.Exception is ArgumentOutOfRangeException || e.Exception is IndexOutOfRangeException )
-      {
-        DisplayManager.ShowError($"DB Index error.{Globals.NL2}{SysTranslations.ApplicationMustExit.GetLang()}");
-        ApplicationDatabase.Instance.Connection.Rollback();//DataSet.RejectChanges();
-        e.Exception.Manage();
-        Application.Exit();
-      }
-      else
-        e.Exception.Manage();
-    }
-
-    private void BindingSource_DataError(object sender, BindingManagerDataErrorEventArgs e)
-    {
-      if ( !Globals.IsReady ) return;
-      e.Exception.Manage();
-      ApplicationDatabase.Instance.Connection.Rollback();//DataSet.RejectChanges();
     }
 
     #endregion
