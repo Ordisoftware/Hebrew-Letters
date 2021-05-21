@@ -14,6 +14,7 @@
 /// <edited> 2020-12 </edited>
 using System;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Ordisoftware.Core
@@ -28,7 +29,7 @@ namespace Ordisoftware.Core
     private TraceForm()
     {
       InitializeComponent();
-      Icon = Globals.MainForm?.Icon;
+      ActiveControl = TabControl;
     }
 
     public TraceForm(string locationPropertyName, string clientSizePropertyName, string fontSizepropertyName)
@@ -54,23 +55,30 @@ namespace Ordisoftware.Core
       TrackBarFontSize_ValueChanged(null, null);
     }
 
+    private void TraceForm_Shown(object sender, EventArgs e)
+    {
+      Icon = Globals.MainForm?.Icon;
+    }
+
     private void LogForm_Activated(object sender, EventArgs e)
     {
       ActionClearLogs.Enabled = DebugManager.Enabled;
+      ActionRefreshFiles_Click(ActionRefreshFiles, EventArgs.Empty);
     }
 
     private void TraceForm_Deactivate(object sender, EventArgs e)
     {
-      try
-      {
-        Globals.Settings[LocationPropertyName] = Location;
-        Globals.Settings[ClientSizePropertyName] = ClientSize;
-        Globals.Settings[FontSizepropertyName] = TrackBarFontSize.Value;
-        Globals.Settings.Save();
-      }
-      catch
-      {
-      }
+      if ( Globals.Settings != null )
+        try
+        {
+          Globals.Settings[LocationPropertyName] = Location;
+          Globals.Settings[ClientSizePropertyName] = ClientSize;
+          Globals.Settings[FontSizepropertyName] = TrackBarFontSize.Value;
+          SystemManager.TryCatch(Globals.Settings.Save);
+        }
+        catch
+        {
+        }
     }
 
     private void TraceForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -86,38 +94,81 @@ namespace Ordisoftware.Core
 
     private void TrackBarFontSize_ValueChanged(object sender, EventArgs e)
     {
-      TextBox.Font = new Font("Courier New", TrackBarFontSize.Value);
+      TextBoxCurrent.Font = new Font("Courier New", TrackBarFontSize.Value);
+      TextBoxPrevious.Font = new Font("Courier New", TrackBarFontSize.Value);
     }
 
     private void ActionOpenLogsFolder_Click(object sender, EventArgs e)
     {
-      SystemManager.RunShell(Globals.TraceFolderPath);
+      SystemManager.RunShell(Globals.SinkFileFolderPath);
     }
 
     private void ActionClearLogs_Click(object sender, EventArgs e)
     {
       if ( !DisplayManager.QueryYesNo(SysTranslations.AskToClearLogs.GetLang()) ) return;
-      DebugManager.ClearTraces();
+      DebugManager.ClearTraces(false, true);
       Show();
       BringToFront();
     }
 
-    private void TextBox_TextChanged(object sender, EventArgs e)
-    {
-      LabelLinesCount.Text = SysTranslations.TraceLinesCount.GetLang(TextBox.Lines.Length);
-    }
-
     public void AppendText(string text, bool scrollBottom = true)
     {
-      TextBox.AppendText(text);
+      TextBoxCurrent.AppendText(text);
       if ( text == string.Empty ) return;
       if ( scrollBottom )
       {
-        TextBox.SelectionStart = TextBox.Text.Length - 1;
-        TextBox.ScrollToCaret();
+        TextBoxCurrent.SelectionStart = TextBoxCurrent.Text.Length - 1;
+        TextBoxCurrent.ScrollToCaret();
       }
     }
 
+    private void TextBox_TextChanged(object sender, EventArgs e)
+    {
+      if ( TabControl.SelectedIndex == 0 )
+        LabelLinesCount.Text = SysTranslations.TraceLinesCount.GetLang(TextBoxCurrent.Lines.Length);
+      else
+      {
+        LabelLinesCount.Text = SysTranslations.TraceLinesCount.GetLang(TextBoxPrevious.Lines.Length);
+        ActiveControl = SelectFile;
+      }
+    }
+
+    private void ActionRefreshFiles_Click(object sender, EventArgs e)
+    {
+      TextBoxPrevious.Clear();
+      SelectFile.Items.Clear();
+      foreach ( var file in DebugManager.GetTraceFiles(false) )
+        SelectFile.Items.Add(file);
+      SelectFile.Enabled = SelectFile.Items.Count > 0;
+      ActionDeleteFile.Enabled = SelectFile.Enabled;
+      if ( SelectFile.Enabled )
+        SelectFile.SelectedIndex = SelectFile.Items.Count - 1;
+    }
+
+    private void SelectFile_Format(object sender, ListControlConvertEventArgs e)
+    {
+      e.Value = Path.GetFileNameWithoutExtension((string)e.Value);
+    }
+
+    private void ActionDeleteFile_Click(object sender, EventArgs e)
+    {
+      if ( SelectFile.SelectedIndex < 0 ) return;
+      string filePath = (string)SelectFile.SelectedItem;
+      if ( !DisplayManager.QueryYesNo(SysTranslations.AskToDeleteFile.GetLang(SelectFile.Text)) ) return;
+      File.Delete(filePath);
+      ActionRefreshFiles.PerformClick();
+    }
+
+    private void SelectFile_SelectedIndexChanged(object sender, EventArgs e)
+    {
+      if ( SelectFile.SelectedIndex < 0 ) return;
+      TextBoxPrevious.Clear();
+      TextBoxPrevious.Lines = File.ReadAllLines((string)SelectFile.SelectedItem);
+    }
+
+    private void TabPagePrevious_Enter(object sender, EventArgs e)
+    {
+    }
   }
 
 }

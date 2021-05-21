@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2021-04 </edited>
+/// <edited> 2021-05 </edited>
 using System;
 using System.ComponentModel;
 using System.Globalization;
@@ -54,12 +54,11 @@ namespace Ordisoftware.Hebrew.Letters
         Globals.IsSettingsUpgraded = Globals.IsSettingsUpgraded && !Settings.FirstLaunch;
         CheckSettingsReset();
         if ( lang != Language.None ) Settings.LanguageSelected = lang;
-        Settings.Save();
+        SystemManager.TryCatch(Settings.Save);
         Globals.Settings = Settings;
         Globals.MainForm = MainForm.Instance;
         DebugManager.Enabled = Settings.DebuggerEnabled;
         DebugManager.TraceEnabled = Settings.TraceEnabled;
-        UpdateLocalization();
         Globals.ChronoStartingApp.Stop();
         ProcessCommandLineOptions();
         Globals.ChronoStartingApp.Start();
@@ -96,7 +95,7 @@ namespace Ordisoftware.Hebrew.Letters
         }
         if ( Settings.LanguageSelected == Language.None )
           Settings.LanguageSelected = Languages.Current;
-        Settings.Save();
+        SystemManager.TryCatch(Settings.Save);
       }
       catch ( Exception ex )
       {
@@ -137,54 +136,54 @@ namespace Ordisoftware.Hebrew.Letters
       Globals.ChronoTranslate.Restart();
       try
       {
-        MainForm.Instance.PanelMainCenter.Visible = false;
         void update(Form form)
         {
           new Infralution.Localization.CultureManager().ManagedControl = form;
           ComponentResourceManager resources = new ComponentResourceManager(form.GetType());
           resources.Apply(form.Controls);
         }
-        void updateLabel(Label label, TextBox textbox, int dy)
-        {
-          label.Location = new System.Drawing.Point(label.Location.X, textbox.Location.Y + dy);
-        }
         string lang = "en-US";
         if ( Settings.LanguageSelected == Language.FR ) lang = "fr-FR";
         var culture = new CultureInfo(lang);
         Thread.CurrentThread.CurrentCulture = culture;
         Thread.CurrentThread.CurrentUICulture = culture;
-        MessageBoxEx.CloseAll();
-        AboutBox.Instance.Hide();
-        var temp = Settings.CurrentView;
-        MainForm.Instance.SetView(ViewMode.Analysis);
-        update(MainForm.Instance);
-        MainForm.Instance.SetView(ViewMode.Data);
-        update(MainForm.Instance);
-        MainForm.Instance.SetView(temp);
-        string tempLogTitle = DebugManager.TraceForm.Text;
-        string tempLogContent = DebugManager.TraceForm.TextBox.Text;
+        if ( Globals.IsReady )
+        {
+          MessageBoxEx.CloseAll();
+          AboutBox.Instance.Hide();
+          MainForm.Instance.PanelMainCenter.Visible = false;
+          var temp = Settings.CurrentView;
+          MainForm.Instance.SetView(ViewMode.Analysis);
+          update(MainForm.Instance);
+          MainForm.Instance.SetView(ViewMode.Letters);
+          update(MainForm.Instance);
+          MainForm.Instance.SetView(temp);
+        }
+        else
+        {
+          MainForm.Instance.SetView(ViewMode.Analysis, true);
+          update(MainForm.Instance);
+        }
         new Infralution.Localization.CultureManager().ManagedControl = AboutBox.Instance;
-        new Infralution.Localization.CultureManager().ManagedControl = DebugManager.TraceForm;
         new Infralution.Localization.CultureManager().ManagedControl = GrammarGuideForm;
         new Infralution.Localization.CultureManager().ManagedControl = MethodNoticeForm;
         Infralution.Localization.CultureManager.ApplicationUICulture = culture;
         foreach ( Form form in Application.OpenForms )
         {
-          if ( form != AboutBox.Instance && form != GrammarGuideForm && form != MethodNoticeForm )
+          if ( form != DebugManager.TraceForm && form != AboutBox.Instance && form != GrammarGuideForm && form != MethodNoticeForm )
             update(form);
           if ( form is ShowTextForm formShowText )
             formShowText.Relocalize();
         }
         // Various updates
-        DebugManager.TraceForm.Text = tempLogTitle;
-        DebugManager.TraceForm.AppendText(tempLogContent);
-        LoadingForm.Instance.Relocalize();
-        TextBoxEx.Relocalize();
-        AboutBox.Instance.AboutBox_Shown(null, null);
-        GrammarGuideForm.HTMLBrowserForm_Shown(null, null);
-        MethodNoticeForm.HTMLBrowserForm_Shown(null, null);
-        MainForm.Instance.CreateSystemInformationMenu();
-        MainForm.Instance.CheckClipboardContentType();
+        if ( Globals.IsReady )
+        {
+          LoadingForm.Instance.Relocalize();
+          TextBoxEx.Relocalize();
+          AboutBox.Instance.AboutBox_Shown(null, null);
+          GrammarGuideForm.HTMLBrowserForm_Shown(null, null);
+          MethodNoticeForm.HTMLBrowserForm_Shown(null, null);
+        }
         updateLabel(MainForm.Instance.LabelGematria, MainForm.Instance.EditGematriaSimple, -19);
         updateLabel(MainForm.Instance.LabelGematriaSimple, MainForm.Instance.EditGematriaSimple, 3);
         updateLabel(MainForm.Instance.LabelGematriaFull, MainForm.Instance.EditGematriaFull, 3);
@@ -193,6 +192,12 @@ namespace Ordisoftware.Hebrew.Letters
                                                          - MainForm.Instance.LabelClipboardContentType.Width / 2;
         MainForm.Instance.EditCopyToClipboardCloseApp.Left = MainForm.Instance.ActionCopyToResult.Left
                                                            + MainForm.Instance.ActionCopyToResult.Width + 5;
+        MainForm.Instance.CheckClipboardContentType();
+        MainForm.Instance.CreateSystemInformationMenu();
+        void updateLabel(Label label, TextBox textbox, int dy)
+        {
+          label.Location = new System.Drawing.Point(label.Location.X, textbox.Location.Y + dy);
+        }
       }
       catch ( Exception ex )
       {

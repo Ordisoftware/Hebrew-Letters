@@ -25,7 +25,9 @@ A libre and open-source software written in C# that helps for the lettriq letter
 - Hebrew letters database with their customizable meanings.
 - Analyze a word letter by letter to get a sentence describing its sense.
 - Online research with Pealim, Sefaria, Shorashim, Wiktionary, Translator, etc.
+- Store results in a notebook that can also be used in Hebrew Words.
 - Copy the result or a screenshot to the clipboard.
+- Export and import of letters meanings and notebook.
 - English, French.
 
 ## Review
@@ -41,13 +43,14 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 - Windows 7 SP1 x32/x64 or higher
 - Screen 1024x768 or higher
 - Framework .NET 4.7.2
-- SQLite ODBC Driver
 
 ## Download
 
-**What's new in the latest version**
+**What's new in the latest version 6.0**
 
-- Maintenance release.
+- Overall performances are optimized.
+- Some fixes and improvements.
+- SQLite ODBC Driver is no more needed.
 
 [Last release](https://github.com/Ordisoftware/Hebrew-Letters/releases/latest)
 
@@ -62,31 +65,6 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 [![Showing video](https://img.youtube.com/vi/rs7l-wvVt-I/mqdefault.jpg)](https://www.youtube.com/watch?v=rs7l-wvVt-I)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Showing video](https://img.youtube.com/vi/Wc5SdiASvCg/mqdefault.jpg)](https://www.youtube.com/watch?v=Wc5SdiASvCg)
 
 ## Frequently asked questions
-
-#### How to install SQlite ODBC Driver?
-
-The setup installs:
-
-- [sqliteodbc.exe](http://www.ch-werner.de/sqliteodbc/sqliteodbc.exe) on Windows 32-bit.
-- [sqliteodbc_w64.exe](http://www.ch-werner.de/sqliteodbc/sqliteodbc_w64.exe) on Windows 64-bit.
-
-In the event that an error message indicates that a DLL file could not be copied, it is usually due to the fact that an application using this driver already installed is running and is blocking the file. You can ignore this error or close the application in question and restart the installation to obtain a driver update.
-
-#### What to do in case of ODBC datasource connection error?
-
-The software tries to register an ODBC DSN to the registry but in case of problem run:
-
-&emsp;`C:\Program Files\Ordisoftware\Hebrew Letters\System\RegisterODBC.reg`
-
-Or open the ODBC Datasource Manager (Admin tools in Windows' Control panel) and create a user datasource named:
-
-&emsp;`Hebrew-Letters` for `SQLite 3 ODBC Driver`
-
-With Database Name sets to:
-
-&emsp;`%USERPROFILE%\AppData\Roaming\Ordisoftware\Hebrew Letters\Hebrew-Letters.sqlite`
-
-Watch the [video](https://www.youtube.com/watch?v=WPVF8pj9I3E).
 
 #### What to do if the check update tells that the SSL certificate is wrong or expired?
 
@@ -162,16 +140,26 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 ## Future improvements
 
+- Add analyzed word data table and view panel.
+- Add reset only some columns to factory defaults.
 - Add export and import database.
 - Add export data to TXT/CSV/JSON.
 - Add import data from TXT/CSV/JSON.
 - Add print data.
-- Add analyzed word data table and view panel.
 - Add find gematria possible combinations.
 - Rewrite advanced undo/redo.
 - Optimize more ComboBoxes creation.
 
 ## Changelog
+
+#### 2021.05.30 - Version 6.0
+
+- Switch from SQLite ODBC Driver to SQLite-Net with SQLitePCLraw nugets.
+- Optimize overall performances.
+- Some fixes and improvements.
+- Code refactoring and quality improvement.
+- Replace proprietary simple TraceListener by SeriLog.
+- Improve trace form.
 
 #### 2021.04.30 - Version 5.3
 

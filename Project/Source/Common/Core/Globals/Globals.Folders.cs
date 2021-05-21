@@ -50,10 +50,16 @@ namespace Ordisoftware.Core
       => Path.Combine(BinDirectoryName, "Release");
 
     /// <summary>
+    /// Indicate the application executable file path.
+    /// </summary>
+    static public string ApplicationExeFullPath
+      => System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName;
+
+    /// <summary>
     /// Indicate the application executable file name.
     /// </summary>
     static public string ApplicationExeFileName
-      => Path.GetFileNameWithoutExtension(System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName);
+      => Path.GetFileNameWithoutExtension(ApplicationExeFullPath);
 
     /// <summary>
     /// Indicate the application full file name.
@@ -134,12 +140,6 @@ namespace Ordisoftware.Core
     /// </summary>
     static public string ApplicationSoundsFolderPath
       => Path.Combine(RootFolderPath, "Sounds");
-
-    /// <summary>
-    /// Indicate the user applicationtrace folder path.
-    /// </summary>
-    static public string TraceFolderPath
-      => Path.Combine(UserDataFolderPath, TraceDirectoryName);
 
     /// <summary>
     /// Indicate the user applicationdatabase folder path.

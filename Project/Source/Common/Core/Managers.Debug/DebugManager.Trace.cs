@@ -11,10 +11,16 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2007-05 </created>
-/// <edited> 2020-09 </edited>
+/// <edited> 2021-05 </edited>
 using System;
-using System.Linq;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using Serilog.Core;
+using Serilog.Events;
+using System.Threading;
+using Serilog;
+using MoreLinq;
 
 namespace Ordisoftware.Core
 {
@@ -22,32 +28,46 @@ namespace Ordisoftware.Core
   static partial class DebugManager
   {
 
-    static DebugManager()
+    class ProcessIdEnricher : ILogEventEnricher
     {
-      TraceForm = new TraceForm("TraceFormLocation", "TraceFormSize", "TraceFormTextBoxFontSize");
-      TraceEventMaxLength = Enum.GetNames(typeof(LogTraceEvent)).Max(v => v.Length);
+      public void Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory)
+      {
+        var id = Globals.ProcessId.ToString(IdWidth);
+        logEvent.AddPropertyIfAbsent(propertyFactory.CreateProperty("ProcessId", id));
+      }
+    }
+
+    class ThreadIdEnricher : ILogEventEnricher
+    {
+      public void Enrich(LogEvent logEvent, ILogEventPropertyFactory propertyFactory)
+      {
+        var id = Thread.CurrentThread.ManagedThreadId.ToString(IdWidth);
+        logEvent.AddPropertyIfAbsent(propertyFactory.CreateProperty("ThreadId", id));
+      }
     }
 
     static public readonly TraceForm TraceForm;
+    static public string IdWidth = "D6";
+    static public int MarginSize = 4;
+    static public int EnterCountSkip = 2;
 
-    public const int MarginSize = 4;
-    public const int EnterCountSkip = 2;
-
-    static private int TraceEventMaxLength;
     static private int StackSkip = 1;
     static private int EnterCount = 0;
     static private int CurrentMargin = 0;
-
+    static private int TraceEventMaxLength;
     static private string Separator = new string('-', 120);
 
-    static private void TraceFileChanged(Listener sender, string filePath)
+    static DebugManager()
+    {
+      TraceEventMaxLength = Enum.GetNames(typeof(LogTraceEvent)).Max(v => v.Length);
+      TraceForm = new TraceForm("TraceFormLocation", "TraceFormSize", "TraceFormTextBoxFontSize");
+    }
+
+    static private void TraceEventAdded(string sourceContext, string str)
     {
       if ( TraceForm == null ) return;
       if ( TraceForm.IsDisposed ) return;
-      if ( !File.Exists(filePath) ) return;
-      TraceForm.Text = Path.GetFileNameWithoutExtension(filePath);
-      TraceForm.TextBox.Clear();
-      TraceForm.AppendText(File.ReadAllText(filePath));
+      TraceForm.AppendText(str);
     }
 
     static public void Enter()
@@ -64,13 +84,27 @@ namespace Ordisoftware.Core
       Trace(LogTraceEvent.Leave, ExceptionInfo.GetCallerName(EnterCountSkip));
     }
 
-    static private void Leavepublic()
+    static private void LeaveInternal()
     {
       if ( !_Enabled || EnterCount == 0 ) return;
       EnterCount--;
       StackSkip = 1;
       Trace(LogTraceEvent.Leave, ExceptionInfo.GetCallerName(EnterCountSkip + StackSkip));
     }
+
+    static private Dictionary<LogTraceEvent, char> Signes = new Dictionary<LogTraceEvent, char>
+    {
+      [LogTraceEvent.System] = ' ',
+      [LogTraceEvent.Start] = '>',
+      [LogTraceEvent.Stop] = '.',
+      [LogTraceEvent.Enter] = '+',
+      [LogTraceEvent.Leave] = '-',
+      [LogTraceEvent.Complete] = ':',
+      [LogTraceEvent.Message] = '#',
+      [LogTraceEvent.Data] = '*',
+      [LogTraceEvent.Error] = '!',
+      [LogTraceEvent.Exception] = '!'
+    };
 
     static public void Trace(LogTraceEvent traceEvent, string text = "")
     {
@@ -80,20 +114,12 @@ namespace Ordisoftware.Core
         string message = string.Empty;
         if ( traceEvent != LogTraceEvent.System )
         {
-          string traceEventName = traceEvent.ToString().ToUpper().PadRight(TraceEventMaxLength);
-          message += $"{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")} [ {traceEventName} ] ";
+          string traceEventName = traceEvent.ToString().ToUpper().PadLeft(TraceEventMaxLength);
+          message += $"| {Signes[traceEvent]} | {traceEventName} | ";
         }
         if ( traceEvent == LogTraceEvent.Leave ) CurrentMargin -= MarginSize;
-        message += text.Indent(CurrentMargin, CurrentMargin + message.Length) + Globals.NL;
-        try
-        {
-          if ( !TraceForm.IsDisposed )
-            TraceForm?.AppendText(message);
-        }
-        catch
-        {
-        }
-        System.Diagnostics.Trace.Write(message);
+        message += text.Indent(CurrentMargin, 5 + Globals.SinkFileEventTemplateSize + CurrentMargin + message.Length);
+        Log.Logger.Information(message);
       }
       catch
       {
@@ -106,62 +132,68 @@ namespace Ordisoftware.Core
 
     static private void WriteHeader()
     {
-      string platform = "Undefined";
-      try
-      {
-        platform = SystemStatistics.Instance.Platform.SplitNoEmptyLines().Join(" | ");
-      }
-      catch
-      {
-      }
-      Trace(LogTraceEvent.System, Separator);
-      Trace(LogTraceEvent.System, "# " + "START   : " + DateTime.Now);
-      Trace(LogTraceEvent.System, "# " + "PROCESS : " + Globals.AssemblyTitle);
-      Trace(LogTraceEvent.System, "# " + "SYSTEM  : " + platform);
-      Trace(LogTraceEvent.System, Separator);
-      Trace(LogTraceEvent.System);
+      string platform = "";
+      try { platform = SystemStatistics.Instance.Platform.SplitNoEmptyLines().Join(" | "); }
+      catch { platform = "Unknown platform"; }
+      Trace(LogTraceEvent.Start, Globals.AssemblyTitle);
+      Trace(LogTraceEvent.Start, Globals.ApplicationExeFullPath);
+      Trace(LogTraceEvent.Start, platform);
+      Trace(LogTraceEvent.Start, $"FreeMem: {SystemStatistics.Instance.PhysicalMemoryFree} | RAM: {SystemStatistics.Instance.TotalVisibleMemory}");
     }
 
     static private void WriteFooter()
     {
-      string unleft = TraceListener != null ? TraceListener.IsRollOver ? " (RollOver)" : "" : "";
-      Trace(LogTraceEvent.System);
-      Trace(LogTraceEvent.System, Separator);
-      Trace(LogTraceEvent.System, "# " + "STOP    : " + DateTime.Now);
-      Trace(LogTraceEvent.System, "# " + "PROCESS : " + Globals.AssemblyTitle);
-      Trace(LogTraceEvent.System, "# " + "UNLEFT  : " + EnterCount + unleft);
-      Trace(LogTraceEvent.System, Separator);
-      Trace(LogTraceEvent.System);
+      Trace(LogTraceEvent.Stop, Globals.AssemblyTitle + $" (Unleft: {EnterCount})");
+      Trace(LogTraceEvent.Stop, $"GC: {SystemStatistics.Instance.MemoryGC} | Peak: {SystemStatistics.Instance.MemoryGCPeak}");
     }
 
-    public static void ClearTraces(bool norestart = false)
+    static public IEnumerable<string> GetTraceFiles(bool sortByDateOnly)
     {
-      if ( TraceListener == null ) return;
+      string folder = Globals.SinkFileFolderPath;
+      string code = Globals.SinkFileCode;
+      string extension = Globals.TraceFileExtension;
+      var list = Directory.GetFiles(folder, code + "*" + extension)
+                          .Where(f => !SystemManager.IsFileLocked(f));
+      return sortByDateOnly
+             ? list.OrderBy(f => new FileInfo(f).CreationTime)
+             : list.OrderBy(f => new FileInfo(f).CreationTime).ThenBy(f => f);
+    }
+
+    static public void ClearTraces(bool norestart = false, bool all = false)
+    {
       try
       {
         bool isEnabled = _Enabled;
         try
         {
-          string folder = TraceListener.Folder;
-          string code = TraceListener.Code;
-          string extension = TraceListener.Extension;
-          Stop();
-          foreach ( string path in Directory.GetFiles(folder, code + "*" + extension) )
-            try
-            {
-              File.Delete(path);
-            }
-            catch
-            {
-            }
-          TraceForm?.TextBox.Clear();
+          switch ( Globals.TraceFileRollOverMode )
+          {
+            case TraceFileRollOverMode.Session:
+              if ( !delete(Globals.SessionFileRetainedFileCountLimit) ) return;
+              break;
+            case TraceFileRollOverMode.SinkFile:
+              if ( !all || !delete(Globals.SinkFileRetainedFileCountLimit) ) return;
+              break;
+          }
+          TraceForm?.TextBoxCurrent.Clear();
+          //
+          bool delete(int retain)
+          {
+            if ( retain == 0 ) return false;
+            Stop();
+            var list = GetTraceFiles(true);
+            if ( !all ) list = list.Take(list.Count() - retain + 1);
+            foreach ( string file in list )
+              try { File.Delete(file); } catch { }
+            return true;
+          }
         }
         finally
         {
           if ( !norestart && isEnabled )
           {
             Start();
-            Trace(LogTraceEvent.Message, $"{nameof(DebugManager)}.{nameof(ClearTraces)}");
+            if ( all ) Trace(LogTraceEvent.Complete, $"{nameof(DebugManager)}.{nameof(ClearTraces)}(all)");
           }
         }
       }

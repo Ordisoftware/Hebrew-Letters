@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-01 </created>
-/// <edited> 2021-02 </edited>
+/// <edited> 2021-05 </edited>
 using System.Windows.Forms;
 
 namespace Ordisoftware.Hebrew.Letters
@@ -47,12 +47,17 @@ namespace Ordisoftware.Hebrew.Letters
     /// <summary>
     /// Indicate data edition mutex.
     /// </summary>
-    private bool DataEditMutex;
+    //private bool DataEditMutex;
 
     /// <summary>
     /// Indicate add new meaning mutex.
     /// </summary>
-    private bool DataAddNewRowMutex;
+    //private bool DataAddNewRowMutex;
+
+    /// <summary>
+    /// Indicate if terms tables are readonly, else writable.
+    /// </summary>
+    private bool IsTermsReadOnly;
 
   }
 

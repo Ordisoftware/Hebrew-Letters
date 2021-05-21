@@ -124,28 +124,28 @@ namespace Ordisoftware.Hebrew.Letters
     private void ActionSelectLangEN_Click(object sender, EventArgs e)
     {
       if ( Settings.LanguageSelected == Language.EN ) return;
-      string temp = MainForm.Instance.EditLetters.Input.Text;
+      string temp = MainForm.Instance.EditWord.TextBox.Text;
       MainForm.Instance.ActionClear.PerformClick();
       Settings.LanguageSelected = Language.EN;
       Program.UpdateLocalization();
       UpdateLanguagesButtons();
       LanguageChanged = true;
-      MainForm.Instance.EditLetters.Input.Text = temp;
-      MainForm.Instance.EditLetters.Focus(LettersControlFocusSelect.Keep);
+      MainForm.Instance.EditWord.TextBox.Text = temp;
+      MainForm.Instance.EditWord.Focus(LettersControlFocusSelect.Keep);
       Close();
     }
 
     private void ActionSelectLangFR_Click(object sender, EventArgs e)
     {
       if ( Settings.LanguageSelected == Language.FR ) return;
-      string temp = MainForm.Instance.EditLetters.Input.Text;
+      string temp = MainForm.Instance.EditWord.TextBox.Text;
       MainForm.Instance.ActionClear.PerformClick();
       Settings.LanguageSelected = Language.FR;
       Program.UpdateLocalization();
       UpdateLanguagesButtons();
       LanguageChanged = true;
-      MainForm.Instance.EditLetters.Input.Text = temp;
-      MainForm.Instance.EditLetters.Focus(LettersControlFocusSelect.Keep);
+      MainForm.Instance.EditWord.TextBox.Text = temp;
+      MainForm.Instance.EditWord.Focus(LettersControlFocusSelect.Keep);
       Close();
     }
 
@@ -160,7 +160,7 @@ namespace Ordisoftware.Hebrew.Letters
       MediaMixer.SetApplicationVolume(Globals.ProcessId, EditVolume.Value);
       LabelVolumeValue.Text = EditVolume.Value + "%";
       Settings.ApplicationVolume = EditVolume.Value;
-      Settings.Save();
+      SystemManager.TryCatch(Settings.Save);
       DisplayManager.DoSound(Globals.ClipboardSoundFilePath);
     }
 

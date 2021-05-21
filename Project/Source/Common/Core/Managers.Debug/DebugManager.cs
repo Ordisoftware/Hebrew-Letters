@@ -11,11 +11,15 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2007-05 </created>
-/// <edited> 2021-04 </edited>
+/// <edited> 2021-05 </edited>
 using System;
 using System.Threading;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using Serilog;
+using Serilog.Sinks.WinForms;
+using Serilog.Formatting.Display;
+using System.IO;
 
 namespace Ordisoftware.Core
 {
@@ -105,8 +109,6 @@ namespace Ordisoftware.Core
     /// <summary>
     /// Indicate the trace listener.
     /// </summary>
-    static public Listener TraceListener { get; private set; }
-
     static public bool TraceEnabled
     {
       get => _TraceEnabled;
@@ -114,20 +116,22 @@ namespace Ordisoftware.Core
       {
         if ( _TraceEnabled == value ) return;
         var isEnabled = _Enabled;
+        Stop();
         if ( value )
         {
-          Enabled = false;
-          _TraceEnabled = value;
-          Enabled = isEnabled;
-          Trace(LogTraceEvent.Data, $"{nameof(DebugManager)}.{nameof(TraceEnabled)} = {value}");
+          if ( Directory.Exists(Globals.OldTraceFolderPath) )
+            try { Directory.Delete(Globals.OldTraceFolderPath, true); } catch { }
+          ClearTraces(true, false);
         }
         else
         {
-          ClearTraces(true);
-          _TraceEnabled = value;
-          Enabled = isEnabled;
+          TraceForm?.Hide();
+          TraceForm?.TextBoxCurrent.Clear();
+          ClearTraces(true, true);
         }
-        TraceEnabledChanged?.Invoke(value);
+        _TraceEnabled = value;
+        Enabled = isEnabled;
+        try { TraceEnabledChanged?.Invoke(value); } catch { }
       }
     }
     static private bool _TraceEnabled = false;
@@ -158,30 +162,43 @@ namespace Ordisoftware.Core
           _Enabled = true;
           if ( _TraceEnabled )
           {
-            TraceListener = new Listener(Globals.TraceFolderPath,
-                                         Globals.TraceFileCode,
-                                         Globals.TraceFileExtension,
-                                         Globals.TraceFileMode,
-                                         Globals.TraceFilesKeepCount,
-                                         TraceFileChanged);
-            System.Diagnostics.Trace.Listeners.Add(TraceListener);
-            System.Diagnostics.Trace.AutoFlush = true;
-            TraceListener.AutoFlush = true;
+            var logconf = new LoggerConfiguration();
+            logconf.Enrich.With(new ProcessIdEnricher());
+            logconf.Enrich.With(new ThreadIdEnricher());
+            if ( Globals.TraceFileRollOverMode == TraceFileRollOverMode.Session )
+            {
+              string datetime = DateTime.Now.ToString(Globals.TraceSessionFileTemplate);
+              string filePath = Globals.SinkFileNoRollingPatternPath.Replace(Globals.SinkFileNoRollingPatternPathDateTag,
+                                                                             datetime);
+              Log.Logger = logconf.WriteTo.File(filePath,
+                                                outputTemplate: Globals.SinkFileEventTemplate,
+                                                fileSizeLimitBytes: Globals.SinkFileSizeLimitBytes)
+                                  .WriteToSimpleAndRichTextBox(new MessageTemplateTextFormatter(Globals.SinkFileEventTemplate))
+                                  .CreateLogger();
+            }
+            else
+              Log.Logger = logconf.WriteTo.File(Globals.SinkFileRollingPatternPath,
+                                                shared: SystemManager.AllowMultipleInstances,
+                                                outputTemplate: Globals.SinkFileEventTemplate,
+                                                rollingInterval: Globals.SinkFileRollingInterval,
+                                                fileSizeLimitBytes: Globals.SinkFileSizeLimitBytes,
+                                                retainedFileCountLimit: Globals.SinkFileRetainedFileCountLimit)
+                                  .WriteToSimpleAndRichTextBox(new MessageTemplateTextFormatter(Globals.SinkFileEventTemplate))
+                                  .CreateLogger();
+            WindFormsSink.SimpleTextBoxSink.OnLogReceived += TraceEventAdded;
+            WriteHeader();
           }
-          WriteHeader();
         }
         else
         {
-          WriteFooter();
           if ( _TraceEnabled )
           {
-            System.Diagnostics.Trace.Listeners.Remove(TraceListener);
-            TraceListener.Dispose();
-            TraceListener = null;
+            WriteFooter();
+            Log.CloseAndFlush();
           }
           _Enabled = false;
-          TraceForm.Hide();
-          TraceForm.TextBox.Clear();
+          TraceForm?.Hide();
+          TraceForm?.TextBoxCurrent.Clear();
         }
         EnabledChanged?.Invoke(value);
       }
@@ -238,7 +255,7 @@ namespace Ordisoftware.Core
     static private void Handle(object sender, Exception ex)
     {
       if ( ex is AbortException ) return;
-      Managepublic(sender, ex);
+      ManageInternal(sender, ex);
     }
 
     /// <summary>
@@ -281,9 +298,9 @@ namespace Ordisoftware.Core
       if ( !( ex is AbortException ) )
       {
         StackSkip++;
-        Managepublic(sender, ex, show);
+        ManageInternal(sender, ex, show);
       }
-      Leavepublic();
+      LeaveInternal();
     }
 
     /// <summary>
@@ -291,9 +308,9 @@ namespace Ordisoftware.Core
     /// </summary>
     /// <param name="sender">Source of the event.</param>
     /// <param name="ex">The ex.</param>
-    static private void Managepublic(object sender, Exception ex)
+    static private void ManageInternal(object sender, Exception ex)
     {
-      Managepublic(sender, ex, DeaultShowExceptionMode);
+      ManageInternal(sender, ex, DeaultShowExceptionMode);
     }
 
     /// <summary>
@@ -302,7 +319,7 @@ namespace Ordisoftware.Core
     /// <param name="sender">Source of the event.</param>
     /// <param name="ex">The ex.</param>
     /// <param name="show">The show mode.</param>
-    static private void Managepublic(object sender, Exception ex, ShowExceptionMode show)
+    static private void ManageInternal(object sender, Exception ex, ShowExceptionMode show)
     {
       bool process = true;
       var einfo = new ExceptionInfo(sender, ex);
@@ -333,6 +350,9 @@ namespace Ordisoftware.Core
             break;
           case ShowExceptionMode.Advanced:
             ShowAdvanced(einfo);
+            break;
+          case ShowExceptionMode.OnlyMessage:
+            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             break;
           default:
             ShowSimple(einfo);

@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2007-05 </created>
-/// <edited> 2020-08 </edited>
+/// <edited> 2021-05 </edited>
 using System;
 
 namespace Ordisoftware.Core
@@ -24,16 +24,17 @@ namespace Ordisoftware.Core
   {
     None,
     Simple,
-    Advanced
+    Advanced,
+    OnlyMessage
   }
 
   /// <summary>
-  /// INdicate trace file roll over mode.
+  /// Indicate trace file roll over mode.
   /// </summary>
   public enum TraceFileRollOverMode
   {
-    Daily,
-    Monthly
+    Session,
+    SinkFile
   }
 
   /// <summary>
@@ -43,39 +44,54 @@ namespace Ordisoftware.Core
   {
 
     /// <summary>
-    /// System event. 
+    /// System event (no event level).
     /// </summary>
     System,
 
     /// <summary>
-    /// Message event. 
+    /// Start process event.
     /// </summary>
-    Message,
+    Start,
 
     /// <summary>
-    /// Data event. 
+    /// Stop process event.
     /// </summary>
-    Data,
+    Stop,
 
     /// <summary>
-    /// Error event. 
-    /// </summary>
-    Error,
-
-    /// <summary>
-    /// Excention event. 
-    /// </summary>
-    Exception,
-
-    /// <summary>
-    /// Enter method event. 
+    /// Enter method event.
     /// </summary>
     Enter,
 
     /// <summary>
-    /// Leave method event. 
+    /// Leave method event.
     /// </summary>
-    Leave
+    Leave,
+
+    /// <summary>
+    /// Finished method event.
+    /// </summary>
+    Complete,
+
+    /// <summary>
+    /// Message event.
+    /// </summary>
+    Message,
+
+    /// <summary>
+    /// Data event.
+    /// </summary>
+    Data,
+
+    /// <summary>
+    /// Error event.
+    /// </summary>
+    Error,
+
+    /// <summary>
+    /// Excention event.
+    /// </summary>
+    Exception
 
   }
 

@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2021-03 </edited>
+/// <edited> 2021-05 </edited>
 using System;
 using System.Linq;
 using System.IO;
@@ -125,21 +125,21 @@ namespace Ordisoftware.Hebrew
     /// </summary>
     static public void OpenBibleProvider(string url, int book, int chapter, int verse)
     {
-      int bookchabad = BooksNames.Chabad[(Books)( book - 1 )] + chapter - 1;
+      int bookchabad = BooksNames.Chabad[(Books)book] + chapter - 1;
       if ( url.Contains("%BOOKSEFARIA%") )
-        url = url.Replace("%BOOKSEFARIA%", BooksNames.StudyBible[(Books)( book - 1 )]
+        url = url.Replace("%BOOKSEFARIA%", BooksNames.StudyBible[(Books)book]
                                                      .Replace("1", "I")
                                                      .Replace("2", "II")
                                                      .Replace(" ", "_"))
                  .Replace("%CHAPTERNUM%", chapter.ToString())
                  .Replace("%VERSENUM%", verse.ToString());
       else
-        url = url.Replace("%BOOKSB%", BooksNames.StudyBible[(Books)( book - 1 )])
-                 .Replace("%BOOKBIBLEHUB%", BooksNames.BibleHub[(Books)( book - 1 )])
+        url = url.Replace("%BOOKSB%", BooksNames.StudyBible[(Books)book])
+                 .Replace("%BOOKBIBLEHUB%", BooksNames.BibleHub[(Books)book])
                  .Replace("%BOOKCHABAD%", bookchabad.ToString())
-                 .Replace("%BOOKMM%", BooksNames.MechonMamre[(Books)( book - 1 )])
-                 .Replace("%BOOKDJEP%", BooksNames.Djep[(Books)( book - 1 )])
-                 .Replace("%BOOKLE%", BooksNames.LEvangile[(Books)( book - 1 )])
+                 .Replace("%BOOKMM%", BooksNames.MechonMamre[(Books)book])
+                 .Replace("%BOOKDJEP%", BooksNames.Djep[(Books)book])
+                 .Replace("%BOOKLE%", BooksNames.LEvangile[(Books)book])
                  .Replace("%BOOKNUM%", book.ToString())
                  .Replace("%CHAPTERNUM%", chapter.ToString())
                  .Replace("%VERSENUM%", verse.ToString())
@@ -161,8 +161,8 @@ namespace Ordisoftware.Hebrew
         return;
       }
       open(parashah);
-      if ( parashah.Linked != null )
-        open(parashah.Linked);
+      if ( parashah.GetLinked() != null && openLinked ) open(parashah.GetLinked());
+      //
       void open(Parashah item)
       {
         string link = url.Replace("%TORAHBOX%", OnlineParashot.TorahBox[item.Book][item.Number - 1])

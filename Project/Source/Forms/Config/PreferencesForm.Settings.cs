@@ -70,7 +70,7 @@ namespace Ordisoftware.Hebrew.Letters
       Settings.AutoOpenExportedFile = EditAutoOpenExportedFile.Checked;
       Settings.WindowsDoubleBufferingEnabled = EditWindowsDoubleBufferingEnabled.Checked;
       SaveColors();
-      Settings.Save();
+      SystemManager.TryCatch(Settings.Save);
     }
 
     private void LoadColors()
@@ -107,7 +107,7 @@ namespace Ordisoftware.Hebrew.Letters
       Settings.BenchmarkStartingApp = starttime;
       Settings.BenchmarkLoadData = loadtime;
       Settings.RestoreMainForm();
-      Settings.Save();
+      SystemManager.TryCatch(Settings.Save);
       MainForm.Instance.EditSentence.Font = new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence);
       Program.GrammarGuideForm.CenterToMainFormElseScreen();
       Program.MethodNoticeForm.CenterToMainFormElseScreen();
@@ -136,7 +136,7 @@ namespace Ordisoftware.Hebrew.Letters
         Settings.Reload();
         Settings.BenchmarkStartingApp = starttime;
         Settings.BenchmarkLoadData = loadtime;
-        Settings.Save();
+        SystemManager.TryCatch(Settings.Save);
         Settings.Retrieve();
         Program.UpdateLocalization();
         Settings.SetFirstAndUpgradeFlagsOff();

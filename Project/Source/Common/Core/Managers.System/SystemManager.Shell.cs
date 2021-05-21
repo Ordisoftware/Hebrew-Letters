@@ -15,8 +15,12 @@
 using System;
 using System.IO;
 using System.Text;
+using System.Linq;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Security.Cryptography;
+using System.Windows.Forms;
+using System.Threading;
 using CommandLine;
 
 namespace Ordisoftware.Core
@@ -84,13 +88,21 @@ namespace Ordisoftware.Core
     /// </summary>
     /// <param name="filePath">The file path.</param>
     /// <param name="arguments">The comamnd line arguments.</param>
-    static public Process RunShell(string filePath, string arguments = "")
+    /// <param name="asAdmin">True if run as admin.</param>
+    /// <param name="style">Process Window Style.</param>
+    static public Process RunShell(string filePath, string arguments = "", bool asAdmin = false, ProcessWindowStyle style = ProcessWindowStyle.Normal)
     {
       var process = new Process();
       try
       {
         process.StartInfo.FileName = filePath;
         process.StartInfo.Arguments = arguments;
+        process.StartInfo.WindowStyle = style;
+        if ( asAdmin )
+        {
+          process.StartInfo.UseShellExecute = true;
+          process.StartInfo.Verb = "runas";
+        }
         process.Start();
         return process;
       }
@@ -206,6 +218,33 @@ namespace Ordisoftware.Core
       {
         throw new IOException(SysTranslations.FileAccessError.GetLang(filePath), ex);
       }
+    }
+
+    static public void CloseRunningApplications(string reason)
+    {
+      var result = DialogResult.None;
+      var processes = Globals.ConcurrentRunningProcesses;
+      while ( processes.Count() != 0 && result != DialogResult.Cancel )
+      {
+        var list = processes.Select(p => p.ProcessName);
+        var names = string.Join(Globals.NL, list.ToArray());
+        var form = new MessageBoxEx(Globals.AssemblyTitle,
+                                    SysTranslations.CloseApplicationsRequired.GetLang(reason, names.Indent(5, 5)),
+                                    MessageBoxButtons.RetryCancel,
+                                    MessageBoxIcon.Exclamation);
+        form.ActionYes.Visible = true;
+        form.AcceptButton = form.ActionYes;
+        form.CancelButton = form.ActionCancel;
+        form.ActiveControl = form.ActionRetry;
+        form.ShowInTaskbar = true;
+        result = form.ShowDialog();
+        if ( result == DialogResult.Yes )
+          foreach ( var process in processes )
+            TryCatch(process.Kill);
+        Thread.Sleep(2000);
+        processes = Globals.ConcurrentRunningProcesses;
+      }
+      if ( processes.Count() != 0 || result == DialogResult.Cancel ) Terminate();
     }
 
   }

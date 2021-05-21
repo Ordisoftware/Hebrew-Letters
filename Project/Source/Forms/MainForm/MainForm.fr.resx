@@ -163,7 +163,6 @@
   <data name="LabelNegative.Text" xml:space="preserve">
     <value>Negatif</value>
   </data>
-    <value>540, 463</value>
   <data name="LabelGematriaFull.Text" xml:space="preserve">
     <value>Plein</value>
   </data>
@@ -282,10 +281,10 @@
     <value>Analyse (F1)</value>
   </data>
   <data name="ActionViewLetters.Text" xml:space="preserve">
-    <value>Données</value>
+    <value>Lettres</value>
   </data>
   <data name="ActionViewLetters.ToolTipText" xml:space="preserve">
-    <value>Données (F2)</value>
+    <value>Lettres (F2)</value>
   </data>
   <data name="ActionSearchTerm.Text" xml:space="preserve">
     <value>Chercher</value>
@@ -331,5 +330,11 @@
   </data>
   <data name="ActionGematriaCombinations.Text" xml:space="preserve">
     <value>Combinaisons de gematria</value>
+  </data>
+  <data name="ActionViewNotebook.Text" xml:space="preserve">
+    <value>Carnet</value>
+  </data>
+  <data name="ActionViewNotebook.ToolTipText" xml:space="preserve">
+    <value>Carnet (F5)</value>
   </data>
 </root>

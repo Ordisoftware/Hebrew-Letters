@@ -11,11 +11,10 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-01 </created>
-/// <edited> 2021-04 </edited>
+/// <edited> 2021-05 </edited>
 using System;
-using System.Data;
 using System.Drawing;
-using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Win32;
 using Ordisoftware.Core;
@@ -35,33 +34,155 @@ namespace Ordisoftware.Hebrew.Letters
     /// </summary>
     private void DoConstructor()
     {
-
-      InitializeComponent();
-      SoundItem.Initialize();
-      Text = Globals.AssemblyTitle;
-      SystemEvents.SessionEnding += SessionEnding;
+      new Task(InitializeIconsAndSound).Start();
+      new Task(CreateProvidersLinks).Start();
+      Interlocks.Take();
       SystemManager.TryCatch(() => { Icon = new Icon(Globals.ApplicationIconFilePath); });
+      Text = Globals.AssemblyTitle;
       ToolStrip.Renderer = new CheckedButtonsToolStripRenderer();
-      CreateProvidersLinks();
+      SystemEvents.SessionEnding += SessionEnding;
       TextBoxEx.ActionUndo.Click += TextBoxData_ContextMenuAction_Click;
       TextBoxEx.ActionRedo.Click += TextBoxData_ContextMenuAction_Click;
       TextBoxEx.ActionCut.Click += TextBoxData_ContextMenuAction_Click;
       TextBoxEx.ActionPaste.Click += TextBoxData_ContextMenuAction_Click;
       TextBoxEx.ActionDelete.Click += TextBoxData_ContextMenuAction_Click;
       NativeMethods.ClipboardViewerNext = NativeMethods.SetClipboardViewer(Handle);
+      if ( !Globals.IsDevExecutable ) // TODO remove when ready
+      {
+        ActionViewNotebook.Visible = false;
+        ActionGematriaCombinations.Visible = false;
+        ActionGematriaCombinations.Tag = int.MinValue;
+        ActionGematriaCombinationsSeparator.Visible = false;
+        ActionGematriaCombinationsSeparator.Tag = int.MinValue;
+      }
     }
 
     /// <summary>
-    /// Create providers links menu items.
+    /// Do Form Load event.
     /// </summary>
-    private void CreateProvidersLinks()
+    private void DoFormLoad(object sender, EventArgs e)
     {
-      ContextMenuSearchOnline.InitializeFromProviders(HebrewGlobals.WebProvidersWord, (sender, e) =>
+      if ( Globals.IsExiting ) return;
+      Settings.Retrieve();
+      StatisticsForm.Run(true, Settings.UsageStatisticsEnabled);
+      Globals.ChronoStartingApp.Stop();
+      var lastdone = Settings.CheckUpdateLastDone;
+      bool exit = WebCheckUpdate.Run(Settings.CheckUpdateAtStartup,
+                                     ref lastdone,
+                                     Settings.CheckUpdateAtStartupDaysInterval,
+                                     true);
+      Settings.CheckUpdateLastDone = lastdone;
+      if ( exit )
       {
-        var menuitem = (ToolStripMenuItem)sender;
-        HebrewTools.OpenWordProvider((string)menuitem.Tag, EditLetters.Input.Text);
-        EditLetters.Focus();
-      });
+        SystemManager.Exit();
+        return;
+      }
+      Globals.ChronoStartingApp.Start();
+      InitializeTheme();
+      InitializeDialogsDirectory();
+      Program.Settings.CurrentView = ViewMode.Analysis;
+      EditSentence.Font = new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence);
+      EditWord.TextBox.MaxLength = (int)Settings.HebrewTextBoxMaxLength;
+      EditSentence_FontChanged(null, null);
+      TimerProcesses_Tick(null, null);
+      LoadData();
+      Globals.IsReady = true;
+      SelectLetter_SelectedIndexChanged(SelectLetter, EventArgs.Empty);
+      LettersNavigator.Refresh();
+      UpdateDataControls(SelectLetter);
+      DebugManager.TraceEnabledChanged += value => CommonMenusControl.Instance.ActionViewLog.Enabled = value;
+    }
+
+    /// <summary>
+    /// Do Form Shown event.
+    /// </summary>
+    /// <param name="sender">Source of the event.</param>
+    /// <param name="e">Form closing event information.</param>
+    private void DoFormShown(object sender, EventArgs e)
+    {
+      if ( Globals.IsExiting ) return;
+      if ( !Program.StartupWord.IsNullOrEmpty() )
+      {
+        ActionReset.Visible = true;
+        EditWord.TextBox.Text = Program.StartupWord;
+        EditWord.Focus(LettersControlFocusSelect.None);
+        EditWord.TextBox.Refresh();
+      }
+      else
+        ActionReset.Visible = false;
+      ToolStrip.SetDropDownOpening();
+      Globals.ChronoStartingApp.Stop();
+      if ( Globals.IsDatabaseUpgraded && DisplayManager.QueryYesNo(SysTranslations.AskToCheckDataAfterDbUpgraded.GetLang()) )
+      {
+        Globals.ChronoStartingApp.Start();
+        SetView(ViewMode.Letters, false);
+      }
+      else
+      {
+        Globals.ChronoStartingApp.Start();
+        SetView(ViewMode.Analysis, false);
+      }
+      if ( Settings.FirstLaunch )
+      {
+        Settings.FirstLaunch = false;
+        ActionShowMethodNotice.PerformClick();
+      }
+      Globals.NoticeKeyboardShortcutsForm = new ShowTextForm(AppTranslations.NoticeKeyboardShortcutsTitle,
+                                                             AppTranslations.NoticeKeyboardShortcuts,
+                                                             true, false, 340, 440, false, false);
+      Globals.NoticeKeyboardShortcutsForm.TextBox.BackColor = Globals.NoticeKeyboardShortcutsForm.BackColor;
+      Globals.NoticeKeyboardShortcutsForm.TextBox.BorderStyle = BorderStyle.None;
+      Globals.NoticeKeyboardShortcutsForm.Padding = new Padding(20, 20, 10, 10);
+      Globals.ChronoStartingApp.Stop();
+      Settings.BenchmarkStartingApp = Globals.ChronoStartingApp.ElapsedMilliseconds;
+      SystemManager.TryCatch(Settings.Save);
+      ProcessNewsAndCommandLine();
+    }
+
+    /// <summary>
+    /// Do Form CLosed event.
+    /// </summary>
+    private void DoFormClosed(object sender, FormClosedEventArgs e)
+    {
+      ActionSave_Click(null, null);
+
+      Program.Settings.CurrentView = ViewMode.Analysis;
+      Globals.IsExiting = true;
+      Globals.IsSessionEnding = true;
+      Globals.AllowClose = true;
+      Interlocks.Release();
+      Settings.Store();
+      TimerTooltip.Stop();
+      FormsHelper.CloseAll();
+    }
+
+    /// <summary>
+    /// Do Session Ending event.
+    /// </summary>
+    private void SessionEnding(object sender, SessionEndingEventArgs e)
+    {
+      if ( Globals.IsExiting || Globals.IsSessionEnding ) return;
+      Close();
+    }
+
+    /// <summary>
+    /// Set the initial directories of dialog boxes.
+    /// </summary>
+    private void InitializeDialogsDirectory()
+    {
+      string directory = Settings.GetExportDirectory();
+      SaveImageDialog.InitialDirectory = directory;
+      SaveImageDialog.Filter = Program.ImageExportTargets.CreateFilters();
+    }
+
+    /// <summary>
+    /// Initialize icons
+    /// </summary>
+    private void InitializeIconsAndSound()
+    {
+      SystemManager.TryCatch(() => new System.Media.SoundPlayer(Globals.EmptySoundFilePath).Play());
+      SystemManager.TryCatch(() => MediaMixer.SetApplicationVolume(Globals.ProcessId, Settings.ApplicationVolume));
+      SoundItem.Initialize();
     }
 
     /// <summary>
@@ -92,71 +213,16 @@ namespace Ordisoftware.Hebrew.Letters
     }
 
     /// <summary>
-    /// Do Form Load event.
+    /// Create providers links menu items.
     /// </summary>
-    private void DoFormLoad(object sender, EventArgs e)
+    private void CreateProvidersLinks()
     {
-      if ( Globals.IsExiting ) return;
-      Settings.Retrieve();
-      InitializeTheme();
-      InitializeDialogsDirectory();
-      ProcessLocksTable.Lock();
-      EditLetters.Input.MaxLength = (int)Settings.HebrewTextBoxMaxLength;
-      Program.Settings.CurrentView = ViewMode.Analysis;
-      EditSentence.Font = new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence);
-      EditSentence_FontChanged(null, null);
-      SystemManager.TryCatch(() => new System.Media.SoundPlayer(Globals.EmptySoundFilePath).Play());
-      SystemManager.TryCatch(() => MediaMixer.SetApplicationVolume(Globals.ProcessId, Settings.ApplicationVolume));
-      StatisticsForm.Run(true, Settings.UsageStatisticsEnabled);
-      Globals.ChronoStartingApp.Stop();
-      var lastdone = Settings.CheckUpdateLastDone;
-      bool exit = WebCheckUpdate.Run(Settings.CheckUpdateAtStartup,
-                                     ref lastdone,
-                                     Settings.CheckUpdateAtStartupDaysInterval,
-                                     true);
-      Settings.CheckUpdateLastDone = lastdone;
-      if ( exit )
+      ContextMenuSearchOnline.InitializeFromProviders(HebrewGlobals.WebProvidersWord, (sender, e) =>
       {
-        SystemManager.Exit();
-        return;
-      }
-      Globals.ChronoStartingApp.Start();
-      try
-      {
-        Globals.ChronoLoadData.Start();
-        CreateSchemaIfNotExists();
-        CreateDataIfNotExists(false);
-        MeaningsTableAdapter.Fill(DataSet.Meanings);
-        LettersTableAdapter.Fill(DataSet.Letters);
-        Globals.ChronoLoadData.Stop();
-        Settings.BenchmarkLoadData = Globals.ChronoLoadData.ElapsedMilliseconds;
-        SystemManager.TryCatch(Settings.Save);
-      }
-      catch ( Exception ex )
-      {
-        DisplayManager.ShowError(SysTranslations.ApplicationMustExit.GetLang() + Globals.NL2 +
-                                 SysTranslations.ContactSupport.GetLang());
-        ex.Manage();
-        Environment.Exit(-1);
-      }
-      CommonMenusControl.Instance.ActionViewStats.Enabled = Settings.UsageStatisticsEnabled;
-      CommonMenusControl.Instance.ActionViewLog.Enabled = DebugManager.TraceEnabled;
-      DebugManager.TraceEnabledChanged += value => CommonMenusControl.Instance.ActionViewLog.Enabled = value;
-      TimerProcesses_Tick(null, null);
-      Globals.IsReady = true;
-      SelectLetter_SelectedIndexChanged(SelectLetter, EventArgs.Empty);
-      LettersNavigator.Refresh();
-      UpdateDataControls(SelectLetter);
-    }
-
-    /// <summary>
-    /// Set the initial directories of dialog boxes.
-    /// </summary>
-    private void InitializeDialogsDirectory()
-    {
-      string directory = Settings.GetExportDirectory();
-      SaveImageDialog.InitialDirectory = directory;
-      SaveImageDialog.Filter = Program.ImageExportTargets.CreateFilters();
+        var menuitem = (ToolStripMenuItem)sender;
+        HebrewTools.OpenWordProvider((string)menuitem.Tag, EditWord.TextBox.Text);
+        EditWord.Focus();
+      });
     }
 
     /// <summary>
@@ -165,8 +231,8 @@ namespace Ordisoftware.Hebrew.Letters
     internal void InitializeTheme()
     {
       // Analyser
-      EditLetters.LettersBackColor = Settings.ColorLettersPanel;
-      EditLetters.InputBackColor = Settings.ColorHebrewWordTextBox;
+      EditWord.LettersBackColor = Settings.ColorLettersPanel;
+      EditWord.InputBackColor = Settings.ColorHebrewWordTextBox;
       SelectAnalyze.BackColor = Settings.ColorMeaningsPanel;
       EditSentence.BackColor = Settings.ColorSentenceTextBox;
       EditGematriaFull.BackColor = Settings.ColorGematriaTextBox;
@@ -189,59 +255,12 @@ namespace Ordisoftware.Hebrew.Letters
     }
 
     /// <summary>
-    /// Do Form Shown event.
+    /// Show news and process command line options.
     /// </summary>
-    /// <param name="sender">Source of the event.</param>
-    /// <param name="e">Form closing event information.</param>
-    private void DoFormShown(object sender, EventArgs e)
+    private void ProcessNewsAndCommandLine()
     {
-      SystemManager.TryCatch(Settings.Save);
-      if ( Globals.IsExiting ) return;
-      if ( !Program.StartupWord.IsNullOrEmpty() )
-      {
-        ActionReset.Visible = true;
-        EditLetters.Input.Text = Program.StartupWord;
-        EditLetters.Focus(LettersControlFocusSelect.None);
-        EditLetters.TextBox.Refresh();
-      }
-      else
-        ActionReset.Visible = false;
-      ToolStrip.SetDropDownOpening();
-      Globals.ChronoStartingApp.Stop();
-      Settings.BenchmarkStartingApp = Globals.ChronoStartingApp.ElapsedMilliseconds;
-      if ( Globals.IsDatabaseUpgraded && DisplayManager.QueryYesNo(SysTranslations.AskToCheckDataAfterDbUpgraded.GetLang()) )
-      {
-        Globals.ChronoStartingApp.Start();
-        SetView(ViewMode.Data, false);
-      }
-      else
-      {
-        Globals.ChronoStartingApp.Start();
-        SetView(ViewMode.Analysis, false);
-      }
-      if ( Settings.FirstLaunch )
-      {
-        Settings.FirstLaunch = false;
-        SystemManager.TryCatch(Settings.Save);
-        ActionShowMethodNotice.PerformClick();
-      }
-      Globals.NoticeKeyboardShortcutsForm = new ShowTextForm(AppTranslations.NoticeKeyboardShortcutsTitle,
-                                                             AppTranslations.NoticeKeyboardShortcuts,
-                                                             true, false, 340, 440, false, false);
-      Globals.NoticeKeyboardShortcutsForm.TextBox.BackColor = Globals.NoticeKeyboardShortcutsForm.BackColor;
-      Globals.NoticeKeyboardShortcutsForm.TextBox.BorderStyle = BorderStyle.None;
-      Globals.NoticeKeyboardShortcutsForm.Padding = new Padding(20, 20, 10, 10);
-      Globals.ChronoStartingApp.Stop();
-      if ( Globals.IsSettingsUpgraded )
-        SystemManager.TryCatch(() =>
-        {
-          CommonMenusControl.Instance
-                            .ActionViewVersionNews
-                            .DropDownItems
-                            .Cast<ToolStripItem>()
-                            .LastOrDefault()?
-                            .PerformClick();
-        });
+      if ( Globals.IsSettingsUpgraded && Settings.ShowLastNewInVersionAfterUpdate )
+        SystemManager.TryCatch(CommonMenusControl.Instance.ShowLastNews);
     }
 
     /// <summary>
@@ -266,30 +285,6 @@ namespace Ordisoftware.Hebrew.Letters
           e.Cancel = true;
         else
           Globals.IsExiting = true;
-    }
-
-    /// <summary>
-    /// Do Form CLosed event.
-    /// </summary>
-    private void DoFormClosed(object sender, FormClosedEventArgs e)
-    {
-      Program.Settings.CurrentView = ViewMode.Analysis;
-      Globals.IsExiting = true;
-      Globals.IsSessionEnding = true;
-      Globals.AllowClose = true;
-      ProcessLocksTable.Unlock();
-      Settings.Store();
-      TimerTooltip.Stop();
-      FormsHelper.CloseAll();
-    }
-
-    /// <summary>
-    /// Do Session Ending event.
-    /// </summary>
-    private void SessionEnding(object sender, SessionEndingEventArgs e)
-    {
-      if ( Globals.IsExiting || Globals.IsSessionEnding ) return;
-      Close();
     }
 
   }

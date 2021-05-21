@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2020-08 </created>
-/// <edited> 2021-02 </edited>
+/// <edited> 2021-05 </edited>
 using System;
 using System.Linq;
 using System.Collections.Generic;
@@ -55,11 +55,11 @@ namespace Ordisoftware.Core
 
     public MessageBoxEx(string title,
                         string text,
-                        int width = DefaultSmallWidth,
                         MessageBoxButtons buttons = MessageBoxButtons.OK,
                         MessageBoxIcon icon = MessageBoxIcon.None,
+                        int width = DefaultSmallWidth,
                         bool justify = DefaultJustifyEnabled,
-                        bool doSound = true)
+                        bool sound = true)
       : this()
     {
       Text = title;
@@ -82,6 +82,7 @@ namespace Ordisoftware.Core
       }
       else
         Width = width;
+      // This does not work: MinimumSize = new Size(width, MinimumSize.Height);
       MaximumSize = new Size(width, MaximumSize.Height);
       Label.MaximumSize = new Size(LabelMaxWidth, Label.MaximumSize.Height);
       Justify = justify;
@@ -97,17 +98,17 @@ namespace Ordisoftware.Core
       this.CenterToFormElseMainFormElseScreen(ActiveForm);
       Instances.Add(this);
       IconStyle = icon;
-      DoShownSound = doSound;
+      DoShownSound = sound;
     }
 
     public MessageBoxEx(TranslationsDictionary title,
                         TranslationsDictionary text,
-                        int width = DefaultSmallWidth,
                         MessageBoxButtons buttons = MessageBoxButtons.OK,
                         MessageBoxIcon icon = MessageBoxIcon.None,
+                        int width = DefaultSmallWidth,
                         bool justify = DefaultJustifyEnabled,
-                        bool doSound = true)
-      : this(title.GetLang(), text.GetLang(), width, buttons, icon, justify, doSound)
+                        bool sound = true)
+      : this(title.GetLang(), text.GetLang(), buttons, icon, width, justify, sound)
     {
       LocalizedTitle = title;
       LocalizedText = text;
@@ -137,11 +138,21 @@ namespace Ordisoftware.Core
       Close();
     }
 
+    public bool ForceNoTopMost;
+    public bool ForceTopMost;
+
     private void MessageBoxEx_Shown(object sender, EventArgs e)
     {
-      TopMost = LoadingForm.Instance.Visible || Application.OpenForms.All().Any(f => f.Visible && f.TopMost);
+      if ( ForceNoTopMost )
+        TopMost = false;
+      else
+      if ( ForceTopMost )
+        TopMost = true;
+      else
+        TopMost = LoadingForm.Instance.Visible || Application.OpenForms.All().Any(f => f.Visible && f.TopMost);
       if ( DoShownSound ) DisplayManager.DoSound(IconStyle);
       this.Popup();
+      this.ForceBringToFront();
     }
 
     private void MessageBoxEx_FormClosing(object sender, FormClosingEventArgs e)

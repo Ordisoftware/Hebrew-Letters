@@ -39,13 +39,14 @@
       System.Windows.Forms.Label LabelVerb;
       System.Windows.Forms.Label LabelPositive;
       System.Windows.Forms.Label LabelNegative;
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
       this.PanelMain = new System.Windows.Forms.Panel();
       this.PanelMainOuter = new System.Windows.Forms.Panel();
       this.PanelMainInner = new System.Windows.Forms.Panel();
       this.PanelMainCenter = new System.Windows.Forms.Panel();
       this.TabControl = new System.Windows.Forms.TabControl();
       this.TabPageText = new System.Windows.Forms.TabPage();
-      this.PanelViewSearch = new System.Windows.Forms.Panel();
+      this.PanelViewAnalysis = new System.Windows.Forms.Panel();
       this.EditGematriaFull = new Ordisoftware.Core.TextBoxEx();
       this.LabelGematriaFull = new System.Windows.Forms.Label();
       this.LabelClipboardContentType = new System.Windows.Forms.Label();
@@ -71,15 +72,14 @@
       this.EditSentence = new Ordisoftware.Core.TextBoxEx();
       this.EditGematriaSimple = new Ordisoftware.Core.TextBoxEx();
       this.LabelGematria = new System.Windows.Forms.Label();
-      this.EditLetters = new Ordisoftware.Hebrew.LettersControl();
-      this.TabPageMonth = new System.Windows.Forms.TabPage();
-      this.PanelViewSettings = new System.Windows.Forms.Panel();
-      this.PanelSettingsDetails = new System.Windows.Forms.Panel();
+      this.EditWord = new Ordisoftware.Hebrew.LettersControl();
+      this.TabPageLetters = new System.Windows.Forms.TabPage();
+      this.PanelViewLetters = new System.Windows.Forms.Panel();
+      this.PanelLettersInner = new System.Windows.Forms.Panel();
       this.PanelLetter = new System.Windows.Forms.Panel();
       this.LettersNavigator = new Ordisoftware.Core.ComboBoxNavigator();
       this.SelectLetter = new System.Windows.Forms.ComboBox();
       this.LettersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-      this.DataSet = new Ordisoftware.Hebrew.Letters.Data.DataSet();
       this.TextBoxStructure = new Ordisoftware.Core.TextBoxEx();
       this.LabelHebrew = new System.Windows.Forms.Label();
       this.ActionRestoreDefaults = new System.Windows.Forms.LinkLabel();
@@ -95,8 +95,19 @@
       this.ActionDeleteMeaning = new System.Windows.Forms.Button();
       this.ActionAddMeaning = new System.Windows.Forms.Button();
       this.EditMeanings = new System.Windows.Forms.DataGridView();
-      this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.ColumnMeaningsText = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.MeaningsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+      this.TabPageNotebook = new System.Windows.Forms.TabPage();
+      this.PanelViewNotebook = new System.Windows.Forms.Panel();
+      this.SplitContainerNotebook = new System.Windows.Forms.SplitContainer();
+      this.ListWords = new System.Windows.Forms.DataGridView();
+      this.hebrewDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.WordsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+      this.ListSentences = new System.Windows.Forms.DataGridView();
+      this.sentenceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+      this.LettriqsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+      this.PanelNotebookTop = new System.Windows.Forms.Panel();
+      this.ActionDeleteTerm = new System.Windows.Forms.Button();
       this.PanelSepTop = new System.Windows.Forms.Panel();
       this.PanelTitle = new System.Windows.Forms.Panel();
       this.LabelTitle = new System.Windows.Forms.Label();
@@ -126,6 +137,7 @@
       this.EditConfirmClosing = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionViewAnalysis = new System.Windows.Forms.ToolStripButton();
       this.ActionViewLetters = new System.Windows.Forms.ToolStripButton();
+      this.ActionViewNotebook = new System.Windows.Forms.ToolStripButton();
       this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
       this.ActionSearchTerm = new System.Windows.Forms.ToolStripButton();
       this.ActionNewInstance = new System.Windows.Forms.ToolStripButton();
@@ -133,14 +145,11 @@
       this.ActionTools = new System.Windows.Forms.ToolStripDropDownButton();
       this.ActionShowMethodNotice = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionShowGrammarGuide = new System.Windows.Forms.ToolStripMenuItem();
-      this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+      this.ActionGematriaCombinationsSeparator = new System.Windows.Forms.ToolStripSeparator();
       this.ActionGematriaCombinations = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionWebLinks = new System.Windows.Forms.ToolStripDropDownButton();
       this.ActionInformation = new System.Windows.Forms.ToolStripDropDownButton();
       this.TimerProcesses = new System.Windows.Forms.Timer(this.components);
-      this.LettersTableAdapter = new Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.LettersTableAdapter();
-      this.TableAdapterManager = new Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.TableAdapterManager();
-      this.MeaningsTableAdapter = new Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.MeaningsTableAdapter();
       this.SaveImageDialog = new System.Windows.Forms.SaveFileDialog();
       this.ToolTipClipboard = new System.Windows.Forms.ToolTip(this.components);
       LabelName = new System.Windows.Forms.Label();
@@ -158,16 +167,26 @@
       this.PanelMainCenter.SuspendLayout();
       this.TabControl.SuspendLayout();
       this.TabPageText.SuspendLayout();
-      this.PanelViewSearch.SuspendLayout();
+      this.PanelViewAnalysis.SuspendLayout();
       this.ContextMenuSearchOnline.SuspendLayout();
-      this.TabPageMonth.SuspendLayout();
-      this.PanelViewSettings.SuspendLayout();
-      this.PanelSettingsDetails.SuspendLayout();
+      this.TabPageLetters.SuspendLayout();
+      this.PanelViewLetters.SuspendLayout();
+      this.PanelLettersInner.SuspendLayout();
       this.PanelLetter.SuspendLayout();
-      ( (System.ComponentModel.ISupportInitialize)( this.LettersBindingSource ) ).BeginInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.DataSet ) ).BeginInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.EditMeanings ) ).BeginInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.MeaningsBindingSource ) ).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.LettersBindingSource)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.EditMeanings)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.MeaningsBindingSource)).BeginInit();
+      this.TabPageNotebook.SuspendLayout();
+      this.PanelViewNotebook.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.SplitContainerNotebook)).BeginInit();
+      this.SplitContainerNotebook.Panel1.SuspendLayout();
+      this.SplitContainerNotebook.Panel2.SuspendLayout();
+      this.SplitContainerNotebook.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.ListWords)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.WordsBindingSource)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.ListSentences)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.LettriqsBindingSource)).BeginInit();
+      this.PanelNotebookTop.SuspendLayout();
       this.PanelTitle.SuspendLayout();
       this.ToolStrip.SuspendLayout();
       this.SuspendLayout();
@@ -249,7 +268,8 @@
       // TabControl
       // 
       this.TabControl.Controls.Add(this.TabPageText);
-      this.TabControl.Controls.Add(this.TabPageMonth);
+      this.TabControl.Controls.Add(this.TabPageLetters);
+      this.TabControl.Controls.Add(this.TabPageNotebook);
       resources.ApplyResources(this.TabControl, "TabControl");
       this.TabControl.Name = "TabControl";
       this.TabControl.SelectedIndex = 0;
@@ -257,40 +277,40 @@
       // 
       // TabPageText
       // 
-      this.TabPageText.Controls.Add(this.PanelViewSearch);
+      this.TabPageText.Controls.Add(this.PanelViewAnalysis);
       resources.ApplyResources(this.TabPageText, "TabPageText");
       this.TabPageText.Name = "TabPageText";
       this.TabPageText.UseVisualStyleBackColor = true;
       // 
-      // PanelViewSearch
+      // PanelViewAnalysis
       // 
-      resources.ApplyResources(this.PanelViewSearch, "PanelViewSearch");
-      this.PanelViewSearch.BackColor = System.Drawing.SystemColors.Control;
-      this.PanelViewSearch.Controls.Add(this.EditGematriaFull);
-      this.PanelViewSearch.Controls.Add(this.LabelGematriaFull);
-      this.PanelViewSearch.Controls.Add(this.LabelClipboardContentType);
-      this.PanelViewSearch.Controls.Add(this.LabelGematriaSimple);
-      this.PanelViewSearch.Controls.Add(this.ActionReset);
-      this.PanelViewSearch.Controls.Add(this.ActionDelLast);
-      this.PanelViewSearch.Controls.Add(this.ActionDelFirst);
-      this.PanelViewSearch.Controls.Add(this.EditCopyWithFinalLetter);
-      this.PanelViewSearch.Controls.Add(this.EditCopyToClipboardCloseApp);
-      this.PanelViewSearch.Controls.Add(this.SelectAnalyze);
-      this.PanelViewSearch.Controls.Add(this.ActionSearchOnline);
-      this.PanelViewSearch.Controls.Add(this.ActionPaste);
-      this.PanelViewSearch.Controls.Add(this.ActionCopyToHebrew);
-      this.PanelViewSearch.Controls.Add(this.ActionCopyToUnicode);
-      this.PanelViewSearch.Controls.Add(this.ActionClear);
-      this.PanelViewSearch.Controls.Add(this.ActionSaveScreenshot);
-      this.PanelViewSearch.Controls.Add(this.ActionScreenshot);
-      this.PanelViewSearch.Controls.Add(this.ActionViewAllMeaningsList);
-      this.PanelViewSearch.Controls.Add(this.ActionCopyToMeanings);
-      this.PanelViewSearch.Controls.Add(this.ActionCopyToResult);
-      this.PanelViewSearch.Controls.Add(this.EditSentence);
-      this.PanelViewSearch.Controls.Add(this.EditGematriaSimple);
-      this.PanelViewSearch.Controls.Add(this.LabelGematria);
-      this.PanelViewSearch.Controls.Add(this.EditLetters);
-      this.PanelViewSearch.Name = "PanelViewSearch";
+      resources.ApplyResources(this.PanelViewAnalysis, "PanelViewAnalysis");
+      this.PanelViewAnalysis.BackColor = System.Drawing.SystemColors.Control;
+      this.PanelViewAnalysis.Controls.Add(this.EditGematriaFull);
+      this.PanelViewAnalysis.Controls.Add(this.LabelGematriaFull);
+      this.PanelViewAnalysis.Controls.Add(this.LabelClipboardContentType);
+      this.PanelViewAnalysis.Controls.Add(this.LabelGematriaSimple);
+      this.PanelViewAnalysis.Controls.Add(this.ActionReset);
+      this.PanelViewAnalysis.Controls.Add(this.ActionDelLast);
+      this.PanelViewAnalysis.Controls.Add(this.ActionDelFirst);
+      this.PanelViewAnalysis.Controls.Add(this.EditCopyWithFinalLetter);
+      this.PanelViewAnalysis.Controls.Add(this.EditCopyToClipboardCloseApp);
+      this.PanelViewAnalysis.Controls.Add(this.SelectAnalyze);
+      this.PanelViewAnalysis.Controls.Add(this.ActionSearchOnline);
+      this.PanelViewAnalysis.Controls.Add(this.ActionPaste);
+      this.PanelViewAnalysis.Controls.Add(this.ActionCopyToHebrew);
+      this.PanelViewAnalysis.Controls.Add(this.ActionCopyToUnicode);
+      this.PanelViewAnalysis.Controls.Add(this.ActionClear);
+      this.PanelViewAnalysis.Controls.Add(this.ActionSaveScreenshot);
+      this.PanelViewAnalysis.Controls.Add(this.ActionScreenshot);
+      this.PanelViewAnalysis.Controls.Add(this.ActionViewAllMeaningsList);
+      this.PanelViewAnalysis.Controls.Add(this.ActionCopyToMeanings);
+      this.PanelViewAnalysis.Controls.Add(this.ActionCopyToResult);
+      this.PanelViewAnalysis.Controls.Add(this.EditSentence);
+      this.PanelViewAnalysis.Controls.Add(this.EditGematriaSimple);
+      this.PanelViewAnalysis.Controls.Add(this.LabelGematria);
+      this.PanelViewAnalysis.Controls.Add(this.EditWord);
+      this.PanelViewAnalysis.Name = "PanelViewAnalysis";
       // 
       // EditGematriaFull
       // 
@@ -487,39 +507,39 @@
       resources.ApplyResources(this.LabelGematria, "LabelGematria");
       this.LabelGematria.Name = "LabelGematria";
       // 
-      // EditLetters
+      // EditWord
       // 
-      this.EditLetters.BackColor = System.Drawing.Color.Transparent;
-      resources.ApplyResources(this.EditLetters, "EditLetters");
-      this.EditLetters.Name = "EditLetters";
-      this.EditLetters.ViewLetterDetails += new Ordisoftware.Hebrew.ViewLetterDetails(this.EditLetters_ViewLetterDetails);
-      this.EditLetters.InputTextChanged += new System.EventHandler(this.EditLetters_InputTextChanged);
+      this.EditWord.BackColor = System.Drawing.Color.Transparent;
+      resources.ApplyResources(this.EditWord, "EditWord");
+      this.EditWord.Name = "EditWord";
+      this.EditWord.ViewLetterDetails += new Ordisoftware.Hebrew.ViewLetterDetails(this.EditLetters_ViewLetterDetails);
+      this.EditWord.InputTextChanged += new System.EventHandler(this.EditLetters_InputTextChanged);
       // 
-      // TabPageMonth
+      // TabPageLetters
       // 
-      this.TabPageMonth.Controls.Add(this.PanelViewSettings);
-      resources.ApplyResources(this.TabPageMonth, "TabPageMonth");
-      this.TabPageMonth.Name = "TabPageMonth";
-      this.TabPageMonth.UseVisualStyleBackColor = true;
+      this.TabPageLetters.Controls.Add(this.PanelViewLetters);
+      resources.ApplyResources(this.TabPageLetters, "TabPageLetters");
+      this.TabPageLetters.Name = "TabPageLetters";
+      this.TabPageLetters.UseVisualStyleBackColor = true;
       // 
-      // PanelViewSettings
+      // PanelViewLetters
       // 
-      resources.ApplyResources(this.PanelViewSettings, "PanelViewSettings");
-      this.PanelViewSettings.Controls.Add(this.PanelSettingsDetails);
-      this.PanelViewSettings.Name = "PanelViewSettings";
+      resources.ApplyResources(this.PanelViewLetters, "PanelViewLetters");
+      this.PanelViewLetters.Controls.Add(this.PanelLettersInner);
+      this.PanelViewLetters.Name = "PanelViewLetters";
       // 
-      // PanelSettingsDetails
+      // PanelLettersInner
       // 
-      resources.ApplyResources(this.PanelSettingsDetails, "PanelSettingsDetails");
-      this.PanelSettingsDetails.BackColor = System.Drawing.SystemColors.Control;
-      this.PanelSettingsDetails.Controls.Add(this.PanelLetter);
-      this.PanelSettingsDetails.Controls.Add(this.ActionUndo);
-      this.PanelSettingsDetails.Controls.Add(this.ActionSave);
-      this.PanelSettingsDetails.Controls.Add(this.ActionDeleteMeaning);
-      this.PanelSettingsDetails.Controls.Add(this.ActionAddMeaning);
-      this.PanelSettingsDetails.Controls.Add(LabelMeanings);
-      this.PanelSettingsDetails.Controls.Add(this.EditMeanings);
-      this.PanelSettingsDetails.Name = "PanelSettingsDetails";
+      resources.ApplyResources(this.PanelLettersInner, "PanelLettersInner");
+      this.PanelLettersInner.BackColor = System.Drawing.SystemColors.Control;
+      this.PanelLettersInner.Controls.Add(this.PanelLetter);
+      this.PanelLettersInner.Controls.Add(this.ActionUndo);
+      this.PanelLettersInner.Controls.Add(this.ActionSave);
+      this.PanelLettersInner.Controls.Add(this.ActionDeleteMeaning);
+      this.PanelLettersInner.Controls.Add(this.ActionAddMeaning);
+      this.PanelLettersInner.Controls.Add(LabelMeanings);
+      this.PanelLettersInner.Controls.Add(this.EditMeanings);
+      this.PanelLettersInner.Name = "PanelLettersInner";
       // 
       // PanelLetter
       // 
@@ -568,31 +588,23 @@
       // 
       // LettersBindingSource
       // 
-      this.LettersBindingSource.DataMember = "Letters";
-      this.LettersBindingSource.DataSource = this.DataSet;
-      this.LettersBindingSource.PositionChanged += new System.EventHandler(this.LettersBindingSource_PositionChanged);
-      // 
-      // DataSet
-      // 
-      this.DataSet.DataSetName = "DataSet";
-      this.DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+      this.LettersBindingSource.DataSource = typeof(Ordisoftware.Hebrew.Letters.Letter);
       // 
       // TextBoxStructure
       // 
       this.TextBoxStructure.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.TextBoxStructure.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
-      this.TextBoxStructure.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Structure", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+      this.TextBoxStructure.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Structure", true));
       resources.ApplyResources(this.TextBoxStructure, "TextBoxStructure");
       this.TextBoxStructure.Name = "TextBoxStructure";
       this.TextBoxStructure.Tag = "data";
       this.TextBoxStructure.ContextMenuEditOpening += new System.ComponentModel.CancelEventHandler(this.TextBoxData_ContextMenuEditOpening);
       this.TextBoxStructure.ContextMenuEditOpened += new System.EventHandler(this.TextBoxData_ContextMenuEditOpened);
-      this.TextBoxStructure.TextChanged += new System.EventHandler(this.TextBoxData_TextChanged);
-      this.TextBoxStructure.Leave += new System.EventHandler(this.TextBoxData_Leave);
+      this.TextBoxStructure.TextChanged += new System.EventHandler(this.TextBoxPositive_TextChanged);
+      this.TextBoxStructure.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxData_KeyDown);
       // 
       // LabelHebrew
       // 
-      this.LabelHebrew.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Hebrew", true));
       resources.ApplyResources(this.LabelHebrew, "LabelHebrew");
       this.LabelHebrew.Name = "LabelHebrew";
       // 
@@ -609,14 +621,14 @@
       // 
       this.TextBoxNegative.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.TextBoxNegative.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
-      this.TextBoxNegative.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Negative", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+      this.TextBoxNegative.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Negative", true));
       resources.ApplyResources(this.TextBoxNegative, "TextBoxNegative");
       this.TextBoxNegative.Name = "TextBoxNegative";
       this.TextBoxNegative.Tag = "data";
       this.TextBoxNegative.ContextMenuEditOpening += new System.ComponentModel.CancelEventHandler(this.TextBoxData_ContextMenuEditOpening);
       this.TextBoxNegative.ContextMenuEditOpened += new System.EventHandler(this.TextBoxData_ContextMenuEditOpened);
-      this.TextBoxNegative.TextChanged += new System.EventHandler(this.TextBoxData_TextChanged);
-      this.TextBoxNegative.Leave += new System.EventHandler(this.TextBoxData_Leave);
+      this.TextBoxNegative.TextChanged += new System.EventHandler(this.TextBoxPositive_TextChanged);
+      this.TextBoxNegative.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxData_KeyDown);
       // 
       // TextBoxName
       // 
@@ -632,40 +644,40 @@
       // 
       this.TextBoxFunction.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.TextBoxFunction.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
-      this.TextBoxFunction.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Function", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+      this.TextBoxFunction.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Function", true));
       resources.ApplyResources(this.TextBoxFunction, "TextBoxFunction");
       this.TextBoxFunction.Name = "TextBoxFunction";
       this.TextBoxFunction.Tag = "data";
       this.TextBoxFunction.ContextMenuEditOpening += new System.ComponentModel.CancelEventHandler(this.TextBoxData_ContextMenuEditOpening);
       this.TextBoxFunction.ContextMenuEditOpened += new System.EventHandler(this.TextBoxData_ContextMenuEditOpened);
-      this.TextBoxFunction.TextChanged += new System.EventHandler(this.TextBoxData_TextChanged);
-      this.TextBoxFunction.Leave += new System.EventHandler(this.TextBoxData_Leave);
+      this.TextBoxFunction.TextChanged += new System.EventHandler(this.TextBoxPositive_TextChanged);
+      this.TextBoxFunction.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxData_KeyDown);
       // 
       // TextBoxPositive
       // 
       this.TextBoxPositive.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.TextBoxPositive.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
-      this.TextBoxPositive.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Positive", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+      this.TextBoxPositive.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Positive", true));
       resources.ApplyResources(this.TextBoxPositive, "TextBoxPositive");
       this.TextBoxPositive.Name = "TextBoxPositive";
       this.TextBoxPositive.Tag = "data";
       this.TextBoxPositive.ContextMenuEditOpening += new System.ComponentModel.CancelEventHandler(this.TextBoxData_ContextMenuEditOpening);
       this.TextBoxPositive.ContextMenuEditOpened += new System.EventHandler(this.TextBoxData_ContextMenuEditOpened);
-      this.TextBoxPositive.TextChanged += new System.EventHandler(this.TextBoxData_TextChanged);
-      this.TextBoxPositive.Leave += new System.EventHandler(this.TextBoxData_Leave);
+      this.TextBoxPositive.TextChanged += new System.EventHandler(this.TextBoxPositive_TextChanged);
+      this.TextBoxPositive.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxData_KeyDown);
       // 
       // TextBoxVerb
       // 
       this.TextBoxVerb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.TextBoxVerb.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
-      this.TextBoxVerb.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Verb", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+      this.TextBoxVerb.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LettersBindingSource, "Verb", true));
       resources.ApplyResources(this.TextBoxVerb, "TextBoxVerb");
       this.TextBoxVerb.Name = "TextBoxVerb";
       this.TextBoxVerb.Tag = "data";
       this.TextBoxVerb.ContextMenuEditOpening += new System.ComponentModel.CancelEventHandler(this.TextBoxData_ContextMenuEditOpening);
       this.TextBoxVerb.ContextMenuEditOpened += new System.EventHandler(this.TextBoxData_ContextMenuEditOpened);
-      this.TextBoxVerb.TextChanged += new System.EventHandler(this.TextBoxData_TextChanged);
-      this.TextBoxVerb.Leave += new System.EventHandler(this.TextBoxData_Leave);
+      this.TextBoxVerb.TextChanged += new System.EventHandler(this.TextBoxPositive_TextChanged);
+      this.TextBoxVerb.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBoxData_KeyDown);
       // 
       // TextBoxValueSimple
       // 
@@ -730,7 +742,7 @@
       this.EditMeanings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
       this.EditMeanings.ColumnHeadersVisible = false;
       this.EditMeanings.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn2});
+            this.ColumnMeaningsText});
       this.EditMeanings.DataSource = this.MeaningsBindingSource;
       this.EditMeanings.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
       this.EditMeanings.MultiSelect = false;
@@ -745,18 +757,128 @@
       this.EditMeanings.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EditMeanings_KeyDown);
       this.EditMeanings.KeyUp += new System.Windows.Forms.KeyEventHandler(this.EditMeanings_KeyUp);
       // 
-      // dataGridViewTextBoxColumn2
+      // ColumnMeaningsText
       // 
-      this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-      this.dataGridViewTextBoxColumn2.DataPropertyName = "Meaning";
-      resources.ApplyResources(this.dataGridViewTextBoxColumn2, "dataGridViewTextBoxColumn2");
-      this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+      this.ColumnMeaningsText.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+      this.ColumnMeaningsText.DataPropertyName = "Text";
+      resources.ApplyResources(this.ColumnMeaningsText, "ColumnMeaningsText");
+      this.ColumnMeaningsText.Name = "ColumnMeaningsText";
       // 
       // MeaningsBindingSource
       // 
-      this.MeaningsBindingSource.AllowNew = true;
-      this.MeaningsBindingSource.DataMember = "Letters_Meanings";
+      this.MeaningsBindingSource.DataMember = "Meanings";
       this.MeaningsBindingSource.DataSource = this.LettersBindingSource;
+      // 
+      // TabPageNotebook
+      // 
+      this.TabPageNotebook.Controls.Add(this.PanelViewNotebook);
+      resources.ApplyResources(this.TabPageNotebook, "TabPageNotebook");
+      this.TabPageNotebook.Name = "TabPageNotebook";
+      this.TabPageNotebook.UseVisualStyleBackColor = true;
+      // 
+      // PanelViewNotebook
+      // 
+      resources.ApplyResources(this.PanelViewNotebook, "PanelViewNotebook");
+      this.PanelViewNotebook.BackColor = System.Drawing.SystemColors.Control;
+      this.PanelViewNotebook.Controls.Add(this.SplitContainerNotebook);
+      this.PanelViewNotebook.Controls.Add(this.PanelNotebookTop);
+      this.PanelViewNotebook.Name = "PanelViewNotebook";
+      // 
+      // SplitContainerNotebook
+      // 
+      resources.ApplyResources(this.SplitContainerNotebook, "SplitContainerNotebook");
+      this.SplitContainerNotebook.Name = "SplitContainerNotebook";
+      // 
+      // SplitContainerNotebook.Panel1
+      // 
+      this.SplitContainerNotebook.Panel1.Controls.Add(this.ListWords);
+      // 
+      // SplitContainerNotebook.Panel2
+      // 
+      this.SplitContainerNotebook.Panel2.Controls.Add(this.ListSentences);
+      // 
+      // ListWords
+      // 
+      this.ListWords.AllowUserToAddRows = false;
+      this.ListWords.AllowUserToDeleteRows = false;
+      this.ListWords.AllowUserToResizeColumns = false;
+      this.ListWords.AllowUserToResizeRows = false;
+      this.ListWords.AutoGenerateColumns = false;
+      this.ListWords.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+      this.ListWords.ColumnHeadersVisible = false;
+      this.ListWords.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.hebrewDataGridViewTextBoxColumn});
+      this.ListWords.DataSource = this.WordsBindingSource;
+      resources.ApplyResources(this.ListWords, "ListWords");
+      this.ListWords.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+      this.ListWords.MultiSelect = false;
+      this.ListWords.Name = "ListWords";
+      this.ListWords.ReadOnly = true;
+      this.ListWords.RowHeadersVisible = false;
+      dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+      dataGridViewCellStyle1.Font = new System.Drawing.Font("Hebrew", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.ListWords.RowsDefaultCellStyle = dataGridViewCellStyle1;
+      this.ListWords.RowTemplate.Height = 28;
+      this.ListWords.ShowCellToolTips = false;
+      this.ListWords.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListWords_CellDoubleClick);
+      // 
+      // hebrewDataGridViewTextBoxColumn
+      // 
+      this.hebrewDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+      this.hebrewDataGridViewTextBoxColumn.DataPropertyName = "Hebrew";
+      resources.ApplyResources(this.hebrewDataGridViewTextBoxColumn, "hebrewDataGridViewTextBoxColumn");
+      this.hebrewDataGridViewTextBoxColumn.Name = "hebrewDataGridViewTextBoxColumn";
+      this.hebrewDataGridViewTextBoxColumn.ReadOnly = true;
+      // 
+      // WordsBindingSource
+      // 
+      this.WordsBindingSource.DataSource = typeof(Ordisoftware.Hebrew.TermHebrew);
+      // 
+      // ListSentences
+      // 
+      this.ListSentences.AllowUserToAddRows = false;
+      this.ListSentences.AllowUserToDeleteRows = false;
+      this.ListSentences.AllowUserToResizeColumns = false;
+      this.ListSentences.AllowUserToResizeRows = false;
+      this.ListSentences.AutoGenerateColumns = false;
+      this.ListSentences.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+      this.ListSentences.ColumnHeadersVisible = false;
+      this.ListSentences.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.sentenceDataGridViewTextBoxColumn});
+      this.ListSentences.DataSource = this.LettriqsBindingSource;
+      resources.ApplyResources(this.ListSentences, "ListSentences");
+      this.ListSentences.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+      this.ListSentences.MultiSelect = false;
+      this.ListSentences.Name = "ListSentences";
+      this.ListSentences.ReadOnly = true;
+      this.ListSentences.RowHeadersVisible = false;
+      // 
+      // sentenceDataGridViewTextBoxColumn
+      // 
+      this.sentenceDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+      this.sentenceDataGridViewTextBoxColumn.DataPropertyName = "Sentence";
+      resources.ApplyResources(this.sentenceDataGridViewTextBoxColumn, "sentenceDataGridViewTextBoxColumn");
+      this.sentenceDataGridViewTextBoxColumn.Name = "sentenceDataGridViewTextBoxColumn";
+      this.sentenceDataGridViewTextBoxColumn.ReadOnly = true;
+      // 
+      // LettriqsBindingSource
+      // 
+      this.LettriqsBindingSource.DataMember = "Lettriqs";
+      this.LettriqsBindingSource.DataSource = this.WordsBindingSource;
+      // 
+      // PanelNotebookTop
+      // 
+      this.PanelNotebookTop.Controls.Add(this.ActionDeleteTerm);
+      resources.ApplyResources(this.PanelNotebookTop, "PanelNotebookTop");
+      this.PanelNotebookTop.Name = "PanelNotebookTop";
+      // 
+      // ActionDeleteTerm
+      // 
+      this.ActionDeleteTerm.AllowDrop = true;
+      resources.ApplyResources(this.ActionDeleteTerm, "ActionDeleteTerm");
+      this.ActionDeleteTerm.FlatAppearance.BorderSize = 0;
+      this.ActionDeleteTerm.Name = "ActionDeleteTerm";
+      this.ActionDeleteTerm.UseVisualStyleBackColor = true;
       // 
       // PanelSepTop
       // 
@@ -793,6 +915,7 @@
             this.ActionSettings,
             this.ActionViewAnalysis,
             this.ActionViewLetters,
+            this.ActionViewNotebook,
             this.toolStripSeparator6,
             this.ActionSearchTerm,
             this.ActionNewInstance,
@@ -1001,6 +1124,16 @@
       this.ActionViewLetters.MouseEnter += new System.EventHandler(this.ShowToolTip_OnMouseEnter);
       this.ActionViewLetters.MouseLeave += new System.EventHandler(this.ShowToolTip_OnMouseLeave);
       // 
+      // ActionViewNotebook
+      // 
+      this.ActionViewNotebook.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+      resources.ApplyResources(this.ActionViewNotebook, "ActionViewNotebook");
+      this.ActionViewNotebook.Name = "ActionViewNotebook";
+      this.ActionViewNotebook.Padding = new System.Windows.Forms.Padding(5);
+      this.ActionViewNotebook.Click += new System.EventHandler(this.ActionViewNotebook_Click);
+      this.ActionViewNotebook.MouseEnter += new System.EventHandler(this.ShowToolTip_OnMouseEnter);
+      this.ActionViewNotebook.MouseLeave += new System.EventHandler(this.ShowToolTip_OnMouseLeave);
+      // 
       // toolStripSeparator6
       // 
       this.toolStripSeparator6.Name = "toolStripSeparator6";
@@ -1038,7 +1171,7 @@
       this.ActionTools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ActionShowMethodNotice,
             this.ActionShowGrammarGuide,
-            this.toolStripSeparator1,
+            this.ActionGematriaCombinationsSeparator,
             this.ActionGematriaCombinations});
       this.ActionTools.Name = "ActionTools";
       this.ActionTools.Padding = new System.Windows.Forms.Padding(5);
@@ -1055,10 +1188,10 @@
       this.ActionShowGrammarGuide.Name = "ActionShowGrammarGuide";
       this.ActionShowGrammarGuide.Click += new System.EventHandler(this.ActionShowGrammarGuide_Click);
       // 
-      // toolStripSeparator1
+      // ActionGematriaCombinationsSeparator
       // 
-      this.toolStripSeparator1.Name = "toolStripSeparator1";
-      resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
+      this.ActionGematriaCombinationsSeparator.Name = "ActionGematriaCombinationsSeparator";
+      resources.ApplyResources(this.ActionGematriaCombinationsSeparator, "ActionGematriaCombinationsSeparator");
       // 
       // ActionGematriaCombinations
       // 
@@ -1085,21 +1218,6 @@
       this.TimerProcesses.Interval = 5000;
       this.TimerProcesses.Tick += new System.EventHandler(this.TimerProcesses_Tick);
       // 
-      // LettersTableAdapter
-      // 
-      this.LettersTableAdapter.ClearBeforeFill = true;
-      // 
-      // TableAdapterManager
-      // 
-      this.TableAdapterManager.BackupDataSetBeforeUpdate = false;
-      this.TableAdapterManager.LettersTableAdapter = this.LettersTableAdapter;
-      this.TableAdapterManager.MeaningsTableAdapter = this.MeaningsTableAdapter;
-      this.TableAdapterManager.UpdateOrder = Ordisoftware.Hebrew.Letters.Data.DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-      // 
-      // MeaningsTableAdapter
-      // 
-      this.MeaningsTableAdapter.ClearBeforeFill = true;
-      // 
       // MainForm
       // 
       resources.ApplyResources(this, "$this");
@@ -1121,19 +1239,29 @@
       this.PanelMainCenter.ResumeLayout(false);
       this.TabControl.ResumeLayout(false);
       this.TabPageText.ResumeLayout(false);
-      this.PanelViewSearch.ResumeLayout(false);
-      this.PanelViewSearch.PerformLayout();
+      this.PanelViewAnalysis.ResumeLayout(false);
+      this.PanelViewAnalysis.PerformLayout();
       this.ContextMenuSearchOnline.ResumeLayout(false);
-      this.TabPageMonth.ResumeLayout(false);
-      this.PanelViewSettings.ResumeLayout(false);
-      this.PanelSettingsDetails.ResumeLayout(false);
-      this.PanelSettingsDetails.PerformLayout();
+      this.TabPageLetters.ResumeLayout(false);
+      this.PanelViewLetters.ResumeLayout(false);
+      this.PanelLettersInner.ResumeLayout(false);
+      this.PanelLettersInner.PerformLayout();
       this.PanelLetter.ResumeLayout(false);
       this.PanelLetter.PerformLayout();
-      ( (System.ComponentModel.ISupportInitialize)( this.LettersBindingSource ) ).EndInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.DataSet ) ).EndInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.EditMeanings ) ).EndInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.MeaningsBindingSource ) ).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.LettersBindingSource)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.EditMeanings)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.MeaningsBindingSource)).EndInit();
+      this.TabPageNotebook.ResumeLayout(false);
+      this.PanelViewNotebook.ResumeLayout(false);
+      this.SplitContainerNotebook.Panel1.ResumeLayout(false);
+      this.SplitContainerNotebook.Panel2.ResumeLayout(false);
+      ((System.ComponentModel.ISupportInitialize)(this.SplitContainerNotebook)).EndInit();
+      this.SplitContainerNotebook.ResumeLayout(false);
+      ((System.ComponentModel.ISupportInitialize)(this.ListWords)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.WordsBindingSource)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.ListSentences)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.LettriqsBindingSource)).EndInit();
+      this.PanelNotebookTop.ResumeLayout(false);
       this.PanelTitle.ResumeLayout(false);
       this.ToolStrip.ResumeLayout(false);
       this.ToolStrip.PerformLayout();
@@ -1165,18 +1293,17 @@
     private System.Windows.Forms.Panel PanelMainOuter;
     private System.Windows.Forms.Panel PanelMainInner;
     private System.Windows.Forms.Timer TimerTooltip;
-    public Ordisoftware.Hebrew.LettersControl EditLetters;
+    public Ordisoftware.Hebrew.LettersControl EditWord;
     private System.Windows.Forms.TabControl TabControl;
     private System.Windows.Forms.TabPage TabPageText;
-    private System.Windows.Forms.Panel PanelViewSearch;
-    private System.Windows.Forms.TabPage TabPageMonth;
-    private System.Windows.Forms.Panel PanelViewSettings;
+    private System.Windows.Forms.Panel PanelViewAnalysis;
+    private System.Windows.Forms.TabPage TabPageLetters;
     private System.Windows.Forms.ToolStripButton ActionViewAnalysis;
     private System.Windows.Forms.ToolStripButton ActionViewLetters;
     private Ordisoftware.Core.TextBoxEx TextBoxName;
     private Ordisoftware.Core.TextBoxEx TextBoxValueSimple;
     private Ordisoftware.Core.TextBoxEx TextBoxValueFull;
-    private System.Windows.Forms.Panel PanelSettingsDetails;
+    private System.Windows.Forms.Panel PanelLettersInner;
     private System.Windows.Forms.LinkLabel ActionRestoreDefaults;
     private System.Windows.Forms.Button ActionDeleteMeaning;
     private System.Windows.Forms.Button ActionAddMeaning;
@@ -1220,13 +1347,6 @@
     private System.Windows.Forms.Button ActionScreenshot;
     private System.Windows.Forms.Timer TimerProcesses;
     public System.Windows.Forms.ToolStripDropDownButton ActionInformation;
-    public Data.DataSet DataSet;
-    private System.Windows.Forms.BindingSource LettersBindingSource;
-    private Data.DataSetTableAdapters.LettersTableAdapter LettersTableAdapter;
-    private Data.DataSetTableAdapters.TableAdapterManager TableAdapterManager;
-    private Data.DataSetTableAdapters.MeaningsTableAdapter MeaningsTableAdapter;
-    private System.Windows.Forms.BindingSource MeaningsBindingSource;
-    private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
     private System.Windows.Forms.Button ActionPaste;
     public System.Windows.Forms.ToolStripMenuItem EditShowSuccessDialogs;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
@@ -1244,8 +1364,24 @@
     private System.Windows.Forms.ToolTip ToolTipClipboard;
     internal System.Windows.Forms.Panel PanelMainCenter;
     private Core.ComboBoxNavigator LettersNavigator;
-    private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+    private System.Windows.Forms.ToolStripSeparator ActionGematriaCombinationsSeparator;
     private System.Windows.Forms.ToolStripMenuItem ActionGematriaCombinations;
     internal System.Windows.Forms.Button ActionCopyToResult;
+    private System.Windows.Forms.BindingSource MeaningsBindingSource;
+    private System.Windows.Forms.BindingSource LettersBindingSource;
+    private System.Windows.Forms.ToolStripButton ActionViewNotebook;
+    private System.Windows.Forms.TabPage TabPageNotebook;
+    private System.Windows.Forms.Panel PanelViewNotebook;
+    private System.Windows.Forms.Panel PanelViewLetters;
+    private System.Windows.Forms.SplitContainer SplitContainerNotebook;
+    private System.Windows.Forms.DataGridView ListWords;
+    private System.Windows.Forms.BindingSource WordsBindingSource;
+    private System.Windows.Forms.DataGridView ListSentences;
+    private System.Windows.Forms.BindingSource LettriqsBindingSource;
+    private System.Windows.Forms.Panel PanelNotebookTop;
+    private System.Windows.Forms.DataGridViewTextBoxColumn hebrewDataGridViewTextBoxColumn;
+    private System.Windows.Forms.DataGridViewTextBoxColumn sentenceDataGridViewTextBoxColumn;
+    private System.Windows.Forms.Button ActionDeleteTerm;
+    private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMeaningsText;
   }
 }

@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2021-04 </edited>
+/// <edited> 2021-05 </edited>
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -74,22 +74,31 @@ namespace Ordisoftware.Hebrew.Letters
           new ViewConnector
           {
             MenuItem = ActionViewAnalysis,
-            Panel = PanelViewSearch,
-            Focused = EditLetters
+            Panel = PanelViewAnalysis,
+            Focused = EditWord
           }
         },
         {
-          ViewMode.Data,
+          ViewMode.Letters,
           new ViewConnector
           {
             MenuItem = ActionViewLetters,
-            Panel = PanelViewSettings,
+            Panel = PanelLettersInner,
             Focused = EditMeanings
+          }
+        },
+        {
+          ViewMode.Notebook,
+          new ViewConnector
+          {
+            MenuItem = ActionViewNotebook,
+            Panel = PanelViewNotebook,
+            Focused = PanelViewNotebook
           }
         }
       };
       if ( Program.Settings.CurrentView == view && !first ) return;
-      if ( Program.Settings.CurrentView == ViewMode.Data )
+      if ( Program.Settings.CurrentView == ViewMode.Letters )
       {
         ViewPanels[Program.Settings.CurrentView].Focused.Focus();
       }
@@ -101,11 +110,11 @@ namespace Ordisoftware.Hebrew.Letters
       Program.Settings.CurrentView = view;
       if ( view == ViewMode.Analysis )
       {
-        EditLetters.Input.SelectionStart = SavedSelectionStart;
-        EditLetters.Input.SelectionLength = SavedSelectionLength;
+        EditWord.TextBox.SelectionStart = SavedSelectionStart;
+        EditWord.TextBox.SelectionLength = SavedSelectionLength;
         if ( DataChanged )
         {
-          foreach ( Data.DataSet.LettersRow row in DataSet.Letters )
+          foreach ( var row in ApplicationDatabase.Instance.Letters )
             LettersMeanings[row.ValueSimple] = null;
           DoAnalyse();
           DataChanged = false;
@@ -113,9 +122,9 @@ namespace Ordisoftware.Hebrew.Letters
       }
       else
       {
-        SavedSelectionStart = EditLetters.Input.SelectionStart;
-        SavedSelectionLength = EditLetters.Input.SelectionLength;
-        DataEditMutex = false;
+        SavedSelectionStart = EditWord.TextBox.SelectionStart;
+        SavedSelectionLength = EditWord.TextBox.SelectionLength;
+        //DataEditMutex = false;
       }
     }
 
