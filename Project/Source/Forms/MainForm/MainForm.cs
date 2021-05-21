@@ -21,6 +21,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Ordisoftware.Core;
 using Equin.ApplicationFramework;
+using System.Globalization;
 
 namespace Ordisoftware.Hebrew.Letters
 {
@@ -137,7 +138,7 @@ namespace Ordisoftware.Hebrew.Letters
       ActionSettings.Enabled = !Globals.IsReadOnly;
       ActionPreferences.Enabled = !Globals.IsReadOnly;
       ActionRestoreDefaults.Enabled = !Globals.IsReadOnly;
-      ActionDeleteTerm.Enabled = !Globals.IsReadOnly;
+      ActionNotebookDeleteSentence.Enabled = !Globals.IsReadOnly;
       // TODO add notebook controls
       TimerProcesses.Enabled = Globals.IsReadOnly;
     }
@@ -221,24 +222,28 @@ namespace Ordisoftware.Hebrew.Letters
     /// <param name="e">Event information.</param>
     private void ActionPreferences_Click(object sender, EventArgs e)
     {
+      bool temp = Globals.IsReadOnly;
       if ( Globals.ApplicationInstancesCount > 1 )
-      {
         ActionPreferences.Enabled = false;
-        return;
-      }
-      try
-      {
-        PreferencesForm.Run();
-        EditWord.InputMaxLength = (int)Settings.HebrewTextBoxMaxLength;
-        InitializeSpecialMenus();
-        InitializeDialogsDirectory();
-        ClearLettersMeanings();
-        DoAnalyse();
-      }
-      catch ( Exception ex )
-      {
-        ex.Manage();
-      }
+      else
+        try
+        {
+          Globals.IsReadOnly = true;
+          PreferencesForm.Run();
+          EditWord.InputMaxLength = (int)Settings.HebrewTextBoxMaxLength;
+          InitializeSpecialMenus();
+          InitializeDialogsDirectory();
+          ClearLettersMeanings();
+          DoAnalyse();
+        }
+        catch ( Exception ex )
+        {
+          ex.Manage();
+        }
+        finally
+        {
+          Globals.IsReadOnly = temp;
+        }
     }
 
     #endregion
@@ -418,9 +423,16 @@ namespace Ordisoftware.Hebrew.Letters
       SetView(ViewMode.Letters);
     }
 
+    private bool ViewNotebookFirstTime = true;
+
     private void ActionViewNotebook_Click(object sender, EventArgs e)
     {
       SetView(ViewMode.Notebook);
+      if ( ViewNotebookFirstTime )
+      {
+        ViewNotebookFirstTime = false;
+        ActionNotebookClearLetter.PerformClick();
+      }
     }
 
     /// <summary>
@@ -477,6 +489,8 @@ namespace Ordisoftware.Hebrew.Letters
 
     #region Update Analysis Controls
 
+    private Font ContextMenuHebrewFont = new Font("Hebrew", 10);
+
     private void UpdateAnalysisControls()
     {
       bool enabled = EditWord.TextBox.Text.Length >= 1;
@@ -491,6 +505,23 @@ namespace Ordisoftware.Hebrew.Letters
       ActionScreenshot.Enabled = enabled;
       ActionSaveScreenshot.Enabled = enabled;
       ActionSearchOnline.Enabled = enabled;
+      var listCombos = SelectAnalyze.Controls.OfType<ComboBox>();
+      var sentence = EditSentence.Text.Trim();
+      ActionSaveTermLettriq.Enabled = sentence != string.Empty
+                                   && listCombos.Count() > 0 && listCombos.All(c => c.SelectedIndex != -1)
+                                   && HebrewDatabase.Instance.TermLettriqs.All(l => string.Compare(l.Sentence, sentence, true) != 0);
+      var listTerms = from term in HebrewDatabase.Instance.TermsHebrew
+                      join lettriq in HebrewDatabase.Instance.TermLettriqs on term.ID equals lettriq.TermID
+                      where term.Hebrew == EditWord.TextBox.Text
+                      select lettriq;
+      ActionOpenTermLettriq.Enabled = listTerms.Count() != 0;
+      ContextMenuOpenTermLettriq.Items.Clear();
+      foreach ( var item in listTerms )
+      {
+        var menuitem = ContextMenuOpenTermLettriq.Items.Add(item.Sentence);
+        menuitem.Tag = item;
+        menuitem.Click += ContextMenuOpenTermLettriqItem_Click;
+      }
     }
 
     private void EditSentence_FontChanged(object sender, EventArgs e)
@@ -610,11 +641,13 @@ namespace Ordisoftware.Hebrew.Letters
     private void MeaningComboBox_SelectedIndexChanged(object sender, EventArgs e)
     {
       EditSentence.Text = string.Join(" ", SelectAnalyze.Controls.OfType<ComboBox>().Select(c => c.Text));
+      UpdateAnalysisControls();
     }
 
     private void EditSentence_TextChanged(object sender, EventArgs e)
     {
       ActionCopyToResult.Enabled = EditSentence.Text != "";
+      UpdateAnalysisControls();
     }
 
     private void ActionCopyToResult_Click(object sender, EventArgs e)
@@ -623,6 +656,52 @@ namespace Ordisoftware.Hebrew.Letters
       Clipboard.SetText(EditSentence.Text);
       if ( EditCopyToClipboardCloseApp.Checked ) Close();
       EditSentence.Focus();
+    }
+
+    #endregion
+
+    #region Analysis Load and Save
+
+    private void ActionOpenTermLettriq_Click(object sender, EventArgs e)
+    {
+      ContextMenuOpenTermLettriq.Show(ActionOpenTermLettriq, new Point(0, ActionOpenTermLettriq.Height));
+    }
+
+    private void ContextMenuOpenTermLettriqItem_Click(object sender, EventArgs e)
+    {
+      var menuitem = (ToolStripMenuItem)sender;
+      var item = (TermLettriq)menuitem.Tag;
+      if ( EditSentence.Text.Trim() != string.Empty && EditSentence.Text != item.Sentence )
+        if ( !DisplayManager.QueryYesNo("Replace sentence?") )
+          return;
+      EditSentence.Text = item.Sentence;
+    }
+
+    private void ActionSaveTermLettriq_Click(object sender, EventArgs e)
+    {
+      string hebrew = EditWord.TextBox.Text;
+      var term = HebrewDatabase.Instance.TermsHebrew.Find(t => t.Hebrew == hebrew);
+      if ( term == null )
+      {
+        term = new TermHebrew
+        {
+          ID = Guid.NewGuid().ToString(),
+          Hebrew = hebrew,
+          Unicode = HebrewAlphabet.ToUnicode(hebrew)
+        };
+        HebrewDatabase.Instance.TermsHebrew.Add(term);
+        HebrewDatabase.Instance.Connection.Insert(term);
+      }
+
+      var lettriq = new TermLettriq
+      {
+        ID = Guid.NewGuid().ToString(),
+        TermID = term.ID,
+        Sentence = EditSentence.Text
+      };
+      HebrewDatabase.Instance.TermLettriqs.Add(lettriq);
+      HebrewDatabase.Instance.Connection.Insert(lettriq);
+      UpdateAnalysisControls();
     }
 
     #endregion
@@ -948,6 +1027,7 @@ namespace Ordisoftware.Hebrew.Letters
     private void EditMeanings_CellValueChanged(object sender, DataGridViewCellEventArgs e)
     {
       if ( !Globals.IsReady ) return;
+      if ( Globals.IsReadOnly ) return;
       ApplicationDatabase.Instance.BeginTransaction();
       UpdateDataControls(sender);
     }
@@ -1009,9 +1089,46 @@ namespace Ordisoftware.Hebrew.Letters
 
     #region Terms
 
-    private void ListWords_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+    private void ListNotebookLetters_SelectionChanged(object sender, EventArgs e)
     {
-      string word = ListNotebookWord[e.ColumnIndex, e.RowIndex].Value.ToString();
+      if ( !Globals.IsReady ) return;
+      if ( HebrewDatabase.Instance.TermsHebrewAsBindingList == null ) return;
+      if ( ListNotebookLetters.SelectedCells.Count > 0 )
+      {
+        string code = (string)ListNotebookLetters.SelectedCells[0].Value;
+        HebrewDatabase.Instance.TermsHebrewAsBindingList.ApplyFilter(w => w.Hebrew.EndsWith(code));
+        if ( ListNotebookWords.Rows.Count > 0 )
+          ListNotebookWords.Rows[0].Selected = true;
+      }
+      else
+        HebrewDatabase.Instance.TermsHebrewAsBindingList.RemoveFilter();
+      ListNotebookWords.ClearSelection();
+      ListNotebookWords_SelectionChanged(null, null);
+    }
+
+    // use dictionary filters word & sentence
+
+    private void ListNotebookWords_SelectionChanged(object sender, EventArgs e)
+    {
+      if ( !Globals.IsReady ) return;
+      if ( HebrewDatabase.Instance.TermLettriqsAsBindingList == null ) return;
+      if ( ListNotebookWords.SelectedRows.Count > 0 )
+      {
+
+        string id = ( (ObjectView<TermHebrew>)ListNotebookWords.SelectedRows[0].DataBoundItem ).Object.ID;
+        HebrewDatabase.Instance.TermLettriqsAsBindingList.ApplyFilter(s => s.TermID == id);
+      }
+      else
+      if ( HebrewDatabase.Instance.TermsHebrewAsBindingList.Count == 0 )
+        HebrewDatabase.Instance.TermLettriqsAsBindingList.ApplyFilter(s => s.TermID == "");
+      else
+        HebrewDatabase.Instance.TermLettriqsAsBindingList.RemoveFilter();
+      ListNotebookSentences.ClearSelection();
+    }
+
+    private void ListNotebookWord_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+    {
+      string word = ListNotebookWords[e.ColumnIndex, e.RowIndex].Value.ToString();
       bool b1 = EditWord.TextBox.Text != string.Empty;
       bool b2 = EditWord.TextBox.Text != word;
       if ( b1 && b2 && !DisplayManager.QueryOkCancel("Replace current word?") )
@@ -1021,36 +1138,44 @@ namespace Ordisoftware.Hebrew.Letters
         EditWord.TextBox.Text = word;
     }
 
-    #endregion
-
-    private void DataGridViewLetters_CurrentCellChanged(object sender, EventArgs e)
+    private void ActionNotebookClearLetter_Click(object sender, EventArgs e)
     {
-      if ( !Globals.IsReady ) return;
-      if ( HebrewDatabase.Instance.TermsHebrewAsBindingList == null ) return;
-      if ( ListNotebookLetter.CurrentCell != null )
-      {
-        string code = (string)ListNotebookLetter.CurrentCell.Value;
-        HebrewDatabase.Instance.TermsHebrewAsBindingList.ApplyFilter(w => w.Hebrew.EndsWith(code));
-      }
-      else
-        HebrewDatabase.Instance.TermsHebrewAsBindingList.RemoveFilter();
+      ListNotebookLetters.ClearSelection();
     }
 
-    private void ListWords_CurrentCellChanged(object sender, EventArgs e)
+    private void ActionNotebookClearWord_Click(object sender, EventArgs e)
     {
-      if ( !Globals.IsReady ) return;
-      if ( HebrewDatabase.Instance.TermLettriqsAsBindingList == null ) return;
-      if ( ListNotebookWord.CurrentCell != null )
+      ListNotebookWords.ClearSelection();
+    }
+
+    private void ActionNotebookDeleteWord_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void ActionNotebookDeleteSentence_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void ActionNotebookClearFilter_Click(object sender, EventArgs e)
+    {
+      EditNotebookFilterSentence.Text = string.Empty;
+    }
+
+    private void EditNotebookFilterSentence_TextChanged(object sender, EventArgs e)
+    {
+      if ( EditNotebookFilterSentence.Text != string.Empty )
       {
-        string id = ( (ObjectView<TermHebrew>)ListNotebookWord.CurrentRow.DataBoundItem ).Object.ID;
-        HebrewDatabase.Instance.TermLettriqsAsBindingList.ApplyFilter(s => s.TermID == id);
+        string filter = EditNotebookFilterSentence.Text;
+        HebrewDatabase.Instance.TermLettriqsAsBindingList.ApplyFilter(l => CultureInfo.CurrentCulture.CompareInfo.IndexOf(l.Sentence, filter, CompareOptions.IgnoreCase) >= 0);
       }
-      else
-      if ( HebrewDatabase.Instance.TermsHebrewAsBindingList.Count == 0 )
-        HebrewDatabase.Instance.TermLettriqsAsBindingList.ApplyFilter(s => s.TermID == "");
       else
         HebrewDatabase.Instance.TermLettriqsAsBindingList.RemoveFilter();
     }
+
+    #endregion
+
   }
 
 }
