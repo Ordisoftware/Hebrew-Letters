@@ -1011,7 +1011,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void ListWords_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
     {
-      string word = ListWords[e.ColumnIndex, e.RowIndex].Value.ToString();
+      string word = ListNotebookWord[e.ColumnIndex, e.RowIndex].Value.ToString();
       bool b1 = EditWord.TextBox.Text != string.Empty;
       bool b2 = EditWord.TextBox.Text != word;
       if ( b1 && b2 && !DisplayManager.QueryOkCancel("Replace current word?") )
@@ -1023,6 +1023,34 @@ namespace Ordisoftware.Hebrew.Letters
 
     #endregion
 
+    private void DataGridViewLetters_CurrentCellChanged(object sender, EventArgs e)
+    {
+      if ( !Globals.IsReady ) return;
+      if ( HebrewDatabase.Instance.TermsHebrewAsBindingList == null ) return;
+      if ( ListNotebookLetter.CurrentCell != null )
+      {
+        string code = (string)ListNotebookLetter.CurrentCell.Value;
+        HebrewDatabase.Instance.TermsHebrewAsBindingList.ApplyFilter(w => w.Hebrew.EndsWith(code));
+      }
+      else
+        HebrewDatabase.Instance.TermsHebrewAsBindingList.RemoveFilter();
+    }
+
+    private void ListWords_CurrentCellChanged(object sender, EventArgs e)
+    {
+      if ( !Globals.IsReady ) return;
+      if ( HebrewDatabase.Instance.TermLettriqsAsBindingList == null ) return;
+      if ( ListNotebookWord.CurrentCell != null )
+      {
+        string id = ( (ObjectView<TermHebrew>)ListNotebookWord.CurrentRow.DataBoundItem ).Object.ID;
+        HebrewDatabase.Instance.TermLettriqsAsBindingList.ApplyFilter(s => s.TermID == id);
+      }
+      else
+      if ( HebrewDatabase.Instance.TermsHebrewAsBindingList.Count == 0 )
+        HebrewDatabase.Instance.TermLettriqsAsBindingList.ApplyFilter(s => s.TermID == "");
+      else
+        HebrewDatabase.Instance.TermLettriqsAsBindingList.RemoveFilter();
+    }
   }
 
 }

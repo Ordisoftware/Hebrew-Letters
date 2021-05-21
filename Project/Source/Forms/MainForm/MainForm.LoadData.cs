@@ -33,10 +33,11 @@ namespace Ordisoftware.Hebrew.Letters
         Globals.ChronoLoadData.Start();
         ApplicationDatabase.Instance.Open();
         LettersBindingSource.DataSource = ApplicationDatabase.Instance.LettersAsBindingList;
-        if ( !Globals.IsDevExecutable ) // TODO remove when ready
+        if ( Globals.IsDevExecutable ) // TODO remove when ready
         {
           HebrewDatabase.Instance.TakeLettriqs();
-          WordsBindingSource.DataSource = HebrewDatabase.Instance.TermsHebrewAsBindingList;
+          TermsBindingSource.DataSource = HebrewDatabase.Instance.TermsHebrewAsBindingList;
+          LettriqsBindingSource.DataSource = HebrewDatabase.Instance.TermLettriqsAsBindingList;
         }
         Globals.ChronoLoadData.Stop();
         Settings.BenchmarkLoadData = Globals.ChronoLoadData.ElapsedMilliseconds;
