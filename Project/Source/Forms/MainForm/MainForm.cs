@@ -1039,7 +1039,7 @@ namespace Ordisoftware.Hebrew.Letters
     private void ListWords_CurrentCellChanged(object sender, EventArgs e)
     {
       if ( !Globals.IsReady ) return;
-      if ( HebrewDatabase.Instance.TermLettriqsAsBindingList == null ) return:
+      if ( HebrewDatabase.Instance.TermLettriqsAsBindingList == null ) return;
       if ( ListNotebookWord.CurrentCell != null )
       {
         string id = ( (ObjectView<TermHebrew>)ListNotebookWord.CurrentRow.DataBoundItem ).Object.ID;
