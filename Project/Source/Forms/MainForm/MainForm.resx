@@ -663,23 +663,14 @@
   <data name="&gt;&gt;ActionDelFirst.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="EditCopyWithFinalLetter.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="EditCopyWithFinalLetter.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="EditCopyWithFinalLetter.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 254</value>
+    <value>13, 255</value>
   </data>
   <data name="EditCopyWithFinalLetter.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 17</value>
+    <value>104, 24</value>
   </data>
   <data name="EditCopyWithFinalLetter.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="EditCopyWithFinalLetter.Text" xml:space="preserve">
-    <value>Copy with final letter</value>
+    <value>19</value>
   </data>
   <data name="&gt;&gt;EditCopyWithFinalLetter.Name" xml:space="preserve">
     <value>EditCopyWithFinalLetter</value>
@@ -2189,32 +2180,83 @@
   <data name="hebrewDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
     <value>Hebrew</value>
   </data>
-  <metadata name="WordsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="TermsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>378, 50</value>
   </metadata>
-  <data name="ListWords.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="ListNotebookWord.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="ListWords.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="ListNotebookWord.Location" type="System.Drawing.Point, System.Drawing">
+    <value>63, 0</value>
   </data>
-  <data name="ListWords.Size" type="System.Drawing.Size, System.Drawing">
-    <value>176, 474</value>
+  <data name="ListNotebookWord.Size" type="System.Drawing.Size, System.Drawing">
+    <value>117, 474</value>
   </data>
-  <data name="ListWords.TabIndex" type="System.Int32, mscorlib">
+  <data name="ListNotebookWord.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;ListWords.Name" xml:space="preserve">
-    <value>ListWords</value>
+  <data name="&gt;&gt;ListNotebookWord.Name" xml:space="preserve">
+    <value>ListNotebookWord</value>
   </data>
-  <data name="&gt;&gt;ListWords.Type" xml:space="preserve">
+  <data name="&gt;&gt;ListNotebookWord.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ListWords.Parent" xml:space="preserve">
+  <data name="&gt;&gt;ListNotebookWord.Parent" xml:space="preserve">
     <value>SplitContainerNotebook.Panel1</value>
   </data>
-  <data name="&gt;&gt;ListWords.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;ListNotebookWord.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>53, 0</value>
+  </data>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>10, 474</value>
+  </data>
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+    <value>SplitContainerNotebook.Panel1</value>
+  </data>
+  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="codeDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="ListNotebookLetter.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="ListNotebookLetter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="ListNotebookLetter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 474</value>
+  </data>
+  <data name="ListNotebookLetter.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;ListNotebookLetter.Name" xml:space="preserve">
+    <value>ListNotebookLetter</value>
+  </data>
+  <data name="&gt;&gt;ListNotebookLetter.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ListNotebookLetter.Parent" xml:space="preserve">
+    <value>SplitContainerNotebook.Panel1</value>
+  </data>
+  <data name="&gt;&gt;ListNotebookLetter.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="&gt;&gt;SplitContainerNotebook.Panel1.Name" xml:space="preserve">
     <value>SplitContainerNotebook.Panel1</value>
@@ -2229,7 +2271,7 @@
     <value>0</value>
   </data>
   <data name="SplitContainerNotebook.Panel1MinSize" type="System.Int32, mscorlib">
-    <value>120</value>
+    <value>180</value>
   </data>
   <data name="sentenceDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
     <value>Sentence</value>
@@ -2237,28 +2279,28 @@
   <metadata name="LettriqsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>576, 50</value>
   </metadata>
-  <data name="ListSentences.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="ListNotebookSentences.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="ListSentences.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="ListNotebookSentences.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="ListSentences.Size" type="System.Drawing.Size, System.Drawing">
-    <value>427, 474</value>
+  <data name="ListNotebookSentences.Size" type="System.Drawing.Size, System.Drawing">
+    <value>423, 474</value>
   </data>
-  <data name="ListSentences.TabIndex" type="System.Int32, mscorlib">
+  <data name="ListNotebookSentences.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;ListSentences.Name" xml:space="preserve">
-    <value>ListSentences</value>
+  <data name="&gt;&gt;ListNotebookSentences.Name" xml:space="preserve">
+    <value>ListNotebookSentences</value>
   </data>
-  <data name="&gt;&gt;ListSentences.Type" xml:space="preserve">
+  <data name="&gt;&gt;ListNotebookSentences.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ListSentences.Parent" xml:space="preserve">
+  <data name="&gt;&gt;ListNotebookSentences.Parent" xml:space="preserve">
     <value>SplitContainerNotebook.Panel2</value>
   </data>
-  <data name="&gt;&gt;ListSentences.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;ListNotebookSentences.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="&gt;&gt;SplitContainerNotebook.Panel2.Name" xml:space="preserve">
@@ -2280,7 +2322,7 @@
     <value>613, 474</value>
   </data>
   <data name="SplitContainerNotebook.SplitterDistance" type="System.Int32, mscorlib">
-    <value>176</value>
+    <value>180</value>
   </data>
   <data name="SplitContainerNotebook.SplitterWidth" type="System.Int32, mscorlib">
     <value>10</value>
@@ -3525,16 +3567,10 @@
   <data name="&gt;&gt;MeaningsBindingSource.Type" xml:space="preserve">
     <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;hebrewDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>hebrewDataGridViewTextBoxColumn</value>
+  <data name="&gt;&gt;TermsBindingSource.Name" xml:space="preserve">
+    <value>TermsBindingSource</value>
   </data>
-  <data name="&gt;&gt;hebrewDataGridViewTextBoxColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;WordsBindingSource.Name" xml:space="preserve">
-    <value>WordsBindingSource</value>
-  </data>
-  <data name="&gt;&gt;WordsBindingSource.Type" xml:space="preserve">
+  <data name="&gt;&gt;TermsBindingSource.Type" xml:space="preserve">
     <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;sentenceDataGridViewTextBoxColumn.Name" xml:space="preserve">
@@ -3788,6 +3824,18 @@
   </data>
   <data name="&gt;&gt;ToolTipClipboard.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;codeDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>codeDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;codeDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;hebrewDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>hebrewDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;hebrewDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainForm</value>

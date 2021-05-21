@@ -547,6 +547,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\MainForm\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="..\README.md">
       <Link>README.md</Link>
@@ -558,6 +559,7 @@
     <None Include="Properties\DataSources\Letter.datasource" />
     <None Include="Properties\DataSources\Ordisoftware.Core.SystemStatistics.datasource" />
     <None Include="Properties\DataSources\Ordisoftware.Hebrew.TermHebrew.datasource" />
+    <None Include="Properties\DataSources\Ordisoftware.Hebrew.TermLettriq.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
