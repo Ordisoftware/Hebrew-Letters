@@ -180,8 +180,9 @@ namespace Ordisoftware.Core
             result = stream.Length;
           }
         }
-        catch
+        catch (Exception ex)
         {
+          ex.Manage(ShowExceptionMode.None);
           TryCatch(() => { result = System.Runtime.InteropServices.Marshal.SizeOf(instance); });
         }
       return result;

@@ -840,7 +840,7 @@ namespace Ordisoftware.Hebrew.Letters
       {
         ApplicationDatabase.Instance.SaveAll();
         ApplicationStatistics.UpdateDBFileSizeRequired = true;
-        ApplicationStatistics.UpdateDBMemorySizeRequired = true;
+        //ApplicationStatistics.UpdateDBMemorySizeRequired = true;
         DataChanged = true;
       }
       UpdateDataControls(sender);
@@ -869,7 +869,7 @@ namespace Ordisoftware.Hebrew.Letters
         ActionReset.PerformClick();
         EditWord.TextBox.Text = word;
         ApplicationStatistics.UpdateDBFileSizeRequired = true;
-        ApplicationStatistics.UpdateDBMemorySizeRequired = true;
+        //ApplicationStatistics.UpdateDBMemorySizeRequired = true;
         UpdateDataControls(null);
         ClearLettersMeanings();
         DoAnalyse();

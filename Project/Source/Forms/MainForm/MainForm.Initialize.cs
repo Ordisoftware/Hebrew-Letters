@@ -252,6 +252,8 @@ namespace Ordisoftware.Hebrew.Letters
       EditMeanings.RowTemplate.DefaultCellStyle.BackColor = Settings.ColorSentenceTextBox;
       foreach ( DataGridViewRow row in EditMeanings.Rows )
         row.DefaultCellStyle.BackColor = Settings.ColorSentenceTextBox;
+      // Notebook
+      // TODO set colors
     }
 
     /// <summary>
