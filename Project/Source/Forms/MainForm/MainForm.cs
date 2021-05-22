@@ -505,18 +505,22 @@ namespace Ordisoftware.Hebrew.Letters
       ActionScreenshot.Enabled = enabled;
       ActionSaveScreenshot.Enabled = enabled;
       ActionSearchOnline.Enabled = enabled;
-      var listCombos = SelectAnalyze.Controls.OfType<ComboBox>();
+      var word = EditWord.TextBox.Text;
       var sentence = EditSentence.Text.Trim();
-      ActionSaveTermLettriq.Enabled = !Globals.IsReadOnly && sentence != string.Empty
-                                   && listCombos.Count() > 0 && listCombos.All(c => c.SelectedIndex != -1)
-                                   && HebrewDatabase.Instance.TermLettriqs.All(l => string.Compare(l.Sentence, sentence, true) != 0);
-      var listTerms = from term in HebrewDatabase.Instance.TermsHebrew
-                      join lettriq in HebrewDatabase.Instance.TermLettriqs on term.ID equals lettriq.TermID
-                      where term.Hebrew == EditWord.TextBox.Text
-                      select lettriq;
-      ActionOpenTermLettriq.Enabled = listTerms.Count() != 0;
+      var combos = SelectAnalyze.Controls.OfType<ComboBox>().ToList();
+      var lettriqs = from term in HebrewDatabase.Instance.TermsHebrew
+                     from lettriq in term.Lettriqs
+                     where term.Hebrew == word
+                     select lettriq;
+      var query = from lettriq in lettriqs
+                  where lettriq.Sentence == sentence
+                        || ( lettriq.Analyzes.Count == combos.Count
+                          && lettriq.Analyzes.All(m => (string)combos[m.Position].SelectedItem == m.Meaning) )
+                  select lettriq;
+      ActionSaveTermLettriq.Enabled = !Globals.IsReadOnly && combos.All(c => c.SelectedIndex != -1) && !query.Any();
+      ActionOpenTermLettriq.Enabled = lettriqs.Count() != 0;
       ContextMenuOpenTermLettriq.Items.Clear();
-      foreach ( var item in listTerms )
+      foreach ( var item in lettriqs )
       {
         var menuitem = ContextMenuOpenTermLettriq.Items.Add(item.Sentence);
         menuitem.Tag = item;
@@ -574,8 +578,8 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void EditLetters_InputTextChanged(object sender, EventArgs e)
     {
-      UpdateAnalysisControls();
       DoAnalyse();
+      UpdateAnalysisControls();
     }
 
     private void ActionClear_Click(object sender, EventArgs e)
@@ -641,7 +645,6 @@ namespace Ordisoftware.Hebrew.Letters
     private void MeaningComboBox_SelectedIndexChanged(object sender, EventArgs e)
     {
       EditSentence.Text = string.Join(" ", SelectAnalyze.Controls.OfType<ComboBox>().Select(c => c.Text));
-      UpdateAnalysisControls();
     }
 
     private void EditSentence_TextChanged(object sender, EventArgs e)
@@ -670,11 +673,20 @@ namespace Ordisoftware.Hebrew.Letters
     private void ContextMenuOpenTermLettriqItem_Click(object sender, EventArgs e)
     {
       var menuitem = (ToolStripMenuItem)sender;
-      var item = (TermLettriq)menuitem.Tag;
-      if ( EditSentence.Text.Trim() != string.Empty && EditSentence.Text != item.Sentence )
-        if ( !DisplayManager.QueryYesNo("Replace sentence?") )
+      var lettriq = (TermLettriq)menuitem.Tag;
+      if ( EditSentence.Text.Trim() != string.Empty && EditSentence.Text != lettriq.Sentence )
+        if ( !DisplayManager.QueryYesNo("Replace analysis?") )
           return;
-      EditSentence.Text = item.Sentence;
+      var list = SelectAnalyze.Controls.OfType<ComboBox>().ToList();
+      foreach ( var meaning in lettriq.Analyzes )
+        if ( meaning.Position < list.Count() )
+        {
+          if ( list[meaning.Position].Items.Count == 0 )
+            Combobox_Enter(list[meaning.Position], EventArgs.Empty);
+          int index = list[meaning.Position].FindString(meaning.Meaning);
+          list[meaning.Position].SelectedIndex = index;
+        }
+      EditSentence.Text = lettriq.Sentence;
     }
 
     private void ActionSaveTermLettriq_Click(object sender, EventArgs e)
@@ -692,7 +704,6 @@ namespace Ordisoftware.Hebrew.Letters
         HebrewDatabase.Instance.TermsHebrew.Add(term);
         HebrewDatabase.Instance.Connection.Insert(term);
       }
-
       var lettriq = new TermLettriq
       {
         ID = Guid.NewGuid().ToString(),
@@ -701,6 +712,20 @@ namespace Ordisoftware.Hebrew.Letters
       };
       HebrewDatabase.Instance.TermLettriqs.Add(lettriq);
       HebrewDatabase.Instance.Connection.Insert(lettriq);
+      int index = 0;
+      foreach ( var item in SelectAnalyze.Controls.OfType<ComboBox>() )
+      {
+        var meaning = new TermLettriqAnalysis
+        {
+          ID = Guid.NewGuid().ToString(),
+          LettriqID = lettriq.ID,
+          Position = index++,
+          Meaning = (string)item.SelectedItem
+        };
+        HebrewDatabase.Instance.TermLettriqAnalyzes.Add(meaning);
+        HebrewDatabase.Instance.Connection.Insert(meaning);
+      }
+      HebrewDatabase.Instance.SaveLettriqs();
       UpdateAnalysisControls();
     }
 
@@ -1128,19 +1153,20 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void ListNotebookWord_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
     {
-      string word = ListNotebookWords[e.ColumnIndex, e.RowIndex].Value.ToString();
+      string word = ListNotebookSentences[e.ColumnIndex, e.RowIndex].Value.ToString();
       bool b1 = EditWord.TextBox.Text != string.Empty;
       bool b2 = EditWord.TextBox.Text != word;
-      if ( b1 && b2 && !DisplayManager.QueryOkCancel("Replace current word?") )
+      if ( b1 && b2 && !DisplayManager.QueryOkCancel("Replace current analysis?") )
         return;
       SetView(ViewMode.Analysis);
       if ( b2 )
-        EditWord.TextBox.Text = word;
+        ; //TODO
     }
 
     private void ActionNotebookClearLetter_Click(object sender, EventArgs e)
     {
       ListNotebookLetters.ClearSelection();
+      ListNotebookWords.ClearSelection();
     }
 
     private void ActionNotebookClearWord_Click(object sender, EventArgs e)
@@ -1155,7 +1181,15 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void ActionNotebookDeleteSentence_Click(object sender, EventArgs e)
     {
-
+      if ( !DisplayManager.QueryYesNo("Delete selected sentences?") ) return;
+      var indexes = ListNotebookSentences.SelectedRows.Cast<DataGridViewRow>().Select(r => r.Index).Reverse().ToList();
+      foreach ( var index in indexes )
+      {
+        var item = ( (ObjectView<TermLettriq>)ListNotebookSentences.Rows[index].DataBoundItem ).Object;
+        ListNotebookSentences.Rows.RemoveAt(index);
+        HebrewDatabase.Instance.Connection.Delete(item);
+        // TODO delete original
+      }
     }
 
     private void ActionNotebookClearFilter_Click(object sender, EventArgs e)

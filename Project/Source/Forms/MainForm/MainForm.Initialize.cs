@@ -180,9 +180,9 @@ namespace Ordisoftware.Hebrew.Letters
     /// </summary>
     private void InitializeIconsAndSound()
     {
+      SoundItem.Initialize();
       SystemManager.TryCatch(() => new System.Media.SoundPlayer(Globals.EmptySoundFilePath).Play());
       SystemManager.TryCatch(() => MediaMixer.SetApplicationVolume(Globals.ProcessId, Settings.ApplicationVolume));
-      SoundItem.Initialize();
     }
 
     /// <summary>
