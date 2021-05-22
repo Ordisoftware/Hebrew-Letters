@@ -48,12 +48,23 @@ namespace Ordisoftware.Hebrew.Letters
         Program.Settings.VacuumLastDone = Connection.Optimize(Program.Settings.VacuumLastDone);
     }
 
+    protected override void DoClose()
+    {
+      if ( Letters == null && Meanings == null ) return;
+      if ( ClearListsOnCloseAndRelease )
+      {
+        Meanings?.Clear();
+        Letters?.Clear();
+      }
+      Meanings = null;
+      Letters = null;
+    }
+
     protected override void CreateTables()
     {
       Connection.CreateTable<Letter>();
       Connection.CreateTable<Meaning>();
     }
-
 
     public override void LoadAll()
     {
@@ -69,8 +80,6 @@ namespace Ordisoftware.Hebrew.Letters
       Connection.UpdateAll(Letters);
       Connection.UpdateAll(Meanings);
       Connection.Commit();
-      Meanings.Clear();
-      Letters.Clear();
     }
 
     public void DeleteAll()
