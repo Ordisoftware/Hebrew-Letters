@@ -25,6 +25,7 @@ namespace Ordisoftware.Hebrew
 
     public List<TermHebrew> TermsHebrew { get; private set; }
     public List<TermLettriq> TermLettriqs { get; private set; }
+    public List<TermLettriqAnalysis> TermLettriqAnalyzes { get; private set; }
 
     public BindingListView<TermHebrew> TermsHebrewAsBindingList { get; private set; }
     public BindingListView<TermLettriq> TermLettriqsAsBindingList { get; private set; }
@@ -36,6 +37,7 @@ namespace Ordisoftware.Hebrew
       Interlocks.Take(nameof(TermsHebrew));
       TermsHebrew = Load(Connection.Table<TermHebrew>());
       TermLettriqs = Load(Connection.Table<TermLettriq>());
+      TermLettriqAnalyzes = Load(Connection.Table<TermLettriqAnalysis>());
       TermsHebrewAsBindingList = new BindingListView<TermHebrew>(TermsHebrew);
       TermLettriqsAsBindingList = new BindingListView<TermLettriq>(TermLettriqs);
       Instance.TermsHebrewAsBindingList.ApplySort(nameof(TermHebrew.Hebrew));
@@ -45,15 +47,17 @@ namespace Ordisoftware.Hebrew
 
     public void ReleaseLettriqs()
     {
-      if ( TermsHebrew == null && TermLettriqs == null ) return;
+      if ( TermsHebrew == null && TermLettriqs == null && TermLettriqAnalyzes == null ) return;
       Interlocks.Release(nameof(TermsHebrew));
       if ( ClearListsOnCloseAndRelease )
       {
-        TermsHebrew?.Clear();
+        TermLettriqAnalyzes?.Clear();
         TermLettriqs?.Clear();
+        TermsHebrew?.Clear();
       }
-      TermsHebrew = null;
+      TermLettriqAnalyzes = null;
       TermLettriqs = null;
+      TermsHebrew = null;
     }
 
     public void SaveLettriqs()
@@ -61,11 +65,13 @@ namespace Ordisoftware.Hebrew
       CheckConnected();
       CheckAccess(TermLettriqs, nameof(TermLettriqs));
       CheckAccess(TermsHebrew, nameof(TermsHebrew));
+      CheckAccess(TermLettriqAnalyzes, nameof(TermLettriqAnalyzes));
       Connection.BeginTransaction();
       try
       {
         Connection.UpdateAll(TermsHebrew);
         Connection.UpdateAll(TermLettriqs);
+        Connection.UpdateAll(TermLettriqAnalyzes);
         Connection.Commit();
       }
       catch
@@ -80,8 +86,11 @@ namespace Ordisoftware.Hebrew
       CheckConnected();
       CheckAccess(TermLettriqs, nameof(TermLettriqs));
       CheckAccess(TermsHebrew, nameof(TermsHebrew));
-      Connection.DeleteAll<TermLettriq>();
+      CheckAccess(TermLettriqAnalyzes, nameof(TermLettriqAnalyzes));
+      Connection.DeleteAll<TermLettriqAnalysis>();
       Connection.DeleteAll<TermHebrew>();
+      Connection.DeleteAll<TermLettriq>();
+      TermLettriqAnalyzes.Clear();
       TermLettriqs.Clear();
       TermsHebrew.Clear();
     }

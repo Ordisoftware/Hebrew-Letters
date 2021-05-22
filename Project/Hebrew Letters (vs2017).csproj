@@ -305,6 +305,7 @@
     <Compile Include="Source\Common\Hebrew\Database\Parashah.ToString.cs" />
     <Compile Include="Source\Common\Hebrew\Database\ParashotFactory.cs" />
     <Compile Include="Source\Common\Hebrew\Database\TermHebrew.cs" />
+    <Compile Include="Source\Common\Hebrew\Database\TermLettriqAnalysis.cs" />
     <Compile Include="Source\Common\Hebrew\Database\TermLettriqs.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\Books.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\BooksBounds.cs" />

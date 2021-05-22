@@ -13,6 +13,8 @@
 /// <created> 2021-05 </created>
 /// <edited> 2021-05 </edited>
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using SQLite;
 
 namespace Ordisoftware.Hebrew
@@ -26,6 +28,10 @@ namespace Ordisoftware.Hebrew
     public string ID { get; set; }
     public string TermID { get; set; }
     public string Sentence { get; set; }
+    public List<TermLettriqAnalysis> Analyzes
+      => HebrewDatabase.Instance.TermLettriqAnalyzes
+                                .Where(item => item.LettriqID == ID)
+                                .OrderBy(m => m.Position).ToList();
   }
 
 }
