@@ -223,9 +223,9 @@ namespace Ordisoftware.Hebrew.Letters
     private void ActionPreferences_Click(object sender, EventArgs e)
     {
       bool temp = Globals.IsReadOnly;
-      if ( Globals.ApplicationInstancesCount > 1 )
-        ActionPreferences.Enabled = false;
-      else
+      //if ( Globals.ApplicationInstancesCount > 1 )
+      //  ActionPreferences.Enabled = false;
+      //else
         try
         {
           Globals.IsReadOnly = true;
@@ -233,8 +233,8 @@ namespace Ordisoftware.Hebrew.Letters
           EditWord.InputMaxLength = (int)Settings.HebrewTextBoxMaxLength;
           InitializeSpecialMenus();
           InitializeDialogsDirectory();
-          ClearLettersMeanings();
-          DoAnalyse();
+          //ClearLettersMeanings();
+          //DoAnalyse();
         }
         catch ( Exception ex )
         {
@@ -517,7 +517,10 @@ namespace Ordisoftware.Hebrew.Letters
                         || ( lettriq.Analyzes.Count == combos.Count
                           && lettriq.Analyzes.All(m => (string)combos[m.Position].SelectedItem == m.Meaning) )
                   select lettriq;
-      ActionSaveTermLettriq.Enabled = !Globals.IsReadOnly && combos.All(c => c.SelectedIndex != -1) && !query.Any();
+      ActionSaveTermLettriq.Enabled = !Globals.IsReadOnly 
+                                   && word != string.Empty 
+                                   && sentence != string.Empty 
+                                   && combos.All(c => c.SelectedIndex != -1) && !query.Any();
       ActionOpenTermLettriq.Enabled = lettriqs.Count() != 0;
       ContextMenuOpenTermLettriq.Items.Clear();
       foreach ( var item in lettriqs )
@@ -1176,7 +1179,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void ActionNotebookDeleteWord_Click(object sender, EventArgs e)
     {
-
+      // TODO delete analysis, lettrisq and term
     }
 
     private void ActionNotebookDeleteSentence_Click(object sender, EventArgs e)
@@ -1186,9 +1189,10 @@ namespace Ordisoftware.Hebrew.Letters
       foreach ( var index in indexes )
       {
         var item = ( (ObjectView<TermLettriq>)ListNotebookSentences.Rows[index].DataBoundItem ).Object;
-        ListNotebookSentences.Rows.RemoveAt(index);
+        // TODO delete analysis
         HebrewDatabase.Instance.Connection.Delete(item);
-        // TODO delete original
+        // TODO delete term if lettriqs is empty
+        ListNotebookSentences.Rows.RemoveAt(index);
       }
     }
 

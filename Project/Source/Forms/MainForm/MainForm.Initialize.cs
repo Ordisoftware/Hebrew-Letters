@@ -81,9 +81,6 @@ namespace Ordisoftware.Hebrew.Letters
       InitializeTheme();
       InitializeDialogsDirectory();
       Program.Settings.CurrentView = ViewMode.Analysis;
-      EditSentence.Font = new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence);
-      EditWord.TextBox.MaxLength = (int)Settings.HebrewTextBoxMaxLength;
-      EditSentence_FontChanged(null, null);
       LoadData();
       Globals.IsReady = true;
       TimerProcesses_Tick(null, null);
@@ -111,6 +108,9 @@ namespace Ordisoftware.Hebrew.Letters
       else
         ActionReset.Visible = false;
       ToolStrip.SetDropDownOpening();
+      EditSentence.Font = new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence);
+      EditWord.TextBox.MaxLength = (int)Settings.HebrewTextBoxMaxLength;
+      EditSentence_FontChanged(null, null);
       Globals.ChronoStartingApp.Stop();
       if ( Globals.IsDatabaseUpgraded && DisplayManager.QueryYesNo(SysTranslations.AskToCheckDataAfterDbUpgraded.GetLang()) )
       {
