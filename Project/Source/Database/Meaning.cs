@@ -40,6 +40,7 @@ namespace Ordisoftware.Hebrew.Letters
 
   }
 
+  [Serializable]
   public class Meaning_No_ID : INotifyPropertyChanged
   {
 

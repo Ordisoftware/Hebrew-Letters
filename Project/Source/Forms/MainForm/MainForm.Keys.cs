@@ -62,10 +62,7 @@ namespace Ordisoftware.Hebrew.Letters
           ActionViewLetters.PerformClick();
           return true;
         case Keys.F5:
-          if ( !Globals.IsDevExecutable ) // TODO remove when ready
-            ActionViewNotebook.PerformClick();
-          else
-            break;
+          ActionViewNotebook.PerformClick();
           return true;
         // Application functions
         case Keys.F3:

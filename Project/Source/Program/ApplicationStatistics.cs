@@ -63,20 +63,21 @@ namespace Ordisoftware.Hebrew.Letters
     static private string _DBFileSize;
     static internal bool UpdateDBFileSizeRequired { get; set; } = true;
 
-    public string DBMemorySize
+    /*public string DBMemorySize
     {
       get
       {
         if ( UpdateDBMemorySizeRequired )
         {
           UpdateDBMemorySizeRequired = false;
-          _DBMemorySize = ApplicationDatabase.Instance.Letters.SizeOf().FormatBytesSize();
+          _DBMemorySize = ( ApplicationDatabase.Instance.Letters.SizeOf() +
+                            ApplicationDatabase.Instance.Meanings.SizeOf() ).FormatBytesSize();
         }
         return _DBMemorySize;
       }
     }
     static private string _DBMemorySize;
-    static internal bool UpdateDBMemorySizeRequired { get; set; } = true;
+    static internal bool UpdateDBMemorySizeRequired { get; set; } = true;*/
 
     public string DBCommonFileSize
     {
