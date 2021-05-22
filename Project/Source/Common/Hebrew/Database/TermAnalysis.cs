@@ -19,8 +19,8 @@ namespace Ordisoftware.Hebrew
 {
 
   [Serializable]
-  [Table("TermLettriqAnalysis")]
-  public class TermLettriqAnalysis
+  [Table("TermAnalysis")]
+  public class TermAnalysis
   {
     [PrimaryKey]
     public string ID { get; set; }
