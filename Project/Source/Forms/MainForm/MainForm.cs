@@ -715,14 +715,14 @@ namespace Ordisoftware.Hebrew.Letters
       int index = 0;
       foreach ( var item in SelectAnalyze.Controls.OfType<ComboBox>() )
       {
-        var meaning = new TermLettriqAnalysis
+        var meaning = new TermAnalysis
         {
           ID = Guid.NewGuid().ToString(),
           LettriqID = lettriq.ID,
           Position = index++,
           Meaning = (string)item.SelectedItem
         };
-        HebrewDatabase.Instance.TermLettriqAnalyzes.Add(meaning);
+        HebrewDatabase.Instance.TermAnalyzes.Add(meaning);
         HebrewDatabase.Instance.Connection.Insert(meaning);
       }
       HebrewDatabase.Instance.SaveLettriqs();
