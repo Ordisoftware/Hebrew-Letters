@@ -180,7 +180,7 @@ namespace Ordisoftware.Core
             result = stream.Length;
           }
         }
-        catch (Exception ex)
+        catch ( Exception ex )
         {
           ex.Manage(ShowExceptionMode.None);
           TryCatch(() => { result = System.Runtime.InteropServices.Marshal.SizeOf(instance); });
@@ -213,6 +213,15 @@ namespace Ordisoftware.Core
       {
         return true;
       }
+    }
+
+    /// <summary>
+    /// Static constructor.
+    /// </summary>
+    static SystemManager()
+    {
+      if ( Globals.PreLoadSSLCertificate )
+        LoadSSLCertificate();
     }
 
   }
