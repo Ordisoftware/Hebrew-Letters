@@ -226,24 +226,24 @@ namespace Ordisoftware.Hebrew.Letters
       //if ( Globals.ApplicationInstancesCount > 1 )
       //  ActionPreferences.Enabled = false;
       //else
-        try
-        {
-          Globals.IsReadOnly = true;
-          PreferencesForm.Run();
-          EditWord.InputMaxLength = (int)Settings.HebrewTextBoxMaxLength;
-          InitializeSpecialMenus();
-          InitializeDialogsDirectory();
-          //ClearLettersMeanings();
-          //DoAnalyse();
-        }
-        catch ( Exception ex )
-        {
-          ex.Manage();
-        }
-        finally
-        {
-          Globals.IsReadOnly = temp;
-        }
+      try
+      {
+        Globals.IsReadOnly = true;
+        PreferencesForm.Run();
+        EditWord.InputMaxLength = (int)Settings.HebrewTextBoxMaxLength;
+        InitializeSpecialMenus();
+        InitializeDialogsDirectory();
+        //ClearLettersMeanings();
+        //DoAnalyse();
+      }
+      catch ( Exception ex )
+      {
+        ex.Manage();
+      }
+      finally
+      {
+        Globals.IsReadOnly = temp;
+      }
     }
 
     #endregion
@@ -517,9 +517,9 @@ namespace Ordisoftware.Hebrew.Letters
                         || ( lettriq.Analyzes.Count == combos.Count
                           && lettriq.Analyzes.All(m => (string)combos[m.Position].SelectedItem == m.Meaning) )
                   select lettriq;
-      ActionSaveTermLettriq.Enabled = !Globals.IsReadOnly 
-                                   && word != string.Empty 
-                                   && sentence != string.Empty 
+      ActionSaveTermLettriq.Enabled = !Globals.IsReadOnly
+                                   && word != string.Empty
+                                   && sentence != string.Empty
                                    && combos.All(c => c.SelectedIndex != -1) && !query.Any();
       ActionOpenTermLettriq.Enabled = lettriqs.Count() != 0;
       ContextMenuOpenTermLettriq.Items.Clear();
@@ -1156,14 +1156,18 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void ListNotebookWord_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
     {
-      string word = ListNotebookSentences[e.ColumnIndex, e.RowIndex].Value.ToString();
+      var lettriq = ( (ObjectView<TermLettriq>)ListNotebookSentences[e.ColumnIndex, e.RowIndex].OwningRow.DataBoundItem ).Object;
+      var word = HebrewDatabase.Instance.TermsHebrew.Find(t => t.ID == lettriq.TermID);
+      if ( word == null ) return;
       bool b1 = EditWord.TextBox.Text != string.Empty;
-      bool b2 = EditWord.TextBox.Text != word;
+      bool b2 = EditWord.TextBox.Text != word.Hebrew;
       if ( b1 && b2 && !DisplayManager.QueryOkCancel("Replace current analysis?") )
         return;
       SetView(ViewMode.Analysis);
-      if ( b2 )
-        ; //TODO
+      EditWord.TextBox.Text = word.Hebrew;
+      var item = ContextMenuOpenTermLettriq.Items.Cast<ToolStripMenuItem>().Where(mi => mi.Text == lettriq.Sentence).FirstOrDefault();
+      if ( item == null ) return;
+      item.PerformClick();
     }
 
     private void ActionNotebookClearLetter_Click(object sender, EventArgs e)
