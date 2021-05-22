@@ -3832,23 +3832,11 @@
   <data name="&gt;&gt;MeaningsBindingSource.Type" xml:space="preserve">
     <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;hebrewDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>hebrewDataGridViewTextBoxColumn</value>
-  </data>
-  <data name="&gt;&gt;hebrewDataGridViewTextBoxColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;TermsBindingSource.Name" xml:space="preserve">
     <value>TermsBindingSource</value>
   </data>
   <data name="&gt;&gt;TermsBindingSource.Type" xml:space="preserve">
     <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;codeDataGridViewTextBoxColumn.Name" xml:space="preserve">
-    <value>codeDataGridViewTextBoxColumn</value>
-  </data>
-  <data name="&gt;&gt;codeDataGridViewTextBoxColumn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;sentenceDataGridViewTextBoxColumn.Name" xml:space="preserve">
     <value>sentenceDataGridViewTextBoxColumn</value>
@@ -4101,6 +4089,18 @@
   </data>
   <data name="&gt;&gt;ToolTipClipboard.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;codeDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>codeDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;codeDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;hebrewDataGridViewTextBoxColumn.Name" xml:space="preserve">
+    <value>hebrewDataGridViewTextBoxColumn</value>
+  </data>
+  <data name="&gt;&gt;hebrewDataGridViewTextBoxColumn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainForm</value>

@@ -1141,6 +1141,7 @@ namespace Ordisoftware.Hebrew.Letters
     private void ActionNotebookClearLetter_Click(object sender, EventArgs e)
     {
       ListNotebookLetters.ClearSelection();
+      ListNotebookWords.ClearSelection();
     }
 
     private void ActionNotebookClearWord_Click(object sender, EventArgs e)
@@ -1155,7 +1156,14 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void ActionNotebookDeleteSentence_Click(object sender, EventArgs e)
     {
-
+      if ( !DisplayManager.QueryYesNo("Delete selected sentences?") ) return;
+      var indexes = ListNotebookSentences.SelectedRows.Cast<DataGridViewRow>().Select(r => r.Index).Reverse().ToList();
+      foreach ( var index in indexes )
+      {
+        var item = ( (ObjectView<TermLettriq>)ListNotebookSentences.Rows[index].DataBoundItem ).Object;
+        ListNotebookSentences.Rows.RemoveAt(index);
+        HebrewDatabase.Instance.Connection.Delete(item);
+      }
     }
 
     private void ActionNotebookClearFilter_Click(object sender, EventArgs e)
