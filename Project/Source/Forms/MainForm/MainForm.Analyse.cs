@@ -100,7 +100,9 @@ namespace Ordisoftware.Hebrew.Letters
           dy += 30;
         }
         var dummy = new Label();
-        dummy.Left = 100;
+        dummy.AutoSize = false;
+        dummy.Left = 10;
+        dummy.Width = 10;
         dummy.Top = dy;
         dummy.Text = "";
         SelectAnalyze.Controls.Add(dummy);
