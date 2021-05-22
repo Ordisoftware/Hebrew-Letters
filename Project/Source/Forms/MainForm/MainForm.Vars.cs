@@ -12,7 +12,9 @@
 /// </license>
 /// <created> 2019-01 </created>
 /// <edited> 2021-05 </edited>
+using System.Collections.Generic;
 using System.Windows.Forms;
+using Equin.ApplicationFramework;
 
 namespace Ordisoftware.Hebrew.Letters
 {
@@ -45,19 +47,24 @@ namespace Ordisoftware.Hebrew.Letters
     private bool DataChanged;
 
     /// <summary>
-    /// Indicate data edition mutex.
-    /// </summary>
-    //private bool DataEditMutex;
-
-    /// <summary>
-    /// Indicate add new meaning mutex.
-    /// </summary>
-    //private bool DataAddNewRowMutex;
-
-    /// <summary>
     /// Indicate if terms tables are readonly, else writable.
     /// </summary>
     private bool IsTermsReadOnly;
+
+    public ApplicationDatabase DBApp = ApplicationDatabase.Instance;
+    public HebrewDatabase DBHebrew = HebrewDatabase.Instance;
+
+    public BindingListView<Letter> LettersAsBindingList => ApplicationDatabase.Instance.LettersAsBindingList;
+
+    public List<Letter> Letters => ApplicationDatabase.Instance.Letters;
+    public List<Meaning> Meanings => ApplicationDatabase.Instance.Meanings;
+
+    public List<TermHebrew> TermsHebrew => HebrewDatabase.Instance.TermsHebrew;
+    public List<TermLettriq> TermLettriqs => HebrewDatabase.Instance.TermLettriqs;
+    public List<TermAnalysis> TermAnalyzes => HebrewDatabase.Instance.TermAnalyzes;
+
+    public BindingListView<TermHebrew> TermsHebrewAsBindingList => HebrewDatabase.Instance.TermsHebrewAsBindingList;
+    public BindingListView<TermLettriq> TermLettriqsAsBindingList => HebrewDatabase.Instance.TermLettriqsAsBindingList;
 
   }
 

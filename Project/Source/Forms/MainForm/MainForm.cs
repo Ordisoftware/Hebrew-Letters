@@ -226,24 +226,24 @@ namespace Ordisoftware.Hebrew.Letters
       //if ( Globals.ApplicationInstancesCount > 1 )
       //  ActionPreferences.Enabled = false;
       //else
-      try
-      {
-        Globals.IsReadOnly = true;
-        PreferencesForm.Run();
-        EditWord.InputMaxLength = (int)Settings.HebrewTextBoxMaxLength;
-        InitializeSpecialMenus();
-        InitializeDialogsDirectory();
-        //ClearLettersMeanings();
-        //DoAnalyse();
-      }
-      catch ( Exception ex )
-      {
-        ex.Manage();
-      }
-      finally
-      {
-        Globals.IsReadOnly = temp;
-      }
+        try
+        {
+          Globals.IsReadOnly = true;
+          PreferencesForm.Run();
+          EditWord.InputMaxLength = (int)Settings.HebrewTextBoxMaxLength;
+          InitializeSpecialMenus();
+          InitializeDialogsDirectory();
+          //ClearLettersMeanings();
+          //DoAnalyse();
+        }
+        catch ( Exception ex )
+        {
+          ex.Manage();
+        }
+        finally
+        {
+          Globals.IsReadOnly = temp;
+        }
     }
 
     #endregion
@@ -457,8 +457,8 @@ namespace Ordisoftware.Hebrew.Letters
         SetView(tempView);
         return;
       }
-      LettersBindingSource.Position = LettersBindingSource.IndexOf(ApplicationDatabase.Instance.Letters.Find(l => l.Code == code));
-      int pos = MeaningsBindingSource.IndexOf(ApplicationDatabase.Instance.Meanings.Find(m => m.Text == meaning));
+      LettersBindingSource.Position = LettersBindingSource.IndexOf(DBApp.Letters.Find(l => l.Code == code));
+      int pos = MeaningsBindingSource.IndexOf(DBApp.Meanings.Find(m => m.Text == meaning));
       if ( pos >= 0 )
       {
         MeaningsBindingSource.Position = pos;
@@ -508,7 +508,7 @@ namespace Ordisoftware.Hebrew.Letters
       var word = EditWord.TextBox.Text;
       var sentence = EditSentence.Text.Trim();
       var combos = SelectAnalyze.Controls.OfType<ComboBox>().ToList();
-      var lettriqs = from term in HebrewDatabase.Instance.TermsHebrew
+      var lettriqs = from term in DBHebrew.TermsHebrew
                      from lettriq in term.Lettriqs
                      where term.Hebrew == word
                      select lettriq;
@@ -517,9 +517,9 @@ namespace Ordisoftware.Hebrew.Letters
                         || ( lettriq.Analyzes.Count == combos.Count
                           && lettriq.Analyzes.All(m => (string)combos[m.Position].SelectedItem == m.Meaning) )
                   select lettriq;
-      ActionSaveTermLettriq.Enabled = !Globals.IsReadOnly
-                                   && word != string.Empty
-                                   && sentence != string.Empty
+      ActionSaveTermLettriq.Enabled = !Globals.IsReadOnly 
+                                   && word != string.Empty 
+                                   && sentence != string.Empty 
                                    && combos.All(c => c.SelectedIndex != -1) && !query.Any();
       ActionOpenTermLettriq.Enabled = lettriqs.Count() != 0;
       ContextMenuOpenTermLettriq.Items.Clear();
@@ -695,7 +695,7 @@ namespace Ordisoftware.Hebrew.Letters
     private void ActionSaveTermLettriq_Click(object sender, EventArgs e)
     {
       string hebrew = EditWord.TextBox.Text;
-      var term = HebrewDatabase.Instance.TermsHebrew.Find(t => t.Hebrew == hebrew);
+      var term = DBHebrew.TermsHebrew.Find(t => t.Hebrew == hebrew);
       if ( term == null )
       {
         term = new TermHebrew
@@ -704,8 +704,8 @@ namespace Ordisoftware.Hebrew.Letters
           Hebrew = hebrew,
           Unicode = HebrewAlphabet.ToUnicode(hebrew)
         };
-        HebrewDatabase.Instance.TermsHebrew.Add(term);
-        HebrewDatabase.Instance.Connection.Insert(term);
+        DBHebrew.TermsHebrew.Add(term);
+        DBHebrew.Connection.Insert(term);
       }
       var lettriq = new TermLettriq
       {
@@ -713,8 +713,8 @@ namespace Ordisoftware.Hebrew.Letters
         TermID = term.ID,
         Sentence = EditSentence.Text
       };
-      HebrewDatabase.Instance.TermLettriqs.Add(lettriq);
-      HebrewDatabase.Instance.Connection.Insert(lettriq);
+      DBHebrew.TermLettriqs.Add(lettriq);
+      DBHebrew.Connection.Insert(lettriq);
       int index = 0;
       foreach ( var item in SelectAnalyze.Controls.OfType<ComboBox>() )
       {
@@ -725,10 +725,10 @@ namespace Ordisoftware.Hebrew.Letters
           Position = index++,
           Meaning = (string)item.SelectedItem
         };
-        HebrewDatabase.Instance.TermAnalyzes.Add(meaning);
-        HebrewDatabase.Instance.Connection.Insert(meaning);
+        DBHebrew.TermAnalyzes.Add(meaning);
+        DBHebrew.Connection.Insert(meaning);
       }
-      HebrewDatabase.Instance.SaveLettriqs();
+      DBHebrew.SaveLettriqs();
       UpdateAnalysisControls();
     }
 
@@ -811,7 +811,7 @@ namespace Ordisoftware.Hebrew.Letters
       {
         DisplayManager.ShowError($"DB Index error.{Globals.NL2}{SysTranslations.ApplicationMustExit.GetLang()}");
         e.Exception.Manage();
-        ApplicationDatabase.Instance.Connection.Rollback();
+        DBApp.Connection.Rollback();
         Application.Exit();
       }
       else
@@ -822,7 +822,7 @@ namespace Ordisoftware.Hebrew.Letters
     {
       if ( !Globals.IsReady ) return;
       e.Exception.Manage();
-      ApplicationDatabase.Instance.Connection.Rollback();
+      DBApp.Connection.Rollback();
     }
 
     #endregion
@@ -838,7 +838,7 @@ namespace Ordisoftware.Hebrew.Letters
         var letter = ( (ObjectView<Letter>)SelectLetter.SelectedItem ).Object;
         ActionAddMeaning.Enabled = !Globals.IsReadOnly && !forceEditMode;
         ActionDeleteMeaning.Enabled = !Globals.IsReadOnly && !forceEditMode && letter.Meanings.Count > 0;
-        ActionSave.Enabled = ( ApplicationDatabase.Instance.IsInTransaction && !forceEditMode ) || ( forceEditMode && sender is TextBox );
+        ActionSave.Enabled = ( DBApp.IsInTransaction && !forceEditMode ) || ( forceEditMode && sender is TextBox );
         ActionUndo.Enabled = ActionSave.Enabled;
         Globals.AllowClose = !ActionSave.Enabled && !forceEditMode;
         SelectLetter.Enabled = Globals.AllowClose;
@@ -863,10 +863,10 @@ namespace Ordisoftware.Hebrew.Letters
     private void ActionSave_Click(object sender, EventArgs e)
     {
       if ( Globals.IsReadOnly )
-        ApplicationDatabase.Instance.LoadAll();
+        DBApp.LoadAll();
       else
       {
-        ApplicationDatabase.Instance.SaveAll();
+        DBApp.SaveAll();
         ApplicationStatistics.UpdateDBFileSizeRequired = true;
         //ApplicationStatistics.UpdateDBMemorySizeRequired = true;
         DataChanged = true;
@@ -879,8 +879,8 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void ActionUndo_Click(object sender, EventArgs e)
     {
-      ApplicationDatabase.Instance.LoadAll();
-      LettersBindingSource.DataSource = ApplicationDatabase.Instance.LettersAsBindingList;
+      DBApp.LoadAll();
+      LettersBindingSource.DataSource = DBApp.LettersAsBindingList;
       UpdateDataControls(sender);
       EditMeanings.Focus();
     }
@@ -890,9 +890,9 @@ namespace Ordisoftware.Hebrew.Letters
       if ( DisplayManager.QueryYesNo(SysTranslations.AskToResetData.GetLang()) )
       {
         string word = EditWord.TextBox.Text;
-        ApplicationDatabase.Instance.CreateDataIfNotExist(true);
-        ApplicationDatabase.Instance.LoadAll();
-        LettersBindingSource.DataSource = ApplicationDatabase.Instance.LettersAsBindingList;
+        DBApp.CreateDataIfNotExist(true);
+        DBApp.LoadAll();
+        LettersBindingSource.DataSource = DBApp.LettersAsBindingList;
         ActionClear.PerformClick();
         ActionReset.PerformClick();
         EditWord.TextBox.Text = word;
@@ -975,7 +975,7 @@ namespace Ordisoftware.Hebrew.Letters
       var prop = type.GetProperty(dataname);
       string value = (string)prop.GetValue(letter);
       if ( textbox.Text != value )
-        ApplicationDatabase.Instance.BeginTransaction();
+        DBApp.BeginTransaction();
       IsLetterEditing = false;
       UpdateDataControls(sender);
     }
@@ -992,9 +992,9 @@ namespace Ordisoftware.Hebrew.Letters
       meaning.ID = Guid.NewGuid().ToString();
       meaning.LetterCode = SelectLetter.Text;
       meaning.Text = text;
-      ApplicationDatabase.Instance.BeginTransaction();
-      ApplicationDatabase.Instance.Connection.Insert(meaning);
-      ApplicationDatabase.Instance.Meanings.Add(meaning);
+      DBApp.BeginTransaction();
+      DBApp.Connection.Insert(meaning);
+      DBApp.Meanings.Add(meaning);
       MeaningsBindingSource.Add(meaning);
       MeaningsBindingSource.MoveLast();
       UpdateDataControls(sender);
@@ -1005,9 +1005,9 @@ namespace Ordisoftware.Hebrew.Letters
       if ( MeaningsBindingSource.Count < 1 ) return;
       int index = MeaningsBindingSource.Position;
       var meaning = (Meaning)MeaningsBindingSource.Current;
-      ApplicationDatabase.Instance.BeginTransaction();
-      ApplicationDatabase.Instance.Connection.Delete(meaning);
-      ApplicationDatabase.Instance.Meanings.Remove(meaning);
+      DBApp.BeginTransaction();
+      DBApp.Connection.Delete(meaning);
+      DBApp.Meanings.Remove(meaning);
       MeaningsBindingSource.RemoveCurrent();
       int count = MeaningsBindingSource.Count;
       if ( count > 1 )
@@ -1056,7 +1056,7 @@ namespace Ordisoftware.Hebrew.Letters
     {
       if ( !Globals.IsReady ) return;
       if ( Globals.IsReadOnly ) return;
-      ApplicationDatabase.Instance.BeginTransaction();
+      DBApp.BeginTransaction();
       UpdateDataControls(sender);
     }
 
@@ -1120,16 +1120,16 @@ namespace Ordisoftware.Hebrew.Letters
     private void ListNotebookLetters_SelectionChanged(object sender, EventArgs e)
     {
       if ( !Globals.IsReady ) return;
-      if ( HebrewDatabase.Instance.TermsHebrewAsBindingList == null ) return;
+      if ( DBHebrew.TermsHebrewAsBindingList == null ) return;
       if ( ListNotebookLetters.SelectedCells.Count > 0 )
       {
         string code = (string)ListNotebookLetters.SelectedCells[0].Value;
-        HebrewDatabase.Instance.TermsHebrewAsBindingList.ApplyFilter(w => w.Hebrew.EndsWith(code));
+        DBHebrew.TermsHebrewAsBindingList.ApplyFilter(w => w.Hebrew.EndsWith(code));
         if ( ListNotebookWords.Rows.Count > 0 )
           ListNotebookWords.Rows[0].Selected = true;
       }
       else
-        HebrewDatabase.Instance.TermsHebrewAsBindingList.RemoveFilter();
+        DBHebrew.TermsHebrewAsBindingList.RemoveFilter();
       ListNotebookWords.ClearSelection();
       ListNotebookWords_SelectionChanged(null, null);
     }
@@ -1139,25 +1139,25 @@ namespace Ordisoftware.Hebrew.Letters
     private void ListNotebookWords_SelectionChanged(object sender, EventArgs e)
     {
       if ( !Globals.IsReady ) return;
-      if ( HebrewDatabase.Instance.TermLettriqsAsBindingList == null ) return;
+      if ( DBHebrew.TermLettriqsAsBindingList == null ) return;
       if ( ListNotebookWords.SelectedRows.Count > 0 )
       {
 
         string id = ( (ObjectView<TermHebrew>)ListNotebookWords.SelectedRows[0].DataBoundItem ).Object.ID;
-        HebrewDatabase.Instance.TermLettriqsAsBindingList.ApplyFilter(s => s.TermID == id);
+        DBHebrew.TermLettriqsAsBindingList.ApplyFilter(s => s.TermID == id);
       }
       else
-      if ( HebrewDatabase.Instance.TermsHebrewAsBindingList.Count == 0 )
-        HebrewDatabase.Instance.TermLettriqsAsBindingList.ApplyFilter(s => s.TermID == "");
+      if ( DBHebrew.TermsHebrewAsBindingList.Count == 0 )
+        DBHebrew.TermLettriqsAsBindingList.ApplyFilter(s => s.TermID == "");
       else
-        HebrewDatabase.Instance.TermLettriqsAsBindingList.RemoveFilter();
+        DBHebrew.TermLettriqsAsBindingList.RemoveFilter();
       ListNotebookSentences.ClearSelection();
     }
 
     private void ListNotebookWord_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
     {
       var lettriq = ( (ObjectView<TermLettriq>)ListNotebookSentences[e.ColumnIndex, e.RowIndex].OwningRow.DataBoundItem ).Object;
-      var word = HebrewDatabase.Instance.TermsHebrew.Find(t => t.ID == lettriq.TermID);
+      var word = DBHebrew.TermsHebrew.Find(t => t.ID == lettriq.TermID);
       if ( word == null ) return;
       bool b1 = EditWord.TextBox.Text != string.Empty;
       bool b2 = EditWord.TextBox.Text != word.Hebrew;
@@ -1194,7 +1194,7 @@ namespace Ordisoftware.Hebrew.Letters
       {
         var item = ( (ObjectView<TermLettriq>)ListNotebookSentences.Rows[index].DataBoundItem ).Object;
         // TODO delete analysis
-        HebrewDatabase.Instance.Connection.Delete(item);
+        DBHebrew.Connection.Delete(item);
         // TODO delete term if lettriqs is empty
         ListNotebookSentences.Rows.RemoveAt(index);
       }
@@ -1210,10 +1210,10 @@ namespace Ordisoftware.Hebrew.Letters
       if ( EditNotebookFilterSentence.Text != string.Empty )
       {
         string filter = EditNotebookFilterSentence.Text;
-        HebrewDatabase.Instance.TermLettriqsAsBindingList.ApplyFilter(l => CultureInfo.CurrentCulture.CompareInfo.IndexOf(l.Sentence, filter, CompareOptions.IgnoreCase) >= 0);
+        DBHebrew.TermLettriqsAsBindingList.ApplyFilter(l => CultureInfo.CurrentCulture.CompareInfo.IndexOf(l.Sentence, filter, CompareOptions.IgnoreCase) >= 0);
       }
       else
-        HebrewDatabase.Instance.TermLettriqsAsBindingList.RemoveFilter();
+        DBHebrew.TermLettriqsAsBindingList.RemoveFilter();
     }
 
     #endregion
