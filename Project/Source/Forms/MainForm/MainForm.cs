@@ -507,7 +507,7 @@ namespace Ordisoftware.Hebrew.Letters
       ActionSearchOnline.Enabled = enabled;
       var listCombos = SelectAnalyze.Controls.OfType<ComboBox>();
       var sentence = EditSentence.Text.Trim();
-      ActionSaveTermLettriq.Enabled = sentence != string.Empty
+      ActionSaveTermLettriq.Enabled = !Globals.IsReadOnly && sentence != string.Empty
                                    && listCombos.Count() > 0 && listCombos.All(c => c.SelectedIndex != -1)
                                    && HebrewDatabase.Instance.TermLettriqs.All(l => string.Compare(l.Sentence, sentence, true) != 0);
       var listTerms = from term in HebrewDatabase.Instance.TermsHebrew

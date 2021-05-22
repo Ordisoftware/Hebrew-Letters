@@ -84,9 +84,9 @@ namespace Ordisoftware.Hebrew.Letters
       EditSentence.Font = new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence);
       EditWord.TextBox.MaxLength = (int)Settings.HebrewTextBoxMaxLength;
       EditSentence_FontChanged(null, null);
-      TimerProcesses_Tick(null, null);
       LoadData();
       Globals.IsReady = true;
+      TimerProcesses_Tick(null, null);
       SelectLetter_SelectedIndexChanged(SelectLetter, EventArgs.Empty);
       LettersNavigator.Refresh();
       UpdateDataControls(SelectLetter);
@@ -253,7 +253,10 @@ namespace Ordisoftware.Hebrew.Letters
       foreach ( DataGridViewRow row in EditMeanings.Rows )
         row.DefaultCellStyle.BackColor = Settings.ColorSentenceTextBox;
       // Notebook
-      // TODO set colors
+      ListNotebookLetters.DefaultCellStyle.BackColor = Settings.ColorLettersPanel;
+      ListNotebookWords.DefaultCellStyle.BackColor = Settings.ColorHebrewWordTextBox;
+      ListNotebookLetters.SetBackColor(Settings.ColorLettersPanel);
+      ListNotebookWords.SetBackColor(Settings.ColorHebrewWordTextBox);
     }
 
     /// <summary>
