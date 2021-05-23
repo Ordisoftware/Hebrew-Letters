@@ -2319,7 +2319,7 @@
     <value>63, 35</value>
   </data>
   <data name="ListNotebookWords.Size" type="System.Drawing.Size, System.Drawing">
-    <value>117, 494</value>
+    <value>137, 494</value>
   </data>
   <data name="ListNotebookWords.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -2387,20 +2387,38 @@
   <data name="&gt;&gt;ListNotebookLetters.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="ActionNotebookClearLetter.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
   <data name="ActionNotebookClearLetter.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
   </data>
+  <data name="ActionNotebookClearLetter.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAr9JREFUOE+FkXtIk1EYxg+leEmFCiLtj5hJCoFUCqm1RJQSyRtigd0JqT+KJM2Q
+        xFuapXYxQyvLUvKyrNRk06Wbi83VvCSbDl1uOnXN6bym31KDnvZtCw0Tf3A4nMPveXnPe4h/JsfnRImU
+        FVUkUUcWiBH1WIzw/FacKRLjeIEIwbktOJJjXHd5CMrmq/1vN7OCMj/6kL8wUzkYXgQeSfRg989BMExB
+        MEShZdgA3iAFtmIaNd0TeCXRIP5dD0qNe0BGIyxxQvxS2KAh50uxLbEOe7JawCxoR3iZAtGVKgQ+68L+
+        XBF2pjTC9vIbqCd/4nB6w78FdEtA6wiFJ59HEFfbh4gSKUJL+xBVrkTICykuVMqQUCPH408q1MvGwExf
+        0cGBhHJe2yTQNws0a35BYdw187/RoTVAoqEgHzNAoJxGoWgEvG8TKO/UwjvpLc8SN+EamtfEre6eQd3g
+        Eu50UEgTTSGhSYdLH4YQw+pH2Es5MpvUyOMPwDO5lktnzNFlGD6JFdzCtmk8ly8gr8uAtNZpPOiYQbPO
+        +LwpoFg6C4/k+gbaNUdWwzh0g8XNEk4iX7aIrPZ5tM4A457OmI/wRlkxi087ZpWQUQ+H5TmsgMFMYnEu
+        vh/ArTYK4jnjbGwIfmSnYPzYPpXFIVp3h7kvLnYcy3EVDN+b9aCMX/uwfQpVVS3oJQRjV2OhD/MWft9t
+        B4WL7QztmfX/wExl46ux/cjXCpyq6KVb9RITotCejcZooCdCNpIAs7kGB69X8u6JdDhZPYAcsR6zLsRv
+        NuEcemwJVNttoHRzirGoa+Lqfa2cW9iph+B+PhYzrkBz1BdCGyLgb9rAVu6ww5Cb0y6LuyaMemG3dCHY
+        AxNxsZBZEfopdIhR5midThcxWevgrtlC0ONojXhCTlvuaLY+tbdK7Hc2DXNdvCzL3nRaZjMhZO8f+6Os
+        cT8SqAMAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="ActionNotebookClearLetter.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 6</value>
+    <value>0, 4</value>
   </data>
   <data name="ActionNotebookClearLetter.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 23</value>
+    <value>26, 26</value>
   </data>
   <data name="ActionNotebookClearLetter.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
-  </data>
-  <data name="ActionNotebookClearLetter.Text" xml:space="preserve">
-    <value>-</value>
   </data>
   <data name="&gt;&gt;ActionNotebookClearLetter.Name" xml:space="preserve">
     <value>ActionNotebookClearLetter</value>
@@ -2414,20 +2432,38 @@
   <data name="&gt;&gt;ActionNotebookClearLetter.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="ActionNotebookClearWord.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
   <data name="ActionNotebookClearWord.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
   </data>
+  <data name="ActionNotebookClearWord.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAr9JREFUOE+FkXtIk1EYxg+leEmFCiLtj5hJCoFUCqm1RJQSyRtigd0JqT+KJM2Q
+        xFuapXYxQyvLUvKyrNRk06Wbi83VvCSbDl1uOnXN6bym31KDnvZtCw0Tf3A4nMPveXnPe4h/JsfnRImU
+        FVUkUUcWiBH1WIzw/FacKRLjeIEIwbktOJJjXHd5CMrmq/1vN7OCMj/6kL8wUzkYXgQeSfRg989BMExB
+        MEShZdgA3iAFtmIaNd0TeCXRIP5dD0qNe0BGIyxxQvxS2KAh50uxLbEOe7JawCxoR3iZAtGVKgQ+68L+
+        XBF2pjTC9vIbqCd/4nB6w78FdEtA6wiFJ59HEFfbh4gSKUJL+xBVrkTICykuVMqQUCPH408q1MvGwExf
+        0cGBhHJe2yTQNws0a35BYdw187/RoTVAoqEgHzNAoJxGoWgEvG8TKO/UwjvpLc8SN+EamtfEre6eQd3g
+        Eu50UEgTTSGhSYdLH4YQw+pH2Es5MpvUyOMPwDO5lktnzNFlGD6JFdzCtmk8ly8gr8uAtNZpPOiYQbPO
+        +LwpoFg6C4/k+gbaNUdWwzh0g8XNEk4iX7aIrPZ5tM4A457OmI/wRlkxi087ZpWQUQ+H5TmsgMFMYnEu
+        vh/ArTYK4jnjbGwIfmSnYPzYPpXFIVp3h7kvLnYcy3EVDN+b9aCMX/uwfQpVVS3oJQRjV2OhD/MWft9t
+        B4WL7QztmfX/wExl46ux/cjXCpyq6KVb9RITotCejcZooCdCNpIAs7kGB69X8u6JdDhZPYAcsR6zLsRv
+        NuEcemwJVNttoHRzirGoa+Lqfa2cW9iph+B+PhYzrkBz1BdCGyLgb9rAVu6ww5Cb0y6LuyaMemG3dCHY
+        AxNxsZBZEfopdIhR5midThcxWevgrtlC0ONojXhCTlvuaLY+tbdK7Hc2DXNdvCzL3nRaZjMhZO8f+6Os
+        cT8SqAMAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="ActionNotebookClearWord.Location" type="System.Drawing.Point, System.Drawing">
-    <value>63, 6</value>
+    <value>63, 4</value>
   </data>
   <data name="ActionNotebookClearWord.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 23</value>
+    <value>26, 26</value>
   </data>
   <data name="ActionNotebookClearWord.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
-  </data>
-  <data name="ActionNotebookClearWord.Text" xml:space="preserve">
-    <value>-</value>
   </data>
   <data name="&gt;&gt;ActionNotebookClearWord.Name" xml:space="preserve">
     <value>ActionNotebookClearWord</value>
@@ -2441,23 +2477,43 @@
   <data name="&gt;&gt;ActionNotebookClearWord.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="ActionNotebookDeleteWord.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="ActionNotebookDeleteWord.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
   <data name="ActionNotebookDeleteWord.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
+  </data>
+  <data name="ActionNotebookDeleteWord.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAndJREFUOE99kNtOGlEUhr3vW/QNmiZ9ll5Yoj3YpN72CXph4pGeUAEhVlKMJ4hY
+        owMMzMipWMRQGB1AYTgUBgSh1cpp4O8eMxclxX7Jn72y9vr/vbKH/ua9hX00t8FMzKy7HNPrdGCGaHbD
+        5Z9bdwVkzZL+2y1mQp5TLP2QgRiXqfyqXgONDpAoA75UF1+FDrL13q2OksWKetMdUyz9aKxs3slLiOS6
+        KNRATgn0aRNM8gbBzA1ciQboRAczq468YulHu30Q/Xl1nZa63RYGIElS6zwnpic/70cVSz86m4fjM2X/
+        lu/ME+IFtlTKsSfpLP343S72w1knnxEZKhDxTZopTrH0Iwec/6j4qLDojmdL7nq9QhcvLqkXOieeae0o
+        VutOd4jzTt0ZsOPl0sWa9431W1ml2ceTjxSeLtgxbnDhFdEIqdnwiWdq9T8Bglg/GF9mulQoESmVSq5s
+        QaTH9E6MkS3yYolhjk7u3kD/xRPl0qJvfi92mi2WKZWGglir7Y7KL0cLDlsoFXMextgps33wJy7ZfPF4
+        Kl9lw6nOmJ7GS6JcLovQqQCrn8drE4t2qylNm+28Yuln2cag1W5jdNGJcaP7Vs/J6iMLDqjm7VgLJFC4
+        qOLD2h4USz9rdAjBCI94qkCMNOQt0OvgptnE1e8mKpd1OALfYdjxDA4wb1gQ5VM4Ttch9XpQLdJICjn4
+        +QK8iSrylSsEjjmYN62DA1Y+rcBi3YYgCIjzPM6TZ9BoFrFlsSIYPCS9OGy2HZhMpsEBw8PDI2q1mtJq
+        tQ29Xg/Dkh5GowFGg4HUS9DptA35Xp5TLP9wj+g+0QOihwMk9+V7eY4wNPQHLYoLQROQlHYAAAAASUVO
+        RK5CYII=
+</value>
   </data>
   <data name="ActionNotebookDeleteWord.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="ActionNotebookDeleteWord.Location" type="System.Drawing.Point, System.Drawing">
-    <value>92, 6</value>
+    <value>174, 4</value>
   </data>
   <data name="ActionNotebookDeleteWord.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 23</value>
+    <value>26, 26</value>
   </data>
   <data name="ActionNotebookDeleteWord.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
-  </data>
-  <data name="ActionNotebookDeleteWord.Text" xml:space="preserve">
-    <value>X</value>
   </data>
   <data name="&gt;&gt;ActionNotebookDeleteWord.Name" xml:space="preserve">
     <value>ActionNotebookDeleteWord</value>
@@ -2478,7 +2534,7 @@
     <value>0, 0</value>
   </data>
   <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 35</value>
+    <value>200, 35</value>
   </data>
   <data name="panel2.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -2508,7 +2564,7 @@
     <value>0</value>
   </data>
   <data name="SplitContainerNotebook.Panel1MinSize" type="System.Int32, mscorlib">
-    <value>180</value>
+    <value>200</value>
   </data>
   <data name="sentenceDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
     <value>Sentence</value>
@@ -2523,7 +2579,7 @@
     <value>0, 35</value>
   </data>
   <data name="ListNotebookSentences.Size" type="System.Drawing.Size, System.Drawing">
-    <value>423, 494</value>
+    <value>403, 494</value>
   </data>
   <data name="ListNotebookSentences.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -2540,53 +2596,41 @@
   <data name="&gt;&gt;ListNotebookSentences.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="ActionNotebookDeleteSentence.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
-  </data>
-  <data name="ActionNotebookDeleteSentence.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 5</value>
-  </data>
-  <data name="ActionNotebookDeleteSentence.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 23</value>
-  </data>
-  <data name="ActionNotebookDeleteSentence.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="ActionNotebookDeleteSentence.Text" xml:space="preserve">
-    <value>X</value>
-  </data>
-  <data name="&gt;&gt;ActionNotebookDeleteSentence.Name" xml:space="preserve">
-    <value>ActionNotebookDeleteSentence</value>
-  </data>
-  <data name="&gt;&gt;ActionNotebookDeleteSentence.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ActionNotebookDeleteSentence.Parent" xml:space="preserve">
-    <value>panel3</value>
-  </data>
-  <data name="&gt;&gt;ActionNotebookDeleteSentence.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="ActionNotebookClearFilter.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
+  <data name="ActionNotebookClearFilter.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
   </data>
   <data name="ActionNotebookClearFilter.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
+  </data>
+  <data name="ActionNotebookClearFilter.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAr9JREFUOE+FkXtIk1EYxg+leEmFCiLtj5hJCoFUCqm1RJQSyRtigd0JqT+KJM2Q
+        xFuapXYxQyvLUvKyrNRk06Wbi83VvCSbDl1uOnXN6bym31KDnvZtCw0Tf3A4nMPveXnPe4h/JsfnRImU
+        FVUkUUcWiBH1WIzw/FacKRLjeIEIwbktOJJjXHd5CMrmq/1vN7OCMj/6kL8wUzkYXgQeSfRg989BMExB
+        MEShZdgA3iAFtmIaNd0TeCXRIP5dD0qNe0BGIyxxQvxS2KAh50uxLbEOe7JawCxoR3iZAtGVKgQ+68L+
+        XBF2pjTC9vIbqCd/4nB6w78FdEtA6wiFJ59HEFfbh4gSKUJL+xBVrkTICykuVMqQUCPH408q1MvGwExf
+        0cGBhHJe2yTQNws0a35BYdw187/RoTVAoqEgHzNAoJxGoWgEvG8TKO/UwjvpLc8SN+EamtfEre6eQd3g
+        Eu50UEgTTSGhSYdLH4YQw+pH2Es5MpvUyOMPwDO5lktnzNFlGD6JFdzCtmk8ly8gr8uAtNZpPOiYQbPO
+        +LwpoFg6C4/k+gbaNUdWwzh0g8XNEk4iX7aIrPZ5tM4A457OmI/wRlkxi087ZpWQUQ+H5TmsgMFMYnEu
+        vh/ArTYK4jnjbGwIfmSnYPzYPpXFIVp3h7kvLnYcy3EVDN+b9aCMX/uwfQpVVS3oJQRjV2OhD/MWft9t
+        B4WL7QztmfX/wExl46ux/cjXCpyq6KVb9RITotCejcZooCdCNpIAs7kGB69X8u6JdDhZPYAcsR6zLsRv
+        NuEcemwJVNttoHRzirGoa+Lqfa2cW9iph+B+PhYzrkBz1BdCGyLgb9rAVu6ww5Cb0y6LuyaMemG3dCHY
+        AxNxsZBZEfopdIhR5midThcxWevgrtlC0ONojXhCTlvuaLY+tbdK7Hc2DXNdvCzL3nRaZjMhZO8f+6Os
+        cT8SqAMAAAAASUVORK5CYII=
+</value>
   </data>
   <data name="ActionNotebookClearFilter.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="ActionNotebookClearFilter.Location" type="System.Drawing.Point, System.Drawing">
-    <value>400, 6</value>
+    <value>206, 4</value>
   </data>
   <data name="ActionNotebookClearFilter.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 23</value>
+    <value>26, 26</value>
   </data>
   <data name="ActionNotebookClearFilter.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
-  </data>
-  <data name="ActionNotebookClearFilter.Text" xml:space="preserve">
-    <value>X</value>
   </data>
   <data name="&gt;&gt;ActionNotebookClearFilter.Name" xml:space="preserve">
     <value>ActionNotebookClearFilter</value>
@@ -2598,13 +2642,10 @@
     <value>panel3</value>
   </data>
   <data name="&gt;&gt;ActionNotebookClearFilter.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="EditNotebookFilterSentence.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
+    <value>0</value>
   </data>
   <data name="EditNotebookFilterSentence.Location" type="System.Drawing.Point, System.Drawing">
-    <value>194, 8</value>
+    <value>0, 8</value>
   </data>
   <data name="EditNotebookFilterSentence.Size" type="System.Drawing.Size, System.Drawing">
     <value>200, 20</value>
@@ -2622,6 +2663,53 @@
     <value>panel3</value>
   </data>
   <data name="&gt;&gt;EditNotebookFilterSentence.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="ActionNotebookDeleteSentence.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="ActionNotebookDeleteSentence.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="ActionNotebookDeleteSentence.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
+  </data>
+  <data name="ActionNotebookDeleteSentence.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAndJREFUOE99kNtOGlEUhr3vW/QNmiZ9ll5Yoj3YpN72CXph4pGeUAEhVlKMJ4hY
+        owMMzMipWMRQGB1AYTgUBgSh1cpp4O8eMxclxX7Jn72y9vr/vbKH/ua9hX00t8FMzKy7HNPrdGCGaHbD
+        5Z9bdwVkzZL+2y1mQp5TLP2QgRiXqfyqXgONDpAoA75UF1+FDrL13q2OksWKetMdUyz9aKxs3slLiOS6
+        KNRATgn0aRNM8gbBzA1ciQboRAczq468YulHu30Q/Xl1nZa63RYGIElS6zwnpic/70cVSz86m4fjM2X/
+        lu/ME+IFtlTKsSfpLP343S72w1knnxEZKhDxTZopTrH0Iwec/6j4qLDojmdL7nq9QhcvLqkXOieeae0o
+        VutOd4jzTt0ZsOPl0sWa9431W1ml2ceTjxSeLtgxbnDhFdEIqdnwiWdq9T8Bglg/GF9mulQoESmVSq5s
+        QaTH9E6MkS3yYolhjk7u3kD/xRPl0qJvfi92mi2WKZWGglir7Y7KL0cLDlsoFXMextgps33wJy7ZfPF4
+        Kl9lw6nOmJ7GS6JcLovQqQCrn8drE4t2qylNm+28Yuln2cag1W5jdNGJcaP7Vs/J6iMLDqjm7VgLJFC4
+        qOLD2h4USz9rdAjBCI94qkCMNOQt0OvgptnE1e8mKpd1OALfYdjxDA4wb1gQ5VM4Ttch9XpQLdJICjn4
+        +QK8iSrylSsEjjmYN62DA1Y+rcBi3YYgCIjzPM6TZ9BoFrFlsSIYPCS9OGy2HZhMpsEBw8PDI2q1mtJq
+        tQ29Xg/Dkh5GowFGg4HUS9DptA35Xp5TLP9wj+g+0QOihwMk9+V7eY4wNPQHLYoLQROQlHYAAAAASUVO
+        RK5CYII=
+</value>
+  </data>
+  <data name="ActionNotebookDeleteSentence.Location" type="System.Drawing.Point, System.Drawing">
+    <value>377, 4</value>
+  </data>
+  <data name="ActionNotebookDeleteSentence.Size" type="System.Drawing.Size, System.Drawing">
+    <value>26, 26</value>
+  </data>
+  <data name="ActionNotebookDeleteSentence.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;ActionNotebookDeleteSentence.Name" xml:space="preserve">
+    <value>ActionNotebookDeleteSentence</value>
+  </data>
+  <data name="&gt;&gt;ActionNotebookDeleteSentence.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ActionNotebookDeleteSentence.Parent" xml:space="preserve">
+    <value>panel3</value>
+  </data>
+  <data name="&gt;&gt;ActionNotebookDeleteSentence.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="panel3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
@@ -2631,7 +2719,7 @@
     <value>0, 0</value>
   </data>
   <data name="panel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>423, 35</value>
+    <value>403, 35</value>
   </data>
   <data name="panel3.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -2665,9 +2753,6 @@
   </data>
   <data name="SplitContainerNotebook.Size" type="System.Drawing.Size, System.Drawing">
     <value>613, 529</value>
-  </data>
-  <data name="SplitContainerNotebook.SplitterDistance" type="System.Int32, mscorlib">
-    <value>180</value>
   </data>
   <data name="SplitContainerNotebook.SplitterWidth" type="System.Int32, mscorlib">
     <value>10</value>

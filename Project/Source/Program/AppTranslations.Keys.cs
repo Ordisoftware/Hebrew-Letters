@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2021-02 </created>
-/// <edited> 2021-02 </edited>
+/// <edited> 2021-05 </edited>
 using System;
 using Ordisoftware.Core;
 
@@ -38,7 +38,8 @@ namespace Ordisoftware.Hebrew.Letters
                         "Shift + Ctrl + Tab : Previous view" + Globals.NL +
                         "F1 : Analysis view" + Globals.NL +
                         "F2 : Settings view" + Globals.NL +
-                        "F3 : Search" + Globals.NL +
+                        "F3 : Notebook view" + Globals.NL +
+                        "F5 (or Ctrl + F) : Search" + Globals.NL +
                         "Ctrl + Home : First letter" + Globals.NL +
                         "Ctrl + End : Last letter" + Globals.NL +
                         "Ctrl + PageUp : Previous letter" + Globals.NL +
@@ -65,7 +66,8 @@ namespace Ordisoftware.Hebrew.Letters
                         "Maj + Ctrl + Tab : Vue précédente" + Globals.NL +
                         "F1 : Vue d'analyse" + Globals.NL +
                         "F2 : Vue des paramètres" + Globals.NL +
-                        "F3 : Recherche" + Globals.NL +
+                        "F3 : Vue du carnet" + Globals.NL +
+                        "F5 (ou Ctrl + F) : Recherche" + Globals.NL +
                         "Ctrl + Début : Première lettre" + Globals.NL +
                         "Ctrl + Fin : Dernière lettre" + Globals.NL +
                         "Ctrl + PagePrec : Letter précédente" + Globals.NL +

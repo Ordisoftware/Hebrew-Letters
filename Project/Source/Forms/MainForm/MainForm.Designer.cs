@@ -819,6 +819,7 @@
       // 
       // SplitContainerNotebook
       // 
+      this.SplitContainerNotebook.DataBindings.Add(new System.Windows.Forms.Binding("SplitterDistance", global::Ordisoftware.Hebrew.Letters.Properties.Settings.Default, "MainFormSplitContainerNotebookDistance", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
       resources.ApplyResources(this.SplitContainerNotebook, "SplitContainerNotebook");
       this.SplitContainerNotebook.Name = "SplitContainerNotebook";
       // 
@@ -833,6 +834,7 @@
       // 
       this.SplitContainerNotebook.Panel2.Controls.Add(this.ListNotebookSentences);
       this.SplitContainerNotebook.Panel2.Controls.Add(this.panel3);
+      this.SplitContainerNotebook.SplitterDistance = global::Ordisoftware.Hebrew.Letters.Properties.Settings.Default.MainFormSplitContainerNotebookDistance;
       // 
       // ListNotebookWords
       // 
@@ -927,6 +929,7 @@
       // 
       // ActionNotebookClearLetter
       // 
+      this.ActionNotebookClearLetter.FlatAppearance.BorderSize = 0;
       resources.ApplyResources(this.ActionNotebookClearLetter, "ActionNotebookClearLetter");
       this.ActionNotebookClearLetter.Name = "ActionNotebookClearLetter";
       this.ActionNotebookClearLetter.UseVisualStyleBackColor = true;
@@ -934,6 +937,7 @@
       // 
       // ActionNotebookClearWord
       // 
+      this.ActionNotebookClearWord.FlatAppearance.BorderSize = 0;
       resources.ApplyResources(this.ActionNotebookClearWord, "ActionNotebookClearWord");
       this.ActionNotebookClearWord.Name = "ActionNotebookClearWord";
       this.ActionNotebookClearWord.UseVisualStyleBackColor = true;
@@ -942,6 +946,7 @@
       // ActionNotebookDeleteWord
       // 
       resources.ApplyResources(this.ActionNotebookDeleteWord, "ActionNotebookDeleteWord");
+      this.ActionNotebookDeleteWord.FlatAppearance.BorderSize = 0;
       this.ActionNotebookDeleteWord.Name = "ActionNotebookDeleteWord";
       this.ActionNotebookDeleteWord.UseVisualStyleBackColor = true;
       this.ActionNotebookDeleteWord.Click += new System.EventHandler(this.ActionNotebookDeleteWord_Click);
@@ -980,21 +985,23 @@
       // 
       // panel3
       // 
-      this.panel3.Controls.Add(this.ActionNotebookDeleteSentence);
       this.panel3.Controls.Add(this.ActionNotebookClearFilter);
       this.panel3.Controls.Add(this.EditNotebookFilterSentence);
+      this.panel3.Controls.Add(this.ActionNotebookDeleteSentence);
       resources.ApplyResources(this.panel3, "panel3");
       this.panel3.Name = "panel3";
       // 
       // ActionNotebookDeleteSentence
       // 
       resources.ApplyResources(this.ActionNotebookDeleteSentence, "ActionNotebookDeleteSentence");
+      this.ActionNotebookDeleteSentence.FlatAppearance.BorderSize = 0;
       this.ActionNotebookDeleteSentence.Name = "ActionNotebookDeleteSentence";
       this.ActionNotebookDeleteSentence.UseVisualStyleBackColor = true;
       this.ActionNotebookDeleteSentence.Click += new System.EventHandler(this.ActionNotebookDeleteSentence_Click);
       // 
       // ActionNotebookClearFilter
       // 
+      this.ActionNotebookClearFilter.FlatAppearance.BorderSize = 0;
       resources.ApplyResources(this.ActionNotebookClearFilter, "ActionNotebookClearFilter");
       this.ActionNotebookClearFilter.Name = "ActionNotebookClearFilter";
       this.ActionNotebookClearFilter.UseVisualStyleBackColor = true;

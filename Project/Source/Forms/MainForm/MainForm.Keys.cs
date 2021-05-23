@@ -61,11 +61,11 @@ namespace Ordisoftware.Hebrew.Letters
           if ( ActiveControl == EditMeanings ) break;
           ActionViewLetters.PerformClick();
           return true;
-        case Keys.F5:
+        case Keys.F3:
           ActionViewNotebook.PerformClick();
           return true;
         // Application functions
-        case Keys.F3:
+        case Keys.F5:
         case Keys.Control | Keys.F:
           ActionSearchTerm.PerformClick();
           return true;
