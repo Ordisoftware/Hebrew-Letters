@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Hebrew Letters.
-/// Copyright 2012-2021 Olivier Rogier.
+/// Copyright 2016-2021 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at 
@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2021-02 </edited>
+/// <edited> 2021-05 </edited>
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -71,6 +71,7 @@ namespace Ordisoftware.Hebrew.Letters
     public void AboutBox_Shown(object sender, EventArgs e)
     {
       Text = SysTranslations.AboutBoxTitle.GetLang(Globals.AssemblyTitle);
+      ActionViewStats.Enabled = Program.Settings.UsageStatisticsEnabled;
       LabelTitle.Text = Globals.AssemblyTitle;
       LabelDescription.Text = AppTranslations.ApplicationDescription.GetLang();
       LabelVersion.Text = SysTranslations.AboutBoxVersion.GetLang(Globals.AssemblyVersion);

@@ -139,7 +139,8 @@ namespace Ordisoftware.Hebrew.Letters
       ActionPreferences.Enabled = !Globals.IsReadOnly;
       ActionRestoreDefaults.Enabled = !Globals.IsReadOnly;
       ActionNotebookDeleteSentence.Enabled = !Globals.IsReadOnly;
-      // TODO add notebook controls
+      ActionNotebookDeleteWord.Enabled = !Globals.IsReadOnly;
+      ActionNotebookDeleteSentence.Enabled = !Globals.IsReadOnly;
       TimerProcesses.Enabled = Globals.IsReadOnly;
     }
 
@@ -868,7 +869,7 @@ namespace Ordisoftware.Hebrew.Letters
       {
         DBApp.SaveAll();
         ApplicationStatistics.UpdateDBFileSizeRequired = true;
-        //ApplicationStatistics.UpdateDBMemorySizeRequired = true;
+        // TODO remove if no alternative ApplicationStatistics.UpdateDBMemorySizeRequired = true;
         DataChanged = true;
       }
       UpdateDataControls(sender);
@@ -897,7 +898,7 @@ namespace Ordisoftware.Hebrew.Letters
         ActionReset.PerformClick();
         EditWord.TextBox.Text = word;
         ApplicationStatistics.UpdateDBFileSizeRequired = true;
-        //ApplicationStatistics.UpdateDBMemorySizeRequired = true;
+        // TODO remove if no alternative ApplicationStatistics.UpdateDBMemorySizeRequired = true;
         UpdateDataControls(null);
         ClearLettersMeanings();
         DoAnalyse();
