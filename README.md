@@ -115,8 +115,8 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 | Shift + Ctrl + Tab | Previous view |
 | F1 | Analysis view |
 | F2 | Data view |
-| F3 : Notebook view |
-| F5 (or Ctrl + F) |
+| F3 | Notebook view |
+| F5 (or Ctrl + F) | Search
 | Ctrl + Home | First letter |
 | Ctrl + End | Last letter |
 | Ctrl + PageUp | Previous letter |
