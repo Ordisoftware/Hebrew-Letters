@@ -226,24 +226,24 @@ namespace Ordisoftware.Hebrew.Letters
       //if ( Globals.ApplicationInstancesCount > 1 )
       //  ActionPreferences.Enabled = false;
       //else
-        try
-        {
-          Globals.IsReadOnly = true;
-          PreferencesForm.Run();
-          EditWord.InputMaxLength = (int)Settings.HebrewTextBoxMaxLength;
-          InitializeSpecialMenus();
-          InitializeDialogsDirectory();
-          //ClearLettersMeanings();
-          //DoAnalyse();
-        }
-        catch ( Exception ex )
-        {
-          ex.Manage();
-        }
-        finally
-        {
-          Globals.IsReadOnly = temp;
-        }
+      try
+      {
+        Globals.IsReadOnly = true;
+        PreferencesForm.Run();
+        EditWord.InputMaxLength = (int)Settings.HebrewTextBoxMaxLength;
+        InitializeSpecialMenus();
+        InitializeDialogsDirectory();
+        //ClearLettersMeanings();
+        //DoAnalyse();
+      }
+      catch ( Exception ex )
+      {
+        ex.Manage();
+      }
+      finally
+      {
+        Globals.IsReadOnly = temp;
+      }
     }
 
     #endregion
@@ -517,9 +517,9 @@ namespace Ordisoftware.Hebrew.Letters
                         || ( lettriq.Analyzes.Count == combos.Count
                           && lettriq.Analyzes.All(m => (string)combos[m.Position].SelectedItem == m.Meaning) )
                   select lettriq;
-      ActionSaveTermLettriq.Enabled = !Globals.IsReadOnly 
-                                   && word != string.Empty 
-                                   && sentence != string.Empty 
+      ActionSaveTermLettriq.Enabled = !Globals.IsReadOnly
+                                   && word != string.Empty
+                                   && sentence != string.Empty
                                    && combos.All(c => c.SelectedIndex != -1) && !query.Any();
       ActionOpenTermLettriq.Enabled = lettriqs.Count() != 0;
       ContextMenuOpenTermLettriq.Items.Clear();
