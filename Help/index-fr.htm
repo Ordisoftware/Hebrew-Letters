@@ -20,6 +20,7 @@ des mots h&eacute;breux.</p>
         <li>Base de donn&eacute;es des lettres h&eacute;bra&iuml;ques avec leurs significations param&eacute;trables.</li>
         <li>Analyse d'un mot lettre par lettre pour obtenir une phrase d&eacute;crivant son sens.</li>
         <li>Recherche en ligne avec Pealim, Sefaria, Shorashim, Wiktionnaire, Traduction, etc.</li>
+        <li>Stocke les r&eacute;sultats dans un carnet qui peut &eacute;galement &ecirc;tre utilis&eacute; dans Hebrew Words.</li>
         <li>Copie le r&eacute;sultat ou une capture &eacute;cran dans le presse-papiers.</li>
         <li>Fran&ccedil;ais, Anglais</li>
     </ul>
@@ -51,22 +52,6 @@ data-mce-type=&quot;bookmark&quot; class=&quot;mce_SELRES_start&quot;&gt;﻿&lt;
 class=&quot;mce_SELRES_start&quot;&gt;﻿&lt;/span&gt;&lt;span 
 data-mce-type=&quot;bookmark&quot; class=&quot;mce_SELRES_start&quot;&gt;﻿&lt;/span&gt;</iframe></p>
     <h3>Questions fr&eacute;quemment pos&eacute;es</h3>
-    <h4>Comment installer SQlite ODBC Driver ?</h4>
-    <p>Le setup essaie installe :</p>
-    <ul>
-        <li><a href="http://www.ch-werner.de/sqliteodbc/sqliteodbc.exe" rel="nofollow">sqliteodbc.exe</a> dsur Windows 32-bit.</li>
-        <li><a href="http://www.ch-werner.de/sqliteodbc/sqliteodbc_w64.exe" rel="nofollow">sqliteodbc_w64.exe</a> sur Windows 64-bit.</li>
-    </ul>
-    <p>Dans le cas o&ugrave; un message d'erreur indique qu'un fichier DLL n'a pas pu &ecirc;tre copi&eacute;, cela provient en g&eacute;n&eacute;ral du fait qu'une application utilisant ce driver d&eacute;j&agrave; install&eacute; est en cours d'ex&eacute;cution et bloque le fichier. Vous pouvez ignorer cette erreur ou fermer l'application en question et relancer l'installation pour obtenir une mise &agrave; jour du driver.</p>
-    <h4>Que faire en cas d'erreur de connexion &agrave; la source de donn&eacute;e ODBC ?</h4>
-    <p>Le logiciel essai d'enregistrer un DSN ODBC dans le registre mais 
-en cas de probl&egrave;me lancer &quot;C:\Program Files\Ordisoftware\Hebrew 
-Letters\Register ODBC.reg&quot; ou ouvrir le gestionnaire ODBC (Outils 
-d'administration du Panneau de configuration de Windows) et cr&eacute;er une 
-source de donn&eacute;e utilisateur nomm&eacute; &quot;Hebrew-Letters&quot; pour &quot;SQLite 3 ODBC 
-Driver&quot; avec &quot;Database Name&quot; d&eacute;finit &agrave; :</p>
-    <p><span style="font-size: 8pt;">&quot;%USERPROFILE%\AppData\Roaming\Ordisoftware\Hebrew Letters\Hebrew-Letters.sqlite&quot;</span></p>
-    <p>Visionner la <a href="https://www.youtube.com/watch?v=WPVF8pj9I3E" target="_blank" rel="noopener">vid&eacute;o</a>.</p>
     <h4>Que faire si la v&eacute;rification de mise &agrave; jour indique que le certificat SSL est incorrect ou expir&eacute; ?</h4>
     <p>Le logiciel v&eacute;rifie la validit&eacute; du certificat du serveur de mise &agrave; jour en plus de la somme de contr&ocirc;le SHA-512 du fichier d'installation avant de le t&eacute;l&eacute;charger et de l'ex&eacute;cuter. Ce certificat est normalement mis &agrave; jour dans les deux mois avant son expiration annuelle. Vous pouvez v&eacute;rifier manuellement la derni&egrave;re version disponible en ligne en cas de probl&egrave;me.</p>
     <h4>Quelles sont les options de ligne de commande ?</h4>
@@ -107,7 +92,8 @@ application telle qu'un navigateur ou un traitement de texte?</h4>
         <li>Maj &nbsp;+ &nbsp;Ctrl &nbsp;+ &nbsp;Tab : Vue pr&eacute;c&eacute;dente</li>
         <li>F1 : Vue d'analyse</li>
         <li>F2 : Vue des donn&eacute;es</li>
-        <li>F3 : Recherche</li>
+        <li>F3 : Vue du carnet</li>
+        <li>F5 (ou Ctrl + F) : Recherche</li>
         <li>Ctrl &nbsp;+ &nbsp;D&eacute;but&nbsp;: Premi&egrave;re lettre</li>
         <li>Ctrl &nbsp;+ &nbsp;Fin : Derni&egrave;re lettre</li>
         <li>Ctrl &nbsp;+ &nbsp;PagePrec : Letter pr&eacute;c&eacute;dente</li>

@@ -20,6 +20,7 @@ analysis of hebrew words.</p>
         <li>Hebrew letters database with their customizable meanings.</li>
         <li>Analyze a word letter by letter to get a sentence describing its sense.</li>
         <li>Online research with Pealim, Sefaria, Shorashim, Wiktionary, Translator, etc.</li>
+        <li>Store results in a notebook that can also be used in Hebrew Words.</li>
         <li>Copy the result or a screenshot to the clipboard.</li>
         <li>English, French.</li>
     </ul>
@@ -47,21 +48,6 @@ data-mce-type=&quot;bookmark&quot; class=&quot;mce_SELRES_start&quot;&gt;﻿&lt;
 class=&quot;mce_SELRES_start&quot;&gt;﻿&lt;/span&gt;&lt;span 
 data-mce-type=&quot;bookmark&quot; class=&quot;mce_SELRES_start&quot;&gt;﻿&lt;/span&gt;</iframe></p>
     <h3>Frequently asked questions</h3>
-    <h4>How to install SQlite ODBC Driver?</h4>
-    <p>The setup installs:</p>
-    <ul>
-        <li><a href="http://www.ch-werner.de/sqliteodbc/sqliteodbc.exe" rel="nofollow">sqliteodbc.exe</a> on Windows 32-bit.</li>
-        <li><a href="http://www.ch-werner.de/sqliteodbc/sqliteodbc_w64.exe" rel="nofollow">sqliteodbc_w64.exe</a> on Windows 64-bit.</li>
-    </ul>
-    <p><span class="tlid-translation translation" lang="en"><span title="" class="">In the event that an error message indicates that a DLL file could not be copied, it is usually due to the fact that an application using this driver already installed is running and is blocking the file.</span> <span title="" class="">You can ignore this error or close the application in question and restart the installation to obtain a driver update.</span></span></p>
-    <h4>What to do in case of ODBC datasource connection error?</h4>
-    <p>The software&nbsp;tries to register an ODBC DSN to the registry but in case 
-of problem run &quot;C:\Program Files\Ordisoftware\Hebrew Letters\Register 
-ODBC.reg&quot; or open the ODBC datasource manager (Admin tools in Windows' 
-Control panel) and create a user datasource named &quot;Hebrew-Letters&quot; for 
-&quot;SQLite 3 ODBC Driver&quot; with &quot;Database Name&quot; sets to:</p>
-    <p><span style="font-size: 8pt;">&quot;%USERPROFILE%\AppData\Roaming\Ordisoftware\Hebrew Letters\Hebrew-Letters.sqlite&quot;</span></p>
-    <p>Watch the <a href="https://www.youtube.com/watch?v=WPVF8pj9I3E" target="_blank" rel="noopener">video</a>.</p>
     <h4>What to do if the check update tells that the SSL certificate is wrong or expired?</h4>
     <p>The software verifies the validity of the certificate of the update server in addition to the SHA-512 checksum of the installation file before downloading and running it. This certificate is normally updated within the two months of its annual expiration and a new version is released. You can manually check the latest version available online in case of problem.</p>
     <h4>What are command line options?</h4>
@@ -99,7 +85,8 @@ Hebrew font chars are used and all non-font chars are removed.</p>
         <li>Shift &nbsp;+ &nbsp;Ctrl &nbsp;+ &nbsp;Tab : Previous view</li>
         <li>F1 : Analyze view</li>
         <li>F2 : Data&nbsp;view</li>
-        <li>F3 : Search</li>
+        <li>F3 : Notebook view</li>
+        <li>F5 (or Ctrl + F) : Search</li>
         <li>Ctrl &nbsp;+ &nbsp;Home : First letter</li>
         <li>Ctrl &nbsp;+ &nbsp;End : Last letter</li>
         <li>Ctrl &nbsp;+ &nbsp;PageUp : Previous letter</li>
