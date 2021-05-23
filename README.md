@@ -27,7 +27,6 @@ A libre and open-source software written in C# that helps for the lettriq letter
 - Online research with Pealim, Sefaria, Shorashim, Wiktionary, Translator, etc.
 - Store results in a notebook that can also be used in Hebrew Words.
 - Copy the result or a screenshot to the clipboard.
-- Export and import of letters meanings and notebook.
 - English, French.
 
 ## Review
@@ -116,7 +115,8 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 | Shift + Ctrl + Tab | Previous view |
 | F1 | Analysis view |
 | F2 | Data view |
-| F3 | Search |
+| F3 : Notebook view |
+| F5 (or Ctrl + F) |
 | Ctrl + Home | First letter |
 | Ctrl + End | Last letter |
 | Ctrl + PageUp | Previous letter |
@@ -140,7 +140,6 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 ## Future improvements
 
-- Add analyzed word data table and view panel.
 - Add reset only some columns to factory defaults.
 - Add export and import database.
 - Add export data to TXT/CSV/JSON.
@@ -156,6 +155,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 - Switch from SQLite ODBC Driver to SQLite-Net with SQLitePCLraw nugets.
 - Optimize overall performances.
+- Add analyzed words data table and notebook view.
 - Some fixes and improvements.
 - Code refactoring and quality improvement.
 - Replace proprietary simple TraceListener by SeriLog.

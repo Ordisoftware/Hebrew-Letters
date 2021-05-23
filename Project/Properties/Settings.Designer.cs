@@ -716,5 +716,17 @@ namespace Ordisoftware.Hebrew.Letters.Properties {
                 this["ShowLastNewInVersionAfterUpdate"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("121")]
+        public int MainFormSplitContainerNotebookDistance {
+            get {
+                return ((int)(this["MainFormSplitContainerNotebookDistance"]));
+            }
+            set {
+                this["MainFormSplitContainerNotebookDistance"] = value;
+            }
+        }
     }
 }

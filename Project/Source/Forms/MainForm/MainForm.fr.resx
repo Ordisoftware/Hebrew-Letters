@@ -290,7 +290,7 @@
     <value>Chercher</value>
   </data>
   <data name="ActionSearchTerm.ToolTipText" xml:space="preserve">
-    <value>Chercher (F3)</value>
+    <value>Chercher (F5, Ctrl+F)</value>
   </data>
   <data name="ActionNewInstance.Text" xml:space="preserve">
     <value>Nouvelle fenêtre</value>
@@ -335,6 +335,6 @@
     <value>Carnet</value>
   </data>
   <data name="ActionViewNotebook.ToolTipText" xml:space="preserve">
-    <value>Carnet (F5)</value>
+    <value>Carnet (F3)</value>
   </data>
 </root>

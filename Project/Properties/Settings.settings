@@ -181,5 +181,8 @@
     <Setting Name="ShowLastNewInVersionAfterUpdate" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="MainFormSplitContainerNotebookDistance" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">121</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

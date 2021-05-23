@@ -13,7 +13,6 @@
 /// <created> 2016-04 </created>
 /// <edited> 2021-04 </edited>
 using System;
-using System.Linq;
 using System.Drawing;
 using System.Windows.Forms;
 using Ordisoftware.Core;
@@ -51,7 +50,7 @@ namespace Ordisoftware.Hebrew.Letters
         for ( int pos = word.Length - 1, index = 0; pos >= 0; index++, pos-- )
         {
           // Letter
-          var letter = ApplicationDatabase.Instance.Letters.Find(l => l.Code == word[pos].ToString());
+          var letter = DBApp.Letters.Find(l => l.Code == word[pos].ToString());
           if ( letter == null ) continue;
           sumSimple += letter.ValueSimple;
           sumFull += letter.ValueFull;

@@ -31,13 +31,13 @@ namespace Ordisoftware.Hebrew.Letters
       try
       {
         Globals.ChronoLoadData.Start();
-        ApplicationDatabase.Instance.Open();
-        LettersBindingSource.DataSource = ApplicationDatabase.Instance.LettersAsBindingList;
+        DBApp.Open();
+        LettersBindingSource.DataSource = DBApp.LettersAsBindingList;
         if ( Globals.IsDevExecutable ) // TODO remove when ready
         {
-          HebrewDatabase.Instance.TakeLettriqs();
-          TermsBindingSource.DataSource = HebrewDatabase.Instance.TermsHebrewAsBindingList;
-          LettriqsBindingSource.DataSource = HebrewDatabase.Instance.TermLettriqsAsBindingList;
+          DBHebrew.TakeLettriqs();
+          TermsBindingSource.DataSource = DBHebrew.TermsHebrewAsBindingList;
+          LettriqsBindingSource.DataSource = DBHebrew.TermLettriqsAsBindingList;
         }
         Globals.ChronoLoadData.Stop();
         Settings.BenchmarkLoadData = Globals.ChronoLoadData.ElapsedMilliseconds;
