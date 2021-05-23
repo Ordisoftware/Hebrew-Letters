@@ -39,10 +39,10 @@
       System.Windows.Forms.Label LabelVerb;
       System.Windows.Forms.Label LabelPositive;
       System.Windows.Forms.Label LabelNegative;
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
       this.PanelMain = new System.Windows.Forms.Panel();
       this.PanelMainOuter = new System.Windows.Forms.Panel();
       this.PanelMainInner = new System.Windows.Forms.Panel();
@@ -119,9 +119,9 @@
       this.sentenceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
       this.LettriqsBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.panel3 = new System.Windows.Forms.Panel();
-      this.ActionNotebookDeleteSentence = new System.Windows.Forms.Button();
       this.ActionNotebookClearFilter = new System.Windows.Forms.Button();
       this.EditNotebookFilterSentence = new System.Windows.Forms.TextBox();
+      this.ActionNotebookDeleteSentence = new System.Windows.Forms.Button();
       this.PanelSepTop = new System.Windows.Forms.Panel();
       this.PanelTitle = new System.Windows.Forms.Panel();
       this.LabelTitle = new System.Windows.Forms.Label();
@@ -167,6 +167,7 @@
       this.SaveImageDialog = new System.Windows.Forms.SaveFileDialog();
       this.ToolTipClipboard = new System.Windows.Forms.ToolTip(this.components);
       this.ContextMenuOpenTermLettriq = new System.Windows.Forms.ContextMenuStrip(this.components);
+      this.LabelCurrentView = new System.Windows.Forms.Label();
       LabelName = new System.Windows.Forms.Label();
       LabelStructure = new System.Windows.Forms.Label();
       LabelFunction = new System.Windows.Forms.Label();
@@ -854,9 +855,9 @@
       this.ListNotebookWords.Name = "ListNotebookWords";
       this.ListNotebookWords.ReadOnly = true;
       this.ListNotebookWords.RowHeadersVisible = false;
-      dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-      dataGridViewCellStyle14.Font = new System.Drawing.Font("Hebrew", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.ListNotebookWords.RowsDefaultCellStyle = dataGridViewCellStyle14;
+      dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+      dataGridViewCellStyle2.Font = new System.Drawing.Font("Hebrew", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.ListNotebookWords.RowsDefaultCellStyle = dataGridViewCellStyle2;
       this.ListNotebookWords.RowTemplate.Height = 28;
       this.ListNotebookWords.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
       this.ListNotebookWords.ShowCellToolTips = false;
@@ -866,9 +867,9 @@
       // 
       this.hebrewDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
       this.hebrewDataGridViewTextBoxColumn.DataPropertyName = "Hebrew";
-      dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-      dataGridViewCellStyle13.Font = new System.Drawing.Font("Hebrew", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.hebrewDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle13;
+      dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+      dataGridViewCellStyle1.Font = new System.Drawing.Font("Hebrew", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.hebrewDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
       resources.ApplyResources(this.hebrewDataGridViewTextBoxColumn, "hebrewDataGridViewTextBoxColumn");
       this.hebrewDataGridViewTextBoxColumn.Name = "hebrewDataGridViewTextBoxColumn";
       this.hebrewDataGridViewTextBoxColumn.ReadOnly = true;
@@ -900,9 +901,9 @@
       this.ListNotebookLetters.Name = "ListNotebookLetters";
       this.ListNotebookLetters.ReadOnly = true;
       this.ListNotebookLetters.RowHeadersVisible = false;
-      dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-      dataGridViewCellStyle16.Font = new System.Drawing.Font("Hebrew", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.ListNotebookLetters.RowsDefaultCellStyle = dataGridViewCellStyle16;
+      dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+      dataGridViewCellStyle4.Font = new System.Drawing.Font("Hebrew", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.ListNotebookLetters.RowsDefaultCellStyle = dataGridViewCellStyle4;
       this.ListNotebookLetters.RowTemplate.Height = 28;
       this.ListNotebookLetters.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
       this.ListNotebookLetters.ShowCellToolTips = false;
@@ -912,9 +913,9 @@
       // 
       this.codeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
       this.codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
-      dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-      dataGridViewCellStyle15.Font = new System.Drawing.Font("Hebrew", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.codeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle15;
+      dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+      dataGridViewCellStyle3.Font = new System.Drawing.Font("Hebrew", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.codeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
       resources.ApplyResources(this.codeDataGridViewTextBoxColumn, "codeDataGridViewTextBoxColumn");
       this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
       this.codeDataGridViewTextBoxColumn.ReadOnly = true;
@@ -991,14 +992,6 @@
       resources.ApplyResources(this.panel3, "panel3");
       this.panel3.Name = "panel3";
       // 
-      // ActionNotebookDeleteSentence
-      // 
-      resources.ApplyResources(this.ActionNotebookDeleteSentence, "ActionNotebookDeleteSentence");
-      this.ActionNotebookDeleteSentence.FlatAppearance.BorderSize = 0;
-      this.ActionNotebookDeleteSentence.Name = "ActionNotebookDeleteSentence";
-      this.ActionNotebookDeleteSentence.UseVisualStyleBackColor = true;
-      this.ActionNotebookDeleteSentence.Click += new System.EventHandler(this.ActionNotebookDeleteSentence_Click);
-      // 
       // ActionNotebookClearFilter
       // 
       this.ActionNotebookClearFilter.FlatAppearance.BorderSize = 0;
@@ -1013,6 +1006,14 @@
       this.EditNotebookFilterSentence.Name = "EditNotebookFilterSentence";
       this.EditNotebookFilterSentence.TextChanged += new System.EventHandler(this.EditNotebookFilterSentence_TextChanged);
       // 
+      // ActionNotebookDeleteSentence
+      // 
+      resources.ApplyResources(this.ActionNotebookDeleteSentence, "ActionNotebookDeleteSentence");
+      this.ActionNotebookDeleteSentence.FlatAppearance.BorderSize = 0;
+      this.ActionNotebookDeleteSentence.Name = "ActionNotebookDeleteSentence";
+      this.ActionNotebookDeleteSentence.UseVisualStyleBackColor = true;
+      this.ActionNotebookDeleteSentence.Click += new System.EventHandler(this.ActionNotebookDeleteSentence_Click);
+      // 
       // PanelSepTop
       // 
       resources.ApplyResources(this.PanelSepTop, "PanelSepTop");
@@ -1021,6 +1022,7 @@
       // PanelTitle
       // 
       this.PanelTitle.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+      this.PanelTitle.Controls.Add(this.LabelCurrentView);
       this.PanelTitle.Controls.Add(this.LabelTitle);
       resources.ApplyResources(this.PanelTitle, "PanelTitle");
       this.PanelTitle.Name = "PanelTitle";
@@ -1357,6 +1359,12 @@
       this.ContextMenuOpenTermLettriq.ShowImageMargin = false;
       resources.ApplyResources(this.ContextMenuOpenTermLettriq, "ContextMenuOpenTermLettriq");
       // 
+      // LabelCurrentView
+      // 
+      this.LabelCurrentView.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+      resources.ApplyResources(this.LabelCurrentView, "LabelCurrentView");
+      this.LabelCurrentView.Name = "LabelCurrentView";
+      // 
       // MainForm
       // 
       resources.ApplyResources(this, "$this");
@@ -1537,5 +1545,6 @@
     private System.Windows.Forms.Panel panel3;
     private System.Windows.Forms.DataGridViewTextBoxColumn hebrewDataGridViewTextBoxColumn;
     private System.Windows.Forms.DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
+    private System.Windows.Forms.Label LabelCurrentView;
   }
 }

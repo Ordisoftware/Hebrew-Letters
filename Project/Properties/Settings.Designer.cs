@@ -719,7 +719,7 @@ namespace Ordisoftware.Hebrew.Letters.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("121")]
+        [global::System.Configuration.DefaultSettingValueAttribute("200")]
         public int MainFormSplitContainerNotebookDistance {
             get {
                 return ((int)(this["MainFormSplitContainerNotebookDistance"]));

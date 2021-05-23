@@ -14,6 +14,7 @@
 /// <edited> 2021-05 </edited>
 using System.Collections.Generic;
 using System.Windows.Forms;
+using Ordisoftware.Core;
 
 namespace Ordisoftware.Hebrew.Letters
 {
@@ -124,8 +125,8 @@ namespace Ordisoftware.Hebrew.Letters
       {
         SavedSelectionStart = EditWord.TextBox.SelectionStart;
         SavedSelectionLength = EditWord.TextBox.SelectionLength;
-        //DataEditMutex = false;
       }
+      LabelCurrentView.Text = AppTranslations.CurrentViewText[view].GetLang();
     }
 
   }

@@ -38,6 +38,27 @@ namespace Ordisoftware.Hebrew.Letters
         [Language.FR] = "Significations des lettres du mot"
       };
 
+    static public readonly NullSafeDictionary<ViewMode, TranslationsDictionary> CurrentViewText
+      = new NullSafeDictionary<ViewMode, TranslationsDictionary>
+      {
+        [ViewMode.Analysis] = new TranslationsDictionary
+        {
+          [Language.EN] = "ANALYSIS",
+          [Language.FR] = "ANALYSE"
+        },
+        [ViewMode.Letters] = new TranslationsDictionary
+        {
+          [Language.EN] = "MEANINGS",
+          [Language.FR] = "SIGNIFICATIONS"
+        },
+        [ViewMode.Notebook] = new TranslationsDictionary
+        {
+          [Language.EN] = "NOTEBOOK",
+          [Language.FR] = "CARNET"
+        },
+      };
+
+
   }
 
 }
