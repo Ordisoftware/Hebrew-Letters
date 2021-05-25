@@ -182,7 +182,7 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="MainFormSplitContainerNotebookDistance" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">121</Value>
+      <Value Profile="(Default)">200</Value>
     </Setting>
   </Settings>
 </SettingsFile>
