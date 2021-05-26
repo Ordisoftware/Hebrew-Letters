@@ -31,10 +31,12 @@ namespace Ordisoftware.Hebrew.Letters
         ["6.0"] = new TranslationsDictionary
         {
           [Language.EN] = "Some fixes and improvements." + Globals.NL +
+                          "Added lettriqs notebook." + Globals.NL +
                           "Overall performances are optimized." + Globals.NL +
                           "SQLite ODBC Driver is no more needed.",
 
           [Language.FR] = "Quelques corrections et améliorations." + Globals.NL +
+                          "Ajout d'un carnet des lettriques." + Globals.NL +
                           "Les performances globales sont optimisées." + Globals.NL +
                           "Le pilote SQLite ODBC n'est plus nécessaire. "
         },
