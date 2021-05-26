@@ -48,6 +48,7 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 **What's new in the latest version 6.0**
 
 - Overall performances are optimized.
+- Added lettriqs notebook.
 - Some fixes and improvements.
 - SQLite ODBC Driver is no more needed.
 
@@ -140,12 +141,12 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 ## Future improvements
 
+- Add find gematria possible combinations.
 - Add reset only some columns to factory defaults.
 - Add export and import database.
 - Add export data to TXT/CSV/JSON.
 - Add import data from TXT/CSV/JSON.
 - Add print data.
-- Add find gematria possible combinations.
 - Rewrite advanced undo/redo.
 - Optimize more ComboBoxes creation.
 
