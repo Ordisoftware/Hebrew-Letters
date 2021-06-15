@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2021-02 </created>
-/// <edited> 2021-02 </edited>
+/// <edited> 2021-06 </edited>
 using System.Windows.Forms;
 using Ordisoftware.Core;
 
@@ -24,23 +24,6 @@ namespace Ordisoftware.Hebrew.Letters
   /// <seealso cref="T:System.Windows.Forms.Form"/>
   partial class MainForm
   {
-
-    /// <summary>
-    /// Clipboard monitoring.
-    /// </summary>
-    protected override void WndProc(ref Message m)
-    {
-      const int WM_DRAWCLIPBOARD = 0x308;
-      switch ( m.Msg )
-      {
-        case WM_DRAWCLIPBOARD:
-          CheckClipboardContentType();
-          break;
-        default:
-          base.WndProc(ref m);
-          break;
-      }
-    }
 
     /// <summary>
     /// Check clipboard content type.

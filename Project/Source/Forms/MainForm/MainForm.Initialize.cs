@@ -166,6 +166,25 @@ namespace Ordisoftware.Hebrew.Letters
     }
 
     /// <summary>
+    /// WndProc override.
+    /// </summary>
+    protected override void WndProc(ref Message m)
+    {
+      switch ( m.Msg )
+      {
+        case NativeMethods.WM_QUERYENDSESSION:
+          SessionEnding(this, null);
+          break;
+        case NativeMethods.WM_DRAWCLIPBOARD:
+          CheckClipboardContentType();
+          break;
+        default:
+          base.WndProc(ref m);
+          break;
+      }
+    }
+
+    /// <summary>
     /// Set the initial directories of dialog boxes.
     /// </summary>
     private void InitializeDialogsDirectory()
