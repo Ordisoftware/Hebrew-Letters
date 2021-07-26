@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2021-06 </edited>
+/// <edited> 2021-07 </edited>
 using System;
 using System.IO;
 using System.Data;
@@ -522,7 +522,7 @@ namespace Ordisoftware.Hebrew.Letters
                                    && word != string.Empty
                                    && sentence != string.Empty
                                    && combos.All(c => c.SelectedIndex != -1) && !query.Any();
-      ActionOpenTermLettriq.Enabled = lettriqs.Count() != 0;
+      ActionOpenTermLettriq.Enabled = lettriqs.Any();
       ContextMenuOpenTermLettriq.Items.Clear();
       foreach ( var item in lettriqs )
       {
@@ -683,7 +683,7 @@ namespace Ordisoftware.Hebrew.Letters
           return;
       var list = SelectAnalyze.Controls.OfType<ComboBox>().ToList();
       foreach ( var meaning in lettriq.Analyzes )
-        if ( meaning.Position < list.Count() )
+        if ( meaning.Position < list.Count )
         {
           if ( list[meaning.Position].Items.Count == 0 )
             Combobox_Enter(list[meaning.Position], EventArgs.Empty);
@@ -952,8 +952,8 @@ namespace Ordisoftware.Hebrew.Letters
     {
       var textbox = TextBoxEx.GetTextBox(sender);
       if ( textbox != null )
-        if ( textbox.Tag is string )
-          if ( (string)textbox.Tag == "data" )
+        if ( textbox.Tag is string value )
+          if ( value == "data" )
           {
             IsLetterEditing = true;
             TextBoxPositive_TextChanged(textbox, e);
@@ -1166,7 +1166,9 @@ namespace Ordisoftware.Hebrew.Letters
         return;
       SetView(ViewMode.Analysis);
       EditWord.TextBox.Text = word.Hebrew;
-      var item = ContextMenuOpenTermLettriq.Items.Cast<ToolStripMenuItem>().Where(mi => mi.Text == lettriq.Sentence).FirstOrDefault();
+      var item = ContextMenuOpenTermLettriq.Items
+                                           .Cast<ToolStripMenuItem>()
+                                           .FirstOrDefault(mi => mi.Text == lettriq.Sentence);
       if ( item == null ) return;
       item.PerformClick();
     }
