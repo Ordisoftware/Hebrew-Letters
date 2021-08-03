@@ -15,7 +15,6 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Equin.ApplicationFramework;
-using Ordisoftware.Core;
 
 namespace Ordisoftware.Hebrew.Letters
 {
@@ -53,7 +52,7 @@ namespace Ordisoftware.Hebrew.Letters
     private bool IsTermsReadOnly;
 
     public ApplicationDatabase DBApp = ApplicationDatabase.Instance;
-    public HebrewDatabase DBHebrew = Globals.IsDevExecutable ? HebrewDatabase.Instance : null; // TODO remove when ready
+    public HebrewDatabase DBHebrew = HebrewDatabase.Instance;
 
     public BindingListView<Letter> LettersAsBindingList => ApplicationDatabase.Instance.LettersAsBindingList;
 
