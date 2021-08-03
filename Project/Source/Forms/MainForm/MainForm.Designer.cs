@@ -124,6 +124,7 @@
       this.ActionNotebookDeleteSentence = new System.Windows.Forms.Button();
       this.PanelSepTop = new System.Windows.Forms.Panel();
       this.PanelTitle = new System.Windows.Forms.Panel();
+      this.LabelCurrentView = new System.Windows.Forms.Label();
       this.LabelTitle = new System.Windows.Forms.Label();
       this.TimerTooltip = new System.Windows.Forms.Timer(this.components);
       this.ToolStrip = new System.Windows.Forms.ToolStrip();
@@ -167,7 +168,6 @@
       this.SaveImageDialog = new System.Windows.Forms.SaveFileDialog();
       this.ToolTipClipboard = new System.Windows.Forms.ToolTip(this.components);
       this.ContextMenuOpenTermLettriq = new System.Windows.Forms.ContextMenuStrip(this.components);
-      this.LabelCurrentView = new System.Windows.Forms.Label();
       LabelName = new System.Windows.Forms.Label();
       LabelStructure = new System.Windows.Forms.Label();
       LabelFunction = new System.Windows.Forms.Label();
@@ -798,6 +798,7 @@
       this.ColumnMeaningsText.DataPropertyName = "Text";
       resources.ApplyResources(this.ColumnMeaningsText, "ColumnMeaningsText");
       this.ColumnMeaningsText.Name = "ColumnMeaningsText";
+      this.ColumnMeaningsText.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
       // 
       // MeaningsBindingSource
       // 
@@ -1026,6 +1027,12 @@
       this.PanelTitle.Controls.Add(this.LabelTitle);
       resources.ApplyResources(this.PanelTitle, "PanelTitle");
       this.PanelTitle.Name = "PanelTitle";
+      // 
+      // LabelCurrentView
+      // 
+      this.LabelCurrentView.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+      resources.ApplyResources(this.LabelCurrentView, "LabelCurrentView");
+      this.LabelCurrentView.Name = "LabelCurrentView";
       // 
       // LabelTitle
       // 
@@ -1359,12 +1366,6 @@
       this.ContextMenuOpenTermLettriq.ShowImageMargin = false;
       resources.ApplyResources(this.ContextMenuOpenTermLettriq, "ContextMenuOpenTermLettriq");
       // 
-      // LabelCurrentView
-      // 
-      this.LabelCurrentView.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-      resources.ApplyResources(this.LabelCurrentView, "LabelCurrentView");
-      this.LabelCurrentView.Name = "LabelCurrentView";
-      // 
       // MainForm
       // 
       resources.ApplyResources(this, "$this");
@@ -1529,7 +1530,6 @@
     private System.Windows.Forms.DataGridView ListNotebookSentences;
     private System.Windows.Forms.BindingSource LettriqsBindingSource;
     private System.Windows.Forms.DataGridViewTextBoxColumn sentenceDataGridViewTextBoxColumn;
-    private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMeaningsText;
     private System.Windows.Forms.Panel panel1;
     private System.Windows.Forms.DataGridView ListNotebookLetters;
     public System.Windows.Forms.TextBox EditNotebookFilterSentence;
@@ -1546,5 +1546,6 @@
     private System.Windows.Forms.DataGridViewTextBoxColumn hebrewDataGridViewTextBoxColumn;
     private System.Windows.Forms.DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
     private System.Windows.Forms.Label LabelCurrentView;
+    private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMeaningsText;
   }
 }

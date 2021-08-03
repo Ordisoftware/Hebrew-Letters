@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2021-02 </created>
-/// <edited> 2021-04 </edited>
+/// <edited> 2021-08 </edited>
 using System;
 using Ordisoftware.Core;
 
@@ -28,15 +28,20 @@ namespace Ordisoftware.Hebrew.Letters
       = new NullSafeDictionary<string, TranslationsDictionary>
       {
 
+        /*["6.1"] = new TranslationsDictionary
+        {
+          [Language.EN] = "Added lettriqs notebook.",
+
+          [Language.FR] = "Ajout d'un carnet des lettriques."
+        },*/
+
         ["6.0"] = new TranslationsDictionary
         {
           [Language.EN] = "Some fixes and improvements." + Globals.NL +
-                          "Added lettriqs notebook." + Globals.NL +
                           "Overall performances are optimized." + Globals.NL +
                           "SQLite ODBC Driver is no more needed.",
 
           [Language.FR] = "Quelques corrections et améliorations." + Globals.NL +
-                          "Ajout d'un carnet des lettriques." + Globals.NL +
                           "Les performances globales sont optimisées." + Globals.NL +
                           "Le pilote SQLite ODBC n'est plus nécessaire. "
         },

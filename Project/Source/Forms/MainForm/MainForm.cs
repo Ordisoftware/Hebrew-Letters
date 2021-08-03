@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2021-07 </edited>
+/// <edited> 2021-08 </edited>
 using System;
 using System.IO;
 using System.Data;
@@ -57,10 +57,8 @@ namespace Ordisoftware.Hebrew.Letters
     /// </summary>
     private MainForm()
     {
-      DebugManager.Enter();
       InitializeComponent();
       DoConstructor();
-      DebugManager.Leave();
     }
 
     /// <summary>
@@ -506,6 +504,8 @@ namespace Ordisoftware.Hebrew.Letters
       ActionScreenshot.Enabled = enabled;
       ActionSaveScreenshot.Enabled = enabled;
       ActionSearchOnline.Enabled = enabled;
+
+      if ( !Globals.IsDevExecutable ) return; // TODO remove when ready
       var word = EditWord.TextBox.Text;
       var sentence = EditSentence.Text.Trim();
       var combos = SelectAnalyze.Controls.OfType<ComboBox>().ToList();
@@ -912,8 +912,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void SelectLetter_SelectedIndexChanged(object sender, EventArgs e)
     {
-      //if ( !Globals.IsReady ) return;
-      //if ( !SelectLetter.Enabled ) return;
+      UpdateDataControls(sender);
     }
 
     private void LettersBindingSource_PositionChanged(object sender, EventArgs e)
@@ -925,6 +924,7 @@ namespace Ordisoftware.Hebrew.Letters
     private void LettersNavigator_Navigated(object sender, EventArgs e)
     {
       EditMeanings.Focus();
+      UpdateDataControls(sender);
     }
 
     #endregion

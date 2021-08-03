@@ -48,8 +48,8 @@ namespace Ordisoftware.Hebrew.Letters
         },
         [ViewMode.Letters] = new TranslationsDictionary
         {
-          [Language.EN] = "MEANINGS",
-          [Language.FR] = "SIGNIFICATIONS"
+          [Language.EN] = "LETTERS",
+          [Language.FR] = "LETTRES"
         },
         [ViewMode.Notebook] = new TranslationsDictionary
         {
