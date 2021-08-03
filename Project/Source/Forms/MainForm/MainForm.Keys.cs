@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-01 </created>
-/// <edited> 2021-05 </edited>
+/// <edited> 2021-08 </edited>
 using System.Windows.Forms;
 using Ordisoftware.Core;
 
@@ -48,11 +48,11 @@ namespace Ordisoftware.Hebrew.Letters
         // Change view
         case Keys.Control | Keys.Shift | Keys.Tab:
           if ( Globals.AllowClose )
-            SetView(Settings.CurrentView.Previous(ViewMode.Notebook));// TODO remove when ready
+            SetView(Settings.CurrentView.Previous(ViewMode.Notebook));// TODO notebook remove when ready
           return true;
         case Keys.Control | Keys.Tab:
           if ( Globals.AllowClose )
-            SetView(Settings.CurrentView.Next(ViewMode.Notebook));// TODO remove when ready
+            SetView(Settings.CurrentView.Next(ViewMode.Notebook));// TODO notebook remove when ready
           return true;
         case Keys.F1:
           ActionViewAnalysis.PerformClick();
@@ -62,6 +62,8 @@ namespace Ordisoftware.Hebrew.Letters
           ActionViewLetters.PerformClick();
           return true;
         case Keys.F3:
+          //if ( !Globals.IsDevExecutable ) 
+            break; // TODO remove when ready
           ActionViewNotebook.PerformClick();
           return true;
         // Application functions

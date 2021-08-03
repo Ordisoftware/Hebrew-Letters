@@ -1098,7 +1098,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionSaveScreenshot.Location" type="System.Drawing.Point, System.Drawing">
-    <value>585, 383</value>
+    <value>585, 331</value>
   </data>
   <data name="ActionSaveScreenshot.Size" type="System.Drawing.Size, System.Drawing">
     <value>42, 42</value>
@@ -1166,7 +1166,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionScreenshot.Location" type="System.Drawing.Point, System.Drawing">
-    <value>530, 383</value>
+    <value>530, 331</value>
   </data>
   <data name="ActionScreenshot.Size" type="System.Drawing.Size, System.Drawing">
     <value>42, 42</value>
@@ -1223,7 +1223,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionViewAllMeaningsList.Location" type="System.Drawing.Point, System.Drawing">
-    <value>585, 335</value>
+    <value>585, 285</value>
   </data>
   <data name="ActionViewAllMeaningsList.Size" type="System.Drawing.Size, System.Drawing">
     <value>42, 42</value>
@@ -1287,7 +1287,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionSaveTermLettriq.Location" type="System.Drawing.Point, System.Drawing">
-    <value>585, 285</value>
+    <value>585, 239</value>
   </data>
   <data name="ActionSaveTermLettriq.Size" type="System.Drawing.Size, System.Drawing">
     <value>42, 42</value>
@@ -1346,7 +1346,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionOpenTermLettriq.Location" type="System.Drawing.Point, System.Drawing">
-    <value>530, 285</value>
+    <value>530, 239</value>
   </data>
   <data name="ActionOpenTermLettriq.Size" type="System.Drawing.Size, System.Drawing">
     <value>42, 42</value>
@@ -1407,7 +1407,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionCopyToMeanings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>530, 335</value>
+    <value>530, 285</value>
   </data>
   <data name="ActionCopyToMeanings.Size" type="System.Drawing.Size, System.Drawing">
     <value>42, 42</value>

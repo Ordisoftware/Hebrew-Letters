@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-01 </created>
-/// <edited> 2021-05 </edited>
+/// <edited> 2021-08 </edited>
 using System;
 using System.Drawing;
 using System.Threading.Tasks;
@@ -47,9 +47,14 @@ namespace Ordisoftware.Hebrew.Letters
       TextBoxEx.ActionPaste.Click += TextBoxData_ContextMenuAction_Click;
       TextBoxEx.ActionDelete.Click += TextBoxData_ContextMenuAction_Click;
       NativeMethods.ClipboardViewerNext = NativeMethods.SetClipboardViewer(Handle);
-      if ( !Globals.IsDevExecutable ) // TODO remove when ready
+      //if ( !Globals.IsDevExecutable ) // TODO remove when ready
       {
         ActionViewNotebook.Visible = false;
+        ActionOpenTermLettriq.Visible = false;
+        ActionSaveTermLettriq.Visible = false;
+      }
+      //if ( !Globals.IsDevExecutable ) // TODO remove when ready
+      {
         ActionGematriaCombinations.Visible = false;
         ActionGematriaCombinations.Tag = int.MinValue;
         ActionGematriaCombinationsSeparator.Visible = false;
@@ -144,8 +149,6 @@ namespace Ordisoftware.Hebrew.Letters
     /// </summary>
     private void DoFormClosed(object sender, FormClosedEventArgs e)
     {
-      ActionSave_Click(null, null);
-
       Program.Settings.CurrentView = ViewMode.Analysis;
       Globals.IsExiting = true;
       Globals.IsSessionEnding = true;
