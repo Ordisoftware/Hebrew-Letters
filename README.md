@@ -48,7 +48,6 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 **What's new in the latest version 6.0**
 
 - Overall performances are optimized.
-- Added lettriqs notebook.
 - Some fixes and improvements.
 - SQLite ODBC Driver is no more needed.
 
