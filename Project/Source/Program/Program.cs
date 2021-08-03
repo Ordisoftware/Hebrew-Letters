@@ -140,7 +140,7 @@ namespace Ordisoftware.Hebrew.Letters
         {
           new Infralution.Localization.CultureManager().ManagedControl = form;
           ComponentResourceManager resources = new ComponentResourceManager(form.GetType());
-          resources.Apply(form.Controls);
+          resources.ApplyResources(form.Controls);
         }
         string lang = "en-US";
         if ( Settings.LanguageSelected == Language.FR ) lang = "fr-FR";
