@@ -504,6 +504,8 @@ namespace Ordisoftware.Hebrew.Letters
       ActionScreenshot.Enabled = enabled;
       ActionSaveScreenshot.Enabled = enabled;
       ActionSearchOnline.Enabled = enabled;
+
+      if ( !Globals.IsDevExecutable ) return; // TODO remove when ready
       var word = EditWord.TextBox.Text;
       var sentence = EditSentence.Text.Trim();
       var combos = SelectAnalyze.Controls.OfType<ComboBox>().ToList();

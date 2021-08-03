@@ -3572,6 +3572,9 @@
   <data name="ActionViewNotebook.ToolTipText" xml:space="preserve">
     <value>Notebook (F3)</value>
   </data>
+  <data name="ActionViewNotebook.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="toolStripSeparator6.Size" type="System.Drawing.Size, System.Drawing">
     <value>6, 49</value>
   </data>
