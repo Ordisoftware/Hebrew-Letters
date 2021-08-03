@@ -141,6 +141,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 ## Future improvements
 
+- Add analyzed words data table and notebook view.
 - Add find gematria possible combinations.
 - Add reset only some columns to factory defaults.
 - Add export and import database.
@@ -152,11 +153,10 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 ## Changelog
 
-#### In progress - Version 6.0
+#### 2021.08.08 - Version 6.0
 
 - Switch from SQLite ODBC Driver to SQLite-Net with SQLitePCLraw nugets.
 - Optimize overall performances.
-- Add analyzed words data table and notebook view.
 - Some fixes and improvements.
 - Code refactoring and quality improvement.
 - Replace proprietary simple TraceListener by SeriLog.
