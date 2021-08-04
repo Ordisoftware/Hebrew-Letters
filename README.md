@@ -156,11 +156,10 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 - Switch from SQLite ODBC Driver to SQLite-Net with SQLitePCLraw nugets.
 - Optimize overall performances.
+- Replace proprietary simple TraceListener by SeriLog.
+- Improve trace form.
 - Some fixes and improvements.
 - Code refactoring and quality improvement.
-- Replace proprietary simple TraceListener by SeriLog.
-- Improve GitHub issue text creation.
-- Improve trace form.
 
 #### 2021.04.30 - Version 5.3
 

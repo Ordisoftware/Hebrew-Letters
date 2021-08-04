@@ -184,5 +184,8 @@
     <Setting Name="MainFormSplitContainerNotebookDistance" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">200</Value>
     </Setting>
+    <Setting Name="LoadingFormHidden" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
