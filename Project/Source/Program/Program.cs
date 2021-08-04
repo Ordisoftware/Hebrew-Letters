@@ -20,6 +20,7 @@ using System.Threading;
 using System.Windows.Forms;
 using System.Runtime.Serialization.Formatters.Binary;
 using Ordisoftware.Core;
+using System.IO;
 
 namespace Ordisoftware.Hebrew.Letters
 {
@@ -57,11 +58,12 @@ namespace Ordisoftware.Hebrew.Letters
         SystemManager.TryCatch(Settings.Save);
         Globals.Settings = Settings;
         Globals.MainForm = MainForm.Instance;
-        DebugManager.Enabled = Settings.DebuggerEnabled;
         DebugManager.TraceEnabled = Settings.TraceEnabled;
+        DebugManager.Enabled = Settings.DebuggerEnabled;
         Globals.ChronoStartingApp.Stop();
         ProcessCommandLineOptions();
         Globals.ChronoStartingApp.Start();
+        LoadingForm.Instance.Hidden = Settings.LoadingFormHidden;
       }
       catch ( Exception ex )
       {
@@ -77,13 +79,11 @@ namespace Ordisoftware.Hebrew.Letters
     {
       try
       {
-        Settings.CurrentView = ViewMode.Analysis;
+        // Check reset
         if ( force /*|| Settings.UpgradeResetRequiredVx_y*/ )
         {
-#pragma warning disable S2583 // Conditionally executed code should be reachable
           if ( !force && !Settings.FirstLaunch )
             DisplayManager.ShowInformation(SysTranslations.UpgradeResetRequired.GetLang());
-#pragma warning restore S2583 // Conditionally executed code should be reachable
           Settings.Reset();
           Settings.LanguageSelected = Languages.Current;
           Settings.SetUpgradeFlagsOff();
@@ -93,8 +93,12 @@ namespace Ordisoftware.Hebrew.Letters
           Settings.SetFirstAndUpgradeFlagsOff();
           Settings.FirstLaunch = true;
         }
+        // Check language
         if ( Settings.LanguageSelected == Language.None )
           Settings.LanguageSelected = Languages.Current;
+        // Force default view
+        Settings.CurrentView = ViewMode.Analysis;
+        // Save settings
         SystemManager.TryCatch(Settings.Save);
       }
       catch ( Exception ex )

@@ -49,7 +49,7 @@ namespace Ordisoftware.Hebrew.Letters
     /// <summary>
     /// Indicate if terms tables are readonly, else writable.
     /// </summary>
-    private bool IsTermsReadOnly;
+    // TODO remove ? private bool IsTermsReadOnly;
 
     public ApplicationDatabase DBApp = ApplicationDatabase.Instance;
     public HebrewDatabase DBHebrew = HebrewDatabase.Instance;
