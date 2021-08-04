@@ -152,7 +152,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 ## Changelog
 
-#### 2021.08.08 - Version 6.0
+#### 2021.08.05 - Version 6.0
 
 - Switch from SQLite ODBC Driver to SQLite-Net with SQLitePCLraw nugets.
 - Optimize overall performances.
