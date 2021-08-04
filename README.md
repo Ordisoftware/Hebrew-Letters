@@ -140,7 +140,6 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 ## Future improvements
 
-- Add analyzed words data table and notebook view.
 - Add find gematria possible combinations.
 - Add reset only some columns to factory defaults.
 - Add export and import database.
@@ -151,6 +150,10 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Optimize more ComboBoxes creation.
 
 ## Changelog
+
+#### In progress
+
+- Add analyzed words data table and notebook view.
 
 #### 2021.08.05 - Version 6.0
 
