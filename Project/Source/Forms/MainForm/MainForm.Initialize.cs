@@ -47,14 +47,12 @@ namespace Ordisoftware.Hebrew.Letters
       TextBoxEx.ActionPaste.Click += TextBoxData_ContextMenuAction_Click;
       TextBoxEx.ActionDelete.Click += TextBoxData_ContextMenuAction_Click;
       NativeMethods.ClipboardViewerNext = NativeMethods.SetClipboardViewer(Handle);
-
       if ( !Globals.IsDevExecutable ) // TODO remove when ready
       {
         ActionViewNotebook.Visible = false;
         ActionOpenTermLettriq.Visible = false;
         ActionSaveTermLettriq.Visible = false;
       }
-
       if ( !Globals.IsDevExecutable ) // TODO remove when ready
       {
         ActionGematriaCombinations.Visible = false;
