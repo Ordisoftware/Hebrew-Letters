@@ -39,8 +39,8 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 
 ## Requirements
 
-- Windows 7 SP1 x32/x64 or higher
 - Screen 1024x768 or higher
+- Windows 7 SP1 x32/x64 or higher
 - Framework .NET 4.7.2
 
 ## Download
