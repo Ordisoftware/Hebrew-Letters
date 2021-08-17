@@ -39,10 +39,10 @@
       System.Windows.Forms.Label LabelVerb;
       System.Windows.Forms.Label LabelPositive;
       System.Windows.Forms.Label LabelNegative;
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
       this.PanelMain = new System.Windows.Forms.Panel();
       this.PanelMainOuter = new System.Windows.Forms.Panel();
       this.PanelMainInner = new System.Windows.Forms.Panel();
@@ -74,8 +74,8 @@
       this.ActionOpenTermLettriq = new System.Windows.Forms.Button();
       this.ActionCopyToMeanings = new System.Windows.Forms.Button();
       this.ActionCopyToResult = new System.Windows.Forms.Button();
-      this.textBoxEx2 = new Ordisoftware.Core.TextBoxEx();
-      this.textBoxEx1 = new Ordisoftware.Core.TextBoxEx();
+      this.EditTranscription = new Ordisoftware.Core.TextBoxEx();
+      this.EditDictionary = new Ordisoftware.Core.TextBoxEx();
       this.EditSentence = new Ordisoftware.Core.TextBoxEx();
       this.EditGematriaSimple = new Ordisoftware.Core.TextBoxEx();
       this.LabelDictionary = new System.Windows.Forms.Label();
@@ -172,6 +172,8 @@
       this.SaveImageDialog = new System.Windows.Forms.SaveFileDialog();
       this.ToolTipClipboard = new System.Windows.Forms.ToolTip(this.components);
       this.ContextMenuOpenTermLettriq = new System.Windows.Forms.ContextMenuStrip(this.components);
+      this.LabelMemo = new System.Windows.Forms.Label();
+      this.EditMemo = new Ordisoftware.Core.TextBoxEx();
       LabelName = new System.Windows.Forms.Label();
       LabelStructure = new System.Windows.Forms.Label();
       LabelFunction = new System.Windows.Forms.Label();
@@ -330,9 +332,11 @@
       this.PanelViewAnalysis.Controls.Add(this.ActionOpenTermLettriq);
       this.PanelViewAnalysis.Controls.Add(this.ActionCopyToMeanings);
       this.PanelViewAnalysis.Controls.Add(this.ActionCopyToResult);
-      this.PanelViewAnalysis.Controls.Add(this.textBoxEx2);
-      this.PanelViewAnalysis.Controls.Add(this.textBoxEx1);
+      this.PanelViewAnalysis.Controls.Add(this.EditTranscription);
+      this.PanelViewAnalysis.Controls.Add(this.EditMemo);
+      this.PanelViewAnalysis.Controls.Add(this.EditDictionary);
       this.PanelViewAnalysis.Controls.Add(this.EditSentence);
+      this.PanelViewAnalysis.Controls.Add(this.LabelMemo);
       this.PanelViewAnalysis.Controls.Add(this.EditGematriaSimple);
       this.PanelViewAnalysis.Controls.Add(this.LabelDictionary);
       this.PanelViewAnalysis.Controls.Add(this.LabelTranscription);
@@ -525,25 +529,25 @@
       this.ActionCopyToResult.UseVisualStyleBackColor = true;
       this.ActionCopyToResult.Click += new System.EventHandler(this.ActionCopyToResult_Click);
       // 
-      // textBoxEx2
+      // EditTranscription
       // 
-      resources.ApplyResources(this.textBoxEx2, "textBoxEx2");
-      this.textBoxEx2.BackColor = System.Drawing.SystemColors.Window;
-      this.textBoxEx2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.textBoxEx2.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
-      this.textBoxEx2.Name = "textBoxEx2";
-      this.textBoxEx2.FontChanged += new System.EventHandler(this.EditSentence_FontChanged);
-      this.textBoxEx2.TextChanged += new System.EventHandler(this.EditSentence_TextChanged);
+      resources.ApplyResources(this.EditTranscription, "EditTranscription");
+      this.EditTranscription.BackColor = System.Drawing.Color.AliceBlue;
+      this.EditTranscription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.EditTranscription.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
+      this.EditTranscription.Name = "EditTranscription";
+      this.EditTranscription.FontChanged += new System.EventHandler(this.EditSentence_FontChanged);
+      this.EditTranscription.TextChanged += new System.EventHandler(this.EditSentence_TextChanged);
       // 
-      // textBoxEx1
+      // EditDictionary
       // 
-      resources.ApplyResources(this.textBoxEx1, "textBoxEx1");
-      this.textBoxEx1.BackColor = System.Drawing.SystemColors.Window;
-      this.textBoxEx1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.textBoxEx1.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
-      this.textBoxEx1.Name = "textBoxEx1";
-      this.textBoxEx1.FontChanged += new System.EventHandler(this.EditSentence_FontChanged);
-      this.textBoxEx1.TextChanged += new System.EventHandler(this.EditSentence_TextChanged);
+      resources.ApplyResources(this.EditDictionary, "EditDictionary");
+      this.EditDictionary.BackColor = System.Drawing.Color.AliceBlue;
+      this.EditDictionary.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.EditDictionary.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
+      this.EditDictionary.Name = "EditDictionary";
+      this.EditDictionary.FontChanged += new System.EventHandler(this.EditSentence_FontChanged);
+      this.EditDictionary.TextChanged += new System.EventHandler(this.EditSentence_TextChanged);
       // 
       // EditSentence
       // 
@@ -584,7 +588,10 @@
       // 
       this.EditWord.BackColor = System.Drawing.Color.Transparent;
       this.EditWord.FontSizeInput = 20F;
+      this.EditWord.FontSizeLetters = 18F;
       resources.ApplyResources(this.EditWord, "EditWord");
+      this.EditWord.MarginX = -5;
+      this.EditWord.MarginY = 0;
       this.EditWord.Name = "EditWord";
       this.EditWord.ViewLetterDetails += new Ordisoftware.Hebrew.ViewLetterDetails(this.EditLetters_ViewLetterDetails);
       this.EditWord.InputTextChanged += new System.EventHandler(this.EditLetters_InputTextChanged);
@@ -895,9 +902,9 @@
       this.ListNotebookWords.Name = "ListNotebookWords";
       this.ListNotebookWords.ReadOnly = true;
       this.ListNotebookWords.RowHeadersVisible = false;
-      dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-      dataGridViewCellStyle6.Font = new System.Drawing.Font("Hebrew", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.ListNotebookWords.RowsDefaultCellStyle = dataGridViewCellStyle6;
+      dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+      dataGridViewCellStyle2.Font = new System.Drawing.Font("Hebrew", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.ListNotebookWords.RowsDefaultCellStyle = dataGridViewCellStyle2;
       this.ListNotebookWords.RowTemplate.Height = 28;
       this.ListNotebookWords.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
       this.ListNotebookWords.ShowCellToolTips = false;
@@ -907,9 +914,9 @@
       // 
       this.hebrewDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
       this.hebrewDataGridViewTextBoxColumn.DataPropertyName = "Hebrew";
-      dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-      dataGridViewCellStyle5.Font = new System.Drawing.Font("Hebrew", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.hebrewDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+      dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+      dataGridViewCellStyle1.Font = new System.Drawing.Font("Hebrew", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.hebrewDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
       resources.ApplyResources(this.hebrewDataGridViewTextBoxColumn, "hebrewDataGridViewTextBoxColumn");
       this.hebrewDataGridViewTextBoxColumn.Name = "hebrewDataGridViewTextBoxColumn";
       this.hebrewDataGridViewTextBoxColumn.ReadOnly = true;
@@ -941,9 +948,9 @@
       this.ListNotebookLetters.Name = "ListNotebookLetters";
       this.ListNotebookLetters.ReadOnly = true;
       this.ListNotebookLetters.RowHeadersVisible = false;
-      dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-      dataGridViewCellStyle8.Font = new System.Drawing.Font("Hebrew", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.ListNotebookLetters.RowsDefaultCellStyle = dataGridViewCellStyle8;
+      dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+      dataGridViewCellStyle4.Font = new System.Drawing.Font("Hebrew", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.ListNotebookLetters.RowsDefaultCellStyle = dataGridViewCellStyle4;
       this.ListNotebookLetters.RowTemplate.Height = 28;
       this.ListNotebookLetters.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
       this.ListNotebookLetters.ShowCellToolTips = false;
@@ -953,9 +960,9 @@
       // 
       this.codeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
       this.codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
-      dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-      dataGridViewCellStyle7.Font = new System.Drawing.Font("Hebrew", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.codeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
+      dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+      dataGridViewCellStyle3.Font = new System.Drawing.Font("Hebrew", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.codeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
       resources.ApplyResources(this.codeDataGridViewTextBoxColumn, "codeDataGridViewTextBoxColumn");
       this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
       this.codeDataGridViewTextBoxColumn.ReadOnly = true;
@@ -1405,6 +1412,21 @@
       this.ContextMenuOpenTermLettriq.ShowImageMargin = false;
       resources.ApplyResources(this.ContextMenuOpenTermLettriq, "ContextMenuOpenTermLettriq");
       // 
+      // LabelMemo
+      // 
+      resources.ApplyResources(this.LabelMemo, "LabelMemo");
+      this.LabelMemo.Name = "LabelMemo";
+      // 
+      // EditMemo
+      // 
+      resources.ApplyResources(this.EditMemo, "EditMemo");
+      this.EditMemo.BackColor = System.Drawing.Color.AliceBlue;
+      this.EditMemo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.EditMemo.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
+      this.EditMemo.Name = "EditMemo";
+      this.EditMemo.FontChanged += new System.EventHandler(this.EditSentence_FontChanged);
+      this.EditMemo.TextChanged += new System.EventHandler(this.EditSentence_TextChanged);
+      // 
       // MainForm
       // 
       resources.ApplyResources(this, "$this");
@@ -1586,9 +1608,11 @@
     private System.Windows.Forms.DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
     private System.Windows.Forms.Label LabelCurrentView;
     private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMeaningsText;
-    public Core.TextBoxEx textBoxEx2;
-    public Core.TextBoxEx textBoxEx1;
+    public Core.TextBoxEx EditTranscription;
+    public Core.TextBoxEx EditDictionary;
     public System.Windows.Forms.Label LabelDictionary;
     public System.Windows.Forms.Label LabelTranscription;
+    public Core.TextBoxEx EditMemo;
+    public System.Windows.Forms.Label LabelMemo;
   }
 }

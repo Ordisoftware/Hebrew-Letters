@@ -712,8 +712,9 @@ namespace Ordisoftware.Hebrew.Letters
         ID = Guid.NewGuid().ToString(),
         TermID = term.ID,
         Sentence = EditSentence.Text,
-        Transcription = string.Empty, // TODO set
-        Dictionary = string.Empty     // TODO set
+        Transcription = EditTranscription.Text,
+        Dictionary = EditDictionary.Text,
+        Memo = EditMemo.Text
       };
       DBHebrew.TermLettriqs.Add(lettriq);
       DBHebrew.Connection.Insert(lettriq);
