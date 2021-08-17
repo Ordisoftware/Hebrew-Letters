@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2021-04 </edited>
+/// <edited> 2021-08 </edited>
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -102,7 +102,7 @@ namespace Ordisoftware.Hebrew.Letters
         dummy.AutoSize = false;
         dummy.Left = 10;
         dummy.Width = 10;
-        dummy.Top = dy;
+        dummy.Top = dy - 5;
         dummy.Text = "";
         SelectAnalyze.Controls.Add(dummy);
         EditGematriaSimple.Text = sumSimple.ToString();

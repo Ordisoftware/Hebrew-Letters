@@ -74,8 +74,12 @@
       this.ActionOpenTermLettriq = new System.Windows.Forms.Button();
       this.ActionCopyToMeanings = new System.Windows.Forms.Button();
       this.ActionCopyToResult = new System.Windows.Forms.Button();
+      this.textBoxEx2 = new Ordisoftware.Core.TextBoxEx();
+      this.textBoxEx1 = new Ordisoftware.Core.TextBoxEx();
       this.EditSentence = new Ordisoftware.Core.TextBoxEx();
       this.EditGematriaSimple = new Ordisoftware.Core.TextBoxEx();
+      this.LabelDictionary = new System.Windows.Forms.Label();
+      this.LabelTranscription = new System.Windows.Forms.Label();
       this.LabelGematria = new System.Windows.Forms.Label();
       this.EditWord = new Ordisoftware.Hebrew.LettersControl();
       this.TabPageLetters = new System.Windows.Forms.TabPage();
@@ -326,8 +330,12 @@
       this.PanelViewAnalysis.Controls.Add(this.ActionOpenTermLettriq);
       this.PanelViewAnalysis.Controls.Add(this.ActionCopyToMeanings);
       this.PanelViewAnalysis.Controls.Add(this.ActionCopyToResult);
+      this.PanelViewAnalysis.Controls.Add(this.textBoxEx2);
+      this.PanelViewAnalysis.Controls.Add(this.textBoxEx1);
       this.PanelViewAnalysis.Controls.Add(this.EditSentence);
       this.PanelViewAnalysis.Controls.Add(this.EditGematriaSimple);
+      this.PanelViewAnalysis.Controls.Add(this.LabelDictionary);
+      this.PanelViewAnalysis.Controls.Add(this.LabelTranscription);
       this.PanelViewAnalysis.Controls.Add(this.LabelGematria);
       this.PanelViewAnalysis.Controls.Add(this.EditWord);
       this.PanelViewAnalysis.Name = "PanelViewAnalysis";
@@ -517,6 +525,26 @@
       this.ActionCopyToResult.UseVisualStyleBackColor = true;
       this.ActionCopyToResult.Click += new System.EventHandler(this.ActionCopyToResult_Click);
       // 
+      // textBoxEx2
+      // 
+      resources.ApplyResources(this.textBoxEx2, "textBoxEx2");
+      this.textBoxEx2.BackColor = System.Drawing.SystemColors.Window;
+      this.textBoxEx2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.textBoxEx2.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
+      this.textBoxEx2.Name = "textBoxEx2";
+      this.textBoxEx2.FontChanged += new System.EventHandler(this.EditSentence_FontChanged);
+      this.textBoxEx2.TextChanged += new System.EventHandler(this.EditSentence_TextChanged);
+      // 
+      // textBoxEx1
+      // 
+      resources.ApplyResources(this.textBoxEx1, "textBoxEx1");
+      this.textBoxEx1.BackColor = System.Drawing.SystemColors.Window;
+      this.textBoxEx1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.textBoxEx1.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
+      this.textBoxEx1.Name = "textBoxEx1";
+      this.textBoxEx1.FontChanged += new System.EventHandler(this.EditSentence_FontChanged);
+      this.textBoxEx1.TextChanged += new System.EventHandler(this.EditSentence_TextChanged);
+      // 
       // EditSentence
       // 
       resources.ApplyResources(this.EditSentence, "EditSentence");
@@ -537,6 +565,16 @@
       this.EditGematriaSimple.ReadOnly = true;
       this.EditGematriaSimple.TextChanged += new System.EventHandler(this.EditGematria_TextChanged);
       // 
+      // LabelDictionary
+      // 
+      resources.ApplyResources(this.LabelDictionary, "LabelDictionary");
+      this.LabelDictionary.Name = "LabelDictionary";
+      // 
+      // LabelTranscription
+      // 
+      resources.ApplyResources(this.LabelTranscription, "LabelTranscription");
+      this.LabelTranscription.Name = "LabelTranscription";
+      // 
       // LabelGematria
       // 
       resources.ApplyResources(this.LabelGematria, "LabelGematria");
@@ -545,6 +583,7 @@
       // EditWord
       // 
       this.EditWord.BackColor = System.Drawing.Color.Transparent;
+      this.EditWord.FontSizeInput = 20F;
       resources.ApplyResources(this.EditWord, "EditWord");
       this.EditWord.Name = "EditWord";
       this.EditWord.ViewLetterDetails += new Ordisoftware.Hebrew.ViewLetterDetails(this.EditLetters_ViewLetterDetails);
@@ -1547,5 +1586,9 @@
     private System.Windows.Forms.DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
     private System.Windows.Forms.Label LabelCurrentView;
     private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMeaningsText;
+    public Core.TextBoxEx textBoxEx2;
+    public Core.TextBoxEx textBoxEx1;
+    public System.Windows.Forms.Label LabelDictionary;
+    public System.Windows.Forms.Label LabelTranscription;
   }
 }
