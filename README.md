@@ -154,6 +154,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 #### In progress
 
 - Add analyzed words data table and notebook view.
+- Improve database to add transcription, dictionary and comment fields for word analysis.
 - Fix getting CPU usage for multiple instances.
 
 #### 2021.08.05 - Version 6.0
