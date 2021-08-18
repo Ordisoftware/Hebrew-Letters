@@ -188,6 +188,7 @@ namespace Ordisoftware.Hebrew.Letters
           GrammarGuideForm.HTMLBrowserForm_Shown(null, null);
           MethodNoticeForm.HTMLBrowserForm_Shown(null, null);
         }
+        updateLabel(MainForm.Instance.LabelCondordance, MainForm.Instance.EditConcordance, -19);
         updateLabel(MainForm.Instance.LabelGematria, MainForm.Instance.EditGematriaSimple, -19);
         updateLabel(MainForm.Instance.LabelGematriaSimple, MainForm.Instance.EditGematriaSimple, 3);
         updateLabel(MainForm.Instance.LabelGematriaFull, MainForm.Instance.EditGematriaFull, 3);

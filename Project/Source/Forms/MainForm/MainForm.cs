@@ -690,6 +690,10 @@ namespace Ordisoftware.Hebrew.Letters
           list[meaning.Position].SelectedIndex = index;
         }
       EditSentence.Text = lettriq.Sentence;
+      EditTranscription.Text = lettriq.Transcription;
+      EditDictionary.Text = lettriq.Dictionary;
+      EditMemo.Text = lettriq.Memo;
+      //EditConcordance.Text = lettriq.ConcordanceID;
     }
 
     private void ActionSaveTermLettriq_Click(object sender, EventArgs e)
@@ -711,6 +715,7 @@ namespace Ordisoftware.Hebrew.Letters
       {
         ID = Guid.NewGuid().ToString(),
         TermID = term.ID,
+        //ConcordanceID = term.ConvertTo
         Sentence = EditSentence.Text,
         Transcription = EditTranscription.Text,
         Dictionary = EditDictionary.Text,

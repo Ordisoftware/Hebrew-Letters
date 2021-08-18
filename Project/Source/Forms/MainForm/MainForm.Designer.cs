@@ -79,9 +79,11 @@
       this.EditDictionary = new Ordisoftware.Core.TextBoxEx();
       this.EditSentence = new Ordisoftware.Core.TextBoxEx();
       this.LabelMemo = new System.Windows.Forms.Label();
+      this.EditConcordance = new Ordisoftware.Core.TextBoxEx();
       this.EditGematriaSimple = new Ordisoftware.Core.TextBoxEx();
       this.LabelDictionary = new System.Windows.Forms.Label();
       this.LabelTranscription = new System.Windows.Forms.Label();
+      this.LabelCondordance = new System.Windows.Forms.Label();
       this.LabelGematria = new System.Windows.Forms.Label();
       this.EditWord = new Ordisoftware.Hebrew.LettersControl();
       this.TabPageLetters = new System.Windows.Forms.TabPage();
@@ -337,9 +339,11 @@
       this.PanelViewAnalysis.Controls.Add(this.EditDictionary);
       this.PanelViewAnalysis.Controls.Add(this.EditSentence);
       this.PanelViewAnalysis.Controls.Add(this.LabelMemo);
+      this.PanelViewAnalysis.Controls.Add(this.EditConcordance);
       this.PanelViewAnalysis.Controls.Add(this.EditGematriaSimple);
       this.PanelViewAnalysis.Controls.Add(this.LabelDictionary);
       this.PanelViewAnalysis.Controls.Add(this.LabelTranscription);
+      this.PanelViewAnalysis.Controls.Add(this.LabelCondordance);
       this.PanelViewAnalysis.Controls.Add(this.LabelGematria);
       this.PanelViewAnalysis.Controls.Add(this.EditWord);
       this.PanelViewAnalysis.Name = "PanelViewAnalysis";
@@ -574,6 +578,16 @@
       resources.ApplyResources(this.LabelMemo, "LabelMemo");
       this.LabelMemo.Name = "LabelMemo";
       // 
+      // EditConcordance
+      // 
+      resources.ApplyResources(this.EditConcordance, "EditConcordance");
+      this.EditConcordance.BackColor = System.Drawing.Color.MintCream;
+      this.EditConcordance.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.EditConcordance.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
+      this.EditConcordance.Name = "EditConcordance";
+      this.EditConcordance.ReadOnly = true;
+      this.EditConcordance.TextChanged += new System.EventHandler(this.EditGematria_TextChanged);
+      // 
       // EditGematriaSimple
       // 
       resources.ApplyResources(this.EditGematriaSimple, "EditGematriaSimple");
@@ -593,6 +607,11 @@
       // 
       resources.ApplyResources(this.LabelTranscription, "LabelTranscription");
       this.LabelTranscription.Name = "LabelTranscription";
+      // 
+      // LabelCondordance
+      // 
+      resources.ApplyResources(this.LabelCondordance, "LabelCondordance");
+      this.LabelCondordance.Name = "LabelCondordance";
       // 
       // LabelGematria
       // 
@@ -1614,5 +1633,7 @@
     public System.Windows.Forms.Label LabelTranscription;
     public Core.TextBoxEx EditMemo;
     public System.Windows.Forms.Label LabelMemo;
+    public Core.TextBoxEx EditConcordance;
+    public System.Windows.Forms.Label LabelCondordance;
   }
 }
