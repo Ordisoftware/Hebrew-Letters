@@ -39,8 +39,8 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 
 ## Requirements
 
-- Windows 7 SP1 x32/x64 or higher
 - Screen 1024x768 or higher
+- Windows 7 SP1 x32/x64 or higher
 - Framework .NET 4.7.2
 
 ## Download
@@ -140,7 +140,6 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 ## Future improvements
 
-- Add analyzed words data table and notebook view.
 - Add find gematria possible combinations.
 - Add reset only some columns to factory defaults.
 - Add export and import database.
@@ -151,6 +150,12 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Optimize more ComboBoxes creation.
 
 ## Changelog
+
+#### In progress
+
+- Add analyzed words data table and notebook view.
+- Improve database to add transcription, dictionary and comment fields for word analysis.
+- Fix getting CPU usage for multiple instances.
 
 #### 2021.08.05 - Version 6.0
 

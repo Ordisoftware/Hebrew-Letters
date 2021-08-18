@@ -74,8 +74,16 @@
       this.ActionOpenTermLettriq = new System.Windows.Forms.Button();
       this.ActionCopyToMeanings = new System.Windows.Forms.Button();
       this.ActionCopyToResult = new System.Windows.Forms.Button();
+      this.EditTranscription = new Ordisoftware.Core.TextBoxEx();
+      this.EditMemo = new Ordisoftware.Core.TextBoxEx();
+      this.EditDictionary = new Ordisoftware.Core.TextBoxEx();
       this.EditSentence = new Ordisoftware.Core.TextBoxEx();
+      this.LabelMemo = new System.Windows.Forms.Label();
+      this.EditConcordance = new Ordisoftware.Core.TextBoxEx();
       this.EditGematriaSimple = new Ordisoftware.Core.TextBoxEx();
+      this.LabelDictionary = new System.Windows.Forms.Label();
+      this.LabelTranscription = new System.Windows.Forms.Label();
+      this.LabelCondordance = new System.Windows.Forms.Label();
       this.LabelGematria = new System.Windows.Forms.Label();
       this.EditWord = new Ordisoftware.Hebrew.LettersControl();
       this.TabPageLetters = new System.Windows.Forms.TabPage();
@@ -326,8 +334,16 @@
       this.PanelViewAnalysis.Controls.Add(this.ActionOpenTermLettriq);
       this.PanelViewAnalysis.Controls.Add(this.ActionCopyToMeanings);
       this.PanelViewAnalysis.Controls.Add(this.ActionCopyToResult);
+      this.PanelViewAnalysis.Controls.Add(this.EditTranscription);
+      this.PanelViewAnalysis.Controls.Add(this.EditMemo);
+      this.PanelViewAnalysis.Controls.Add(this.EditDictionary);
       this.PanelViewAnalysis.Controls.Add(this.EditSentence);
+      this.PanelViewAnalysis.Controls.Add(this.LabelMemo);
+      this.PanelViewAnalysis.Controls.Add(this.EditConcordance);
       this.PanelViewAnalysis.Controls.Add(this.EditGematriaSimple);
+      this.PanelViewAnalysis.Controls.Add(this.LabelDictionary);
+      this.PanelViewAnalysis.Controls.Add(this.LabelTranscription);
+      this.PanelViewAnalysis.Controls.Add(this.LabelCondordance);
       this.PanelViewAnalysis.Controls.Add(this.LabelGematria);
       this.PanelViewAnalysis.Controls.Add(this.EditWord);
       this.PanelViewAnalysis.Name = "PanelViewAnalysis";
@@ -517,6 +533,36 @@
       this.ActionCopyToResult.UseVisualStyleBackColor = true;
       this.ActionCopyToResult.Click += new System.EventHandler(this.ActionCopyToResult_Click);
       // 
+      // EditTranscription
+      // 
+      resources.ApplyResources(this.EditTranscription, "EditTranscription");
+      this.EditTranscription.BackColor = System.Drawing.Color.AliceBlue;
+      this.EditTranscription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.EditTranscription.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
+      this.EditTranscription.Name = "EditTranscription";
+      this.EditTranscription.FontChanged += new System.EventHandler(this.EditSentence_FontChanged);
+      this.EditTranscription.TextChanged += new System.EventHandler(this.EditSentence_TextChanged);
+      // 
+      // EditMemo
+      // 
+      resources.ApplyResources(this.EditMemo, "EditMemo");
+      this.EditMemo.BackColor = System.Drawing.Color.AliceBlue;
+      this.EditMemo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.EditMemo.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
+      this.EditMemo.Name = "EditMemo";
+      this.EditMemo.FontChanged += new System.EventHandler(this.EditSentence_FontChanged);
+      this.EditMemo.TextChanged += new System.EventHandler(this.EditSentence_TextChanged);
+      // 
+      // EditDictionary
+      // 
+      resources.ApplyResources(this.EditDictionary, "EditDictionary");
+      this.EditDictionary.BackColor = System.Drawing.Color.AliceBlue;
+      this.EditDictionary.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.EditDictionary.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
+      this.EditDictionary.Name = "EditDictionary";
+      this.EditDictionary.FontChanged += new System.EventHandler(this.EditSentence_FontChanged);
+      this.EditDictionary.TextChanged += new System.EventHandler(this.EditSentence_TextChanged);
+      // 
       // EditSentence
       // 
       resources.ApplyResources(this.EditSentence, "EditSentence");
@@ -526,6 +572,21 @@
       this.EditSentence.Name = "EditSentence";
       this.EditSentence.FontChanged += new System.EventHandler(this.EditSentence_FontChanged);
       this.EditSentence.TextChanged += new System.EventHandler(this.EditSentence_TextChanged);
+      // 
+      // LabelMemo
+      // 
+      resources.ApplyResources(this.LabelMemo, "LabelMemo");
+      this.LabelMemo.Name = "LabelMemo";
+      // 
+      // EditConcordance
+      // 
+      resources.ApplyResources(this.EditConcordance, "EditConcordance");
+      this.EditConcordance.BackColor = System.Drawing.Color.MintCream;
+      this.EditConcordance.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.EditConcordance.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
+      this.EditConcordance.Name = "EditConcordance";
+      this.EditConcordance.ReadOnly = true;
+      this.EditConcordance.TextChanged += new System.EventHandler(this.EditGematria_TextChanged);
       // 
       // EditGematriaSimple
       // 
@@ -537,6 +598,21 @@
       this.EditGematriaSimple.ReadOnly = true;
       this.EditGematriaSimple.TextChanged += new System.EventHandler(this.EditGematria_TextChanged);
       // 
+      // LabelDictionary
+      // 
+      resources.ApplyResources(this.LabelDictionary, "LabelDictionary");
+      this.LabelDictionary.Name = "LabelDictionary";
+      // 
+      // LabelTranscription
+      // 
+      resources.ApplyResources(this.LabelTranscription, "LabelTranscription");
+      this.LabelTranscription.Name = "LabelTranscription";
+      // 
+      // LabelCondordance
+      // 
+      resources.ApplyResources(this.LabelCondordance, "LabelCondordance");
+      this.LabelCondordance.Name = "LabelCondordance";
+      // 
       // LabelGematria
       // 
       resources.ApplyResources(this.LabelGematria, "LabelGematria");
@@ -545,7 +621,11 @@
       // EditWord
       // 
       this.EditWord.BackColor = System.Drawing.Color.Transparent;
+      this.EditWord.FontSizeInput = 20F;
+      this.EditWord.FontSizeLetters = 18F;
       resources.ApplyResources(this.EditWord, "EditWord");
+      this.EditWord.MarginX = -5;
+      this.EditWord.MarginY = 0;
       this.EditWord.Name = "EditWord";
       this.EditWord.ViewLetterDetails += new Ordisoftware.Hebrew.ViewLetterDetails(this.EditLetters_ViewLetterDetails);
       this.EditWord.InputTextChanged += new System.EventHandler(this.EditLetters_InputTextChanged);
@@ -1547,5 +1627,13 @@
     private System.Windows.Forms.DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn;
     private System.Windows.Forms.Label LabelCurrentView;
     private System.Windows.Forms.DataGridViewTextBoxColumn ColumnMeaningsText;
+    public Core.TextBoxEx EditTranscription;
+    public Core.TextBoxEx EditDictionary;
+    public System.Windows.Forms.Label LabelDictionary;
+    public System.Windows.Forms.Label LabelTranscription;
+    public Core.TextBoxEx EditMemo;
+    public System.Windows.Forms.Label LabelMemo;
+    public Core.TextBoxEx EditConcordance;
+    public System.Windows.Forms.Label LabelCondordance;
   }
 }

@@ -504,7 +504,6 @@ namespace Ordisoftware.Hebrew.Letters
       ActionScreenshot.Enabled = enabled;
       ActionSaveScreenshot.Enabled = enabled;
       ActionSearchOnline.Enabled = enabled;
-
       if ( !Globals.IsDevExecutable ) return; // TODO remove when ready
       var word = EditWord.TextBox.Text;
       var sentence = EditSentence.Text.Trim();
@@ -691,6 +690,10 @@ namespace Ordisoftware.Hebrew.Letters
           list[meaning.Position].SelectedIndex = index;
         }
       EditSentence.Text = lettriq.Sentence;
+      EditTranscription.Text = lettriq.Transcription;
+      EditDictionary.Text = lettriq.Dictionary;
+      EditMemo.Text = lettriq.Memo;
+      //EditConcordance.Text = lettriq.ConcordanceID;
     }
 
     private void ActionSaveTermLettriq_Click(object sender, EventArgs e)
@@ -712,7 +715,11 @@ namespace Ordisoftware.Hebrew.Letters
       {
         ID = Guid.NewGuid().ToString(),
         TermID = term.ID,
-        Sentence = EditSentence.Text
+        //ConcordanceID = term.ConvertTo
+        Sentence = EditSentence.Text,
+        Transcription = EditTranscription.Text,
+        Dictionary = EditDictionary.Text,
+        Memo = EditMemo.Text
       };
       DBHebrew.TermLettriqs.Add(lettriq);
       DBHebrew.Connection.Insert(lettriq);

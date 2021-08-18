@@ -47,14 +47,12 @@ namespace Ordisoftware.Hebrew.Letters
       TextBoxEx.ActionPaste.Click += TextBoxData_ContextMenuAction_Click;
       TextBoxEx.ActionDelete.Click += TextBoxData_ContextMenuAction_Click;
       NativeMethods.ClipboardViewerNext = NativeMethods.SetClipboardViewer(Handle);
-
       if ( !Globals.IsDevExecutable ) // TODO remove when ready
       {
         ActionViewNotebook.Visible = false;
         ActionOpenTermLettriq.Visible = false;
         ActionSaveTermLettriq.Visible = false;
       }
-
       if ( !Globals.IsDevExecutable ) // TODO remove when ready
       {
         ActionGematriaCombinations.Visible = false;
@@ -264,6 +262,8 @@ namespace Ordisoftware.Hebrew.Letters
       EditSentence.BackColor = Settings.ColorSentenceTextBox;
       EditGematriaFull.BackColor = Settings.ColorGematriaTextBox;
       EditGematriaSimple.BackColor = Settings.ColorGematriaTextBox;
+      EditTranscription.BackColor = Settings.ColorHebrewWordTextBox;
+      EditDictionary.BackColor = Settings.ColorHebrewWordTextBox;
       // Data
       SelectLetter.BackColor = Settings.ColorLettersPanel == SystemColors.Window
                                ? Settings.ColorGematriaTextBox

@@ -29,8 +29,8 @@
     private void InitializeComponent()
     {
       this.components = new System.ComponentModel.Container();
-      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PreferencesForm));
       System.Windows.Forms.Label LabelVolume;
+      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PreferencesForm));
       System.Windows.Forms.Label LabelCheckUpdateFrequency;
       this.ActionClose = new System.Windows.Forms.Button();
       this.PanelBottom = new System.Windows.Forms.Panel();
@@ -105,15 +105,25 @@
       this.PanelBottom.SuspendLayout();
       this.TabControl.SuspendLayout();
       this.TabPageApplication.SuspendLayout();
-      ( (System.ComponentModel.ISupportInitialize)( this.EditVolume ) ).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.EditVolume)).BeginInit();
       this.TabPageCheckUpdate.SuspendLayout();
-      ( (System.ComponentModel.ISupportInitialize)( this.EditCheckUpdateAtStartupInterval ) ).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.EditCheckUpdateAtStartupInterval)).BeginInit();
       this.TabPageTheme.SuspendLayout();
       this.TabPageAnalyzer.SuspendLayout();
-      ( (System.ComponentModel.ISupportInitialize)( this.EditMaxLength ) ).BeginInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.EditFontSize ) ).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.EditMaxLength)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.EditFontSize)).BeginInit();
       this.TabPageExport.SuspendLayout();
       this.SuspendLayout();
+      // 
+      // LabelVolume
+      // 
+      resources.ApplyResources(LabelVolume, "LabelVolume");
+      LabelVolume.Name = "LabelVolume";
+      // 
+      // LabelCheckUpdateFrequency
+      // 
+      resources.ApplyResources(LabelCheckUpdateFrequency, "LabelCheckUpdateFrequency");
+      LabelCheckUpdateFrequency.Name = "LabelCheckUpdateFrequency";
       // 
       // ActionClose
       // 
@@ -251,11 +261,6 @@
       this.ActionSelectLangEN.UseVisualStyleBackColor = true;
       this.ActionSelectLangEN.Click += new System.EventHandler(this.ActionSelectLangEN_Click);
       // 
-      // LabelVolume
-      // 
-      resources.ApplyResources(LabelVolume, "LabelVolume");
-      LabelVolume.Name = "LabelVolume";
-      // 
       // LabelVolumeValue
       // 
       resources.ApplyResources(this.LabelVolumeValue, "LabelVolumeValue");
@@ -370,11 +375,6 @@
       resources.ApplyResources(this.LabelCheckUpdateAtStartupInfo, "LabelCheckUpdateAtStartupInfo");
       this.LabelCheckUpdateAtStartupInfo.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
       this.LabelCheckUpdateAtStartupInfo.Name = "LabelCheckUpdateAtStartupInfo";
-      // 
-      // LabelCheckUpdateFrequency
-      // 
-      resources.ApplyResources(LabelCheckUpdateFrequency, "LabelCheckUpdateFrequency");
-      LabelCheckUpdateFrequency.Name = "LabelCheckUpdateFrequency";
       // 
       // TabPageTheme
       // 
@@ -583,7 +583,7 @@
       this.EditFontSize.BackColor = System.Drawing.SystemColors.Window;
       resources.ApplyResources(this.EditFontSize, "EditFontSize");
       this.EditFontSize.Maximum = new decimal(new int[] {
-            16,
+            14,
             0,
             0,
             0});
@@ -699,16 +699,16 @@
       this.TabControl.ResumeLayout(false);
       this.TabPageApplication.ResumeLayout(false);
       this.TabPageApplication.PerformLayout();
-      ( (System.ComponentModel.ISupportInitialize)( this.EditVolume ) ).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.EditVolume)).EndInit();
       this.TabPageCheckUpdate.ResumeLayout(false);
       this.TabPageCheckUpdate.PerformLayout();
-      ( (System.ComponentModel.ISupportInitialize)( this.EditCheckUpdateAtStartupInterval ) ).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.EditCheckUpdateAtStartupInterval)).EndInit();
       this.TabPageTheme.ResumeLayout(false);
       this.TabPageTheme.PerformLayout();
       this.TabPageAnalyzer.ResumeLayout(false);
       this.TabPageAnalyzer.PerformLayout();
-      ( (System.ComponentModel.ISupportInitialize)( this.EditMaxLength ) ).EndInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.EditFontSize ) ).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.EditMaxLength)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.EditFontSize)).EndInit();
       this.TabPageExport.ResumeLayout(false);
       this.TabPageExport.PerformLayout();
       this.ResumeLayout(false);

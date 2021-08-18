@@ -337,4 +337,7 @@
   <data name="ActionViewNotebook.ToolTipText" xml:space="preserve">
     <value>Carnet (F3)</value>
   </data>
+  <data name="LabelDictionary.Text" xml:space="preserve">
+    <value>Dictionnaire</value>
+  </data>
 </root>

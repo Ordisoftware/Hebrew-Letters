@@ -1,4 +1,4 @@
-﻿/// <license>
+﻿// <license>
 /// This file is part of Ordisoftware Hebrew Letters.
 /// Copyright 2016-2021 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2020-08 </created>
-/// <edited> 2021-04 </edited>
+/// <edited> 2021-08 </edited>
 using System;
 using Ordisoftware.Core;
 
@@ -37,7 +37,7 @@ namespace Ordisoftware.Hebrew.Letters
       => Program.Settings.BenchmarkLoadData.FormatMilliseconds();
 
     public string DBLettersCount
-      => ApplicationDatabase.Instance.Letters.Count.ToString();
+      => ApplicationDatabase.Instance.Letters?.Count.ToString() ?? SysTranslations.NullSlot.GetLang();
 
     public string DBMeaningsCount
       => ApplicationDatabase.Instance.Connection.GetRowsCount(nameof(Letter.Meanings)).ToString();
