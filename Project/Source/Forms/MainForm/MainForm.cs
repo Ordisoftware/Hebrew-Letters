@@ -589,6 +589,10 @@ namespace Ordisoftware.Hebrew.Letters
     {
       EditWord.TextBox.SelectAll();
       EditWord.TextBox.Paste("");
+      EditConcordance.Value = EditConcordance.Minimum;
+      EditTranscription.Text = "";
+      EditDictionary.Text = "";
+      EditMemo.Text = "";
       EditSentence.Text = "";
       EditGematriaSimple.Text = "";
       EditGematriaFull.Text = "";
@@ -693,10 +697,10 @@ namespace Ordisoftware.Hebrew.Letters
       EditTranscription.Text = lettriq.Transcription;
       EditDictionary.Text = lettriq.Dictionary;
       EditMemo.Text = lettriq.Memo;
-      //EditConcordance.Text = lettriq.ConcordanceID;
+      SystemManager.TryCatch(() => EditConcordance.Value = int.Parse(lettriq.ConcordanceID));
     }
 
-    private void ActionSaveTermLettriq_Click(object sender, EventArgs e)
+  private void ActionSaveTermLettriq_Click(object sender, EventArgs e)
     {
       string hebrew = EditWord.TextBox.Text;
       var term = DBHebrew.TermsHebrew.Find(t => t.Hebrew == hebrew);
@@ -715,7 +719,7 @@ namespace Ordisoftware.Hebrew.Letters
       {
         ID = Guid.NewGuid().ToString(),
         TermID = term.ID,
-        //ConcordanceID = term.ConvertTo
+        ConcordanceID = EditConcordance.Value.ToString(),
         Sentence = EditSentence.Text,
         Transcription = EditTranscription.Text,
         Dictionary = EditDictionary.Text,

@@ -82,7 +82,9 @@ namespace Ordisoftware.Hebrew.Letters
         // Check reset
         if ( force /*|| Settings.UpgradeResetRequiredVx_y*/ )
         {
+#pragma warning disable S2583 // Conditionally executed code should be reachable
           if ( !force && !Settings.FirstLaunch )
+#pragma warning restore S2583 // Conditionally executed code should be reachable
             DisplayManager.ShowInformation(SysTranslations.UpgradeResetRequired.GetLang());
           Settings.Reset();
           Settings.LanguageSelected = Languages.Current;
@@ -188,13 +190,13 @@ namespace Ordisoftware.Hebrew.Letters
           GrammarGuideForm.HTMLBrowserForm_Shown(null, null);
           MethodNoticeForm.HTMLBrowserForm_Shown(null, null);
         }
-        updateLabel(MainForm.Instance.LabelCondordance, MainForm.Instance.EditConcordance, -19);
-        updateLabel(MainForm.Instance.LabelGematria, MainForm.Instance.EditGematriaSimple, -19);
-        updateLabel(MainForm.Instance.LabelGematriaSimple, MainForm.Instance.EditGematriaSimple, 3);
-        updateLabel(MainForm.Instance.LabelGematriaFull, MainForm.Instance.EditGematriaFull, 3);
-        updateLabel(MainForm.Instance.LabelTranscription, MainForm.Instance.EditGematriaSimple, 3);
-        updateLabel(MainForm.Instance.LabelDictionary, MainForm.Instance.EditGematriaSimple, 3);
-        updateLabel(MainForm.Instance.LabelMemo, MainForm.Instance.EditGematriaFull, 3);
+        MainForm.Instance.LabelGematria.Top = MainForm.Instance.EditGematriaSimple.Top - 19;
+        MainForm.Instance.LabelGematriaSimple.Top = MainForm.Instance.EditGematriaSimple.Top + 3;
+        MainForm.Instance.LabelGematriaFull.Top = MainForm.Instance.EditGematriaFull.Top + 3;
+        MainForm.Instance.LabelCondordance.Top = MainForm.Instance.LabelGematria.Top;
+        MainForm.Instance.LabelTranscription.Top = MainForm.Instance.LabelGematria.Top;
+        MainForm.Instance.LabelDictionary.Top = MainForm.Instance.LabelGematria.Top;
+        MainForm.Instance.LabelMemo.Top = MainForm.Instance.EditGematriaFull.Top + 3;
         MainForm.Instance.LabelClipboardContentType.Left = MainForm.Instance.ActionCopyToUnicode.Left
                                                          + MainForm.Instance.ActionCopyToUnicode.Width / 2
                                                          - MainForm.Instance.LabelClipboardContentType.Width / 2;
@@ -202,10 +204,6 @@ namespace Ordisoftware.Hebrew.Letters
                                                            + MainForm.Instance.ActionCopyToResult.Width + 5;
         MainForm.Instance.CheckClipboardContentType();
         MainForm.Instance.CreateSystemInformationMenu();
-        void updateLabel(Label label, TextBox textbox, int dy)
-        {
-          label.Location = new System.Drawing.Point(label.Location.X, textbox.Location.Y + dy);
-        }
       }
       catch ( Exception ex )
       {

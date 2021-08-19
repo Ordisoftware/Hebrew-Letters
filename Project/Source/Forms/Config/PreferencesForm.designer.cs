@@ -583,7 +583,7 @@
       this.EditFontSize.BackColor = System.Drawing.SystemColors.Window;
       resources.ApplyResources(this.EditFontSize, "EditFontSize");
       this.EditFontSize.Maximum = new decimal(new int[] {
-            14,
+            16,
             0,
             0,
             0});
