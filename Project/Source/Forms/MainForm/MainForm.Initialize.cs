@@ -14,6 +14,7 @@
 /// <edited> 2021-08 </edited>
 using System;
 using System.Drawing;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Win32;
@@ -69,6 +70,8 @@ namespace Ordisoftware.Hebrew.Letters
     {
       if ( Globals.IsExiting ) return;
       Settings.Retrieve();
+      EditConcordance.Minimum = HebrewAlphabet.ConcordanceFirst - 1;
+      EditConcordance.Maximum = HebrewAlphabet.ConcordanceLast;
       StatisticsForm.Run(true, Settings.UsageStatisticsEnabled);
       Globals.ChronoStartingApp.Stop();
       var lastdone = Settings.CheckUpdateLastDone;
@@ -264,6 +267,7 @@ namespace Ordisoftware.Hebrew.Letters
       EditGematriaSimple.BackColor = Settings.ColorGematriaTextBox;
       EditTranscription.BackColor = Settings.ColorHebrewWordTextBox;
       EditDictionary.BackColor = Settings.ColorHebrewWordTextBox;
+      EditMemo.BackColor = Settings.ColorHebrewWordTextBox;
       // Data
       SelectLetter.BackColor = Settings.ColorLettersPanel == SystemColors.Window
                                ? Settings.ColorGematriaTextBox

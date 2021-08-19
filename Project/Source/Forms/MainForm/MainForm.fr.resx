@@ -340,4 +340,7 @@
   <data name="LabelDictionary.Text" xml:space="preserve">
     <value>Dictionnaire</value>
   </data>
+  <data name="LabelMemo.Text" xml:space="preserve">
+    <value>Commentaire</value>
+  </data>
 </root>
