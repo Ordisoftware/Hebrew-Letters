@@ -328,4 +328,7 @@
   <data name="translateTimeLabel.Text" xml:space="preserve">
     <value>Traduction</value>
   </data>
+  <data name="dBLettriqsMemorySizeLabel.Text" xml:space="preserve">
+    <value>Taille mémoire Lettriques:</value>
+  </data>
 </root>

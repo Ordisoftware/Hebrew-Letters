@@ -63,21 +63,23 @@ namespace Ordisoftware.Hebrew.Letters
     static private string _DBFileSize;
     static internal bool UpdateDBFileSizeRequired { get; set; } = true;
 
-    /*public string DBMemorySize
+    public string DBMemorySize
     {
       get
       {
         if ( UpdateDBMemorySizeRequired )
         {
           UpdateDBMemorySizeRequired = false;
-          _DBMemorySize = ( ApplicationDatabase.Instance.Letters.SizeOf() +
-                            ApplicationDatabase.Instance.Meanings.SizeOf() ).FormatBytesSize();
+          /*long size = ApplicationDatabase.Instance.Letters?.SizeOf() ?? 0;
+          size += ApplicationDatabase.Instance.Meanings?.SizeOf() ?? 0;
+          _DBMemorySize = size > 0 ? size.FormatBytesSize() : SysTranslations.DatabaseTableClosed.GetLang();*/
+          _DBMemorySize = "N/A";
         }
         return _DBMemorySize;
       }
     }
     static private string _DBMemorySize;
-    static internal bool UpdateDBMemorySizeRequired { get; set; } = true;*/
+    static internal bool UpdateDBMemorySizeRequired { get; set; } = true;
 
     public string DBCommonFileSize
     {
@@ -93,6 +95,24 @@ namespace Ordisoftware.Hebrew.Letters
     }
     static private string _DBCommonFileSize;
     static internal bool UpdateDBCommonFileSizeRequired { get; set; } = true;
+
+    public string DBLettriqsMemorySize
+    {
+      get
+      {
+        if ( UpdateDBLettriqsMemorySizeRequired )
+        {
+          UpdateDBLettriqsMemorySizeRequired = false;
+          long size = HebrewDatabase.Instance.TermsHebrew?.SizeOf() ?? 0;
+          size += HebrewDatabase.Instance.TermLettriqs?.SizeOf() ?? 0;
+          size += HebrewDatabase.Instance.TermAnalyzes?.SizeOf() ?? 0;
+          _DBLettriqsMemorySize = size > 0 ? size.FormatBytesSize() : SysTranslations.DatabaseTableClosed.GetLang();
+        }
+        return _DBLettriqsMemorySize;
+      }
+    }
+    static private string _DBLettriqsMemorySize;
+    static internal bool UpdateDBLettriqsMemorySizeRequired { get; set; } = true;
 
   }
 
