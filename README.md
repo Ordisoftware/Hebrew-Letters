@@ -156,6 +156,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Add transcription, dictionary and comment fields for word analysis.
 - Add analyzed words data table and notebook view to save results.
 - Fix getting CPU usage for multiple instances.
+- Fix memory size calculation in usage statistics.
 
 #### 2021.08.05 - Version 6.0
 
