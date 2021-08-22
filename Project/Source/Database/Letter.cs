@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2021-05 </created>
-/// <edited> 2021-05 </edited>
+/// <edited> 2021-08 </edited>
 using System;
 using System.Linq;
 using System.Collections.Generic;
@@ -150,6 +150,7 @@ namespace Ordisoftware.Hebrew.Letters
     public List<Meaning> Meanings
       => ApplicationDatabase.Instance.Meanings.Where(item => item.LetterCode == Code).ToList();
 
+    [field: NonSerialized]
     public event PropertyChangedEventHandler PropertyChanged;
 
     protected void NotifyPropertyChanged(string p)

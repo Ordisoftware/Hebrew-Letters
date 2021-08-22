@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2021-05 </created>
-/// <edited> 2021-07 </edited>
+/// <edited> 2021-08 </edited>
 using System;
 using System.ComponentModel;
 using SQLite;
@@ -69,6 +69,7 @@ namespace Ordisoftware.Hebrew.Letters
     }
     private string _Text;
 
+    [field: NonSerialized]
     public event PropertyChangedEventHandler PropertyChanged;
 
     protected void NotifyPropertyChanged(string p)

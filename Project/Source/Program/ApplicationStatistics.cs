@@ -70,10 +70,13 @@ namespace Ordisoftware.Hebrew.Letters
         if ( UpdateDBMemorySizeRequired )
         {
           UpdateDBMemorySizeRequired = false;
-          /*long size = ApplicationDatabase.Instance.Letters?.SizeOf() ?? 0;
-          size += ApplicationDatabase.Instance.Meanings?.SizeOf() ?? 0;
-          _DBMemorySize = size > 0 ? size.FormatBytesSize() : SysTranslations.DatabaseTableClosed.GetLang();*/
-          _DBMemorySize = "N/A";
+          long size1 = ApplicationDatabase.Instance.Letters?.SizeOf() ?? 0;
+          long size2 = ApplicationDatabase.Instance.Meanings?.SizeOf() ?? 0;
+          _DBMemorySize = size1 > 0 && size2 > 0
+                          ? ( size1 + size2 ).FormatBytesSize()
+                            : size1 == 0 && size2 == 0
+                              ? SysTranslations.DatabaseTableClosed.GetLang()
+                              : "-";
         }
         return _DBMemorySize;
       }
@@ -103,10 +106,14 @@ namespace Ordisoftware.Hebrew.Letters
         if ( UpdateDBLettriqsMemorySizeRequired )
         {
           UpdateDBLettriqsMemorySizeRequired = false;
-          long size = HebrewDatabase.Instance.TermsHebrew?.SizeOf() ?? 0;
-          size += HebrewDatabase.Instance.TermLettriqs?.SizeOf() ?? 0;
-          size += HebrewDatabase.Instance.TermAnalyzes?.SizeOf() ?? 0;
-          _DBLettriqsMemorySize = size > 0 ? size.FormatBytesSize() : SysTranslations.DatabaseTableClosed.GetLang();
+          long size1 = HebrewDatabase.Instance.TermsHebrew?.SizeOf() ?? 0;
+          long size2 = HebrewDatabase.Instance.TermLettriqs?.SizeOf() ?? 0;
+          long size3 = HebrewDatabase.Instance.TermAnalyzes?.SizeOf() ?? 0;
+          _DBLettriqsMemorySize = size1 > 0 && size2 > 0 && size3 > 0
+                                  ? ( size1 + size2 + size3).FormatBytesSize()
+                                    : size1 == 0 && size2 == 0 && size3 == 0
+                                      ? SysTranslations.DatabaseTableClosed.GetLang()
+                                      : "-";
         }
         return _DBLettriqsMemorySize;
       }
