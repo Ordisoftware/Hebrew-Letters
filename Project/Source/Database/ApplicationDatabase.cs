@@ -144,7 +144,7 @@ namespace Ordisoftware.Hebrew.Letters
           {
             var rowLetter = new Letter();
             rowLetter.Code = HebrewAlphabet.Codes[index];
-            rowLetter.Name = HebrewAlphabet.Translitterations.GetLang()[index];
+            rowLetter.Name = HebrewAlphabet.Transcriptions.GetLang()[index];
             rowLetter.Hebrew = HebrewAlphabet.Names[index];
             rowLetter.ValueSimple = getIntValue("ValueSimple: ");
             rowLetter.ValueFull = getIntValue("ValueFull: ");
