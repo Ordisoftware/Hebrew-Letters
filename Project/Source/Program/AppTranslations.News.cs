@@ -43,7 +43,7 @@ namespace Ordisoftware.Hebrew.Letters
 
           [Language.FR] = "• Quelques corrections et améliorations." + Globals.NL +
                           "• Les performances globales sont optimisées." + Globals.NL +
-                          "• Le pilote SQLite ODBC n'est plus nécessaire. "• 
+                          "• Le pilote SQLite ODBC n'est plus nécessaire. " 
         },
 
         ["5.x"] = new TranslationsDictionary
