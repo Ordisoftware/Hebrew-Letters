@@ -42,6 +42,7 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 - Screen 1024x768 or higher
 - Windows 7 SP1 x32/x64 or higher
 - Framework .NET 4.7.2
+- SQLite 3.33
 
 ## Download
 
@@ -157,6 +158,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Add analyzed words data table and notebook view to save results.
 - Fix getting CPU usage for multiple instances.
 - Fix memory size calculation in usage statistics.
+- Some fixes and improvements.
 
 #### 2021.08.05 - Version 6.0
 
