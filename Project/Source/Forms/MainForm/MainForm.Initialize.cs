@@ -14,7 +14,6 @@
 /// <edited> 2021-08 </edited>
 using System;
 using System.Drawing;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Win32;
@@ -48,13 +47,13 @@ namespace Ordisoftware.Hebrew.Letters
       TextBoxEx.ActionPaste.Click += TextBoxData_ContextMenuAction_Click;
       TextBoxEx.ActionDelete.Click += TextBoxData_ContextMenuAction_Click;
       NativeMethods.ClipboardViewerNext = NativeMethods.SetClipboardViewer(Handle);
-      if ( !Globals.IsDevExecutable ) // TODO remove when ready
+      if ( !Globals.IsDebugExecutable ) // TODO remove when ready
       {
         ActionViewNotebook.Visible = false;
         ActionOpenTermLettriq.Visible = false;
         ActionSaveTermLettriq.Visible = false;
       }
-      if ( !Globals.IsDevExecutable ) // TODO remove when ready
+      if ( !Globals.IsDebugExecutable ) // TODO remove when ready
       {
         ActionGematriaCombinations.Visible = false;
         ActionGematriaCombinations.Tag = int.MinValue;
@@ -91,6 +90,7 @@ namespace Ordisoftware.Hebrew.Letters
       Program.Settings.CurrentView = ViewMode.Analysis;
       LoadData();
       Globals.IsReady = true;
+      EditWord.Redraw();
       TimerProcesses_Tick(null, null);
       SelectLetter_SelectedIndexChanged(SelectLetter, EventArgs.Empty);
       LettersNavigator.Refresh();
@@ -145,8 +145,7 @@ namespace Ordisoftware.Hebrew.Letters
       Settings.BenchmarkStartingApp = Globals.ChronoStartingApp.ElapsedMilliseconds;
       SystemManager.TryCatch(Settings.Save);
       ProcessNewsAndCommandLine();
-
-      if ( Globals.IsDevExecutable ) // TODO remove when ready
+      if ( Globals.IsDebugExecutable ) // TODO remove when ready
         ActionViewNotebook.Visible = true;
     }
 

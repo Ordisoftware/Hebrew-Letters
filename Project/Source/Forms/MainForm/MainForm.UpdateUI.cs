@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2021-04 </edited>
+/// <edited> 2021-08 </edited>
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -26,7 +26,22 @@ namespace Ordisoftware.Hebrew.Letters
   partial class MainForm
   {
 
-    private bool DoScreenPositionMutex;
+    /// <summary>
+    /// Enable double-buffering.
+    /// </summary>
+    protected override CreateParams CreateParams
+    {
+      get
+      {
+        var cp = base.CreateParams;
+        if ( Settings.WindowsDoubleBufferingEnabled )
+        {
+          cp.ExStyle |= 0x02000000; // + WS_EX_COMPOSITED
+          cp.Style &= ~0x02000000;  // - WS_CLIPCHILDREN
+        }
+        return cp;
+      }
+    }
 
     /// <summary>
     /// Center the form to the screen.
@@ -35,6 +50,8 @@ namespace Ordisoftware.Hebrew.Letters
     {
       base.CenterToScreen();
     }
+
+    private bool DoScreenPositionMutex;
 
     /// <summary>
     /// Execute the screen location operation.
@@ -79,23 +96,6 @@ namespace Ordisoftware.Hebrew.Letters
       finally
       {
         DoScreenPositionMutex = false;
-      }
-    }
-
-    /// <summary>
-    /// Enable double-buffering.
-    /// </summary>
-    protected override CreateParams CreateParams
-    {
-      get
-      {
-        var cp = base.CreateParams;
-        if ( Settings.WindowsDoubleBufferingEnabled )
-        {
-          cp.ExStyle |= 0x02000000; // + WS_EX_COMPOSITED
-          //cp.Style &= ~0x02000000;  // - WS_CLIPCHILDREN
-        }
-        return cp;
       }
     }
 

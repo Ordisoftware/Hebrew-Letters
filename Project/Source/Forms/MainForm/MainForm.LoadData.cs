@@ -33,7 +33,7 @@ namespace Ordisoftware.Hebrew.Letters
         Globals.ChronoLoadData.Start();
         DBApp.Open();
         LettersBindingSource.DataSource = DBApp.LettersAsBindingList;
-        if ( Globals.IsDevExecutable ) // TODO remove when ready
+        if ( Globals.IsDebugExecutable ) // TODO remove when ready
         {
           DBHebrew.TakeLettriqs();
           TermsBindingSource.DataSource = DBHebrew.TermsHebrewAsBindingList;
