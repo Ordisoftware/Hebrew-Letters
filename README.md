@@ -154,7 +154,8 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 #### In progress
 
-- Add transcription, dictionary and comment fields for word analysis.
+- Add concordance, transcription, dictionary and comment fields for word analysis.
+>- Add online search for the concordance description sheet.
 - Add analyzed words data table and notebook view to save results.
 - Fix getting CPU usage for multiple instances.
 - Fix memory size calculation in usage statistics.
