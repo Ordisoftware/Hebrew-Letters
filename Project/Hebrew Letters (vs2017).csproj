@@ -152,6 +152,7 @@
     <Compile Include="Source\Common\Core\Classes\ShellIcons.cs" />
     <Compile Include="Source\Common\Core\Classes\SoundItem.cs" />
     <Compile Include="Source\Common\Core\Classes\SoundSource.cs" />
+    <Compile Include="Source\Common\Core\Classes\StackMethods.cs" />
     <Compile Include="Source\Common\Core\Classes\StringHelper.cs" />
     <Compile Include="Source\Common\Core\Classes\StringHelper.Format.cs" />
     <Compile Include="Source\Common\Core\Classes\SystemCommandLine.cs" />
