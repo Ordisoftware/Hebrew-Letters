@@ -250,6 +250,12 @@ namespace Ordisoftware.Hebrew.Letters
         HebrewTools.OpenWordProvider((string)menuitem.Tag, EditWord.TextBox.Text);
         EditWord.Focus();
       });
+      ContextMenuOpenConcordance.InitializeFromProviders(HebrewGlobals.WebProvidersConcordance, (sender, e) =>
+      {
+        var menuitem = (ToolStripMenuItem)sender;
+        HebrewTools.OpenWordConcordance((string)menuitem.Tag, (int)EditConcordance.Value);
+        EditWord.Focus();
+      });
     }
 
     /// <summary>
