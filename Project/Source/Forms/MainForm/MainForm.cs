@@ -606,6 +606,11 @@ namespace Ordisoftware.Hebrew.Letters
       ContextMenuSearchOnline.Show(ActionSearchOnline, new Point(0, ActionSearchOnline.Height));
     }
 
+    private void ActionOpenConcordance_Click(object sender, EventArgs e)
+    {
+      ContextMenuOpenConcordance.Show(ActionOpenConcordance, new Point(0, ActionOpenConcordance.Height));
+    }
+
     #endregion
 
     #region Copy and Paste
