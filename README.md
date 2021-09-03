@@ -152,10 +152,10 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 ## Changelog
 
-#### In progress
+#### In progress - Version X.Y
 
 - Add concordance, transcription, dictionary and comment fields for word analysis.
->- Add online search for the concordance description sheet.
+- Add search online concordance.
 - Add analyzed words data table and notebook view to save results.
 - Fix getting CPU usage for multiple instances.
 - Fix memory size calculation in usage statistics.
