@@ -161,7 +161,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Fix memory size calculation in usage statistics.
 - Some fixes and improvements.
 - Update sqlite-net-pcl nuget.
-- Nuget SQLitePCLRaw.bundle_green must remain v2.0.4
+- Nuget SQLitePCLRaw.bundle_green must remain `v2.0.4`.
 
 #### 2021.08.05 - Version 6.0
 
