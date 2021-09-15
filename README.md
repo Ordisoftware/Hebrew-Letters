@@ -160,6 +160,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Fix getting CPU usage for multiple instances.
 - Fix memory size calculation in usage statistics.
 - Some fixes and improvements.
+- Code refactoring and quality improvement.
 - Update sqlite-net-pcl nuget.
 - Nuget SQLitePCLRaw.bundle_green must remain `v2.0.4`.
 
