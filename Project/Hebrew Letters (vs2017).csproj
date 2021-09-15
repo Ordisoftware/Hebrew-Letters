@@ -293,8 +293,10 @@
     <Compile Include="Source\Common\Core\WinForms\WebUpdateForm.Designer.cs">
       <DependentUpon>WebUpdateForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Source\Common\Hebrew\Classes\HebrewAlphabet.cs" />
     <Compile Include="Source\Common\Hebrew\Classes\HebrewGlobals.cs" />
     <Compile Include="Source\Common\Hebrew\Classes\HebrewGlobals.Providers.cs" />
+    <Compile Include="Source\Common\Hebrew\Classes\HebrewMonths.cs" />
     <Compile Include="Source\Common\Hebrew\Classes\HebrewTools.cs" />
     <Compile Include="Source\Common\Hebrew\Classes\HebrewTranslations.cs" />
     <Compile Include="Source\Common\Hebrew\Database\HebrewDatabase.cs" />
@@ -306,8 +308,8 @@
     <Compile Include="Source\Common\Hebrew\Database\Parashah.Properties.cs" />
     <Compile Include="Source\Common\Hebrew\Database\Parashah.ToString.cs" />
     <Compile Include="Source\Common\Hebrew\Database\ParashotFactory.cs" />
-    <Compile Include="Source\Common\Hebrew\Database\TermHebrew.cs" />
     <Compile Include="Source\Common\Hebrew\Database\TermAnalysis.cs" />
+    <Compile Include="Source\Common\Hebrew\Database\TermHebrew.cs" />
     <Compile Include="Source\Common\Hebrew\Database\TermLettriqs.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\Books.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\BooksBounds.cs" />
@@ -320,9 +322,7 @@
     <Compile Include="Source\Common\Hebrew\Entities\BooksNames.MechonMamre.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\BooksNames.Original.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\BooksNames.StudyBible.cs" />
-    <Compile Include="Source\Common\Hebrew\Entities\HebrewAlphabet.cs" />
-    <Compile Include="Source\Common\Hebrew\Entities\HebrewMonths.cs" />
-    <Compile Include="Source\Common\Hebrew\Entities\OnlineCelebration.cs" />
+    <Compile Include="Source\Common\Hebrew\Entities\OnlineCelebrations.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\OnlineParashot.AishEN.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\OnlineParashot.AishFR.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\OnlineParashot.AishIW.cs" />
@@ -352,6 +352,12 @@
     </Compile>
     <Compile Include="Source\Common\Hebrew\WinForms\LettersControl.Redraw.cs">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Source\Common\Hebrew\WinForms\SelectYearsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Source\Common\Hebrew\WinForms\SelectYearsControl.designer.cs">
+      <DependentUpon>SelectYearsControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Database\ApplicationDatabase.cs" />
     <Compile Include="Source\Database\Letter.cs" />
@@ -516,6 +522,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Common\Hebrew\WinForms\LettersControl.resx">
       <DependentUpon>LettersControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Common\Hebrew\WinForms\SelectYearsControl.resx">
+      <DependentUpon>SelectYearsControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\Boxes\SearchTermResultsBox.fr.resx">
       <DependentUpon>SearchTermResultsBox.cs</DependentUpon>
