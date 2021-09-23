@@ -21,6 +21,7 @@ using System.Windows.Forms;
 using System.Runtime.Serialization.Formatters.Binary;
 using Ordisoftware.Core;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace Ordisoftware.Hebrew.Letters
 {
@@ -80,12 +81,13 @@ namespace Ordisoftware.Hebrew.Letters
       try
       {
         // Check reset
-        if ( force /*|| Settings.UpgradeResetRequiredVx_y*/ )
+        if ( force
+        /*|| Settings.UpgradeResetRequiredVx_y*/ )
         {
 #pragma warning disable S2583 // Conditionally executed code should be reachable
           if ( !force && !Settings.FirstLaunch )
-#pragma warning restore S2583 // Conditionally executed code should be reachable
             DisplayManager.ShowInformation(SysTranslations.UpgradeResetRequired.GetLang());
+#pragma warning restore S2583 // Conditionally executed code should be reachable
           Settings.Reset();
           Settings.LanguageSelected = Languages.Current;
           Settings.SetUpgradeFlagsOff();
@@ -98,6 +100,10 @@ namespace Ordisoftware.Hebrew.Letters
         // Check language
         if ( Settings.LanguageSelected == Language.None )
           Settings.LanguageSelected = Languages.Current;
+        // Check applications
+        string pathWordsFolder = Path.Combine(Globals.CompanyProgramFilesFolderPath, "Hebrew Words", "Bin");
+        string pathWordsOld = Path.Combine(pathWordsFolder, "Ordisoftware.HebrewWords.exe");
+        string pathWordsDefault = (string)Settings.Properties["HebrewWordsExe"].DefaultValue;
         // Force default view
         Settings.CurrentView = ViewMode.Analysis;
         // Save settings
@@ -140,6 +146,7 @@ namespace Ordisoftware.Hebrew.Letters
     static public void UpdateLocalization()
     {
       Globals.ChronoTranslate.Restart();
+      Task task = null;
       try
       {
         void update(Form form)
@@ -153,6 +160,8 @@ namespace Ordisoftware.Hebrew.Letters
         var culture = new CultureInfo(lang);
         Thread.CurrentThread.CurrentCulture = culture;
         Thread.CurrentThread.CurrentUICulture = culture;
+        task = new Task(HebrewGlobals.LoadProviders);
+        task.Start();
         if ( Globals.IsReady )
         {
           MessageBoxEx.CloseAll();
@@ -217,6 +226,7 @@ namespace Ordisoftware.Hebrew.Letters
         MainForm.Instance.EditCopyToClipboardCloseApp.Left = MainForm.Instance.ActionCopyToResult.Left
                                                            + MainForm.Instance.ActionCopyToResult.Width + 5;
         MainForm.Instance.CheckClipboardContentType();
+        task?.Wait();
         MainForm.Instance.CreateSystemInformationMenu();
       }
       catch ( Exception ex )

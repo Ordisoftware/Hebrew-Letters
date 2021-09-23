@@ -35,7 +35,6 @@ namespace Ordisoftware.Hebrew.Letters
     private void DoConstructor()
     {
       new Task(InitializeIconsAndSound).Start();
-      new Task(CreateProvidersLinks).Start();
       Interlocks.Take();
       SystemManager.TryCatch(() => { Icon = new Icon(Globals.ApplicationIconFilePath); });
       Text = Globals.AssemblyTitle;
@@ -210,52 +209,6 @@ namespace Ordisoftware.Hebrew.Letters
       SoundItem.Initialize();
       SystemManager.TryCatch(() => new System.Media.SoundPlayer(Globals.EmptySoundFilePath).Play());
       SystemManager.TryCatch(() => MediaMixer.SetApplicationVolume(Globals.ProcessId, Settings.ApplicationVolume));
-    }
-
-    /// <summary>
-    /// Create system information menu items.
-    /// </summary>
-    public void CreateSystemInformationMenu()
-    {
-      CommonMenusControl.CreateInstance(ToolStrip,
-                                        ref ActionInformation,
-                                        AppTranslations.NoticeNewFeatures,
-                                        ActionAbout_Click,
-                                        ActionWebCheckUpdate_Click,
-                                        ActionViewLog_Click,
-                                        ActionViewStats_Click);
-      InitializeSpecialMenus();
-    }
-
-    /// <summary>
-    /// Initialize special menus.
-    /// </summary>
-    public void InitializeSpecialMenus()
-    {
-      CommonMenusControl.Instance.ActionViewStats.Enabled = Settings.UsageStatisticsEnabled;
-      CommonMenusControl.Instance.ActionViewLog.Enabled = DebugManager.TraceEnabled;
-      ActionWebLinks.Visible = Settings.WebLinksMenuEnabled;
-      if ( Settings.WebLinksMenuEnabled )
-        ActionWebLinks.InitializeFromWebLinks(InitializeSpecialMenus);
-    }
-
-    /// <summary>
-    /// Create providers links menu items.
-    /// </summary>
-    private void CreateProvidersLinks()
-    {
-      ContextMenuSearchOnline.InitializeFromProviders(HebrewGlobals.WebProvidersWord, (sender, e) =>
-      {
-        var menuitem = (ToolStripMenuItem)sender;
-        HebrewTools.OpenWordProvider((string)menuitem.Tag, EditWord.TextBox.Text);
-        EditWord.Focus();
-      });
-      ContextMenuOpenConcordance.InitializeFromProviders(HebrewGlobals.WebProvidersConcordance, (sender, e) =>
-      {
-        var menuitem = (ToolStripMenuItem)sender;
-        HebrewTools.OpenWordConcordance((string)menuitem.Tag, (int)EditConcordance.Value);
-        EditWord.Focus();
-      });
     }
 
     /// <summary>
