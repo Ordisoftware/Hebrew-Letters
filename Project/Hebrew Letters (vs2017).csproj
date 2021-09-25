@@ -328,6 +328,7 @@
     <Compile Include="Source\Common\Hebrew\Entities\OnlineParashot.AishIW.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\OnlineParashot.ChabadEN.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\OnlineParashot.ChabadFR.cs" />
+    <Compile Include="Source\Common\Hebrew\Entities\OnlineParashot.MyJewishLearning.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\OnlineParashot.TheYeshivaNet.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\OnlineParashot.TorahBox.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\OnlineParashot.TorahJews.cs" />
