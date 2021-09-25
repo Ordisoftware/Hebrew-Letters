@@ -328,11 +328,13 @@
     <Compile Include="Source\Common\Hebrew\Entities\OnlineParashot.AishIW.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\OnlineParashot.ChabadEN.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\OnlineParashot.ChabadFR.cs" />
+    <Compile Include="Source\Common\Hebrew\Entities\OnlineParashot.TheYeshivaNet.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\OnlineParashot.TorahBox.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\OnlineParashot.TorahJews.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\OnlineParashot.TorahOrg.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\OnlineParashot.WikipediaEN.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\OnlineParashot.WikipediaFR.cs" />
+    <Compile Include="Source\Common\Hebrew\Entities\OnlineParashot.YeshivaCo.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\TorahCelebration.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\TorahCelebrationVerses.cs" />
     <Compile Include="Source\Common\Hebrew\Providers\OnlineProviderItem.cs" />
