@@ -142,11 +142,14 @@
     </Compile>
     <Compile Include="Dependencies\Windows Global Hotkey\HotkeyManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Source\Common\Core\Classes\AutoMenu.cs" />
+    <Compile Include="Source\Common\Core\Classes\AutoMenu.Test.cs" />
     <Compile Include="Source\Common\Core\Classes\Chronometer.cs" />
     <Compile Include="Source\Common\Core\Classes\EnumHelper.cs" />
     <Compile Include="Source\Common\Core\Classes\ExportAction.cs" />
     <Compile Include="Source\Common\Core\Classes\ExportHelper.cs" />
     <Compile Include="Source\Common\Core\Classes\ExportTarget.cs" />
+    <Compile Include="Source\Common\Core\Classes\MediaMixer.cs" />
     <Compile Include="Source\Common\Core\Classes\NativeMethods.cs" />
     <Compile Include="Source\Common\Core\Classes\ObjectHelper.cs" />
     <Compile Include="Source\Common\Core\Classes\ShellIcons.cs" />
@@ -158,9 +161,9 @@
     <Compile Include="Source\Common\Core\Classes\SystemCommandLine.cs" />
     <Compile Include="Source\Common\Core\Classes\SystemHotKey.cs" />
     <Compile Include="Source\Common\Core\Classes\SystemStatistics.cs" />
-    <Compile Include="Source\Common\Core\Classes\MediaMixer.cs" />
     <Compile Include="Source\Common\Core\Classes\WebCheckUpdate.cs" />
     <Compile Include="Source\Common\Core\Collections\AutoResizedList.cs" />
+    <Compile Include="Source\Common\Core\Collections\CollectionsHelper.cs" />
     <Compile Include="Source\Common\Core\Collections\NullSafeDictionary.cs" />
     <Compile Include="Source\Common\Core\Collections\NullSafeList.cs" />
     <Compile Include="Source\Common\Core\Collections\NullSafeOfEnumDictionary.cs" />
@@ -168,11 +171,11 @@
     <Compile Include="Source\Common\Core\Collections\NullSafeSortedDictionary.cs" />
     <Compile Include="Source\Common\Core\Collections\NullSafeStringList.cs" />
     <Compile Include="Source\Common\Core\Collections\SortedAutoDictionary.cs" />
-    <Compile Include="Source\Common\Core\Data\SQLiteDatabase.cs" />
     <Compile Include="Source\Common\Core\Data\DataFile.cs" />
     <Compile Include="Source\Common\Core\Data\DataFileFolder.cs" />
-    <Compile Include="Source\Common\Core\Data\SQLiteDate.cs" />
     <Compile Include="Source\Common\Core\Data\DataTableHelper.cs" />
+    <Compile Include="Source\Common\Core\Data\SQLiteDatabase.cs" />
+    <Compile Include="Source\Common\Core\Data\SQLiteDate.cs" />
     <Compile Include="Source\Common\Core\Data\SQLiteNetHelper.cs" />
     <Compile Include="Source\Common\Core\Exceptions\AbortException.cs" />
     <Compile Include="Source\Common\Core\Exceptions\ExceptionInfo.cs" />
@@ -193,6 +196,7 @@
     <Compile Include="Source\Common\Core\Globals\Globals.cs" />
     <Compile Include="Source\Common\Core\Globals\Globals.Files.cs" />
     <Compile Include="Source\Common\Core\Globals\Globals.Folders.cs" />
+    <Compile Include="Source\Common\Core\Globals\Globals.Providers.cs" />
     <Compile Include="Source\Common\Core\Globals\Globals.State.cs" />
     <Compile Include="Source\Common\Core\Globals\Globals.Trace.cs" />
     <Compile Include="Source\Common\Core\Managers.Debug\DebugManager.cs" />
@@ -211,12 +215,14 @@
     <Compile Include="Source\Common\Core\Managers.System\SystemManager.Shell.cs" />
     <Compile Include="Source\Common\Core\Managers.System\SystemManager.SSL.cs" />
     <Compile Include="Source\Common\Core\Managers.System\SystemManager.Try.cs" />
-    <Compile Include="Source\Common\Core\WinForms.Controls\ComboBoxEx.cs">
+    <Compile Include="Source\Common\Core\Providers\OnlineProviderItem.cs" />
+    <Compile Include="Source\Common\Core\Providers\OnlineProviders.cs" />
+    <Compile Include="Source\Common\Core\Providers\OnlineProvidersHelper.cs" />
+    <Compile Include="Source\Common\Core\Providers\ProviderSettings.cs" />
+    <Compile Include="Source\Common\Core\WinForms.Controls\CheckBoxToolStripItem.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Source\Common\Core\WinForms.Controls\ControlLocation.cs" />
-    <Compile Include="Source\Common\Core\WinForms.Controls\FormsHelper.cs" />
-    <Compile Include="Source\Common\Core\WinForms.Controls\RichTextBoxEx.cs">
+    <Compile Include="Source\Common\Core\WinForms.Controls\ComboBoxEx.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Source\Common\Core\WinForms.Controls\ComboBoxNavigator.cs">
@@ -225,7 +231,11 @@
     <Compile Include="Source\Common\Core\WinForms.Controls\ComboBoxNavigator.Designer.cs">
       <DependentUpon>ComboBoxNavigator.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\Common\Core\WinForms.Controls\ToolStripMenuItemHelper.cs" />
+    <Compile Include="Source\Common\Core\WinForms.Controls\ControlLocation.cs" />
+    <Compile Include="Source\Common\Core\WinForms.Controls\FormsHelper.cs" />
+    <Compile Include="Source\Common\Core\WinForms.Controls\RichTextBoxEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Source\Common\Core\WinForms.Controls\TextBoxEx.Actions.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -238,11 +248,18 @@
     <Compile Include="Source\Common\Core\WinForms.Controls\TextBoxEx.Initialize.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Source\Common\Core\WinForms.Controls\ToolStripMenuItemHelper.cs" />
     <Compile Include="Source\Common\Core\WinForms\DataFileEditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Source\Common\Core\WinForms\DataFileEditorForm.Designer.cs">
       <DependentUpon>DataFileEditorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Source\Common\Core\WinForms\EditMemoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Common\Core\WinForms\EditMemoForm.designer.cs">
+      <DependentUpon>EditMemoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Common\Core\WinForms\ExceptionForm.cs">
       <SubType>Form</SubType>
@@ -320,8 +337,8 @@
     <Compile Include="Source\Common\Hebrew\Entities\BooksNames.Hebrew.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\BooksNames.LEvangile.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\BooksNames.MechonMamre.cs" />
-    <Compile Include="Source\Common\Hebrew\Entities\BooksNames.Unicode.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\BooksNames.StudyBible.cs" />
+    <Compile Include="Source\Common\Hebrew\Entities\BooksNames.Unicode.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\OnlineCelebrations.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\OnlineParashot.AishEN.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\OnlineParashot.AishFR.cs" />
@@ -338,10 +355,6 @@
     <Compile Include="Source\Common\Hebrew\Entities\OnlineParashot.YeshivaCo.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\TorahCelebration.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\TorahCelebrationVerses.cs" />
-    <Compile Include="Source\Common\Hebrew\Providers\OnlineProviderItem.cs" />
-    <Compile Include="Source\Common\Hebrew\Providers\OnlineProviders.cs" />
-    <Compile Include="Source\Common\Hebrew\Providers\OnlineProvidersHelper.cs" />
-    <Compile Include="Source\Common\Hebrew\Providers\ProviderSettings.cs" />
     <Compile Include="Source\Common\Hebrew\WinForms\CommonMenusControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -470,6 +483,12 @@
     <EmbeddedResource Include="Source\Common\Core\WinForms\DataFileEditorForm.resx">
       <DependentUpon>DataFileEditorForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Source\Common\Core\WinForms\EditMemoForm.fr.resx">
+      <DependentUpon>EditMemoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Common\Core\WinForms\EditMemoForm.resx">
+      <DependentUpon>EditMemoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Source\Common\Core\WinForms\ExceptionForm.fr.resx">
       <DependentUpon>ExceptionForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -485,6 +504,7 @@
     <EmbeddedResource Include="Source\Common\Core\WinForms\InputBox.fr.resx">
       <DependentUpon>InputBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Source\Common\Core\WinForms\InputBox.resources" />
     <EmbeddedResource Include="Source\Common\Core\WinForms\InputBox.resx">
       <DependentUpon>InputBox.cs</DependentUpon>
     </EmbeddedResource>
