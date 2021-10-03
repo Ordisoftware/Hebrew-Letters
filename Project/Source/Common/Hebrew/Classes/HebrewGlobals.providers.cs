@@ -114,12 +114,20 @@ namespace Ordisoftware.Hebrew
       }
     }
 
-    /// <summary>
-    /// Static constructor.
-    /// </summary>
-    static HebrewGlobals()
+    static private void LoadWebLinksProviders()
     {
-      if ( Globals.IsVisualStudioDesigner ) return;
+      foreach ( var file in Directory.GetFiles(WebLinksFolderPath, "WebLinks*.txt") )
+      {
+        var item = CreateOnlineProviders(DataFileFolder.ApplicationDocuments, file);
+        if ( item != null ) WebLinksProviders.Add(item);
+      }
+    }
+
+    /// <summary>
+    /// Load the providers files.
+    /// </summary>
+    static internal void LoadProviders()
+    {
       var folder = DataFileFolder.ApplicationDocuments;
       WebProvidersWord = CreateOnlineProviders(folder, WebProvidersWordFilePath);
       WebProvidersConcordance = CreateOnlineProviders(folder, WebProvidersConcordanceFilePath);
@@ -128,14 +136,7 @@ namespace Ordisoftware.Hebrew
       WebProvidersCelebration = CreateOnlineProviders(folder, WebProvidersCelebrationFilePath);
       WebLinksProviders = new List<OnlineProviders>();
       if ( Directory.Exists(WebLinksFolderPath) )
-        SystemManager.TryCatch(() =>
-        {
-          foreach ( var file in Directory.GetFiles(WebLinksFolderPath, "WebLinks*.txt") )
-          {
-            var item = CreateOnlineProviders(DataFileFolder.ApplicationDocuments, file);
-            if ( item != null ) WebLinksProviders.Add(item);
-          }
-        });
+        SystemManager.TryCatchManage(ShowExceptionMode.OnlyMessage, LoadWebLinksProviders);
     }
 
   }

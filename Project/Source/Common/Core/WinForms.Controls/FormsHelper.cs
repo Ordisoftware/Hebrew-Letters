@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2021-08 </edited>
+/// <edited> 2021-10 </edited>
 using System;
 using System.IO;
 using System.Linq;
@@ -99,6 +99,16 @@ namespace Ordisoftware.Core
              let component = (Component)field.GetValue(form)
              where component != null
              select component;
+    }
+
+    /// <summary>
+    /// Get a IEnumerable from a ToolStripItemCollection.
+    /// </summary>
+    static public IEnumerable<ToolStripItem> ToEnumerable(this ToolStripItemCollection collection, Func<ToolStripItem, bool> predicate = null)
+    {
+      var result = collection.Cast<ToolStripItem>();
+      if ( predicate != null ) result = result.Where(predicate);
+      return result;
     }
 
     /// <summary>
@@ -285,10 +295,31 @@ namespace Ordisoftware.Core
     /// <summary>
     /// Duplicate menu subitems.
     /// </summary>
-    static public void DuplicateTo(this ToolStripDropDownButton source, ToolStripMenuItem destination, bool noshortcuts = true)
+    static public void DuplicateTo(this ToolStripDropDownItem source, ToolStripMenuItem destination, bool noshortcuts = true)
     {
       var items = new List<ToolStripItem>();
       foreach ( ToolStripItem item in source.DropDownItems )
+        if ( !( item.Tag is int ) || (int)item.Tag != int.MinValue )
+          if ( item is ToolStripMenuItem menuItem )
+          {
+            var newitem = menuItem.Clone();
+            if ( noshortcuts ) newitem.ShortcutKeys = Keys.None;
+            items.Add(newitem);
+          }
+          else
+          if ( item is ToolStripSeparator )
+            items.Add(new ToolStripSeparator());
+      destination.DropDownItems.Clear();
+      destination.DropDownItems.AddRange(items.ToArray());
+    }
+
+    /// <summary>
+    /// Duplicate menu subitems.
+    /// </summary>
+    static public void DuplicateTo(this ContextMenuStrip source, ToolStripMenuItem destination, bool noshortcuts = true)
+    {
+      var items = new List<ToolStripItem>();
+      foreach ( ToolStripItem item in source.Items )
         if ( !( item.Tag is int ) || (int)item.Tag != int.MinValue )
           if ( item is ToolStripMenuItem menuItem )
           {
