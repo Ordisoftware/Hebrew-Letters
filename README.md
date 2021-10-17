@@ -164,6 +164,13 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Update sqlite-net-pcl nuget.
 - Nuget SQLitePCLRaw.bundle_green must remain `v2.0.4`.
 
+#### 2021.10.17 - Version 6.1
+
+- Maintenance release.
+- Some fixes.
+- Refactoring.
+- Update web links.
+
 #### 2021.08.05 - Version 6.0
 
 - Switch from SQLite ODBC Driver to SQLite-Net with SQLitePCLraw nugets.
