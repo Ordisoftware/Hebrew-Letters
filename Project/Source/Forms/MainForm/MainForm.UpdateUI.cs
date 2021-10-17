@@ -1,4 +1,4 @@
-﻿/// <license>
+/// <license>
 /// This file is part of Ordisoftware Hebrew Letters.
 /// Copyright 2016-2021 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2021-08 </edited>
+/// <edited> 2021-10 </edited>
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -29,6 +29,7 @@ namespace Ordisoftware.Hebrew.Letters
     /// <summary>
     /// Enable double-buffering.
     /// </summary>
+    /* TODO REMOVE bug with scrollable panel
     protected override CreateParams CreateParams
     {
       get
@@ -41,7 +42,7 @@ namespace Ordisoftware.Hebrew.Letters
         }
         return cp;
       }
-    }
+    }*/
 
     /// <summary>
     /// Center the form to the screen.
