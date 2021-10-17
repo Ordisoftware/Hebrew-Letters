@@ -705,7 +705,7 @@ namespace Ordisoftware.Hebrew.Letters
       SystemManager.TryCatch(() => EditConcordance.Value = int.Parse(lettriq.ConcordanceID));
     }
 
-  private void ActionSaveTermLettriq_Click(object sender, EventArgs e)
+    private void ActionSaveTermLettriq_Click(object sender, EventArgs e)
     {
       string hebrew = EditWord.TextBox.Text;
       var term = DBHebrew.TermsHebrew.Find(t => t.Hebrew == hebrew);
@@ -757,7 +757,7 @@ namespace Ordisoftware.Hebrew.Letters
     {
       if ( EditWord.TextBox.Text == "" ) return;
       new ShowTextForm(AppTranslations.LettersWordMeaningsList.GetLang(),
-                       GetMeaningsText().Replace(Globals.NL, Globals.NL2),
+                       GetMeaningsText().Replace(Globals.NL, Globals.NL2).Replace(" -,", ""),
                        false, true,
                        600, 400).ShowDialog();
       EditWord.Focus();
