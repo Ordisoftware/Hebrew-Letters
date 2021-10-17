@@ -25,7 +25,6 @@ A libre and open-source software written in C# that helps for the lettriq letter
 - Hebrew letters database with their customizable meanings.
 - Analyze a word letter by letter to get a sentence describing its sense.
 - Online research with Pealim, Sefaria, Shorashim, Wiktionary, Translator, etc.
-- Store results in a notebook that can also be used in Hebrew Words.
 - Copy the result or a screenshot to the clipboard.
 - English, French.
 
