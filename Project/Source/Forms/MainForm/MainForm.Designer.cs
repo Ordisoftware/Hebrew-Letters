@@ -547,8 +547,8 @@
       this.EditWord.BackColor = System.Drawing.Color.Transparent;
       resources.ApplyResources(this.EditWord, "EditWord");
       this.EditWord.Name = "EditWord";
-      this.EditWord.ViewLetterDetails += new Ordisoftware.Hebrew.ViewLetterDetails(this.EditLetters_ViewLetterDetails);
-      this.EditWord.InputTextChanged += new System.EventHandler(this.EditLetters_InputTextChanged);
+      this.EditWord.ViewLetterDetails += new Ordisoftware.Hebrew.ViewLetterDetails(this.EditWord_ViewLetterDetails);
+      this.EditWord.InputTextChanged += new System.EventHandler(this.EditWord_InputTextChanged);
       // 
       // TabPageLetters
       // 

@@ -187,6 +187,8 @@ namespace Ordisoftware.Core
           case MessageBoxFormStyle.Advanced:
             res = ShowAdvancedForm(title, text, buttons, icon);
             break;
+          default:
+            throw new AdvancedNotImplementedException(FormStyle);
         }
       });
       return res;
@@ -333,7 +335,8 @@ namespace Ordisoftware.Core
                                                  MessageBoxButtons buttons,
                                                  MessageBoxIcon icon)
     {
-      return new MessageBoxEx(title, text, buttons, icon).ShowDialog();
+      using ( var form = new MessageBoxEx(title, text, buttons, icon) )
+        return form.ShowDialog();
     }
 
   }

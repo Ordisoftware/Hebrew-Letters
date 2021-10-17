@@ -11,10 +11,9 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2020-03 </created>
-/// <edited> 2021-03 </edited>
+/// <edited> 2021-10 </edited>
 using System;
 using System.IO;
-using System.Collections.Generic;
 using Ordisoftware.Core;
 
 namespace Ordisoftware.Hebrew
@@ -25,12 +24,6 @@ namespace Ordisoftware.Hebrew
   /// </summary>
   static partial class HebrewGlobals
   {
-
-    /// <summary>
-    /// Indicate the application web links folder.
-    /// </summary>
-    static public string WebLinksFolderPath
-      => Path.Combine(Globals.DocumentsFolderPath, "WebLinks");
 
     /// <summary>
     /// Indicate the application web providers folder.
@@ -45,6 +38,12 @@ namespace Ordisoftware.Hebrew
       => Path.Combine(WebProvidersFolderPath, "WebProviders-Word.txt");
 
     /// <summary>
+    /// Indicate the file path of the online search concordance providers.
+    /// </summary>
+    static public string WebProvidersConcordanceFilePath
+      => Path.Combine(WebProvidersFolderPath, "WebProviders-Concordance.txt");
+
+    /// <summary>
     /// Indicate the file path of the online bible verse providers.
     /// </summary>
     static public string WebProvidersBibleFilePath
@@ -57,9 +56,20 @@ namespace Ordisoftware.Hebrew
       => Path.Combine(WebProvidersFolderPath, "WebProviders-Parashah.txt");
 
     /// <summary>
+    /// Indicate the file path of the online study parashah providers.
+    /// </summary>
+    static public string WebProvidersCelebrationFilePath
+      => Path.Combine(WebProvidersFolderPath, "WebProviders-Celebration.txt");
+
+    /// <summary>
     /// Indicate the online search a word providers.
     /// </summary>
     static public OnlineProviders WebProvidersWord { get; private set; }
+
+    /// <summary>
+    /// Indicate the online search a concordance providers.
+    /// </summary>
+    static public OnlineProviders WebProvidersConcordance { get; private set; }
 
     /// <summary>
     /// Indicate the online bible verse providers.
@@ -72,46 +82,22 @@ namespace Ordisoftware.Hebrew
     static public OnlineProviders WebProvidersParashah { get; private set; }
 
     /// <summary>
-    /// Indicate the web links providers.
+    /// Indicate the online study celebration providers.
     /// </summary>
-    static public List<OnlineProviders> WebLinksProviders { get; private set; }
+    static public OnlineProviders WebProvidersCelebration { get; private set; }
 
     /// <summary>
-    /// Create an online OnlineProviders instance.
+    /// Load the providers files.
     /// </summary>
-    static private OnlineProviders CreateOnlineProviders(DataFileFolder folder, string filePath)
+    static internal void LoadProviders()
     {
-      try
-      {
-        return new OnlineProviders(filePath, true, Globals.IsDevExecutable, folder);
-      }
-      catch ( Exception ex )
-      {
-        DisplayManager.ShowError(SysTranslations.LoadFileError.GetLang(filePath, ex.Message));
-        return null;
-      }
-    }
-
-    /// <summary>
-    /// Static constructor.
-    /// </summary>
-    static HebrewGlobals()
-    {
-      if ( Globals.IsVisualStudioDesigner ) return;
       var folder = DataFileFolder.ApplicationDocuments;
-      WebProvidersWord = CreateOnlineProviders(folder, WebProvidersWordFilePath);
-      WebProvidersBible = CreateOnlineProviders(folder, WebProvidersBibleFilePath);
-      WebProvidersParashah = CreateOnlineProviders(folder, WebProvidersParashahFilePath);
-      WebLinksProviders = new List<OnlineProviders>();
-      if ( Directory.Exists(WebLinksFolderPath) )
-        SystemManager.TryCatch(() =>
-        {
-          foreach ( var file in Directory.GetFiles(WebLinksFolderPath, "WebLinks*.txt") )
-          {
-            var item = CreateOnlineProviders(DataFileFolder.ApplicationDocuments, file);
-            if ( item != null ) WebLinksProviders.Add(item);
-          }
-        });
+      WebProvidersWord = Globals.CreateOnlineProviders(folder, WebProvidersWordFilePath);
+      WebProvidersConcordance = Globals.CreateOnlineProviders(folder, WebProvidersConcordanceFilePath);
+      WebProvidersBible = Globals.CreateOnlineProviders(folder, WebProvidersBibleFilePath);
+      WebProvidersParashah = Globals.CreateOnlineProviders(folder, WebProvidersParashahFilePath);
+      WebProvidersCelebration = Globals.CreateOnlineProviders(folder, WebProvidersCelebrationFilePath);
+      Globals.LoadWebLinksProviders();
     }
 
   }

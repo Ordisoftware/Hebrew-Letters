@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2021-03 </edited>
+/// <edited> 2021-10 </edited>
 using System;
 using Ordisoftware.Core;
 
@@ -23,6 +23,22 @@ namespace Ordisoftware.Hebrew
   /// </summary>
   static partial class HebrewTranslations
   {
+
+    static public readonly NullSafeDictionary<Language, string[]> Letters
+      = new NullSafeDictionary<Language, string[]>()
+      {
+        [Language.EN] = new string[]
+        {
+          "Alef", "Bet", "Gimel", "Dalet", "He", "Vav", "Zayin", "'Het", "Tet", "Yod", "Kaf",
+          "Lamed", "Mem", "Nun", "Samek", "'Ayin", "Pay", "Tsadi", "Qof", "Resh", "Shin", "Tav"
+        },
+
+        [Language.FR] = new string[]
+        {
+          "Alef", "Bet", "Guimel", "Dalet", "Hé", "Vav", "Zayin", "'Het", "Tet", "Youd", "Kaf",
+          "Lamed", "Mem", "Noun", "Samek", "'Ayin", "Pé", "Tsadi", "Qouf", "Resh", "Shin", "Tav"
+        }
+      };
 
     static public readonly TranslationsDictionary GrammarGuideTitle
       = new TranslationsDictionary
@@ -50,6 +66,27 @@ namespace Ordisoftware.Hebrew
       {
         [Language.EN] = "Unicode",
         [Language.FR] = "Unicode"
+      };
+
+    static public readonly TranslationsDictionary Translation
+      = new TranslationsDictionary
+      {
+        [Language.EN] = "Translation",
+        [Language.FR] = "Traduction"
+      };
+
+    static public readonly TranslationsDictionary Transcription
+      = new TranslationsDictionary
+      {
+        [Language.EN] = "Transcription",
+        [Language.FR] = "Transcription"
+      };
+
+    static public readonly TranslationsDictionary Lettriq
+      = new TranslationsDictionary
+      {
+        [Language.EN] = "Lettriq",
+        [Language.FR] = "Lettrique"
       };
 
     static public readonly TranslationsDictionary ParashahReading
@@ -93,8 +130,8 @@ namespace Ordisoftware.Hebrew
     static public readonly TranslationsDictionary BoardExportFileName
       = new TranslationsDictionary
       {
-        [Language.EN] = SysTranslations.Board[Language.EN] + " {0}",
-        [Language.FR] = SysTranslations.Board[Language.FR] + " {0}",
+        [Language.EN] = "Board {0}",
+        [Language.FR] = "Board {0}",
       };
 
     static public readonly TranslationsDictionary WeeklyParashah
@@ -104,17 +141,10 @@ namespace Ordisoftware.Hebrew
         [Language.FR] = "Parashah de la semaine"
       };
 
-    static public readonly TranslationsDictionary ConfigureProviders
-      = new TranslationsDictionary
-      {
-        [Language.EN] = "Configure providers",
-        [Language.FR] = "Configurer les fournisseurs"
-      };
-
     static public readonly TranslationsDictionary ParashahNotFound
       = new TranslationsDictionary
       {
-        [Language.EN] = "Parashah not found : it's Pesa'h or data are not generated.",
+        [Language.EN] = "Parashah not found : it's Pesach or data are not generated.",
         [Language.FR] = "Parashah non trouvée : c'est Pessa'h ou les données n'ont pas été générées."
       };
 

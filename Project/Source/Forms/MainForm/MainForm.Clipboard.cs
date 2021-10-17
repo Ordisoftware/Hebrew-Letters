@@ -31,7 +31,7 @@ namespace Ordisoftware.Hebrew.Letters
     internal void CheckClipboardContentType()
     {
       string strContent = Clipboard.GetText();
-      ActionPaste.Enabled = !strContent.IsNullOrEmpty();
+      ActionPaste.Enabled = !strContent.IsNullOrEmpty() && strContent.Length <= Settings.HebrewTextBoxMaxLength;
       if ( ActionPaste.Enabled )
       {
         var strLabel = HebrewAlphabet.IsValidUnicode(strContent)

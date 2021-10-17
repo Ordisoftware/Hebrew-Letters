@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-01 </created>
-/// <edited> 2021-05 </edited>
+/// <edited> 2021-08 </edited>
 using System;
 using System.Data;
 using System.Linq;
@@ -132,7 +132,7 @@ namespace Ordisoftware.Core
     }
 
     /// <summary>
-    /// Vacuum the database.
+    /// Check the database integrity.
     /// </summary>
     /// <param name="connection">The connection.</param>
     static public void CheckIntegrity(this SQLiteNetORM connection)
@@ -153,7 +153,14 @@ namespace Ordisoftware.Core
     /// <param name="connection">The connection.</param>
     static public void Vacuum(this SQLiteNetORM connection)
     {
-      SystemManager.TryCatchManage(() => { connection.Execute("VACUUM"); });
+      try
+      {
+        connection.Execute("VACUUM");
+      }
+      catch ( Exception ex )
+      {
+        throw new SQLiteException(SysTranslations.DatabaseVacuumError.GetLang(), ex);
+      }
     }
 
     /// <summary>

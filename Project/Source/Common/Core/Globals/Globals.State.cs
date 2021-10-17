@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2021-02 </edited>
+/// <edited> 2021-09 </edited>
 using System;
 using System.Configuration;
 
@@ -68,6 +68,11 @@ namespace Ordisoftware.Core
     /// </summary>
     static public bool IsGenerating { get; set; }
 
+    /// <summary>
+    /// Indicate if data is being printed.
+    /// </summary>
+    static public bool IsPrinting { get; set; }
+       
     /// <summary>
     /// Indicate if current processing must be cancelled.
     /// </summary>

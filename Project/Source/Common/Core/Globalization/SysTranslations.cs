@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2021-05 </edited>
+/// <edited> 2021-10 </edited>
 using System;
 
 namespace Ordisoftware.Core
@@ -66,11 +66,18 @@ namespace Ordisoftware.Core
         [Language.FR] = $"Effacer le fichier :{Globals.NL2}{{0}}?",
       };
 
+    static public readonly TranslationsDictionary ConfigureProviders
+      = new TranslationsDictionary
+      {
+        [Language.EN] = "Configure providers",
+        [Language.FR] = "Configurer les fournisseurs"
+      };
+
     static public readonly TranslationsDictionary AskToOpenAllLinks
       = new TranslationsDictionary
       {
-        [Language.EN] = "Do you want to open all \"{0}\" links?",
-        [Language.FR] = "Voulez-vous ouvrir tous les liens de \"{0}\" ?"
+        [Language.EN] = "Do you want to open all the {1} links of this menu?" + Globals.NL2 + "{0}",
+        [Language.FR] = "Voulez-vous ouvrir tous les {1} liens de ce menu ?" + Globals.NL2 + "{0}"
       };
 
     static public readonly TranslationsDictionary AskToEmptyHistory
@@ -104,8 +111,8 @@ namespace Ordisoftware.Core
     static public readonly TranslationsDictionary AskToReplaceBookmark
       = new TranslationsDictionary
       {
-        [Language.EN] = "Replace bookmark?",
-        [Language.FR] = "Remplacer le signet ?"
+        [Language.EN] = $"Replace bookmark?{Globals.NL2}Actual: {{0}}{Globals.NL2}New: {{1}}",
+        [Language.FR] = $"Remplacer le signet ?{Globals.NL2}Actuel : {{0}}{Globals.NL2}Nouveau : {{1}}",
       };
 
     static public readonly TranslationsDictionary ActionCancel
@@ -120,6 +127,13 @@ namespace Ordisoftware.Core
       {
         [Language.EN] = "Close",
         [Language.FR] = "Fermer",
+      };
+
+    static public readonly TranslationsDictionary ActionCopy
+      = new TranslationsDictionary
+      {
+        [Language.EN] = "Copy",
+        [Language.FR] = "Copier",
       };
 
     static public readonly TranslationsDictionary Valid
@@ -197,6 +211,13 @@ namespace Ordisoftware.Core
       {
         [Language.EN] = "Board",
         [Language.FR] = "Tableau"
+      };
+
+    static public readonly TranslationsDictionary NavigationTip
+      = new TranslationsDictionary
+      {
+        [Language.EN] = "Tip: use Home, End, PageUp and PageDown to navigate.",
+        [Language.FR] = "Astuce : utilisez Début, Fin, PagePrec et PageSuiv pour naviguer."
       };
 
     static public readonly TranslationsDictionary ReadOnly

@@ -1,0 +1,57 @@
+﻿; --------------------------------------------------------------------------------------------------
+; File format for web links
+; --------------------------------------------------------------------------------------------------
+; To create a folder else items will be at root level: Lang/[short code] = Title
+; Use the tag FOLDER-SEPARATOR to insert a separator menu item between folders.
+; --------------------------------------------------------------------------------------------------
+; Name = Title
+; URL = Web link
+; --------------------------------------------------------------------------------------------------
+; Use the "-" char at the beginning of a line to insert a separator
+; --------------------------------------------------------------------------------------------------
+
+Lang/EN = Hebrew calendar
+Lang/FR = Calendrier hébraïque
+
+Name = (EN) Wikipedia.org
+URL = https://en.wikipedia.org/wiki/Hebrew_calendar
+
+Name = (FR) Wikipedia.org
+URL = https://fr.wikipedia.org/wiki/Calendrier_h%C3%A9bra%C3%AFque
+
+-
+
+Name = (EN) Aish.com
+URL = https://www.aish.com/jewish-calendar/Jewish_Calendar.html
+
+Name = (EN) Chabad.org
+URL = https://www.chabad.org/calendar/view/month.htm
+
+Name = (EN) Yeshiva.co
+URL = https://www.yeshiva.co/calendar
+
+Name = (EN) Hebcal.com
+URL = https://www.hebcal.com
+
+-
+
+Name = (FR) Calj.net
+URL = http://www.calj.net
+
+Name = (FR) Chabad.org
+URL = https://fr.chabad.org/calendar/view/month.htm
+
+Name = (FR) Chiourim.com
+URL = http://www.chiourim.com/cal/calendrier_hebraique.php
+
+Name = (FR) IsraelTorah.com
+URL = https://www.israeltorah.com/calendrier
+
+Name = (FR) Loubavitch.fr
+URL = https://www.loubavitch.fr/pratique/calendriers/jewish-calendar/calendriermensuel
+
+Name = (FR) Loubavitch-boulogne.com
+URL = https://www.loubavitch-boulogne.com/calendar/view/month.htm
+
+Name = (FR) Torah-box.com
+URL = https://www.torah-box.com/calendrier

@@ -504,8 +504,7 @@ namespace Ordisoftware.Hebrew.Letters
       ActionScreenshot.Enabled = enabled;
       ActionSaveScreenshot.Enabled = enabled;
       ActionSearchOnline.Enabled = enabled;
-
-      if ( !Globals.IsDevExecutable ) return; // TODO remove when ready
+      if ( !Globals.IsDebugExecutable ) return; // TODO remove when ready
       var word = EditWord.TextBox.Text;
       var sentence = EditSentence.Text.Trim();
       var combos = SelectAnalyze.Controls.OfType<ComboBox>().ToList();
@@ -550,7 +549,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     #region Panel Letters
 
-    private void EditLetters_ViewLetterDetails(LettersControl sender, string code)
+    private void EditWord_ViewLetterDetails(LettersControl sender, string code)
     {
       ActionViewLetters.PerformClick();
       SelectLetter.SelectedIndex = SelectLetter.FindStringExact(code);
@@ -580,7 +579,7 @@ namespace Ordisoftware.Hebrew.Letters
       EditWord.Focus(LettersControlFocusSelect.None);
     }
 
-    private void EditLetters_InputTextChanged(object sender, EventArgs e)
+    private void EditWord_InputTextChanged(object sender, EventArgs e)
     {
       DoAnalyse();
       UpdateAnalysisControls();
@@ -693,7 +692,7 @@ namespace Ordisoftware.Hebrew.Letters
       EditSentence.Text = lettriq.Sentence;
     }
 
-    private void ActionSaveTermLettriq_Click(object sender, EventArgs e)
+  private void ActionSaveTermLettriq_Click(object sender, EventArgs e)
     {
       string hebrew = EditWord.TextBox.Text;
       var term = DBHebrew.TermsHebrew.Find(t => t.Hebrew == hebrew);

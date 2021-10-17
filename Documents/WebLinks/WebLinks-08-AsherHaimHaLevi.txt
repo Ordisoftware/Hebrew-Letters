@@ -1,0 +1,52 @@
+﻿; --------------------------------------------------------------------------------------------------
+; File format for web links
+; --------------------------------------------------------------------------------------------------
+; To create a folder else items will be at root level: Lang/[short code] = Title
+; Use the tag FOLDER-SEPARATOR to insert a separator menu item between folders.
+; --------------------------------------------------------------------------------------------------
+; Name = Title
+; URL = Web link
+; --------------------------------------------------------------------------------------------------
+; Use the "-" char at the beginning of a line to insert a separator
+; --------------------------------------------------------------------------------------------------
+
+Lang/EN = Asher 'Haïm HaLevi
+Lang/FR = Asher 'Haïm HaLevi
+
+Name = (FR) Bibliographie
+URL = https://asherhaimhalevi.ordisoftware.com/works/bibliography/
+
+Name = (FR) YouTube Playlist
+URL = https://www.youtube.com/playlist?list=PLSn7yTHwEx-DL6u9qWpRtF1vEAEVxe1Hk
+
+-
+
+Name = (FR) Le problème religieux
+URL = https://asherhaimhalevi.ordisoftware.com/works/the-religious-problem/
+
+Name = (FR) Epitaphe pour Kémistes de Kémet
+URL = https://asherhaimhalevi.ordisoftware.com/works/epitaph/
+
+-
+
+Name = (FR) L'alphabet hébreu
+URL = https://asherhaimhalevi.ordisoftware.com/works/hebrew-alphabet/
+
+Name = (FR) L'alliance
+URL = https://asherhaimhalevi.ordisoftware.com/works/alliance/
+
+Name = (FR) Les séfitot
+URL = https://asherhaimhalevi.ordisoftware.com/works/sefirot/
+
+-
+
+Name = (FR) Proposition logique pour un monde meilleur
+URL = https://asherhaimhalevi.ordisoftware.com
+
+Name = (FR) Théorie de santé-aide-justice
+URL = https://asherhaimhalevi.ordisoftware.com/logical-proposition/health-help-justice-theory/
+
+-
+
+Name = (FR) Archive GitHub
+URL = https://github.com/Ordisoftware/Torah-Physicalist-Exegesis-Books

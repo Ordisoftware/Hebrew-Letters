@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2021-02 </created>
-/// <edited> 2021-07 </edited>
+/// <edited> 2021-09 </edited>
 using System;
 using Ordisoftware.Core;
 
@@ -21,8 +21,13 @@ namespace Ordisoftware.Hebrew
   public partial class Parashah
   {
 
-    public string ToStringLinked()
-      => Name + ( GetLinked() != null ? " - " + GetLinked().Name : "" );
+    public string ToStringShort(bool withBookAndref, bool withLinked)
+    {
+      string result = Name;
+      if ( withLinked ) result += GetLinked() != null ? " - " + GetLinked().Name : string.Empty;
+      if ( withBookAndref ) result += $" ({Book} {VerseBegin})";
+      return result;
+    }
 
     public override string ToString()
       => ToString(false);
@@ -31,7 +36,7 @@ namespace Ordisoftware.Hebrew
       => $"Sefer {Book} {VerseBegin} - {VerseEnd} " +
          $"Parashah n°{Number} " +
          $"{Name}{( IsLinkedToNext ? "*" : string.Empty )} " +
-         $"({( useHebrewFont ? Hebrew : Unicode )}) : " +
+         $"{( useHebrewFont ? Hebrew : Unicode )} : " +
          $"{Translation.GetOrEmpty()} ; " +
          $"{Lettriq.GetOrEmpty()}" +
          ( Memo.IsNullOrEmpty() ? "" : $" ; {Memo.GetOrEmpty()}" );
@@ -39,9 +44,9 @@ namespace Ordisoftware.Hebrew
     public string ToStringReadable()
       => $"Sefer {Book} {VerseBegin} - {VerseEnd}" + Globals.NL +
          $"Parashah n°{Number} " + Globals.NL +
-         $"{Name} ({Unicode})" + Globals.NL +
-         $"• {Translation.GetOrEmpty()}" + Globals.NL +
-         $"• {Lettriq.GetOrEmpty()}";
+         $"{Name} {Unicode}" + Globals.NL +
+         $"• {HebrewTranslations.Translation.GetLang()} : {Translation.GetOrEmpty()}" + Globals.NL +
+         $"• {HebrewTranslations.Lettriq.GetLang()} : {Lettriq.GetOrEmpty()}";
 
   }
 

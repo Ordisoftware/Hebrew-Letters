@@ -1,0 +1,110 @@
+﻿; --------------------------------------------------------------------------------------------------
+; File format for online providers items to search a celebration
+; --------------------------------------------------------------------------------------------------
+; To create a folder else items will be at root level: Lang/[short code] = Title
+; Use the tag FOLDER-SEPARATOR to insert a separator menu item between folders
+; --------------------------------------------------------------------------------------------------
+; Name = Title
+; URL = Web link
+; --------------------------------------------------------------------------------------------------
+; Use the "-" char at the beginning of a line to insert a separator
+; --------------------------------------------------------------------------------------------------
+
+Name = (EN) Wikipedia.org
+URL = https://en.wikipedia.org/wiki/%WIKIPEDIA-EN%
+
+Name = (FR) Wikipedia.org
+URL = https://fr.wikipedia.org/wiki/%WIKIPEDIA-FR%
+
+-
+
+Name = (EN) Chabad.org
+URL = https://www.chabad.org/%CHABAD-EN%
+
+Name = (EN) Torah.org
+URL = https://torah.org/%TORAHORG%/
+
+Name = (EN) Yeshiva.co
+URL = https://www.yeshiva.co/midrash/category/%YESHIVACO%
+
+Name = (EN) TheYeshiva.net
+URL = https://www.theyeshiva.net/jewish/%THEYESHIVA%
+
+Name = (EN) TrueTorahJews.org
+URL = https://www.truetorahjews.org/parsha-pearls/%TORAHJEWS%
+
+Name = (EN) MyJewishLearning.com
+URL = https://www.myjewishlearning.com/category/celebrate/%MYJEWISHLEARNING%/
+
+-
+
+Name = (FR) Torah-Box.com
+URL = https://www.torah-box.com/vie-juive/fetes/%TORAHBOX%/
+
+Name = (FR) Chabad.org
+URL = https://fr.chabad.org/library/article_cdo/aid/%CHABAD-FR%
+
+Name = (FR) Loubavitch.fr
+URL = https://www.loubavitch.fr/pratique/fetes-juives/%LOUBAVITCH%
+
+-
+
+Name = (EN) Aish.com
+URL = https://www.aish.com/h/%AISH-EN%/
+
+Name = (FR) Aish.fr
+URL = https://www.aish.fr/h/%AISH-FR%/
+
+Name = (IW) Aish.co.il
+URL = https://www.aish.co.il/h/%AISH-IW%/
+
+-
+
+Name = (FR) TorahDeVie.com *
+URL = http://www.torahdevie.com/category/service-de-d-ieu/les-fetes-juives/
+
+Name = (FR) Rav David Pinto *
+URL = https://www.youtube.com/playlist?list=PL7L6Q1h8wVHylddP-42rZ53xBAUu3mdCp
+
+Name = (FR) Rav Yossef Hay *
+URL = https://www.youtube.com/playlist?list=PLl4PXR7UyOAEofZFfLuRetOEcVKOOLGbm
+
+Name = (FR) Rav Chriqui *
+URL = https://www.youtube.com/playlist?list=PLI4WtgHMTlAeeu0BFOLjffigOYGdN97WW
+
+-
+
+Name = (FR) Rav Yehia Benchetrit : Le sens des fêtes *
+URL = https://www.youtube.com/playlist?list=PL20tCo26IlqTTgDadDmS-7eOfruomzI3w
+
+Name = (FR) Rav Yehia Benchetrit : Se preparer aux fetes juives *
+URL = https://www.youtube.com/playlist?list=PL20tCo26IlqQ49SreVMsp7SnxbsOy7ttf
+
+Name = (FR) Rav Yehia Benchetrit : Pessah *
+URL = https://www.youtube.com/playlist?list=PL20tCo26IlqTJUZ-eKzZd83BBDTqGSoxB
+
+Name = (FR) Rav Yehia Benchetrit : Chavouoth  *
+URL = https://www.youtube.com/watch?v=n8zlWqiO008
+
+Name = (FR) Rav Yehia Benchetrit : Roch Hachana *
+URL = https://www.youtube.com/watch?v=5esO1clgA_U
+
+Name = (FR) Rav Yehia Benchetrit : Kippour *
+URL = https://www.youtube.com/watch?v=GZPx6kk3TL0
+
+Name = (FR) Rav Yehia Benchetrit : Souccot *
+URL = https://www.youtube.com/watch?v=HnbYwaJDawA
+
+-
+
+Name = (FR) Exposé Les célébrations de la Torah
+URL = https://www.youtube.com/watch?v=gqjY4wwuAeQ&list=PLSn7yTHwEx-DL6u9qWpRtF1vEAEVxe1Hk&index=28
+
+Name = (FR) Exposé Pessah et la sortie de Mitsraïm
+URL = https://www.youtube.com/watch?v=7pYtMgQm6cs&list=PLSn7yTHwEx-DL6u9qWpRtF1vEAEVxe1Hk&index=16
+
+Name = (FR) Exposé La circoncision, le 'hamets, la matsa et le souffle
+URL = https://www.youtube.com/watch?v=dNKab1_yIzI&list=PLSn7yTHwEx-DL6u9qWpRtF1vEAEVxe1Hk&index=17
+
+Name = (FR) Exposé La réparation de la Téchouva
+URL = https://www.youtube.com/watch?v=HpJW4vsAwuA&list=PLSn7yTHwEx-DL6u9qWpRtF1vEAEVxe1Hk&index=18

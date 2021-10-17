@@ -66,6 +66,7 @@
       System.Windows.Forms.Label LabelCompiled;
       System.Windows.Forms.Label dBCommonFileSizeLabel;
       System.Windows.Forms.Label translateTimeLabel;
+      System.Windows.Forms.Label dBLettriqsMemorySizeLabel;
       this.PanelBottom = new System.Windows.Forms.Panel();
       this.ActionViewLog = new System.Windows.Forms.Button();
       this.ActionScreenshot = new System.Windows.Forms.Button();
@@ -123,6 +124,7 @@
       this.EditFolderApplication = new Ordisoftware.Core.TextBoxEx();
       this.PanelBottomOuter = new System.Windows.Forms.Panel();
       this.PanelFolders = new System.Windows.Forms.Panel();
+      this.dBLettriqsMemorySizeLabel1 = new System.Windows.Forms.Label();
       dBFileSizeLabel = new System.Windows.Forms.Label();
       dBMeaningsRecordsCountLabel = new System.Windows.Forms.Label();
       loadDataTimeLabel = new System.Windows.Forms.Label();
@@ -159,6 +161,7 @@
       LabelCompiled = new System.Windows.Forms.Label();
       dBCommonFileSizeLabel = new System.Windows.Forms.Label();
       translateTimeLabel = new System.Windows.Forms.Label();
+      dBLettriqsMemorySizeLabel = new System.Windows.Forms.Label();
       this.PanelBottom.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.ApplicationStatisticsDataBindingSource)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.SystemStatisticsDataBindingSource)).BeginInit();
@@ -539,6 +542,8 @@
       // 
       // GroupBoxDatabase
       // 
+      this.GroupBoxDatabase.Controls.Add(this.dBLettriqsMemorySizeLabel1);
+      this.GroupBoxDatabase.Controls.Add(dBLettriqsMemorySizeLabel);
       this.GroupBoxDatabase.Controls.Add(this.dBCommonFileSizeLabel1);
       this.GroupBoxDatabase.Controls.Add(dBCommonFileSizeLabel);
       this.GroupBoxDatabase.Controls.Add(dBADONETAccessLabel);
@@ -805,6 +810,17 @@
       resources.ApplyResources(this.PanelFolders, "PanelFolders");
       this.PanelFolders.Name = "PanelFolders";
       // 
+      // dBLettriqsMemorySizeLabel1
+      // 
+      resources.ApplyResources(this.dBLettriqsMemorySizeLabel1, "dBLettriqsMemorySizeLabel1");
+      this.dBLettriqsMemorySizeLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ApplicationStatisticsDataBindingSource, "DBLettriqsMemorySize", true));
+      this.dBLettriqsMemorySizeLabel1.Name = "dBLettriqsMemorySizeLabel1";
+      // 
+      // dBLettriqsMemorySizeLabel
+      // 
+      resources.ApplyResources(dBLettriqsMemorySizeLabel, "dBLettriqsMemorySizeLabel");
+      dBLettriqsMemorySizeLabel.Name = "dBLettriqsMemorySizeLabel";
+      // 
       // StatisticsForm
       // 
       resources.ApplyResources(this, "$this");
@@ -904,5 +920,6 @@
     private System.Windows.Forms.Label LabelCompiled1;
     private System.Windows.Forms.Label dBCommonFileSizeLabel1;
     private System.Windows.Forms.Label translateTimeLabel1;
+    private System.Windows.Forms.Label dBLettriqsMemorySizeLabel1;
   }
 }

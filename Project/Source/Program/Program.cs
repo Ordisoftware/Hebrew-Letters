@@ -21,6 +21,7 @@ using System.Windows.Forms;
 using System.Runtime.Serialization.Formatters.Binary;
 using Ordisoftware.Core;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace Ordisoftware.Hebrew.Letters
 {
@@ -80,10 +81,13 @@ namespace Ordisoftware.Hebrew.Letters
       try
       {
         // Check reset
-        if ( force /*|| Settings.UpgradeResetRequiredVx_y*/ )
+        if ( force
+        /*|| Settings.UpgradeResetRequiredVx_y*/ )
         {
+#pragma warning disable S2583 // Conditionally executed code should be reachable
           if ( !force && !Settings.FirstLaunch )
             DisplayManager.ShowInformation(SysTranslations.UpgradeResetRequired.GetLang());
+#pragma warning restore S2583 // Conditionally executed code should be reachable
           Settings.Reset();
           Settings.LanguageSelected = Languages.Current;
           Settings.SetUpgradeFlagsOff();
@@ -96,6 +100,10 @@ namespace Ordisoftware.Hebrew.Letters
         // Check language
         if ( Settings.LanguageSelected == Language.None )
           Settings.LanguageSelected = Languages.Current;
+        // Check applications
+        string pathWordsFolder = Path.Combine(Globals.CompanyProgramFilesFolderPath, "Hebrew Words", "Bin");
+        string pathWordsOld = Path.Combine(pathWordsFolder, "Ordisoftware.HebrewWords.exe");
+        string pathWordsDefault = (string)Settings.Properties["HebrewWordsExe"].DefaultValue;
         // Force default view
         Settings.CurrentView = ViewMode.Analysis;
         // Save settings
@@ -138,6 +146,7 @@ namespace Ordisoftware.Hebrew.Letters
     static public void UpdateLocalization()
     {
       Globals.ChronoTranslate.Restart();
+      Task task = null;
       try
       {
         void update(Form form)
@@ -151,6 +160,8 @@ namespace Ordisoftware.Hebrew.Letters
         var culture = new CultureInfo(lang);
         Thread.CurrentThread.CurrentCulture = culture;
         Thread.CurrentThread.CurrentUICulture = culture;
+        task = new Task(HebrewGlobals.LoadProviders);
+        task.Start();
         if ( Globals.IsReady )
         {
           MessageBoxEx.CloseAll();
@@ -188,20 +199,25 @@ namespace Ordisoftware.Hebrew.Letters
           GrammarGuideForm.HTMLBrowserForm_Shown(null, null);
           MethodNoticeForm.HTMLBrowserForm_Shown(null, null);
         }
-        updateLabel(MainForm.Instance.LabelGematria, MainForm.Instance.EditGematriaSimple, -19);
-        updateLabel(MainForm.Instance.LabelGematriaSimple, MainForm.Instance.EditGematriaSimple, 3);
-        updateLabel(MainForm.Instance.LabelGematriaFull, MainForm.Instance.EditGematriaFull, 3);
+        int top1 = MainForm.Instance.EditGematriaSimple.Top;
+        int top2 = MainForm.Instance.EditGematriaFull.Top;
+        int top0 = top1 - 19;
+        int top1_3 = top2 + 3;
+        int top2_3 = top2 + 3;
+        MainForm.Instance.LabelGematria.Top = top0;
+        MainForm.Instance.LabelGematriaSimple.Top = top1_3;
+        MainForm.Instance.LabelGematriaFull.Top = top2_3;
+        MainForm.Instance.LabelGematria.Top = MainForm.Instance.EditGematriaSimple.Top - 19;
+        MainForm.Instance.LabelGematriaSimple.Top = MainForm.Instance.EditGematriaSimple.Top + 3;
+        MainForm.Instance.LabelGematriaFull.Top = MainForm.Instance.EditGematriaFull.Top + 3;
         MainForm.Instance.LabelClipboardContentType.Left = MainForm.Instance.ActionCopyToUnicode.Left
                                                          + MainForm.Instance.ActionCopyToUnicode.Width / 2
                                                          - MainForm.Instance.LabelClipboardContentType.Width / 2;
         MainForm.Instance.EditCopyToClipboardCloseApp.Left = MainForm.Instance.ActionCopyToResult.Left
                                                            + MainForm.Instance.ActionCopyToResult.Width + 5;
         MainForm.Instance.CheckClipboardContentType();
+        task?.Wait();
         MainForm.Instance.CreateSystemInformationMenu();
-        void updateLabel(Label label, TextBox textbox, int dy)
-        {
-          label.Location = new System.Drawing.Point(label.Location.X, textbox.Location.Y + dy);
-        }
       }
       catch ( Exception ex )
       {

@@ -187,5 +187,8 @@
     <Setting Name="LoadingFormHidden" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="HebrewWordsExe" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Program Files\Ordisoftware\Hebrew Words\Bin\Ordisoftware.HebrewWords.exe</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

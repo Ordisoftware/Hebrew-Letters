@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2021-02 </created>
-/// <edited> 2021-06 </edited>
+/// <edited> 2021-09 </edited>
 using System;
 using System.Linq;
 using SQLite;
@@ -28,7 +28,7 @@ namespace Ordisoftware.Hebrew
     [PrimaryKey]
     public string ID { get; set; }
 
-    public TorahBooks Book { get; set; }
+    public TorahBook Book { get; set; }
     public int Number { get; set; }
 
     public string VerseBegin { get; set; }
@@ -46,9 +46,9 @@ namespace Ordisoftware.Hebrew
     public Parashah GetLinked(List<Parashah> owner = null)
     {
       if ( !IsLinkedToNext ) return null;
-      if ( owner != null ) return owner[owner.IndexOf(this) + 1];
-      var list = ParashotFactory.All.ToList();
-      return list[list.IndexOf(this) + 1];
+      if ( owner != null ) return owner[owner.FindIndex(p => p.ID == ID) + 1];
+      var list = ParashotFactory.Instance.All.ToList();
+      return list[list.FindIndex(p => p.ID == ID) + 1];
     }
 
     public string Memo

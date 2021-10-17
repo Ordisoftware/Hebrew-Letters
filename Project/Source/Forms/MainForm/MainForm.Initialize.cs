@@ -35,7 +35,6 @@ namespace Ordisoftware.Hebrew.Letters
     private void DoConstructor()
     {
       new Task(InitializeIconsAndSound).Start();
-      new Task(CreateProvidersLinks).Start();
       Interlocks.Take();
       SystemManager.TryCatch(() => { Icon = new Icon(Globals.ApplicationIconFilePath); });
       Text = Globals.AssemblyTitle;
@@ -47,15 +46,13 @@ namespace Ordisoftware.Hebrew.Letters
       TextBoxEx.ActionPaste.Click += TextBoxData_ContextMenuAction_Click;
       TextBoxEx.ActionDelete.Click += TextBoxData_ContextMenuAction_Click;
       NativeMethods.ClipboardViewerNext = NativeMethods.SetClipboardViewer(Handle);
-
-      if ( !Globals.IsDevExecutable ) // TODO remove when ready
+      if ( !Globals.IsDebugExecutable ) // TODO remove when ready
       {
         ActionViewNotebook.Visible = false;
         ActionOpenTermLettriq.Visible = false;
         ActionSaveTermLettriq.Visible = false;
       }
-
-      if ( !Globals.IsDevExecutable ) // TODO remove when ready
+      if ( !Globals.IsDebugExecutable ) // TODO remove when ready
       {
         ActionGematriaCombinations.Visible = false;
         ActionGematriaCombinations.Tag = int.MinValue;
@@ -90,6 +87,7 @@ namespace Ordisoftware.Hebrew.Letters
       Program.Settings.CurrentView = ViewMode.Analysis;
       LoadData();
       Globals.IsReady = true;
+      EditWord.Redraw();
       TimerProcesses_Tick(null, null);
       SelectLetter_SelectedIndexChanged(SelectLetter, EventArgs.Empty);
       LettersNavigator.Refresh();
@@ -144,8 +142,7 @@ namespace Ordisoftware.Hebrew.Letters
       Settings.BenchmarkStartingApp = Globals.ChronoStartingApp.ElapsedMilliseconds;
       SystemManager.TryCatch(Settings.Save);
       ProcessNewsAndCommandLine();
-
-      if ( Globals.IsDevExecutable ) // TODO remove when ready
+      if ( Globals.IsDebugExecutable ) // TODO remove when ready
         ActionViewNotebook.Visible = true;
     }
 
@@ -210,46 +207,6 @@ namespace Ordisoftware.Hebrew.Letters
       SoundItem.Initialize();
       SystemManager.TryCatch(() => new System.Media.SoundPlayer(Globals.EmptySoundFilePath).Play());
       SystemManager.TryCatch(() => MediaMixer.SetApplicationVolume(Globals.ProcessId, Settings.ApplicationVolume));
-    }
-
-    /// <summary>
-    /// Create system information menu items.
-    /// </summary>
-    public void CreateSystemInformationMenu()
-    {
-      CommonMenusControl.CreateInstance(ToolStrip,
-                                        ref ActionInformation,
-                                        AppTranslations.NoticeNewFeatures,
-                                        ActionAbout_Click,
-                                        ActionWebCheckUpdate_Click,
-                                        ActionViewLog_Click,
-                                        ActionViewStats_Click);
-      InitializeSpecialMenus();
-    }
-
-    /// <summary>
-    /// Initialize special menus.
-    /// </summary>
-    public void InitializeSpecialMenus()
-    {
-      CommonMenusControl.Instance.ActionViewStats.Enabled = Settings.UsageStatisticsEnabled;
-      CommonMenusControl.Instance.ActionViewLog.Enabled = DebugManager.TraceEnabled;
-      ActionWebLinks.Visible = Settings.WebLinksMenuEnabled;
-      if ( Settings.WebLinksMenuEnabled )
-        ActionWebLinks.InitializeFromWebLinks(InitializeSpecialMenus);
-    }
-
-    /// <summary>
-    /// Create providers links menu items.
-    /// </summary>
-    private void CreateProvidersLinks()
-    {
-      ContextMenuSearchOnline.InitializeFromProviders(HebrewGlobals.WebProvidersWord, (sender, e) =>
-      {
-        var menuitem = (ToolStripMenuItem)sender;
-        HebrewTools.OpenWordProvider((string)menuitem.Tag, EditWord.TextBox.Text);
-        EditWord.Focus();
-      });
     }
 
     /// <summary>
