@@ -1,4 +1,4 @@
-﻿# Hebrew Letters
+# Hebrew Letters
 
 > Licensed under the terms of the [Mozilla Public License 2.0](LICENSE)<br/>
 > This project follows the [Manufacturing Software Guidelines](https://github.com/Ordisoftware/Guidelines).<br/>

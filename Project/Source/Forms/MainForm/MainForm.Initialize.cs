@@ -68,6 +68,8 @@ namespace Ordisoftware.Hebrew.Letters
     {
       if ( Globals.IsExiting ) return;
       Settings.Retrieve();
+      EditConcordance.Minimum = HebrewAlphabet.ConcordanceFirst - 1;
+      EditConcordance.Maximum = HebrewAlphabet.ConcordanceLast;
       StatisticsForm.Run(true, Settings.UsageStatisticsEnabled);
       Globals.ChronoStartingApp.Stop();
       var lastdone = Settings.CheckUpdateLastDone;
@@ -221,6 +223,9 @@ namespace Ordisoftware.Hebrew.Letters
       EditSentence.BackColor = Settings.ColorSentenceTextBox;
       EditGematriaFull.BackColor = Settings.ColorGematriaTextBox;
       EditGematriaSimple.BackColor = Settings.ColorGematriaTextBox;
+      EditTranscription.BackColor = Settings.ColorHebrewWordTextBox;
+      EditDictionary.BackColor = Settings.ColorHebrewWordTextBox;
+      EditMemo.BackColor = Settings.ColorHebrewWordTextBox;
       // Data
       SelectLetter.BackColor = Settings.ColorLettersPanel == SystemColors.Window
                                ? Settings.ColorGematriaTextBox

@@ -1,4 +1,4 @@
-﻿/// <license>
+/// <license>
 /// This file is part of Ordisoftware Hebrew Letters.
 /// Copyright 2012-2021 Olivier Rogier.
 /// See www.ordisoftware.com for more information.

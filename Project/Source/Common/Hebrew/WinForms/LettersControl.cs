@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2012-10 </created>
-/// <edited> 2021-04 </edited>
+/// <edited> 2021-08 </edited>
 using System;
 using System.Drawing;
 using System.Linq;
@@ -42,11 +42,12 @@ namespace Ordisoftware.Hebrew
 
     public const KnownColor DefaultInputBackColor = KnownColor.AliceBlue;
     public const KnownColor DefaultPanelLettersBackColor = KnownColor.LightYellow;
-    public const float DefaultFontSizeLetters = 20.25F;
-    public const float DefaultFontSizeValues = 6.25F;
-    public const float DefaultFontSizeKeys = 8.25F;
-    public const float DefaultFontSizeInput = 24F;
+    public const float DefaultFontSizeLetters = 18F;
+    public const float DefaultFontSizeValues = 6F;
+    public const float DefaultFontSizeKeys = 8F;
+    public const float DefaultFontSizeInput = 18F;
     public const int DefaultInputMaxLength = 12;
+    public const int DefaultMarginSize = 5;
 
     /// <summary>
     /// Indicate view letter details event.
@@ -60,6 +61,13 @@ namespace Ordisoftware.Hebrew
     {
       add { TextBox.TextChanged += value; }
       remove { TextBox.TextChanged -= value; }
+    }
+
+    [DefaultValue("")]
+    public string InputText
+    {
+      get => TextBox.Text;
+      set => TextBox.Text = value;
     }
 
     /// <summary>
@@ -146,14 +154,15 @@ namespace Ordisoftware.Hebrew
     [DefaultValue(DefaultFontSizeInput)]
     public float FontSizeInput
     {
-      get => TextBox.Font.Size;
+      get => _FontSizeInput;
       set
       {
-        if ( TextBox.Font.Size == value ) return;
-        TextBox.Font = new Font(TextBox.Font.FontFamily, value, TextBox.Font.Style);
+        if ( _FontSizeInput == value ) return;
+        _FontSizeInput = value;
         Redraw();
       }
     }
+    private float _FontSizeInput = DefaultFontSizeInput;
 
     /// <summary>
     /// Indicate if letters values must be shown.
@@ -187,6 +196,32 @@ namespace Ordisoftware.Hebrew
     }
     private bool _ShowKeys = true;
 
+    [DefaultValue(DefaultMarginSize)]
+    public int MarginX
+    {
+      get => _MarginX;
+      set
+      {
+        if ( _MarginX == value ) return;
+        _MarginX = value;
+        Redraw();
+      }
+    }
+    private int _MarginX = DefaultMarginSize;
+
+    [DefaultValue(DefaultMarginSize)]
+    public int MarginY
+    {
+      get => _MarginY;
+      set
+      {
+        if ( _MarginY == value ) return;
+        _MarginY = value;
+        Redraw();
+      }
+    }
+    private int _MarginY = DefaultMarginSize;
+
     /// <summary>
     /// Indicate if an input key is processed.
     /// </summary>
@@ -199,7 +234,6 @@ namespace Ordisoftware.Hebrew
     {
       InitializeComponent();
       TextBox.MaxLength = DefaultInputMaxLength;
-      TextBox.Font = new Font(TextBox.Font.FontFamily, DefaultFontSizeInput, TextBox.Font.Style);
       TextBox.CaretAfterPaste = CaretPositionAfterPaste.Beginning;
       TextBox.BackColor = Color.FromKnownColor(DefaultInputBackColor);
       PanelLetters.BackColor = Color.FromKnownColor(DefaultPanelLettersBackColor);
@@ -212,6 +246,31 @@ namespace Ordisoftware.Hebrew
     /// <param name="sender"></param>
     /// <param name="e"></param>
     private void LettersControl_Load(object sender, EventArgs e)
+    {
+      Redraw();
+    }
+
+    /// <summary>
+    /// Control paint event.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void LettersControl_Paint(object sender, PaintEventArgs e)
+    {
+      if ( !first ) return;
+      first = false;
+      TextBox.Font = new Font(TextBox.Font.FontFamily, _FontSizeInput, TextBox.Font.Style);
+      Redraw();
+    }
+
+    private bool first = true;
+
+    /// <summary>
+    /// Control size chenged event.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
+    private void LettersControl_SizeChanged(object sender, EventArgs e)
     {
       Redraw();
     }
