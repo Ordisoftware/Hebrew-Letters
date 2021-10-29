@@ -443,7 +443,7 @@
     <value>NoControl</value>
   </data>
   <data name="EditWindowsDoubleBufferingEnabled.Location" type="System.Drawing.Point, System.Drawing">
-    <value>171, 65</value>
+    <value>23, 150</value>
   </data>
   <data name="EditWindowsDoubleBufferingEnabled.Size" type="System.Drawing.Size, System.Drawing">
     <value>237, 17</value>
@@ -453,9 +453,6 @@
   </data>
   <data name="EditWindowsDoubleBufferingEnabled.Text" xml:space="preserve">
     <value>Enable double-buffering for drawing windows</value>
-  </data>
-  <data name="EditWindowsDoubleBufferingEnabled.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
   </data>
   <data name="&gt;&gt;EditWindowsDoubleBufferingEnabled.Name" xml:space="preserve">
     <value>EditWindowsDoubleBufferingEnabled</value>
@@ -653,7 +650,7 @@
     <value>NoControl</value>
   </data>
   <data name="EditVacuumAtStartup.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 150</value>
+    <value>23, 170</value>
   </data>
   <data name="EditVacuumAtStartup.Size" type="System.Drawing.Size, System.Drawing">
     <value>218, 17</value>
@@ -2073,7 +2070,7 @@
     <value>EditExportFolder</value>
   </data>
   <data name="&gt;&gt;EditExportFolder.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.1.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;EditExportFolder.Parent" xml:space="preserve">
     <value>TabPageExport</value>
