@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -282,6 +282,12 @@
     <Compile Include="Source\Common\Core\WinForms.Forms\HTMLBrowserForm.Designer.cs">
       <DependentUpon>HTMLBrowserForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Source\Common\Core\WinForms.Forms\InputBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Common\Core\WinForms.Forms\InputBox.designer.cs">
+      <DependentUpon>InputBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Source\Common\Core\WinForms.Forms\LoadingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -314,12 +320,6 @@
     </Compile>
     <Compile Include="Source\Common\Core\WinForms\ControlLocation.cs" />
     <Compile Include="Source\Common\Core\WinForms\FormsHelper.cs" />
-    <Compile Include="Source\Common\Core\WinForms.Forms\InputBox.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Source\Common\Core\WinForms.Forms\InputBox.designer.cs">
-      <DependentUpon>InputBox.cs</DependentUpon>
-    </Compile>
     <Compile Include="Source\Common\Core\WinForms\InputValueResult.cs" />
     <Compile Include="Source\Common\Core\WinForms\ToolStripMenuItemHelper.cs" />
     <Compile Include="Source\Common\Hebrew\Classes\HebrewAlphabet.cs" />
@@ -484,7 +484,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Common\Core\WinForms.Controls\TextBoxEx.resx">
       <DependentUpon>TextBoxEx.cs</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Common\Core\WinForms.Forms\DataFileEditorForm.fr.resx">
       <DependentUpon>DataFileEditorForm.cs</DependentUpon>
@@ -509,6 +508,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Common\Core\WinForms.Forms\HTMLBrowserForm.resx">
       <DependentUpon>HTMLBrowserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Common\Core\WinForms.Forms\InputBox.fr.resx">
+      <DependentUpon>InputBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Common\Core\WinForms.Forms\InputBox.resx">
+      <DependentUpon>InputBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Common\Core\WinForms.Forms\LoadingForm.fr.resx">
       <DependentUpon>LoadingForm.cs</DependentUpon>
@@ -539,12 +544,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Common\Core\WinForms.Forms\WebUpdateForm.resx">
       <DependentUpon>WebUpdateForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Source\Common\Core\WinForms.Forms\InputBox.fr.resx">
-      <DependentUpon>InputBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Source\Common\Core\WinForms.Forms\InputBox.resx">
-      <DependentUpon>InputBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Common\Hebrew\WinForms\LettersControl.fr.resx">
       <DependentUpon>LettersControl.cs</DependentUpon>
@@ -616,7 +615,9 @@
     <Content Include="Licenses\MPL 2.0.htm" />
     <Content Include="Licenses\MPL 2.0.txt" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Source\Common\Hebrew\Providers\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\SQLitePCLRaw.lib.e_sqlite3.2.0.7\build\net461\SQLitePCLRaw.lib.e_sqlite3.targets" Condition="Exists('packages\SQLitePCLRaw.lib.e_sqlite3.2.0.7\build\net461\SQLitePCLRaw.lib.e_sqlite3.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -1,4 +1,4 @@
-﻿/// <license>
+/// <license>
 /// This file is part of Ordisoftware Hebrew Letters.
 /// Copyright 2012-2021 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
@@ -28,12 +28,18 @@ namespace Ordisoftware.Hebrew.Letters
       = new NullSafeDictionary<string, TranslationsDictionary>
       {
 
-        /*["6.1"] = new TranslationsDictionary
+        ["6.1"] = new TranslationsDictionary
         {
-          [Language.EN] = "• Added lettriqs notebook.",
+          [Language.EN] = "• Maintenance release." + Globals.NL +
+                          "• Some fixes." + Globals.NL +
+                          "• Refactoring." + Globals.NL +
+                          "• Update web links.",
 
-          [Language.FR] = "• Ajout d'un carnet des lettriques."
-        },*/
+          [Language.FR] = "• Publication de maintenance." + Globals.NL +
+                          "• Quelques corrections." + Globals.NL +
+                          "• Refactoring." + Globals.NL +
+                          "• Mise à jour des liens web."
+        },
 
         ["6.0"] = new TranslationsDictionary
         {
@@ -43,7 +49,7 @@ namespace Ordisoftware.Hebrew.Letters
 
           [Language.FR] = "• Quelques corrections et améliorations." + Globals.NL +
                           "• Les performances globales sont optimisées." + Globals.NL +
-                          "• Le pilote SQLite ODBC n'est plus nécessaire. " 
+                          "• Le pilote SQLite ODBC n'est plus nécessaire. "
         },
 
         ["5.x"] = new TranslationsDictionary
