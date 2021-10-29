@@ -38,7 +38,7 @@ namespace Ordisoftware.Hebrew.Letters
         if ( Settings.WindowsDoubleBufferingEnabled )
         {
           cp.ExStyle |= 0x02000000; // + WS_EX_COMPOSITED
-          cp.Style &= ~0x02000000;  // - WS_CLIPCHILDREN
+          //cp.Style &= ~0x02000000;  // - WS_CLIPCHILDREN
         }
         return cp;
       }
