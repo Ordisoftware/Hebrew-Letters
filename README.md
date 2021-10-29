@@ -1,4 +1,4 @@
-﻿# Hebrew Letters
+# Hebrew Letters
 
 > Licensed under the terms of the [Mozilla Public License 2.0](LICENSE)<br/>
 > This project follows the [Manufacturing Software Guidelines](https://github.com/Ordisoftware/Guidelines).<br/>
@@ -25,7 +25,6 @@ A libre and open-source software written in C# that helps for the lettriq letter
 - Hebrew letters database with their customizable meanings.
 - Analyze a word letter by letter to get a sentence describing its sense.
 - Online research with Pealim, Sefaria, Shorashim, Wiktionary, Translator, etc.
-- Store results in a notebook that can also be used in Hebrew Words.
 - Copy the result or a screenshot to the clipboard.
 - English, French.
 
@@ -39,10 +38,9 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 
 ## Requirements
 
-- Screen 1024x768 or higher
 - Windows 7 SP1 x32/x64 or higher
+- Screen 1024x768 or higher
 - Framework .NET 4.7.2
-- SQLite 3.33
 
 ## Download
 
@@ -141,6 +139,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 ## Future improvements
 
+- Add analyzed words data table and notebook view.
 - Add find gematria possible combinations.
 - Add reset only some columns to factory defaults.
 - Add export and import database.
@@ -152,17 +151,12 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 ## Changelog
 
-#### In progress - Version 7.0
+#### 2021.10.17 - Version 6.1
 
-- Add analyzed words data table and notebook view to save results.
-- Add concordance, transcription, dictionary and comment fields for word analysis.
-- Add search online concordance.
-- Fix getting CPU usage for multiple instances.
-- Fix memory size calculation in usage statistics.
-- Some fixes and improvements.
-- Code refactoring and quality improvement.
-- Update sqlite-net-pcl nuget.
-- Nuget SQLitePCLRaw.bundle_green must remain `v2.0.4`.
+- Maintenance release.
+- Some fixes.
+- Refactoring.
+- Update web links.
 
 #### 2021.10.17 - Version 6.1
 
