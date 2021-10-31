@@ -84,10 +84,10 @@ namespace Ordisoftware.Hebrew.Letters
         if ( force
         /*|| Settings.UpgradeResetRequiredVx_y*/ )
         {
-#pragma warning disable S2583 // Conditionally executed code should be reachable
+#pragma warning disable S2583 // Conditionally executed code should be reachable - irrelevant
           if ( !force && !Settings.FirstLaunch )
             DisplayManager.ShowInformation(SysTranslations.UpgradeResetRequired.GetLang());
-#pragma warning restore S2583 // Conditionally executed code should be reachable
+#pragma warning restore S2583 // Conditionally executed code should be reachable - irrelevant
           Settings.Reset();
           Settings.LanguageSelected = Languages.Current;
           Settings.SetUpgradeFlagsOff();
