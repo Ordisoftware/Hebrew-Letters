@@ -53,6 +53,8 @@ namespace Ordisoftware.Hebrew.Letters
         PanelWordDetails.Visible = false;
         SelectAnalyze.Height += PanelWordDetails.Height + 5;
       }
+      else
+        ActionViewNotebook.Visible = true;
       if ( !Globals.IsDebugExecutable ) // TODO remove when ready
       {
         ActionGematriaCombinations.Visible = false;
