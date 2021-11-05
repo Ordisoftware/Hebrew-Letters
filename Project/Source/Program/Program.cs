@@ -207,19 +207,10 @@ namespace Ordisoftware.Hebrew.Letters
         MainForm.Instance.LabelGematria.Top = top0;
         MainForm.Instance.LabelGematriaSimple.Top = top1_3;
         MainForm.Instance.LabelGematriaFull.Top = top2_3;
-        MainForm.Instance.LabelCondordance.Top = top0;
-        MainForm.Instance.LabelTranscription.Top = top0;
-        MainForm.Instance.LabelDictionary.Top = top0;
-        MainForm.Instance.LabelMemo.Top = top2_3;
-
+        //MainForm.Instance.PanelWordDetails.Top = top0;
         MainForm.Instance.LabelGematria.Top = MainForm.Instance.EditGematriaSimple.Top - 19;
         MainForm.Instance.LabelGematriaSimple.Top = MainForm.Instance.EditGematriaSimple.Top + 3;
         MainForm.Instance.LabelGematriaFull.Top = MainForm.Instance.EditGematriaFull.Top + 3;
-        MainForm.Instance.LabelCondordance.Top = MainForm.Instance.LabelGematria.Top;
-        MainForm.Instance.LabelTranscription.Top = MainForm.Instance.LabelGematria.Top;
-        MainForm.Instance.LabelDictionary.Top = MainForm.Instance.LabelGematria.Top;
-        MainForm.Instance.LabelMemo.Top = MainForm.Instance.EditGematriaFull.Top + 3;
-
         MainForm.Instance.LabelClipboardContentType.Left = MainForm.Instance.ActionCopyToUnicode.Left
                                                          + MainForm.Instance.ActionCopyToUnicode.Width / 2
                                                          - MainForm.Instance.LabelClipboardContentType.Width / 2;

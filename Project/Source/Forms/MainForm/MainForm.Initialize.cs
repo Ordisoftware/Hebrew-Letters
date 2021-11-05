@@ -51,6 +51,8 @@ namespace Ordisoftware.Hebrew.Letters
         ActionViewNotebook.Visible = false;
         ActionOpenTermLettriq.Visible = false;
         ActionSaveTermLettriq.Visible = false;
+        PanelWordDetails.Visible = false;
+        SelectAnalyze.Height += PanelWordDetails.Height + 5;
       }
       if ( !Globals.IsDebugExecutable ) // TODO remove when ready
       {
