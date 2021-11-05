@@ -42,7 +42,7 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 - Screen 1024x768 or higher
 - Windows 7 SP1 x32/x64 or higher
 - Framework .NET 4.7.2
-- SQLite 3.33
+- SQLite 3.35.5
 
 ## Download
 
@@ -157,10 +157,14 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Add analyzed words data table and notebook view to save results.
 - Add concordance, transcription, dictionary and comment fields for word analysis.
 - Add search online concordance.
+
+#### 2021.11.07 - Version 6.2
+
 - Fix getting CPU usage for multiple instances.
 - Fix memory size calculation in usage statistics.
 - Some fixes and improvements.
 - Code refactoring and quality improvement.
+- Update system menu.
 - Update sqlite-net-pcl nuget.
 - Update SQLitePCL.raw nuget.
 
