@@ -1,4 +1,4 @@
-/// <license>
+﻿/// <license>
 /// This file is part of Ordisoftware Hebrew Letters.
 /// Copyright 2016-2021 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
@@ -66,6 +66,12 @@ namespace Ordisoftware.Hebrew.Letters
       {
         var menuitem = (ToolStripMenuItem)sender;
         HebrewTools.OpenWordProvider((string)menuitem.Tag, EditWord.TextBox.Text);
+        EditWord.Focus();
+      });
+      ContextMenuOpenConcordance.InitializeFromProviders(HebrewGlobals.WebProvidersConcordance, (sender, e) =>
+      {
+        var menuitem = (ToolStripMenuItem)sender;
+        HebrewTools.OpenWordConcordance((string)menuitem.Tag, (int)EditConcordance.Value);
         EditWord.Focus();
       });
     }

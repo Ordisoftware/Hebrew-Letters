@@ -1,4 +1,4 @@
-/// <license>
+﻿/// <license>
 /// This file is part of Ordisoftware Hebrew Letters.
 /// Copyright 2012-2021 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
@@ -84,10 +84,10 @@ namespace Ordisoftware.Hebrew.Letters
         if ( force
         /*|| Settings.UpgradeResetRequiredVx_y*/ )
         {
-#pragma warning disable S2583 // Conditionally executed code should be reachable
+#pragma warning disable S2583 // Conditionally executed code should be reachable - irrelevant
           if ( !force && !Settings.FirstLaunch )
             DisplayManager.ShowInformation(SysTranslations.UpgradeResetRequired.GetLang());
-#pragma warning restore S2583 // Conditionally executed code should be reachable
+#pragma warning restore S2583 // Conditionally executed code should be reachable - irrelevant
           Settings.Reset();
           Settings.LanguageSelected = Languages.Current;
           Settings.SetUpgradeFlagsOff();
@@ -207,6 +207,7 @@ namespace Ordisoftware.Hebrew.Letters
         MainForm.Instance.LabelGematria.Top = top0;
         MainForm.Instance.LabelGematriaSimple.Top = top1_3;
         MainForm.Instance.LabelGematriaFull.Top = top2_3;
+        //MainForm.Instance.PanelWordDetails.Top = top0;
         MainForm.Instance.LabelGematria.Top = MainForm.Instance.EditGematriaSimple.Top - 19;
         MainForm.Instance.LabelGematriaSimple.Top = MainForm.Instance.EditGematriaSimple.Top + 3;
         MainForm.Instance.LabelGematriaFull.Top = MainForm.Instance.EditGematriaFull.Top + 3;
