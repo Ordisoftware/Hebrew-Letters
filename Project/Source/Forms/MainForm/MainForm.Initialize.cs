@@ -48,12 +48,13 @@ namespace Ordisoftware.Hebrew.Letters
       NativeMethods.ClipboardViewerNext = NativeMethods.SetClipboardViewer(Handle);
       if ( !Globals.IsDebugExecutable ) // TODO remove when ready
       {
-        ActionViewNotebook.Visible = false;
         ActionOpenTermLettriq.Visible = false;
         ActionSaveTermLettriq.Visible = false;
         PanelWordDetails.Visible = false;
         SelectAnalyze.Height += PanelWordDetails.Height + 5;
       }
+      else
+        ActionViewNotebook.Visible = true;
       if ( !Globals.IsDebugExecutable ) // TODO remove when ready
       {
         ActionGematriaCombinations.Visible = false;
