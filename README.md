@@ -46,7 +46,7 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 
 ## Download
 
-**What's new in the latest version 6.0**
+**What's new in the latest version 6.x**
 
 - Overall performances are optimized.
 - Some fixes and improvements.
@@ -158,7 +158,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Add concordance, transcription, dictionary and comment fields for word analysis.
 - Add search online concordance.
 
-#### 2021.11.07 - Version 6.2
+#### 2021.11.09 - Version 6.2
 
 - Fix getting CPU usage for multiple instances.
 - Fix memory size calculation in usage statistics.
