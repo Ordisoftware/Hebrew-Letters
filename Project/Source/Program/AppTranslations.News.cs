@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2021-02 </created>
-/// <edited> 2021-08 </edited>
+/// <edited> 2021-11 </edited>
 using System;
 using Ordisoftware.Core;
 
@@ -27,28 +27,19 @@ namespace Ordisoftware.Hebrew.Letters
     static public readonly NullSafeDictionary<string, TranslationsDictionary> NoticeNewFeatures = new()
     {
 
-      ["6.1"] = new TranslationsDictionary
-      {
-        [Language.EN] = "• Maintenance release." + Globals.NL +
-                        "• Some fixes." + Globals.NL +
-                        "• Refactoring." + Globals.NL +
-                        "• Update web links.",
-
-        [Language.FR] = "• Publication de maintenance." + Globals.NL +
-                        "• Quelques corrections." + Globals.NL +
-                        "• Refactoring." + Globals.NL +
-                        "• Mise à jour des liens web."
-      },
-
-      ["6.0"] = new TranslationsDictionary
+      ["6.x"] = new TranslationsDictionary
       {
         [Language.EN] = "• Some fixes and improvements." + Globals.NL +
                         "• Overall performances are optimized." + Globals.NL +
+                        "• Code refactored." + Globals.NL +
+                        "• Updated and reorganize web links." + Globals.NL +
                         "• SQLite ODBC Driver is no more needed.",
 
         [Language.FR] = "• Quelques corrections et améliorations." + Globals.NL +
                         "• Les performances globales sont optimisées." + Globals.NL +
-                        "• Le pilote SQLite ODBC n'est plus nécessaire. "
+                        "• Code refactorisé." + Globals.NL +
+                        "• Mise à jour et réorganisation des liens web. " + Globals.NL +
+                        "• Le pilote SQLite ODBC n'est plus nécessaire."
       },
 
       ["5.x"] = new TranslationsDictionary
