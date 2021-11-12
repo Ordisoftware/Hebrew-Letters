@@ -158,7 +158,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Add concordance, transcription, dictionary and comment fields for word analysis.
 - Add search online concordance.
 
-#### 2021.11.09 - Version 6.3
+#### In progress - Version 6.3
 
 - Updgrade Visual Studio 2022 and C# 10.
 - Code refactoring.
