@@ -185,7 +185,10 @@ namespace Ordisoftware.Hebrew.Letters
         Infralution.Localization.CultureManager.ApplicationUICulture = culture;
         foreach ( Form form in Application.OpenForms )
         {
-          if ( form != DebugManager.TraceForm && form != AboutBox.Instance && form != GrammarGuideForm && form != MethodNoticeForm )
+          if ( form != DebugManager.TraceForm
+            && form != AboutBox.Instance
+            && form != GrammarGuideForm
+            && form != MethodNoticeForm )
             update(form);
           if ( form is ShowTextForm formShowText )
             formShowText.Relocalize();
