@@ -169,7 +169,7 @@ namespace Ordisoftware.Hebrew.Letters
     private void ShowToolTip_OnMouseEnter(object sender, EventArgs e)
     {
       if ( !EditShowTips.Checked ) return;
-      if ( !( sender is ToolStripItem ) ) return;
+      if ( sender is not ToolStripItem ) return;
       if ( LastToolTip.Tag == sender ) return;
       LastToolTip.Tag = sender;
       if ( ( (ToolStripItem)sender ).ToolTipText == string.Empty ) return;
@@ -488,7 +488,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     #region Update Analysis Controls
 
-    private Font ContextMenuHebrewFont = new Font("Hebrew", 10);
+    //private readonly Font ContextMenuHebrewFont = new("Hebrew", 10);
 
     private void UpdateAnalysisControls()
     {
@@ -885,7 +885,7 @@ namespace Ordisoftware.Hebrew.Letters
       {
         DBApp.SaveAll();
         ApplicationStatistics.UpdateDBFileSizeRequired = true;
-        // TODO remove if no alternative ApplicationStatistics.UpdateDBMemorySizeRequired = true;
+        // TODO remove if no alternative : ApplicationStatistics.UpdateDBMemorySizeRequired = true;
         DataChanged = true;
       }
       UpdateDataControls(sender);
@@ -914,7 +914,7 @@ namespace Ordisoftware.Hebrew.Letters
         ActionReset.PerformClick();
         EditWord.TextBox.Text = word;
         ApplicationStatistics.UpdateDBFileSizeRequired = true;
-        // TODO remove if no alternative ApplicationStatistics.UpdateDBMemorySizeRequired = true;
+        // TODO remove if no alternative : ApplicationStatistics.UpdateDBMemorySizeRequired = true;
         UpdateDataControls(null);
         ClearLettersMeanings();
         DoAnalyse();
@@ -984,7 +984,7 @@ namespace Ordisoftware.Hebrew.Letters
     private void TextBoxPositive_TextChanged(object sender, EventArgs e)
     {
       if ( !IsLetterEditing ) return;
-      if ( !( sender is TextBox textbox ) ) return;
+      if ( sender is not TextBox textbox ) return;
       var letter = ( (ObjectView<Letter>)LettersBindingSource.Current ).Object;
       var binding = textbox.DataBindings[nameof(TextBox.Text)];
       string dataname = binding.BindingMemberInfo.BindingField;

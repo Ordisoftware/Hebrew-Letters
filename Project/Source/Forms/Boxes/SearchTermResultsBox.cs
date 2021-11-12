@@ -36,15 +36,15 @@ namespace Ordisoftware.Hebrew.Letters
 
     static public bool Run(string term, out string code, out string meaning)
     {
-      code = "";
-      meaning = "";
-      bool contains(List<Meaning> rows, string str)
+      static bool contains(List<Meaning> rows, string str)
       {
         foreach ( var row in rows )
           if ( row.Text.ToLower().RemoveDiacritics().Contains(str) )
             return true;
         return false;
       }
+      code = "";
+      meaning = "";
       var query = from letter in ApplicationDatabase.Instance.Letters
                   where letter.Function.ToLower().RemoveDiacritics().Contains(term)
                      || letter.Verb.ToLower().RemoveDiacritics().Contains(term)
@@ -58,8 +58,7 @@ namespace Ordisoftware.Hebrew.Letters
         DisplayManager.ShowInformation(SysTranslations.TermNotFound.GetLang(term));
         return false;
       }
-      var form = new SearchTermResultsBox();
-      form.Term = term;
+      var form = new SearchTermResultsBox { Term = term };
       foreach ( var row in query )
         form.ListBoxLetters.Items.Add(new LetterItem() { Letter = row });
       form.ListBoxLetters.SelectedItem = form.ListBoxLetters.Items[0];

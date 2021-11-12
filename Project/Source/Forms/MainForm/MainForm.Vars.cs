@@ -34,7 +34,7 @@ namespace Ordisoftware.Hebrew.Letters
     /// <summary>
     /// Indicate last showned menu tooltip.
     /// </summary>
-    private ToolTip LastToolTip = new ToolTip();
+    private readonly ToolTip LastToolTip = new();
 
     /// <summary>
     /// Indicate the last term searched.
@@ -45,11 +45,6 @@ namespace Ordisoftware.Hebrew.Letters
     /// Indicate if data has changed to refresh the analysis.
     /// </summary>
     private bool DataChanged;
-
-    /// <summary>
-    /// Indicate if terms tables are readonly, else writable.
-    /// </summary>
-    // TODO remove ? private bool IsTermsReadOnly;
 
     public ApplicationDatabase DBApp = ApplicationDatabase.Instance;
     public HebrewDatabase DBHebrew = HebrewDatabase.Instance;
