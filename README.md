@@ -160,7 +160,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 #### In progress - Version 6.3
 
-- Updgrade Visual Studio 2022 and C# 10.
+- Upgrade to Visual Studio 2022 and C# 10.
 - Code refactoring.
 
 #### 2021.11.09 - Version 6.2
