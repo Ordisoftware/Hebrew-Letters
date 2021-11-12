@@ -24,8 +24,7 @@ namespace Ordisoftware.Hebrew.Letters
   class ApplicationStatistics
   {
 
-    static public readonly ApplicationStatistics Instance
-      = new ApplicationStatistics();
+    static public readonly ApplicationStatistics Instance = new();
 
     public string StartingTime
       => Program.Settings.BenchmarkStartingApp.FormatMilliseconds();

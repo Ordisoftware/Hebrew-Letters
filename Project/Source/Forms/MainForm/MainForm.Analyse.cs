@@ -27,7 +27,7 @@ namespace Ordisoftware.Hebrew.Letters
   partial class MainForm
   {
 
-    private object[][] LettersMeanings = new object[400 + 1][];
+    private readonly object[][] LettersMeanings = new object[400 + 1][];
 
     private void ClearLettersMeanings()
     {

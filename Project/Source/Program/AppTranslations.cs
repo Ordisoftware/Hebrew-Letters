@@ -24,39 +24,36 @@ namespace Ordisoftware.Hebrew.Letters
   static partial class AppTranslations
   {
 
-    static public readonly TranslationsDictionary ApplicationDescription
-      = new TranslationsDictionary
-      {
-        [Language.EN] = "Lettriq letter-by-letter analyzer of Hebrew words",
-        [Language.FR] = "Analyseur lettrique lettre-par-lettre des mots hébreux"
-      };
+    static public readonly TranslationsDictionary ApplicationDescription = new()
+    {
+      [Language.EN] = "Lettriq letter-by-letter analyzer of Hebrew words",
+      [Language.FR] = "Analyseur lettrique lettre-par-lettre des mots hébreux"
+    };
 
-    static public readonly TranslationsDictionary LettersWordMeaningsList
-      = new TranslationsDictionary
-      {
-        [Language.EN] = "Meanings of the letters of the word",
-        [Language.FR] = "Significations des lettres du mot"
-      };
+    static public readonly TranslationsDictionary LettersWordMeaningsList = new()
+    {
+      [Language.EN] = "Meanings of the letters of the word",
+      [Language.FR] = "Significations des lettres du mot"
+    };
 
-    static public readonly NullSafeDictionary<ViewMode, TranslationsDictionary> CurrentViewText
-      = new NullSafeDictionary<ViewMode, TranslationsDictionary>
+    static public readonly NullSafeDictionary<ViewMode, TranslationsDictionary> CurrentViewText = new()
+    {
+      [ViewMode.Analysis] = new TranslationsDictionary
       {
-        [ViewMode.Analysis] = new TranslationsDictionary
-        {
-          [Language.EN] = "ANALYSIS",
-          [Language.FR] = "ANALYSE"
-        },
-        [ViewMode.Letters] = new TranslationsDictionary
-        {
-          [Language.EN] = "LETTERS",
-          [Language.FR] = "LETTRES"
-        },
-        [ViewMode.Notebook] = new TranslationsDictionary
-        {
-          [Language.EN] = "NOTEBOOK",
-          [Language.FR] = "CARNET"
-        },
-      };
+        [Language.EN] = "ANALYSIS",
+        [Language.FR] = "ANALYSE"
+      },
+      [ViewMode.Letters] = new TranslationsDictionary
+      {
+        [Language.EN] = "LETTERS",
+        [Language.FR] = "LETTRES"
+      },
+      [ViewMode.Notebook] = new TranslationsDictionary
+      {
+        [Language.EN] = "NOTEBOOK",
+        [Language.FR] = "CARNET"
+      },
+    };
 
 
   }

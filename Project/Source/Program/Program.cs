@@ -149,10 +149,10 @@ namespace Ordisoftware.Hebrew.Letters
       Task task = null;
       try
       {
-        void update(Form form)
+        static void update(Form form)
         {
           new Infralution.Localization.CultureManager().ManagedControl = form;
-          ComponentResourceManager resources = new ComponentResourceManager(form.GetType());
+          ComponentResourceManager resources = new(form.GetType());
           resources.ApplyResources(form.Controls);
         }
         string lang = "en-US";
