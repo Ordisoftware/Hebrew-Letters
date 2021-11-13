@@ -58,7 +58,6 @@ namespace Ordisoftware.Hebrew.Letters
           ActionViewAnalysis.PerformClick();
           return true;
         case Keys.F2:
-          if ( ActiveControl == EditMeanings ) break;
           ActionViewLetters.PerformClick();
           return true;
         case Keys.F3:

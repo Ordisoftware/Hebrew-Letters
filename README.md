@@ -77,7 +77,7 @@ The software verifies the validity of the certificate of the update server in ad
 
   `Ordisoftware.Hebrew.Letters.exe --lang [en|fr]`
 
-- Analyze a word in Hebrew unicode chars or else Hebrew font chars like "`בראשית`" and "`ty>arb`":
+- Analyze a word in Hebrew Unicode chars or else Hebrew font chars like "`בראשית`" and "`ty>arb`":
 
   `Ordisoftware.Hebrew.Letters.exe --word [word]` 
 
@@ -87,7 +87,7 @@ The software verifies the validity of the certificate of the update server in ad
 
   All diacritics are removed and if the word can't be processed it is set to empty.
 
-  If any Hebrew unicode chars is present, all non-unicode are removed, else Hebrew font chars are used and all non-font chars are removed.
+  If any Hebrew Unicode chars is present, all non Unicode are removed, else Hebrew font chars are used and all non-font chars are removed.
 
 #### How to run a word contextual analysis from any application such as browser or text editor?
 
@@ -161,6 +161,9 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 #### In progress - Version 6.3
 
+- Add menu in Tools to open export folder.
+- Add menu in Tools to optimize database.
+- Fix Windows version detection.
 - Upgrade to Visual Studio 2022 and C# 10.
 - Update setup for Framework .NET 4.8
 - Code refactoring.
@@ -199,12 +202,12 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 #### 2021.03.27 - Version 5.2
 
-- Fix exception in analysis meanings comboboxes introduced in previous version.
+- Fix exception in analysis meanings combo boxes introduced in previous version.
 - Update web links.
 
 #### 2021.03.19 - Version 5.1
 
-- Improve analysis labels to be clickable to switch to letter's details.
+- Improve analysis labels to be click-able to switch to letter's details.
 - Update web links.
 
 #### 2021.03.07 - Version 5.0
@@ -231,9 +234,9 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Add check update from about box.
 - Add command-line options (see FAQ).
 - Fix pasting Hebrew font chars removes special final letters.
-- Fix pasting unicode chars removes special final letters.
+- Fix pasting Unicode chars removes special final letters.
 - Improve data edition.
-- Improve copy and paste to support both Hebrew font and unicode chars from context menu and keyboard.
+- Improve copy and paste to support both Hebrew font and Unicode chars from context menu and keyboard.
 - Improve search box to add Left and Right keys to switch between lists.
 - Improve check update to allow auto update or direct download or open app web page.
 - Improve check update to verify the SSL certificate of the website and the checksum of the setup file.
@@ -272,7 +275,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Add backspace key management for text boxes.
 - Fix copy/cut/paste of Hebrew text box.
 - Fix inserting a letter at the caret when clicking on letters buttons.
-- Add option to set the max length of the textbox of the Hebrew input panel.
+- Add option to set the max length of the text box of the Hebrew input panel.
 - Improve auto optimize database at startup that is done once a week.
 - Improve debugger to create a GitHub issue.
 - Optimize startup time.
@@ -282,9 +285,9 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Exit application at startup if user choose to download a newer version.
 - Add lettriq analysis method notice.
 - Add grammar guide from Hebrew Words.
-- Add menu for web links about judaism.
+- Add menu for web links about Judaism.
 - Add option to auto optimize database at startup.
-- Add option to auto sort meanings combobox items.
+- Add option to auto sort meanings combo box items.
 - Add option to use Escape key to close app.
 - Add option to enable debugger.
 - Add debugger (exception information form).
@@ -301,15 +304,15 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Add option to change the sentence font size.
 - Improve search term form.
 - Improve copy meanings to clipboard.
-- Remove diacritics from unicode clipboard content.
+- Remove diacritics from Unicode clipboard content.
 
 #### 2020.03.14 - Version 3.0
 
 - Add search a term.
 - Add letters values in the input panel.
 - Add copy/cut/paste for the input box.
-- Add copy Hebrew unicode to clipboard button.
-- Add paste from unicode clipboard content button.
+- Add copy Hebrew Unicode to clipboard button.
+- Add paste from Unicode clipboard content button.
 - Add online search from several providers (Pealim, Google, Bing, Wiktionary, Sefaria, Reverso, Glosbe, Dict.com).
 - Add  links to Shorashon and Lexilogos.
 
@@ -353,7 +356,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 #### 2019.08.28 - Version 2.2
 
-- Fix letters english names.
+- Fix letters English names.
 
 #### 2019.08.27 - Version 2.1
 
