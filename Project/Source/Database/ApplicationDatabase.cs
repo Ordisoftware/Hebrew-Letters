@@ -3,10 +3,10 @@
 /// Copyright 2016-2021 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
-/// If a copy of the MPL was not distributed with this file, You can obtain one at 
+/// If a copy of the MPL was not distributed with this file, You can obtain one at
 /// https://mozilla.org/MPL/2.0/.
-/// If it is not possible or desirable to put the notice in a particular file, 
-/// then You may include the notice in a location(such as a LICENSE file in a 
+/// If it is not possible or desirable to put the notice in a particular file,
+/// then You may include the notice in a location(such as a LICENSE file in a
 /// relevant directory) where a recipient would be likely to look for such a notice.
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
@@ -111,7 +111,7 @@ namespace Ordisoftware.Hebrew.Letters
           MeaningsUpgrade.AddID(Connection);
           Globals.IsDatabaseUpgraded = true;
         }
-        string sqlColumn = "ALTER TABLE %TABLE% ADD COLUMN %COLUMN% TEXT DEFAULT '' NOT NULL";
+        const string sqlColumn = "ALTER TABLE %TABLE% ADD COLUMN %COLUMN% TEXT DEFAULT '' NOT NULL";
         bool b = Globals.IsDatabaseUpgraded;
         b = !Connection.CheckColumn(nameof(Letters), nameof(Letter.Hebrew), sqlColumn) || b;
         b = !Connection.CheckColumn(nameof(Letters), nameof(Letter.Positive), sqlColumn) || b;
@@ -150,25 +150,29 @@ namespace Ordisoftware.Hebrew.Letters
           }
           for ( int index = 0; index < HebrewAlphabet.Codes.Length; index++ )
           {
-            var rowLetter = new Letter();
-            rowLetter.Code = HebrewAlphabet.Codes[index];
-            rowLetter.Name = HebrewTranslations.Letters.GetLang()[index];
-            rowLetter.Hebrew = HebrewAlphabet.Names[index];
-            rowLetter.ValueSimple = getIntValue("ValueSimple: ");
-            rowLetter.ValueFull = getIntValue("ValueFull: ");
-            rowLetter.Positive = getStrValue("Positive: ");
-            rowLetter.Negative = getStrValue("Negative: ");
-            rowLetter.Verb = getStrValue("Verb: ");
-            rowLetter.Structure = getStrValue("Structure: ");
-            rowLetter.Function = getStrValue("Function: ");
+            var rowLetter = new Letter
+            {
+              Code = HebrewAlphabet.Codes[index],
+              Name = HebrewTranslations.Letters.GetLang()[index],
+              Hebrew = HebrewAlphabet.Names[index],
+              ValueSimple = getIntValue("ValueSimple: "),
+              ValueFull = getIntValue("ValueFull: "),
+              Positive = getStrValue("Positive: "),
+              Negative = getStrValue("Negative: "),
+              Verb = getStrValue("Verb: "),
+              Structure = getStrValue("Structure: "),
+              Function = getStrValue("Function: ")
+            };
             Letters.Add(rowLetter);
             Connection.Insert(rowLetter);
             foreach ( var meaning in getStrValue("Meanings: ").Split(',') )
             {
-              var rowMeaning = new Meaning();
-              rowMeaning.ID = Guid.NewGuid().ToString();
-              rowMeaning.LetterCode = rowLetter.Code;
-              rowMeaning.Text = meaning.Trim();
+              var rowMeaning = new Meaning
+              {
+                ID = Guid.NewGuid().ToString(),
+                LetterCode = rowLetter.Code,
+                Text = meaning.Trim()
+              };
               Meanings.Add(rowMeaning);
               Connection.Insert(rowMeaning);
             }

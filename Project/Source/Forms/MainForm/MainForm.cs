@@ -3,10 +3,10 @@
 /// Copyright 2016-2021 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
-/// If a copy of the MPL was not distributed with this file, You can obtain one at 
+/// If a copy of the MPL was not distributed with this file, You can obtain one at
 /// https://mozilla.org/MPL/2.0/.
-/// If it is not possible or desirable to put the notice in a particular file, 
-/// then You may include the notice in a location(such as a LICENSE file in a 
+/// If it is not possible or desirable to put the notice in a particular file,
+/// then You may include the notice in a location(such as a LICENSE file in a
 /// relevant directory) where a recipient would be likely to look for such a notice.
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
@@ -172,7 +172,7 @@ namespace Ordisoftware.Hebrew.Letters
       if ( sender is not ToolStripItem ) return;
       if ( LastToolTip.Tag == sender ) return;
       LastToolTip.Tag = sender;
-      if ( ( (ToolStripItem)sender ).ToolTipText == string.Empty ) return;
+      if ( ( (ToolStripItem)sender ).ToolTipText.Length == 0 ) return;
       TimerTooltip.Enabled = true;
     }
 
@@ -567,6 +567,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     #region Panel Letters
 
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Redundancy", "RCS1163:Unused parameter.", Justification = "Event Handler")]
     private void EditWord_ViewLetterDetails(LettersControl sender, string code)
     {
       ActionViewLetters.PerformClick();
@@ -646,7 +647,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void ActionCopyToHebrew_Click(object sender, EventArgs e)
     {
-      if ( EditWord.TextBox.Text == "" ) return;
+      if ( EditWord.TextBox.Text.Length == 0 ) return;
       string str = EditWord.TextBox.Text;
       if ( EditCopyWithFinalLetter.Checked )
         str = HebrewAlphabet.SetFinal(str, true);
@@ -658,7 +659,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void ActionCopyToUnicode_Click(object sender, EventArgs e)
     {
-      if ( EditWord.TextBox.Text == "" ) return;
+      if ( EditWord.TextBox.Text.Length == 0 ) return;
       string str = EditWord.TextBox.Text;
       if ( EditCopyWithFinalLetter.Checked )
         str = HebrewAlphabet.SetFinal(str, true);
@@ -679,13 +680,13 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void EditSentence_TextChanged(object sender, EventArgs e)
     {
-      ActionCopyToResult.Enabled = EditSentence.Text != "";
+      ActionCopyToResult.Enabled = EditSentence.Text.Length > 0;
       UpdateAnalysisControls();
     }
 
     private void ActionCopyToResult_Click(object sender, EventArgs e)
     {
-      if ( EditSentence.Text == "" ) return;
+      if ( EditSentence.Text.Length == 0 ) return;
       Clipboard.SetText(EditSentence.Text);
       if ( EditCopyToClipboardCloseApp.Checked ) Close();
       EditSentence.Focus();
@@ -773,7 +774,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void ActionViewAllMeaningsList_Click(object sender, EventArgs e)
     {
-      if ( EditWord.TextBox.Text == "" ) return;
+      if ( EditWord.TextBox.Text.Length == 0 ) return;
       new ShowTextForm(AppTranslations.LettersWordMeaningsList.GetLang(),
                        GetMeaningsText().Replace(Globals.NL, Globals.NL2).Replace(" -,", ""),
                        false, true,
@@ -796,7 +797,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void ActionCopyToMeanings_Click(object sender, EventArgs e)
     {
-      if ( EditWord.TextBox.Text == "" ) return;
+      if ( EditWord.TextBox.Text.Length == 0 ) return;
       Clipboard.SetText(GetMeaningsText());
       DisplayManager.ShowSuccessOrSound(SysTranslations.DataCopiedToClipboard.GetLang(),
                                         Globals.ClipboardSoundFilePath);
@@ -805,7 +806,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void ActionScreenshot_Click(object sender, EventArgs e)
     {
-      if ( EditWord.TextBox.Text == "" ) return;
+      if ( EditWord.TextBox.Text.Length == 0 ) return;
       Clipboard.SetImage(this.GetBitmap());
       DisplayManager.ShowSuccessOrSound(SysTranslations.ScreenshotDone.GetLang(),
                                         Globals.ScreenshotSoundFilePath);
@@ -814,7 +815,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void ActionSaveScreenshot_Click(object sender, EventArgs e)
     {
-      if ( EditWord.TextBox.Text == "" ) return;
+      if ( EditWord.TextBox.Text.Length == 0 ) return;
       string str = EditWord.TextBox.Text;
       if ( EditCopyWithFinalLetter.Checked )
         str = HebrewAlphabet.SetFinal(str, true);
@@ -1025,10 +1026,12 @@ namespace Ordisoftware.Hebrew.Letters
     {
       string text = "";
       if ( DisplayManager.QueryValue("", ref text) != InputValueResult.Modified ) return;
-      var meaning = new Meaning();
-      meaning.ID = Guid.NewGuid().ToString();
-      meaning.LetterCode = SelectLetter.Text;
-      meaning.Text = text;
+      var meaning = new Meaning
+      {
+        ID = Guid.NewGuid().ToString(),
+        LetterCode = SelectLetter.Text,
+        Text = text
+      };
       DBApp.BeginTransaction();
       DBApp.Connection.Insert(meaning);
       DBApp.Meanings.Add(meaning);
@@ -1083,7 +1086,7 @@ namespace Ordisoftware.Hebrew.Letters
     private void EditMeanings_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
     {
       if ( !Globals.IsReady ) return;
-      if ( e.FormattedValue == DBNull.Value || (string)e.FormattedValue == "" )
+      if ( e.FormattedValue == DBNull.Value || ( (string)e.FormattedValue ).Length == 0 )
         e.Cancel = true;
       else
         UpdateDataControls(sender);
@@ -1185,7 +1188,7 @@ namespace Ordisoftware.Hebrew.Letters
       }
       else
       if ( DBHebrew.TermsHebrewAsBindingList.Count == 0 )
-        DBHebrew.TermLettriqsAsBindingList.ApplyFilter(s => s.TermID == "");
+        DBHebrew.TermLettriqsAsBindingList.ApplyFilter(s => s.TermID.Length == 0);
       else
         DBHebrew.TermLettriqsAsBindingList.RemoveFilter();
       ListNotebookSentences.ClearSelection();

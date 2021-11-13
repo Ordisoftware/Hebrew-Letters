@@ -3,10 +3,10 @@
 /// Copyright 2016-2021 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
-/// If a copy of the MPL was not distributed with this file, You can obtain one at 
+/// If a copy of the MPL was not distributed with this file, You can obtain one at
 /// https://mozilla.org/MPL/2.0/.
-/// If it is not possible or desirable to put the notice in a particular file, 
-/// then You may include the notice in a location(such as a LICENSE file in a 
+/// If it is not possible or desirable to put the notice in a particular file,
+/// then You may include the notice in a location(such as a LICENSE file in a
 /// relevant directory) where a recipient would be likely to look for such a notice.
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
@@ -55,15 +55,17 @@ namespace Ordisoftware.Hebrew.Letters
           sumSimple += letter.ValueSimple;
           sumFull += letter.ValueFull;
           // Label
-          var label = new Label();
-          label.TextAlign = ContentAlignment.TopRight;
-          label.AutoSize = false;
-          label.Width = 50;
-          label.Height = 13;
-          label.Left = 100;
-          label.Top = 20 + dy;
-          label.Text = letter.Name;
-          label.Cursor = Cursors.Hand;
+          var label = new Label
+          {
+            TextAlign = ContentAlignment.TopRight,
+            AutoSize = false,
+            Width = 50,
+            Height = 13,
+            Left = 100,
+            Top = 20 + dy,
+            Text = letter.Name,
+            Cursor = Cursors.Hand
+          };
           label.Click += LabelLetter_Click;
           SelectAnalyze.Controls.Add(label);
           // Combobox
@@ -98,12 +100,14 @@ namespace Ordisoftware.Hebrew.Letters
           // Loop
           dy += 30;
         }
-        var dummy = new Label();
-        dummy.AutoSize = false;
-        dummy.Left = 10;
-        dummy.Width = 10;
-        dummy.Top = dy - 5;
-        dummy.Text = "";
+        var dummy = new Label
+        {
+          AutoSize = false,
+          Left = 10,
+          Width = 10,
+          Top = dy - 5,
+          Text = ""
+        };
         SelectAnalyze.Controls.Add(dummy);
         EditGematriaSimple.Text = sumSimple.ToString();
         EditGematriaFull.Text = sumFull.ToString();
