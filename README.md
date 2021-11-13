@@ -41,7 +41,7 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 
 - Screen 1024x768 or higher
 - Windows 7 SP1 x32/x64 or higher
-- Framework .NET 4.7.2
+- Framework .NET 4.8
 - SQLite 3.35.5
 
 ## Download
@@ -50,6 +50,7 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 
 - Overall performances are optimized.
 - Some fixes and improvements.
+- Update web links.
 - SQLite ODBC Driver is no more needed.
 
 [Last release](https://github.com/Ordisoftware/Hebrew-Letters/releases/latest)
@@ -161,6 +162,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 #### In progress - Version 6.3
 
 - Upgrade to Visual Studio 2022 and C# 10.
+- Update setup for Framework .NET 4.8
 - Code refactoring.
 
 #### 2021.11.09 - Version 6.2
