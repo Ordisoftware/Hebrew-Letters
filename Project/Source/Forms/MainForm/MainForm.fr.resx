@@ -343,4 +343,10 @@
   <data name="LabelMemo.Text" xml:space="preserve">
     <value>Commentaire</value>
   </data>
+  <data name="ActionOpenExportFolder.Text" xml:space="preserve">
+    <value>Ouvrir le dossier d'export</value>
+  </data>
+  <data name="ActionVacuumDB.Text" xml:space="preserve">
+    <value>Optimiser la base de données</value>
+  </data>
 </root>

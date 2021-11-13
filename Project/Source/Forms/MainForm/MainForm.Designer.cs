@@ -178,6 +178,9 @@
       this.ToolTipClipboard = new System.Windows.Forms.ToolTip(this.components);
       this.ContextMenuOpenTermLettriq = new System.Windows.Forms.ContextMenuStrip(this.components);
       this.ContextMenuOpenConcordance = new System.Windows.Forms.ContextMenuStrip(this.components);
+      this.ActionOpenExportFolder = new System.Windows.Forms.ToolStripMenuItem();
+      this.ActionVacuumDB = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
       LabelName = new System.Windows.Forms.Label();
       LabelStructure = new System.Windows.Forms.Label();
       LabelFunction = new System.Windows.Forms.Label();
@@ -1399,7 +1402,10 @@
             this.ActionShowMethodNotice,
             this.ActionShowGrammarGuide,
             this.ActionGematriaCombinationsSeparator,
-            this.ActionGematriaCombinations});
+            this.ActionGematriaCombinations,
+            this.toolStripSeparator1,
+            this.ActionOpenExportFolder,
+            this.ActionVacuumDB});
       this.ActionTools.Name = "ActionTools";
       this.ActionTools.Padding = new System.Windows.Forms.Padding(5);
       // 
@@ -1455,6 +1461,23 @@
       // 
       this.ContextMenuOpenConcordance.Name = "ContextMenuOpenTermLettriq";
       resources.ApplyResources(this.ContextMenuOpenConcordance, "ContextMenuOpenConcordance");
+      // 
+      // ActionOpenExportFolder
+      // 
+      resources.ApplyResources(this.ActionOpenExportFolder, "ActionOpenExportFolder");
+      this.ActionOpenExportFolder.Name = "ActionOpenExportFolder";
+      this.ActionOpenExportFolder.Click += new System.EventHandler(this.ActionOpenExportFolder_Click);
+      // 
+      // ActionVacuumDB
+      // 
+      resources.ApplyResources(this.ActionVacuumDB, "ActionVacuumDB");
+      this.ActionVacuumDB.Name = "ActionVacuumDB";
+      this.ActionVacuumDB.Click += new System.EventHandler(this.ActionVacuumDB_Click);
+      // 
+      // toolStripSeparator1
+      // 
+      this.toolStripSeparator1.Name = "toolStripSeparator1";
+      resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
       // 
       // MainForm
       // 
@@ -1649,5 +1672,8 @@
     public System.Windows.Forms.Button ActionOpenConcordance;
     private System.Windows.Forms.ContextMenuStrip ContextMenuOpenConcordance;
     internal System.Windows.Forms.Panel PanelWordDetails;
+    private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+    private System.Windows.Forms.ToolStripMenuItem ActionOpenExportFolder;
+    private System.Windows.Forms.ToolStripMenuItem ActionVacuumDB;
   }
 }

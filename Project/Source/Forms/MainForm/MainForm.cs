@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2021-08 </edited>
+/// <edited> 2021-11 </edited>
 using System;
 using System.IO;
 using System.Data;
@@ -396,6 +396,24 @@ namespace Ordisoftware.Hebrew.Letters
       int value = 0;
       if ( DisplayManager.QueryValue(LabelGematriaSimple.Text, ref value) != InputValueResult.Modified ) return;
       DisplayManager.Show(value.ToString());
+    }
+
+    private void ActionOpenExportFolder_Click(object sender, EventArgs e)
+    {
+      SystemManager.RunShell(Settings.GetExportDirectory());
+    }
+
+    private void ActionVacuumDB_Click(object sender, EventArgs e)
+    {
+      Settings.VacuumLastDone = ApplicationDatabase.Instance
+                                                   .Connection
+                                                   .Optimize(Settings.VacuumLastDone,
+                                                             Settings.VacuumAtStartupDaysInterval,
+                                                             true);
+      HebrewDatabase.Instance.Connection.Optimize(DateTime.MinValue, force: true);
+      ApplicationStatistics.UpdateDBCommonFileSizeRequired = true;
+      ApplicationStatistics.UpdateDBFileSizeRequired = true;
+      DisplayManager.Show(SysTranslations.DatabaseVacuumSuccess.GetLang());
     }
 
     #endregion
@@ -884,14 +902,14 @@ namespace Ordisoftware.Hebrew.Letters
       else
       {
         DBApp.SaveAll();
-        ApplicationStatistics.UpdateDBFileSizeRequired = true;
-        // TODO remove if no alternative : ApplicationStatistics.UpdateDBMemorySizeRequired = true;
         DataChanged = true;
       }
       UpdateDataControls(sender);
       EditMeanings.Focus();
       ClearLettersMeanings();
       DoAnalyse();
+      ApplicationStatistics.UpdateDBFileSizeRequired = true;
+      ApplicationStatistics.UpdateDBMemorySizeRequired = true;
     }
 
     private void ActionUndo_Click(object sender, EventArgs e)
@@ -900,6 +918,8 @@ namespace Ordisoftware.Hebrew.Letters
       LettersBindingSource.DataSource = DBApp.LettersAsBindingList;
       UpdateDataControls(sender);
       EditMeanings.Focus();
+      ApplicationStatistics.UpdateDBFileSizeRequired = true;
+      ApplicationStatistics.UpdateDBMemorySizeRequired = true;
     }
 
     private void ActionRestoreDefaults_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -913,12 +933,12 @@ namespace Ordisoftware.Hebrew.Letters
         ActionClear.PerformClick();
         ActionReset.PerformClick();
         EditWord.TextBox.Text = word;
-        ApplicationStatistics.UpdateDBFileSizeRequired = true;
-        // TODO remove if no alternative : ApplicationStatistics.UpdateDBMemorySizeRequired = true;
         UpdateDataControls(null);
         ClearLettersMeanings();
         DoAnalyse();
         EditMeanings.Focus();
+        ApplicationStatistics.UpdateDBFileSizeRequired = true;
+        ApplicationStatistics.UpdateDBMemorySizeRequired = true;
       }
     }
 
@@ -1085,7 +1105,7 @@ namespace Ordisoftware.Hebrew.Letters
       if ( ( e.Control && e.KeyCode == Keys.Delete ) || ( e.Control && e.KeyCode == Keys.Subtract ) )
         ActionDeleteMeaning.PerformClick();
       else
-      if ( e.KeyCode == Keys.F2 || ( e.KeyCode == Keys.Enter && !EditMeanings.IsCurrentCellInEditMode ) )
+      if ( e.KeyCode == Keys.Enter && !EditMeanings.IsCurrentCellInEditMode )
         EditMeanings.BeginEdit(false);
       else
         return;
