@@ -3,10 +3,10 @@
 /// Copyright 2016-2021 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
-/// If a copy of the MPL was not distributed with this file, You can obtain one at 
+/// If a copy of the MPL was not distributed with this file, You can obtain one at
 /// https://mozilla.org/MPL/2.0/.
-/// If it is not possible or desirable to put the notice in a particular file, 
-/// then You may include the notice in a location(such as a LICENSE file in a 
+/// If it is not possible or desirable to put the notice in a particular file,
+/// then You may include the notice in a location(such as a LICENSE file in a
 /// relevant directory) where a recipient would be likely to look for such a notice.
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
@@ -31,23 +31,23 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void LoadSettings()
     {
-      SystemManager.TryCatch(() => { LabelLastStartupCheckDate.Text = Settings.CheckUpdateLastDone.ToShortDateString() + " " + Settings.CheckUpdateLastDone.ToShortTimeString(); });
-      SystemManager.TryCatch(() => { LabelLastDBOptimizeDate.Text = Settings.VacuumLastDone.ToShortDateString() + " " + Settings.VacuumLastDone.ToShortTimeString(); });
-      SystemManager.TryCatch(() => { EditVacuumAtStartup.Checked = Settings.VacuumAtStartup; });
-      SystemManager.TryCatch(() => { EditDebuggerEnabled.Checked = Settings.DebuggerEnabled; });
-      SystemManager.TryCatch(() => { EditLogEnabled.Checked = Settings.TraceEnabled; });
-      SystemManager.TryCatch(() => { EditCheckUpdateAtStartup.Checked = Settings.CheckUpdateAtStartup; });
-      SystemManager.TryCatch(() => { EditAutoSortAnalysisMeanings.Checked = Settings.AutoSortAnalysisMeanings; });
-      SystemManager.TryCatch(() => { EditFontSize.Value = Settings.FontSizeSentence; });
-      SystemManager.TryCatch(() => { EditMaxLength.Value = Settings.HebrewTextBoxMaxLength; });
-      SystemManager.TryCatch(() => { EditWebLinksMenuEnabled.Checked = Settings.WebLinksMenuEnabled; });
-      SystemManager.TryCatch(() => { EditCheckUpdateAtStartupInterval.Value = Settings.CheckUpdateAtStartupDaysInterval; });
-      SystemManager.TryCatch(() => { EditUsageStatisticsEnabled.Checked = Settings.UsageStatisticsEnabled; });
-      SystemManager.TryCatch(() => { EditVolume.Value = Settings.ApplicationVolume; });
-      SystemManager.TryCatch(() => { EditExportFolder.Text = Settings.ExportFolder; });
-      SystemManager.TryCatch(() => { EditAutoOpenExportFolder.Checked = Settings.AutoOpenExportFolder; });
-      SystemManager.TryCatch(() => { EditAutoOpenExportedFile.Checked = Settings.AutoOpenExportedFile; });
-      SystemManager.TryCatch(() => { EditWindowsDoubleBufferingEnabled.Checked = Settings.WindowsDoubleBufferingEnabled; });
+      SystemManager.TryCatch(() => LabelLastStartupCheckDate.Text = Settings.CheckUpdateLastDone.ToShortDateString() + " " + Settings.CheckUpdateLastDone.ToShortTimeString());
+      SystemManager.TryCatch(() => LabelLastDBOptimizeDate.Text = Settings.VacuumLastDone.ToShortDateString() + " " + Settings.VacuumLastDone.ToShortTimeString());
+      SystemManager.TryCatch(() => EditVacuumAtStartup.Checked = Settings.VacuumAtStartup);
+      SystemManager.TryCatch(() => EditDebuggerEnabled.Checked = Settings.DebuggerEnabled);
+      SystemManager.TryCatch(() => EditLogEnabled.Checked = Settings.TraceEnabled);
+      SystemManager.TryCatch(() => EditCheckUpdateAtStartup.Checked = Settings.CheckUpdateAtStartup);
+      SystemManager.TryCatch(() => EditAutoSortAnalysisMeanings.Checked = Settings.AutoSortAnalysisMeanings);
+      SystemManager.TryCatch(() => EditFontSize.Value = Settings.FontSizeSentence);
+      SystemManager.TryCatch(() => EditMaxLength.Value = Settings.HebrewTextBoxMaxLength);
+      SystemManager.TryCatch(() => EditWebLinksMenuEnabled.Checked = Settings.WebLinksMenuEnabled);
+      SystemManager.TryCatch(() => EditCheckUpdateAtStartupInterval.Value = Settings.CheckUpdateAtStartupDaysInterval);
+      SystemManager.TryCatch(() => EditUsageStatisticsEnabled.Checked = Settings.UsageStatisticsEnabled);
+      SystemManager.TryCatch(() => EditVolume.Value = Settings.ApplicationVolume);
+      SystemManager.TryCatch(() => EditExportFolder.Text = Settings.ExportFolder);
+      SystemManager.TryCatch(() => EditAutoOpenExportFolder.Checked = Settings.AutoOpenExportFolder);
+      SystemManager.TryCatch(() => EditAutoOpenExportedFile.Checked = Settings.AutoOpenExportedFile);
+      SystemManager.TryCatch(() => EditWindowsDoubleBufferingEnabled.Checked = Settings.WindowsDoubleBufferingEnabled);
       EditImageExportFileFormat.Fill(Program.ImageExportTargets, Settings.ExportImagePreferredTarget);
       LoadColors();
     }
@@ -75,11 +75,11 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void LoadColors()
     {
-      SystemManager.TryCatch(() => { EditLettersBack.BackColor = Settings.ColorLettersPanel; });
-      SystemManager.TryCatch(() => { EditWordBack.BackColor = Settings.ColorHebrewWordTextBox; });
-      SystemManager.TryCatch(() => { EditAnalyseBack.BackColor = Settings.ColorMeaningsPanel; });
-      SystemManager.TryCatch(() => { EditEditableBack.BackColor = Settings.ColorSentenceTextBox; });
-      SystemManager.TryCatch(() => { EditReadonlyBack.BackColor = Settings.ColorGematriaTextBox; });
+      SystemManager.TryCatch(() => EditLettersBack.BackColor = Settings.ColorLettersPanel);
+      SystemManager.TryCatch(() => EditWordBack.BackColor = Settings.ColorHebrewWordTextBox);
+      SystemManager.TryCatch(() => EditAnalyseBack.BackColor = Settings.ColorMeaningsPanel);
+      SystemManager.TryCatch(() => EditEditableBack.BackColor = Settings.ColorSentenceTextBox);
+      SystemManager.TryCatch(() => EditReadonlyBack.BackColor = Settings.ColorGematriaTextBox);
     }
 
     private void SaveColors()
@@ -164,10 +164,7 @@ namespace Ordisoftware.Hebrew.Letters
 
     private void DoOpenTheme()
     {
-      SystemManager.TryCatch(() =>
-      {
-        OpenThemeDialog.InitialDirectory = Settings.GetExportDirectory();
-      });
+      SystemManager.TryCatch(() => OpenThemeDialog.InitialDirectory = Settings.GetExportDirectory());
       if ( OpenThemeDialog.ShowDialog() != DialogResult.OK ) return;
       var items = new NullSafeOfStringDictionary<string>();
       if ( !items.LoadKeyValuePairs(OpenThemeDialog.FileName, "=") ) return;
@@ -190,11 +187,13 @@ namespace Ordisoftware.Hebrew.Letters
       });
       if ( SaveThemeDialog.ShowDialog() != DialogResult.OK ) return;
       var items = new List<string>();
-      TabPageTheme.Controls.OfType<Panel>().ToList().ForEach(panel =>
-      {
-        items.Add(panel.Name.Substring(4) + "=" + ColorTranslator.ToHtml(panel.BackColor));
-      });
+      TabPageTheme.Controls.OfType<Panel>().ToList().ForEach(panel => items.Add(makeLine(panel)));
       File.WriteAllLines(SaveThemeDialog.FileName, items);
+      //
+      static string makeLine(Panel panel)
+      {
+        return panel.Name.Substring(4) + "=" + ColorTranslator.ToHtml(panel.BackColor);
+      }
     }
 
     private void SetThemePastel()

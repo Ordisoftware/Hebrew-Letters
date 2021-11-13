@@ -164,6 +164,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Add menu in Tools to open export folder.
 - Add menu in Tools to optimize database.
 - Fix Windows version detection.
+- French and English corrections.
 - Upgrade to Visual Studio 2022 and C# 10.
 - Update setup for Framework .NET 4.8
 - Code refactoring.
