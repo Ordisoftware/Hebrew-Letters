@@ -615,9 +615,7 @@
     <Content Include="Licenses\MPL 2.0.htm" />
     <Content Include="Licenses\MPL 2.0.txt" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Source\Common\Hebrew\Providers\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\SQLitePCLRaw.lib.e_sqlite3.2.0.7\build\net461\SQLitePCLRaw.lib.e_sqlite3.targets" Condition="Exists('packages\SQLitePCLRaw.lib.e_sqlite3.2.0.7\build\net461\SQLitePCLRaw.lib.e_sqlite3.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
