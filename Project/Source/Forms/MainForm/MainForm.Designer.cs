@@ -39,10 +39,10 @@
       System.Windows.Forms.Label LabelVerb;
       System.Windows.Forms.Label LabelPositive;
       System.Windows.Forms.Label LabelNegative;
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
       this.PanelMain = new System.Windows.Forms.Panel();
       this.PanelMainOuter = new System.Windows.Forms.Panel();
       this.PanelMainInner = new System.Windows.Forms.Panel();
@@ -171,6 +171,9 @@
       this.ActionShowGrammarGuide = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionGematriaCombinationsSeparator = new System.Windows.Forms.ToolStripSeparator();
       this.ActionGematriaCombinations = new System.Windows.Forms.ToolStripMenuItem();
+      this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+      this.ActionOpenExportFolder = new System.Windows.Forms.ToolStripMenuItem();
+      this.ActionVacuumDB = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionWebLinks = new System.Windows.Forms.ToolStripDropDownButton();
       this.ActionInformation = new System.Windows.Forms.ToolStripDropDownButton();
       this.TimerProcesses = new System.Windows.Forms.Timer(this.components);
@@ -178,9 +181,7 @@
       this.ToolTipClipboard = new System.Windows.Forms.ToolTip(this.components);
       this.ContextMenuOpenTermLettriq = new System.Windows.Forms.ContextMenuStrip(this.components);
       this.ContextMenuOpenConcordance = new System.Windows.Forms.ContextMenuStrip(this.components);
-      this.ActionOpenExportFolder = new System.Windows.Forms.ToolStripMenuItem();
-      this.ActionVacuumDB = new System.Windows.Forms.ToolStripMenuItem();
-      this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+      this.PanelEditWordControl = new System.Windows.Forms.Panel();
       LabelName = new System.Windows.Forms.Label();
       LabelStructure = new System.Windows.Forms.Label();
       LabelFunction = new System.Windows.Forms.Label();
@@ -221,6 +222,7 @@
       this.panel3.SuspendLayout();
       this.PanelTitle.SuspendLayout();
       this.ToolStrip.SuspendLayout();
+      this.PanelEditWordControl.SuspendLayout();
       this.SuspendLayout();
       // 
       // LabelName
@@ -322,10 +324,6 @@
       this.PanelViewAnalysis.Controls.Add(this.LabelGematriaFull);
       this.PanelViewAnalysis.Controls.Add(this.LabelClipboardContentType);
       this.PanelViewAnalysis.Controls.Add(this.LabelGematriaSimple);
-      this.PanelViewAnalysis.Controls.Add(this.ActionReset);
-      this.PanelViewAnalysis.Controls.Add(this.ActionDelLast);
-      this.PanelViewAnalysis.Controls.Add(this.ActionDelFirst);
-      this.PanelViewAnalysis.Controls.Add(this.EditCopyWithFinalLetter);
       this.PanelViewAnalysis.Controls.Add(this.EditCopyToClipboardCloseApp);
       this.PanelViewAnalysis.Controls.Add(this.SelectAnalyze);
       this.PanelViewAnalysis.Controls.Add(this.ActionSearchOnline);
@@ -345,6 +343,7 @@
       this.PanelViewAnalysis.Controls.Add(this.LabelGematria);
       this.PanelViewAnalysis.Controls.Add(this.EditWord);
       this.PanelViewAnalysis.Controls.Add(this.PanelWordDetails);
+      this.PanelViewAnalysis.Controls.Add(this.PanelEditWordControl);
       this.PanelViewAnalysis.Name = "PanelViewAnalysis";
       // 
       // EditGematriaFull
@@ -944,9 +943,9 @@
       this.ListNotebookWords.Name = "ListNotebookWords";
       this.ListNotebookWords.ReadOnly = true;
       this.ListNotebookWords.RowHeadersVisible = false;
-      dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-      dataGridViewCellStyle10.Font = new System.Drawing.Font("Hebrew", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.ListNotebookWords.RowsDefaultCellStyle = dataGridViewCellStyle10;
+      dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+      dataGridViewCellStyle14.Font = new System.Drawing.Font("Hebrew", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.ListNotebookWords.RowsDefaultCellStyle = dataGridViewCellStyle14;
       this.ListNotebookWords.RowTemplate.Height = 28;
       this.ListNotebookWords.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
       this.ListNotebookWords.ShowCellToolTips = false;
@@ -956,9 +955,9 @@
       // 
       this.hebrewDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
       this.hebrewDataGridViewTextBoxColumn.DataPropertyName = "Hebrew";
-      dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-      dataGridViewCellStyle9.Font = new System.Drawing.Font("Hebrew", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.hebrewDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
+      dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+      dataGridViewCellStyle13.Font = new System.Drawing.Font("Hebrew", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.hebrewDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle13;
       resources.ApplyResources(this.hebrewDataGridViewTextBoxColumn, "hebrewDataGridViewTextBoxColumn");
       this.hebrewDataGridViewTextBoxColumn.Name = "hebrewDataGridViewTextBoxColumn";
       this.hebrewDataGridViewTextBoxColumn.ReadOnly = true;
@@ -990,9 +989,9 @@
       this.ListNotebookLetters.Name = "ListNotebookLetters";
       this.ListNotebookLetters.ReadOnly = true;
       this.ListNotebookLetters.RowHeadersVisible = false;
-      dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-      dataGridViewCellStyle12.Font = new System.Drawing.Font("Hebrew", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.ListNotebookLetters.RowsDefaultCellStyle = dataGridViewCellStyle12;
+      dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+      dataGridViewCellStyle16.Font = new System.Drawing.Font("Hebrew", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.ListNotebookLetters.RowsDefaultCellStyle = dataGridViewCellStyle16;
       this.ListNotebookLetters.RowTemplate.Height = 28;
       this.ListNotebookLetters.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
       this.ListNotebookLetters.ShowCellToolTips = false;
@@ -1002,9 +1001,9 @@
       // 
       this.codeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
       this.codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
-      dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-      dataGridViewCellStyle11.Font = new System.Drawing.Font("Hebrew", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.codeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle11;
+      dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+      dataGridViewCellStyle15.Font = new System.Drawing.Font("Hebrew", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.codeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle15;
       resources.ApplyResources(this.codeDataGridViewTextBoxColumn, "codeDataGridViewTextBoxColumn");
       this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
       this.codeDataGridViewTextBoxColumn.ReadOnly = true;
@@ -1432,6 +1431,23 @@
       this.ActionGematriaCombinations.Name = "ActionGematriaCombinations";
       this.ActionGematriaCombinations.Click += new System.EventHandler(this.ActionGematriaCombinations_Click);
       // 
+      // toolStripSeparator1
+      // 
+      this.toolStripSeparator1.Name = "toolStripSeparator1";
+      resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
+      // 
+      // ActionOpenExportFolder
+      // 
+      resources.ApplyResources(this.ActionOpenExportFolder, "ActionOpenExportFolder");
+      this.ActionOpenExportFolder.Name = "ActionOpenExportFolder";
+      this.ActionOpenExportFolder.Click += new System.EventHandler(this.ActionOpenExportFolder_Click);
+      // 
+      // ActionVacuumDB
+      // 
+      resources.ApplyResources(this.ActionVacuumDB, "ActionVacuumDB");
+      this.ActionVacuumDB.Name = "ActionVacuumDB";
+      this.ActionVacuumDB.Click += new System.EventHandler(this.ActionVacuumDB_Click);
+      // 
       // ActionWebLinks
       // 
       resources.ApplyResources(this.ActionWebLinks, "ActionWebLinks");
@@ -1462,22 +1478,14 @@
       this.ContextMenuOpenConcordance.Name = "ContextMenuOpenTermLettriq";
       resources.ApplyResources(this.ContextMenuOpenConcordance, "ContextMenuOpenConcordance");
       // 
-      // ActionOpenExportFolder
+      // PanelEditWordControl
       // 
-      resources.ApplyResources(this.ActionOpenExportFolder, "ActionOpenExportFolder");
-      this.ActionOpenExportFolder.Name = "ActionOpenExportFolder";
-      this.ActionOpenExportFolder.Click += new System.EventHandler(this.ActionOpenExportFolder_Click);
-      // 
-      // ActionVacuumDB
-      // 
-      resources.ApplyResources(this.ActionVacuumDB, "ActionVacuumDB");
-      this.ActionVacuumDB.Name = "ActionVacuumDB";
-      this.ActionVacuumDB.Click += new System.EventHandler(this.ActionVacuumDB_Click);
-      // 
-      // toolStripSeparator1
-      // 
-      this.toolStripSeparator1.Name = "toolStripSeparator1";
-      resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
+      this.PanelEditWordControl.Controls.Add(this.EditCopyWithFinalLetter);
+      this.PanelEditWordControl.Controls.Add(this.ActionDelFirst);
+      this.PanelEditWordControl.Controls.Add(this.ActionDelLast);
+      this.PanelEditWordControl.Controls.Add(this.ActionReset);
+      resources.ApplyResources(this.PanelEditWordControl, "PanelEditWordControl");
+      this.PanelEditWordControl.Name = "PanelEditWordControl";
       // 
       // MainForm
       // 
@@ -1531,6 +1539,8 @@
       this.PanelTitle.ResumeLayout(false);
       this.ToolStrip.ResumeLayout(false);
       this.ToolStrip.PerformLayout();
+      this.PanelEditWordControl.ResumeLayout(false);
+      this.PanelEditWordControl.PerformLayout();
       this.ResumeLayout(false);
 
     }
@@ -1675,5 +1685,6 @@
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     private System.Windows.Forms.ToolStripMenuItem ActionOpenExportFolder;
     private System.Windows.Forms.ToolStripMenuItem ActionVacuumDB;
+    private System.Windows.Forms.Panel PanelEditWordControl;
   }
 }

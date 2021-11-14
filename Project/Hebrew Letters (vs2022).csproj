@@ -550,6 +550,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Common\Hebrew\WinForms\LettersControl.resx">
       <DependentUpon>LettersControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\Boxes\SearchTermResultsBox.fr.resx">
       <DependentUpon>SearchTermResultsBox.cs</DependentUpon>

@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-01 </created>
-/// <edited> 2021-08 </edited>
+/// <edited> 2021-11 </edited>
 using System;
 using System.Drawing;
 using System.Threading.Tasks;
@@ -108,6 +108,7 @@ namespace Ordisoftware.Hebrew.Letters
     private void DoFormShown(object sender, EventArgs e)
     {
       if ( Globals.IsExiting ) return;
+      PanelEditWordControl.Visible = true;
       if ( !Program.StartupWord.IsNullOrEmpty() )
       {
         ActionReset.Visible = true;

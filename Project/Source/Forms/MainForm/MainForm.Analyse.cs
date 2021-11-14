@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2021-08 </edited>
+/// <edited> 2021-11 </edited>
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -43,12 +43,25 @@ namespace Ordisoftware.Hebrew.Letters
         EditSentence.Text = "";
         EditGematriaSimple.Text = "";
         EditGematriaFull.Text = "";
+        const int marginTop = 20;
+        const int marginLeft = 100;
+        const int labelWidth = 50;
+        //const int labelHeight = 13;
+        const int comboWidth = 100;
+        //const int comboHeight = 21;
+        const int comboHeightDelta = -4;
+        const int widthCombobox = 160;
+        const int marginLeftAndcomboWidth = marginLeft + comboWidth;
+        const int dummyDelta = 10;
+        const int dummyHeightDelta = -2;
+        const int deltaY = 30;
         int sumSimple = 0;
         int sumFull = 0;
         int dy = 0;
         string word = EditWord.TextBox.Text;
         for ( int pos = word.Length - 1, index = 0; pos >= 0; index++, pos-- )
         {
+          int top = marginTop + dy;
           // Letter
           var letter = DBApp.Letters.Find(l => l.Code == word[pos].ToString());
           if ( letter == null ) continue;
@@ -59,25 +72,27 @@ namespace Ordisoftware.Hebrew.Letters
           {
             TextAlign = ContentAlignment.TopRight,
             AutoSize = false,
-            Width = 50,
-            Height = 13,
-            Left = 100,
-            Top = 20 + dy,
+            Width = labelWidth,
+            //Height = labelHeight,
+            Left = marginLeft,
+            Top = top,
             Text = letter.Name,
             Cursor = Cursors.Hand
           };
           label.Click += LabelLetter_Click;
           SelectAnalyze.Controls.Add(label);
           // Combobox
-          var combobox = new ComboBoxEx();
-          label.Tag = combobox;
-          combobox.Width = 200;
-          combobox.Height = 21;
-          combobox.Left = 160;
-          combobox.Top = 16 + dy;
-          combobox.DropDownStyle = ComboBoxStyle.DropDownList;
+          var combobox = new ComboBoxEx
+          {
+            Width = marginLeftAndcomboWidth,
+            //combobox.Height = comboHeight;
+            Left = widthCombobox,
+            Top = top + comboHeightDelta,
+            DropDownStyle = ComboBoxStyle.DropDownList
+          };
           combobox.SelectedIndexChanged += MeaningComboBox_SelectedIndexChanged;
           combobox.Enter += Combobox_Enter;
+          label.Tag = combobox;
           // Meanings
           if ( LettersMeanings[letter.ValueSimple] == null )
           {
@@ -98,14 +113,14 @@ namespace Ordisoftware.Hebrew.Letters
           combobox.Tag = letter;
           SelectAnalyze.Controls.Add(combobox);
           // Loop
-          dy += 30;
+          dy += deltaY;
         }
         var dummy = new Label
         {
           AutoSize = false,
-          Left = 10,
-          Width = 10,
-          Top = dy - 5,
+          Left = dummyDelta,
+          Width = dummyDelta,
+          Top = dy + dummyHeightDelta,
           Text = ""
         };
         SelectAnalyze.Controls.Add(dummy);
