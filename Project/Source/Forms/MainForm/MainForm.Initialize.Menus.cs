@@ -13,10 +13,7 @@
 /// <created> 2019-01 </created>
 /// <edited> 2021-08 </edited>
 using System;
-using System.Drawing;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Win32;
 using Ordisoftware.Core;
 
 namespace Ordisoftware.Hebrew.Letters

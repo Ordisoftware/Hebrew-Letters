@@ -49,7 +49,7 @@ namespace Ordisoftware.Hebrew.Letters
                         "• Data edition is only possible by one instance at a time." + Globals.NL +
                         "• Data edition is improved to have save and cancel behavior." + Globals.NL +
                         "• Improved and fixed copy, cut and paste for both Hebrew font chars and unicode." + Globals.NL +
-                        "• Analysis labels are clickable to switch to letter's details." + Globals.NL +
+                        "• Analysis labels are click-able to switch to letter's details." + Globals.NL +
                         "• Added New in version in the Information menu." + Globals.NL +
                         "• Added link to online Shorashim roots database." + Globals.NL +
                         "• New top menu icon to open a new window." + Globals.NL +
@@ -88,24 +88,24 @@ namespace Ordisoftware.Hebrew.Letters
                         "• Added web links menu." + Globals.NL +
                         "• Added some preferences options." + Globals.NL +
                         "• Added debugger and logger." + Globals.NL +
-                        "• General immprovements and some fixes.",
+                        "• General improvements and some fixes.",
 
         [Language.FR] = "• Ajout d'une notice de méthode d'analyse lettrique." + Globals.NL +
                         "• Ajout d'un guide de grammaire." + Globals.NL +
                         "• Ajout d'un menu de liens Web." + Globals.NL +
                         "• Ajout de quelques options de préférences." + Globals.NL +
-                        "• Ajout d'un débogueur et d'un logguer" + Globals.NL +
+                        "• Ajout d'un débogueur et d'un logger" + Globals.NL +
                         "• Améliorations générales et quelques corrections."
       },
 
       ["3.x"] = new TranslationsDictionary
       {
         [Language.EN] = "• Added search term button." + Globals.NL +
-                        "• Added copy to and paste from unicode chars buttons." + Globals.NL +
+                        "• Added copy to and paste from Unicode chars buttons." + Globals.NL +
                         "• Added online search button for several providers like Pealim and Wiktionary." + Globals.NL +
                         "• Added some preferences options." + Globals.NL +
                         "• Use advanced TextBox to allow copy, cut, paste, select all and delete." + Globals.NL +
-                        "• General immprovements and some fixes.",
+                        "• General improvements and some fixes.",
 
         [Language.FR] = "• Ajout d'un bouton de recherche de terme." + Globals.NL +
                         "• Ajout de boutons pour copier et coller à partir de caractères Unicode." + Globals.NL +

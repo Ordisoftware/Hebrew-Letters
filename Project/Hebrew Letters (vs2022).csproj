@@ -594,6 +594,7 @@
     <None Include="..\README.md">
       <Link>README.md</Link>
     </None>
+    <None Include=".editorconfig" />
     <None Include="App.config" />
     <None Include="Licenses\MPL 2.0.rtf" />
     <None Include="Packages.config" />

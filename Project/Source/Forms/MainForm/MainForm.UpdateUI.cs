@@ -71,8 +71,7 @@ namespace Ordisoftware.Hebrew.Letters
         if ( sender is ToolStripMenuItem )
         {
           var value = sender as ToolStripMenuItem;
-          var list = ( (ToolStripMenuItem)value.OwnerItem ).DropDownItems;
-          foreach ( ToolStripMenuItem item in list )
+          foreach ( ToolStripMenuItem item in ( (ToolStripMenuItem)value.OwnerItem ).DropDownItems )
             item.Checked = item == value;
         }
         if ( EditScreenNone.Checked )
