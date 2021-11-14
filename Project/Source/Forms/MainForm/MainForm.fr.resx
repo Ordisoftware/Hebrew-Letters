@@ -349,4 +349,7 @@
   <data name="ActionVacuumDB.Text" xml:space="preserve">
     <value>Optimiser la base de données</value>
   </data>
+  <data name="ColumnMeaningsText.HeaderText" xml:space="preserve">
+    <value>Texte</value>
+  </data>
 </root>

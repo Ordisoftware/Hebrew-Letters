@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -178,7 +178,7 @@
     <value>1</value>
   </data>
   <data name="LabelCheckUpdateFrequency.Text" xml:space="preserve">
-    <value>Check frequency in number of days:</value>
+    <value>Check frequency in number of days</value>
   </data>
   <data name="&gt;&gt;LabelCheckUpdateFrequency.Name" xml:space="preserve">
     <value>LabelCheckUpdateFrequency</value>
@@ -365,7 +365,7 @@
     <value>508, 20</value>
   </metadata>
   <data name="OpenFileDialog.Filter" xml:space="preserve">
-    <value>Exe files (*.exe)|*.exe</value>
+    <value>EXE files (*.exe)|*.exe</value>
   </data>
   <metadata name="FolderBrowserDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>327, 14</value>
@@ -863,7 +863,7 @@
     <value>84</value>
   </data>
   <data name="LabelLastDBOptimize.Text" xml:space="preserve">
-    <value>Last optimization: </value>
+    <value>Last optimization:</value>
   </data>
   <data name="&gt;&gt;LabelLastDBOptimize.Name" xml:space="preserve">
     <value>LabelLastDBOptimize</value>
@@ -929,7 +929,7 @@
     <value>82</value>
   </data>
   <data name="LabelLastStartupCheck.Text" xml:space="preserve">
-    <value>Last check </value>
+    <value>Last check:</value>
   </data>
   <data name="&gt;&gt;LabelLastStartupCheck.Name" xml:space="preserve">
     <value>LabelLastStartupCheck</value>

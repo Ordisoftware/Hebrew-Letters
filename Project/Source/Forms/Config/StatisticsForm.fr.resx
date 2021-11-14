@@ -127,9 +127,6 @@
   <data name="dBRecordsCountLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 13</value>
   </data>
-  <data name="dBRecordsCountLabel.Text" xml:space="preserve">
-    <value>Significations :</value>
-  </data>
   <data name="loadDataTimeLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>114, 13</value>
   </data>
@@ -224,7 +221,7 @@
     <value>114, 13</value>
   </data>
   <data name="processPriorityLabel.Text" xml:space="preserve">
-    <value>Priorité du processus : </value>
+    <value>Priorité du processus :</value>
   </data>
   <data name="currentThreadPriorityLabel.Size" type="System.Drawing.Size, System.Drawing">
     <value>93, 13</value>
@@ -326,9 +323,21 @@
     <value>Taille fichier commun :</value>
   </data>
   <data name="translateTimeLabel.Text" xml:space="preserve">
-    <value>Traduction</value>
+    <value>Traduction :</value>
   </data>
   <data name="dBLettriqsMemorySizeLabel.Text" xml:space="preserve">
     <value>Taille mémoire Lettriques:</value>
+  </data>
+  <data name="dBLettersRecordsCountLabel.Text" xml:space="preserve">
+    <value>Lettres :</value>
+  </data>
+  <data name="dBMeaningsRecordsCountLabel.Text" xml:space="preserve">
+    <value>Significations :</value>
+  </data>
+  <data name="EditFolderUserLocalData.Text" xml:space="preserve">
+    <value>Données utilisateur locales</value>
+  </data>
+  <data name="GroupBoxFolders.Text" xml:space="preserve">
+    <value>Dossiers</value>
   </data>
 </root>

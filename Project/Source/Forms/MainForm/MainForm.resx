@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -4295,7 +4295,7 @@
     <value>46, 46</value>
   </data>
   <data name="ActionViewNotebook.Text" xml:space="preserve">
-    <value>Notebook </value>
+    <value>Notebook</value>
   </data>
   <data name="ActionViewNotebook.ToolTipText" xml:space="preserve">
     <value>Notebook (F3)</value>
