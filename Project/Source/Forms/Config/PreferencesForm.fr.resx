@@ -277,4 +277,13 @@
   <data name="LabelChangeLangNotice.Text" xml:space="preserve">
     <value>Le changement de langue n'affectera pas les données à moins de restaurer les valeurs par défaut</value>
   </data>
+  <data name="OpenFileDialog.Filter" xml:space="preserve">
+    <value>Fichiers EXE (*.exe)|*.exe</value>
+  </data>
+  <data name="OpenThemeDialog.Filter" xml:space="preserve">
+    <value>Fichiers de thème (*.ini)|*.ini</value>
+  </data>
+  <data name="SaveThemeDialog.Filter" xml:space="preserve">
+    <value>Fichiers de thème (*.ini)|*.ini</value>
+  </data>
 </root>

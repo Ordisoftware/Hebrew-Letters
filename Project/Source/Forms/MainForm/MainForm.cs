@@ -714,8 +714,7 @@ namespace Ordisoftware.Hebrew.Letters
         {
           if ( list[meaning.Position].Items.Count == 0 )
             Combobox_Enter(list[meaning.Position], EventArgs.Empty);
-          int index = list[meaning.Position].FindString(meaning.Meaning);
-          list[meaning.Position].SelectedIndex = index;
+          list[meaning.Position].SelectedIndex = list[meaning.Position].FindString(meaning.Meaning);
         }
       EditSentence.Text = lettriq.Sentence;
       EditTranscription.Text = lettriq.Transcription;
@@ -1231,8 +1230,8 @@ namespace Ordisoftware.Hebrew.Letters
     private void ActionNotebookDeleteSentence_Click(object sender, EventArgs e)
     {
       if ( !DisplayManager.QueryYesNo("Delete selected sentences?") ) return;
-      var indexes = ListNotebookSentences.SelectedRows.Cast<DataGridViewRow>().Select(r => r.Index).Reverse().ToList();
-      foreach ( var index in indexes )
+      var list = ListNotebookSentences.SelectedRows.Cast<DataGridViewRow>();
+      foreach ( var index in list.Select(r => r.Index).Reverse().ToList() )
       {
         var item = ( (ObjectView<TermLettriq>)ListNotebookSentences.Rows[index].DataBoundItem ).Object;
         // TODO delete analysis

@@ -28,7 +28,7 @@ namespace Ordisoftware.Hebrew.Letters
   partial class MainForm
   {
 
-    static private int LettersMeaningsCount = HebrewAlphabet.ValuesSimple.Max() + 1;
+    static private readonly int LettersMeaningsCount = HebrewAlphabet.ValuesSimple.Max() + 1;
 
     private readonly object[][] LettersMeanings = new object[LettersMeaningsCount][];
 
