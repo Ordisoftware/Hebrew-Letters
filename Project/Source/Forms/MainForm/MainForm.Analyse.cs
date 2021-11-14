@@ -14,6 +14,7 @@
 /// <edited> 2021-11 </edited>
 using System;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using Ordisoftware.Core;
 
@@ -27,7 +28,9 @@ namespace Ordisoftware.Hebrew.Letters
   partial class MainForm
   {
 
-    private readonly object[][] LettersMeanings = new object[400 + 1][];
+    static private int LettersMeaningsCount = HebrewAlphabet.ValuesSimple.Max() + 1;
+
+    private readonly object[][] LettersMeanings = new object[LettersMeaningsCount][];
 
     private void ClearLettersMeanings()
     {
@@ -46,8 +49,8 @@ namespace Ordisoftware.Hebrew.Letters
         const int marginTop = 20;
         const int marginLeft = 100;
         const int labelWidth = 50;
-        //const int labelHeight = 13;
         const int comboWidth = 100;
+        //const int labelHeight = 13;
         //const int comboHeight = 21;
         const int comboHeightDelta = -4;
         const int widthCombobox = 160;
@@ -98,7 +101,7 @@ namespace Ordisoftware.Hebrew.Letters
           {
             int indexMeaning = 0;
             var rowsMeanings = letter.Meanings.ToArray();
-            LettersMeanings[letter.ValueSimple] = new object[rowsMeanings.Length + 5 + 1];
+            LettersMeanings[letter.ValueSimple] = new object[rowsMeanings.Length + 6];
             LettersMeanings[letter.ValueSimple][indexMeaning++] = letter.Positive;
             LettersMeanings[letter.ValueSimple][indexMeaning++] = letter.Negative;
             LettersMeanings[letter.ValueSimple][indexMeaning++] = letter.Verb;

@@ -200,8 +200,7 @@ namespace Ordisoftware.Hebrew.Letters
     /// </summary>
     private void InitializeDialogsDirectory()
     {
-      string directory = Settings.GetExportDirectory();
-      SaveImageDialog.InitialDirectory = directory;
+      SaveImageDialog.InitialDirectory = Settings.GetExportDirectory();
       SaveImageDialog.Filter = Program.ImageExportTargets.CreateFilters();
     }
 
