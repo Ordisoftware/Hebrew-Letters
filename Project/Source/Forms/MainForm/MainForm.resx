@@ -1444,6 +1444,40 @@
   <data name="PanelWordDetails.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
   </data>
+  <data name="ActionOpenConcordance.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="ActionOpenConcordance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
+  </data>
+  <data name="ActionOpenConcordance.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wQAADsEBuJFr7QAAAlNJREFUOE+Vkl1IU3Echg8E3UTXIUhENwZRFxOk6OMiooR5FyRBCEEUFGGF+DHn
+        ms7NrdZaxwRXu7CPhVpZ+YG6CELUjhaaLnS2qXOaKdtIrGnq6umcXGhOAh944fD/ve/7/+AIf3E6nVvF
+        isqa22IFq6WsKbO4bX3sdsf2Ssdd+j/0sJa+3h5st0QUT9z+Lxa53WqzsxCd5eOXBc5VBzhxf5hMV4Ds
+        pkm84Rjz8kzxKN54bIUbN+213V0SfRNzZD4Y5cnAdwJRkCLQMAHW3nkGIjG63koo3nhsBbPFCks//uys
+        hH8Nd0NTGdw7A8X78NvPo+uJEVtcRPHGYysYTRb5poucfDhCcE7+VMKeduhshle1kC5w1Qs/5VGp6Xpi
+        gcFokvNRsmrG6Z+RXc7T4NCDeBh0AuTKyhaILkGJ0bxOQamR6EyYbVaJC60j7H/s56KhfDk8cQBGVQTH
+        ipiOzKE3mBILcvI0bndLC+/8IfKkGTJefyW5Iba885gK76gBaQrqG1sxWWyJBSkpKXuMpjJ83gHe+6dJ
+        c/kQzEOQIzDuzKBDDvd7vGh1xXgGP6E1igklm1SqNHWhtojG+hdMBQNEQiE+h77hC4Z49rKJvAJ51uxm
+        MjxLeNhNp+1gQsnmpKSkQ5ev5Lg1hVoKNFryNUXkF+rILdDKv7MD56M6BtuqYOo5DF1CKj+aeBJZO2Wl
+        rpXZdoc3zmyo3QFtp6D9OB3iscT3+A+pddeOgCsZ6nbjq9rr6hTTN1SgkFqtV1Otz+BpiZqz6l1Z8fUN
+        sfpqWwRBEH4DToXMkoNzpXwAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="ActionOpenConcordance.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ActionOpenConcordance.Location" type="System.Drawing.Point, System.Drawing">
+    <value>51, 16</value>
+  </data>
+  <data name="ActionOpenConcordance.Size" type="System.Drawing.Size, System.Drawing">
+    <value>25, 25</value>
+  </data>
+  <data name="ActionOpenConcordance.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
   <data name="&gt;&gt;ActionOpenConcordance.Name" xml:space="preserve">
     <value>ActionOpenConcordance</value>
   </data>
@@ -1455,6 +1489,27 @@
   </data>
   <data name="&gt;&gt;ActionOpenConcordance.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="LabelCondordance.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LabelCondordance.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="LabelCondordance.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="LabelCondordance.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="LabelCondordance.Size" type="System.Drawing.Size, System.Drawing">
+    <value>71, 13</value>
+  </data>
+  <data name="LabelCondordance.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="LabelCondordance.Text" xml:space="preserve">
+    <value>Concordance</value>
   </data>
   <data name="&gt;&gt;LabelCondordance.Name" xml:space="preserve">
     <value>LabelCondordance</value>
@@ -1468,6 +1523,15 @@
   <data name="&gt;&gt;LabelCondordance.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="EditConcordance.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 18</value>
+  </data>
+  <data name="EditConcordance.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 20</value>
+  </data>
+  <data name="EditConcordance.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
   <data name="&gt;&gt;EditConcordance.Name" xml:space="preserve">
     <value>EditConcordance</value>
   </data>
@@ -1479,6 +1543,27 @@
   </data>
   <data name="&gt;&gt;EditConcordance.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="LabelTranscription.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LabelTranscription.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="LabelTranscription.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="LabelTranscription.Location" type="System.Drawing.Point, System.Drawing">
+    <value>81, 0</value>
+  </data>
+  <data name="LabelTranscription.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 13</value>
+  </data>
+  <data name="LabelTranscription.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="LabelTranscription.Text" xml:space="preserve">
+    <value>Transcription</value>
   </data>
   <data name="&gt;&gt;LabelTranscription.Name" xml:space="preserve">
     <value>LabelTranscription</value>
@@ -1492,6 +1577,27 @@
   <data name="&gt;&gt;LabelTranscription.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <data name="LabelDictionary.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LabelDictionary.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="LabelDictionary.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="LabelDictionary.Location" type="System.Drawing.Point, System.Drawing">
+    <value>232, 0</value>
+  </data>
+  <data name="LabelDictionary.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 13</value>
+  </data>
+  <data name="LabelDictionary.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="LabelDictionary.Text" xml:space="preserve">
+    <value>Dictionary</value>
+  </data>
   <data name="&gt;&gt;LabelDictionary.Name" xml:space="preserve">
     <value>LabelDictionary</value>
   </data>
@@ -1503,6 +1609,27 @@
   </data>
   <data name="&gt;&gt;LabelDictionary.ZOrder" xml:space="preserve">
     <value>4</value>
+  </data>
+  <data name="LabelMemo.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LabelMemo.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="LabelMemo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="LabelMemo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 49</value>
+  </data>
+  <data name="LabelMemo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 13</value>
+  </data>
+  <data name="LabelMemo.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="LabelMemo.Text" xml:space="preserve">
+    <value>Commentary</value>
   </data>
   <data name="&gt;&gt;LabelMemo.Name" xml:space="preserve">
     <value>LabelMemo</value>
@@ -1516,6 +1643,18 @@
   <data name="&gt;&gt;LabelMemo.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
+  <data name="EditDictionary.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="EditDictionary.Location" type="System.Drawing.Point, System.Drawing">
+    <value>235, 18</value>
+  </data>
+  <data name="EditDictionary.Size" type="System.Drawing.Size, System.Drawing">
+    <value>278, 21</value>
+  </data>
+  <data name="EditDictionary.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
   <data name="&gt;&gt;EditDictionary.Name" xml:space="preserve">
     <value>EditDictionary</value>
   </data>
@@ -1528,6 +1667,18 @@
   <data name="&gt;&gt;EditDictionary.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
+  <data name="EditMemo.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="EditMemo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>84, 45</value>
+  </data>
+  <data name="EditMemo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>429, 21</value>
+  </data>
+  <data name="EditMemo.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
   <data name="&gt;&gt;EditMemo.Name" xml:space="preserve">
     <value>EditMemo</value>
   </data>
@@ -1539,6 +1690,18 @@
   </data>
   <data name="&gt;&gt;EditMemo.ZOrder" xml:space="preserve">
     <value>7</value>
+  </data>
+  <data name="EditTranscription.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9pt</value>
+  </data>
+  <data name="EditTranscription.Location" type="System.Drawing.Point, System.Drawing">
+    <value>84, 18</value>
+  </data>
+  <data name="EditTranscription.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 21</value>
+  </data>
+  <data name="EditTranscription.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="&gt;&gt;EditTranscription.Name" xml:space="preserve">
     <value>EditTranscription</value>
@@ -1553,7 +1716,7 @@
     <value>8</value>
   </data>
   <data name="PanelWordDetails.Location" type="System.Drawing.Point, System.Drawing">
-    <value>7, 433</value>
+    <value>8, 433</value>
   </data>
   <data name="PanelWordDetails.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
@@ -2115,277 +2278,6 @@
   </data>
   <data name="&gt;&gt;EditCopyWithFinalLetter.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="ActionOpenConcordance.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="ActionOpenConcordance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt, style=Bold</value>
-  </data>
-  <data name="ActionOpenConcordance.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAAlNJREFUOE+Vkl1IU3Echg8E3UTXIUhENwZRFxOk6OMiooR5FyRBCEEUFGGF+DHn
-        ms7NrdZaxwRXu7CPhVpZ+YG6CELUjhaaLnS2qXOaKdtIrGnq6umcXGhOAh944fD/ve/7/+AIf3E6nVvF
-        isqa22IFq6WsKbO4bX3sdsf2Ssdd+j/0sJa+3h5st0QUT9z+Lxa53WqzsxCd5eOXBc5VBzhxf5hMV4Ds
-        pkm84Rjz8kzxKN54bIUbN+213V0SfRNzZD4Y5cnAdwJRkCLQMAHW3nkGIjG63koo3nhsBbPFCks//uys
-        hH8Nd0NTGdw7A8X78NvPo+uJEVtcRPHGYysYTRb5poucfDhCcE7+VMKeduhshle1kC5w1Qs/5VGp6Xpi
-        gcFokvNRsmrG6Z+RXc7T4NCDeBh0AuTKyhaILkGJ0bxOQamR6EyYbVaJC60j7H/s56KhfDk8cQBGVQTH
-        ipiOzKE3mBILcvI0bndLC+/8IfKkGTJefyW5Iba885gK76gBaQrqG1sxWWyJBSkpKXuMpjJ83gHe+6dJ
-        c/kQzEOQIzDuzKBDDvd7vGh1xXgGP6E1igklm1SqNHWhtojG+hdMBQNEQiE+h77hC4Z49rKJvAJ51uxm
-        MjxLeNhNp+1gQsnmpKSkQ5ev5Lg1hVoKNFryNUXkF+rILdDKv7MD56M6BtuqYOo5DF1CKj+aeBJZO2Wl
-        rpXZdoc3zmyo3QFtp6D9OB3iscT3+A+pddeOgCsZ6nbjq9rr6hTTN1SgkFqtV1Otz+BpiZqz6l1Z8fUN
-        sfpqWwRBEH4DToXMkoNzpXwAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="ActionOpenConcordance.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="ActionOpenConcordance.Location" type="System.Drawing.Point, System.Drawing">
-    <value>53, 15</value>
-  </data>
-  <data name="ActionOpenConcordance.Size" type="System.Drawing.Size, System.Drawing">
-    <value>26, 26</value>
-  </data>
-  <data name="ActionOpenConcordance.TabIndex" type="System.Int32, mscorlib">
-    <value>26</value>
-  </data>
-  <data name="&gt;&gt;ActionOpenConcordance.Name" xml:space="preserve">
-    <value>ActionOpenConcordance</value>
-  </data>
-  <data name="&gt;&gt;ActionOpenConcordance.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ActionOpenConcordance.Parent" xml:space="preserve">
-    <value>PanelWordDetails</value>
-  </data>
-  <data name="&gt;&gt;ActionOpenConcordance.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="LabelCondordance.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="LabelCondordance.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt</value>
-  </data>
-  <data name="LabelCondordance.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="LabelCondordance.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="LabelCondordance.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 13</value>
-  </data>
-  <data name="LabelCondordance.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="LabelCondordance.Text" xml:space="preserve">
-    <value>Concordance</value>
-  </data>
-  <data name="&gt;&gt;LabelCondordance.Name" xml:space="preserve">
-    <value>LabelCondordance</value>
-  </data>
-  <data name="&gt;&gt;LabelCondordance.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LabelCondordance.Parent" xml:space="preserve">
-    <value>PanelWordDetails</value>
-  </data>
-  <data name="&gt;&gt;LabelCondordance.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="EditConcordance.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 18</value>
-  </data>
-  <data name="EditConcordance.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 20</value>
-  </data>
-  <data name="EditConcordance.TabIndex" type="System.Int32, mscorlib">
-    <value>25</value>
-  </data>
-  <data name="&gt;&gt;EditConcordance.Name" xml:space="preserve">
-    <value>EditConcordance</value>
-  </data>
-  <data name="&gt;&gt;EditConcordance.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;EditConcordance.Parent" xml:space="preserve">
-    <value>PanelWordDetails</value>
-  </data>
-  <data name="&gt;&gt;EditConcordance.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="LabelTranscription.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="LabelTranscription.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt</value>
-  </data>
-  <data name="LabelTranscription.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="LabelTranscription.Location" type="System.Drawing.Point, System.Drawing">
-    <value>81, 0</value>
-  </data>
-  <data name="LabelTranscription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>68, 13</value>
-  </data>
-  <data name="LabelTranscription.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="LabelTranscription.Text" xml:space="preserve">
-    <value>Transcription</value>
-  </data>
-  <data name="&gt;&gt;LabelTranscription.Name" xml:space="preserve">
-    <value>LabelTranscription</value>
-  </data>
-  <data name="&gt;&gt;LabelTranscription.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LabelTranscription.Parent" xml:space="preserve">
-    <value>PanelWordDetails</value>
-  </data>
-  <data name="&gt;&gt;LabelTranscription.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="LabelDictionary.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="LabelDictionary.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt</value>
-  </data>
-  <data name="LabelDictionary.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="LabelDictionary.Location" type="System.Drawing.Point, System.Drawing">
-    <value>232, 0</value>
-  </data>
-  <data name="LabelDictionary.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 13</value>
-  </data>
-  <data name="LabelDictionary.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="LabelDictionary.Text" xml:space="preserve">
-    <value>Dictionary</value>
-  </data>
-  <data name="&gt;&gt;LabelDictionary.Name" xml:space="preserve">
-    <value>LabelDictionary</value>
-  </data>
-  <data name="&gt;&gt;LabelDictionary.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LabelDictionary.Parent" xml:space="preserve">
-    <value>PanelWordDetails</value>
-  </data>
-  <data name="&gt;&gt;LabelDictionary.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="LabelMemo.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="LabelMemo.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt</value>
-  </data>
-  <data name="LabelMemo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="LabelMemo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 49</value>
-  </data>
-  <data name="LabelMemo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>65, 13</value>
-  </data>
-  <data name="LabelMemo.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="LabelMemo.Text" xml:space="preserve">
-    <value>Commentary</value>
-  </data>
-  <data name="&gt;&gt;LabelMemo.Name" xml:space="preserve">
-    <value>LabelMemo</value>
-  </data>
-  <data name="&gt;&gt;LabelMemo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;LabelMemo.Parent" xml:space="preserve">
-    <value>PanelWordDetails</value>
-  </data>
-  <data name="&gt;&gt;LabelMemo.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="EditDictionary.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9pt</value>
-  </data>
-  <data name="EditDictionary.Location" type="System.Drawing.Point, System.Drawing">
-    <value>235, 18</value>
-  </data>
-  <data name="EditDictionary.Size" type="System.Drawing.Size, System.Drawing">
-    <value>278, 21</value>
-  </data>
-  <data name="EditDictionary.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;EditDictionary.Name" xml:space="preserve">
-    <value>EditDictionary</value>
-  </data>
-  <data name="&gt;&gt;EditDictionary.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.3.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;EditDictionary.Parent" xml:space="preserve">
-    <value>PanelWordDetails</value>
-  </data>
-  <data name="&gt;&gt;EditDictionary.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="EditMemo.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9pt</value>
-  </data>
-  <data name="EditMemo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>84, 45</value>
-  </data>
-  <data name="EditMemo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>429, 21</value>
-  </data>
-  <data name="EditMemo.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;EditMemo.Name" xml:space="preserve">
-    <value>EditMemo</value>
-  </data>
-  <data name="&gt;&gt;EditMemo.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.3.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;EditMemo.Parent" xml:space="preserve">
-    <value>PanelWordDetails</value>
-  </data>
-  <data name="&gt;&gt;EditMemo.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="EditTranscription.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9pt</value>
-  </data>
-  <data name="EditTranscription.Location" type="System.Drawing.Point, System.Drawing">
-    <value>84, 18</value>
-  </data>
-  <data name="EditTranscription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 21</value>
-  </data>
-  <data name="EditTranscription.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;EditTranscription.Name" xml:space="preserve">
-    <value>EditTranscription</value>
-  </data>
-  <data name="&gt;&gt;EditTranscription.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.3.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;EditTranscription.Parent" xml:space="preserve">
-    <value>PanelWordDetails</value>
-  </data>
-  <data name="&gt;&gt;EditTranscription.ZOrder" xml:space="preserve">
-    <value>8</value>
   </data>
   <data name="PanelViewLetters.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
