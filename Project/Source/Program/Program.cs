@@ -212,7 +212,6 @@ namespace Ordisoftware.Hebrew.Letters
         MainForm.Instance.LabelGematria.Top = top0;
         MainForm.Instance.LabelGematriaSimple.Top = top1_3;
         MainForm.Instance.LabelGematriaFull.Top = top2_3;
-        //MainForm.Instance.PanelWordDetails.Top = top0;
         MainForm.Instance.LabelGematria.Top = MainForm.Instance.EditGematriaSimple.Top - 19;
         MainForm.Instance.LabelGematriaSimple.Top = MainForm.Instance.EditGematriaSimple.Top + 3;
         MainForm.Instance.LabelGematriaFull.Top = MainForm.Instance.EditGematriaFull.Top + 3;
