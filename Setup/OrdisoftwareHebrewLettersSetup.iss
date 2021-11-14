@@ -17,10 +17,8 @@ AppId={{1FD1454B-F437-4AC5-844F-C3649D664D8F}
 [CustomMessages]
 #include "Scripts\Messages.iss"
 
-
 [Tasks]
 #include "Scripts\Tasks.iss"
-
 
 [Dirs]
 
@@ -33,9 +31,7 @@ AppId={{1FD1454B-F437-4AC5-844F-C3649D664D8F}
 [Icons]
 #include "Scripts\Icons.iss"
 
-
 [Registry]
-
 
 [Run]
 #include "Scripts\Run.iss"
