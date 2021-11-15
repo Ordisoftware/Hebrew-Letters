@@ -30,7 +30,7 @@ namespace Ordisoftware.Hebrew.Letters
   {
 
     /// <summary>
-    /// Do constructor.
+    /// Does the constructor.
     /// </summary>
     private void DoConstructor()
     {
@@ -65,7 +65,7 @@ namespace Ordisoftware.Hebrew.Letters
     }
 
     /// <summary>
-    /// Do Form Load event.
+    /// Does Form Load event.
     /// </summary>
     private void DoFormLoad(object sender, EventArgs e)
     {
@@ -101,7 +101,7 @@ namespace Ordisoftware.Hebrew.Letters
     }
 
     /// <summary>
-    /// Do Form Shown event.
+    /// Does Form Shown event.
     /// </summary>
     /// <param name="sender">Source of the event.</param>
     /// <param name="e">Form closing event information.</param>
@@ -153,7 +153,7 @@ namespace Ordisoftware.Hebrew.Letters
     }
 
     /// <summary>
-    /// Do Form CLosed event.
+    /// Does Form CLosed event.
     /// </summary>
     private void DoFormClosed(object sender, FormClosedEventArgs e)
     {
@@ -168,7 +168,7 @@ namespace Ordisoftware.Hebrew.Letters
     }
 
     /// <summary>
-    /// Do Session Ending event.
+    /// Does Session Ending event.
     /// </summary>
     private void SessionEnding(object sender, SessionEndingEventArgs e)
     {
@@ -196,7 +196,7 @@ namespace Ordisoftware.Hebrew.Letters
     }
 
     /// <summary>
-    /// Set the initial directories of dialog boxes.
+    /// Sets the initial directories of dialog boxes.
     /// </summary>
     private void InitializeDialogsDirectory()
     {
@@ -215,7 +215,7 @@ namespace Ordisoftware.Hebrew.Letters
     }
 
     /// <summary>
-    /// Set colors.
+    /// Sets colors.
     /// </summary>
     internal void InitializeTheme()
     {
@@ -252,7 +252,7 @@ namespace Ordisoftware.Hebrew.Letters
     }
 
     /// <summary>
-    /// Show news and process command line options.
+    /// Shows news and process command line options.
     /// </summary>
     private void ProcessNewsAndCommandLine()
     {
@@ -261,7 +261,7 @@ namespace Ordisoftware.Hebrew.Letters
     }
 
     /// <summary>
-    /// Do Form Closing event.
+    /// Does Form Closing event.
     /// </summary>
     private void DoFormClosing(object sender, FormClosingEventArgs e)
     {

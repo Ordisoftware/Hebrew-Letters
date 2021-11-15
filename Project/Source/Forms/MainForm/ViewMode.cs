@@ -18,7 +18,7 @@ namespace Ordisoftware.Hebrew.Letters
 {
 
   /// <summary>
-  /// Provide view mode type.
+  /// Provides view mode type.
   /// </summary>
   public enum ViewMode
   {

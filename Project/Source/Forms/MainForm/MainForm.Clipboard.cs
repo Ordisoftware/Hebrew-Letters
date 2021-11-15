@@ -26,7 +26,7 @@ namespace Ordisoftware.Hebrew.Letters
   {
 
     /// <summary>
-    /// Check clipboard content type.
+    /// Checks clipboard content type.
     /// </summary>
     internal void CheckClipboardContentType()
     {
