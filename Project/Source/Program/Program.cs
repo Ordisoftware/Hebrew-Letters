@@ -27,7 +27,7 @@ namespace Ordisoftware.Hebrew.Letters
 {
 
   /// <summary>
-  /// Provide Program class.
+  /// Provides Program class.
   /// </summary>
   static partial class Program
   {
@@ -74,7 +74,7 @@ namespace Ordisoftware.Hebrew.Letters
     }
 
     /// <summary>
-    /// Check if settings must be reseted.
+    /// Checks if settings must be reseted.
     /// </summary>
     private static void CheckSettingsReset(bool force = false)
     {
@@ -120,7 +120,7 @@ namespace Ordisoftware.Hebrew.Letters
     }
 
     /// <summary>
-    /// Process command line options.
+    /// Processes command line options.
     /// </summary>
     static private void ProcessCommandLineOptions()
     {
@@ -143,7 +143,7 @@ namespace Ordisoftware.Hebrew.Letters
     }
 
     /// <summary>
-    /// Update localization strings to the whole application.
+    /// Updates localization strings to the whole application.
     /// </summary>
     static public void UpdateLocalization()
     {
