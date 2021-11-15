@@ -23,37 +23,37 @@ namespace Ordisoftware.Hebrew.Letters
 {
 
   /// <summary>
-  /// Provide Program class.
+  /// Provides Program class.
   /// </summary>
   static partial class Program
   {
 
     /// <summary>
-    /// Indicate the default Settings instance.
+    /// Indicates the default Settings instance.
     /// </summary>
     static public readonly Properties.Settings Settings
       = Properties.Settings.Default;
 
     /// <summary>
-    /// Indicate managed image export targets.
+    /// Indicates managed image export targets.
     /// </summary>
     static public readonly NullSafeOfStringDictionary<ImageExportTarget> ImageExportTargets
       = ExportHelper.CreateExportTargets<ImageExportTarget>().SetUnsupported(ImageExportTarget.GIF);
 
     /// <summary>
-    /// Indicate application alphabet folder.
+    /// Indicates application alphabet folder.
     /// </summary>
     static public string MeaningsFolderPath
       => Path.Combine(Globals.DocumentsFolderPath, "Alphabet");
 
     /// <summary>
-    /// Indicate file path of the letters meanings.
+    /// Indicates file path of the letters meanings.
     /// </summary>
     static public string MeaningsFilePath
       => Path.Combine(MeaningsFolderPath, $"Alphabet-Meanings-{Languages.CurrentCode}.txt");
 
     /// <summary>
-    /// Indicate the grammar guide form.
+    /// Indicates the grammar guide form.
     /// </summary>
     static public HTMLBrowserForm GrammarGuideForm
     {
@@ -68,7 +68,7 @@ namespace Ordisoftware.Hebrew.Letters
     static private HTMLBrowserForm _GrammarGuideForm;
 
     /// <summary>
-    /// Indicate the method notice form.
+    /// Indicates the method notice form.
     /// </summary>
     static public HTMLBrowserForm MethodNoticeForm
     {
@@ -83,7 +83,7 @@ namespace Ordisoftware.Hebrew.Letters
     static private HTMLBrowserForm _MethodGuideForm;
 
     /// <summary>
-    /// Indicate the command line argument for hebrew word used at startup.
+    /// Indicates the command line argument for hebrew word used at startup.
     /// </summary>
     static public string StartupWord
     {

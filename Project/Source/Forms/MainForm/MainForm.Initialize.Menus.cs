@@ -27,7 +27,7 @@ namespace Ordisoftware.Hebrew.Letters
   {
 
     /// <summary>
-    /// Create system information menu items.
+    /// Creates system information menu items.
     /// </summary>
     public void CreateSystemInformationMenu()
     {
@@ -42,7 +42,7 @@ namespace Ordisoftware.Hebrew.Letters
     }
 
     /// <summary>
-    /// Initialize special menus.
+    /// Initializes special menus.
     /// </summary>
     public void InitializeSpecialMenus()
     {
@@ -55,7 +55,7 @@ namespace Ordisoftware.Hebrew.Letters
     }
 
     /// <summary>
-    /// Create providers links menu items.
+    /// Creates providers links menu items.
     /// </summary>
     private void CreateProvidersLinks()
     {

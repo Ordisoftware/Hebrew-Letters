@@ -27,7 +27,7 @@ namespace Ordisoftware.Hebrew.Letters
 {
 
   /// <summary>
-  /// Provide application's main form.
+  /// Provides application's main form.
   /// </summary>
   /// <seealso cref="T:System.Windows.Forms.Form"/>
   partial class MainForm : Form
@@ -36,7 +36,7 @@ namespace Ordisoftware.Hebrew.Letters
     #region Singleton
 
     /// <summary>
-    /// Indicate the singleton instance.
+    /// Indicates the singleton instance.
     /// </summary>
     static public MainForm Instance { get; private set; }
 

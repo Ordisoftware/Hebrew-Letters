@@ -27,7 +27,7 @@ namespace Ordisoftware.Hebrew.Letters
   {
 
     /// <summary>
-    /// Enable double-buffering.
+    /// Enables double-buffering.
     /// </summary>
     protected override CreateParams CreateParams
     {
@@ -44,7 +44,7 @@ namespace Ordisoftware.Hebrew.Letters
     }
 
     /// <summary>
-    /// Center the form to the screen.
+    /// Centers the form to the screen.
     /// </summary>
     public new void CenterToScreen()
     {
@@ -54,7 +54,7 @@ namespace Ordisoftware.Hebrew.Letters
     private bool DoScreenPositionMutex;
 
     /// <summary>
-    /// Execute the screen location operation.
+    /// Executes the screen location operation.
     /// </summary>
     /// <param name="sender">Source of the event.</param>
     /// <param name="e">Event information.</param>

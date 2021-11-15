@@ -27,22 +27,22 @@ namespace Ordisoftware.Hebrew.Letters
   {
 
     /// <summary>
-    /// Indicate the default Settings instance.
+    /// Indicates the default Settings instance.
     /// </summary>
     private readonly Properties.Settings Settings = Program.Settings;
 
     /// <summary>
-    /// Indicate last showned menu tooltip.
+    /// Indicates last showned menu tooltip.
     /// </summary>
     private readonly ToolTip LastToolTip = new();
 
     /// <summary>
-    /// Indicate the last term searched.
+    /// Indicates the last term searched.
     /// </summary>
     private string LastTermSearched;
 
     /// <summary>
-    /// Indicate if data has changed to refresh the analysis.
+    /// Indicates if data has changed to refresh the analysis.
     /// </summary>
     private bool DataChanged;
 

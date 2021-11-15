@@ -21,7 +21,7 @@ namespace Ordisoftware.Hebrew.Letters
 {
 
   /// <summary>
-  /// Provide Settings helper.
+  /// Provides Settings helper.
   /// </summary>
   static class SettingsHelper
   {
@@ -29,7 +29,7 @@ namespace Ordisoftware.Hebrew.Letters
     static private bool Mutex;
 
     /// <summary>
-    /// Indicate the main form instance.
+    /// Indicates the main form instance.
     /// </summary>
     static private readonly MainForm MainForm = MainForm.Instance;
 
@@ -159,7 +159,7 @@ namespace Ordisoftware.Hebrew.Letters
     }
 
     /// <summary>
-    /// Clear all upgrade required flags.
+    /// Clears all upgrade required flags.
     /// </summary>
     static internal void SetUpgradeFlagsOff(this Settings settings)
     {
@@ -167,7 +167,7 @@ namespace Ordisoftware.Hebrew.Letters
     }
 
     /// <summary>
-    /// Clear all first launch and upgrade requires flags.
+    /// Clears all first launch and upgrade requires flags.
     /// </summary>
     static internal void SetFirstAndUpgradeFlagsOff(this Settings settings)
     {
@@ -177,7 +177,7 @@ namespace Ordisoftware.Hebrew.Letters
     }
 
     /// <summary>
-    /// Get export directory.
+    /// Gets export directory.
     /// </summary>
     static internal string GetExportDirectory(this Settings settings)
     {

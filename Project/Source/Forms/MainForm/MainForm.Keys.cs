@@ -26,7 +26,7 @@ namespace Ordisoftware.Hebrew.Letters
   {
 
     /// <summary>
-    /// Process the command key.
+    /// Processes the command key.
     /// </summary>
     /// <seealso cref="M:System.Windows.Forms.Form.ProcessCmdKey(Message@,Keys)"/>
     protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
