@@ -42,7 +42,7 @@ namespace Ordisoftware.Hebrew.Letters
         LabelClipboardContentType.Text = $"{strLabel}{Globals.NL}({strContent.Length})";
       }
       else
-        LabelClipboardContentType.Text = SysTranslations.UnknownSlot.GetLang().Trim('(', ')').Titleize();
+        LabelClipboardContentType.Text = SysTranslations.UnknownSlot.GetLang().TrimFirstLast().Titleize();
     }
 
   }
