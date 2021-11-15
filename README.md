@@ -161,9 +161,10 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 #### 2021.11.18 - Version 6.4
 
-- French and English corrections.
-- Code refactoring.
 - Few fixes.
+- Code refactoring.
+- French and English corrections.
+- Reorganize web links to avoid problems on small screens.
 
 #### 2021.11.14 - Version 6.3
 
