@@ -41,7 +41,6 @@ namespace Ordisoftware.Hebrew.Letters
         }
         Globals.ChronoLoadData.Stop();
         Settings.BenchmarkLoadData = Globals.ChronoLoadData.ElapsedMilliseconds;
-        Program.UpdateLocalization();
       }
       catch ( Exception ex )
       {

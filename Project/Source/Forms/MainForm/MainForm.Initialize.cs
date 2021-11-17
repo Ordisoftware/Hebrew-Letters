@@ -91,6 +91,7 @@ namespace Ordisoftware.Hebrew.Letters
       InitializeDialogsDirectory();
       Program.Settings.CurrentView = ViewMode.Analysis;
       LoadData();
+      Program.UpdateLocalization();
       Globals.IsReady = true;
       EditWord.Redraw();
       TimerProcesses_Tick(null, null);
