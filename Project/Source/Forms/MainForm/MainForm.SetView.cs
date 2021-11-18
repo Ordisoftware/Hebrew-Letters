@@ -29,7 +29,7 @@ namespace Ordisoftware.Hebrew.Letters
     /// <summary>
     /// Provides view connector.
     /// </summary>
-    private class ViewConnector
+    private sealed class ViewConnector
     {
 
       /// <summary>

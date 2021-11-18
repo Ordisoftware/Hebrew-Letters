@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2020-03 </created>
-/// <edited> 2021-04 </edited>
+/// <edited> 2021-11 </edited>
 using System;
 using System.Linq;
 using System.Drawing;
@@ -37,12 +37,8 @@ namespace Ordisoftware.Hebrew.Letters
     static public bool Run(string term, out string code, out string meaning)
     {
       static bool contains(List<Meaning> rows, string str)
-      {
-        foreach ( var row in rows )
-          if ( row.Text.ToLower().RemoveDiacritics().Contains(str) )
-            return true;
-        return false;
-      }
+        => rows.Any(row => row.Text.ToLower().RemoveDiacritics().Contains(str));
+      //
       code = "";
       meaning = "";
       var query = from letter in ApplicationDatabase.Instance.Letters
