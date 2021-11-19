@@ -335,7 +335,6 @@
       this.PanelViewAnalysis.Controls.Add(this.ActionScreenshot);
       this.PanelViewAnalysis.Controls.Add(this.ActionViewAllMeaningsList);
       this.PanelViewAnalysis.Controls.Add(this.ActionSaveTermLettriq);
-      this.PanelViewAnalysis.Controls.Add(this.ActionOpenTermLettriq);
       this.PanelViewAnalysis.Controls.Add(this.ActionCopyToMeanings);
       this.PanelViewAnalysis.Controls.Add(this.ActionCopyToResult);
       this.PanelViewAnalysis.Controls.Add(this.EditSentence);
@@ -344,6 +343,7 @@
       this.PanelViewAnalysis.Controls.Add(this.EditWord);
       this.PanelViewAnalysis.Controls.Add(this.PanelWordDetails);
       this.PanelViewAnalysis.Controls.Add(this.PanelEditWordControl);
+      this.PanelViewAnalysis.Controls.Add(this.ActionOpenTermLettriq);
       this.PanelViewAnalysis.Name = "PanelViewAnalysis";
       // 
       // EditGematriaFull
