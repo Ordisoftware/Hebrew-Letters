@@ -54,7 +54,9 @@ namespace Ordisoftware.Hebrew.Letters
         SelectAnalyze.Height += PanelWordDetails.Height + 5;
       }
       else
+      {
         ActionViewNotebook.Visible = true;
+      }
       if ( !Globals.IsDebugExecutable ) // TODO remove when ready
       {
         ActionGematriaCombinations.Visible = false;
@@ -109,6 +111,13 @@ namespace Ordisoftware.Hebrew.Letters
     private void DoFormShown(object sender, EventArgs e)
     {
       if ( Globals.IsExiting ) return;
+      if ( Globals.IsDebugExecutable ) // TODO remove when ready
+      {
+        ActionCopyToMeanings.Top += 46;
+        ActionViewAllMeaningsList.Top += 46;
+        ActionScreenshot.Top += 46;
+        ActionSaveScreenshot.Top += 46;
+      }
       PanelEditWordControl.Visible = true;
       if ( !Program.StartupWord.IsNullOrEmpty() )
       {
