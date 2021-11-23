@@ -78,7 +78,9 @@ static partial class Program
   /// </summary>
   private static void CheckSettingsReset(bool force = false)
   {
-    var resetForceVersions = new bool[] { };
+    var resetForceVersions = new bool[] 
+    { 
+    };
     try
     {
       // Check reset
