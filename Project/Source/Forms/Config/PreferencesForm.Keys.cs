@@ -14,8 +14,6 @@
 /// <edited> 2020-11 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
-using System.Windows.Forms;
-
 partial class PreferencesForm : Form
 {
 

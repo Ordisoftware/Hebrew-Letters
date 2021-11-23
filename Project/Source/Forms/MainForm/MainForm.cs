@@ -14,16 +14,7 @@
 /// <edited> 2021-11 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
-using System;
-using System.IO;
-using System.Data;
-using System.Drawing;
-using System.Diagnostics;
-using System.Linq;
-using System.Windows.Forms;
-using Ordisoftware.Core;
 using Equin.ApplicationFramework;
-using System.Globalization;
 
 /// <summary>
 /// Provides application's main form.

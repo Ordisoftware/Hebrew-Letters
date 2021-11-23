@@ -14,10 +14,6 @@
 /// <edited> 2021-04 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
-using System;
-using System.Windows.Forms;
-using Ordisoftware.Core;
-
 partial class StatisticsForm : Form
 {
 

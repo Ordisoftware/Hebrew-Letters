@@ -14,11 +14,7 @@
 /// <edited> 2021-02 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
-using System;
-using System.Drawing;
-using System.Windows.Forms;
-using Ordisoftware.Core;
-using KVPImageExportTarget = System.Collections.Generic.KeyValuePair<Ordisoftware.Core.ImageExportTarget, string>;
+using KVPImageExportTarget = KeyValuePair<ImageExportTarget, string>;
 
 partial class PreferencesForm : Form
 {

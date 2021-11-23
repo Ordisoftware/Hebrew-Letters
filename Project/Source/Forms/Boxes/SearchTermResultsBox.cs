@@ -14,13 +14,6 @@
 /// <edited> 2021-11 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Windows.Forms;
-using Ordisoftware.Core;
-
 partial class SearchTermResultsBox : Form
 {
 

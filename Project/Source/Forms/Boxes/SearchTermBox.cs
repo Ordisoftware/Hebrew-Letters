@@ -14,9 +14,6 @@
 /// <edited> 2020-04 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
-using System;
-using System.Windows.Forms;
-
 partial class SearchTermBox : Form
 {
 

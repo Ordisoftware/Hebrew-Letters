@@ -14,9 +14,6 @@
 /// <edited> 2021-08 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
-using System.Windows.Forms;
-using Ordisoftware.Core;
-
 /// <summary>
 /// The application's main form.
 /// </summary>

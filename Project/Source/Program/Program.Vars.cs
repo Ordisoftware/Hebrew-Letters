@@ -14,13 +14,6 @@
 /// <edited> 2021-04 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
-using System;
-using System.IO;
-using System.Linq;
-using System.Windows.Forms;
-using MoreLinq;
-using Ordisoftware.Core;
-
 /// <summary>
 /// Provides Program class.
 /// </summary>
