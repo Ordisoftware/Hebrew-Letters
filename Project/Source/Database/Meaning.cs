@@ -14,10 +14,7 @@
 /// <edited> 2021-08 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
-using System;
-using System.ComponentModel;
 using SQLite;
-using Ordisoftware.Core;
 
 [Serializable]
 [Table("Meanings")]

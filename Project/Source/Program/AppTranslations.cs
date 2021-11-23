@@ -14,8 +14,6 @@
 /// <edited> 2021-02 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
-using Ordisoftware.Core;
-
 /// <summary>
 /// Localization strings.
 /// </summary>

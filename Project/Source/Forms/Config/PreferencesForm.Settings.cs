@@ -14,16 +14,9 @@
 /// <edited> 2021-02 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
-using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Windows.Forms;
 using System.Xml.Linq;
 using System.Xml.XPath;
-using Ordisoftware.Core;
 
 partial class PreferencesForm : Form
 {

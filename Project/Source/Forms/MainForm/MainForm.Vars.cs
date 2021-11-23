@@ -14,10 +14,7 @@
 /// <edited> 2021-05 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
-using System.Collections.Generic;
-using System.Windows.Forms;
 using Equin.ApplicationFramework;
-
 
 /// <summary>
 /// The application's main form.

@@ -14,10 +14,6 @@
 /// <edited> 2021-08 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
-using System;
-using System.IO;
-using System.Collections.Generic;
-using Ordisoftware.Core;
 using Equin.ApplicationFramework;
 
 class ApplicationDatabase : SQLiteDatabase
