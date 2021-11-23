@@ -12,152 +12,149 @@
 /// </license>
 /// <created> 2021-05 </created>
 /// <edited> 2021-08 </edited>
+namespace Ordisoftware.Hebrew.Letters;
+
 using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.ComponentModel;
 using SQLite;
 
-namespace Ordisoftware.Hebrew.Letters
+[Serializable]
+[Table("Letters")]
+public class Letter : INotifyPropertyChanged
 {
 
-  [Serializable]
-  [Table("Letters")]
-  public class Letter : INotifyPropertyChanged
+  [PrimaryKey]
+  public string Code
   {
-
-    [PrimaryKey]
-    public string Code
+    get => _Code;
+    set
     {
-      get => _Code;
-      set
-      {
-        if ( _Code == value ) return;
-        _Code = value;
-        NotifyPropertyChanged(nameof(Code));
-      }
+      if ( _Code == value ) return;
+      _Code = value;
+      NotifyPropertyChanged(nameof(Code));
     }
-    private string _Code;
+  }
+  private string _Code;
 
-    public string Name
+  public string Name
+  {
+    get => _Name;
+    set
     {
-      get => _Name;
-      set
-      {
-        if ( _Name == value ) return;
-        _Name = value;
-        NotifyPropertyChanged(nameof(Name));
-      }
+      if ( _Name == value ) return;
+      _Name = value;
+      NotifyPropertyChanged(nameof(Name));
     }
-    private string _Name;
+  }
+  private string _Name;
 
-    public string Hebrew
+  public string Hebrew
+  {
+    get => _Hebrew;
+    set
     {
-      get => _Hebrew;
-      set
-      {
-        if ( _Hebrew == value ) return;
-        _Hebrew = value;
-        NotifyPropertyChanged(nameof(Hebrew));
-      }
+      if ( _Hebrew == value ) return;
+      _Hebrew = value;
+      NotifyPropertyChanged(nameof(Hebrew));
     }
-    private string _Hebrew;
+  }
+  private string _Hebrew;
 
-    public string Positive
+  public string Positive
+  {
+    get => _Positive;
+    set
     {
-      get => _Positive;
-      set
-      {
-        if ( _Positive == value ) return;
-        _Positive = value;
-        NotifyPropertyChanged(nameof(Positive));
-      }
+      if ( _Positive == value ) return;
+      _Positive = value;
+      NotifyPropertyChanged(nameof(Positive));
     }
-    private string _Positive;
+  }
+  private string _Positive;
 
-    public string Negative
+  public string Negative
+  {
+    get => _Negative;
+    set
     {
-      get => _Negative;
-      set
-      {
-        if ( _Negative == value ) return;
-        _Negative = value;
-        NotifyPropertyChanged(nameof(Negative));
-      }
+      if ( _Negative == value ) return;
+      _Negative = value;
+      NotifyPropertyChanged(nameof(Negative));
     }
-    private string _Negative;
+  }
+  private string _Negative;
 
-    public string Structure
+  public string Structure
+  {
+    get => _Structure;
+    set
     {
-      get => _Structure;
-      set
-      {
-        if ( _Structure == value ) return;
-        _Structure = value;
-        NotifyPropertyChanged(nameof(Structure));
-      }
+      if ( _Structure == value ) return;
+      _Structure = value;
+      NotifyPropertyChanged(nameof(Structure));
     }
-    private string _Structure;
+  }
+  private string _Structure;
 
-    public string Function
+  public string Function
+  {
+    get => _Function;
+    set
     {
-      get => _Function;
-      set
-      {
-        if ( _Function == value ) return;
-        _Function = value;
-        NotifyPropertyChanged(nameof(Function));
-      }
+      if ( _Function == value ) return;
+      _Function = value;
+      NotifyPropertyChanged(nameof(Function));
     }
-    private string _Function;
+  }
+  private string _Function;
 
-    public string Verb
+  public string Verb
+  {
+    get => _Verb;
+    set
     {
-      get => _Verb;
-      set
-      {
-        if ( _Verb == value ) return;
-        _Verb = value;
-        NotifyPropertyChanged(nameof(Verb));
-      }
+      if ( _Verb == value ) return;
+      _Verb = value;
+      NotifyPropertyChanged(nameof(Verb));
     }
-    private string _Verb;
+  }
+  private string _Verb;
 
-    public int ValueSimple
+  public int ValueSimple
+  {
+    get => _ValueSimple;
+    set
     {
-      get => _ValueSimple;
-      set
-      {
-        if ( _ValueSimple == value ) return;
-        _ValueSimple = value;
-        NotifyPropertyChanged(nameof(ValueSimple));
-      }
+      if ( _ValueSimple == value ) return;
+      _ValueSimple = value;
+      NotifyPropertyChanged(nameof(ValueSimple));
     }
-    private int _ValueSimple;
+  }
+  private int _ValueSimple;
 
-    public int ValueFull
+  public int ValueFull
+  {
+    get => _ValueFull;
+    set
     {
-      get => _ValueFull;
-      set
-      {
-        if ( _ValueFull == value ) return;
-        _ValueFull = value;
-        NotifyPropertyChanged(nameof(ValueFull));
-      }
+      if ( _ValueFull == value ) return;
+      _ValueFull = value;
+      NotifyPropertyChanged(nameof(ValueFull));
     }
-    private int _ValueFull;
+  }
+  private int _ValueFull;
 
-    public List<Meaning> Meanings
-      => ApplicationDatabase.Instance.Meanings.Where(item => item.LetterCode == Code).ToList();
+  public List<Meaning> Meanings
+    => ApplicationDatabase.Instance.Meanings.Where(item => item.LetterCode == Code).ToList();
 
-    [field: NonSerialized]
-    public event PropertyChangedEventHandler PropertyChanged;
+  [field: NonSerialized]
+  public event PropertyChangedEventHandler PropertyChanged;
 
-    protected void NotifyPropertyChanged(string p)
-    {
-      PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(p));
-    }
-
+  protected void NotifyPropertyChanged(string p)
+  {
+    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(p));
   }
 
 }

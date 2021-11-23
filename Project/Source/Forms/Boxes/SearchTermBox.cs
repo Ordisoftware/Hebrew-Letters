@@ -12,26 +12,23 @@
 /// </license>
 /// <created> 2020-03 </created>
 /// <edited> 2020-04 </edited>
+namespace Ordisoftware.Hebrew.Letters;
+
 using System;
 using System.Windows.Forms;
 
-namespace Ordisoftware.Hebrew.Letters
+partial class SearchTermBox : Form
 {
 
-  partial class SearchTermBox : Form
+  public SearchTermBox()
   {
+    InitializeComponent();
+    Icon = MainForm.Instance.Icon;
+  }
 
-    public SearchTermBox()
-    {
-      InitializeComponent();
-      Icon = MainForm.Instance.Icon;
-    }
-
-    private void EditTerm_TextChanged(object sender, EventArgs e)
-    {
-      ActionSearch.Enabled = EditTerm.Text.Length >= 2;
-    }
-
+  private void EditTerm_TextChanged(object sender, EventArgs e)
+  {
+    ActionSearch.Enabled = EditTerm.Text.Length >= 2;
   }
 
 }

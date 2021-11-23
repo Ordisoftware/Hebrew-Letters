@@ -12,45 +12,41 @@
 /// </license>
 /// <created> 2019-01 </created>
 /// <edited> 2021-05 </edited>
-using System;
+namespace Ordisoftware.Hebrew.Letters;
 
+using System;
 using Ordisoftware.Core;
 
-namespace Ordisoftware.Hebrew.Letters
+/// <summary>
+/// The application's main form.
+/// </summary>
+/// <seealso cref="T:System.Windows.Forms.Form"/>
+partial class MainForm
 {
 
-  /// <summary>
-  /// The application's main form.
-  /// </summary>
-  /// <seealso cref="T:System.Windows.Forms.Form"/>
-  partial class MainForm
+  private void LoadData()
   {
-
-    private void LoadData()
+    try
     {
-      try
+      Globals.ChronoLoadData.Start();
+      DBApp.Open();
+      LettersBindingSource.DataSource = DBApp.LettersAsBindingList;
+      if ( Globals.IsDebugExecutable ) // TODO remove when ready
       {
-        Globals.ChronoLoadData.Start();
-        DBApp.Open();
-        LettersBindingSource.DataSource = DBApp.LettersAsBindingList;
-        if ( Globals.IsDebugExecutable ) // TODO remove when ready
-        {
-          DBHebrew.TakeLettriqs();
-          TermsBindingSource.DataSource = DBHebrew.TermsHebrewAsBindingList;
-          LettriqsBindingSource.DataSource = DBHebrew.TermLettriqsAsBindingList;
-        }
-        Globals.ChronoLoadData.Stop();
-        Settings.BenchmarkLoadData = Globals.ChronoLoadData.ElapsedMilliseconds;
+        DBHebrew.TakeLettriqs();
+        TermsBindingSource.DataSource = DBHebrew.TermsHebrewAsBindingList;
+        LettriqsBindingSource.DataSource = DBHebrew.TermLettriqsAsBindingList;
       }
-      catch ( Exception ex )
-      {
-        DisplayManager.ShowError(SysTranslations.ApplicationMustExit.GetLang() + Globals.NL2 +
-                                 SysTranslations.ContactSupport.GetLang());
-        ex.Manage();
-        Environment.Exit(-1);
-      }
+      Globals.ChronoLoadData.Stop();
+      Settings.BenchmarkLoadData = Globals.ChronoLoadData.ElapsedMilliseconds;
     }
-
+    catch ( Exception ex )
+    {
+      DisplayManager.ShowError(SysTranslations.ApplicationMustExit.GetLang() + Globals.NL2 +
+                               SysTranslations.ContactSupport.GetLang());
+      ex.Manage();
+      Environment.Exit(-1);
+    }
   }
 
 }

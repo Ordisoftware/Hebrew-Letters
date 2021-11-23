@@ -12,123 +12,120 @@
 /// </license>
 /// <created> 2016-04 </created>
 /// <edited> 2021-05 </edited>
+namespace Ordisoftware.Hebrew.Letters;
+
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Ordisoftware.Core;
 
-namespace Ordisoftware.Hebrew.Letters
+/// <summary>
+/// The application's main form.
+/// </summary>
+/// <seealso cref="T:System.Windows.Forms.Form"/>
+partial class MainForm
 {
 
   /// <summary>
-  /// The application's main form.
+  /// Provides view connector.
   /// </summary>
-  /// <seealso cref="T:System.Windows.Forms.Form"/>
-  partial class MainForm
+  private sealed class ViewConnector
   {
 
     /// <summary>
-    /// Provides view connector.
+    /// The menu item.
     /// </summary>
-    private sealed class ViewConnector
-    {
-
-      /// <summary>
-      /// The menu item.
-      /// </summary>
-      public ToolStripButton MenuItem;
-
-      /// <summary>
-      /// The panel.
-      /// </summary>
-      public Panel Panel;
-
-      /// <summary>
-      /// The focused control.
-      /// </summary>
-      public Control Focused;
-
-    }
-
-    private int SavedSelectionStart;
-    private int SavedSelectionLength;
+    public ToolStripButton MenuItem;
 
     /// <summary>
-    /// Sets the view panel.
+    /// The panel.
     /// </summary>
-    /// <param name="view">The view mode.</param>
-    public void SetView(ViewMode view)
-    {
-      SetView(view, false);
-    }
+    public Panel Panel;
 
     /// <summary>
-    /// Sets the view panel.
+    /// The focused control.
     /// </summary>
-    /// <param name="view">The view mode.</param>
-    /// <param name="first">true to first.</param>
-    public void SetView(ViewMode view, bool first)
-    {
-      var ViewPanels = new Dictionary<ViewMode, ViewConnector>()
-      {
-        {
-          ViewMode.Analysis,
-          new ViewConnector
-          {
-            MenuItem = ActionViewAnalysis,
-            Panel = PanelViewAnalysis,
-            Focused = EditWord
-          }
-        },
-        {
-          ViewMode.Letters,
-          new ViewConnector
-          {
-            MenuItem = ActionViewLetters,
-            Panel = PanelLettersInner,
-            Focused = EditMeanings
-          }
-        },
-        {
-          ViewMode.Notebook,
-          new ViewConnector
-          {
-            MenuItem = ActionViewNotebook,
-            Panel = PanelViewNotebook,
-            Focused = PanelViewNotebook
-          }
-        }
-      };
-      if ( Program.Settings.CurrentView == view && !first ) return;
-      if ( Program.Settings.CurrentView == ViewMode.Letters )
-      {
-        ViewPanels[Program.Settings.CurrentView].Focused.Focus();
-      }
-      ViewPanels[Program.Settings.CurrentView].MenuItem.Checked = false;
-      ViewPanels[Program.Settings.CurrentView].Panel.Parent = null;
-      ViewPanels[view].MenuItem.Checked = true;
-      ViewPanels[view].Panel.Parent = PanelMainCenter;
-      ViewPanels[view].Focused.Focus();
-      Program.Settings.CurrentView = view;
-      if ( view == ViewMode.Analysis )
-      {
-        EditWord.TextBox.SelectionStart = SavedSelectionStart;
-        EditWord.TextBox.SelectionLength = SavedSelectionLength;
-        if ( DataChanged )
-        {
-          foreach ( var row in DBApp.Letters )
-            LettersMeanings[row.ValueSimple] = null;
-          DoAnalyse();
-          DataChanged = false;
-        }
-      }
-      else
-      {
-        SavedSelectionStart = EditWord.TextBox.SelectionStart;
-        SavedSelectionLength = EditWord.TextBox.SelectionLength;
-      }
-      LabelCurrentView.Text = AppTranslations.CurrentViewText[view].GetLang();
-    }
+    public Control Focused;
 
+  }
+
+  private int SavedSelectionStart;
+  private int SavedSelectionLength;
+
+  /// <summary>
+  /// Sets the view panel.
+  /// </summary>
+  /// <param name="view">The view mode.</param>
+  public void SetView(ViewMode view)
+  {
+    SetView(view, false);
+  }
+
+  /// <summary>
+  /// Sets the view panel.
+  /// </summary>
+  /// <param name="view">The view mode.</param>
+  /// <param name="first">true to first.</param>
+  public void SetView(ViewMode view, bool first)
+  {
+    var ViewPanels = new Dictionary<ViewMode, ViewConnector>()
+    {
+      {
+        ViewMode.Analysis,
+        new ViewConnector
+        {
+          MenuItem = ActionViewAnalysis,
+          Panel = PanelViewAnalysis,
+          Focused = EditWord
+        }
+      },
+      {
+        ViewMode.Letters,
+        new ViewConnector
+        {
+          MenuItem = ActionViewLetters,
+          Panel = PanelLettersInner,
+          Focused = EditMeanings
+        }
+      },
+      {
+        ViewMode.Notebook,
+        new ViewConnector
+        {
+          MenuItem = ActionViewNotebook,
+          Panel = PanelViewNotebook,
+          Focused = PanelViewNotebook
+        }
+      }
+    };
+    if ( Program.Settings.CurrentView == view && !first ) return;
+    if ( Program.Settings.CurrentView == ViewMode.Letters )
+    {
+      ViewPanels[Program.Settings.CurrentView].Focused.Focus();
+    }
+    ViewPanels[Program.Settings.CurrentView].MenuItem.Checked = false;
+    ViewPanels[Program.Settings.CurrentView].Panel.Parent = null;
+    ViewPanels[view].MenuItem.Checked = true;
+    ViewPanels[view].Panel.Parent = PanelMainCenter;
+    ViewPanels[view].Focused.Focus();
+    Program.Settings.CurrentView = view;
+    if ( view == ViewMode.Analysis )
+    {
+      EditWord.TextBox.SelectionStart = SavedSelectionStart;
+      EditWord.TextBox.SelectionLength = SavedSelectionLength;
+      if ( DataChanged )
+      {
+        foreach ( var row in DBApp.Letters )
+          LettersMeanings[row.ValueSimple] = null;
+        DoAnalyse();
+        DataChanged = false;
+      }
+    }
+    else
+    {
+      SavedSelectionStart = EditWord.TextBox.SelectionStart;
+      SavedSelectionLength = EditWord.TextBox.SelectionLength;
+    }
+    LabelCurrentView.Text = AppTranslations.CurrentViewText[view].GetLang();
   }
 
 }

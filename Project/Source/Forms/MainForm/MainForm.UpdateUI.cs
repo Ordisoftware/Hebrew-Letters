@@ -12,92 +12,89 @@
 /// </license>
 /// <created> 2016-04 </created>
 /// <edited> 2021-08 </edited>
+namespace Ordisoftware.Hebrew.Letters;
+
 using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace Ordisoftware.Hebrew.Letters
+/// <summary>
+/// The application's main form.
+/// </summary>
+/// <seealso cref="T:System.Windows.Forms.Form"/>
+partial class MainForm
 {
 
   /// <summary>
-  /// The application's main form.
+  /// Enables double-buffering.
   /// </summary>
-  /// <seealso cref="T:System.Windows.Forms.Form"/>
-  partial class MainForm
+  protected override CreateParams CreateParams
   {
-
-    /// <summary>
-    /// Enables double-buffering.
-    /// </summary>
-    protected override CreateParams CreateParams
+    get
     {
-      get
+      var cp = base.CreateParams;
+      if ( Settings.WindowsDoubleBufferingEnabled )
       {
-        var cp = base.CreateParams;
-        if ( Settings.WindowsDoubleBufferingEnabled )
-        {
-          cp.ExStyle |= 0x02000000; // + WS_EX_COMPOSITED
-          //cp.Style &= ~0x02000000;  // - WS_CLIPCHILDREN
-        }
-        return cp;
+        cp.ExStyle |= 0x02000000; // + WS_EX_COMPOSITED
+                                  //cp.Style &= ~0x02000000;  // - WS_CLIPCHILDREN
       }
+      return cp;
     }
+  }
 
-    /// <summary>
-    /// Centers the form to the screen.
-    /// </summary>
-    public new void CenterToScreen()
+  /// <summary>
+  /// Centers the form to the screen.
+  /// </summary>
+  public new void CenterToScreen()
+  {
+    base.CenterToScreen();
+  }
+
+  private bool DoScreenPositionMutex;
+
+  /// <summary>
+  /// Executes the screen location operation.
+  /// </summary>
+  /// <param name="sender">Source of the event.</param>
+  /// <param name="e">Event information.</param>
+  protected void DoScreenPosition(object sender, EventArgs e)
+  {
+    if ( DoScreenPositionMutex ) return;
+    try
     {
-      base.CenterToScreen();
+      DoScreenPositionMutex = true;
+      int left = SystemInformation.WorkingArea.Left;
+      int top = SystemInformation.WorkingArea.Top;
+      int width = SystemInformation.WorkingArea.Width;
+      int height = SystemInformation.WorkingArea.Height;
+      if ( sender is ToolStripMenuItem )
+      {
+        var value = sender as ToolStripMenuItem;
+        foreach ( ToolStripMenuItem item in ( (ToolStripMenuItem)value.OwnerItem ).DropDownItems )
+          item.Checked = item == value;
+      }
+      if ( EditScreenNone.Checked )
+        return;
+      if ( EditScreenTopLeft.Checked )
+        Location = new Point(left, top);
+      else
+      if ( EditScreenTopRight.Checked )
+        Location = new Point(left + width - Width, top);
+      else
+      if ( EditScreenBottomLeft.Checked )
+        Location = new Point(left, top + height - Height);
+      else
+      if ( EditScreenBottomRight.Checked )
+        Location = new Point(left + width - Width, top + height - Height);
+      else
+      if ( EditScreenCenter.Checked )
+        CenterToScreen();
+      EditScreenNone.Checked = false;
     }
-
-    private bool DoScreenPositionMutex;
-
-    /// <summary>
-    /// Executes the screen location operation.
-    /// </summary>
-    /// <param name="sender">Source of the event.</param>
-    /// <param name="e">Event information.</param>
-    protected void DoScreenPosition(object sender, EventArgs e)
+    finally
     {
-      if ( DoScreenPositionMutex ) return;
-      try
-      {
-        DoScreenPositionMutex = true;
-        int left = SystemInformation.WorkingArea.Left;
-        int top = SystemInformation.WorkingArea.Top;
-        int width = SystemInformation.WorkingArea.Width;
-        int height = SystemInformation.WorkingArea.Height;
-        if ( sender is ToolStripMenuItem )
-        {
-          var value = sender as ToolStripMenuItem;
-          foreach ( ToolStripMenuItem item in ( (ToolStripMenuItem)value.OwnerItem ).DropDownItems )
-            item.Checked = item == value;
-        }
-        if ( EditScreenNone.Checked )
-          return;
-        if ( EditScreenTopLeft.Checked )
-          Location = new Point(left, top);
-        else
-        if ( EditScreenTopRight.Checked )
-          Location = new Point(left + width - Width, top);
-        else
-        if ( EditScreenBottomLeft.Checked )
-          Location = new Point(left, top + height - Height);
-        else
-        if ( EditScreenBottomRight.Checked )
-          Location = new Point(left + width - Width, top + height - Height);
-        else
-        if ( EditScreenCenter.Checked )
-          CenterToScreen();
-        EditScreenNone.Checked = false;
-      }
-      finally
-      {
-        DoScreenPositionMutex = false;
-      }
+      DoScreenPositionMutex = false;
     }
-
   }
 
 }

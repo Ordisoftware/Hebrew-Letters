@@ -12,50 +12,46 @@
 /// </license>
 /// <created> 2016-04 </created>
 /// <edited> 2021-02 </edited>
-using System;
+namespace Ordisoftware.Hebrew.Letters;
+
 using Ordisoftware.Core;
 
-namespace Ordisoftware.Hebrew.Letters
+/// <summary>
+/// Localization strings.
+/// </summary>
+static partial class AppTranslations
 {
 
-  /// <summary>
-  /// Localization strings.
-  /// </summary>
-  static partial class AppTranslations
+  static public readonly TranslationsDictionary ApplicationDescription = new()
   {
+    [Language.EN] = "Lettriq letter-by-letter analyzer of Hebrew words",
+    [Language.FR] = "Analyseur lettrique lettre-par-lettre des mots hébreux"
+  };
 
-    static public readonly TranslationsDictionary ApplicationDescription = new()
+  static public readonly TranslationsDictionary LettersWordMeaningsList = new()
+  {
+    [Language.EN] = "Meanings of the letters of the word",
+    [Language.FR] = "Significations des lettres du mot"
+  };
+
+  static public readonly NullSafeDictionary<ViewMode, TranslationsDictionary> CurrentViewText = new()
+  {
+    [ViewMode.Analysis] = new TranslationsDictionary
     {
-      [Language.EN] = "Lettriq letter-by-letter analyzer of Hebrew words",
-      [Language.FR] = "Analyseur lettrique lettre-par-lettre des mots hébreux"
-    };
-
-    static public readonly TranslationsDictionary LettersWordMeaningsList = new()
+      [Language.EN] = "ANALYSIS",
+      [Language.FR] = "ANALYSE"
+    },
+    [ViewMode.Letters] = new TranslationsDictionary
     {
-      [Language.EN] = "Meanings of the letters of the word",
-      [Language.FR] = "Significations des lettres du mot"
-    };
-
-    static public readonly NullSafeDictionary<ViewMode, TranslationsDictionary> CurrentViewText = new()
+      [Language.EN] = "LETTERS",
+      [Language.FR] = "LETTRES"
+    },
+    [ViewMode.Notebook] = new TranslationsDictionary
     {
-      [ViewMode.Analysis] = new TranslationsDictionary
-      {
-        [Language.EN] = "ANALYSIS",
-        [Language.FR] = "ANALYSE"
-      },
-      [ViewMode.Letters] = new TranslationsDictionary
-      {
-        [Language.EN] = "LETTERS",
-        [Language.FR] = "LETTRES"
-      },
-      [ViewMode.Notebook] = new TranslationsDictionary
-      {
-        [Language.EN] = "NOTEBOOK",
-        [Language.FR] = "CARNET"
-      },
-    };
+      [Language.EN] = "NOTEBOOK",
+      [Language.FR] = "CARNET"
+    },
+  };
 
-
-  }
 
 }
