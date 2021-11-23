@@ -159,6 +159,12 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Add concordance, transcription, dictionary and comment fields for word analysis.
 - Add search online concordance.
 
+#### In progress - Version 6.5
+
+- Improve about box.
+- Few fixes.
+- Code refactoring.
+
 #### 2021.11.21 - Version 6.4
 
 - Few fixes.
