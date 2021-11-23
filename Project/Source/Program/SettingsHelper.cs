@@ -12,181 +12,177 @@
 /// </license>
 /// <created> 2016-04 </created>
 /// <edited> 2021-02 </edited>
-using System;
+namespace Ordisoftware.Hebrew.Letters;
+
 using System.Windows.Forms;
 using Ordisoftware.Core;
 using Ordisoftware.Hebrew.Letters.Properties;
 
-namespace Ordisoftware.Hebrew.Letters
+/// <summary>
+/// Provides Settings helper.
+/// </summary>
+static class SettingsHelper
 {
 
+  static private bool Mutex;
+
   /// <summary>
-  /// Provides Settings helper.
+  /// Indicates the main form instance.
   /// </summary>
-  static class SettingsHelper
+  static private readonly MainForm MainForm = MainForm.Instance;
+
+  /// <summary>
+  /// The Settings extension method that restores the main form settings.
+  /// </summary>
+  /// <param name="settings">The settings to act on.</param>
+  static internal void RestoreMainForm(this Settings settings)
   {
+    MainForm.Width = MainForm.MinimumSize.Width;
+    MainForm.Height = MainForm.MinimumSize.Height;
+    MainForm.WindowState = FormWindowState.Normal;
+    MainForm.CenterToScreen();
+    MainForm.EditScreenNone.Checked = false;
+    MainForm.EditScreenTopLeft.Checked = false;
+    MainForm.EditScreenTopRight.Checked = false;
+    MainForm.EditScreenBottomLeft.Checked = false;
+    MainForm.EditScreenBottomRight.Checked = false;
+    MainForm.EditScreenCenter.Checked = true;
+    MainForm.EditConfirmClosing.Checked = false;
+    MainForm.EditShowTips.Checked = true;
+    MainForm.EditESCtoExit.Checked = false;
+    MainForm.EditSoundsEnabled.Checked = true;
+    DisplayManager.AdvancedFormUseSounds = true;
+    MainForm.EditUseAdvancedDialogBoxes.Checked = true;
+    DisplayManager.FormStyle = MessageBoxFormStyle.Advanced;
+    MainForm.EditShowSuccessDialogs.Checked = false;
+    DisplayManager.ShowSuccessDialogs = false;
+    settings.ApplicationVolume = 100;
+    MediaMixer.SetApplicationVolume(Globals.ProcessId, settings.ApplicationVolume);
+    MainForm.SetView(ViewMode.Analysis);
+    settings.Store();
+  }
 
-    static private bool Mutex;
-
-    /// <summary>
-    /// Indicates the main form instance.
-    /// </summary>
-    static private readonly MainForm MainForm = MainForm.Instance;
-
-    /// <summary>
-    /// The Settings extension method that restores the main form settings.
-    /// </summary>
-    /// <param name="settings">The settings to act on.</param>
-    static internal void RestoreMainForm(this Settings settings)
+  /// <summary>
+  /// The Settings extension method that retrieves the given settings.
+  /// </summary>
+  /// <param name="settings">The settings to act on.</param>
+  static internal void Retrieve(this Settings settings)
+  {
+    if ( Mutex ) return;
+    Mutex = true;
+    try
     {
-      MainForm.Width = MainForm.MinimumSize.Width;
-      MainForm.Height = MainForm.MinimumSize.Height;
-      MainForm.WindowState = FormWindowState.Normal;
-      MainForm.CenterToScreen();
-      MainForm.EditScreenNone.Checked = false;
-      MainForm.EditScreenTopLeft.Checked = false;
-      MainForm.EditScreenTopRight.Checked = false;
-      MainForm.EditScreenBottomLeft.Checked = false;
-      MainForm.EditScreenBottomRight.Checked = false;
-      MainForm.EditScreenCenter.Checked = true;
-      MainForm.EditConfirmClosing.Checked = false;
-      MainForm.EditShowTips.Checked = true;
-      MainForm.EditESCtoExit.Checked = false;
-      MainForm.EditSoundsEnabled.Checked = true;
-      DisplayManager.AdvancedFormUseSounds = true;
-      MainForm.EditUseAdvancedDialogBoxes.Checked = true;
-      DisplayManager.FormStyle = MessageBoxFormStyle.Advanced;
-      MainForm.EditShowSuccessDialogs.Checked = false;
-      DisplayManager.ShowSuccessDialogs = false;
-      settings.ApplicationVolume = 100;
-      MediaMixer.SetApplicationVolume(Globals.ProcessId, settings.ApplicationVolume);
-      MainForm.SetView(ViewMode.Analysis);
-      settings.Store();
+      var area = SystemInformation.WorkingArea;
+      if ( settings.MainFormLeft >= area.Left && settings.MainFormLeft <= area.Width )
+        MainForm.Left = settings.MainFormLeft;
+      else
+        MainForm.Left = area.Left;
+      if ( settings.MainFormTop >= area.Top && settings.MainFormTop <= area.Height )
+        MainForm.Top = settings.MainFormTop;
+      else
+        MainForm.Top = area.Top;
+      if ( settings.MainFormWidth >= MainForm.MinimumSize.Width && settings.MainFormWidth <= area.Width )
+        MainForm.Width = settings.MainFormWidth;
+      else
+        MainForm.Width = MainForm.MinimumSize.Width;
+      if ( settings.MainFormHeight >= MainForm.MinimumSize.Height && settings.MainFormHeight <= area.Height )
+        MainForm.Height = settings.MainFormHeight;
+      else
+        MainForm.Height = MainForm.MinimumSize.Height;
+      MainForm.EditScreenNone.Checked = settings.MainFormPosition == ControlLocation.Loose;
+      MainForm.EditScreenTopLeft.Checked = settings.MainFormPosition == ControlLocation.TopLeft;
+      MainForm.EditScreenTopRight.Checked = settings.MainFormPosition == ControlLocation.TopRight;
+      MainForm.EditScreenBottomLeft.Checked = settings.MainFormPosition == ControlLocation.BottomLeft;
+      MainForm.EditScreenBottomRight.Checked = settings.MainFormPosition == ControlLocation.BottomRight;
+      MainForm.EditScreenCenter.Checked = settings.MainFormPosition == ControlLocation.Center;
+      MainForm.EditScreenPosition_Click(null, null);
+      MainForm.WindowState = settings.MainFormState;
+      //
+      MainForm.EditConfirmClosing.Checked = settings.ConfirmClosing;
+      MainForm.EditShowTips.Checked = settings.ShowTips;
+      MainForm.EditESCtoExit.Checked = settings.ESCtoExit;
+      MainForm.EditSoundsEnabled.Checked = settings.SoundsEnabled;
+      MainForm.EditUseAdvancedDialogBoxes.Checked = settings.AdvancedDialogBoxes;
+      MainForm.EditShowSuccessDialogs.Checked = settings.ShowSuccessDialogs;
+      DisplayManager.ShowSuccessDialogs = settings.ShowSuccessDialogs;
+      MainForm.EditDialogBoxesSettings_CheckedChanged(null, null);
+      MainForm.EditCopyToClipboardCloseApp.Checked = settings.CopyToClipboardCloseApp;
     }
-
-    /// <summary>
-    /// The Settings extension method that retrieves the given settings.
-    /// </summary>
-    /// <param name="settings">The settings to act on.</param>
-    static internal void Retrieve(this Settings settings)
+    finally
     {
-      if ( Mutex ) return;
-      Mutex = true;
-      try
+      Mutex = false;
+    }
+  }
+
+  /// <summary>
+  /// The Settings extension method that stores the given settings.
+  /// </summary>
+  /// <param name="settings">The settings to act on.</param>
+  static internal void Store(this Settings settings)
+  {
+    if ( Mutex ) return;
+    Mutex = true;
+    try
+    {
+      var winState = MainForm.WindowState;
+      if ( winState != FormWindowState.Minimized )
+        settings.MainFormState = winState;
+      if ( winState == FormWindowState.Normal )
       {
-        var area = SystemInformation.WorkingArea;
-        if ( settings.MainFormLeft >= area.Left && settings.MainFormLeft <= area.Width )
-          MainForm.Left = settings.MainFormLeft;
-        else
-          MainForm.Left = area.Left;
-        if ( settings.MainFormTop >= area.Top && settings.MainFormTop <= area.Height )
-          MainForm.Top = settings.MainFormTop;
-        else
-          MainForm.Top = area.Top;
-        if ( settings.MainFormWidth >= MainForm.MinimumSize.Width && settings.MainFormWidth <= area.Width )
-          MainForm.Width = settings.MainFormWidth;
-        else
-          MainForm.Width = MainForm.MinimumSize.Width;
-        if ( settings.MainFormHeight >= MainForm.MinimumSize.Height && settings.MainFormHeight <= area.Height )
-          MainForm.Height = settings.MainFormHeight;
-        else
-          MainForm.Height = MainForm.MinimumSize.Height;
-        MainForm.EditScreenNone.Checked = settings.MainFormPosition == ControlLocation.Loose;
-        MainForm.EditScreenTopLeft.Checked = settings.MainFormPosition == ControlLocation.TopLeft;
-        MainForm.EditScreenTopRight.Checked = settings.MainFormPosition == ControlLocation.TopRight;
-        MainForm.EditScreenBottomLeft.Checked = settings.MainFormPosition == ControlLocation.BottomLeft;
-        MainForm.EditScreenBottomRight.Checked = settings.MainFormPosition == ControlLocation.BottomRight;
-        MainForm.EditScreenCenter.Checked = settings.MainFormPosition == ControlLocation.Center;
-        MainForm.EditScreenPosition_Click(null, null);
-        MainForm.WindowState = settings.MainFormState;
-        //
-        MainForm.EditConfirmClosing.Checked = settings.ConfirmClosing;
-        MainForm.EditShowTips.Checked = settings.ShowTips;
-        MainForm.EditESCtoExit.Checked = settings.ESCtoExit;
-        MainForm.EditSoundsEnabled.Checked = settings.SoundsEnabled;
-        MainForm.EditUseAdvancedDialogBoxes.Checked = settings.AdvancedDialogBoxes;
-        MainForm.EditShowSuccessDialogs.Checked = settings.ShowSuccessDialogs;
-        DisplayManager.ShowSuccessDialogs = settings.ShowSuccessDialogs;
-        MainForm.EditDialogBoxesSettings_CheckedChanged(null, null);
-        MainForm.EditCopyToClipboardCloseApp.Checked = settings.CopyToClipboardCloseApp;
+        settings.MainFormLeft = MainForm.Left;
+        settings.MainFormTop = MainForm.Top;
+        settings.MainFormWidth = MainForm.Width;
+        settings.MainFormHeight = MainForm.Height;
       }
-      finally
-      {
-        Mutex = false;
-      }
+      if ( MainForm.EditScreenNone.Checked ) settings.MainFormPosition = ControlLocation.Loose;
+      if ( MainForm.EditScreenTopLeft.Checked ) settings.MainFormPosition = ControlLocation.TopLeft;
+      if ( MainForm.EditScreenTopRight.Checked ) settings.MainFormPosition = ControlLocation.TopRight;
+      if ( MainForm.EditScreenBottomLeft.Checked ) settings.MainFormPosition = ControlLocation.BottomLeft;
+      if ( MainForm.EditScreenBottomRight.Checked ) settings.MainFormPosition = ControlLocation.BottomRight;
+      if ( MainForm.EditScreenCenter.Checked ) settings.MainFormPosition = ControlLocation.Center;
+      //
+      settings.ConfirmClosing = MainForm.EditConfirmClosing.Checked;
+      settings.ShowTips = MainForm.EditShowTips.Checked;
+      settings.ESCtoExit = MainForm.EditESCtoExit.Checked;
+      settings.SoundsEnabled = MainForm.EditSoundsEnabled.Checked;
+      settings.AdvancedDialogBoxes = MainForm.EditUseAdvancedDialogBoxes.Checked;
+      settings.ShowSuccessDialogs = MainForm.EditShowSuccessDialogs.Checked;
+      settings.CopyToClipboardCloseApp = MainForm.EditCopyToClipboardCloseApp.Checked;
+      SystemManager.TryCatch(settings.Save);
     }
-
-    /// <summary>
-    /// The Settings extension method that stores the given settings.
-    /// </summary>
-    /// <param name="settings">The settings to act on.</param>
-    static internal void Store(this Settings settings)
+    finally
     {
-      if ( Mutex ) return;
-      Mutex = true;
-      try
-      {
-        var winState = MainForm.WindowState;
-        if ( winState != FormWindowState.Minimized )
-          settings.MainFormState = winState;
-        if ( winState == FormWindowState.Normal )
-        {
-          settings.MainFormLeft = MainForm.Left;
-          settings.MainFormTop = MainForm.Top;
-          settings.MainFormWidth = MainForm.Width;
-          settings.MainFormHeight = MainForm.Height;
-        }
-        if ( MainForm.EditScreenNone.Checked ) settings.MainFormPosition = ControlLocation.Loose;
-        if ( MainForm.EditScreenTopLeft.Checked ) settings.MainFormPosition = ControlLocation.TopLeft;
-        if ( MainForm.EditScreenTopRight.Checked ) settings.MainFormPosition = ControlLocation.TopRight;
-        if ( MainForm.EditScreenBottomLeft.Checked ) settings.MainFormPosition = ControlLocation.BottomLeft;
-        if ( MainForm.EditScreenBottomRight.Checked ) settings.MainFormPosition = ControlLocation.BottomRight;
-        if ( MainForm.EditScreenCenter.Checked ) settings.MainFormPosition = ControlLocation.Center;
-        //
-        settings.ConfirmClosing = MainForm.EditConfirmClosing.Checked;
-        settings.ShowTips = MainForm.EditShowTips.Checked;
-        settings.ESCtoExit = MainForm.EditESCtoExit.Checked;
-        settings.SoundsEnabled = MainForm.EditSoundsEnabled.Checked;
-        settings.AdvancedDialogBoxes = MainForm.EditUseAdvancedDialogBoxes.Checked;
-        settings.ShowSuccessDialogs = MainForm.EditShowSuccessDialogs.Checked;
-        settings.CopyToClipboardCloseApp = MainForm.EditCopyToClipboardCloseApp.Checked;
-        SystemManager.TryCatch(settings.Save);
-      }
-      finally
-      {
-        Mutex = false;
-      }
+      Mutex = false;
     }
+  }
 
-    /// <summary>
-    /// Clears all upgrade required flags.
-    /// </summary>
-    static internal void SetUpgradeFlagsOff(this Settings settings)
-    {
-      settings.UpgradeRequired = false;
-    }
+  /// <summary>
+  /// Clears all upgrade required flags.
+  /// </summary>
+  static internal void SetUpgradeFlagsOff(this Settings settings)
+  {
+    settings.UpgradeRequired = false;
+  }
 
-    /// <summary>
-    /// Clears all first launch and upgrade requires flags.
-    /// </summary>
-    static internal void SetFirstAndUpgradeFlagsOff(this Settings settings)
-    {
-      settings.SetUpgradeFlagsOff();
-      settings.FirstLaunch = false;
-      settings.FirstLaunchV4 = false;
-    }
+  /// <summary>
+  /// Clears all first launch and upgrade requires flags.
+  /// </summary>
+  static internal void SetFirstAndUpgradeFlagsOff(this Settings settings)
+  {
+    settings.SetUpgradeFlagsOff();
+    settings.FirstLaunch = false;
+    settings.FirstLaunchV4 = false;
+  }
 
-    /// <summary>
-    /// Gets export directory.
-    /// </summary>
-    static internal string GetExportDirectory(this Settings settings)
-    {
-      string directory = settings.ExportFolder;
-      if ( directory == "%USER_APP_DOCUMENTS%" )
-        directory = Globals.UserDocumentsFolderPath;
-      return directory;
-    }
-
+  /// <summary>
+  /// Gets export directory.
+  /// </summary>
+  static internal string GetExportDirectory(this Settings settings)
+  {
+    string directory = settings.ExportFolder;
+    if ( directory == "%USER_APP_DOCUMENTS%" )
+      directory = Globals.UserDocumentsFolderPath;
+    return directory;
   }
 
 }

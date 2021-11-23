@@ -12,39 +12,36 @@
 /// </license>
 /// <created> 2021-02 </created>
 /// <edited> 2021-06 </edited>
+namespace Ordisoftware.Hebrew.Letters;
+
 using System.Windows.Forms;
 using Ordisoftware.Core;
 
-namespace Ordisoftware.Hebrew.Letters
+/// <summary>
+/// The application's main form.
+/// </summary>
+/// <seealso cref="T:System.Windows.Forms.Form"/>
+partial class MainForm
 {
 
   /// <summary>
-  /// The application's main form.
+  /// Checks clipboard content type.
   /// </summary>
-  /// <seealso cref="T:System.Windows.Forms.Form"/>
-  partial class MainForm
+  internal void CheckClipboardContentType()
   {
-
-    /// <summary>
-    /// Checks clipboard content type.
-    /// </summary>
-    internal void CheckClipboardContentType()
+    string strContent = Clipboard.GetText();
+    ActionPaste.Enabled = !strContent.IsNullOrEmpty() && strContent.Length <= Settings.HebrewTextBoxMaxLength;
+    if ( ActionPaste.Enabled )
     {
-      string strContent = Clipboard.GetText();
-      ActionPaste.Enabled = !strContent.IsNullOrEmpty() && strContent.Length <= Settings.HebrewTextBoxMaxLength;
-      if ( ActionPaste.Enabled )
-      {
-        var strLabel = HebrewAlphabet.IsValidUnicode(strContent)
-                       ? HebrewTranslations.Unicode.GetLang()
-                       : HebrewAlphabet.IsValidHebrew(strContent)
-                         ? HebrewTranslations.Hebrew.GetLang()
-                         : SysTranslations.Uncertain.GetLang();
-        LabelClipboardContentType.Text = $"{strLabel}{Globals.NL}({strContent.Length})";
-      }
-      else
-        LabelClipboardContentType.Text = SysTranslations.UnknownSlot.GetLang().TrimFirstLast().Titleize();
+      var strLabel = HebrewAlphabet.IsValidUnicode(strContent)
+                     ? HebrewTranslations.Unicode.GetLang()
+                     : HebrewAlphabet.IsValidHebrew(strContent)
+                       ? HebrewTranslations.Hebrew.GetLang()
+                       : SysTranslations.Uncertain.GetLang();
+      LabelClipboardContentType.Text = $"{strLabel}{Globals.NL}({strContent.Length})";
     }
-
+    else
+      LabelClipboardContentType.Text = SysTranslations.UnknownSlot.GetLang().TrimFirstLast().Titleize();
   }
 
 }

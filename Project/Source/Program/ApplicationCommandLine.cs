@@ -12,22 +12,18 @@
 /// </license>
 /// <created> 2020-12 </created>
 /// <edited> 2021-02 </edited>
-using System;
+namespace Ordisoftware.Hebrew.Letters;
+
 using CommandLine;
 using Ordisoftware.Core;
 
-namespace Ordisoftware.Hebrew.Letters
+class ApplicationCommandLine : SystemCommandLine
 {
 
-  class ApplicationCommandLine : SystemCommandLine
-  {
+  static public ApplicationCommandLine Instance
+    => SystemManager.CommandLineOptions as ApplicationCommandLine;
 
-    static public ApplicationCommandLine Instance
-      => SystemManager.CommandLineOptions as ApplicationCommandLine;
-
-    [Option("word", Required = false, HelpText = "Unicode chars or else Hebrew font chars word to analyse.")]
-    public string WordHebrew { get; set; }
-
-  }
+  [Option("word", Required = false, HelpText = "Unicode chars or else Hebrew font chars word to analyse.")]
+  public string WordHebrew { get; set; }
 
 }

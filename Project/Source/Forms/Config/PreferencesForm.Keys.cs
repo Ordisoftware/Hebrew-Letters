@@ -12,36 +12,32 @@
 /// </license>
 /// <created> 2020-11 </created>
 /// <edited> 2020-11 </edited>
-using System;
+namespace Ordisoftware.Hebrew.Letters;
+
 using System.Windows.Forms;
 
-namespace Ordisoftware.Hebrew.Letters
+partial class PreferencesForm : Form
 {
 
-  partial class PreferencesForm : Form
+  protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
   {
-
-    protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
-    {
-      if ( keyData >= Keys.F1 && keyData < Keys.F1 + TabControl.TabCount )
-        TabControl.SelectTab(keyData - Keys.F1);
+    if ( keyData >= Keys.F1 && keyData < Keys.F1 + TabControl.TabCount )
+      TabControl.SelectTab(keyData - Keys.F1);
+    else
+    if ( keyData == ( Keys.Control | Keys.Tab ) )
+      if ( TabControl.SelectedIndex == TabControl.TabCount - 1 )
+        TabControl.SelectedIndex = 0;
       else
-      if ( keyData == ( Keys.Control | Keys.Tab ) )
-        if ( TabControl.SelectedIndex == TabControl.TabCount - 1 )
-          TabControl.SelectedIndex = 0;
-        else
-          TabControl.SelectedIndex++;
+        TabControl.SelectedIndex++;
+    else
+    if ( keyData == ( Keys.Control | Keys.Shift | Keys.Tab ) )
+      if ( TabControl.SelectedIndex == 0 )
+        TabControl.SelectedIndex = TabControl.TabCount - 1;
       else
-      if ( keyData == ( Keys.Control | Keys.Shift | Keys.Tab ) )
-        if ( TabControl.SelectedIndex == 0 )
-          TabControl.SelectedIndex = TabControl.TabCount - 1;
-        else
-          TabControl.SelectedIndex--;
-      else
-        return base.ProcessCmdKey(ref msg, keyData);
-      return true;
-    }
-
+        TabControl.SelectedIndex--;
+    else
+      return base.ProcessCmdKey(ref msg, keyData);
+    return true;
   }
 
 }
