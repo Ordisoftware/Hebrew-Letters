@@ -12,67 +12,63 @@
 /// </license>
 /// <created> 2019-01 </created>
 /// <edited> 2021-08 </edited>
-using System;
+namespace Ordisoftware.Hebrew.Letters;
+
 using System.Windows.Forms;
 using Ordisoftware.Core;
 
-namespace Ordisoftware.Hebrew.Letters
+/// <summary>
+/// The application's main form.
+/// </summary>
+/// <seealso cref="T:System.Windows.Forms.Form"/>
+partial class MainForm
 {
 
   /// <summary>
-  /// The application's main form.
+  /// Creates system information menu items.
   /// </summary>
-  /// <seealso cref="T:System.Windows.Forms.Form"/>
-  partial class MainForm
+  public void CreateSystemInformationMenu()
   {
+    CommonMenusControl.CreateInstance(ToolStrip,
+                                      ref ActionInformation,
+                                      AppTranslations.NoticeNewFeatures,
+                                      ActionAbout_Click,
+                                      ActionWebCheckUpdate_Click,
+                                      ActionViewLog_Click,
+                                      ActionViewStats_Click);
+    InitializeSpecialMenus();
+  }
 
-    /// <summary>
-    /// Creates system information menu items.
-    /// </summary>
-    public void CreateSystemInformationMenu()
+  /// <summary>
+  /// Initializes special menus.
+  /// </summary>
+  public void InitializeSpecialMenus()
+  {
+    CreateProvidersLinks();
+    CommonMenusControl.Instance.ActionViewStats.Enabled = Settings.UsageStatisticsEnabled;
+    CommonMenusControl.Instance.ActionViewLog.Enabled = DebugManager.TraceEnabled;
+    ActionWebLinks.Visible = Settings.WebLinksMenuEnabled;
+    if ( Settings.WebLinksMenuEnabled )
+      ActionWebLinks.InitializeFromWebLinks(InitializeSpecialMenus);
+  }
+
+  /// <summary>
+  /// Creates providers links menu items.
+  /// </summary>
+  private void CreateProvidersLinks()
+  {
+    ContextMenuSearchOnline.InitializeFromProviders(HebrewGlobals.WebProvidersWord, (sender, e) =>
     {
-      CommonMenusControl.CreateInstance(ToolStrip,
-                                        ref ActionInformation,
-                                        AppTranslations.NoticeNewFeatures,
-                                        ActionAbout_Click,
-                                        ActionWebCheckUpdate_Click,
-                                        ActionViewLog_Click,
-                                        ActionViewStats_Click);
-      InitializeSpecialMenus();
-    }
-
-    /// <summary>
-    /// Initializes special menus.
-    /// </summary>
-    public void InitializeSpecialMenus()
+      var menuitem = (ToolStripMenuItem)sender;
+      HebrewTools.OpenWordProvider((string)menuitem.Tag, EditWord.TextBox.Text);
+      EditWord.Focus();
+    });
+    ContextMenuOpenConcordance.InitializeFromProviders(HebrewGlobals.WebProvidersConcordance, (sender, e) =>
     {
-      CreateProvidersLinks();
-      CommonMenusControl.Instance.ActionViewStats.Enabled = Settings.UsageStatisticsEnabled;
-      CommonMenusControl.Instance.ActionViewLog.Enabled = DebugManager.TraceEnabled;
-      ActionWebLinks.Visible = Settings.WebLinksMenuEnabled;
-      if ( Settings.WebLinksMenuEnabled )
-        ActionWebLinks.InitializeFromWebLinks(InitializeSpecialMenus);
-    }
-
-    /// <summary>
-    /// Creates providers links menu items.
-    /// </summary>
-    private void CreateProvidersLinks()
-    {
-      ContextMenuSearchOnline.InitializeFromProviders(HebrewGlobals.WebProvidersWord, (sender, e) =>
-      {
-        var menuitem = (ToolStripMenuItem)sender;
-        HebrewTools.OpenWordProvider((string)menuitem.Tag, EditWord.TextBox.Text);
-        EditWord.Focus();
-      });
-      ContextMenuOpenConcordance.InitializeFromProviders(HebrewGlobals.WebProvidersConcordance, (sender, e) =>
-      {
-        var menuitem = (ToolStripMenuItem)sender;
-        HebrewTools.OpenWordConcordance((string)menuitem.Tag, (int)EditConcordance.Value);
-        EditWord.Focus();
-      });
-    }
-
+      var menuitem = (ToolStripMenuItem)sender;
+      HebrewTools.OpenWordConcordance((string)menuitem.Tag, (int)EditConcordance.Value);
+      EditWord.Focus();
+    });
   }
 
 }

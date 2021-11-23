@@ -12,32 +12,27 @@
 /// </license>
 /// <created> 2019-01 </created>
 /// <edited> 2021-05 </edited>
-using System;
+namespace Ordisoftware.Hebrew.Letters;
 
-namespace Ordisoftware.Hebrew.Letters
+/// <summary>
+/// Provides view mode type.
+/// </summary>
+public enum ViewMode
 {
 
   /// <summary>
-  /// Provides view mode type.
+  /// Analysis view mode.
   /// </summary>
-  public enum ViewMode
-  {
+  Analysis,
 
-    /// <summary>
-    /// Analysis view mode.
-    /// </summary>
-    Analysis,
+  /// <summary>
+  /// Letters view mode.
+  /// </summary>
+  Letters,
 
-    /// <summary>
-    /// Letters view mode.
-    /// </summary>
-    Letters,
-
-    /// <summary>
-    /// Notebook view mode.
-    /// </summary>
-    Notebook
-
-  }
+  /// <summary>
+  /// Notebook view mode.
+  /// </summary>
+  Notebook
 
 }
