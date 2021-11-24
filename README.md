@@ -162,7 +162,6 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 #### In progress - Version 6.5
 
 - Improve about box.
-- Few fixes.
 - Code refactoring.
 
 #### 2021.11.21 - Version 6.4
