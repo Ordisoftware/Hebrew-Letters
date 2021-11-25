@@ -1,20 +1,18 @@
-﻿# Hebrew Letters
-
-[![GitHub](https://img.shields.io/github/license/ordisoftware/hebrew-letters)](#)&nbsp;
+﻿[![GitHub](https://img.shields.io/github/license/ordisoftware/hebrew-letters)](#)&nbsp;
 [![GitHub all releases](https://img.shields.io/github/downloads/ordisoftware/hebrew-letters/total)](#)&nbsp;
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/ordisoftware/hebrew-letters)](#)&nbsp;
 [![GitHub repo size](https://img.shields.io/github/repo-size/ordisoftware/hebrew-letters)](#)&nbsp;
 [![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/ordisoftware/hebrew-letters)](#)&nbsp;
-[![Lines of code](https://img.shields.io/tokei/lines/github/ordisoftware/hebrew-letters)](#)&nbsp;
-
-[![Windows](https://img.shields.io/badge/Windows-0078D6)](#)&nbsp;
-[![.Net](https://img.shields.io/badge/.NET-5C2D91)](#)&nbsp;
-[![Visual Studio](https://img.shields.io/badge/Visual%20Studio-5C2D91.svg)](#)&nbsp;
-[![C#](https://img.shields.io/badge/C%23-%23239120.svg)](#)&nbsp;
-[![SQLite](https://img.shields.io/badge/SQlite-%2307405e.svg)](#)&nbsp;
-
+[![Lines of code](https://img.shields.io/tokei/lines/github/ordisoftware/hebrew-letters)](#)&nbsp;<br/>
+[![Windows](https://img.shields.io/badge/Windows%207+-0078D6)](#)&nbsp;
+[![.Net](https://img.shields.io/badge/.NET%204.8-5C2D91)](#)&nbsp;
+[![Visual Studio](https://img.shields.io/badge/Visual%20Studio%202022-5C2D91.svg)](#)&nbsp;
+[![C#](https://img.shields.io/badge/C%23%2010-%23239120.svg)](#)&nbsp;
+[![SQLite](https://img.shields.io/badge/SQlite%203.35-%2307405e.svg)](#)&nbsp;<br/>
 [![Ordisoftware.com](https://img.shields.io/badge/-Ordisoftware.com-355F90?logo=WordPress&logoColor=white)](https://www.ordisoftware.com/hebrew-letters)&nbsp;
 [![Guidelines](https://img.shields.io/badge/-Guidelines-355F90?logo=MicrosoftWord&logoColor=white)](https://github.com/Ordisoftware/Guidelines)&nbsp;
+
+# Hebrew Letters
 
 A libre and open-source software written in C# that helps for the lettriq letter-by-letter study and analysis of Hebrew words.
 
