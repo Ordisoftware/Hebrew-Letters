@@ -159,7 +159,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Add concordance, transcription, dictionary and comment fields for word analysis.
 - Add search online concordance.
 
-#### 2021.11.28 - Version 6.5
+#### 2021.11.25 - Version 6.5
 
 - Improve about box to dynamically display the list of dependencies and media used.
 - Add show only log files having errors in trace form.
