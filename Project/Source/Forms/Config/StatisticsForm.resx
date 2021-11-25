@@ -1060,7 +1060,7 @@
     <value>NoControl</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 20</value>
+    <value>15, 25</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>59, 13</value>
@@ -1093,7 +1093,7 @@
     <value>NoControl</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 46</value>
+    <value>15, 51</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>93, 13</value>
@@ -1126,7 +1126,7 @@
     <value>NoControl</value>
   </data>
   <data name="EditFolderUserLocalData.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 72</value>
+    <value>15, 77</value>
   </data>
   <data name="EditFolderUserLocalData.Size" type="System.Drawing.Size, System.Drawing">
     <value>78, 13</value>
@@ -1401,6 +1401,42 @@
   <data name="&gt;&gt;translateTimeLabel.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <metadata name="dBLettriqsMemorySizeLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="dBLettriqsMemorySizeLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="dBLettriqsMemorySizeLabel.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="dBLettriqsMemorySizeLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="dBLettriqsMemorySizeLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 148</value>
+  </data>
+  <data name="dBLettriqsMemorySizeLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>104, 13</value>
+  </data>
+  <data name="dBLettriqsMemorySizeLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>71</value>
+  </data>
+  <data name="dBLettriqsMemorySizeLabel.Text" xml:space="preserve">
+    <value>Lettriqs memory size:</value>
+  </data>
+  <data name="&gt;&gt;dBLettriqsMemorySizeLabel.Name" xml:space="preserve">
+    <value>dBLettriqsMemorySizeLabel</value>
+  </data>
+  <data name="&gt;&gt;dBLettriqsMemorySizeLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dBLettriqsMemorySizeLabel.Parent" xml:space="preserve">
+    <value>GroupBoxDatabase</value>
+  </data>
+  <data name="&gt;&gt;dBLettriqsMemorySizeLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="ActionViewLog.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
@@ -1410,7 +1446,7 @@
   <data name="ActionViewLog.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAAbdJREFUOE+Vk0tSwkAQhnMFSz2BR/AgLlx4FjcuvIMFpbgRlUUIicVKqiDAUo9g
+        wgAADsIBFShKgAAAAbdJREFUOE+Vk0tSwkAQhnMFSz2BR/AgLlx4FjcuvIMFpbgRlUUIicVKqiDAUo9g
         4RMwGQiEPAjv357J4Avw8VV19dSk+69/ejIK5yqf72qGgaxuQM3pFDkZmsiariNnGEwUL4M3/4Zt28hq
         2qVs+UpWCtTWFTyyDp4bTTw9v+D+4Unspy8uRLYsi1zqGdn2gSoFHvd30HRDnKROcV0ooF5viP3zTAaM
         tcSaOyHHWdkao9LZObVNBa9eBLvdgWUzNJqW2L+5vRUicyd8JrI1RqUNjj2YgnkhmOOAtVqwGYMfBOLb
@@ -1453,7 +1489,7 @@
   <data name="ActionScreenshot.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAArNJREFUOE+dk9lPE1EUxkffQKPEiOCb8cX4pImP/hEm/gMuCI2IJmpJo5SmZevG
+        wgAADsIBFShKgAAAArNJREFUOE+dk9lPE1EUxkffQKPEiOCb8cX4pImP/hEm/gMuCI2IJmpJo5SmZevG
         0pZCWQoFgtDiA9NSuiCUTUzUsElZuoBsMQhTwlIjWODz3tuC8c14kl++OXfO983JZIajdbnQs55W4MYl
         iiJOqsKVgF7/4SLVAg/SCr3rCbP7bY4zAPNEBOZxAfWE2jEBNaMbMJ0goJpQRTCMbUI/uQORM4z0Ak8H
         RxPtwV1w4hGcUnxCqnYS143TuN0Ywh3bIrKcazgtscM6vQVO4kDzbBTCjStoD/3EBYUH3HlZNwaW9nDX
@@ -2263,42 +2299,6 @@
   <data name="&gt;&gt;dBLettriqsMemorySizeLabel1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="dBLettriqsMemorySizeLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <data name="dBLettriqsMemorySizeLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="dBLettriqsMemorySizeLabel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt</value>
-  </data>
-  <data name="dBLettriqsMemorySizeLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="dBLettriqsMemorySizeLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 148</value>
-  </data>
-  <data name="dBLettriqsMemorySizeLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 13</value>
-  </data>
-  <data name="dBLettriqsMemorySizeLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>71</value>
-  </data>
-  <data name="dBLettriqsMemorySizeLabel.Text" xml:space="preserve">
-    <value>Lettriqs memory size:</value>
-  </data>
-  <data name="&gt;&gt;dBLettriqsMemorySizeLabel.Name" xml:space="preserve">
-    <value>dBLettriqsMemorySizeLabel</value>
-  </data>
-  <data name="&gt;&gt;dBLettriqsMemorySizeLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dBLettriqsMemorySizeLabel.Parent" xml:space="preserve">
-    <value>GroupBoxDatabase</value>
-  </data>
-  <data name="&gt;&gt;dBLettriqsMemorySizeLabel.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="dBCommonFileSizeLabel1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
@@ -2573,7 +2573,7 @@
     <value>operatingSystemTextBox</value>
   </data>
   <data name="&gt;&gt;operatingSystemTextBox.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.5.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;operatingSystemTextBox.Parent" xml:space="preserve">
     <value>GroupBoxSystem</value>
@@ -2600,7 +2600,7 @@
     <value>processorNameTextBox</value>
   </data>
   <data name="&gt;&gt;processorNameTextBox.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.5.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;processorNameTextBox.Parent" xml:space="preserve">
     <value>GroupBoxSystem</value>
@@ -2899,7 +2899,7 @@
   <data name="ActionOpenFolderUserLocalData.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAAgxJREFUOE/F0t9LU2EYB/DzF/ivNCh1/drWHHUV3XVVlheWOsVKrSCDkHlTy8rp
+        wgAADsIBFShKgAAAAgxJREFUOE/F0t9LU2EYB/DzF/ivNCh1/drWHHUV3XVVlheWOsVKrSCDkHlTy8rp
         Vqxd2IUXSdCFF5pl3Rk159lpv2drIA1rILq1uZ2z9e37njNaBBJB0Asf9nLG8zzv87yv9P+X8tD+XJ46
         irXJQzqxl73HlMbff14iALV1YDdhUNNYnWhF6MHBn0mbDusFwj57vBEuSeIjdqOohs+jInehnp8Hykmg
         kjJU00zKAoJGyEKetkDxH9/fTFB+h2q0l/rJqe9V0uJ9UCM92FnpREF4exaVjXn9FCv3rL2NBEeA4hto
@@ -2915,7 +2915,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionOpenFolderUserLocalData.Location" type="System.Drawing.Point, System.Drawing">
-    <value>528, 65</value>
+    <value>528, 70</value>
   </data>
   <data name="ActionOpenFolderUserLocalData.Size" type="System.Drawing.Size, System.Drawing">
     <value>26, 26</value>
@@ -2944,7 +2944,7 @@
   <data name="ActionOpenFolderUserData.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAAgxJREFUOE/F0t9LU2EYB/DzF/ivNCh1/drWHHUV3XVVlheWOsVKrSCDkHlTy8rp
+        wgAADsIBFShKgAAAAgxJREFUOE/F0t9LU2EYB/DzF/ivNCh1/drWHHUV3XVVlheWOsVKrSCDkHlTy8rp
         Vqxd2IUXSdCFF5pl3Rk159lpv2drIA1rILq1uZ2z9e37njNaBBJB0Asf9nLG8zzv87yv9P+X8tD+XJ46
         irXJQzqxl73HlMbff14iALV1YDdhUNNYnWhF6MHBn0mbDusFwj57vBEuSeIjdqOohs+jInehnp8Hykmg
         kjJU00zKAoJGyEKetkDxH9/fTFB+h2q0l/rJqe9V0uJ9UCM92FnpREF4exaVjXn9FCv3rL2NBEeA4hto
@@ -2960,7 +2960,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionOpenFolderUserData.Location" type="System.Drawing.Point, System.Drawing">
-    <value>528, 39</value>
+    <value>528, 44</value>
   </data>
   <data name="ActionOpenFolderUserData.Size" type="System.Drawing.Size, System.Drawing">
     <value>26, 26</value>
@@ -2989,7 +2989,7 @@
   <data name="ActionOpenFolderApplication.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAAgxJREFUOE/F0t9LU2EYB/DzF/ivNCh1/drWHHUV3XVVlheWOsVKrSCDkHlTy8rp
+        wgAADsIBFShKgAAAAgxJREFUOE/F0t9LU2EYB/DzF/ivNCh1/drWHHUV3XVVlheWOsVKrSCDkHlTy8rp
         Vqxd2IUXSdCFF5pl3Rk159lpv2drIA1rILq1uZ2z9e37njNaBBJB0Asf9nLG8zzv87yv9P+X8tD+XJ46
         irXJQzqxl73HlMbff14iALV1YDdhUNNYnWhF6MHBn0mbDusFwj57vBEuSeIjdqOohs+jInehnp8Hykmg
         kjJU00zKAoJGyEKetkDxH9/fTFB+h2q0l/rJqe9V0uJ9UCM92FnpREF4exaVjXn9FCv3rL2NBEeA4hto
@@ -3005,7 +3005,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionOpenFolderApplication.Location" type="System.Drawing.Point, System.Drawing">
-    <value>528, 13</value>
+    <value>528, 18</value>
   </data>
   <data name="ActionOpenFolderApplication.Size" type="System.Drawing.Size, System.Drawing">
     <value>26, 26</value>
@@ -3029,10 +3029,10 @@
     <value>Top, Right</value>
   </data>
   <data name="EditOpenFolderUserLocalData.Location" type="System.Drawing.Point, System.Drawing">
-    <value>158, 68</value>
+    <value>117, 73</value>
   </data>
   <data name="EditOpenFolderUserLocalData.Size" type="System.Drawing.Size, System.Drawing">
-    <value>364, 20</value>
+    <value>404, 20</value>
   </data>
   <data name="EditOpenFolderUserLocalData.TabIndex" type="System.Int32, mscorlib">
     <value>115</value>
@@ -3044,7 +3044,7 @@
     <value>EditOpenFolderUserLocalData</value>
   </data>
   <data name="&gt;&gt;EditOpenFolderUserLocalData.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.5.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;EditOpenFolderUserLocalData.Parent" xml:space="preserve">
     <value>GroupBoxFolders</value>
@@ -3056,10 +3056,10 @@
     <value>Top, Right</value>
   </data>
   <data name="EditFolderUserData.Location" type="System.Drawing.Point, System.Drawing">
-    <value>158, 42</value>
+    <value>117, 47</value>
   </data>
   <data name="EditFolderUserData.Size" type="System.Drawing.Size, System.Drawing">
-    <value>364, 20</value>
+    <value>404, 20</value>
   </data>
   <data name="EditFolderUserData.TabIndex" type="System.Int32, mscorlib">
     <value>115</value>
@@ -3071,7 +3071,7 @@
     <value>EditFolderUserData</value>
   </data>
   <data name="&gt;&gt;EditFolderUserData.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.5.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;EditFolderUserData.Parent" xml:space="preserve">
     <value>GroupBoxFolders</value>
@@ -3083,10 +3083,10 @@
     <value>Top, Right</value>
   </data>
   <data name="EditFolderApplication.Location" type="System.Drawing.Point, System.Drawing">
-    <value>158, 16</value>
+    <value>117, 21</value>
   </data>
   <data name="EditFolderApplication.Size" type="System.Drawing.Size, System.Drawing">
-    <value>364, 20</value>
+    <value>404, 20</value>
   </data>
   <data name="EditFolderApplication.TabIndex" type="System.Int32, mscorlib">
     <value>115</value>
@@ -3098,7 +3098,7 @@
     <value>EditFolderApplication</value>
   </data>
   <data name="&gt;&gt;EditFolderApplication.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.5.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;EditFolderApplication.Parent" xml:space="preserve">
     <value>GroupBoxFolders</value>

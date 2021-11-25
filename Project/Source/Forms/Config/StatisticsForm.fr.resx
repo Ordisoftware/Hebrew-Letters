@@ -334,9 +334,6 @@
   <data name="dBMeaningsRecordsCountLabel.Text" xml:space="preserve">
     <value>Significations :</value>
   </data>
-  <data name="EditFolderUserLocalData.Text" xml:space="preserve">
-    <value>Données utilisateur locales</value>
-  </data>
   <data name="GroupBoxFolders.Text" xml:space="preserve">
     <value>Dossiers</value>
   </data>

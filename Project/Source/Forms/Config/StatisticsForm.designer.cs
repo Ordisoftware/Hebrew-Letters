@@ -96,6 +96,7 @@
       this.GroupBoxTimings = new System.Windows.Forms.GroupBox();
       this.translateTimeLabel1 = new System.Windows.Forms.Label();
       this.GroupBoxDatabase = new System.Windows.Forms.GroupBox();
+      this.dBLettriqsMemorySizeLabel1 = new System.Windows.Forms.Label();
       this.dBCommonFileSizeLabel1 = new System.Windows.Forms.Label();
       this.dBLettersRecordsCountLabel1 = new System.Windows.Forms.Label();
       this.dBADONETAccessLabel1 = new System.Windows.Forms.Label();
@@ -124,7 +125,6 @@
       this.EditFolderApplication = new Ordisoftware.Core.TextBoxEx();
       this.PanelBottomOuter = new System.Windows.Forms.Panel();
       this.PanelFolders = new System.Windows.Forms.Panel();
-      this.dBLettriqsMemorySizeLabel1 = new System.Windows.Forms.Label();
       dBFileSizeLabel = new System.Windows.Forms.Label();
       dBMeaningsRecordsCountLabel = new System.Windows.Forms.Label();
       loadDataTimeLabel = new System.Windows.Forms.Label();
@@ -357,6 +357,11 @@
       resources.ApplyResources(translateTimeLabel, "translateTimeLabel");
       translateTimeLabel.Name = "translateTimeLabel";
       // 
+      // dBLettriqsMemorySizeLabel
+      // 
+      resources.ApplyResources(dBLettriqsMemorySizeLabel, "dBLettriqsMemorySizeLabel");
+      dBLettriqsMemorySizeLabel.Name = "dBLettriqsMemorySizeLabel";
+      // 
       // PanelBottom
       // 
       this.PanelBottom.Controls.Add(this.ActionViewLog);
@@ -561,6 +566,12 @@
       resources.ApplyResources(this.GroupBoxDatabase, "GroupBoxDatabase");
       this.GroupBoxDatabase.Name = "GroupBoxDatabase";
       this.GroupBoxDatabase.TabStop = false;
+      // 
+      // dBLettriqsMemorySizeLabel1
+      // 
+      resources.ApplyResources(this.dBLettriqsMemorySizeLabel1, "dBLettriqsMemorySizeLabel1");
+      this.dBLettriqsMemorySizeLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ApplicationStatisticsDataBindingSource, "DBLettriqsMemorySize", true));
+      this.dBLettriqsMemorySizeLabel1.Name = "dBLettriqsMemorySizeLabel1";
       // 
       // dBCommonFileSizeLabel1
       // 
@@ -809,17 +820,6 @@
       this.PanelFolders.Controls.Add(this.GroupBoxFolders);
       resources.ApplyResources(this.PanelFolders, "PanelFolders");
       this.PanelFolders.Name = "PanelFolders";
-      // 
-      // dBLettriqsMemorySizeLabel1
-      // 
-      resources.ApplyResources(this.dBLettriqsMemorySizeLabel1, "dBLettriqsMemorySizeLabel1");
-      this.dBLettriqsMemorySizeLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.ApplicationStatisticsDataBindingSource, "DBLettriqsMemorySize", true));
-      this.dBLettriqsMemorySizeLabel1.Name = "dBLettriqsMemorySizeLabel1";
-      // 
-      // dBLettriqsMemorySizeLabel
-      // 
-      resources.ApplyResources(dBLettriqsMemorySizeLabel, "dBLettriqsMemorySizeLabel");
-      dBLettriqsMemorySizeLabel.Name = "dBLettriqsMemorySizeLabel";
       // 
       // StatisticsForm
       // 

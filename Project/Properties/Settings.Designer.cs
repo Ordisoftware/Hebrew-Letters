@@ -742,5 +742,17 @@ namespace Ordisoftware.Hebrew.Letters.Properties {
                 this["HebrewWordsExe"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool TraceFormShowOnlyErrors {
+            get {
+                return ((bool)(this["TraceFormShowOnlyErrors"]));
+            }
+            set {
+                this["TraceFormShowOnlyErrors"] = value;
+            }
+        }
     }
 }
