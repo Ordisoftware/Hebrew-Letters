@@ -1214,7 +1214,7 @@ partial class MainForm : Form
 
   private void ActionNotebookDeleteWord_Click(object sender, EventArgs e)
   {
-    // TODO delete analysis, lettrisq and term
+    // TODO delete analysis, lettriqs and term
   }
 
   private void ActionNotebookDeleteSentence_Click(object sender, EventArgs e)

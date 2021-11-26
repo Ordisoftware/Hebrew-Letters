@@ -1,16 +1,16 @@
-﻿[![GitHub](https://img.shields.io/github/license/ordisoftware/hebrew-letters)](#)&nbsp;
-[![GitHub all releases](https://img.shields.io/github/downloads/ordisoftware/hebrew-letters/total)](#)&nbsp;
+﻿[![License](https://img.shields.io/github/license/ordisoftware/hebrew-letters)](#)&nbsp;
+[![GitHub all releases downloads](https://img.shields.io/github/downloads/ordisoftware/hebrew-letters/total)](#)&nbsp;
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/ordisoftware/hebrew-letters)](#)&nbsp;
 [![GitHub repo size](https://img.shields.io/github/repo-size/ordisoftware/hebrew-letters)](#)&nbsp;
 [![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/ordisoftware/hebrew-letters)](#)&nbsp;
 [![Lines of code](https://img.shields.io/tokei/lines/github/ordisoftware/hebrew-letters)](#)&nbsp;<br/>
-[![Windows](https://img.shields.io/badge/Windows%207%2B-0078D6?label=os)](#)&nbsp;
+[![Windows](https://img.shields.io/badge/Windows%207%2B%20x32%2Fx64-0078D6?label=os)](#)&nbsp;
 [![UI](https://img.shields.io/badge/WinForms-0078D6?label=ui)](#)&nbsp;
 [![.Net](https://img.shields.io/badge/.NET%204.8-5C2D91?label=framework)](#)&nbsp;
 [![Visual Studio](https://img.shields.io/badge/Visual%20Studio%202022-5C2D91.svg?label=ide)](#)&nbsp;
 [![C#](https://img.shields.io/badge/C%23%2010-%23239120.svg?label=lang)](#)&nbsp;
 [![SQLite](https://img.shields.io/badge/SQLite%203.35-%2307405e.svg?label=db)](#)&nbsp;<br/>
-[![Ordisoftware.com](https://img.shields.io/badge/-Ordisoftware.com-355F90?logo=WordPress&logoColor=white)](https://www.ordisoftware.com/hebrew-letters)&nbsp;
+[![Ordisoftware.com Project](https://img.shields.io/badge/-Ordisoftware.com%20Project-355F90?logo=WordPress&logoColor=white)](https://www.ordisoftware.com/hebrew-letters)&nbsp;
 [![Manufacturing Software Guidelines](https://img.shields.io/badge/-Manufacturing%20Software%20Guidelines-355F90?logo=MicrosoftWord&logoColor=white)](https://github.com/Ordisoftware/Guidelines)&nbsp;
 
 # Hebrew Letters
