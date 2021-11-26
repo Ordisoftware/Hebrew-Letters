@@ -4,7 +4,7 @@
 [![GitHub repo size](https://img.shields.io/github/repo-size/ordisoftware/hebrew-letters)](#)&nbsp;
 [![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/ordisoftware/hebrew-letters)](#)&nbsp;
 [![Lines of code](https://img.shields.io/tokei/lines/github/ordisoftware/hebrew-letters)](#)&nbsp;<br/>
-[![Windows](https://img.shields.io/badge/Windows%207%2B%20x32%2Fx64-0078D6?label=os)](#)&nbsp;
+[![Windows](https://img.shields.io/badge/Windows%207%2B-0078D6?label=os)](#)&nbsp;
 [![UI](https://img.shields.io/badge/WinForms-0078D6?label=ui)](#)&nbsp;
 [![.Net](https://img.shields.io/badge/.NET%204.8-5C2D91?label=framework)](#)&nbsp;
 [![Visual Studio](https://img.shields.io/badge/Visual%20Studio%202022-5C2D91.svg?label=ide)](#)&nbsp;
