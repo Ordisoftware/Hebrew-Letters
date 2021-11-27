@@ -1,4 +1,4 @@
-﻿[![License: MPL 2.0](https://img.shields.io/github/license/ordisoftware/hebrew-letters)](LICENSE)&nbsp;
+[![License: MPL 2.0](https://img.shields.io/github/license/ordisoftware/hebrew-letters)](LICENSE)&nbsp;
 [![GitHub all releases downloads](https://img.shields.io/github/downloads/ordisoftware/hebrew-letters/total)](#)&nbsp;
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/ordisoftware/hebrew-letters)](#)&nbsp;
 [![GitHub repo size](https://img.shields.io/github/repo-size/ordisoftware/hebrew-letters)](#)&nbsp;
