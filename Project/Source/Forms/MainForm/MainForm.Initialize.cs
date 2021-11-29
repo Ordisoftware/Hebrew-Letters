@@ -28,8 +28,8 @@ partial class MainForm
   /// </summary>
   private void DoConstructor()
   {
-    new Task(InitializeIconsAndSound).Start();
     Interlocks.Take();
+    new Task(InitializeIconsAndSound).Start();
     SystemManager.TryCatch(() => Icon = new Icon(Globals.ApplicationIconFilePath));
     Text = Globals.AssemblyTitle;
     ToolStrip.Renderer = new CheckedButtonsToolStripRenderer();
