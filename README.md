@@ -56,7 +56,7 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 
 ## Download
 
-**What's new in the latest version 6.x**
+**What's new in the latest version 6**
 
 - Overall performances are optimized.
 - Some fixes and improvements.
