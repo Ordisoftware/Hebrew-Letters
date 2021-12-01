@@ -41,8 +41,7 @@ class ApplicationDatabase : SQLiteDatabase
     base.Open();
     if ( Program.Settings.VacuumAtStartup )
     {
-      var dateNew = Connection.Optimize(Program.Settings.VacuumLastDone,
-                                        Program.Settings.VacuumAtStartupDaysInterval);
+      var dateNew = Connection.Optimize(Program.Settings.VacuumLastDone, Program.Settings.VacuumAtStartupDaysInterval);
       if ( Program.Settings.VacuumLastDone != dateNew )
       {
         HebrewDatabase.Instance.Connection.Optimize(dateNew, force: true);
@@ -88,8 +87,8 @@ class ApplicationDatabase : SQLiteDatabase
   public void DeleteAll()
   {
     CheckConnected();
-    CheckAccess(Letters, nameof(Letters));
     CheckAccess(Meanings, nameof(Meanings));
+    CheckAccess(Letters, nameof(Letters));
     Connection.DeleteAll<Meaning>();
     Connection.DeleteAll<Letter>();
     Meanings.Clear();
@@ -129,8 +128,8 @@ class ApplicationDatabase : SQLiteDatabase
       try
       {
         DeleteAll();
-        string data = File.ReadAllText(string.Format(Program.MeaningsFilePath, Languages.CurrentCode.ToUpper()),
-                                       System.Text.Encoding.Default);
+        string pathFile = string.Format(Program.MeaningsFilePath, Languages.CurrentCode.ToUpper());
+        string data = File.ReadAllText(pathFile, Encoding.Default);
         int indexStart = 0;
         string getStrValue(string name)
         {
