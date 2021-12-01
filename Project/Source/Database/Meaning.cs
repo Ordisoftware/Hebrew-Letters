@@ -40,6 +40,14 @@ public class Meaning : MeaningNoID
 public class MeaningNoID : INotifyPropertyChanged
 {
 
+  [field: NonSerialized]
+  public event PropertyChangedEventHandler PropertyChanged;
+
+  protected void NotifyPropertyChanged(string p)
+  {
+    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(p));
+  }
+
   public string LetterCode
   {
     get => _LetterCode;
@@ -64,14 +72,6 @@ public class MeaningNoID : INotifyPropertyChanged
     }
   }
   private string _Text;
-
-  [field: NonSerialized]
-  public event PropertyChangedEventHandler PropertyChanged;
-
-  protected void NotifyPropertyChanged(string p)
-  {
-    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(p));
-  }
 
 }
 

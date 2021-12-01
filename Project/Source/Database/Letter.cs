@@ -25,6 +25,14 @@ using SQLite;
 public class Letter : INotifyPropertyChanged
 {
 
+  [field: NonSerialized]
+  public event PropertyChangedEventHandler PropertyChanged;
+
+  protected void NotifyPropertyChanged(string p)
+  {
+    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(p));
+  }
+
   [PrimaryKey]
   public string Code
   {
@@ -148,13 +156,5 @@ public class Letter : INotifyPropertyChanged
 
   public List<Meaning> Meanings
     => ApplicationDatabase.Instance.Meanings.Where(item => item.LetterCode == Code).ToList();
-
-  [field: NonSerialized]
-  public event PropertyChangedEventHandler PropertyChanged;
-
-  protected void NotifyPropertyChanged(string p)
-  {
-    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(p));
-  }
 
 }
