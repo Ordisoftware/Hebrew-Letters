@@ -917,7 +917,7 @@ partial class MainForm : Form
     if ( DisplayManager.QueryYesNo(SysTranslations.AskToResetData.GetLang()) )
     {
       string word = EditWord.TextBox.Text;
-      DBApp.CreateDataIfNotExist(true);
+      DBApp.DeleteAll();
       DBApp.LoadAll();
       LettersBindingSource.DataSource = DBApp.LettersAsBindingList;
       ActionClear.PerformClick();

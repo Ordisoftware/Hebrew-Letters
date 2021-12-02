@@ -22,6 +22,7 @@ public class Meaning : MeaningNoID
 {
 
   [PrimaryKey]
+  [NotNull]
   public string ID
   {
     get => _ID;
@@ -48,6 +49,7 @@ public class MeaningNoID : INotifyPropertyChanged
     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(p));
   }
 
+  [NotNull]
   public string LetterCode
   {
     get => _LetterCode;
@@ -61,6 +63,7 @@ public class MeaningNoID : INotifyPropertyChanged
   private string _LetterCode;
 
   [Column("Meaning")]
+  [NotNull]
   public string Text
   {
     get => _Text;

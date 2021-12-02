@@ -34,6 +34,7 @@ public class Letter : INotifyPropertyChanged
   }
 
   [PrimaryKey]
+  [NotNull]
   public string Code
   {
     get => _Code;
@@ -46,6 +47,7 @@ public class Letter : INotifyPropertyChanged
   }
   private string _Code;
 
+  [NotNull]
   public string Name
   {
     get => _Name;
@@ -58,6 +60,7 @@ public class Letter : INotifyPropertyChanged
   }
   private string _Name;
 
+  [NotNull]
   public string Hebrew
   {
     get => _Hebrew;
@@ -70,6 +73,7 @@ public class Letter : INotifyPropertyChanged
   }
   private string _Hebrew;
 
+  [NotNull]
   public string Positive
   {
     get => _Positive;
@@ -82,6 +86,7 @@ public class Letter : INotifyPropertyChanged
   }
   private string _Positive;
 
+  [NotNull]
   public string Negative
   {
     get => _Negative;
@@ -94,6 +99,7 @@ public class Letter : INotifyPropertyChanged
   }
   private string _Negative;
 
+  [NotNull]
   public string Structure
   {
     get => _Structure;
@@ -106,6 +112,7 @@ public class Letter : INotifyPropertyChanged
   }
   private string _Structure;
 
+  [NotNull]
   public string Function
   {
     get => _Function;
@@ -118,6 +125,7 @@ public class Letter : INotifyPropertyChanged
   }
   private string _Function;
 
+  [NotNull]
   public string Verb
   {
     get => _Verb;
@@ -130,6 +138,7 @@ public class Letter : INotifyPropertyChanged
   }
   private string _Verb;
 
+  [NotNull]
   public int ValueSimple
   {
     get => _ValueSimple;
@@ -142,6 +151,7 @@ public class Letter : INotifyPropertyChanged
   }
   private int _ValueSimple;
 
+  [NotNull]
   public int ValueFull
   {
     get => _ValueFull;

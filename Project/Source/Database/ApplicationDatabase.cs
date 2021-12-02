@@ -68,11 +68,15 @@ class ApplicationDatabase : SQLiteDatabase
     Connection.CreateTable<Meaning>();
   }
 
-  public override void LoadAll()
+  protected override void DoLoadAll()
   {
-    base.LoadAll();
     Letters = Connection.Table<Letter>().ToList();
     Meanings = Connection.Table<Meaning>().ToList();
+    LettersAsBindingList = new BindingListView<Letter>(Letters);
+  }
+
+  protected override void CreateBindingInstances()
+  {
     LettersAsBindingList = new BindingListView<Letter>(Letters);
   }
 
@@ -114,7 +118,7 @@ class ApplicationDatabase : SQLiteDatabase
     }
   }
 
-  public override void CreateDataIfNotExist(bool reset = false)
+  protected override void CreateDataIfNotExist(bool reset = false)
   {
     base.CreateDataIfNotExist(reset);
     CheckAccess(Letters, nameof(Letters));
