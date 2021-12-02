@@ -36,13 +36,11 @@ class ApplicationDatabase : SQLiteDatabase
   {
   }
 
-  public override void Open()
+  protected override void Vacuum()
   {
-    base.Open();
     if ( Program.Settings.VacuumAtStartup )
     {
-      var dateNew = Connection.Optimize(Program.Settings.VacuumLastDone,
-                                        Program.Settings.VacuumAtStartupDaysInterval);
+      var dateNew = Connection.Optimize(Program.Settings.VacuumLastDone, Program.Settings.VacuumAtStartupDaysInterval);
       if ( Program.Settings.VacuumLastDone != dateNew )
       {
         HebrewDatabase.Instance.Connection.Optimize(dateNew, force: true);
@@ -54,7 +52,7 @@ class ApplicationDatabase : SQLiteDatabase
   protected override void DoClose()
   {
     if ( Letters == null && Meanings == null ) return;
-    if ( ClearListsOnCloseAndRelease )
+    if ( ClearListsOnCloseOrRelease )
     {
       Meanings?.Clear();
       Letters?.Clear();
@@ -69,11 +67,15 @@ class ApplicationDatabase : SQLiteDatabase
     Connection.CreateTable<Meaning>();
   }
 
-  public override void LoadAll()
+  protected override void DoLoadAll()
   {
-    base.LoadAll();
     Letters = Connection.Table<Letter>().ToList();
     Meanings = Connection.Table<Meaning>().ToList();
+    LettersAsBindingList = new BindingListView<Letter>(Letters);
+  }
+
+  protected override void CreateBindingInstances()
+  {
     LettersAsBindingList = new BindingListView<Letter>(Letters);
   }
 
@@ -88,8 +90,8 @@ class ApplicationDatabase : SQLiteDatabase
   public void DeleteAll()
   {
     CheckConnected();
-    CheckAccess(Letters, nameof(Letters));
     CheckAccess(Meanings, nameof(Meanings));
+    CheckAccess(Letters, nameof(Letters));
     Connection.DeleteAll<Meaning>();
     Connection.DeleteAll<Letter>();
     Meanings.Clear();
@@ -115,7 +117,7 @@ class ApplicationDatabase : SQLiteDatabase
     }
   }
 
-  public override void CreateDataIfNotExist(bool reset = false)
+  protected override void CreateDataIfNotExist(bool reset = false)
   {
     base.CreateDataIfNotExist(reset);
     CheckAccess(Letters, nameof(Letters));
@@ -129,8 +131,8 @@ class ApplicationDatabase : SQLiteDatabase
       try
       {
         DeleteAll();
-        string data = File.ReadAllText(string.Format(Program.MeaningsFilePath, Languages.CurrentCode.ToUpper()),
-                                       System.Text.Encoding.Default);
+        string pathFile = string.Format(Program.MeaningsFilePath, Languages.CurrentCode.ToUpper());
+        string data = File.ReadAllText(pathFile, Encoding.Default);
         int indexStart = 0;
         string getStrValue(string name)
         {

@@ -23,9 +23,9 @@ partial class MainForm
 
   private void LoadData()
   {
+    Globals.ChronoLoadData.Start();
     try
     {
-      Globals.ChronoLoadData.Start();
       DBApp.Open();
       LettersBindingSource.DataSource = DBApp.LettersAsBindingList;
       if ( Globals.IsDebugExecutable ) // TODO remove when ready
@@ -34,8 +34,6 @@ partial class MainForm
         TermsBindingSource.DataSource = DBHebrew.TermsHebrewAsBindingList;
         LettriqsBindingSource.DataSource = DBHebrew.TermLettriqsAsBindingList;
       }
-      Globals.ChronoLoadData.Stop();
-      Settings.BenchmarkLoadData = Globals.ChronoLoadData.ElapsedMilliseconds;
     }
     catch ( Exception ex )
     {
@@ -43,6 +41,11 @@ partial class MainForm
                                SysTranslations.ContactSupport.GetLang());
       ex.Manage();
       Environment.Exit(-1);
+    }
+    finally
+    {
+      Globals.ChronoLoadData.Stop();
+      Settings.BenchmarkLoadData = Globals.ChronoLoadData.ElapsedMilliseconds;
     }
   }
 

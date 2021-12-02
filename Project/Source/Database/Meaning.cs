@@ -22,6 +22,7 @@ public class Meaning : MeaningNoID
 {
 
   [PrimaryKey]
+  [NotNull]
   public string ID
   {
     get => _ID;
@@ -40,6 +41,15 @@ public class Meaning : MeaningNoID
 public class MeaningNoID : INotifyPropertyChanged
 {
 
+  [field: NonSerialized]
+  public event PropertyChangedEventHandler PropertyChanged;
+
+  protected void NotifyPropertyChanged(string p)
+  {
+    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(p));
+  }
+
+  [NotNull]
   public string LetterCode
   {
     get => _LetterCode;
@@ -53,6 +63,7 @@ public class MeaningNoID : INotifyPropertyChanged
   private string _LetterCode;
 
   [Column("Meaning")]
+  [NotNull]
   public string Text
   {
     get => _Text;
@@ -64,14 +75,6 @@ public class MeaningNoID : INotifyPropertyChanged
     }
   }
   private string _Text;
-
-  [field: NonSerialized]
-  public event PropertyChangedEventHandler PropertyChanged;
-
-  protected void NotifyPropertyChanged(string p)
-  {
-    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(p));
-  }
 
 }
 
