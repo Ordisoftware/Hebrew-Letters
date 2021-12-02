@@ -169,6 +169,13 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Add concordance, transcription, dictionary and comment fields for word analysis.
 - Add search online concordance.
 
+#### In progress - Version 6.6
+
+- Improve database management code.
+- Fix data not available when the application is started for the very first time since v6.0.
+- Fix web check update to not display timeout error in auto check mode.
+- Few fixes and improvements.
+
 #### 2021.11.25 - Version 6.5
 
 - Improve about box to dynamically display the list of dependencies and media used.
