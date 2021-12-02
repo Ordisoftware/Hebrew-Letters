@@ -152,6 +152,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 ## Future improvements
 
+- Add option to set primary source for check update between author website or GitHub.
 - Add find gematria possible combinations.
 - Add reset only some columns to factory defaults.
 - Add export and import database.
@@ -171,6 +172,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 #### In progress - Version 6.6
 
+- Change web check update to use GitHub as an alternative if author's website is down.
 - Improve database management code.
 - Fix data not available when the application is started for the very first time since v6.0.
 - Fix web check update to not display timeout error in auto check mode.
