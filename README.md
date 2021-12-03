@@ -170,7 +170,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Add concordance, transcription, dictionary and comment fields for word analysis.
 - Add search online concordance.
 
-#### In progress - Version 6.6
+#### 2021.12.05 - Version 6.6
 
 - Change web check update to use GitHub as an alternative if author's website is down.
 - Improve database management code.

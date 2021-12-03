@@ -21,6 +21,8 @@ namespace Ordisoftware.Hebrew.Letters;
 partial class MainForm
 {
 
+  private bool DoScreenPositionMutex;
+
   /// <summary>
   /// Enables double-buffering.
   /// </summary>
@@ -32,7 +34,7 @@ partial class MainForm
       if ( Settings.WindowsDoubleBufferingEnabled )
       {
         cp.ExStyle |= 0x02000000; // + WS_EX_COMPOSITED
-                                  //cp.Style &= ~0x02000000;  // - WS_CLIPCHILDREN
+        //cp.Style &= ~0x02000000;  // - WS_CLIPCHILDREN
       }
       return cp;
     }
@@ -46,8 +48,6 @@ partial class MainForm
     base.CenterToScreen();
   }
 
-  private bool DoScreenPositionMutex;
-
   /// <summary>
   /// Executes the screen location operation.
   /// </summary>
@@ -59,33 +59,13 @@ partial class MainForm
     try
     {
       DoScreenPositionMutex = true;
-      int left = SystemInformation.WorkingArea.Left;
-      int top = SystemInformation.WorkingArea.Top;
-      int width = SystemInformation.WorkingArea.Width;
-      int height = SystemInformation.WorkingArea.Height;
-      if ( sender is ToolStripMenuItem )
+      if ( sender is ToolStripMenuItem menuItem )
       {
-        var value = sender as ToolStripMenuItem;
-        foreach ( ToolStripMenuItem item in ( (ToolStripMenuItem)value.OwnerItem ).DropDownItems )
-          item.Checked = item == value;
+        foreach ( ToolStripMenuItem item in ( (ToolStripMenuItem)menuItem.OwnerItem ).DropDownItems )
+          item.Checked = item == menuItem;
       }
-      if ( EditScreenNone.Checked )
-        return;
-      if ( EditScreenTopLeft.Checked )
-        Location = new Point(left, top);
-      else
-      if ( EditScreenTopRight.Checked )
-        Location = new Point(left + width - Width, top);
-      else
-      if ( EditScreenBottomLeft.Checked )
-        Location = new Point(left, top + height - Height);
-      else
-      if ( EditScreenBottomRight.Checked )
-        Location = new Point(left + width - Width, top + height - Height);
-      else
-      if ( EditScreenCenter.Checked )
-        CenterToScreen();
-      EditScreenNone.Checked = false;
+      if ( Globals.IsReady ) Settings.Store();
+      this.SetLocation(Settings.MainFormPosition);
     }
     finally
     {
