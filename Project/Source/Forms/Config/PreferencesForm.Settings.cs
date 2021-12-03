@@ -128,8 +128,8 @@ partial class PreferencesForm : Form
       Settings.Reload();
       Settings.BenchmarkStartingApp = starttime;
       Settings.BenchmarkLoadData = loadtime;
-      SystemManager.TryCatch(Settings.Save);
       Settings.Retrieve();
+      SystemManager.TryCatch(Settings.Save);
       Program.UpdateLocalization();
       Settings.SetFirstAndUpgradeFlagsOff();
       LanguageChanged = true;
