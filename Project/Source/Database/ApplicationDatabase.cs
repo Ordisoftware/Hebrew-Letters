@@ -24,7 +24,6 @@ class ApplicationDatabase : SQLiteDatabase
   static ApplicationDatabase()
   {
     Instance = new ApplicationDatabase();
-    SQLiteDatabase.Instance = Instance;
   }
 
   public List<Letter> Letters { get; private set; }
