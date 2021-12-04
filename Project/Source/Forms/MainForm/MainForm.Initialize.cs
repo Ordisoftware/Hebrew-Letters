@@ -154,6 +154,7 @@ partial class MainForm
     ProcessNewsAndCommandLine();
     if ( Globals.IsDebugExecutable ) // TODO remove when ready
       ActionViewNotebook.Visible = true;
+    this.ForceBringToFront();
   }
 
   /// <summary>
