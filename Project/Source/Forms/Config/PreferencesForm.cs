@@ -144,6 +144,11 @@ partial class PreferencesForm : Form
     Close();
   }
 
+  private void EditCheckUpdateAtStartup_CheckedChanged(object sender, EventArgs e)
+  {
+    EditCheckUpdateAtStartupInterval.Enabled = EditCheckUpdateAtStartup.Checked;
+  }
+
   private void EditFontSize_ValueChanged(object sender, EventArgs e)
   {
     MainForm.Instance.EditSentence.Font = new Font("Microsoft Sans Serif", (float)EditFontSize.Value);
