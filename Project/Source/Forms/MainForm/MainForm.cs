@@ -431,16 +431,9 @@ partial class MainForm : Form
     SetView(ViewMode.Letters);
   }
 
-  private bool ViewNotebookFirstTime = true;
-
   private void ActionViewNotebook_Click(object sender, EventArgs e)
   {
     SetView(ViewMode.Notebook);
-    if ( ViewNotebookFirstTime )
-    {
-      ViewNotebookFirstTime = false;
-      ActionNotebookClearLetter.PerformClick();
-    }
   }
 
   /// <summary>

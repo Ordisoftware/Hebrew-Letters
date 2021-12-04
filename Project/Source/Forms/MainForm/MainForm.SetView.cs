@@ -46,6 +46,7 @@ partial class MainForm
 
   private int SavedSelectionStart;
   private int SavedSelectionLength;
+  private bool ViewNotebookFirstTime = true;
 
   /// <summary>
   /// Sets the view panel.
@@ -122,6 +123,11 @@ partial class MainForm
       SavedSelectionLength = EditWord.TextBox.SelectionLength;
     }
     LabelCurrentView.Text = AppTranslations.CurrentViewText[view].GetLang();
+    if ( view == ViewMode.Notebook && ViewNotebookFirstTime )
+    {
+      ViewNotebookFirstTime = false;
+      ActionNotebookClearLetter.PerformClick();
+    }
   }
 
 }
