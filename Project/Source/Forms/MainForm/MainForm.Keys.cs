@@ -92,7 +92,7 @@ partial class MainForm
         return true;
     }
     // Letters navigation
-    if ( Globals.AllowClose && Program.Settings.CurrentView == ViewMode.Letters )
+    if ( Globals.AllowClose && Settings.CurrentView == ViewMode.Letters )
       switch ( keyData )
       {
         case Keys.Control | Keys.Home:

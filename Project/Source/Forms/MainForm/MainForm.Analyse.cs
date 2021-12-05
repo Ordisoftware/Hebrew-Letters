@@ -101,7 +101,7 @@ partial class MainForm
           LettersMeanings[letter.ValueSimple][indexMeaning++] = letter.Structure;
           LettersMeanings[letter.ValueSimple][indexMeaning++] = letter.Function;
           LettersMeanings[letter.ValueSimple][indexMeaning++] = Globals.ListSeparator;
-          if ( Program.Settings.AutoSortAnalysisMeanings )
+          if ( Settings.AutoSortAnalysisMeanings )
             Array.Sort(rowsMeanings, (x, y) => x.Text.CompareTo(y.Text));
           foreach ( var meaning in rowsMeanings )
             LettersMeanings[letter.ValueSimple][indexMeaning++] = meaning.Text;
