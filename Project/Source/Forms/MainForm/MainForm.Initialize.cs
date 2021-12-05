@@ -85,7 +85,7 @@ partial class MainForm
     Globals.ChronoStartingApp.Start();
     InitializeTheme();
     InitializeDialogsDirectory();
-    Program.Settings.CurrentView = ViewMode.Analysis;
+    Settings.CurrentView = ViewMode.Analysis;
     LoadData();
     Program.UpdateLocalization();
     Globals.IsReady = true;
@@ -162,7 +162,7 @@ partial class MainForm
   /// </summary>
   private void DoFormClosed(object sender, FormClosedEventArgs e)
   {
-    Program.Settings.CurrentView = ViewMode.Analysis;
+    Settings.CurrentView = ViewMode.Analysis;
     Globals.IsExiting = true;
     Globals.IsSessionEnding = true;
     Globals.AllowClose = true;

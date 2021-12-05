@@ -52,17 +52,8 @@ partial class MainForm
   /// Sets the view panel.
   /// </summary>
   /// <param name="view">The view mode.</param>
-  public void SetView(ViewMode view)
-  {
-    SetView(view, false);
-  }
-
-  /// <summary>
-  /// Sets the view panel.
-  /// </summary>
-  /// <param name="view">The view mode.</param>
   /// <param name="first">true to first.</param>
-  public void SetView(ViewMode view, bool first)
+  public void SetView(ViewMode view, bool first = false)
   {
     var ViewPanels = new Dictionary<ViewMode, ViewConnector>()
     {
@@ -94,17 +85,16 @@ partial class MainForm
         }
       }
     };
-    if ( Program.Settings.CurrentView == view && !first ) return;
-    if ( Program.Settings.CurrentView == ViewMode.Letters )
-    {
-      ViewPanels[Program.Settings.CurrentView].Focused.Focus();
-    }
-    ViewPanels[Program.Settings.CurrentView].MenuItem.Checked = false;
-    ViewPanels[Program.Settings.CurrentView].Panel.Parent = null;
+    if ( Settings.CurrentView == view && !first ) return;
+    if ( Settings.CurrentView == ViewMode.Letters )
+      ViewPanels[Settings.CurrentView].Focused.Focus();
+    ViewPanels[Settings.CurrentView].MenuItem.Checked = false;
+    ViewPanels[Settings.CurrentView].Panel.Parent = null;
     ViewPanels[view].MenuItem.Checked = true;
     ViewPanels[view].Panel.Parent = PanelMainCenter;
     ViewPanels[view].Focused.Focus();
-    Program.Settings.CurrentView = view;
+    Settings.CurrentView = view;
+    LabelCurrentView.Text = AppTranslations.CurrentViewText[view].GetLang();
     if ( view == ViewMode.Analysis )
     {
       EditWord.TextBox.SelectionStart = SavedSelectionStart;
@@ -122,7 +112,6 @@ partial class MainForm
       SavedSelectionStart = EditWord.TextBox.SelectionStart;
       SavedSelectionLength = EditWord.TextBox.SelectionLength;
     }
-    LabelCurrentView.Text = AppTranslations.CurrentViewText[view].GetLang();
     if ( view == ViewMode.Notebook && ViewNotebookFirstTime )
     {
       ViewNotebookFirstTime = false;
