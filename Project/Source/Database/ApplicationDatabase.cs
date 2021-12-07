@@ -73,7 +73,7 @@ class ApplicationDatabase : SQLiteDatabase
     LettersAsBindingList = new BindingListView<Letter>(Letters);
   }
 
-  protected override void CreateBindingInstances()
+  protected override void CreateBindingLists()
   {
     LettersAsBindingList = new BindingListView<Letter>(Letters);
   }
