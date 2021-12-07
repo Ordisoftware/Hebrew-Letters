@@ -43,8 +43,8 @@ partial class MainForm
   /// </summary>
   private bool DataChanged;
 
-  public ApplicationDatabase DBApp = ApplicationDatabase.Instance;
-  public HebrewDatabase DBHebrew = HebrewDatabase.Instance;
+  public ApplicationDatabase DBApp => ApplicationDatabase.Instance;
+  public HebrewDatabase DBHebrew => HebrewDatabase.Instance;
 
   public BindingListView<Letter> LettersAsBindingList => ApplicationDatabase.Instance.LettersAsBindingList;
 

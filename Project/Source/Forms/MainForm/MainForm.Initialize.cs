@@ -28,6 +28,7 @@ partial class MainForm
   /// </summary>
   private void DoConstructor()
   {
+    DoubleBuffered = Settings.WindowsDoubleBufferingEnabled;
     Interlocks.Take();
     new Task(InitializeIconsAndSound).Start();
     SystemManager.TryCatch(() => Icon = new Icon(Globals.ApplicationIconFilePath));
@@ -155,6 +156,7 @@ partial class MainForm
     if ( Globals.IsDebugExecutable ) // TODO remove when ready
       ActionViewNotebook.Visible = true;
     this.ForceBringToFront();
+    PanelTitleInner.Controls.OfType<Label>().ToList().ForEach(label => label.Visible = true);
   }
 
   /// <summary>
