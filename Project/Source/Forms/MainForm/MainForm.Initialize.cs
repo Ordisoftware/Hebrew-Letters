@@ -31,6 +31,7 @@ partial class MainForm
     DoubleBuffered = Settings.WindowsDoubleBufferingEnabled;
     Interlocks.Take();
     new Task(InitializeIconsAndSound).Start();
+    new Task(InitializeDialogsDirectory).Start();
     SystemManager.TryCatch(() => Icon = new Icon(Globals.ApplicationIconFilePath));
     Text = Globals.AssemblyTitle;
     ToolStrip.Renderer = new CheckedButtonsToolStripRenderer();
@@ -59,6 +60,7 @@ partial class MainForm
       ActionGematriaCombinationsSeparator.Visible = false;
       ActionGematriaCombinationsSeparator.Tag = int.MinValue;
     }
+    InitializeTheme();
   }
 
   /// <summary>
@@ -84,8 +86,6 @@ partial class MainForm
       return;
     }
     Globals.ChronoStartingApp.Start();
-    InitializeTheme();
-    InitializeDialogsDirectory();
     Settings.CurrentView = ViewMode.Analysis;
     LoadData();
     Program.UpdateLocalization();
