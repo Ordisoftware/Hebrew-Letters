@@ -19,7 +19,7 @@ using Equin.ApplicationFramework;
 class ApplicationDatabase : SQLiteDatabase
 {
 
-  static new public ApplicationDatabase Instance { get; protected set; }
+  static public ApplicationDatabase Instance { get; protected set; }
 
   static ApplicationDatabase()
   {
@@ -35,7 +35,7 @@ class ApplicationDatabase : SQLiteDatabase
   {
   }
 
-  protected override void Vacuum()
+  protected override void Vacuum(bool force = false)
   {
     if ( Program.Settings.VacuumAtStartup )
     {
@@ -73,7 +73,7 @@ class ApplicationDatabase : SQLiteDatabase
     LettersAsBindingList = new BindingListView<Letter>(Letters);
   }
 
-  protected override void CreateBindingInstances()
+  protected override void CreateBindingLists()
   {
     LettersAsBindingList = new BindingListView<Letter>(Letters);
   }
@@ -116,14 +116,13 @@ class ApplicationDatabase : SQLiteDatabase
     }
   }
 
-  protected override void CreateDataIfNotExist(bool reset = false)
+  protected override bool CreateDataIfNotExist(bool reset = false)
   {
-    base.CreateDataIfNotExist(reset);
     CheckAccess(Letters, nameof(Letters));
     CheckAccess(Meanings, nameof(Meanings));
     try
     {
-      if ( !reset && Connection.GetRowsCount(nameof(Letters)) == 22 ) return;
+      if ( !reset && Connection.GetRowsCount(nameof(Letters)) == 22 ) return false;
       bool temp = Globals.IsReady;
       Globals.IsReady = false;
       BeginTransaction();
@@ -174,6 +173,7 @@ class ApplicationDatabase : SQLiteDatabase
           }
         }
         Commit();
+        return true;
       }
       catch
       {
@@ -188,6 +188,7 @@ class ApplicationDatabase : SQLiteDatabase
     catch ( Exception ex )
     {
       ex.Manage();
+      return false;
     }
   }
 
