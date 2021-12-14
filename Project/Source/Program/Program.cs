@@ -11,11 +11,8 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2021-05 </edited>
+/// <edited> 2021-12 </edited>
 namespace Ordisoftware.Hebrew.Letters;
-
-using System.IO.Pipes;
-using System.Runtime.Serialization.Formatters.Binary;
 
 /// <summary>
 /// Provides Program class.
@@ -96,6 +93,17 @@ static partial class Program
         Settings.LanguageSelected = Languages.Current;
       // Force default view
       Settings.CurrentView = ViewMode.Analysis;
+      // Check applications
+      string pathWordsFolder = Path.Combine(Globals.CompanyProgramFilesFolderPath, "Hebrew Words", "Bin");
+      string pathWordsOld = Path.Combine(pathWordsFolder, "Ordisoftware.HebrewWords.exe");
+      string pathWordsDefault = (string)Settings.Properties["HebrewWordsExe"].DefaultValue;
+      // Check applications : Words
+      if ( !File.Exists(Settings.HebrewWordsExe) )
+        if ( File.Exists(pathWordsOld) )
+          Settings.HebrewWordsExe = pathWordsOld;
+        else
+        if ( File.Exists(pathWordsDefault) )
+          Settings.HebrewWordsExe = pathWordsDefault;
       // Save settings
       SystemManager.TryCatch(Settings.Save);
     }

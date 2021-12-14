@@ -84,6 +84,10 @@
       this.ActionUseColorsPastel = new System.Windows.Forms.LinkLabel();
       this.ActionUseColorsSystem = new System.Windows.Forms.LinkLabel();
       this.TabPageAnalyzer = new System.Windows.Forms.TabPage();
+      this.ActionResetHebrewWordsPath = new System.Windows.Forms.Button();
+      this.LabelHebrewWordsPath = new System.Windows.Forms.Label();
+      this.ActionSelectHebrewWordsPath = new System.Windows.Forms.Button();
+      this.EditHebrewWordsPath = new Ordisoftware.Core.TextBoxEx();
       this.label2 = new System.Windows.Forms.Label();
       this.label1 = new System.Windows.Forms.Label();
       this.EditAutoSortAnalysisMeanings = new System.Windows.Forms.CheckBox();
@@ -100,6 +104,7 @@
       this.EditAutoOpenExportedFile = new System.Windows.Forms.CheckBox();
       this.EditAutoOpenExportFolder = new System.Windows.Forms.CheckBox();
       this.EditExportFolder = new Ordisoftware.Core.TextBoxEx();
+      this.OpenExeFileDialog = new System.Windows.Forms.OpenFileDialog();
       LabelVolume = new System.Windows.Forms.Label();
       LabelCheckUpdateFrequency = new System.Windows.Forms.Label();
       this.PanelBottom.SuspendLayout();
@@ -524,6 +529,10 @@
       // 
       this.TabPageAnalyzer.BackColor = System.Drawing.SystemColors.Window;
       this.TabPageAnalyzer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.TabPageAnalyzer.Controls.Add(this.ActionResetHebrewWordsPath);
+      this.TabPageAnalyzer.Controls.Add(this.LabelHebrewWordsPath);
+      this.TabPageAnalyzer.Controls.Add(this.ActionSelectHebrewWordsPath);
+      this.TabPageAnalyzer.Controls.Add(this.EditHebrewWordsPath);
       this.TabPageAnalyzer.Controls.Add(this.label2);
       this.TabPageAnalyzer.Controls.Add(this.label1);
       this.TabPageAnalyzer.Controls.Add(this.EditAutoSortAnalysisMeanings);
@@ -533,6 +542,35 @@
       this.TabPageAnalyzer.Controls.Add(this.LabelMaxLength);
       resources.ApplyResources(this.TabPageAnalyzer, "TabPageAnalyzer");
       this.TabPageAnalyzer.Name = "TabPageAnalyzer";
+      // 
+      // ActionResetHebrewWordsPath
+      // 
+      this.ActionResetHebrewWordsPath.FlatAppearance.BorderSize = 0;
+      resources.ApplyResources(this.ActionResetHebrewWordsPath, "ActionResetHebrewWordsPath");
+      this.ActionResetHebrewWordsPath.Name = "ActionResetHebrewWordsPath";
+      this.ActionResetHebrewWordsPath.UseVisualStyleBackColor = true;
+      this.ActionResetHebrewWordsPath.Click += new System.EventHandler(this.ActionResetHebrewWordsPath_Click);
+      // 
+      // LabelHebrewWordsPath
+      // 
+      resources.ApplyResources(this.LabelHebrewWordsPath, "LabelHebrewWordsPath");
+      this.LabelHebrewWordsPath.Name = "LabelHebrewWordsPath";
+      // 
+      // ActionSelectHebrewWordsPath
+      // 
+      this.ActionSelectHebrewWordsPath.FlatAppearance.BorderSize = 0;
+      resources.ApplyResources(this.ActionSelectHebrewWordsPath, "ActionSelectHebrewWordsPath");
+      this.ActionSelectHebrewWordsPath.Name = "ActionSelectHebrewWordsPath";
+      this.ActionSelectHebrewWordsPath.UseVisualStyleBackColor = true;
+      this.ActionSelectHebrewWordsPath.Click += new System.EventHandler(this.ActionSelectHebrewWordsPath_Click);
+      // 
+      // EditHebrewWordsPath
+      // 
+      this.EditHebrewWordsPath.BackColor = System.Drawing.SystemColors.Control;
+      this.EditHebrewWordsPath.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
+      resources.ApplyResources(this.EditHebrewWordsPath, "EditHebrewWordsPath");
+      this.EditHebrewWordsPath.Name = "EditHebrewWordsPath";
+      this.EditHebrewWordsPath.ReadOnly = true;
       // 
       // label2
       // 
@@ -679,6 +717,10 @@
       this.EditExportFolder.Name = "EditExportFolder";
       this.EditExportFolder.ReadOnly = true;
       // 
+      // OpenExeFileDialog
+      // 
+      resources.ApplyResources(this.OpenExeFileDialog, "OpenExeFileDialog");
+      // 
       // PreferencesForm
       // 
       this.AcceptButton = this.ActionClose;
@@ -785,5 +827,10 @@
     private System.Windows.Forms.Label LabelChangeLangNotice;
     private System.Windows.Forms.Label LabelTextColor;
     public System.Windows.Forms.Panel EditTextColor;
+    private Button ActionResetHebrewWordsPath;
+    private Label LabelHebrewWordsPath;
+    private Button ActionSelectHebrewWordsPath;
+    private TextBoxEx EditHebrewWordsPath;
+    private OpenFileDialog OpenExeFileDialog;
   }
 }
