@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-09 </created>
-/// <edited> 2021-02 </edited>
+/// <edited> 2021-12 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 using KVPImageExportTarget = KeyValuePair<ImageExportTarget, string>;
@@ -197,6 +197,25 @@ partial class PreferencesForm : Form
   {
     if ( DisplayManager.QueryYesNo(SysTranslations.AskToResetParameter.GetLang()) )
       EditExportFolder.Text = (string)Settings.Properties[nameof(Settings.ExportFolder)].DefaultValue;
+  }
+
+  private void DoActionSelectPath(FileDialog dialog, TextBox edit)
+  {
+    SystemManager.TryCatch(() => dialog.InitialDirectory = Path.GetDirectoryName(edit.Text));
+    SystemManager.TryCatch(() => dialog.FileName = Path.GetFileName(edit.Text));
+    if ( OpenExeFileDialog.ShowDialog() == DialogResult.OK )
+      edit.Text = dialog.FileName;
+  }
+
+  private void ActionSelectHebrewWordsPath_Click(object sender, EventArgs e)
+  {
+    DoActionSelectPath(OpenExeFileDialog, EditHebrewWordsPath);
+  }
+
+  private void ActionResetHebrewWordsPath_Click(object sender, EventArgs e)
+  {
+    if ( DisplayManager.QueryYesNo(SysTranslations.AskToResetParameter.GetLang()) )
+      EditHebrewWordsPath.Text = (string)Settings.Properties[nameof(Settings.HebrewWordsExe)].DefaultValue;
   }
 
   private void EditColor_Click(object sender, EventArgs e)

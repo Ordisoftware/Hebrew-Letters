@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-01 </created>
-/// <edited> 2021-11 </edited>
+/// <edited> 2021-12 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 /// <summary>
@@ -48,6 +48,21 @@ partial class MainForm
       ActionWebLinks.InitializeFromWebLinks(InitializeSpecialMenus);
   }
 
+  static private readonly Image HebrewWordsIcon = CreateImage("hebrew_words16.ico");
+
+  static private Image CreateImage(string fileName)
+  {
+    try
+    {
+      return Image.FromFile(Path.Combine(Globals.ProjectIconsApplicationsFolderPath, fileName));
+    }
+    catch ( Exception ex )
+    {
+      DebugManager.Trace(LogTraceEvent.Exception, new ExceptionInfo(null, ex).FullText);
+      return null;
+    }
+  }
+
   /// <summary>
   /// Creates providers links menu items.
   /// </summary>
@@ -59,6 +74,11 @@ partial class MainForm
       HebrewTools.OpenWordProvider((string)menuitem.Tag, EditWord.TextBox.Text);
       EditWord.Focus();
     });
+    var menuitem = new ToolStripMenuItem(AppTranslations.HebrewWordsSearch.GetLang(), HebrewWordsIcon);
+    menuitem.Click += (sender, e) => HebrewTools.OpenHebrewWordsSearchWord(EditWord.InputText, Settings.HebrewWordsExe);
+    if ( ContextMenuSearchOnline.Items.Count > 0 )
+      ContextMenuSearchOnline.Items.Insert(0, new ToolStripSeparator());
+    ContextMenuSearchOnline.Items.Insert(0, menuitem);
     ContextMenuOpenConcordance.InitializeFromProviders(HebrewGlobals.WebProvidersConcordance, (sender, e) =>
     {
       var menuitem = (ToolStripMenuItem)sender;

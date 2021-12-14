@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2021-02 </edited>
+/// <edited> 2021-12 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 /// <summary>
@@ -30,6 +30,12 @@ static partial class AppTranslations
   {
     [Language.EN] = "Meanings of the letters of the word",
     [Language.FR] = "Significations des lettres du mot"
+  };
+
+  static public readonly TranslationsDictionary HebrewWordsSearch = new()
+  {
+    [Language.EN] = "Hebrew Words Search",
+    [Language.FR] = "Hebrew Words Recherche"
   };
 
   static public readonly NullSafeDictionary<ViewMode, TranslationsDictionary> CurrentViewText = new()
