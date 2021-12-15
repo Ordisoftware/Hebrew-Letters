@@ -173,6 +173,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 #### In progress - Version 6.7
 
 - Maintenance release.
+- Update application's icons.
 - Some fixes.
 - Refactoring.
 
