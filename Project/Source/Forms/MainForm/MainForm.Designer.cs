@@ -28,7 +28,6 @@
     /// </summary>
     private void InitializeComponent()
     {
-      this.components = new System.ComponentModel.Container();
       System.Windows.Forms.Label LabelName;
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
       System.Windows.Forms.Label LabelStructure;
@@ -39,10 +38,10 @@
       System.Windows.Forms.Label LabelVerb;
       System.Windows.Forms.Label LabelPositive;
       System.Windows.Forms.Label LabelNegative;
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
       this.PanelMain = new System.Windows.Forms.Panel();
       this.PanelMainOuter = new System.Windows.Forms.Panel();
       this.PanelMainInner = new System.Windows.Forms.Panel();
@@ -50,11 +49,12 @@
       this.TabControl = new System.Windows.Forms.TabControl();
       this.TabPageText = new System.Windows.Forms.TabPage();
       this.PanelViewAnalysis = new System.Windows.Forms.Panel();
+      this.ActionCopyToMeanings = new System.Windows.Forms.Button();
       this.LabelClipboardContentType = new System.Windows.Forms.Label();
       this.EditCopyToClipboardCloseApp = new System.Windows.Forms.CheckBox();
       this.SelectAnalyze = new System.Windows.Forms.Panel();
       this.ActionSearchOnline = new System.Windows.Forms.Button();
-      this.ContextMenuSearchOnline = new System.Windows.Forms.ContextMenuStrip(this.components);
+      this.ContextMenuSearchOnline = new System.Windows.Forms.ContextMenuStrip();
       this.ActionPaste = new System.Windows.Forms.Button();
       this.ActionCopyToHebrew = new System.Windows.Forms.Button();
       this.ActionCopyToUnicode = new System.Windows.Forms.Button();
@@ -63,7 +63,6 @@
       this.ActionScreenshot = new System.Windows.Forms.Button();
       this.ActionViewAllMeaningsList = new System.Windows.Forms.Button();
       this.ActionSaveTermLettriq = new System.Windows.Forms.Button();
-      this.ActionCopyToMeanings = new System.Windows.Forms.Button();
       this.ActionCopyToResult = new System.Windows.Forms.Button();
       this.EditSentence = new Ordisoftware.Core.TextBoxEx();
       this.EditWord = new Ordisoftware.Hebrew.LettersControl();
@@ -95,7 +94,7 @@
       this.PanelLetter = new System.Windows.Forms.Panel();
       this.LettersNavigator = new Ordisoftware.Core.ComboBoxNavigator();
       this.SelectLetter = new System.Windows.Forms.ComboBox();
-      this.LettersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+      this.LettersBindingSource = new System.Windows.Forms.BindingSource();
       this.TextBoxStructure = new Ordisoftware.Core.TextBoxEx();
       this.LabelHebrew = new System.Windows.Forms.Label();
       this.ActionRestoreDefaults = new System.Windows.Forms.LinkLabel();
@@ -112,13 +111,13 @@
       this.ActionAddMeaning = new System.Windows.Forms.Button();
       this.EditMeanings = new System.Windows.Forms.DataGridView();
       this.ColumnMeaningsText = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.MeaningsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+      this.MeaningsBindingSource = new System.Windows.Forms.BindingSource();
       this.TabPageNotebook = new System.Windows.Forms.TabPage();
       this.PanelViewNotebook = new System.Windows.Forms.Panel();
       this.SplitContainerNotebook = new System.Windows.Forms.SplitContainer();
       this.ListNotebookWords = new System.Windows.Forms.DataGridView();
       this.hebrewDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.TermsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+      this.TermsBindingSource = new System.Windows.Forms.BindingSource();
       this.panel1 = new System.Windows.Forms.Panel();
       this.ListNotebookLetters = new System.Windows.Forms.DataGridView();
       this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -128,7 +127,7 @@
       this.ActionNotebookDeleteWord = new System.Windows.Forms.Button();
       this.ListNotebookSentences = new System.Windows.Forms.DataGridView();
       this.sentenceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.LettriqsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+      this.LettriqsBindingSource = new System.Windows.Forms.BindingSource();
       this.panel3 = new System.Windows.Forms.Panel();
       this.ActionNotebookClearFilter = new System.Windows.Forms.Button();
       this.EditNotebookFilterSentence = new System.Windows.Forms.TextBox();
@@ -138,7 +137,7 @@
       this.PanelTitleInner = new System.Windows.Forms.Panel();
       this.LabelCurrentView = new System.Windows.Forms.Label();
       this.LabelTitle = new System.Windows.Forms.Label();
-      this.TimerTooltip = new System.Windows.Forms.Timer(this.components);
+      this.TimerTooltip = new System.Windows.Forms.Timer();
       this.ToolStrip = new System.Windows.Forms.ToolStrip();
       this.ActionExit = new System.Windows.Forms.ToolStripButton();
       this.Sep4 = new System.Windows.Forms.ToolStripSeparator();
@@ -179,11 +178,11 @@
       this.ActionVacuumDB = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionWebLinks = new System.Windows.Forms.ToolStripDropDownButton();
       this.ActionInformation = new System.Windows.Forms.ToolStripDropDownButton();
-      this.TimerProcesses = new System.Windows.Forms.Timer(this.components);
+      this.TimerProcesses = new System.Windows.Forms.Timer();
       this.SaveImageDialog = new System.Windows.Forms.SaveFileDialog();
-      this.ToolTipClipboard = new System.Windows.Forms.ToolTip(this.components);
-      this.ContextMenuOpenTermLettriq = new System.Windows.Forms.ContextMenuStrip(this.components);
-      this.ContextMenuOpenConcordance = new System.Windows.Forms.ContextMenuStrip(this.components);
+      this.ToolTipClipboard = new System.Windows.Forms.ToolTip();
+      this.ContextMenuOpenTermLettriq = new System.Windows.Forms.ContextMenuStrip();
+      this.ContextMenuOpenConcordance = new System.Windows.Forms.ContextMenuStrip();
       LabelName = new System.Windows.Forms.Label();
       LabelStructure = new System.Windows.Forms.Label();
       LabelFunction = new System.Windows.Forms.Label();
@@ -346,6 +345,14 @@
       this.PanelViewAnalysis.Controls.Add(this.PanelGematria);
       this.PanelViewAnalysis.Name = "PanelViewAnalysis";
       // 
+      // ActionCopyToMeanings
+      // 
+      resources.ApplyResources(this.ActionCopyToMeanings, "ActionCopyToMeanings");
+      this.ActionCopyToMeanings.FlatAppearance.BorderSize = 0;
+      this.ActionCopyToMeanings.Name = "ActionCopyToMeanings";
+      this.ActionCopyToMeanings.UseVisualStyleBackColor = true;
+      this.ActionCopyToMeanings.Click += new System.EventHandler(this.ActionCopyToMeanings_Click);
+      // 
       // LabelClipboardContentType
       // 
       resources.ApplyResources(this.LabelClipboardContentType, "LabelClipboardContentType");
@@ -446,14 +453,6 @@
       this.ActionSaveTermLettriq.UseVisualStyleBackColor = true;
       this.ActionSaveTermLettriq.Click += new System.EventHandler(this.ActionSaveTermLettriq_Click);
       // 
-      // ActionCopyToMeanings
-      // 
-      resources.ApplyResources(this.ActionCopyToMeanings, "ActionCopyToMeanings");
-      this.ActionCopyToMeanings.FlatAppearance.BorderSize = 0;
-      this.ActionCopyToMeanings.Name = "ActionCopyToMeanings";
-      this.ActionCopyToMeanings.UseVisualStyleBackColor = true;
-      this.ActionCopyToMeanings.Click += new System.EventHandler(this.ActionCopyToMeanings_Click);
-      // 
       // ActionCopyToResult
       // 
       resources.ApplyResources(this.ActionCopyToResult, "ActionCopyToResult");
@@ -475,6 +474,7 @@
       // EditWord
       // 
       this.EditWord.BackColor = System.Drawing.Color.Transparent;
+      this.EditWord.ContextMenuDetailsVisible = false;
       resources.ApplyResources(this.EditWord, "EditWord");
       this.EditWord.MarginX = -5;
       this.EditWord.MarginY = 0;
@@ -963,9 +963,9 @@
       this.ListNotebookWords.Name = "ListNotebookWords";
       this.ListNotebookWords.ReadOnly = true;
       this.ListNotebookWords.RowHeadersVisible = false;
-      dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-      dataGridViewCellStyle6.Font = new System.Drawing.Font("Hebrew", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.ListNotebookWords.RowsDefaultCellStyle = dataGridViewCellStyle6;
+      dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+      dataGridViewCellStyle2.Font = new System.Drawing.Font("Hebrew", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.ListNotebookWords.RowsDefaultCellStyle = dataGridViewCellStyle2;
       this.ListNotebookWords.RowTemplate.Height = 28;
       this.ListNotebookWords.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
       this.ListNotebookWords.ShowCellToolTips = false;
@@ -975,9 +975,9 @@
       // 
       this.hebrewDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
       this.hebrewDataGridViewTextBoxColumn.DataPropertyName = "Hebrew";
-      dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-      dataGridViewCellStyle5.Font = new System.Drawing.Font("Hebrew", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.hebrewDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+      dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+      dataGridViewCellStyle1.Font = new System.Drawing.Font("Hebrew", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.hebrewDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
       resources.ApplyResources(this.hebrewDataGridViewTextBoxColumn, "hebrewDataGridViewTextBoxColumn");
       this.hebrewDataGridViewTextBoxColumn.Name = "hebrewDataGridViewTextBoxColumn";
       this.hebrewDataGridViewTextBoxColumn.ReadOnly = true;
@@ -1009,9 +1009,9 @@
       this.ListNotebookLetters.Name = "ListNotebookLetters";
       this.ListNotebookLetters.ReadOnly = true;
       this.ListNotebookLetters.RowHeadersVisible = false;
-      dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-      dataGridViewCellStyle8.Font = new System.Drawing.Font("Hebrew", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.ListNotebookLetters.RowsDefaultCellStyle = dataGridViewCellStyle8;
+      dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+      dataGridViewCellStyle4.Font = new System.Drawing.Font("Hebrew", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.ListNotebookLetters.RowsDefaultCellStyle = dataGridViewCellStyle4;
       this.ListNotebookLetters.RowTemplate.Height = 28;
       this.ListNotebookLetters.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
       this.ListNotebookLetters.ShowCellToolTips = false;
@@ -1021,9 +1021,9 @@
       // 
       this.codeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
       this.codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
-      dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-      dataGridViewCellStyle7.Font = new System.Drawing.Font("Hebrew", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.codeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
+      dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+      dataGridViewCellStyle3.Font = new System.Drawing.Font("Hebrew", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.codeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
       resources.ApplyResources(this.codeDataGridViewTextBoxColumn, "codeDataGridViewTextBoxColumn");
       this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
       this.codeDataGridViewTextBoxColumn.ReadOnly = true;
