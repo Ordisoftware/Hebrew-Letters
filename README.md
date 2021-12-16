@@ -33,10 +33,10 @@ A libre and open-source software written in C# that helps for the lettriq letter
 ## Functionalities
 
 - Hebrew letters database with their customizable meanings.
-- Analyze a word letter by letter to get a sentence describing its sense.
+- Analyze a word letter-by-letter to get a sentence describing its sense.
 - Online research with Pealim, Sefaria, Shorashim, Wiktionary, Translator, etc.
 - Store results in a notebook that can also be used in Hebrew Words.
-- Copy the result or a screenshot to the clipboard.
+- Copy analysis to the clipboard or take a screenshot.
 - English, French.
 
 ## Review
@@ -56,12 +56,12 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 
 ## Download
 
-**What's new in the latest version 6**
+**What's new in the latest version 6.x**
 
+- SQLite ODBC Driver is no more needed.
 - Overall performances are optimized.
 - Some fixes and improvements.
 - Update web links.
-- SQLite ODBC Driver is no more needed.
 
 [Last release](https://github.com/Ordisoftware/Hebrew-Letters/releases/latest)
 
@@ -80,6 +80,12 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 #### What to do if the check update tells that the SSL certificate is wrong or expired?
 
 The software verifies the validity of the certificate of the update server in addition to the SHA-512 checksum of the installation file before downloading and running it. This certificate is normally updated within the two months of its annual expiration and a new version is released. You can manually check the latest version available online in case of problem.
+
+#### What is the Windows double-buffering?
+
+When enabled, this will speed up rendering of the main form when it is displayed, but it may cause a slight black flicker.
+
+When disabled, top menu painting may cause latency.
 
 #### What are command-line options?
 
@@ -164,18 +170,19 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 ## Changelog
 
-#### In progress - Version 7.0
+#### In progress for 2022 - Version 7.0
 
 - Add analyzed words data table and notebook view to save results.
 - Add concordance, transcription, dictionary and comment fields for word analysis.
 - Add search online concordance.
 
-#### In progress - Version 6.7
+#### 2021.12.19 - Version 6.7
 
 - Maintenance release.
-- Update application's icons.
 - Some fixes.
 - Refactoring.
+- Update web links.
+- Update hebrew applications' icons.
 
 #### 2021.12.05 - Version 6.6
 
