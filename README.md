@@ -182,7 +182,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Some fixes.
 - Refactoring.
 - Update web links.
-- Update hebrew applications' icons.
+- Update Hebrew applications' icons.
 
 #### 2021.12.05 - Version 6.6
 
