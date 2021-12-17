@@ -4060,16 +4060,16 @@
   </data>
   <data name="ActionGematriaCombinations.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHESURBVDhPxVJNTxpRFB1kgitr3BniB51hqJmBB4MRsBSp
-        X2mTtpsajSubmYF/YP+EsmZBP3bq1t/FcjIEkI/Te6+FuGhi0o03HHLeeeedd9/NaC9fSqn7bDYLx3Ge
-        hW3bc/Cazt1rfLjZbCIIfPi+j0ajIetGEMD3PHiEgDjrzGdgLwdJwP7hEaq1PVSq71A/OAQ1hlr9PUqV
-        XewQqnt10X50Oii/rQo6xDOZDDTHseEFTZyenYPr4psn5p+/fsua6+b2TrTReIyvJ2eEUzyMRkibJgc4
-        +PT5CyaTMfr9Po4/fBRzr9dHjW5mRFFPtOtWC5hO6TfBVev6sQMaIsrlCra2bAwGAyiVF/OUjI7Dw80K
-        Z419xeI2XLeIUqnMQ4Tmuq5sMsIwnPMoiv7Jn6JQKDwGLC+vQNcTGA6HiMd12ex2u3Mj81gshqWlV1hY
-        0Om5EyQSi8jnqVtO4TYNw5SBmWaaQuK4vPwuRgZzXY/DsjLi4Ys2N1P0XAWNUyzrDQWksbHxmgJoMHRr
-        KmUgmVwTMGfNMCysribRbrexvv43gP5CDpmBO+JnMVcqJ2A+03hw/AHlcrynQgrWCoTt/wSffdHStD/r
-        slK0fv5gNAAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wgAADsIBFShKgAAAAcRJREFUOE/FUk1PGlEUHWSCK2vcGeIHnWGomYEHgxGwFKlfaZO2mxqNK5uZgX9g
+        /4SyZkE/durW38VyMgSQj9N7r4W4aGLSjTccct555513381oL19KqftsNgvHcZ6Fbdtz8JrO3Wt8uNls
+        Igh8+L6PRqMh60YQwPc8eISAOOvMZ2AvB0nA/uERqrU9VKrvUD84BDWGWv09SpVd7BCqe3XRfnQ6KL+t
+        CjrEM5kMNMex4QVNnJ6dg+vimyfmn79+y5rr5vZOtNF4jK8nZ4RTPIxGSJsmBzj49PkLJpMx+v0+jj98
+        FHOv10eNbmZEUU+061YLmE7pN8FV6/qxAxoiyuUKtrZsDAYDKJUX85SMjsPDzQpnjX3F4jZct4hSqcxD
+        hOa6rmwywjCc8yiK/smfolAoPAYsL69A1xMYDoeIx3XZ7Ha7cyPzWCyGpaVXWFjQ6bkTJBKLyOepW07h
+        Ng3DlIGZZppC4ri8/C5GBnNdj8OyMuLhizY3U/RcBY1TLOsNBaSxsfGaAmgwdGsqZSCZXBMwZ80wLKyu
+        JtFut7G+/jeA/kIOmYE74mcxVyonYD7TeHD8AeVyvKdCCtYKhO3/BJ990dK0P+uyUrR+/mA0AAAAAElF
+        TkSuQmCC
 </value>
   </data>
   <data name="ActionGematriaCombinations.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
@@ -4319,10 +4319,10 @@
     <value>349, 16</value>
   </metadata>
   <metadata name="ContextMenuOpenTermLettriq.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>819, 19</value>
+    <value>822, 18</value>
   </metadata>
   <data name="ContextMenuOpenTermLettriq.Size" type="System.Drawing.Size, System.Drawing">
-    <value>36, 4</value>
+    <value>156, 26</value>
   </data>
   <data name="&gt;&gt;ContextMenuOpenTermLettriq.Name" xml:space="preserve">
     <value>ContextMenuOpenTermLettriq</value>

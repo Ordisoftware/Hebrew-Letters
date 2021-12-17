@@ -74,7 +74,7 @@ partial class MainForm
       HebrewTools.OpenWordProvider((string)menuitem.Tag, EditWord.TextBox.Text);
       EditWord.Focus();
     });
-    var menuitem = new ToolStripMenuItem(AppTranslations.HebrewWordsSearch.GetLang(), HebrewWordsIcon);
+    var menuitem = new ToolStripMenuItem("Hebrew Words", HebrewWordsIcon);
     menuitem.Click += (sender, e) => HebrewTools.OpenHebrewWordsSearchWord(EditWord.InputText, Settings.HebrewWordsExe);
     if ( ContextMenuSearchOnline.Items.Count > 0 )
       ContextMenuSearchOnline.Items.Insert(0, new ToolStripSeparator());

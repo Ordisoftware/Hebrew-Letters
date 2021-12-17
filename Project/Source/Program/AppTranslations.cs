@@ -32,12 +32,6 @@ static partial class AppTranslations
     [Language.FR] = "Significations des lettres du mot"
   };
 
-  static public readonly TranslationsDictionary HebrewWordsSearch = new()
-  {
-    [Language.EN] = "Hebrew Words Search",
-    [Language.FR] = "Hebrew Words Recherche"
-  };
-
   static public readonly NullSafeDictionary<ViewMode, TranslationsDictionary> CurrentViewText = new()
   {
     [ViewMode.Analysis] = new TranslationsDictionary
