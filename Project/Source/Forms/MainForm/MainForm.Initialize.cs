@@ -157,6 +157,7 @@ partial class MainForm
       ActionViewNotebook.Visible = true;
     this.ForceBringToFront();
     PanelTitleInner.Controls.OfType<Label>().ToList().ForEach(label => label.Visible = true);
+    Settings.SetFirstAndUpgradeFlagsOff();
   }
 
   /// <summary>
