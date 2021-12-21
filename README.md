@@ -176,7 +176,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Add concordance, transcription, dictionary and comment fields for word analysis.
 - Add search online concordance.
 
-#### In progress - Version 6.8
+#### 2021.12.21 - Version 6.8
 
 - Few fixes and imrovements.
 - Add Judaism 101 website link.
