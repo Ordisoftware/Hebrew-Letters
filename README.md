@@ -179,6 +179,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 #### In progress - Version 6.8
 
 - Few fixes and imrovements.
+- Add Judaism 101 website link.
 
 #### 2021.12.16 - Version 6.7
 
