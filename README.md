@@ -178,8 +178,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 #### In progress  - Version 6.9
 
-- Code refactoring.
-- Few fixes.
+- Refactor and fix code.
 - Update web links.
 
 #### 2021.12.21 - Version 6.8
