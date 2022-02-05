@@ -60,7 +60,7 @@ partial class MainForm
         int top = marginTop + dy;
         // Letter
         var letter = DBApp.Letters.Find(l => l.Code == word[pos].ToString());
-        if ( letter == null ) continue;
+        if ( letter is null ) continue;
         sumSimple += letter.ValueSimple;
         sumFull += letter.ValueFull;
         // Label
@@ -90,7 +90,7 @@ partial class MainForm
         combobox.Enter += Combobox_Enter;
         label.Tag = combobox;
         // Meanings
-        if ( LettersMeanings[letter.ValueSimple] == null )
+        if ( LettersMeanings[letter.ValueSimple] is null )
         {
           int indexMeaning = 0;
           var rowsMeanings = letter.Meanings.ToArray();

@@ -120,7 +120,7 @@ static partial class Program
   {
     try
     {
-      if ( SystemManager.CommandLineOptions == null ) return;
+      if ( SystemManager.CommandLineOptions is null ) return;
       if ( SystemManager.CommandLineOptions.ResetSettings )
       {
         SystemManager.CleanAllLocalAppSettingsFolders();
