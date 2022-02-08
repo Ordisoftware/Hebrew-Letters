@@ -178,7 +178,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 #### In progress - Version 6.10
 
-- Fix go to letter's details context menu not visible since a previous version.
+- Fix switch to letter's details context menu item not visible since a previous version.
 - Code refactoring.
 - Update judaism web links.
 
