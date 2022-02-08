@@ -229,13 +229,16 @@ partial class LettersControl : UserControl
   /// </summary>
   public bool ContextMenuDetailsVisible
   {
-    get => ActionLetterViewDetails.Visible;
+    get => _ContextMenuDetailsVisible;
     set
     {
+      if ( !Globals.IsReady ) return;
+      _ContextMenuDetailsVisible = value;
       ActionLetterViewDetails.Visible = value;
       MenuItemSeparator.Visible = value;
     }
   }
+  private bool _ContextMenuDetailsVisible;
 
   /// <summary>
   /// Indicates if an input key is processed.
@@ -262,6 +265,7 @@ partial class LettersControl : UserControl
   /// <param name="e"></param>
   private void LettersControl_Load(object sender, EventArgs e)
   {
+    ActionLetterViewDetails_VisibleChanged(null, null);
     Redraw();
   }
 
@@ -379,7 +383,7 @@ partial class LettersControl : UserControl
       else
       if ( sender is ToolStripMenuItem menuItem )
         button = (Button)( (ContextMenuStrip)menuItem.Owner ).SourceControl;
-      if ( button != null )
+      if ( button is not null )
       {
         TextBox.Paste(button.Text);
         TextBox.SelectionStart--;
@@ -430,7 +434,7 @@ partial class LettersControl : UserControl
   /// <param name="e">The event information.</param>
   private void ActionLetterViewDetails_Click(object sender, EventArgs e)
   {
-    if ( ViewLetterDetails == null ) return;
+    if ( ViewLetterDetails is null ) return;
     var button = (Button)( (ContextMenuStrip)( (ToolStripMenuItem)sender ).Owner ).SourceControl;
     ViewLetterDetails(this, button.Text);
   }
@@ -445,8 +449,13 @@ partial class LettersControl : UserControl
     ActionLetterAddAtStart.Enabled = TextBox.Text.Length < TextBox.MaxLength;
     ActionLetterAddAtEnd.Enabled = ActionLetterAddAtStart.Enabled;
     ActionLetterAddAtCaret.Enabled = ActionLetterAddAtStart.Enabled || TextBox.SelectionLength > 0;
-    ActionLetterViewDetails.Enabled = ViewLetterDetails != null;
+    ActionLetterViewDetails.Enabled = ViewLetterDetails is not null;
     MenuItemSeparator.Enabled = ActionLetterViewDetails.Enabled;
+  }
+
+  private void ActionLetterViewDetails_VisibleChanged(object sender, EventArgs e)
+  {
+    ContextMenuDetailsVisible = ActionLetterViewDetails.Visible;
   }
 
 }

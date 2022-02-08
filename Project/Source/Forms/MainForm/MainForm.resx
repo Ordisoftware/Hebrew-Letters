@@ -1197,7 +1197,7 @@
     <value>EditSentence</value>
   </data>
   <data name="&gt;&gt;EditSentence.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.7.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.9.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;EditSentence.Parent" xml:space="preserve">
     <value>PanelViewAnalysis</value>
@@ -1218,7 +1218,7 @@
     <value>EditWord</value>
   </data>
   <data name="&gt;&gt;EditWord.Type" xml:space="preserve">
-    <value>Ordisoftware.Hebrew.LettersControl, Ordisoftware.Hebrew.Letters, Version=6.7.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Hebrew.LettersControl, Ordisoftware.Hebrew.Letters, Version=6.9.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;EditWord.Parent" xml:space="preserve">
     <value>PanelViewAnalysis</value>
@@ -1444,7 +1444,7 @@
     <value>EditDictionary</value>
   </data>
   <data name="&gt;&gt;EditDictionary.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.7.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.9.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;EditDictionary.Parent" xml:space="preserve">
     <value>PanelWordDetails</value>
@@ -1468,7 +1468,7 @@
     <value>EditMemo</value>
   </data>
   <data name="&gt;&gt;EditMemo.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.7.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.9.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;EditMemo.Parent" xml:space="preserve">
     <value>PanelWordDetails</value>
@@ -1492,7 +1492,7 @@
     <value>EditTranscription</value>
   </data>
   <data name="&gt;&gt;EditTranscription.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.7.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.9.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;EditTranscription.Parent" xml:space="preserve">
     <value>PanelWordDetails</value>
@@ -1755,7 +1755,7 @@
     <value>EditGematriaFull</value>
   </data>
   <data name="&gt;&gt;EditGematriaFull.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.7.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.9.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;EditGematriaFull.Parent" xml:space="preserve">
     <value>PanelGematria</value>
@@ -1851,7 +1851,7 @@
     <value>EditGematriaSimple</value>
   </data>
   <data name="&gt;&gt;EditGematriaSimple.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.7.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.9.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;EditGematriaSimple.Parent" xml:space="preserve">
     <value>PanelGematria</value>
@@ -2022,7 +2022,7 @@
     <value>LettersNavigator</value>
   </data>
   <data name="&gt;&gt;LettersNavigator.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.ComboBoxNavigator, Ordisoftware.Hebrew.Letters, Version=6.7.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.ComboBoxNavigator, Ordisoftware.Hebrew.Letters, Version=6.9.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;LettersNavigator.Parent" xml:space="preserve">
     <value>PanelLetter</value>
@@ -2043,7 +2043,7 @@
     <value>TextBoxStructure</value>
   </data>
   <data name="&gt;&gt;TextBoxStructure.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.7.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.9.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;TextBoxStructure.Parent" xml:space="preserve">
     <value>PanelLetter</value>
@@ -2124,7 +2124,7 @@
     <value>TextBoxNegative</value>
   </data>
   <data name="&gt;&gt;TextBoxNegative.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.7.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.9.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;TextBoxNegative.Parent" xml:space="preserve">
     <value>PanelLetter</value>
@@ -2145,7 +2145,7 @@
     <value>TextBoxName</value>
   </data>
   <data name="&gt;&gt;TextBoxName.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.7.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.9.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;TextBoxName.Parent" xml:space="preserve">
     <value>PanelLetter</value>
@@ -2166,7 +2166,7 @@
     <value>TextBoxFunction</value>
   </data>
   <data name="&gt;&gt;TextBoxFunction.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.7.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.9.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;TextBoxFunction.Parent" xml:space="preserve">
     <value>PanelLetter</value>
@@ -2187,7 +2187,7 @@
     <value>TextBoxPositive</value>
   </data>
   <data name="&gt;&gt;TextBoxPositive.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.7.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.9.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;TextBoxPositive.Parent" xml:space="preserve">
     <value>PanelLetter</value>
@@ -2208,7 +2208,7 @@
     <value>TextBoxVerb</value>
   </data>
   <data name="&gt;&gt;TextBoxVerb.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.7.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.9.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;TextBoxVerb.Parent" xml:space="preserve">
     <value>PanelLetter</value>
@@ -2229,7 +2229,7 @@
     <value>TextBoxValueSimple</value>
   </data>
   <data name="&gt;&gt;TextBoxValueSimple.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.7.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.9.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;TextBoxValueSimple.Parent" xml:space="preserve">
     <value>PanelLetter</value>
@@ -2250,7 +2250,7 @@
     <value>TextBoxValueFull</value>
   </data>
   <data name="&gt;&gt;TextBoxValueFull.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.7.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.9.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;TextBoxValueFull.Parent" xml:space="preserve">
     <value>PanelLetter</value>
@@ -4061,7 +4061,7 @@
   <data name="ActionGematriaCombinations.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAAcRJREFUOE/FUk1PGlEUHWSCK2vcGeIHnWGomYEHgxGwFKlfaZO2mxqNK5uZgX9g
+        wQAADsEBuJFr7QAAAcRJREFUOE/FUk1PGlEUHWSCK2vcGeIHnWGomYEHgxGwFKlfaZO2mxqNK5uZgX9g
         /4SyZkE/durW38VyMgSQj9N7r4W4aGLSjTccct555513381oL19KqftsNgvHcZ6Fbdtz8JrO3Wt8uNls
         Igh8+L6PRqMh60YQwPc8eISAOOvMZ2AvB0nA/uERqrU9VKrvUD84BDWGWv09SpVd7BCqe3XRfnQ6KL+t
         CjrEM5kMNMex4QVNnJ6dg+vimyfmn79+y5rr5vZOtNF4jK8nZ4RTPIxGSJsmBzj49PkLJpMx+v0+jj98
@@ -4322,7 +4322,7 @@
     <value>822, 18</value>
   </metadata>
   <data name="ContextMenuOpenTermLettriq.Size" type="System.Drawing.Size, System.Drawing">
-    <value>156, 26</value>
+    <value>36, 4</value>
   </data>
   <data name="&gt;&gt;ContextMenuOpenTermLettriq.Name" xml:space="preserve">
     <value>ContextMenuOpenTermLettriq</value>

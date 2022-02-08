@@ -50,7 +50,7 @@ class ApplicationDatabase : SQLiteDatabase
 
   protected override void DoClose()
   {
-    if ( Letters == null && Meanings == null ) return;
+    if ( Letters is null && Meanings is null ) return;
     if ( ClearListsOnCloseOrRelease )
     {
       Meanings?.Clear();

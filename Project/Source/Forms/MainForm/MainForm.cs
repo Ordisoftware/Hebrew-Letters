@@ -335,7 +335,7 @@ partial class MainForm : Form
     bool exit = WebCheckUpdate.Run(Settings.CheckUpdateAtStartup,
                                    ref lastdone,
                                    Settings.CheckUpdateAtStartupDaysInterval,
-                                   e == null);
+                                   e is null);
     Settings.CheckUpdateLastDone = lastdone;
     if ( exit ) Close();
   }
@@ -711,7 +711,7 @@ partial class MainForm : Form
   {
     string hebrew = EditWord.TextBox.Text;
     var term = DBHebrew.TermsHebrew.Find(t => t.Hebrew == hebrew);
-    if ( term == null )
+    if ( term is null )
     {
       term = new TermHebrew
       {
@@ -853,7 +853,7 @@ partial class MainForm : Form
     try
     {
       forceEditMode = forceEditMode || EditMeanings.IsCurrentCellInEditMode;
-      if ( SelectLetter.SelectedItem == null ) return;
+      if ( SelectLetter.SelectedItem is null ) return;
       var letter = ( (ObjectView<Letter>)SelectLetter.SelectedItem ).Object;
       ActionAddMeaning.Enabled = !Globals.IsReadOnly && !forceEditMode;
       ActionDeleteMeaning.Enabled = !Globals.IsReadOnly && !forceEditMode && letter.Meanings.Count > 0;
@@ -971,7 +971,7 @@ partial class MainForm : Form
   private void TextBoxData_ContextMenuAction_Click(object sender, EventArgs e)
   {
     var textbox = TextBoxEx.GetTextBox(sender);
-    if ( textbox != null )
+    if ( textbox is not null )
       if ( textbox.Tag is string value )
         if ( value == "data" )
         {
@@ -1143,7 +1143,7 @@ partial class MainForm : Form
   private void ListNotebookLetters_SelectionChanged(object sender, EventArgs e)
   {
     if ( !Globals.IsReady ) return;
-    if ( DBHebrew.TermsHebrewAsBindingList == null ) return;
+    if ( DBHebrew.TermsHebrewAsBindingList is null ) return;
     if ( ListNotebookLetters.SelectedCells.Count > 0 )
     {
       string code = (string)ListNotebookLetters.SelectedCells[0].Value;
@@ -1162,7 +1162,7 @@ partial class MainForm : Form
   private void ListNotebookWords_SelectionChanged(object sender, EventArgs e)
   {
     if ( !Globals.IsReady ) return;
-    if ( DBHebrew.TermLettriqsAsBindingList == null ) return;
+    if ( DBHebrew.TermLettriqsAsBindingList is null ) return;
     if ( ListNotebookWords.SelectedRows.Count > 0 )
     {
 
@@ -1181,7 +1181,7 @@ partial class MainForm : Form
   {
     var lettriq = ( (ObjectView<TermLettriq>)ListNotebookSentences[e.ColumnIndex, e.RowIndex].OwningRow.DataBoundItem ).Object;
     var word = DBHebrew.TermsHebrew.Find(t => t.ID == lettriq.TermID);
-    if ( word == null ) return;
+    if ( word is null ) return;
     bool b1 = EditWord.TextBox.Text != string.Empty;
     bool b2 = EditWord.TextBox.Text != word.Hebrew;
     if ( b1 && b2 && !DisplayManager.QueryOkCancel("Replace current analysis?") )
@@ -1191,7 +1191,7 @@ partial class MainForm : Form
     var item = ContextMenuOpenTermLettriq.Items
                                          .Cast<ToolStripMenuItem>()
                                          .FirstOrDefault(mi => mi.Text == lettriq.Sentence);
-    if ( item == null ) return;
+    if ( item is null ) return;
     item.PerformClick();
   }
 

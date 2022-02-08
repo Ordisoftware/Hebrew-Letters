@@ -86,7 +86,7 @@ partial class SearchTermResultsBox : Form
   private void ListBoxLetters_SelectedIndexChanged(object sender, EventArgs e)
   {
     ListBoxMeanings.Items.Clear();
-    ActionSearch.Enabled = ListBoxLetters.SelectedItem != null;
+    ActionSearch.Enabled = ListBoxLetters.SelectedItem is not null;
     if ( !ActionSearch.Enabled ) return;
     var item = (LetterItem)ListBoxLetters.SelectedItem;
     void check(string meaning)
@@ -105,7 +105,7 @@ partial class SearchTermResultsBox : Form
 
   private void ListBoxMeanings_SelectedIndexChanged(object sender, EventArgs e)
   {
-    ActionSearch.Enabled = ListBoxLetters.SelectedItem != null && ListBoxMeanings.SelectedItem != null;
+    ActionSearch.Enabled = ListBoxLetters.SelectedItem is not null && ListBoxMeanings.SelectedItem is not null;
   }
 
   private void ListBox_KeyDown(object sender, KeyEventArgs e)
@@ -126,7 +126,7 @@ partial class SearchTermResultsBox : Form
   private void ListBox_DrawItem(object sender, DrawItemEventArgs e)
   {
     var listbox = sender as ListBox;
-    if ( sender == null ) return;
+    if ( sender is null ) return;
     if ( e.Index < 0 ) return;
     bool selected = ( e.State & DrawItemState.Selected ) == DrawItemState.Selected;
     if ( selected )
