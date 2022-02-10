@@ -84,6 +84,9 @@
       this.ActionUseColorsPastel = new System.Windows.Forms.LinkLabel();
       this.ActionUseColorsSystem = new System.Windows.Forms.LinkLabel();
       this.TabPageAnalyzer = new System.Windows.Forms.TabPage();
+      this.ActionResetCustomWebSearch = new System.Windows.Forms.Button();
+      this.LabelCustomWebSearch = new System.Windows.Forms.Label();
+      this.EditCustomWebSearch = new Ordisoftware.Core.TextBoxEx();
       this.ActionResetHebrewWordsPath = new System.Windows.Forms.Button();
       this.LabelHebrewWordsPath = new System.Windows.Forms.Label();
       this.ActionSelectHebrewWordsPath = new System.Windows.Forms.Button();
@@ -529,6 +532,9 @@
       // 
       this.TabPageAnalyzer.BackColor = System.Drawing.SystemColors.Window;
       this.TabPageAnalyzer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.TabPageAnalyzer.Controls.Add(this.ActionResetCustomWebSearch);
+      this.TabPageAnalyzer.Controls.Add(this.LabelCustomWebSearch);
+      this.TabPageAnalyzer.Controls.Add(this.EditCustomWebSearch);
       this.TabPageAnalyzer.Controls.Add(this.ActionResetHebrewWordsPath);
       this.TabPageAnalyzer.Controls.Add(this.LabelHebrewWordsPath);
       this.TabPageAnalyzer.Controls.Add(this.ActionSelectHebrewWordsPath);
@@ -542,6 +548,27 @@
       this.TabPageAnalyzer.Controls.Add(this.LabelMaxLength);
       resources.ApplyResources(this.TabPageAnalyzer, "TabPageAnalyzer");
       this.TabPageAnalyzer.Name = "TabPageAnalyzer";
+      // 
+      // ActionResetCustomWebSearch
+      // 
+      this.ActionResetCustomWebSearch.FlatAppearance.BorderSize = 0;
+      resources.ApplyResources(this.ActionResetCustomWebSearch, "ActionResetCustomWebSearch");
+      this.ActionResetCustomWebSearch.Name = "ActionResetCustomWebSearch";
+      this.ActionResetCustomWebSearch.UseVisualStyleBackColor = true;
+      this.ActionResetCustomWebSearch.Click += new System.EventHandler(this.ActionResetCustomWebSearch_Click);
+      // 
+      // LabelCustomWebSearch
+      // 
+      resources.ApplyResources(this.LabelCustomWebSearch, "LabelCustomWebSearch");
+      this.LabelCustomWebSearch.Name = "LabelCustomWebSearch";
+      // 
+      // EditCustomWebSearch
+      // 
+      this.EditCustomWebSearch.BackColor = System.Drawing.SystemColors.Control;
+      this.EditCustomWebSearch.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
+      resources.ApplyResources(this.EditCustomWebSearch, "EditCustomWebSearch");
+      this.EditCustomWebSearch.Name = "EditCustomWebSearch";
+      this.EditCustomWebSearch.ReadOnly = true;
       // 
       // ActionResetHebrewWordsPath
       // 
@@ -832,5 +859,8 @@
     private Button ActionSelectHebrewWordsPath;
     private TextBoxEx EditHebrewWordsPath;
     private OpenFileDialog OpenExeFileDialog;
+    private Button ActionResetCustomWebSearch;
+    private Label LabelCustomWebSearch;
+    private TextBoxEx EditCustomWebSearch;
   }
 }

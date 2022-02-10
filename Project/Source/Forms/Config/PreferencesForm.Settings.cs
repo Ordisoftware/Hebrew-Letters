@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-09 </created>
-/// <edited> 2021-12 </edited>
+/// <edited> 2022-02 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 using System.Configuration;
@@ -41,6 +41,7 @@ partial class PreferencesForm : Form
     SystemManager.TryCatch(() => EditAutoOpenExportedFile.Checked = Settings.AutoOpenExportedFile);
     SystemManager.TryCatch(() => EditWindowsDoubleBufferingEnabled.Checked = Settings.WindowsDoubleBufferingEnabled);
     SystemManager.TryCatch(() => EditHebrewWordsPath.Text = Settings.HebrewWordsExe);
+    SystemManager.TryCatch(() => EditCustomWebSearch.Text = Settings.CustomWebSearch);
     EditImageExportFileFormat.Fill(Program.ImageExportTargets, Settings.ExportImagePreferredTarget);
     LoadColors();
   }
@@ -63,6 +64,7 @@ partial class PreferencesForm : Form
     Settings.AutoOpenExportedFile = EditAutoOpenExportedFile.Checked;
     Settings.WindowsDoubleBufferingEnabled = EditWindowsDoubleBufferingEnabled.Checked;
     Settings.HebrewWordsExe = EditHebrewWordsPath.Text;
+    Settings.CustomWebSearch = EditCustomWebSearch.Text;
     SaveColors();
     SystemManager.TryCatch(Settings.Save);
   }
