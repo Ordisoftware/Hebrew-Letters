@@ -71,7 +71,7 @@ partial class MainForm
     ContextMenuSearchOnline.InitializeFromProviders(HebrewGlobals.WebProvidersWord, (sender, e) =>
     {
       var menuitem = (ToolStripMenuItem)sender;
-      HebrewTools.OpenWordProvider((string)menuitem.Tag, EditWord.TextBox.Text);
+      HebrewTools.OpenWordProvider((string)menuitem.Tag, EditWord.TextBox.Text, Settings.CustomWebSearch);
       EditWord.Focus();
     });
     var menuitem = new ToolStripMenuItem(HebrewTranslations.HebrewWordsSearch.GetLang(), HebrewWordsIcon);

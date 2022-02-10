@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-09 </created>
-/// <edited> 2021-12 </edited>
+/// <edited> 2022-02 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 using KVPImageExportTarget = KeyValuePair<ImageExportTarget, string>;
@@ -216,6 +216,12 @@ partial class PreferencesForm : Form
   {
     if ( DisplayManager.QueryYesNo(SysTranslations.AskToResetParameter.GetLang()) )
       EditHebrewWordsPath.Text = (string)Settings.Properties[nameof(Settings.HebrewWordsExe)].DefaultValue;
+  }
+
+  private void ActionResetCustomWebSearch_Click(object sender, EventArgs e)
+  {
+    if ( DisplayManager.QueryYesNo(SysTranslations.AskToResetParameter.GetLang()) )
+      EditCustomWebSearch.Text = (string)Settings.Properties[nameof(Settings.CustomWebSearch)].DefaultValue;
   }
 
   private void EditColor_Click(object sender, EventArgs e)

@@ -133,7 +133,7 @@
     <value>NoControl</value>
   </data>
   <data name="LabelVolume.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 200</value>
+    <value>20, 215</value>
   </data>
   <data name="LabelVolume.Size" type="System.Drawing.Size, System.Drawing">
     <value>310, 13</value>
@@ -228,7 +228,7 @@
   <data name="ActionExportSettings.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAAAeVJREFUOE+tkklrFFEUhQtFuzrBAVcGFRJduRHBhX/AARH8Af4DwYXDzkxKxKhI
+        vAAADrwBlbxySQAAAeVJREFUOE+tkklrFFEUhQtFuzrBAVcGFRJduRHBhX/AARH8Af4DwYXDzkxKxKhI
         MGA0gRYMUcxGO4Hu6g7dGkKwxYVdOMSq1iRWk4UKojiP8fPeV5VKm5VBDxzuqXr3nPte1bP+GWs7RoZW
         tjkkWxwSzQ62YTaq81rXtU/7I2sIfbkYrJL+yBoi2ZINV8Z3wJ09UNpNW3YG7u4yNLokurTTtNW3LgyQ
         LSpah6dozwR0OAGduWlOOs8NO/PTnMoFnMkHHBz2zJEiawi7OWMCKp9g8jME3+Bc1qMqtfodzucrvJb1
@@ -269,7 +269,7 @@
   <data name="ActionImportSettings.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAAAchJREFUOE+tUk1LW1EQvY3F5GEp7jRxoYX+gIJ/obT4W6R14aZqEshHcaNUCaVV
+        vAAADrwBlbxySQAAAchJREFUOE+tUk1LW1EQvY3F5GEp7jRxoYX+gIJ/obT4W6R14aZqEshHcaNUCaVV
         jMXGlSgtJu8lkvhRsHaVtAv1JUKTaKF1IcRPVKw9zkye+aAbiz1w3hzuzJw7996n/itaAwsf73sNaG4D
         9gEDDqFuxarmPNe1BhMlq7UMXvwXcL3VWgbvIFh9DHzuAtaewqv/AL48EYpeI815gubWqwYtgQQaXkQl
         4Y/l4dOLCBhFDMbzCBoFIWu/XoBn/rvUabSh1U7jv4zgQcYB9WwWv34DO+fANnFINyVe68IZsHUi/XQf
@@ -341,7 +341,7 @@
     <value>Bottom</value>
   </data>
   <data name="PanelBottom.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 303</value>
+    <value>10, 313</value>
   </data>
   <data name="PanelBottom.Size" type="System.Drawing.Size, System.Drawing">
     <value>434, 28</value>
@@ -443,7 +443,7 @@
     <value>NoControl</value>
   </data>
   <data name="EditWindowsDoubleBufferingEnabled.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 150</value>
+    <value>23, 155</value>
   </data>
   <data name="EditWindowsDoubleBufferingEnabled.Size" type="System.Drawing.Size, System.Drawing">
     <value>237, 17</value>
@@ -473,7 +473,7 @@
     <value>NoControl</value>
   </data>
   <data name="EditUsageStatisticsEnabled.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 105</value>
+    <value>23, 110</value>
   </data>
   <data name="EditUsageStatisticsEnabled.Size" type="System.Drawing.Size, System.Drawing">
     <value>134, 17</value>
@@ -503,7 +503,7 @@
     <value>NoControl</value>
   </data>
   <data name="EditVolume.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 220</value>
+    <value>18, 235</value>
   </data>
   <data name="EditVolume.Size" type="System.Drawing.Size, System.Drawing">
     <value>350, 18</value>
@@ -574,7 +574,7 @@
     <value>NoControl</value>
   </data>
   <data name="LabelVolumeValue.Location" type="System.Drawing.Point, System.Drawing">
-    <value>375, 221</value>
+    <value>375, 236</value>
   </data>
   <data name="LabelVolumeValue.Size" type="System.Drawing.Size, System.Drawing">
     <value>33, 13</value>
@@ -650,7 +650,7 @@
     <value>NoControl</value>
   </data>
   <data name="EditVacuumAtStartup.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 170</value>
+    <value>23, 175</value>
   </data>
   <data name="EditVacuumAtStartup.Size" type="System.Drawing.Size, System.Drawing">
     <value>218, 17</value>
@@ -683,7 +683,7 @@
     <value>NoControl</value>
   </data>
   <data name="EditDebuggerEnabled.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 65</value>
+    <value>23, 70</value>
   </data>
   <data name="EditDebuggerEnabled.Size" type="System.Drawing.Size, System.Drawing">
     <value>107, 17</value>
@@ -719,7 +719,7 @@
     <value>NoControl</value>
   </data>
   <data name="EditWebLinksMenuEnabled.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 130</value>
+    <value>23, 135</value>
   </data>
   <data name="EditWebLinksMenuEnabled.Size" type="System.Drawing.Size, System.Drawing">
     <value>135, 17</value>
@@ -758,7 +758,7 @@
     <value>NoControl</value>
   </data>
   <data name="EditLogEnabled.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 85</value>
+    <value>23, 90</value>
   </data>
   <data name="EditLogEnabled.Size" type="System.Drawing.Size, System.Drawing">
     <value>92, 17</value>
@@ -791,7 +791,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="TabPageApplication.Size" type="System.Drawing.Size, System.Drawing">
-    <value>426, 264</value>
+    <value>426, 274</value>
   </data>
   <data name="TabPageApplication.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -811,6 +811,9 @@
   <data name="&gt;&gt;TabPageApplication.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="LabelLastDBOptimizeDate.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
   <data name="LabelLastDBOptimizeDate.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 8.25pt</value>
   </data>
@@ -818,7 +821,7 @@
     <value>NoControl</value>
   </data>
   <data name="LabelLastDBOptimizeDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>134, 230</value>
+    <value>134, 235</value>
   </data>
   <data name="LabelLastDBOptimizeDate.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 13</value>
@@ -844,6 +847,9 @@
   <data name="&gt;&gt;LabelLastDBOptimizeDate.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="LabelLastDBOptimize.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
   <data name="LabelLastDBOptimize.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -854,7 +860,7 @@
     <value>NoControl</value>
   </data>
   <data name="LabelLastDBOptimize.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 230</value>
+    <value>20, 235</value>
   </data>
   <data name="LabelLastDBOptimize.Size" type="System.Drawing.Size, System.Drawing">
     <value>88, 13</value>
@@ -877,6 +883,9 @@
   <data name="&gt;&gt;LabelLastDBOptimize.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="LabelLastStartupCheckDate.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
   <data name="LabelLastStartupCheckDate.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 8.25pt</value>
   </data>
@@ -884,7 +893,7 @@
     <value>NoControl</value>
   </data>
   <data name="LabelLastStartupCheckDate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>134, 210</value>
+    <value>134, 215</value>
   </data>
   <data name="LabelLastStartupCheckDate.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 13</value>
@@ -910,6 +919,9 @@
   <data name="&gt;&gt;LabelLastStartupCheckDate.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="LabelLastStartupCheck.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
   <data name="LabelLastStartupCheck.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -920,7 +932,7 @@
     <value>NoControl</value>
   </data>
   <data name="LabelLastStartupCheck.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 210</value>
+    <value>20, 215</value>
   </data>
   <data name="LabelLastStartupCheck.Size" type="System.Drawing.Size, System.Drawing">
     <value>63, 13</value>
@@ -1037,7 +1049,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="TabPageCheckUpdate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>426, 264</value>
+    <value>426, 274</value>
   </data>
   <data name="TabPageCheckUpdate.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -1066,7 +1078,7 @@
   <data name="ActionOpenTheme.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAAAgxJREFUOE/F0t9LU2EYB/DzF/ivNCh1/drWHHUV3XVVlheWOsVKrSCDkHlTy8rp
+        vAAADrwBlbxySQAAAgxJREFUOE/F0t9LU2EYB/DzF/ivNCh1/drWHHUV3XVVlheWOsVKrSCDkHlTy8rp
         Vqxd2IUXSdCFF5pl3Rk159lpv2drIA1rILq1uZ2z9e37njNaBBJB0Asf9nLG8zzv87yv9P+X8tD+XJ46
         irXJQzqxl73HlMbff14iALV1YDdhUNNYnWhF6MHBn0mbDusFwj57vBEuSeIjdqOohs+jInehnp8Hykmg
         kjJU00zKAoJGyEKetkDxH9/fTFB+h2q0l/rJqe9V0uJ9UCM92FnpREF4exaVjXn9FCv3rL2NBEeA4hto
@@ -1082,7 +1094,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionOpenTheme.Location" type="System.Drawing.Point, System.Drawing">
-    <value>357, 225</value>
+    <value>357, 233</value>
   </data>
   <data name="ActionOpenTheme.Size" type="System.Drawing.Size, System.Drawing">
     <value>26, 26</value>
@@ -1111,7 +1123,7 @@
   <data name="ActionSaveTheme.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAAAoNJREFUOE+Nkl1IU2EYx89FRNFFUCsUuvem6CLooqsGCaLdhBdRdwZBUEFe2ZZ9
+        vAAADrwBlbxySQAAAoNJREFUOE+Nkl1IU2EYx89FRNFFUCsUuvem6CLooqsGCaLdhBdRdwZBUEFe2ZZ9
         2EUWRRclJZruw6igiDB0N96EIWipfTg3peS4Nbfp5na2ec7Ox/bveZ5GeCHUC/+9z/b8fs97OO+Uuq5Q
         p6srhN03RrCrcwQ7/xFmmGWHXWUfFdMZYDzp4H8Xs+ywq+y5NYqvmQqUO4vSjCY0SgERynw8j3Ash8gv
         DfOceE4YZtlhVwZMpKtQ3O3S9Ho88Hq9CASC8Pl8WMro6OjooO8B+H2DwijuK+LIgL1doxiLO9jW1g/T
@@ -1129,7 +1141,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionSaveTheme.Location" type="System.Drawing.Point, System.Drawing">
-    <value>387, 225</value>
+    <value>387, 233</value>
   </data>
   <data name="ActionSaveTheme.Size" type="System.Drawing.Size, System.Drawing">
     <value>26, 26</value>
@@ -1507,7 +1519,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionUseColorsPastel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 212</value>
+    <value>20, 220</value>
   </data>
   <data name="ActionUseColorsPastel.Size" type="System.Drawing.Size, System.Drawing">
     <value>36, 13</value>
@@ -1540,7 +1552,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionUseColorsSystem.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 232</value>
+    <value>20, 240</value>
   </data>
   <data name="ActionUseColorsSystem.Size" type="System.Drawing.Size, System.Drawing">
     <value>41, 13</value>
@@ -1570,7 +1582,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="TabPageTheme.Size" type="System.Drawing.Size, System.Drawing">
-    <value>426, 264</value>
+    <value>426, 274</value>
   </data>
   <data name="TabPageTheme.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -1590,13 +1602,104 @@
   <data name="&gt;&gt;TabPageTheme.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="ActionResetCustomWebSearch.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="ActionResetCustomWebSearch.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        vAAADrwBlbxySQAAAYxJREFUOE+lkt8rQ2EYx9/r3fsD1NzT3NocbEeSXChJxoV2RXElcbGdMUkxEbmy
+        Wmp+hAvbOWebNoxdKBKlMSkXk9pJrVEu9PW858rFe+HkqU/P+37P+3yf5307DMC/EIpWEIpWEIpWYPJc
+        inkIdyjJ2mZ1h6RoMVdA/XAGVDj9BM+ES9HQMqPH3LNJmyeUMus4jAT+IdqsaJtdC8dY0gtQ796QeSwT
+        hkm2aODw5hWBw1u0z6dBjdZ4U9OAOmI5+4ye1QukHwxEL0uYOipiKHKNwY0LeNdy8K6fY5AY37pCJP+C
+        AVrTxDumgdOfQMH4glZ4x8h+Ed2Re8iLOUj+RLXRFw7Z5eG+unZfP88OX3hOCmqfvSunoGuADGTTIP5Y
+        RV/sCd7dZ3Su5NE0EcswxuqJGsL2C75vcE1u61TMDcCaFRVnpW+MJssYSxuIFyroUA4OPPSofEQRFLXS
+        9N4JnflirUG1IpFJi5IgKAc18IcVFf6Gws6n4Qs+qkPA30L0c1hBKFpBKFpBKP4dsB8ReHHdeAdE8gAA
+        AABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="ActionResetCustomWebSearch.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="ActionResetCustomWebSearch.Location" type="System.Drawing.Point, System.Drawing">
+    <value>384, 175</value>
+  </data>
+  <data name="ActionResetCustomWebSearch.Size" type="System.Drawing.Size, System.Drawing">
+    <value>26, 27</value>
+  </data>
+  <data name="ActionResetCustomWebSearch.TabIndex" type="System.Int32, mscorlib">
+    <value>90</value>
+  </data>
+  <data name="&gt;&gt;ActionResetCustomWebSearch.Name" xml:space="preserve">
+    <value>ActionResetCustomWebSearch</value>
+  </data>
+  <data name="&gt;&gt;ActionResetCustomWebSearch.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ActionResetCustomWebSearch.Parent" xml:space="preserve">
+    <value>TabPageAnalyzer</value>
+  </data>
+  <data name="&gt;&gt;ActionResetCustomWebSearch.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="LabelCustomWebSearch.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LabelCustomWebSearch.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="LabelCustomWebSearch.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 160</value>
+  </data>
+  <data name="LabelCustomWebSearch.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 13</value>
+  </data>
+  <data name="LabelCustomWebSearch.TabIndex" type="System.Int32, mscorlib">
+    <value>91</value>
+  </data>
+  <data name="LabelCustomWebSearch.Text" xml:space="preserve">
+    <value>Custom web search</value>
+  </data>
+  <data name="&gt;&gt;LabelCustomWebSearch.Name" xml:space="preserve">
+    <value>LabelCustomWebSearch</value>
+  </data>
+  <data name="&gt;&gt;LabelCustomWebSearch.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LabelCustomWebSearch.Parent" xml:space="preserve">
+    <value>TabPageAnalyzer</value>
+  </data>
+  <data name="&gt;&gt;LabelCustomWebSearch.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="EditCustomWebSearch.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 178</value>
+  </data>
+  <data name="EditCustomWebSearch.Size" type="System.Drawing.Size, System.Drawing">
+    <value>325, 20</value>
+  </data>
+  <data name="EditCustomWebSearch.TabIndex" type="System.Int32, mscorlib">
+    <value>88</value>
+  </data>
+  <data name="&gt;&gt;EditCustomWebSearch.Name" xml:space="preserve">
+    <value>EditCustomWebSearch</value>
+  </data>
+  <data name="&gt;&gt;EditCustomWebSearch.Type" xml:space="preserve">
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.11.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;EditCustomWebSearch.Parent" xml:space="preserve">
+    <value>TabPageAnalyzer</value>
+  </data>
+  <data name="&gt;&gt;EditCustomWebSearch.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="ActionResetHebrewWordsPath.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
   <data name="ActionResetHebrewWordsPath.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vgAADr4B6kKxwAAAAYxJREFUOE+lkt8rQ2EYx9/r3fsD1NzT3NocbEeSXChJxoV2RXElcbGdMUkxEbmy
+        vAAADrwBlbxySQAAAYxJREFUOE+lkt8rQ2EYx9/r3fsD1NzT3NocbEeSXChJxoV2RXElcbGdMUkxEbmy
         Wmp+hAvbOWebNoxdKBKlMSkXk9pJrVEu9PW858rFe+HkqU/P+37P+3yf5307DMC/EIpWEIpWEIpWYPJc
         inkIdyjJ2mZ1h6RoMVdA/XAGVDj9BM+ES9HQMqPH3LNJmyeUMus4jAT+IdqsaJtdC8dY0gtQ796QeSwT
         hkm2aODw5hWBw1u0z6dBjdZ4U9OAOmI5+4ye1QukHwxEL0uYOipiKHKNwY0LeNdy8K6fY5AY37pCJP+C
@@ -1610,7 +1713,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionResetHebrewWordsPath.Location" type="System.Drawing.Point, System.Drawing">
-    <value>384, 191</value>
+    <value>384, 230</value>
   </data>
   <data name="ActionResetHebrewWordsPath.Size" type="System.Drawing.Size, System.Drawing">
     <value>26, 27</value>
@@ -1628,7 +1731,7 @@
     <value>TabPageAnalyzer</value>
   </data>
   <data name="&gt;&gt;ActionResetHebrewWordsPath.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>3</value>
   </data>
   <data name="LabelHebrewWordsPath.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1637,7 +1740,7 @@
     <value>NoControl</value>
   </data>
   <data name="LabelHebrewWordsPath.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 176</value>
+    <value>20, 215</value>
   </data>
   <data name="LabelHebrewWordsPath.Size" type="System.Drawing.Size, System.Drawing">
     <value>78, 13</value>
@@ -1658,7 +1761,7 @@
     <value>TabPageAnalyzer</value>
   </data>
   <data name="&gt;&gt;LabelHebrewWordsPath.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>4</value>
   </data>
   <data name="ActionSelectHebrewWordsPath.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -1683,7 +1786,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionSelectHebrewWordsPath.Location" type="System.Drawing.Point, System.Drawing">
-    <value>354, 191</value>
+    <value>354, 230</value>
   </data>
   <data name="ActionSelectHebrewWordsPath.Size" type="System.Drawing.Size, System.Drawing">
     <value>26, 27</value>
@@ -1701,10 +1804,10 @@
     <value>TabPageAnalyzer</value>
   </data>
   <data name="&gt;&gt;ActionSelectHebrewWordsPath.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>5</value>
   </data>
   <data name="EditHebrewWordsPath.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 194</value>
+    <value>23, 233</value>
   </data>
   <data name="EditHebrewWordsPath.Size" type="System.Drawing.Size, System.Drawing">
     <value>325, 20</value>
@@ -1716,13 +1819,13 @@
     <value>EditHebrewWordsPath</value>
   </data>
   <data name="&gt;&gt;EditHebrewWordsPath.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.7.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.11.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;EditHebrewWordsPath.Parent" xml:space="preserve">
     <value>TabPageAnalyzer</value>
   </data>
   <data name="&gt;&gt;EditHebrewWordsPath.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>6</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1755,7 +1858,7 @@
     <value>TabPageAnalyzer</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>7</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1788,7 +1891,7 @@
     <value>TabPageAnalyzer</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>8</value>
   </data>
   <data name="EditAutoSortAnalysisMeanings.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1821,7 +1924,7 @@
     <value>TabPageAnalyzer</value>
   </data>
   <data name="&gt;&gt;EditAutoSortAnalysisMeanings.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>9</value>
   </data>
   <data name="LabelFontSize.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1854,7 +1957,7 @@
     <value>TabPageAnalyzer</value>
   </data>
   <data name="&gt;&gt;LabelFontSize.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>10</value>
   </data>
   <data name="EditMaxLength.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 8.25pt</value>
@@ -1878,7 +1981,7 @@
     <value>TabPageAnalyzer</value>
   </data>
   <data name="&gt;&gt;EditMaxLength.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>11</value>
   </data>
   <data name="EditFontSize.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 8.25pt</value>
@@ -1902,7 +2005,7 @@
     <value>TabPageAnalyzer</value>
   </data>
   <data name="&gt;&gt;EditFontSize.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>12</value>
   </data>
   <data name="LabelMaxLength.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1935,7 +2038,7 @@
     <value>TabPageAnalyzer</value>
   </data>
   <data name="&gt;&gt;LabelMaxLength.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>13</value>
   </data>
   <data name="TabPageAnalyzer.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 25</value>
@@ -1944,7 +2047,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="TabPageAnalyzer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>426, 264</value>
+    <value>426, 274</value>
   </data>
   <data name="TabPageAnalyzer.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -2000,7 +2103,7 @@
   <data name="ActionResetExportFolder.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAAAYxJREFUOE+lkt8rQ2EYx9/r3fsD1NzT3NocbEeSXChJxoV2RXElcbGdMUkxEbmy
+        vAAADrwBlbxySQAAAYxJREFUOE+lkt8rQ2EYx9/r3fsD1NzT3NocbEeSXChJxoV2RXElcbGdMUkxEbmy
         Wmp+hAvbOWebNoxdKBKlMSkXk9pJrVEu9PW858rFe+HkqU/P+37P+3yf5307DMC/EIpWEIpWEIpWYPJc
         inkIdyjJ2mZ1h6RoMVdA/XAGVDj9BM+ES9HQMqPH3LNJmyeUMus4jAT+IdqsaJtdC8dY0gtQ796QeSwT
         hkm2aODw5hWBw1u0z6dBjdZ4U9OAOmI5+4ye1QukHwxEL0uYOipiKHKNwY0LeNdy8K6fY5AY37pCJP+C
@@ -2204,7 +2307,7 @@
     <value>EditExportFolder</value>
   </data>
   <data name="&gt;&gt;EditExportFolder.Type" xml:space="preserve">
-    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.7.0.0, Culture=neutral, PublicKeyToken=null</value>
+    <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.11.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;EditExportFolder.Parent" xml:space="preserve">
     <value>TabPageExport</value>
@@ -2219,7 +2322,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="TabPageExport.Size" type="System.Drawing.Size, System.Drawing">
-    <value>426, 264</value>
+    <value>426, 274</value>
   </data>
   <data name="TabPageExport.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
@@ -2249,7 +2352,7 @@
     <value>10, 10</value>
   </data>
   <data name="TabControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>434, 293</value>
+    <value>434, 303</value>
   </data>
   <data name="TabControl.TabIndex" type="System.Int32, mscorlib">
     <value>86</value>
@@ -2279,7 +2382,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>454, 341</value>
+    <value>454, 351</value>
   </data>
   <data name="$this.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>10, 10, 10, 10</value>
