@@ -178,7 +178,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 #### In progress - Version 6.11
 
-- Add custom web search.
+- Add custom word web search.
 
 #### 2022.02.08 - Version 6.10
 
