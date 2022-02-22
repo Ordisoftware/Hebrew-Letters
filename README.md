@@ -158,6 +158,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 ## Future improvements
 
+- Add export analysis items to MSWord table.
 - Add option to set primary source for check update between author website or GitHub.
 - Add find gematria possible combinations.
 - Add reset only some columns to factory defaults.
@@ -176,9 +177,10 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Add concordance, transcription, dictionary and comment fields for word analysis.
 - Add search online concordance.
 
-#### In progress - Version 6.11
+#### 2022.02.25 - Version 6.11
 
 - Add custom word web search.
+- Update web links with Tehilim playlist.
 
 #### 2022.02.08 - Version 6.10
 
