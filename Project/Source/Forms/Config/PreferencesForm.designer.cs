@@ -564,11 +564,10 @@
       // 
       // EditCustomWebSearch
       // 
-      this.EditCustomWebSearch.BackColor = System.Drawing.SystemColors.Control;
+      this.EditCustomWebSearch.BackColor = System.Drawing.SystemColors.Window;
       this.EditCustomWebSearch.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
       resources.ApplyResources(this.EditCustomWebSearch, "EditCustomWebSearch");
       this.EditCustomWebSearch.Name = "EditCustomWebSearch";
-      this.EditCustomWebSearch.ReadOnly = true;
       // 
       // ActionResetHebrewWordsPath
       // 
