@@ -158,6 +158,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 ## Future improvements
 
+- Add export analysis items to MSWord table.
 - Add option to set primary source for check update between author website or GitHub.
 - Add find gematria possible combinations.
 - Add reset only some columns to factory defaults.
