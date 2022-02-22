@@ -286,4 +286,7 @@
   <data name="SaveThemeDialog.Filter" xml:space="preserve">
     <value>Fichiers de thème (*.ini)|*.ini</value>
   </data>
+  <data name="LabelCustomWebSearch.Text" xml:space="preserve">
+    <value>Recherche web personnalisée</value>
+  </data>
 </root>

@@ -1622,7 +1622,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionResetCustomWebSearch.Location" type="System.Drawing.Point, System.Drawing">
-    <value>384, 175</value>
+    <value>384, 230</value>
   </data>
   <data name="ActionResetCustomWebSearch.Size" type="System.Drawing.Size, System.Drawing">
     <value>26, 27</value>
@@ -1649,7 +1649,7 @@
     <value>NoControl</value>
   </data>
   <data name="LabelCustomWebSearch.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 160</value>
+    <value>20, 215</value>
   </data>
   <data name="LabelCustomWebSearch.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 13</value>
@@ -1673,7 +1673,7 @@
     <value>1</value>
   </data>
   <data name="EditCustomWebSearch.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 178</value>
+    <value>23, 233</value>
   </data>
   <data name="EditCustomWebSearch.Size" type="System.Drawing.Size, System.Drawing">
     <value>325, 20</value>
@@ -1713,7 +1713,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionResetHebrewWordsPath.Location" type="System.Drawing.Point, System.Drawing">
-    <value>384, 230</value>
+    <value>384, 180</value>
   </data>
   <data name="ActionResetHebrewWordsPath.Size" type="System.Drawing.Size, System.Drawing">
     <value>26, 27</value>
@@ -1740,7 +1740,7 @@
     <value>NoControl</value>
   </data>
   <data name="LabelHebrewWordsPath.Location" type="System.Drawing.Point, System.Drawing">
-    <value>20, 215</value>
+    <value>20, 165</value>
   </data>
   <data name="LabelHebrewWordsPath.Size" type="System.Drawing.Size, System.Drawing">
     <value>78, 13</value>
@@ -1786,7 +1786,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionSelectHebrewWordsPath.Location" type="System.Drawing.Point, System.Drawing">
-    <value>354, 230</value>
+    <value>354, 180</value>
   </data>
   <data name="ActionSelectHebrewWordsPath.Size" type="System.Drawing.Size, System.Drawing">
     <value>26, 27</value>
@@ -1807,7 +1807,7 @@
     <value>5</value>
   </data>
   <data name="EditHebrewWordsPath.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 233</value>
+    <value>23, 183</value>
   </data>
   <data name="EditHebrewWordsPath.Size" type="System.Drawing.Size, System.Drawing">
     <value>325, 20</value>
