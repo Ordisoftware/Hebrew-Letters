@@ -80,8 +80,8 @@
     <Reference Include="GregsStack.InputSimulatorStandard, Version=1.3.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\GregsStack.InputSimulatorStandard.1.3.3\lib\net40\GregsStack.InputSimulatorStandard.dll</HintPath>
     </Reference>
-    <Reference Include="Markdig, Version=0.26.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Markdig.0.26.0\lib\net452\Markdig.dll</HintPath>
+    <Reference Include="Markdig, Version=0.27.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Markdig.0.27.0\lib\net452\Markdig.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualBasic" />
@@ -144,6 +144,12 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
+    <Reference Include="Xceed.Document.NET, Version=1.4.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\DocX.1.4.1\lib\net40\Xceed.Document.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Words.NET, Version=1.4.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\DocX.1.4.1\lib\net40\Xceed.Words.NET.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dependencies\CultureManager\CultureManager.cs">
