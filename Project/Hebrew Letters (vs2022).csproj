@@ -385,6 +385,7 @@
     <Compile Include="Source\Common\Hebrew\Entities\BooksNames.LEvangile.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\BooksNames.MechonMamre.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\BooksNames.StudyBible.cs" />
+    <Compile Include="Source\Common\Hebrew\Entities\BooksNames.TorahBox.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\BooksNames.Unicode.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\OnlineCelebrations.cs" />
     <Compile Include="Source\Common\Hebrew\Entities\OnlineParashot.AishEN.cs" />
