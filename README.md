@@ -77,6 +77,15 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 
 ## Frequently asked questions
 
+#### What code analyzers are used?
+
+- [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.SonarLintforVisualStudio2022)
+- [Roslynator](https://marketplace.visualstudio.com/items?itemName=josefpihrt.Roslynator2022)
+- [F0.Analyzers](https://marketplace.visualstudio.com/items?itemName=Flash0Ware.F0-Analyzers-VS)
+- [Parallel Helper](https://marketplace.visualstudio.com/items?itemName=camrein.ParallelHelper)
+- [Parallel Checker](https://marketplace.visualstudio.com/items?itemName=LBHSR.ParallelChecker)
+- [Security Code Scan](https://marketplace.visualstudio.com/items?itemName=JaroslavLobacevski.SecurityCodeScanVS2019)
+
 #### What to do if the check update tells that the SSL certificate is wrong or expired?
 
 The software verifies the validity of the certificate of the update server in addition to the SHA-512 checksum of the installation file before downloading and running it. This certificate is normally updated within the two months of its annual expiration and a new version is released. You can manually check the latest version available online in case of problem.
