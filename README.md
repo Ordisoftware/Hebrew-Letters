@@ -189,8 +189,9 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 #### In progress - Version 6.12
 
 - Code refactoring
-- Update web links with more resources on hieroglyphs.
+- Disable IPC intercom for non-admin users.
 - Improve setup to allow installation by non-admin users.
+- Update web links with more resources on hieroglyphs.
 - Add Hebrew font version available on Fonts2u (can be manually installed).
 
 #### 2022.02.22 - Version 6.11
@@ -346,8 +347,10 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Add Serilog-sinks-winforms NuGet package.
 - Replace simple command-line parser by CommandLineParser NuGet package.
 - The application now automatically creates the ODBC DSN in the Windows registry.
-- files and code refactoring.
+- Files and code refactoring.
 - Incorporate common code written since more than one year for Calendar.
+- Disable IPC intercom for non-admin users.
+- Improve setup to allow installation by non-admin users.
 - Update to SQLite 3.32.3 ODBC Driver.
 - Update to Framework .NET 4.7.2 and supported Windows only 7 SP1 or higher.
 - Update setup.
