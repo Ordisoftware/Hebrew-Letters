@@ -186,9 +186,11 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Add concordance, transcription, dictionary and comment fields for word analysis.
 - Add search online concordance.
 
-#### In progress
+#### In progress - Version 6.12
 
+- Code refactoring
 - Update web links with more resources on hieroglyphs.
+- Add Hebrew font version available on Fonts2u (can be manually installed).
 
 #### 2022.02.22 - Version 6.11
 
