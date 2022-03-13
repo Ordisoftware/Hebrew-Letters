@@ -190,6 +190,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 - Code refactoring
 - Update web links with more resources on hieroglyphs.
+- Improve setup to allow installation by non-admin users.
 - Add Hebrew font version available on Fonts2u (can be manually installed).
 
 #### 2022.02.22 - Version 6.11
