@@ -349,8 +349,6 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - The application now automatically creates the ODBC DSN in the Windows registry.
 - Files and code refactoring.
 - Incorporate common code written since more than one year for Calendar.
-- Disable IPC intercom for non-admin users.
-- Improve setup to allow installation by non-admin users.
 - Update to SQLite 3.32.3 ODBC Driver.
 - Update to Framework .NET 4.7.2 and supported Windows only 7 SP1 or higher.
 - Update setup.
