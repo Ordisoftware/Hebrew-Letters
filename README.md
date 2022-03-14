@@ -194,12 +194,13 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Add concordance, transcription, dictionary and comment fields for word analysis.
 - Add search online concordance.
 
-#### In progress - Version 6.12
+#### 2022.03.16 - Version 6.12
 
 - Code refactoring
 - Disable IPC intercom for non-admin users.
 - Improve setup to allow installation by non-admin users.
 - Update web links with more resources on hieroglyphs.
+- Update web links with more resources on Loubavitch.
 - Add Hebrew font version available on Fonts2u (can be manually installed).
 
 #### 2022.02.22 - Version 6.11
