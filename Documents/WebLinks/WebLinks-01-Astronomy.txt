@@ -13,10 +13,10 @@
 Lang/EN = Astronomy
 Lang/FR = Astronomie
 
-Name = (EN) Astronomy @ wikipedia.org
+Name = (EN) Astronomy @ en.wikipedia.org
 URL = https://en.wikipedia.org/wiki/Astronomy
 
-Name = (FR) Astronomie @ wikipedia.org
+Name = (FR) Astronomie @ fr.wikipedia.org
 URL = https://fr.wikipedia.org/wiki/Astronomie
 
 -

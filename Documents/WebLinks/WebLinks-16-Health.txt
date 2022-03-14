@@ -13,53 +13,53 @@
 Lang/EN = Health and herbology
 Lang/FR = Santé et herbologie
 
-Name = (EN) Ayurveda @ wikipedia.org
+Name = (EN) Ayurveda @ en.wikipedia.org
 URL = https://en.wikipedia.org/wiki/Ayurveda
 
-Name = (FR) Ayurveda @ wikipedia.org
+Name = (FR) Ayurveda @ fr.wikipedia.org
 URL = https://fr.wikipedia.org/wiki/Ayurveda
 
-Name = (EN) Traditional Chinese medicine @ wikipedia.org
+Name = (EN) Traditional Chinese medicine @ en.wikipedia.org
 URL = https://en.wikipedia.org/wiki/Traditional_Chinese_medicine
 
-Name = (FR) Médecine traditionnelle chinoise @ wikipedia.org
+Name = (FR) Médecine traditionnelle chinoise @ fr.wikipedia.org
 URL = https://fr.wikipedia.org/wiki/M%C3%A9decine_traditionnelle_chinoise
 
 -
 
-Name = (EN) Yoga @ wikipedia.org
+Name = (EN) Yoga @ en.wikipedia.org
 URL = https://en.wikipedia.org/wiki/Yoga
 
-Name = (FR) Yoga @ wikipedia.org
+Name = (FR) Yoga @ fr.wikipedia.org
 URL = https://fr.wikipedia.org/wiki/Yoga
 
-Name = (EN) Qigong @ wikipedia.org
+Name = (EN) Qigong @ en.wikipedia.org
 URL = https://en.wikipedia.org/wiki/Qigong
 
-Name = (FR) Qi gong @ wikipedia.org
+Name = (FR) Qi gong @ fr.wikipedia.org
 URL = https://fr.wikipedia.org/wiki/Qi_gong
 
-Name = (EN) Bodybuilding @ wikipedia.org
+Name = (EN) Bodybuilding @ en.wikipedia.org
 URL = https://en.wikipedia.org/wiki/Bodybuilding
 
-Name = (FR) Bodybuilding @ wikipedia.org
+Name = (FR) Bodybuilding @ fr.wikipedia.org
 URL = https://fr.wikipedia.org/wiki/Culturisme
 
 -
 
-Name = (EN) History of herbalism @ wikipedia.org
+Name = (EN) History of herbalism @ en.wikipedia.org
 URL = https://en.wikipedia.org/wiki/History_of_herbalism
 
-Name = (EN) Medicinal plants @ wikipedia.org
+Name = (EN) Medicinal plants @ en.wikipedia.org
 URL = https://en.wikipedia.org/wiki/Medicinal_plants
 
-Name = (FR) Plante médicinale @ wikipedia.org
+Name = (FR) Plante médicinale @ fr.wikipedia.org
 URL = https://fr.wikipedia.org/wiki/Plante_m%C3%A9dicinale
 
-Name = (EN) Chinese herbology @ wikipedia.org
+Name = (EN) Chinese herbology @ en.wikipedia.org
 URL = https://en.wikipedia.org/wiki/Chinese_herbology
 
-Name = (FR) Pharmacopée chinoise @ wikipedia.org
+Name = (FR) Pharmacopée chinoise @ fr.wikipedia.org
 URL = https://fr.wikipedia.org/wiki/Pharmacop%C3%A9e_chinoise
 
 -
