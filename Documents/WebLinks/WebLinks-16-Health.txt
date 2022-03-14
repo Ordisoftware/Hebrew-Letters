@@ -13,53 +13,53 @@
 Lang/EN = Health and herbology
 Lang/FR = Santé et herbologie
 
-Name = (EN) Ayurveda
+Name = (EN) Ayurveda @ wikipedia.org
 URL = https://en.wikipedia.org/wiki/Ayurveda
 
-Name = (FR) Ayurveda
+Name = (FR) Ayurveda @ wikipedia.org
 URL = https://fr.wikipedia.org/wiki/Ayurveda
 
-Name = (EN) Traditional Chinese medicine
+Name = (EN) Traditional Chinese medicine @ wikipedia.org
 URL = https://en.wikipedia.org/wiki/Traditional_Chinese_medicine
 
-Name = (FR) Médecine traditionnelle chinoise
+Name = (FR) Médecine traditionnelle chinoise @ wikipedia.org
 URL = https://fr.wikipedia.org/wiki/M%C3%A9decine_traditionnelle_chinoise
 
 -
 
-Name = (EN) Yoga
+Name = (EN) Yoga @ wikipedia.org
 URL = https://en.wikipedia.org/wiki/Yoga
 
-Name = (FR) Yoga
+Name = (FR) Yoga @ wikipedia.org
 URL = https://fr.wikipedia.org/wiki/Yoga
 
-Name = (EN) Qigong
+Name = (EN) Qigong @ wikipedia.org
 URL = https://en.wikipedia.org/wiki/Qigong
 
-Name = (FR) Qi gong
+Name = (FR) Qi gong @ wikipedia.org
 URL = https://fr.wikipedia.org/wiki/Qi_gong
 
-Name = (EN) Bodybuilding
+Name = (EN) Bodybuilding @ wikipedia.org
 URL = https://en.wikipedia.org/wiki/Bodybuilding
 
-Name = (FR) Bodybuilding
+Name = (FR) Bodybuilding @ wikipedia.org
 URL = https://fr.wikipedia.org/wiki/Culturisme
 
 -
 
-Name = (EN) History of herbalism
+Name = (EN) History of herbalism @ wikipedia.org
 URL = https://en.wikipedia.org/wiki/History_of_herbalism
 
-Name = (EN) Medicinal plants
+Name = (EN) Medicinal plants @ wikipedia.org
 URL = https://en.wikipedia.org/wiki/Medicinal_plants
 
-Name = (FR) Plante médicinale
+Name = (FR) Plante médicinale @ wikipedia.org
 URL = https://fr.wikipedia.org/wiki/Plante_m%C3%A9dicinale
 
-Name = (EN) Chinese herbology
+Name = (EN) Chinese herbology @ wikipedia.org
 URL = https://en.wikipedia.org/wiki/Chinese_herbology
 
-Name = (FR) Pharmacopée chinoise
+Name = (FR) Pharmacopée chinoise @ wikipedia.org
 URL = https://fr.wikipedia.org/wiki/Pharmacop%C3%A9e_chinoise
 
 -
