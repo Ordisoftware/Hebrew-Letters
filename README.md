@@ -133,6 +133,8 @@ When disabled, top menu and some controls painting may cause latency, and dynami
   All diacritics are removed and if the word can't be processed it is set to empty.
 
   If any Hebrew Unicode chars is present, all non Unicode are removed, else Hebrew font chars are used and all non-font chars are removed.
+  
+This program does not use IPC intercom yet.
 
 #### How to run a word contextual analysis from any application such as browser or text editor?
 
