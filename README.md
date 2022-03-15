@@ -87,7 +87,7 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 - [Parallel Helper](https://marketplace.visualstudio.com/items?itemName=camrein.ParallelHelper)
 - [Parallel Checker](https://marketplace.visualstudio.com/items?itemName=LBHSR.ParallelChecker)
 - [Security Code Scan](https://marketplace.visualstudio.com/items?itemName=JaroslavLobacevski.SecurityCodeScanVS2019)
-- [PumaScan](https://marketplace.visualstudio.com/items?itemName=PumaSecurity.PumaScan)
+- [Puma Scan](https://marketplace.visualstudio.com/items?itemName=PumaSecurity.PumaScan)
 
 #### What are the differences between "only for me" and "for all users" installation?
 
@@ -101,7 +101,9 @@ Inter-process communication will therefore not be available for limited user acc
 
 #### What to do if the check update tells that the SSL certificate is wrong or expired?
 
-The software verifies the validity of the certificate of the update server in addition to the SHA-512 checksum of the installation file before downloading and running it. You can manually check the latest version available online in case of problem.
+The software verifies the validity of the certificate of the update server in addition to the SHA-512 checksum of the installation file before downloading and running it.
+
+You can manually check the latest version available online in case of problem.
 
 #### What to do if the application does not work normally despite restoring settings?
 
@@ -131,15 +133,15 @@ When disabled, top menu and some controls painting may cause latency, and dynami
 
   `Ordisoftware.Hebrew.Letters.exe [word]`
 
-  All diacritics are removed and if the word can't be processed it is set to empty.
+  All diacritics and and case are removed, and if the word can't be processed it is set to empty.
 
   If any Hebrew Unicode chars is present, all non Unicode are removed, else Hebrew font chars are used and all non-font chars are removed.
   
-This program does not use IPC intercom yet.
+This program does not use IPC intercom yet since multiple instances can be running at the same time.
 
-#### How to run a word contextual analysis from any application such as browser or text editor?
+#### How to run a word contextual analysis from any application such as browser or a text editor?
 
-It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for example this Shift + Ctrl + Alt + H command on a selected word:
+It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for example this `Shift + Ctrl + Alt + H` command on a selected word:
 
 ```
 !^+H::
@@ -149,8 +151,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
   sleep 100
   word := Clipboard
   Clipboard := clipboardOld
-  ;appPath := "C:\Program Files\Ordisoftware\Hebrew Letters\Bin\"
-  appPath := "c:\Users\Olivier\Projects\Software\Public\Hebrew Letters\Bin\Debug\"
+  appPath := "C:\Program Files\Ordisoftware\Hebrew Letters\Bin\"
   appExe := "Ordisoftware.Hebrew.Letters.exe"
   sleep 200
   Run %appPath%%appExe% "%word%"
@@ -190,15 +191,16 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 ## Future improvements
 
-- Add export analysis items to MSWord table.
 - Add option to set primary source for check update between author website or GitHub.
-- Add find gematria possible combinations.
 - Add reset only some columns to factory defaults.
+- Add export analysis items to MSWord table.
+- Add find gematria possible combinations.
 - Add export and import database.
-- Add export data to TXT/CSV/JSON.
-- Add import data from TXT/CSV/JSON.
-- Add print data.
-- Rewrite advanced undo/redo.
+- Add export data to TXT/CSV/JSON/XML.
+- Add import data from TXT/CSV/JSON/XML.
+- Add print letters data.
+- Add print notebook data.
+- Rewrite advanced TextBox to support multiple undo/redo.
 - Optimize more ComboBoxes creation.
 
 ## Changelog
