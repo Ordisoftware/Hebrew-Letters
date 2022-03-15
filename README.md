@@ -87,6 +87,7 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 - [Parallel Helper](https://marketplace.visualstudio.com/items?itemName=camrein.ParallelHelper)
 - [Parallel Checker](https://marketplace.visualstudio.com/items?itemName=LBHSR.ParallelChecker)
 - [Security Code Scan](https://marketplace.visualstudio.com/items?itemName=JaroslavLobacevski.SecurityCodeScanVS2019)
+- [PumaScan](https://marketplace.visualstudio.com/items?itemName=PumaSecurity.PumaScan)
 
 #### What are the differences between "only for me" and "for all users" installation?
 
