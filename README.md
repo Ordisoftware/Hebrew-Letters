@@ -202,7 +202,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Add concordance, transcription, dictionary and comment fields for word analysis.
 - Add search online concordance.
 
-#### 2022.03.16 - Version 6.12
+#### 2022.03.20 - Version 6.12
 
 - Code refactoring.
 - Disable IPC intercom for non-admin users.
