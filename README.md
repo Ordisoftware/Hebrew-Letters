@@ -62,8 +62,6 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 - Overall performances are optimized.
 - Some fixes and improvements.
 - Update web links.
-- Disable IPC intercom for non-administrator users.
-- Improve setup to allow installation by non-administrator users.
 
 [Last release](https://github.com/Ordisoftware/Hebrew-Letters/releases/latest)
 
@@ -205,7 +203,6 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 - Code refactoring.
 - Disable IPC intercom for non-admin users.
-- Improve setup to allow installation by non-admin users.
 - Update web links with more resources on hieroglyphs.
 - Update web links with more resources on Loubavitch.
 - Update web links with several changes.
