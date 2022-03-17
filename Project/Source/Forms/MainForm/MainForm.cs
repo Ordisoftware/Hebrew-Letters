@@ -112,7 +112,7 @@ partial class MainForm : Form
   /// <param name="e">Event information.</param>
   private void TimerProcesses_Tick(object sender, EventArgs e)
   {
-    // TODO reload data if switch readonly to editable
+    // !TODO? reload data if switch readonly to editable
     Globals.IsReadOnly = Interlocks.IsReadOnly();
     Text = Globals.AssemblyTitle;
     if ( Globals.IsReadOnly ) Text += " - " + SysTranslations.ReadOnly.GetLang();
@@ -130,7 +130,7 @@ partial class MainForm : Form
     ActionNotebookDeleteSentence.Enabled = !Globals.IsReadOnly;
     ActionNotebookDeleteWord.Enabled = !Globals.IsReadOnly;
     ActionNotebookDeleteSentence.Enabled = !Globals.IsReadOnly;
-    TimerProcesses.Enabled = Globals.IsReadOnly;
+    TimerProcesses.Enabled = true; // TODO remove this and the previous comment Globals.IsReadOnly;
   }
 
   #endregion
@@ -864,6 +864,9 @@ partial class MainForm : Form
       LettersNavigator.Enabled = Globals.AllowClose;
       ActionViewAnalysis.Enabled = Globals.AllowClose;
       ActionViewLetters.Enabled = Globals.AllowClose;
+      ActionViewNotebook.Enabled = Globals.AllowClose;
+      ActionNewInstance.Enabled = Globals.AllowClose;
+      ActionTools.Enabled = Globals.AllowClose;
       ActionExit.Enabled = Globals.AllowClose;
       ActionSearchTerm.Enabled = Globals.AllowClose;
       CommonMenusControl.Instance.ActionCheckUpdate.Enabled = Globals.AllowClose;

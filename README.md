@@ -121,13 +121,13 @@ When disabled, top menu and some controls painting may cause latency, and dynami
 
   `Ordisoftware.Hebrew.Letters.exe [word]`
 
-  All diacritics and and case are removed, and if the word can't be processed it is set to empty.
+  All diacritics and case are removed, and if the word can't be processed it is set to empty.
 
   If any Hebrew Unicode chars is present, all non Unicode are removed, else Hebrew font chars are used and all non-font chars are removed.
   
-This program does not use IPC intercom yet since multiple instances can be running at the same time.
+This program does not use IPC intercom yet since multiple instances can run at the same time.
 
-#### How to run a word contextual analysis from any application such as browser or a text editor?
+#### How to run a word contextual analysis from any application such as browser or text editor?
 
 It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for example this `Shift + Ctrl + Alt + H` command on a selected word:
 
@@ -202,6 +202,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 #### 2022.03.20 - Version 6.12
 
 - Code refactoring.
+- Fix some menu items not being disabled when multiple instances are running.
 - Disable IPC intercom for non-admin users.
 - Update web links with more resources on hieroglyphs.
 - Update web links with more resources on Loubavitch.
@@ -218,12 +219,12 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 - Fix switch to letter's details context menu item not visible since a previous version.
 - Code refactoring.
-- Update judaism web links.
+- Update Judaism web links.
 
 #### 2022.02.01 - Version 6.9
 
 - Refactor and fix code.
-- Update web links about languages, judaism, rabbis and playlists.
+- Update web links about languages, Judaism, rabbis and playlists.
 
 #### 2021.12.21 - Version 6.8
 
