@@ -125,9 +125,9 @@ When disabled, top menu and some controls painting may cause latency, and dynami
 
   If any Hebrew Unicode chars is present, all non Unicode are removed, else Hebrew font chars are used and all non-font chars are removed.
   
-This program does not use IPC intercom yet since multiple instances can be running at the same time.
+This program does not use IPC intercom yet since multiple instances can run at the same time.
 
-#### How to run a word contextual analysis from any application such as browser or a text editor?
+#### How to run a word contextual analysis from any application such as browser or text editor?
 
 It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for example this `Shift + Ctrl + Alt + H` command on a selected word:
 
