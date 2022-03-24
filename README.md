@@ -82,8 +82,12 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 - [SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.SonarLintforVisualStudio2022)
 - [Roslynator](https://marketplace.visualstudio.com/items?itemName=josefpihrt.Roslynator2022)
 - [F0.Analyzers](https://marketplace.visualstudio.com/items?itemName=Flash0Ware.F0-Analyzers-VS)
+- [U2U Consult Performance Analyzers](https://marketplace.visualstudio.com/items?itemName=vs-publisher-363830.U2UConsultPerformanceCodeAnalyzersforC7)
 - [Parallel Helper](https://marketplace.visualstudio.com/items?itemName=camrein.ParallelHelper)
 - [Parallel Checker](https://marketplace.visualstudio.com/items?itemName=LBHSR.ParallelChecker)
+- [AsyncFixer](https://marketplace.visualstudio.com/items?itemName=SemihOkur.AsyncFixer2022)
+- [Async Method Name Fixer](https://marketplace.visualstudio.com/items?itemName=PRIYANSHUAGRAWAL92.AsyncMethodNameFixer)
+- [T-SQL Analyzer](https://marketplace.visualstudio.com/items?itemName=EF8980CD-E5F2-4113-92AE-5789026D677C.SqlAnalyzerVS22)
 - [Security Code Scan](https://marketplace.visualstudio.com/items?itemName=JaroslavLobacevski.SecurityCodeScanVS2019)
 - [Puma Scan](https://marketplace.visualstudio.com/items?itemName=PumaSecurity.PumaScan)
 
@@ -198,6 +202,10 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Add analyzed words data table and notebook view to save results.
 - Add concordance, transcription, dictionary and comment fields for word analysis.
 - Add search online concordance.
+
+#### In progress
+
+- Code refactoring and optimization with more analyzers.
 
 #### 2022.03.20 - Version 6.12
 
