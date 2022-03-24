@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-01 </created>
-/// <edited> 2021-11 </edited>
+/// <edited> 2022-03 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 using Microsoft.Win32;
@@ -156,7 +156,7 @@ partial class MainForm
     if ( Globals.IsDebugExecutable ) // TODO remove when ready
       ActionViewNotebook.Visible = true;
     this.ForceBringToFront();
-    PanelTitleInner.Controls.OfType<Label>().ToList().ForEach(label => label.Visible = true);
+    PanelTitleInner.Controls.OfType<Label>().ForEach(label => label.Visible = true);
     Settings.SetFirstAndUpgradeFlagsOff();
   }
 

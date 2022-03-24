@@ -67,11 +67,10 @@ static partial class Program
   /// <summary>
   /// Checks if settings must be reseted.
   /// </summary>
+  [SuppressMessage("Performance", "U2U1017:Initialized locals should be used", Justification = "N/A")]
   private static void CheckSettingsReset(bool force = false)
   {
-    var resetForceVersions = new bool[]
-    {
-    };
+    var resetForceVersions = Array.Empty<bool>();
     try
     {
       // Check reset

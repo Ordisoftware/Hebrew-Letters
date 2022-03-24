@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-09 </created>
-/// <edited> 2022-02 </edited>
+/// <edited> 2022-03 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 using KVPImageExportTarget = KeyValuePair<ImageExportTarget, string>;
@@ -199,7 +199,7 @@ partial class PreferencesForm : Form
       EditExportFolder.Text = (string)Settings.Properties[nameof(Settings.ExportFolder)].DefaultValue;
   }
 
-  private void DoActionSelectPath(FileDialog dialog, TextBox edit)
+  private void DoActionSelectPath(OpenFileDialog dialog, TextBoxEx edit)
   {
     SystemManager.TryCatch(() => dialog.InitialDirectory = Path.GetDirectoryName(edit.Text));
     SystemManager.TryCatch(() => dialog.FileName = Path.GetFileName(edit.Text));

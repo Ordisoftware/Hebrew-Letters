@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2021-12 </edited>
+/// <edited> 2022-03 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 using Equin.ApplicationFramework;
@@ -473,7 +473,7 @@ partial class MainForm : Form
       check(Instance.TextBoxStructure);
       check(Instance.TextBoxFunction);
     }
-    void check(TextBox textbox) { if ( textbox.Text == meaning ) textbox.Focus(); }
+    void check(TextBoxEx textbox) { if ( textbox.Text == meaning ) textbox.Focus(); }
   }
 
   /// <summary>
@@ -492,6 +492,8 @@ partial class MainForm : Form
 
   //private readonly Font ContextMenuHebrewFont = new("Hebrew", 10);
 
+  [SuppressMessage("Performance", "U2U1212:Capture intermediate results in lambda expressions", Justification = "N/A")]
+  [SuppressMessage("Performance", "U2U1206:Do not use a LINQ where clause before filtering the query", Justification = "N/A")]
   private void UpdateAnalysisControls()
   {
     bool enabled = EditWord.TextBox.Text.Length >= 1;
@@ -520,9 +522,10 @@ partial class MainForm : Form
                         && lettriq.Analyzes.All(m => (string)combos[m.Position].SelectedItem == m.Meaning) )
                 select lettriq;
     ActionSaveTermLettriq.Enabled = !Globals.IsReadOnly
-                                 && word != string.Empty
-                                 && sentence != string.Empty
-                                 && combos.All(c => c.SelectedIndex != -1) && !query.Any();
+                                 && word.Length != 0
+                                 && sentence.Length != 0
+                                 && combos.All(c => c.SelectedIndex != -1)
+                                 && !query.Any();
     ActionOpenTermLettriq.Enabled = lettriqs.Any();
     ContextMenuOpenTermLettriq.Items.Clear();
     foreach ( var item in lettriqs )
@@ -689,7 +692,7 @@ partial class MainForm : Form
   {
     var menuitem = (ToolStripMenuItem)sender;
     var lettriq = (TermLettriq)menuitem.Tag;
-    if ( EditSentence.Text.Trim() != string.Empty && EditSentence.Text != lettriq.Sentence )
+    if ( EditSentence.Text.Trim().Length != 0 && EditSentence.Text != lettriq.Sentence )
       if ( !DisplayManager.QueryYesNo("Replace analysis?") )
         return;
     var list = SelectAnalyze.Controls.OfType<ComboBox>().ToList();
@@ -1029,7 +1032,6 @@ partial class MainForm : Form
   private void ActionDeleteMeaning_Click(object sender, EventArgs e)
   {
     if ( MeaningsBindingSource.Count < 1 ) return;
-    int index = MeaningsBindingSource.Position;
     var meaning = (Meaning)MeaningsBindingSource.Current;
     DBApp.BeginTransaction();
     DBApp.Connection.Delete(meaning);
@@ -1037,6 +1039,8 @@ partial class MainForm : Form
     MeaningsBindingSource.RemoveCurrent();
     int count = MeaningsBindingSource.Count;
     if ( count > 1 )
+    {
+      int index = MeaningsBindingSource.Position;
       if ( index >= count )
       {
         MeaningsBindingSource.MoveFirst();
@@ -1044,6 +1048,7 @@ partial class MainForm : Form
       }
       else
         MeaningsBindingSource.Position = index;
+    }
     UpdateDataControls(sender);
   }
 
@@ -1064,7 +1069,7 @@ partial class MainForm : Form
     if ( !Globals.IsReady ) return;
     var cell = EditMeanings[e.ColumnIndex, e.ColumnIndex];
     var str = (string)cell.Value;
-    if ( str.StartsWith(" ") || str.EndsWith(" ") )
+    if ( str.StartsWith(" ", StringComparison.Ordinal) || str.EndsWith(" ", StringComparison.Ordinal) )
       cell.Value = str.Trim();
     UpdateDataControls(sender);
   }
@@ -1180,12 +1185,13 @@ partial class MainForm : Form
     ListNotebookSentences.ClearSelection();
   }
 
+  [SuppressMessage("Performance", "U2U1212:Capture intermediate results in lambda expressions", Justification = "N/A")]
   private void ListNotebookWord_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
   {
     var lettriq = ( (ObjectView<TermLettriq>)ListNotebookSentences[e.ColumnIndex, e.RowIndex].OwningRow.DataBoundItem ).Object;
     var word = DBHebrew.TermsHebrew.Find(t => t.ID == lettriq.TermID);
     if ( word is null ) return;
-    bool b1 = EditWord.TextBox.Text != string.Empty;
+    bool b1 = EditWord.TextBox.Text.Length != 0;
     bool b2 = EditWord.TextBox.Text != word.Hebrew;
     if ( b1 && b2 && !DisplayManager.QueryOkCancel("Replace current analysis?") )
       return;
@@ -1214,6 +1220,7 @@ partial class MainForm : Form
     // TODO delete analysis, lettriqs and term
   }
 
+  [SuppressMessage("Performance", "U2U1203:Use foreach efficiently", Justification = "Collection is modified")]
   private void ActionNotebookDeleteSentence_Click(object sender, EventArgs e)
   {
     if ( !DisplayManager.QueryYesNo("Delete selected sentences?") ) return;
@@ -1235,7 +1242,7 @@ partial class MainForm : Form
 
   private void EditNotebookFilterSentence_TextChanged(object sender, EventArgs e)
   {
-    if ( EditNotebookFilterSentence.Text != string.Empty )
+    if ( EditNotebookFilterSentence.Text.Length != 0 )
     {
       string filter = EditNotebookFilterSentence.Text;
       DBHebrew.TermLettriqsAsBindingList.ApplyFilter(l => CultureInfo.CurrentCulture.CompareInfo.IndexOf(l.Sentence, filter, CompareOptions.IgnoreCase) >= 0);

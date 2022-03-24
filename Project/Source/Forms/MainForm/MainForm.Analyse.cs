@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2021-11 </edited>
+/// <edited> 2022-03 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 /// <summary>
@@ -59,7 +59,8 @@ partial class MainForm
       {
         int top = marginTop + dy;
         // Letter
-        var letter = DBApp.Letters.Find(l => l.Code == word[pos].ToString());
+        string theword = word[pos].ToString();
+        var letter = DBApp.Letters.Find(l => l.Code == theword);
         if ( letter is null ) continue;
         sumSimple += letter.ValueSimple;
         sumFull += letter.ValueFull;

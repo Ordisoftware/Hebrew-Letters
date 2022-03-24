@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-09 </created>
-/// <edited> 2022-02 </edited>
+/// <edited> 2022-03 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 using System.Configuration;
@@ -164,11 +164,11 @@ partial class PreferencesForm : Form
     if ( OpenThemeDialog.ShowDialog() != DialogResult.OK ) return;
     var items = new NullSafeOfStringDictionary<string>();
     if ( !items.LoadKeyValuePairs(OpenThemeDialog.FileName, "=") ) return;
-    TabPageTheme.Controls.OfType<Panel>().ToList().ForEach(panel =>
+    TabPageTheme.Controls.OfType<Panel>().ForEach(panel =>
     {
       string name = panel.Name.Substring(4);
-      if ( items.ContainsKey(name) )
-        panel.BackColor = ColorTranslator.FromHtml(items[name]);
+      if ( items.TryGetValue(name, out var color) )
+        panel.BackColor = ColorTranslator.FromHtml(color);
     });
     SaveColors();
     MainForm.Instance.InitializeTheme();
@@ -183,7 +183,7 @@ partial class PreferencesForm : Form
     });
     if ( SaveThemeDialog.ShowDialog() != DialogResult.OK ) return;
     var items = new List<string>();
-    TabPageTheme.Controls.OfType<Panel>().ToList().ForEach(panel => items.Add(makeLine(panel)));
+    TabPageTheme.Controls.OfType<Panel>().ForEach(panel => items.Add(makeLine(panel)));
     File.WriteAllLines(SaveThemeDialog.FileName, items);
     //
     static string makeLine(Panel panel)

@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2021-04 </edited>
+/// <edited> 2022-03 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 /// <summary>
@@ -87,7 +87,7 @@ static partial class Program
           string word = ApplicationCommandLine.Instance?.WordHebrew ?? string.Empty;
           if ( word.IsNullOrEmpty()
             && SystemManager.CommandLineArguments?.Length == 1
-            && !SystemManager.CommandLineArguments[0].StartsWith("--") )
+            && !SystemManager.CommandLineArguments[0].StartsWith("--", StringComparison.Ordinal) )
             word = SystemManager.CommandLineArguments[0];
           word = HebrewAlphabet.ContainsUnicode(word)
                  ? HebrewAlphabet.ToHebrewFont(word)
