@@ -156,7 +156,7 @@ partial class MainForm
     if ( Globals.IsDebugExecutable ) // TODO remove when ready
       ActionViewNotebook.Visible = true;
     this.ForceBringToFront();
-    PanelTitleInner.Controls.OfType<Label>().ToList().ForEach(label => label.Visible = true);
+    PanelTitleInner.Controls.OfType<Label>().ForEach(label => label.Visible = true);
     Settings.SetFirstAndUpgradeFlagsOff();
   }
 

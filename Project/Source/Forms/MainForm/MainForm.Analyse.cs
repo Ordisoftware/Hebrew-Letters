@@ -59,7 +59,8 @@ partial class MainForm
       {
         int top = marginTop + dy;
         // Letter
-        var letter = DBApp.Letters.Find(l => l.Code == word[pos].ToString());
+        string theword = word[pos].ToString();
+        var letter = DBApp.Letters.Find(l => l.Code == theword);
         if ( letter is null ) continue;
         sumSimple += letter.ValueSimple;
         sumFull += letter.ValueFull;

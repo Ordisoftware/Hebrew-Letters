@@ -199,7 +199,7 @@ partial class PreferencesForm : Form
       EditExportFolder.Text = (string)Settings.Properties[nameof(Settings.ExportFolder)].DefaultValue;
   }
 
-  private void DoActionSelectPath(FileDialog dialog, TextBox edit)
+  private void DoActionSelectPath(OpenFileDialog dialog, TextBoxEx edit)
   {
     SystemManager.TryCatch(() => dialog.InitialDirectory = Path.GetDirectoryName(edit.Text));
     SystemManager.TryCatch(() => dialog.FileName = Path.GetFileName(edit.Text));
