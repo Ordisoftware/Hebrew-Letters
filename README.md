@@ -203,9 +203,10 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Add concordance, transcription, dictionary and comment fields for word analysis.
 - Add search online concordance.
 
-#### In progress
+#### 2022.03.30 - Version 6.13
 
 - Code refactoring and optimization with more analyzers.
+- Update Aish web links for parashot study.
 
 #### 2022.03.20 - Version 6.12
 

@@ -592,6 +592,9 @@
     <None Include="Source\Common\Core\Globals\.editorconfig" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\Setup\OrdisoftwareHebrewLettersSetup.iss">
+      <Link>Properties\OrdisoftwareHebrewLettersSetup.iss</Link>
+    </Content>
     <Content Include="Licenses\MPL 2.0.htm" />
     <Content Include="Licenses\MPL 2.0.txt" />
   </ItemGroup>
