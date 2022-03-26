@@ -33,7 +33,6 @@ namespace Infralution.Localization
   /// handles resource naming and serialization.
   /// </remarks>
   [ToolboxItem(true)]
-  [SuppressMessage("PropertyChangedAnalyzers.PropertyChanged", "INPC020:Prefer expression body accessor.", Justification = "<En attente>")]
   public class CultureManager : Component
   {
 
@@ -108,7 +107,7 @@ namespace Infralution.Localization
       }
       set
       {
-        if ( value is null ) throw new ArgumentNullException(nameof(ApplicationUICulture));
+        if ( value is null ) throw new ArgumentNullException(nameof(value));
 
         if ( !value.Equals(_applicationUICulture) )
         {
@@ -279,6 +278,7 @@ namespace Infralution.Localization
     /// </remarks>
     [Browsable(false)]
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+    [SuppressMessage("Critical Bug", "S4275:Getters and setters should access the expected fields", Justification = "Analysis error")]
     public CultureInfo UICulture
     {
       get
@@ -287,7 +287,7 @@ namespace Infralution.Localization
       }
       set
       {
-        if ( value is null ) throw new ArgumentNullException(nameof(UICulture));
+        if ( value is null ) throw new ArgumentNullException(nameof(value));
         ChangeUICulture(value);
       }
     }
