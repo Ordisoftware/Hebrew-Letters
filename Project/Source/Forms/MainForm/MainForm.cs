@@ -662,7 +662,7 @@ partial class MainForm : Form
 
   private void MeaningComboBox_SelectedIndexChanged(object sender, EventArgs e)
   {
-    EditSentence.Text = string.Join(" ", SelectAnalyze.Controls.OfType<ComboBox>().Select(c => c.Text));
+    EditSentence.Text = SelectAnalyze.Controls.OfType<ComboBox>().Select(c => c.Text).AsMultiSpace();
   }
 
   private void EditSentence_TextChanged(object sender, EventArgs e)
@@ -776,9 +776,9 @@ partial class MainForm : Form
                             {
                               var letter = (Letter)combo.Tag;
                               var meanings = LettersMeanings[letter.ValueSimple];
-                              return letter.Name + " : " + string.Join(", ", meanings);
+                              return letter.Name + " : " + meanings.AsMultiComma(true);
                             });
-    return string.Join(Globals.NL, list);
+    return list.AsMultiLine();
   }
 
   private void ActionCopyToMeanings_Click(object sender, EventArgs e)
