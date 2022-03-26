@@ -46,10 +46,13 @@
 
 [assembly: SuppressMessage("Performance", "CA1822:Marquer les membres comme étant static", Justification = "Opinion", Scope = "module")]
 
+[assembly: SuppressMessage("Design", "MA0012:Do not raise reserved exception type", Justification = "Opinion", Scope = "module")]
+[assembly: SuppressMessage("Design", "MA0016:Prefer returning collection abstraction instead of implementation", Justification = "Opinion", Scope = "module")]
 [assembly: SuppressMessage("Design", "MA0018:Do not declare static members on generic types", Justification = "Opinion", Scope = "module")]
 [assembly: SuppressMessage("Design", "MA0026:Fix TODO comment", Justification = "Opinion", Scope = "module")]
 [assembly: SuppressMessage("Design", "MA0038:Make method static", Justification = "Opinion based and can reduce performances", Scope = "module")]
 [assembly: SuppressMessage("Design", "MA0041:Make property static", Justification = "Opinion", Scope = "module")]
+[assembly: SuppressMessage("Design", "MA0046:Use EventHandler<T> to declare events", Justification = "Opinion", Scope = "module")]
 [assembly: SuppressMessage("Design", "MA0048:File name must match type name", Justification = "Opinion", Scope = "module")]
 [assembly: SuppressMessage("Design", "MA0053:Make class sealed", Justification = "Can be opinion", Scope = "module")]
 [assembly: SuppressMessage("Design", "MA0056:Do not call overridable members in constructor", Justification = "N/A", Scope = "module")]
@@ -58,7 +61,6 @@
 [assembly: SuppressMessage("Style", "MA0007:Add a comma after the last value", Justification = "Opinion", Scope = "module")]
 [assembly: SuppressMessage("Style", "MA0071:Avoid using redundant else", Justification = "Opinion", Scope = "module")]
 [assembly: SuppressMessage("Usage", "MA0091:Sender should be 'this' for instance events", Justification = "N/A", Scope = "module")]
-[assembly: SuppressMessage("Design", "MA0012:Do not raise reserved exception type", Justification = "Opinion", Scope = "module")]
 
 [assembly: SuppressMessage("CodeSmell", "EPC12:Suspicious exception handling: only Message property is observed in exception block.", Justification = "Opinion based or N/A", Scope = "module")]
 
