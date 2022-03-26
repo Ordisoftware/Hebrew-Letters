@@ -68,23 +68,27 @@ partial class MainForm
   /// </summary>
   private void CreateProvidersLinks()
   {
-    ContextMenuSearchOnline.InitializeFromProviders(HebrewGlobals.WebProvidersWord, (sender, e) =>
-    {
-      var menuitem = (ToolStripMenuItem)sender;
-      HebrewTools.OpenWordProvider((string)menuitem.Tag, EditWord.TextBox.Text, Settings.CustomWebSearch);
-      EditWord.Focus();
-    });
-    var menuitem = new ToolStripMenuItem(HebrewTranslations.HebrewWordsSearch.GetLang(), HebrewWordsIcon);
-    menuitem.Click += (sender, e) => HebrewTools.OpenHebrewWordsSearchWord(EditWord.InputText, Settings.HebrewWordsExe);
-    if ( ContextMenuSearchOnline.Items.Count > 0 )
-      ContextMenuSearchOnline.Items.Insert(0, new ToolStripSeparator());
-    ContextMenuSearchOnline.Items.Insert(0, menuitem);
+    ContextMenuSearchOnline.InitializeFromProviders(HebrewGlobals.WebProvidersWord,
+      (sender, e) =>
+      {
+        var menuitem = (ToolStripMenuItem)sender;
+        HebrewTools.OpenWordProvider((string)menuitem.Tag, EditWord.TextBox.Text, Settings.CustomWebSearch);
+        EditWord.Focus();
+      },
+      () =>
+      {
+        var menuitem = new ToolStripMenuItem(HebrewTranslations.HebrewWordsSearch.GetLang(), HebrewWordsIcon);
+        menuitem.Click += (sender, e) => HebrewTools.OpenHebrewWordsSearchWord(EditWord.InputText, Settings.HebrewWordsExe);
+        if ( ContextMenuSearchOnline.Items.Count > 0 )
+          ContextMenuSearchOnline.Items.Add(new ToolStripSeparator());
+        ContextMenuSearchOnline.Items.Add(menuitem);
+      });
     ContextMenuOpenConcordance.InitializeFromProviders(HebrewGlobals.WebProvidersConcordance, (sender, e) =>
     {
       var menuitem = (ToolStripMenuItem)sender;
       HebrewTools.OpenWordConcordance((string)menuitem.Tag, (int)EditConcordance.Value);
       EditWord.Focus();
-    });
+    }, null);
   }
 
 }
