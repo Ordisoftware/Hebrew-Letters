@@ -218,7 +218,7 @@ partial class MainForm
   private void InitializeIconsAndSound()
   {
     SoundItem.Initialize();
-    SystemManager.TryCatch(() => new System.Media.SoundPlayer(Globals.EmptySoundFilePath).Play());
+    SystemManager.TryCatch(() => DisplayManager.DoSound(Globals.EmptySoundFilePath));
     SystemManager.TryCatch(() => MediaMixer.SetApplicationVolume(Globals.ProcessId, Settings.ApplicationVolume));
   }
 

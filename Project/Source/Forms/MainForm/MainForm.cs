@@ -445,7 +445,7 @@ partial class MainForm : Form
   {
     var tempView = Settings.CurrentView;
     ActionViewLetters.PerformClick();
-    var formSearch = new SearchTermBox();
+    using var formSearch = new SearchTermBox();
     formSearch.EditTerm.Text = LastTermSearched;
     if ( formSearch.ShowDialog() != DialogResult.OK )
     {
@@ -494,6 +494,7 @@ partial class MainForm : Form
 
   [SuppressMessage("Performance", "U2U1212:Capture intermediate results in lambda expressions", Justification = "N/A")]
   [SuppressMessage("Performance", "U2U1206:Do not use a LINQ where clause before filtering the query", Justification = "N/A")]
+  [SuppressMessage("IDisposableAnalyzers.Correctness", "IDISP001:Dispose created", Justification = "<En attente>")]
   private void UpdateAnalysisControls()
   {
     bool enabled = EditWord.TextBox.Text.Length >= 1;
@@ -761,10 +762,11 @@ partial class MainForm : Form
   private void ActionViewAllMeaningsList_Click(object sender, EventArgs e)
   {
     if ( EditWord.TextBox.Text.Length == 0 ) return;
-    new ShowTextForm(AppTranslations.LettersWordMeaningsList.GetLang(),
-                     GetMeaningsText().Replace(Globals.NL, Globals.NL2).Replace(" -,", ""),
-                     false, true,
-                     600, 400).ShowDialog();
+    using var form = new ShowTextForm(AppTranslations.LettersWordMeaningsList.GetLang(),
+                                      GetMeaningsText().Replace(Globals.NL, Globals.NL2).Replace(" -,", ""),
+                                      false, true,
+                                      600, 400);
+    form.ShowDialog();
     EditWord.Focus();
   }
 
@@ -793,7 +795,8 @@ partial class MainForm : Form
   private void ActionScreenshot_Click(object sender, EventArgs e)
   {
     if ( EditWord.TextBox.Text.Length == 0 ) return;
-    Clipboard.SetImage(this.GetBitmap());
+    using var bitmap = this.GetBitmap();
+    Clipboard.SetImage(bitmap);
     DisplayManager.ShowSuccessOrSound(SysTranslations.ScreenshotDone.GetLang(),
                                       Globals.ScreenshotSoundFilePath);
     EditWord.Focus();
@@ -811,7 +814,7 @@ partial class MainForm : Form
         SaveImageDialog.FilterIndex = index + 1;
     if ( SaveImageDialog.ShowDialog() != DialogResult.OK ) return;
     string filePath = SaveImageDialog.FileName;
-    var bitmap = this.GetBitmap();
+    using var bitmap = this.GetBitmap();
     bitmap.Save(filePath, Program.ImageExportTargets.GetFormat(Path.GetExtension(filePath)));
     DisplayManager.ShowSuccessOrSound(SysTranslations.ViewSavedToFile.GetLang(filePath),
                                       Globals.ScreenshotSoundFilePath);
@@ -1155,7 +1158,7 @@ partial class MainForm : Form
     if ( ListNotebookLetters.SelectedCells.Count > 0 )
     {
       string code = (string)ListNotebookLetters.SelectedCells[0].Value;
-      DBHebrew.TermsHebrewAsBindingList.ApplyFilter(w => w.Hebrew.EndsWith(code));
+      DBHebrew.TermsHebrewAsBindingList.ApplyFilter(w => w.Hebrew.EndsWith(code, StringComparison.Ordinal));
       if ( ListNotebookWords.Rows.Count > 0 )
         ListNotebookWords.Rows[0].Selected = true;
     }

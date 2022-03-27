@@ -16,6 +16,7 @@ namespace Ordisoftware.Hebrew.Letters;
 
 using Equin.ApplicationFramework;
 
+[SuppressMessage("IDisposableAnalyzers.Correctness", "IDISP006:Implement IDisposable", Justification = "<En attente>")]
 class ApplicationDatabase : SQLiteDatabase
 {
 
@@ -28,6 +29,7 @@ class ApplicationDatabase : SQLiteDatabase
 
   public List<Letter> Letters { get; private set; }
   public List<Meaning> Meanings { get; private set; }
+
 
   public BindingListView<Letter> LettersAsBindingList { get; private set; }
 
@@ -70,11 +72,11 @@ class ApplicationDatabase : SQLiteDatabase
   {
     Letters = Connection.Table<Letter>().ToList();
     Meanings = Connection.Table<Meaning>().ToList();
-    LettersAsBindingList = new BindingListView<Letter>(Letters);
   }
 
   protected override void CreateBindingLists()
   {
+    LettersAsBindingList?.Dispose();
     LettersAsBindingList = new BindingListView<Letter>(Letters);
   }
 
@@ -134,9 +136,11 @@ class ApplicationDatabase : SQLiteDatabase
         int indexStart = 0;
         string getStrValue(string name)
         {
-          int p = data.IndexOf(name, indexStart);
-          string s = data.Substring(p + name.Length, data.IndexOf(Environment.NewLine, p) - p - name.Length);
-          indexStart = data.IndexOf(Environment.NewLine, p) + 2;
+          int pos = data.IndexOf(name, indexStart, StringComparison.Ordinal);
+          int start = pos + name.Length;
+          int count = data.IndexOf(Environment.NewLine, pos, StringComparison.Ordinal) - pos - name.Length;
+          string s = data.Substring(start, count);
+          indexStart = data.IndexOf(Environment.NewLine, pos, StringComparison.Ordinal) + 2;
           return s.Trim();
         }
         int getIntValue(string name)

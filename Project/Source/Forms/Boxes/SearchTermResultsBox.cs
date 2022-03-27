@@ -46,7 +46,7 @@ partial class SearchTermResultsBox : Form
       DisplayManager.ShowInformation(SysTranslations.TermNotFound.GetLang(term));
       return false;
     }
-    var form = new SearchTermResultsBox { Term = term };
+    using var form = new SearchTermResultsBox { Term = term };
     foreach ( var row in query )
       form.ListBoxLetters.Items.Add(new LetterItem() { Letter = row });
     form.ListBoxLetters.SelectedItem = form.ListBoxLetters.Items[0];
