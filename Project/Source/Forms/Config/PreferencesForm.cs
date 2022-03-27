@@ -32,9 +32,11 @@ partial class PreferencesForm : Form
     {
       LanguageChanged = false;
       DoReset = false;
+      form.Dispose();
       form = new PreferencesForm();
       form.ShowDialog();
     }
+    form.Dispose();
   }
 
   private readonly NullSafeOfStringDictionary<DataExportTarget> ExportTarget
@@ -158,7 +160,7 @@ partial class PreferencesForm : Form
   {
     if ( !IsReady ) return;
     MediaMixer.SetApplicationVolume(Globals.ProcessId, EditVolume.Value);
-    LabelVolumeValue.Text = EditVolume.Value + "%";
+    LabelVolumeValue.Text = $"{EditVolume.Value}%";
     Settings.ApplicationVolume = EditVolume.Value;
     SystemManager.TryCatch(Settings.Save);
     DisplayManager.DoSound(Globals.ClipboardSoundFilePath);
