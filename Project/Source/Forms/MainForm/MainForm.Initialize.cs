@@ -75,9 +75,9 @@ partial class MainForm
     StatisticsForm.Run(true, Settings.UsageStatisticsEnabled);
     Globals.ChronoStartingApp.Stop();
     var lastdone = Settings.CheckUpdateLastDone;
-    bool exit = WebCheckUpdate.Run(Settings.CheckUpdateAtStartup,
-                                   ref lastdone,
+    bool exit = WebCheckUpdate.Run(ref lastdone,
                                    Settings.CheckUpdateAtStartupDaysInterval,
+                                   Settings.CheckUpdateAtStartup,
                                    true);
     Settings.CheckUpdateLastDone = lastdone;
     if ( exit )
