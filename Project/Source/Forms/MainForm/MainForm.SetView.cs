@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2021-05 </edited>
+/// <edited> 2022-03 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 /// <summary>
@@ -55,7 +55,7 @@ partial class MainForm
   /// <param name="first">true to first.</param>
   public void SetView(ViewMode view, bool first = false)
   {
-    var ViewPanels = new Dictionary<ViewMode, ViewConnector>()
+    var viewPanels = new Dictionary<ViewMode, ViewConnector>
     {
       {
         ViewMode.Analysis,
@@ -87,12 +87,12 @@ partial class MainForm
     };
     if ( Settings.CurrentView == view && !first ) return;
     if ( Settings.CurrentView == ViewMode.Letters )
-      ViewPanels[Settings.CurrentView].Focused.Focus();
-    ViewPanels[Settings.CurrentView].MenuItem.Checked = false;
-    ViewPanels[Settings.CurrentView].Panel.Parent = null;
-    ViewPanels[view].MenuItem.Checked = true;
-    ViewPanels[view].Panel.Parent = PanelMainCenter;
-    ViewPanels[view].Focused.Focus();
+      viewPanels[Settings.CurrentView].Focused.Focus();
+    viewPanels[Settings.CurrentView].MenuItem.Checked = false;
+    viewPanels[Settings.CurrentView].Panel.Parent = null;
+    viewPanels[view].MenuItem.Checked = true;
+    viewPanels[view].Panel.Parent = PanelMainCenter;
+    viewPanels[view].Focused.Focus();
     Settings.CurrentView = view;
     LabelCurrentView.Text = AppTranslations.CurrentViewText[view].GetLang();
     if ( view == ViewMode.Analysis )

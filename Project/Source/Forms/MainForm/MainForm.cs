@@ -113,7 +113,7 @@ partial class MainForm : Form
   private void TimerProcesses_Tick(object sender, EventArgs e)
   {
     // !TODO? reload data if switch readonly to editable
-    Globals.IsReadOnly = Interlocks.IsReadOnly();
+    Globals.IsReadOnly = Interlocks.IsReadOnly;
     Text = Globals.AssemblyTitle;
     if ( Globals.IsReadOnly ) Text += " - " + SysTranslations.ReadOnly.GetLang();
     TextBoxPositive.ReadOnly = Globals.IsReadOnly;
@@ -281,19 +281,16 @@ partial class MainForm : Form
     Settings.SoundsEnabled = EditSoundsEnabled.Checked;
     DisplayManager.AdvancedFormUseSounds = EditSoundsEnabled.Checked;
     DisplayManager.FormStyle = EditUseAdvancedDialogBoxes.Checked
-                               ? MessageBoxFormStyle.Advanced
-                               : MessageBoxFormStyle.System;
-    switch ( DisplayManager.FormStyle )
+      ? MessageBoxFormStyle.Advanced
+      : MessageBoxFormStyle.System;
+    DisplayManager.IconStyle = DisplayManager.FormStyle switch
     {
-      case MessageBoxFormStyle.System:
-        DisplayManager.IconStyle = EditSoundsEnabled.Checked
-                                   ? MessageBoxIconStyle.ForceInformation
-                                   : MessageBoxIconStyle.ForceNone;
-        break;
-      case MessageBoxFormStyle.Advanced:
-        DisplayManager.IconStyle = MessageBoxIconStyle.ForceInformation;
-        break;
-    }
+      MessageBoxFormStyle.System => EditSoundsEnabled.Checked
+        ? MessageBoxIconStyle.ForceInformation
+        : MessageBoxIconStyle.ForceNone,
+      MessageBoxFormStyle.Advanced => MessageBoxIconStyle.ForceInformation,
+      _ => throw new AdvancedNotImplementedException(DisplayManager.FormStyle),
+    };
   }
 
   /// <summary>
@@ -394,6 +391,7 @@ partial class MainForm : Form
     SystemManager.RunShell(Settings.GetExportDirectory());
   }
 
+  [SuppressMessage("Usage", "GCop517:'{0}()' returns a value but doesn't change the object. It's meaningless to call it without using the returned result.", Justification = "N/A")]
   private void ActionVacuumDB_Click(object sender, EventArgs e)
   {
     Settings.VacuumLastDone = ApplicationDatabase.Instance
@@ -917,22 +915,20 @@ partial class MainForm : Form
 
   private void ActionRestoreDefaults_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
   {
-    if ( DisplayManager.QueryYesNo(SysTranslations.AskToResetData.GetLang()) )
-    {
-      string word = EditWord.TextBox.Text;
-      DBApp.DeleteAll();
-      DBApp.LoadAll();
-      LettersBindingSource.DataSource = DBApp.LettersAsBindingList;
-      ActionClear.PerformClick();
-      ActionReset.PerformClick();
-      EditWord.TextBox.Text = word;
-      UpdateDataControls(null);
-      ClearLettersMeanings();
-      DoAnalyse();
-      EditMeanings.Focus();
-      ApplicationStatistics.UpdateDBFileSizeRequired = true;
-      ApplicationStatistics.UpdateDBMemorySizeRequired = true;
-    }
+    if ( !DisplayManager.QueryYesNo(SysTranslations.AskToResetData.GetLang()) ) return;
+    string word = EditWord.TextBox.Text;
+    DBApp.DeleteAll();
+    DBApp.LoadAll();
+    LettersBindingSource.DataSource = DBApp.LettersAsBindingList;
+    ActionClear.PerformClick();
+    ActionReset.PerformClick();
+    EditWord.TextBox.Text = word;
+    UpdateDataControls(null);
+    ClearLettersMeanings();
+    DoAnalyse();
+    EditMeanings.Focus();
+    ApplicationStatistics.UpdateDBFileSizeRequired = true;
+    ApplicationStatistics.UpdateDBMemorySizeRequired = true;
   }
 
   #endregion

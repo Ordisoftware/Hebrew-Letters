@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2020-08 </created>
-/// <edited> 2021-08 </edited>
+/// <edited> 2022-03 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 /// <summary>
@@ -35,7 +35,7 @@ class ApplicationStatistics
     => ApplicationDatabase.Instance.Letters?.Count.ToString() ?? SysTranslations.NullSlot.GetLang();
 
   public string DBMeaningsCount
-    => ApplicationDatabase.Instance.Connection.GetRowsCount(nameof(Letter.Meanings)).ToString();
+    => ApplicationDatabase.Instance.Connection.CountRows(nameof(Letter.Meanings)).ToString();
 
   public string DBEngine
     => SQLiteNetHelper.EngineNameAndVersion;
@@ -58,6 +58,7 @@ class ApplicationStatistics
   static private string _DBFileSize;
   static internal bool UpdateDBFileSizeRequired { get; set; } = true;
 
+  [SuppressMessage("Design", "GCop160:This is not readable. Either refactor into a method, or use If / else statement.", Justification = "Opinion")]
   public string DBMemorySize
   {
     get
@@ -68,10 +69,10 @@ class ApplicationStatistics
         long size1 = ApplicationDatabase.Instance.Letters?.SizeOf() ?? 0;
         long size2 = ApplicationDatabase.Instance.Meanings?.SizeOf() ?? 0;
         _DBMemorySize = size1 > 0 && size2 > 0
-                        ? ( size1 + size2 ).FormatBytesSize()
-                          : size1 == 0 && size2 == 0
-                            ? SysTranslations.DatabaseTableClosed.GetLang()
-                            : "-";
+          ? ( size1 + size2 ).FormatBytesSize()
+          : size1 == 0 && size2 == 0
+            ? SysTranslations.DatabaseTableClosed.GetLang()
+            : "-";
       }
       return _DBMemorySize;
     }
@@ -94,6 +95,7 @@ class ApplicationStatistics
   static private string _DBCommonFileSize;
   static internal bool UpdateDBCommonFileSizeRequired { get; set; } = true;
 
+  [SuppressMessage("Design", "GCop160:This is not readable. Either refactor into a method, or use If / else statement.", Justification = "Opinion")]
   public string DBLettriqsMemorySize
   {
     get
@@ -105,10 +107,10 @@ class ApplicationStatistics
         long size2 = HebrewDatabase.Instance.TermLettriqs?.SizeOf() ?? 0;
         long size3 = HebrewDatabase.Instance.TermAnalyzes?.SizeOf() ?? 0;
         _DBLettriqsMemorySize = size1 > 0 && size2 > 0 && size3 > 0
-                                ? ( size1 + size2 + size3 ).FormatBytesSize()
-                                  : size1 == 0 && size2 == 0 && size3 == 0
-                                    ? SysTranslations.DatabaseTableClosed.GetLang()
-                                    : "-";
+          ? ( size1 + size2 + size3 ).FormatBytesSize()
+          : size1 == 0 && size2 == 0 && size3 == 0
+            ? SysTranslations.DatabaseTableClosed.GetLang()
+            : "-";
       }
       return _DBLettriqsMemorySize;
     }
