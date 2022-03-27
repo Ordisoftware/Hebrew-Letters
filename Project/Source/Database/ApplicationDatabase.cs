@@ -124,7 +124,7 @@ class ApplicationDatabase : SQLiteDatabase
     CheckAccess(Meanings, nameof(Meanings));
     try
     {
-      if ( !reset && Connection.GetRowsCount(nameof(Letters)) == 22 ) return false;
+      if ( !reset && Connection.CountRows(nameof(Letters)) == 22 ) return false;
       bool temp = Globals.IsReady;
       Globals.IsReady = false;
       BeginTransaction();

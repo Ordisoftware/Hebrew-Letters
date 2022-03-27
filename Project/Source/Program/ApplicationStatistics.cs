@@ -35,7 +35,7 @@ class ApplicationStatistics
     => ApplicationDatabase.Instance.Letters?.Count.ToString() ?? SysTranslations.NullSlot.GetLang();
 
   public string DBMeaningsCount
-    => ApplicationDatabase.Instance.Connection.GetRowsCount(nameof(Letter.Meanings)).ToString();
+    => ApplicationDatabase.Instance.Connection.CountRows(nameof(Letter.Meanings)).ToString();
 
   public string DBEngine
     => SQLiteNetHelper.EngineNameAndVersion;

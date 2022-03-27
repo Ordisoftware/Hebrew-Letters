@@ -113,7 +113,7 @@ partial class MainForm : Form
   private void TimerProcesses_Tick(object sender, EventArgs e)
   {
     // !TODO? reload data if switch readonly to editable
-    Globals.IsReadOnly = Interlocks.IsReadOnly();
+    Globals.IsReadOnly = Interlocks.IsReadOnly;
     Text = Globals.AssemblyTitle;
     if ( Globals.IsReadOnly ) Text += " - " + SysTranslations.ReadOnly.GetLang();
     TextBoxPositive.ReadOnly = Globals.IsReadOnly;
