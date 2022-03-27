@@ -195,9 +195,9 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Add concordance, transcription, dictionary and comment fields for word analysis.
 - Add search online concordance.
 
-#### 2022.03.30 - Version 6.13
+#### 2022.04.05 - Version 6.13
 
-- Code refactoring, optimization and fixes with more analyzers.
+- Massive code refactorings, optimizations and fixes with more analyzers.
 - Update Markdig NuGet.
 - Update Aish web links for parashot study.
 
