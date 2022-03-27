@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2021-05 </created>
-/// <edited> 2021-08 </edited>
+/// <edited> 2022-03 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 using SQLite;
@@ -44,9 +44,9 @@ public class MeaningNoID : INotifyPropertyChanged
   [field: NonSerialized]
   public event PropertyChangedEventHandler PropertyChanged;
 
-  protected void NotifyPropertyChanged(string p)
+  protected void NotifyPropertyChanged(string property)
   {
-    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(p));
+    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
   }
 
   [NotNull]

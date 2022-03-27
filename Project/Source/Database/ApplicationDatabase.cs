@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2021-05 </created>
-/// <edited> 2021-08 </edited>
+/// <edited> 2022-03 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 using Equin.ApplicationFramework;
@@ -99,6 +99,7 @@ class ApplicationDatabase : SQLiteDatabase
     Letters.Clear();
   }
 
+  [SuppressMessage("Refactoring", "GCop622:Reverse your IF condition and return. Then move the nested statements to after the IF.", Justification = "Opinion")]
   protected override void UpgradeSchema()
   {
     base.UpgradeSchema();
@@ -110,11 +111,11 @@ class ApplicationDatabase : SQLiteDatabase
         Globals.IsDatabaseUpgraded = true;
       }
       const string sqlColumn = "ALTER TABLE %TABLE% ADD COLUMN %COLUMN% TEXT DEFAULT '' NOT NULL";
-      bool b = Globals.IsDatabaseUpgraded;
-      b = !Connection.CheckColumn(nameof(Letters), nameof(Letter.Hebrew), sqlColumn) || b;
-      b = !Connection.CheckColumn(nameof(Letters), nameof(Letter.Positive), sqlColumn) || b;
-      b = !Connection.CheckColumn(nameof(Letters), nameof(Letter.Negative), sqlColumn) || b;
-      Globals.IsDatabaseUpgraded = b;
+      bool upgrade = Globals.IsDatabaseUpgraded;
+      upgrade = !Connection.CheckColumn(nameof(Letters), nameof(Letter.Hebrew), sqlColumn) || upgrade;
+      upgrade = !Connection.CheckColumn(nameof(Letters), nameof(Letter.Positive), sqlColumn) || upgrade;
+      upgrade = !Connection.CheckColumn(nameof(Letters), nameof(Letter.Negative), sqlColumn) || upgrade;
+      Globals.IsDatabaseUpgraded = upgrade;
     }
   }
 

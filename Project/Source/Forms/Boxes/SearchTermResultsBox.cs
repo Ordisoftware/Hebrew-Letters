@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2020-03 </created>
-/// <edited> 2021-11 </edited>
+/// <edited> 2022-03 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 partial class SearchTermResultsBox : Form
@@ -20,10 +20,7 @@ partial class SearchTermResultsBox : Form
   class LetterItem
   {
     public Letter Letter;
-    public override string ToString()
-    {
-      return Letter.Name;
-    }
+    public override string ToString() => Letter.Name;
   }
 
   static public bool Run(string term, out string code, out string meaning)
@@ -48,7 +45,7 @@ partial class SearchTermResultsBox : Form
     }
     using var form = new SearchTermResultsBox { Term = term };
     foreach ( var row in query )
-      form.ListBoxLetters.Items.Add(new LetterItem() { Letter = row });
+      form.ListBoxLetters.Items.Add(new LetterItem { Letter = row });
     form.ListBoxLetters.SelectedItem = form.ListBoxLetters.Items[0];
     if ( form.ListBoxLetters.Items.Count == 1 && form.ListBoxMeanings.Items.Count == 1 )
     {

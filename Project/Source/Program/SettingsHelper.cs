@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2021-02 </edited>
+/// <edited> 2022-03 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 using Ordisoftware.Hebrew.Letters.Properties;
@@ -71,22 +71,18 @@ static class SettingsHelper
     try
     {
       var area = SystemInformation.WorkingArea;
-      if ( settings.MainFormLeft >= area.Left && settings.MainFormLeft <= area.Width )
-        MainForm.Left = settings.MainFormLeft;
-      else
-        MainForm.Left = area.Left;
-      if ( settings.MainFormTop >= area.Top && settings.MainFormTop <= area.Height )
-        MainForm.Top = settings.MainFormTop;
-      else
-        MainForm.Top = area.Top;
-      if ( settings.MainFormWidth >= MainForm.MinimumSize.Width && settings.MainFormWidth <= area.Width )
-        MainForm.Width = settings.MainFormWidth;
-      else
-        MainForm.Width = MainForm.MinimumSize.Width;
-      if ( settings.MainFormHeight >= MainForm.MinimumSize.Height && settings.MainFormHeight <= area.Height )
-        MainForm.Height = settings.MainFormHeight;
-      else
-        MainForm.Height = MainForm.MinimumSize.Height;
+      MainForm.Left = settings.MainFormLeft >= area.Left && settings.MainFormLeft <= area.Width
+        ? settings.MainFormLeft
+        : area.Left;
+      MainForm.Top = settings.MainFormTop >= area.Top && settings.MainFormTop <= area.Height
+        ? settings.MainFormTop
+        : area.Top;
+      MainForm.Width = settings.MainFormWidth >= MainForm.MinimumSize.Width && settings.MainFormWidth <= area.Width
+        ? settings.MainFormWidth
+        : MainForm.MinimumSize.Width;
+      MainForm.Height = settings.MainFormHeight >= MainForm.MinimumSize.Height && settings.MainFormHeight <= area.Height
+        ? settings.MainFormHeight
+        : MainForm.MinimumSize.Height;
       MainForm.EditScreenNone.Checked = settings.MainFormPosition == ControlLocation.Loose;
       MainForm.EditScreenTopLeft.Checked = settings.MainFormPosition == ControlLocation.TopLeft;
       MainForm.EditScreenTopRight.Checked = settings.MainFormPosition == ControlLocation.TopRight;
@@ -177,10 +173,10 @@ static class SettingsHelper
   /// </summary>
   static internal string GetExportDirectory(this Settings settings)
   {
-    string directory = settings.ExportFolder;
-    if ( directory == "%USER_APP_DOCUMENTS%" )
-      directory = Globals.UserDocumentsFolderPath;
-    return directory;
+    string result = settings.ExportFolder;
+    if ( result == "%USER_APP_DOCUMENTS%" )
+      result = Globals.UserDocumentsFolderPath;
+    return result;
   }
 
 }

@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2021-02 </created>
-/// <edited> 2021-06 </edited>
+/// <edited> 2022-03 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 /// <summary>
@@ -24,6 +24,7 @@ partial class MainForm
   /// <summary>
   /// Checks clipboard content type.
   /// </summary>
+  [SuppressMessage("Design", "GCop160:This is not readable. Either refactor into a method, or use If / else statement.", Justification = "Opinion")]
   internal void CheckClipboardContentType()
   {
     string strContent = Clipboard.GetText();
@@ -31,10 +32,10 @@ partial class MainForm
     if ( ActionPaste.Enabled )
     {
       var strLabel = HebrewAlphabet.IsValidUnicode(strContent)
-                     ? HebrewTranslations.Unicode.GetLang()
-                     : HebrewAlphabet.IsValidHebrew(strContent)
-                       ? HebrewTranslations.Hebrew.GetLang()
-                       : SysTranslations.Uncertain.GetLang();
+        ? HebrewTranslations.Unicode.GetLang()
+        : HebrewAlphabet.IsValidHebrew(strContent)
+          ? HebrewTranslations.Hebrew.GetLang()
+          : SysTranslations.Uncertain.GetLang();
       LabelClipboardContentType.Text = $"{strLabel}{Globals.NL}({strContent.Length})";
     }
     else

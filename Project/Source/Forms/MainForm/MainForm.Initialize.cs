@@ -187,6 +187,7 @@ partial class MainForm
   /// <summary>
   /// WndProc override.
   /// </summary>
+  [SuppressMessage("Naming", "GCop204:Rename the variable '{0}' to something clear and meaningful.", Justification = "Overrided")]
   protected override void WndProc(ref Message m)
   {
     switch ( m.Msg )
@@ -239,8 +240,8 @@ partial class MainForm
     EditMemo.BackColor = Settings.ColorHebrewWordTextBox;
     // Data
     SelectLetter.BackColor = Settings.ColorLettersPanel == SystemColors.Window
-                             ? Settings.ColorGematriaTextBox
-                             : Settings.ColorLettersPanel;
+      ? Settings.ColorGematriaTextBox
+      : Settings.ColorLettersPanel;
     TextBoxName.BackColor = SelectLetter.BackColor;
     TextBoxValueSimple.BackColor = Settings.ColorGematriaTextBox;
     TextBoxValueFull.BackColor = Settings.ColorGematriaTextBox;
