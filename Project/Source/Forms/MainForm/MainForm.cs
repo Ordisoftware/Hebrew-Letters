@@ -148,7 +148,7 @@ partial class MainForm : Form
     var item = (ToolStripItem)LastToolTip.Tag;
     var location = new Point(item.Bounds.Left, item.Bounds.Top + ActionExit.Height + 5);
     LastToolTip.Tag = sender;
-    LastToolTip.Show(item.ToolTipText, ToolStrip, location, 3000);
+    LastToolTip.Show(item.ToolTipText, ToolStrip, location, Globals.ToolTipDelay);
     TimerTooltip.Enabled = false;
   }
 
@@ -763,7 +763,7 @@ partial class MainForm : Form
     using var form = new ShowTextForm(AppTranslations.LettersWordMeaningsList.GetLang(),
                                       GetMeaningsText().Replace(Globals.NL, Globals.NL2).Replace(" -,", ""),
                                       false, true,
-                                      600, 400);
+                                      MessageBoxEx.DefaultWidthLarge, MessageBoxEx.DefaultHeightLarge);
     form.ShowDialog();
     EditWord.Focus();
   }

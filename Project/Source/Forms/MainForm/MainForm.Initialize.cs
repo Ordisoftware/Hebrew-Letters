@@ -103,6 +103,7 @@ partial class MainForm
   /// </summary>
   /// <param name="sender">Source of the event.</param>
   /// <param name="e">Form closing event information.</param>
+  [SuppressMessage("Design", "GCop179:Do not hardcode numbers, strings or other values. Use constant fields, enums, config files or database as appropriate.", Justification = "<En attente>")]
   private void DoFormShown(object sender, EventArgs e)
   {
     if ( Globals.IsExiting ) return;
@@ -145,7 +146,10 @@ partial class MainForm
     }
     Globals.NoticeKeyboardShortcutsForm = new ShowTextForm(AppTranslations.NoticeKeyboardShortcutsTitle,
                                                            AppTranslations.NoticeKeyboardShortcuts,
-                                                           true, false, 340, 450, false, false);
+                                                           true, false,
+                                                           MessageBoxEx.DefaultHeightMedium,
+                                                           MessageBoxEx.DefaultHeightBig,
+                                                           false, false);
     Globals.NoticeKeyboardShortcutsForm.TextBox.BackColor = Globals.NoticeKeyboardShortcutsForm.BackColor;
     Globals.NoticeKeyboardShortcutsForm.TextBox.BorderStyle = BorderStyle.None;
     Globals.NoticeKeyboardShortcutsForm.Padding = new Padding(20, 20, 10, 10);
