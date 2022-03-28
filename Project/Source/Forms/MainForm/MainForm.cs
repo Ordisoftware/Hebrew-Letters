@@ -289,7 +289,7 @@ partial class MainForm : Form
         ? MessageBoxIconStyle.ForceInformation
         : MessageBoxIconStyle.ForceNone,
       MessageBoxFormStyle.Advanced => MessageBoxIconStyle.ForceInformation,
-      _ => throw new AdvancedNotImplementedException(DisplayManager.FormStyle),
+      _ => throw new AdvNotImplementedException(DisplayManager.FormStyle),
     };
   }
 
