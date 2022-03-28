@@ -158,7 +158,7 @@
     <Compile Include="Source\Common\Core\Enums\TraceFileRollOverMode.cs" />
     <Compile Include="Source\Common\Core\Exceptions\AbortException.cs" />
     <Compile Include="Source\Common\Core\Exceptions\ExceptionInfo.cs" />
-    <Compile Include="Source\Common\Core\Exceptions\NotImplementedExceptionEx.cs" />
+    <Compile Include="Source\Common\Core\Exceptions\AdvNotImplementedException.cs" />
     <Compile Include="Source\Common\Core\Exceptions\SQLiteException.cs" />
     <Compile Include="Source\Common\Core\Globalization\Languages.cs" />
     <Compile Include="Source\Common\Core\Globalization\Localizer.cs" />
@@ -588,7 +588,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Source\Common\Core\Globals\.editorconfig" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\Setup\OrdisoftwareHebrewLettersSetup.iss">
