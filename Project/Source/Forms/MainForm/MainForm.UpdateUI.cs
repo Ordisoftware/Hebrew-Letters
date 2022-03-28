@@ -33,8 +33,8 @@ partial class MainForm
       var cp = base.CreateParams;
       if ( Settings.WindowsDoubleBufferingEnabled )
       {
-        cp.ExStyle |= 0x02000000; // + WS_EX_COMPOSITED
-        //cp.Style &= ~0x02000000;  // - WS_CLIPCHILDREN
+        cp.ExStyle |= Globals.WS_EX_COMPOSITED;
+        //cp.Style &= Globals.WS_CLIPCHILDREN;
       }
       return cp;
     }
