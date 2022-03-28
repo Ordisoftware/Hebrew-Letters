@@ -42,7 +42,7 @@ static partial class Program
   /// Indicates file path of the letters meanings.
   /// </summary>
   static public string MeaningsFilePath
-    => Path.Combine(MeaningsFolderPath, $"Alphabet-Meanings-{Languages.CurrentCode}.txt");
+    => Path.Combine(MeaningsFolderPath, $"Alphabet-Meanings-{Languages.Current}.txt");
 
   /// <summary>
   /// Indicates the grammar guide form.
