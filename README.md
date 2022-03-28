@@ -197,6 +197,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 #### 2022.04.05 - Version 6.13
 
+- Maintenance release.
 - Massive code refactorings, optimizations and fixes with more analyzers.
 - Update Markdig NuGet.
 - Update Aish web links for parashot study.
