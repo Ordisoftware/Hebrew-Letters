@@ -111,6 +111,7 @@
     <Compile Include="Dependencies\Windows Global Hotkey\HotkeyManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Source\Common\Core\Classes\CompilerHelper.cs" />
+    <Compile Include="Source\Common\Core\Classes\CustomColor.cs" />
     <Compile Include="Source\Common\Core\Debug\Chronometer.cs" />
     <Compile Include="Source\Common\Core\Classes\EnumHelper.cs" />
     <Compile Include="Source\Common\Core\Classes\ExportHelper.cs" />
