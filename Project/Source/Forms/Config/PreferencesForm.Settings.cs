@@ -106,7 +106,7 @@ partial class PreferencesForm : Form
     Settings.BenchmarkLoadData = loadtime;
     Settings.RestoreMainForm();
     SystemManager.TryCatch(Settings.Save);
-    MainForm.Instance.EditSentence.Font = new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence);
+    MainForm.Instance.EditSentence.ReplaceFont(new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence));
     Program.GrammarGuideForm.CenterToMainFormElseScreen();
     Program.MethodNoticeForm.CenterToMainFormElseScreen();
     DoReset = true;

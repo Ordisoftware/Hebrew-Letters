@@ -126,7 +126,7 @@ partial class MainForm
     else
       ActionReset.Visible = false;
     ToolStrip.SetDropDownOpening();
-    EditSentence.Font = new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence);
+    EditSentence.ReplaceFont(new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence));
     EditWord.TextBox.MaxLength = (int)Settings.HebrewTextBoxMaxLength;
     EditSentence_FontChanged(null, null);
     Globals.ChronoStartingApp.Stop();

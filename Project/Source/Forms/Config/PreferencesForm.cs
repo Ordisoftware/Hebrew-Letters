@@ -153,7 +153,7 @@ partial class PreferencesForm : Form
 
   private void EditFontSize_ValueChanged(object sender, EventArgs e)
   {
-    MainForm.Instance.EditSentence.Font = new Font("Microsoft Sans Serif", (float)EditFontSize.Value);
+    MainForm.Instance.EditSentence.ReplaceFont(new Font("Microsoft Sans Serif", (float)EditFontSize.Value));
   }
 
   private void EditVolume_ValueChanged(object sender, EventArgs e)
