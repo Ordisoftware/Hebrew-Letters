@@ -70,6 +70,7 @@ partial class MainForm
   {
     if ( Globals.IsExiting ) return;
     Settings.Retrieve();
+    EditWord.HebrewCharsInBold = Settings.LettersControlHebrewCharsInBold;
     EditConcordance.Minimum = HebrewAlphabet.ConcordanceFirst - 1;
     EditConcordance.Maximum = HebrewAlphabet.ConcordanceLast;
     StatisticsForm.Run(true, Settings.UsageStatisticsEnabled);
@@ -125,7 +126,7 @@ partial class MainForm
     else
       ActionReset.Visible = false;
     ToolStrip.SetDropDownOpening();
-    EditSentence.Font = new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence);
+    EditSentence.ReplaceFont(new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence));
     EditWord.TextBox.MaxLength = (int)Settings.HebrewTextBoxMaxLength;
     EditSentence_FontChanged(null, null);
     Globals.ChronoStartingApp.Stop();

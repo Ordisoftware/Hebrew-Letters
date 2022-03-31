@@ -42,6 +42,7 @@ partial class PreferencesForm : Form
     SystemManager.TryCatch(() => EditWindowsDoubleBufferingEnabled.Checked = Settings.WindowsDoubleBufferingEnabled);
     SystemManager.TryCatch(() => EditHebrewWordsPath.Text = Settings.HebrewWordsExe);
     SystemManager.TryCatch(() => EditCustomWebSearch.Text = Settings.CustomWebSearch);
+    SystemManager.TryCatch(() => EditHebrewCharsInBold.Checked = Settings.LettersControlHebrewCharsInBold);
     EditImageExportFileFormat.Fill(Program.ImageExportTargets, Settings.ExportImagePreferredTarget);
     LoadColors();
   }
@@ -65,6 +66,7 @@ partial class PreferencesForm : Form
     Settings.WindowsDoubleBufferingEnabled = EditWindowsDoubleBufferingEnabled.Checked;
     Settings.HebrewWordsExe = EditHebrewWordsPath.Text;
     Settings.CustomWebSearch = EditCustomWebSearch.Text;
+    Settings.LettersControlHebrewCharsInBold = EditHebrewCharsInBold.Checked;
     SaveColors();
     SystemManager.TryCatch(Settings.Save);
   }
@@ -104,7 +106,7 @@ partial class PreferencesForm : Form
     Settings.BenchmarkLoadData = loadtime;
     Settings.RestoreMainForm();
     SystemManager.TryCatch(Settings.Save);
-    MainForm.Instance.EditSentence.Font = new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence);
+    MainForm.Instance.EditSentence.ReplaceFont(new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence));
     Program.GrammarGuideForm.CenterToMainFormElseScreen();
     Program.MethodNoticeForm.CenterToMainFormElseScreen();
     DoReset = true;
