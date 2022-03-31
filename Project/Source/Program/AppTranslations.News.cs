@@ -23,6 +23,21 @@ static partial class AppTranslations
   static public readonly NullSafeDictionary<string, TranslationsDictionary> NoticeNewFeatures = new()
   {
 
+    ["6.13"] = new TranslationsDictionary
+    {
+      [Language.EN] = "• Some fixes." + Globals.NL +
+                      "• Some improvements." + Globals.NL +
+                      "• Some optimizations." + Globals.NL +
+                      "• Massive refactorings with new code analyzers." + Globals.NL +
+                      "• Update Aish web links for parashot study.",
+
+      [Language.FR] = "• Quelques correctifs." + Globals.NL +
+                      "• Quelques améliorations." + Globals.NL +
+                      "• Quelques optimisations." + Globals.NL +
+                      "• Refactorisations massives avec de nouveaux analyseurs de code." + Globals.NL +
+                      "• Mettre à jour des liens Web Aish pour l'étude parashot."
+    },
+
     ["6.12"] = new TranslationsDictionary
     {
       [Language.EN] = "• Code refactoring." + Globals.NL +
