@@ -197,10 +197,12 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 #### 2022.04.05 - Version 6.13
 
+- Add a setting to use Hebrew chars in bold or regular.
 - Some fixes.
 - Some improvements.
 - Some optimizations.
 - Massive refactorings with new code analyzers.
+- Improve setup to select hebrew font version.
 - Update Aish web links for parashot study.
 
 #### 2022.03.20 - Version 6.12
