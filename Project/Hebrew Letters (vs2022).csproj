@@ -313,6 +313,7 @@
     <Compile Include="Source\Common\Hebrew\Classes\HebrewMonths.cs" />
     <Compile Include="Source\Common\Hebrew\Classes\HebrewTools.cs" />
     <Compile Include="Source\Common\Hebrew\Classes\HebrewTranslations.cs" />
+    <Compile Include="Source\Common\Hebrew\Classes\HebrewTranslations.Notices.cs" />
     <Compile Include="Source\Common\Hebrew\Database\HebrewDatabase.cs" />
     <Compile Include="Source\Common\Hebrew\Database\HebrewDatabase.Parashot.cs" />
     <Compile Include="Source\Common\Hebrew\Database\HebrewDatabase.Terms.cs" />
@@ -322,37 +323,38 @@
     <Compile Include="Source\Common\Hebrew\Database\Parashah.Properties.cs" />
     <Compile Include="Source\Common\Hebrew\Database\Parashah.ToString.cs" />
     <Compile Include="Source\Common\Hebrew\Database\ParashotFactory.cs" />
+    <Compile Include="Source\Common\Hebrew\Database\ParashotHelper.cs" />
     <Compile Include="Source\Common\Hebrew\Database\TermAnalysis.cs" />
     <Compile Include="Source\Common\Hebrew\Database\TermHebrew.cs" />
     <Compile Include="Source\Common\Hebrew\Database\TermLettriqs.cs" />
-    <Compile Include="Source\Common\Hebrew\Entities\Books.cs" />
-    <Compile Include="Source\Common\Hebrew\Entities\BooksBounds.cs" />
-    <Compile Include="Source\Common\Hebrew\Entities\BooksNames.BibleHub.cs" />
-    <Compile Include="Source\Common\Hebrew\Entities\BooksNames.Chabad.cs" />
-    <Compile Include="Source\Common\Hebrew\Entities\BooksNames.Common.cs" />
-    <Compile Include="Source\Common\Hebrew\Entities\BooksNames.Djep.cs" />
-    <Compile Include="Source\Common\Hebrew\Entities\BooksNames.Hebrew.cs" />
-    <Compile Include="Source\Common\Hebrew\Entities\BooksNames.LEvangile.cs" />
-    <Compile Include="Source\Common\Hebrew\Entities\BooksNames.MechonMamre.cs" />
-    <Compile Include="Source\Common\Hebrew\Entities\BooksNames.StudyBible.cs" />
-    <Compile Include="Source\Common\Hebrew\Entities\BooksNames.TorahBox.cs" />
-    <Compile Include="Source\Common\Hebrew\Entities\BooksNames.Unicode.cs" />
-    <Compile Include="Source\Common\Hebrew\Entities\OnlineCelebrations.cs" />
-    <Compile Include="Source\Common\Hebrew\Entities\OnlineParashot.AishEN.cs" />
-    <Compile Include="Source\Common\Hebrew\Entities\OnlineParashot.AishFR.cs" />
-    <Compile Include="Source\Common\Hebrew\Entities\OnlineParashot.AishIW.cs" />
-    <Compile Include="Source\Common\Hebrew\Entities\OnlineParashot.ChabadEN.cs" />
-    <Compile Include="Source\Common\Hebrew\Entities\OnlineParashot.ChabadFR.cs" />
-    <Compile Include="Source\Common\Hebrew\Entities\OnlineParashot.MyJewishLearning.cs" />
-    <Compile Include="Source\Common\Hebrew\Entities\OnlineParashot.TheYeshivaNet.cs" />
-    <Compile Include="Source\Common\Hebrew\Entities\OnlineParashot.TorahBox.cs" />
-    <Compile Include="Source\Common\Hebrew\Entities\OnlineParashot.TorahJews.cs" />
-    <Compile Include="Source\Common\Hebrew\Entities\OnlineParashot.TorahOrg.cs" />
-    <Compile Include="Source\Common\Hebrew\Entities\OnlineParashot.WikipediaEN.cs" />
-    <Compile Include="Source\Common\Hebrew\Entities\OnlineParashot.WikipediaFR.cs" />
-    <Compile Include="Source\Common\Hebrew\Entities\OnlineParashot.YeshivaCo.cs" />
-    <Compile Include="Source\Common\Hebrew\Entities\TorahCelebration.cs" />
-    <Compile Include="Source\Common\Hebrew\Entities\TorahCelebrationVerses.cs" />
+    <Compile Include="Source\Common\Hebrew\Enums\Books.cs" />
+    <Compile Include="Source\Common\Hebrew\Enums\BooksBounds.cs" />
+    <Compile Include="Source\Common\Hebrew\Enums\TorahCelebration.cs" />
+    <Compile Include="Source\Common\Hebrew\Providers\Books\OnlineBooks.BibleHub.cs" />
+    <Compile Include="Source\Common\Hebrew\Providers\Books\OnlineBooks.Chabad.cs" />
+    <Compile Include="Source\Common\Hebrew\Providers\Books\OnlineBooks.Common.cs" />
+    <Compile Include="Source\Common\Hebrew\Providers\Books\OnlineBooks.Djep.cs" />
+    <Compile Include="Source\Common\Hebrew\Providers\Books\OnlineBooks.Hebrew.cs" />
+    <Compile Include="Source\Common\Hebrew\Providers\Books\OnlineBooks.LEvangile.cs" />
+    <Compile Include="Source\Common\Hebrew\Providers\Books\OnlineBooks.MechonMamre.cs" />
+    <Compile Include="Source\Common\Hebrew\Providers\Books\OnlineBooks.StudyBible.cs" />
+    <Compile Include="Source\Common\Hebrew\Providers\Books\OnlineBooks.TorahBox.cs" />
+    <Compile Include="Source\Common\Hebrew\Providers\Books\OnlineBooks.Unicode.cs" />
+    <Compile Include="Source\Common\Hebrew\Providers\OnlineCelebrations.cs" />
+    <Compile Include="Source\Common\Hebrew\Providers\Parashot\OnlineParashot.AishEN.cs" />
+    <Compile Include="Source\Common\Hebrew\Providers\Parashot\OnlineParashot.AishFR.cs" />
+    <Compile Include="Source\Common\Hebrew\Providers\Parashot\OnlineParashot.AishIW.cs" />
+    <Compile Include="Source\Common\Hebrew\Providers\Parashot\OnlineParashot.ChabadEN.cs" />
+    <Compile Include="Source\Common\Hebrew\Providers\Parashot\OnlineParashot.ChabadFR.cs" />
+    <Compile Include="Source\Common\Hebrew\Providers\Parashot\OnlineParashot.MyJewishLearning.cs" />
+    <Compile Include="Source\Common\Hebrew\Providers\Parashot\OnlineParashot.TheYeshivaNet.cs" />
+    <Compile Include="Source\Common\Hebrew\Providers\Parashot\OnlineParashot.TorahBox.cs" />
+    <Compile Include="Source\Common\Hebrew\Providers\Parashot\OnlineParashot.TorahJews.cs" />
+    <Compile Include="Source\Common\Hebrew\Providers\Parashot\OnlineParashot.TorahOrg.cs" />
+    <Compile Include="Source\Common\Hebrew\Providers\Parashot\OnlineParashot.WikipediaEN.cs" />
+    <Compile Include="Source\Common\Hebrew\Providers\Parashot\OnlineParashot.WikipediaFR.cs" />
+    <Compile Include="Source\Common\Hebrew\Providers\Parashot\OnlineParashot.YeshivaCo.cs" />
+    <Compile Include="Source\Common\Hebrew\Providers\TorahCelebrationVerses.cs" />
     <Compile Include="Source\Common\Hebrew\WinControls\LettersControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -361,6 +363,12 @@
     </Compile>
     <Compile Include="Source\Common\Hebrew\WinControls\LettersControl.Redraw.cs">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Source\Common\Hebrew\WinForms\CelebrationVersesBoardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Common\Hebrew\WinForms\CelebrationVersesBoardForm.Designer.cs">
+      <DependentUpon>CelebrationVersesBoardForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Database\ApplicationDatabase.cs" />
     <Compile Include="Source\Database\Letter.cs" />
@@ -539,6 +547,12 @@
       <DependentUpon>LettersControl.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Source\Common\Hebrew\WinForms\CelebrationVersesBoardForm.fr.resx">
+      <DependentUpon>CelebrationVersesBoardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Source\Common\Hebrew\WinForms\CelebrationVersesBoardForm.resx">
+      <DependentUpon>CelebrationVersesBoardForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Source\Forms\Boxes\SearchTermResultsBox.fr.resx">
       <DependentUpon>SearchTermResultsBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -692,5 +706,6 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

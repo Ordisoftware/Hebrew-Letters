@@ -14,6 +14,9 @@
 /// <edited> 2022-03 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
+//using System.IO.Pipes;
+//using System.Runtime.Serialization.Formatters.Binary;
+
 /// <summary>
 /// Provides Program class.
 /// </summary>
@@ -49,6 +52,10 @@ static partial class Program
       Globals.MainForm = MainForm.Instance;
       DebugManager.TraceEnabled = Settings.TraceEnabled;
       DebugManager.Enabled = Settings.DebuggerEnabled;
+      HebrewGlobals.GetHebrewCalendarExePath = () => string.Empty;
+      HebrewGlobals.GetHebrewLettersExePath = () => Globals.ApplicationExeFullPath;
+      HebrewGlobals.GetHebrewWordsExePath = () => Settings.HebrewWordsExe;
+      HebrewGlobals.GetCustomWebSearchPattern = () => Settings.CustomWebSearch;
       Globals.ChronoStartingApp.Stop();
       ProcessCommandLineOptions();
       Globals.ChronoStartingApp.Start();

@@ -72,13 +72,13 @@ partial class MainForm
       (sender, e) =>
       {
         var menuitem = (ToolStripMenuItem)sender;
-        HebrewTools.OpenWordProvider((string)menuitem.Tag, EditWord.TextBox.Text, Settings.CustomWebSearch);
+        HebrewTools.OpenWordProvider((string)menuitem.Tag, EditWord.TextBox.Text);
         EditWord.Focus();
       },
       () =>
       {
         var menuitem = new ToolStripMenuItem(HebrewTranslations.HebrewWordsSearch.GetLang(), HebrewWordsIcon);
-        menuitem.Click += (sender, e) => HebrewTools.OpenHebrewWordsSearchWord(EditWord.InputText, Settings.HebrewWordsExe);
+        menuitem.Click += (sender, e) => HebrewTools.OpenHebrewWordsSearchWord(EditWord.InputText);
         if ( ContextMenuSearchOnline.Items.Count > 0 )
           ContextMenuSearchOnline.Items.Add(new ToolStripSeparator());
         ContextMenuSearchOnline.Items.Add(menuitem);
