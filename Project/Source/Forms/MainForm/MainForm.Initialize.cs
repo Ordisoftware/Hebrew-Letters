@@ -70,6 +70,7 @@ partial class MainForm
   {
     if ( Globals.IsExiting ) return;
     Settings.Retrieve();
+    EditWord.HebrewCharsInBold = Settings.LettersControlHebrewCharsInBold;
     EditConcordance.Minimum = HebrewAlphabet.ConcordanceFirst - 1;
     EditConcordance.Maximum = HebrewAlphabet.ConcordanceLast;
     StatisticsForm.Run(true, Settings.UsageStatisticsEnabled);

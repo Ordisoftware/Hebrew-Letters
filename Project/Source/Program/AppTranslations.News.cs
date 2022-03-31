@@ -25,16 +25,20 @@ static partial class AppTranslations
 
     ["6.13"] = new TranslationsDictionary
     {
-      [Language.EN] = "• Some fixes." + Globals.NL +
+      [Language.EN] = "• Add setting to use Hebrew chars in bold or regular." + Globals.NL +
+                      "• Some fixes." + Globals.NL +
                       "• Some improvements." + Globals.NL +
                       "• Some optimizations." + Globals.NL +
                       "• Massive refactorings with new code analyzers." + Globals.NL +
+                      "• Improve setup to select hebrew font version." + Globals.NL +
                       "• Update Aish web links for parashot study.",
 
-      [Language.FR] = "• Quelques correctifs." + Globals.NL +
+      [Language.FR] = "• Ajout d'un paramètre pour utiliser les caractères hébreux en gras ou normal." + Globals.NL +
+                      "• Quelques correctifs." + Globals.NL +
                       "• Quelques améliorations." + Globals.NL +
                       "• Quelques optimisations." + Globals.NL +
                       "• Refactorisations massives avec de nouveaux analyseurs de code." + Globals.NL +
+                      "• Amélioration du setup pour sélectionner la version de la fonte hébreu." + Globals.NL +
                       "• Mise à jour des liens Web Aish pour l'étude parashot."
     },
 

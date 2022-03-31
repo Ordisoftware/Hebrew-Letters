@@ -289,4 +289,10 @@
   <data name="LabelCustomWebSearch.Text" xml:space="preserve">
     <value>Recherche web personnalisée</value>
   </data>
+  <data name="EditHebrewCharsInBold.Text" xml:space="preserve">
+    <value>Caractères hébreux en gras</value>
+  </data>
+  <data name="OpenExeFileDialog.Filter" xml:space="preserve">
+    <value>Fichiers EXE (*.exe)|*.exe</value>
+  </data>
 </root>

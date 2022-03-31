@@ -12,7 +12,7 @@ namespace Ordisoftware.Hebrew.Letters.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.0.3.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.1.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -765,6 +765,18 @@ namespace Ordisoftware.Hebrew.Letters.Properties {
             }
             set {
                 this["CustomWebSearch"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool LettersControlHebrewCharsInBold {
+            get {
+                return ((bool)(this["LettersControlHebrewCharsInBold"]));
+            }
+            set {
+                this["LettersControlHebrewCharsInBold"] = value;
             }
         }
     }

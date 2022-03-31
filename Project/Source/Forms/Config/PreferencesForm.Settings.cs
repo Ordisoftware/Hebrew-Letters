@@ -42,6 +42,7 @@ partial class PreferencesForm : Form
     SystemManager.TryCatch(() => EditWindowsDoubleBufferingEnabled.Checked = Settings.WindowsDoubleBufferingEnabled);
     SystemManager.TryCatch(() => EditHebrewWordsPath.Text = Settings.HebrewWordsExe);
     SystemManager.TryCatch(() => EditCustomWebSearch.Text = Settings.CustomWebSearch);
+    SystemManager.TryCatch(() => EditHebrewCharsInBold.Checked = Settings.LettersControlHebrewCharsInBold);
     EditImageExportFileFormat.Fill(Program.ImageExportTargets, Settings.ExportImagePreferredTarget);
     LoadColors();
   }
@@ -65,6 +66,7 @@ partial class PreferencesForm : Form
     Settings.WindowsDoubleBufferingEnabled = EditWindowsDoubleBufferingEnabled.Checked;
     Settings.HebrewWordsExe = EditHebrewWordsPath.Text;
     Settings.CustomWebSearch = EditCustomWebSearch.Text;
+    Settings.LettersControlHebrewCharsInBold = EditHebrewCharsInBold.Checked;
     SaveColors();
     SystemManager.TryCatch(Settings.Save);
   }

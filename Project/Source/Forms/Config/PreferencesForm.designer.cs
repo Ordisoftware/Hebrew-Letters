@@ -37,7 +37,6 @@
       this.ActionExportSettings = new System.Windows.Forms.Button();
       this.ActionImportSettings = new System.Windows.Forms.Button();
       this.ActionResetSettings = new System.Windows.Forms.LinkLabel();
-      this.OpenFileDialog = new System.Windows.Forms.OpenFileDialog();
       this.FolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
       this.MenuSelectOnlineVerseURL = new System.Windows.Forms.ContextMenuStrip(this.components);
       this.DialogColor = new System.Windows.Forms.ColorDialog();
@@ -93,6 +92,7 @@
       this.EditHebrewWordsPath = new Ordisoftware.Core.TextBoxEx();
       this.label2 = new System.Windows.Forms.Label();
       this.label1 = new System.Windows.Forms.Label();
+      this.EditHebrewCharsInBold = new System.Windows.Forms.CheckBox();
       this.EditAutoSortAnalysisMeanings = new System.Windows.Forms.CheckBox();
       this.LabelFontSize = new System.Windows.Forms.Label();
       this.EditMaxLength = new System.Windows.Forms.NumericUpDown();
@@ -176,10 +176,6 @@
       this.ActionResetSettings.Name = "ActionResetSettings";
       this.ActionResetSettings.TabStop = true;
       this.ActionResetSettings.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.ActionResetSettings_LinkClicked);
-      // 
-      // OpenFileDialog
-      // 
-      resources.ApplyResources(this.OpenFileDialog, "OpenFileDialog");
       // 
       // MenuSelectOnlineVerseURL
       // 
@@ -541,6 +537,7 @@
       this.TabPageAnalyzer.Controls.Add(this.EditHebrewWordsPath);
       this.TabPageAnalyzer.Controls.Add(this.label2);
       this.TabPageAnalyzer.Controls.Add(this.label1);
+      this.TabPageAnalyzer.Controls.Add(this.EditHebrewCharsInBold);
       this.TabPageAnalyzer.Controls.Add(this.EditAutoSortAnalysisMeanings);
       this.TabPageAnalyzer.Controls.Add(this.LabelFontSize);
       this.TabPageAnalyzer.Controls.Add(this.EditMaxLength);
@@ -609,6 +606,13 @@
       resources.ApplyResources(this.label1, "label1");
       this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
       this.label1.Name = "label1";
+      // 
+      // EditHebrewCharsInBold
+      // 
+      resources.ApplyResources(this.EditHebrewCharsInBold, "EditHebrewCharsInBold");
+      this.EditHebrewCharsInBold.Name = "EditHebrewCharsInBold";
+      this.EditHebrewCharsInBold.UseVisualStyleBackColor = true;
+      this.EditHebrewCharsInBold.CheckedChanged += new System.EventHandler(this.EditHebrewCharsInBold_CheckedChanged);
       // 
       // EditAutoSortAnalysisMeanings
       // 
@@ -787,7 +791,6 @@
     #endregion
     private System.Windows.Forms.Button ActionClose;
     private System.Windows.Forms.Panel PanelBottom;
-    private System.Windows.Forms.OpenFileDialog OpenFileDialog;
     private System.Windows.Forms.FolderBrowserDialog FolderBrowserDialog;
     private System.Windows.Forms.ContextMenuStrip MenuSelectOnlineVerseURL;
     private System.Windows.Forms.CheckBox EditCheckUpdateAtStartup;
@@ -861,5 +864,6 @@
     private Button ActionResetCustomWebSearch;
     private Label LabelCustomWebSearch;
     private TextBoxEx EditCustomWebSearch;
+    private CheckBox EditHebrewCharsInBold;
   }
 }

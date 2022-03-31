@@ -271,4 +271,9 @@ partial class PreferencesForm : Form
     DoSaveTheme();
   }
 
+  private void EditHebrewCharsInBold_CheckedChanged(object sender, EventArgs e)
+  {
+    MainForm.Instance.EditWord.HebrewCharsInBold = EditHebrewCharsInBold.Checked;
+  }
+
 }
