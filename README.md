@@ -197,9 +197,10 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 #### 2022.04.05 - Version 6.13
 
-- Improve SQLite dates string formatting.
-- Massive code refactorings, optimizations and fixes using more analyzers.
-- Update Markdig NuGet.
+- Some fixes.
+- Some improvements.
+- Some optimizations.
+- Massive refactorings with new code analyzers.
 - Update Aish web links for parashot study.
 
 #### 2022.03.20 - Version 6.12
