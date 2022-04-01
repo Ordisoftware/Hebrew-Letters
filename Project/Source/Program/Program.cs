@@ -100,7 +100,6 @@ static partial class Program
       // Force default view
       Settings.CurrentView = ViewMode.Analysis;
       // Check applications
-      // TODO improve check/change intercom apps paths in case of non-admin user
       string pathWordsFolder = Path.Combine(Globals.CompanyProgramFilesFolderPath, "Hebrew Words", "Bin");
       string pathWordsOld = Path.Combine(pathWordsFolder, "Ordisoftware.HebrewWords.exe");
       string pathWordsDefault = (string)Settings.Properties["HebrewWordsExe"].DefaultValue;

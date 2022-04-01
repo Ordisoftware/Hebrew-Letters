@@ -179,7 +179,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Add reset only some columns to factory defaults.
 - Add export analysis items to MSWord table.
 - Add find gematria possible combinations.
-- Add export and import database.
+- Add backup and restore database.
 - Add export data to TXT/CSV/JSON/XML.
 - Add import data from TXT/CSV/JSON/XML.
 - Add print letters data.

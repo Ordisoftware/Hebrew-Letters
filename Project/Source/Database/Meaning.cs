@@ -17,27 +17,6 @@ namespace Ordisoftware.Hebrew.Letters;
 using SQLite;
 
 [Serializable]
-[Table("Meanings")]
-public class Meaning : MeaningNoID
-{
-
-  [PrimaryKey]
-  [NotNull]
-  public string ID
-  {
-    get => _ID;
-    set
-    {
-      if ( _ID == value ) return;
-      _ID = value;
-      NotifyPropertyChanged(nameof(ID));
-    }
-  }
-  private string _ID;
-
-}
-
-[Serializable]
 public class MeaningNoID : INotifyPropertyChanged
 {
 
@@ -78,20 +57,23 @@ public class MeaningNoID : INotifyPropertyChanged
 
 }
 
-static class MeaningsUpgrade
+[Serializable]
+[Table("Meanings")]
+public class Meaning : MeaningNoID
 {
-  static public void AddID(SQLiteNetORM connection)
+
+  [PrimaryKey]
+  [NotNull]
+  public string ID
   {
-    connection.Execute("PRAGMA foreign_keys = 0;");
-    connection.DropTableIfExists(nameof(MeaningNoID));
-    connection.RenameTableIfExists(nameof(ApplicationDatabase.Instance.Meanings), nameof(MeaningNoID));
-    connection.CreateTable<Meaning>();
-    var rows = connection.Table<MeaningNoID>();
-    connection.BeginTransaction();
-    foreach ( var row in rows )
-      connection.Insert(new Meaning { ID = Guid.NewGuid().ToString(), LetterCode = row.LetterCode, Text = row.Text });
-    connection.Commit();
-    connection.DropTableIfExists(nameof(MeaningNoID));
-    connection.Execute("PRAGMA foreign_keys = 1;");
+    get => _ID;
+    set
+    {
+      if ( _ID == value ) return;
+      _ID = value;
+      NotifyPropertyChanged(nameof(ID));
+    }
   }
+  private string _ID;
+
 }

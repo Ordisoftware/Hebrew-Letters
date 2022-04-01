@@ -107,7 +107,15 @@ class ApplicationDatabase : SQLiteDatabase
     {
       if ( !Connection.CheckColumn(nameof(Meanings), "ID") )
       {
-        MeaningsUpgrade.AddID(Connection);
+        ProcessTableUpgrade<Meaning, MeaningNoID>(
+          nameof(Meanings),
+          nameof(MeaningNoID),
+          (rowOld, rowNew) =>
+          {
+            rowNew.ID = Guid.NewGuid().ToString();
+            rowNew.LetterCode = rowOld.LetterCode;
+            rowNew.Text = rowOld.Text;
+          });
         Globals.IsDatabaseUpgraded = true;
       }
       const string sqlColumn = "ALTER TABLE %TABLE% ADD COLUMN %COLUMN% TEXT DEFAULT '' NOT NULL";
