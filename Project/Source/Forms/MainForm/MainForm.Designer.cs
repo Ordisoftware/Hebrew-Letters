@@ -1492,7 +1492,7 @@
       // 
       // TimerProcesses
       // 
-      this.TimerProcesses.Interval = 5000;
+      this.TimerProcesses.Interval = 3000;
       this.TimerProcesses.Tick += new System.EventHandler(this.TimerProcesses_Tick);
       // 
       // ContextMenuOpenTermLettriq

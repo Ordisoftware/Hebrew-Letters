@@ -103,7 +103,10 @@ partial class MainForm : Form
     if ( Globals.IsExiting ) return;
     if ( WindowState != FormWindowState.Normal ) return;
     EditScreenNone.PerformClick();
-    SelectAnalyze.Height = PanelWordDetails.Top - 10 - SelectAnalyze.Top;
+    if ( Globals.IsDebugExecutable ) // TODO remove when ready
+      SelectAnalyze.Height = PanelWordDetails.Top - 10 - SelectAnalyze.Top;
+    else
+      SelectAnalyze.Height = EditSentence.Top - 10 - SelectAnalyze.Top;
   }
 
   /// <summary>
