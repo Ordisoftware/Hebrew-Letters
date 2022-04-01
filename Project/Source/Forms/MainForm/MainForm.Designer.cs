@@ -612,12 +612,12 @@
       // 
       // PanelGematria
       // 
+      resources.ApplyResources(this.PanelGematria, "PanelGematria");
       this.PanelGematria.Controls.Add(this.EditGematriaFull);
       this.PanelGematria.Controls.Add(this.LabelGematria);
       this.PanelGematria.Controls.Add(this.LabelGematriaFull);
       this.PanelGematria.Controls.Add(this.EditGematriaSimple);
       this.PanelGematria.Controls.Add(this.LabelGematriaSimple);
-      resources.ApplyResources(this.PanelGematria, "PanelGematria");
       this.PanelGematria.Name = "PanelGematria";
       // 
       // EditGematriaFull
