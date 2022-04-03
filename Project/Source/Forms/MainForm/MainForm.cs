@@ -117,7 +117,8 @@ partial class MainForm : Form
   private void TimerProcesses_Tick(object sender, EventArgs e)
   {
     Globals.IsReadOnly = Interlocks.IsReadOnly;
-    if ( Globals.IsReadOnly && DBApp.IsInTransaction ) ActionUndo.PerformClick();
+    if ( Globals.IsReadOnly && ( DBApp.IsInTransaction || ActionSave.Enabled ) )
+      ActionUndo.PerformClick();
     Text = Globals.AssemblyTitle;
     if ( Globals.IsReadOnly ) Text += " - " + SysTranslations.ReadOnly.GetLang();
     TextBoxPositive.ReadOnly = Globals.IsReadOnly;
@@ -129,7 +130,7 @@ partial class MainForm : Form
     ActionAddMeaning.Enabled = !Globals.IsReadOnly;
     ActionDeleteMeaning.Enabled = !Globals.IsReadOnly;
     ActionSettings.Enabled = !Globals.IsReadOnly;
-    ActionPreferences.Enabled = !Globals.IsReadOnly;
+    ActionPreferences.Enabled = !Globals.IsReadOnly && !DBApp.IsInTransaction && !ActionSave.Enabled;
     ActionRestoreDefaults.Enabled = !Globals.IsReadOnly;
     ActionNotebookDeleteSentence.Enabled = !Globals.IsReadOnly;
     ActionNotebookDeleteWord.Enabled = !Globals.IsReadOnly;
@@ -875,6 +876,7 @@ partial class MainForm : Form
       ActionNewInstance.Enabled = Globals.AllowClose;
       ActionTools.Enabled = Globals.AllowClose;
       ActionExit.Enabled = Globals.AllowClose;
+      ActionPreferences.Enabled = Globals.AllowClose;
       ActionSearchTerm.Enabled = Globals.AllowClose;
       CommonMenusControl.Instance.ActionCheckUpdate.Enabled = Globals.AllowClose;
       AboutBox.Instance.ActionCheckUpdate.Enabled = Globals.AllowClose;
