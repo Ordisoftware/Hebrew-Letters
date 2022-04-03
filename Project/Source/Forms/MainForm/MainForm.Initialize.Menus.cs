@@ -77,7 +77,7 @@ partial class MainForm
       },
       () =>
       {
-        var menuitem = new ToolStripMenuItem(HebrewTranslations.HebrewWordsSearch.GetLang(), HebrewWordsIcon);
+        var menuitem = new ToolStripMenuItem(HebrewGlobals.AppNameHebrewWords, HebrewWordsIcon);
         menuitem.Click += (sender, e) => HebrewTools.OpenHebrewWordsSearchWord(EditWord.InputText);
         if ( ContextMenuSearchOnline.Items.Count > 0 )
           ContextMenuSearchOnline.Items.Add(new ToolStripSeparator());
