@@ -26,6 +26,8 @@ static partial class AppTranslations
     ["6.13"] = new TranslationsDictionary
     {
       [Language.EN] = "• Add setting to use Hebrew chars in bold or regular." + Globals.NL +
+                      "• Improve multi-windowing by canceling edition if another process is launched." + Globals.NL +
+                      "• Fix window is blocked in edition mode after changing language in preferences." + Globals.NL +
                       "• Some fixes." + Globals.NL +
                       "• Some improvements." + Globals.NL +
                       "• Some optimizations." + Globals.NL +
@@ -34,6 +36,8 @@ static partial class AppTranslations
                       "• Update Aish web links for parashot study.",
 
       [Language.FR] = "• Ajout d'un paramètre pour utiliser les caractères hébreux en gras ou normal." + Globals.NL +
+                      "• Amélioration de multi-fenêtrage en annulant l'édition si un autre processus est lancé." + Globals.NL +
+                      "• Correction de la fenêtre bloquée en mode édition après avoir changé de langue dans les préférences." + Globals.NL +
                       "• Quelques correctifs." + Globals.NL +
                       "• Quelques améliorations." + Globals.NL +
                       "• Quelques optimisations." + Globals.NL +

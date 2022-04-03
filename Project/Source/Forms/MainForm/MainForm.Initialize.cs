@@ -91,8 +91,8 @@ partial class MainForm
     LoadData();
     Program.UpdateLocalization();
     Globals.IsReady = true;
-    EditWord.Redraw();
     TimerProcesses_Tick(null, null);
+    EditWord.Redraw();
     SelectLetter_SelectedIndexChanged(SelectLetter, EventArgs.Empty);
     LettersNavigator.Refresh();
     UpdateDataControls(SelectLetter);
@@ -126,7 +126,7 @@ partial class MainForm
     else
       ActionReset.Visible = false;
     ToolStrip.SetDropDownOpening();
-    EditSentence.ReplaceFont(new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence));
+    EditSentence.Font = new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence);
     EditWord.TextBox.MaxLength = (int)Settings.HebrewTextBoxMaxLength;
     EditSentence_FontChanged(null, null);
     Globals.ChronoStartingApp.Stop();

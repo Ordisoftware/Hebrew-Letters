@@ -3999,34 +3999,6 @@
   <data name="ActionTools.AutoSize" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="ActionShowMethodNotice.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGuSURBVDhPnVLLLgNRGJ5nsBZE65awqrYqEcTCWqILihlj
-        605ioSERTyNoxTVhYeMNPIWqSy9anbaf/zszR2eB4E++fpdz/r/nzIyha9ZaME3LBkGvtcacNZ9iTv7M
-        TfuKmSrTNB29oHxDh37KmUmzbSUSifuvNmpMxuNpf04tFVK/XtDtX/Tp707glmVZtlxe7tMA899qw56Z
-        wvjYaFJ8iJrgotYaU5MTN8zJOpuOT9wx4z2aKKSo3Xs1tEa7gEXWWdAY3r/OxnYvEU5eKPR7iHjQ3p9x
-        H3tG9q6PjdjOBf5b7DXCyXPPAm3LR56qo3nxsOHrVZW1ig+sHruZVHj7TAZsuwOCayn0bJ7Ivgqq7yXF
-        QE0GHSnvlCWDIwNSwlwD+v0DgBL6tk6B6hsqxZzsLaJrQwbWSigXcijmXlEvF5RvWXJPxtMbEe8Knetp
-        NaBj/QRO4RlB4V7x5OJrFvmXLNpW0gispVHJP6ke9hqDu+5DrBcywFtW+BFOLqNY+/LLg0I1/4haPqM0
-        Sz3Eoa2D20F5JbEdgccD1D4f9cCciEoj/5i9/DACvg/jjzACH9nIIU1tGQItAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="ActionShowMethodNotice.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="ActionShowMethodNotice.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
-    <value>Magenta</value>
-  </data>
-  <data name="ActionShowMethodNotice.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
-    <value>Ctrl+M</value>
-  </data>
-  <data name="ActionShowMethodNotice.Size" type="System.Drawing.Size, System.Drawing">
-    <value>278, 22</value>
-  </data>
-  <data name="ActionShowMethodNotice.Text" xml:space="preserve">
-    <value>Lettriq analysis method notice</value>
-  </data>
   <data name="ActionShowGrammarGuide.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -4058,13 +4030,41 @@
   <data name="ActionShowGrammarGuide.Text" xml:space="preserve">
     <value>Grammar guide</value>
   </data>
+  <data name="ActionShowMethodNotice.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGuSURBVDhPnVLLLgNRGJ5nsBZE65awqrYqEcTCWqILihlj
+        605ioSERTyNoxTVhYeMNPIWqSy9anbaf/zszR2eB4E++fpdz/r/nzIyha9ZaME3LBkGvtcacNZ9iTv7M
+        TfuKmSrTNB29oHxDh37KmUmzbSUSifuvNmpMxuNpf04tFVK/XtDtX/Tp707glmVZtlxe7tMA899qw56Z
+        wvjYaFJ8iJrgotYaU5MTN8zJOpuOT9wx4z2aKKSo3Xs1tEa7gEXWWdAY3r/OxnYvEU5eKPR7iHjQ3p9x
+        H3tG9q6PjdjOBf5b7DXCyXPPAm3LR56qo3nxsOHrVZW1ig+sHruZVHj7TAZsuwOCayn0bJ7Ivgqq7yXF
+        QE0GHSnvlCWDIwNSwlwD+v0DgBL6tk6B6hsqxZzsLaJrQwbWSigXcijmXlEvF5RvWXJPxtMbEe8Knetp
+        NaBj/QRO4RlB4V7x5OJrFvmXLNpW0gispVHJP6ke9hqDu+5DrBcywFtW+BFOLqNY+/LLg0I1/4haPqM0
+        Sz3Eoa2D20F5JbEdgccD1D4f9cCciEoj/5i9/DACvg/jjzACH9nIIU1tGQItAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="ActionShowMethodNotice.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="ActionShowMethodNotice.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="ActionShowMethodNotice.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Ctrl+M</value>
+  </data>
+  <data name="ActionShowMethodNotice.Size" type="System.Drawing.Size, System.Drawing">
+    <value>278, 22</value>
+  </data>
+  <data name="ActionShowMethodNotice.Text" xml:space="preserve">
+    <value>Lettriq analysis method notice</value>
+  </data>
   <data name="ActionGematriaCombinationsSeparator.Size" type="System.Drawing.Size, System.Drawing">
     <value>275, 6</value>
   </data>
   <data name="ActionGematriaCombinations.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAAAcRJREFUOE/FUk1PGlEUHWSCK2vcGeIHnWGomYEHgxGwFKlfaZO2mxqNK5uZgX9g
+        vAAADrwBlbxySQAAAcRJREFUOE/FUk1PGlEUHWSCK2vcGeIHnWGomYEHgxGwFKlfaZO2mxqNK5uZgX9g
         /4SyZkE/durW38VyMgSQj9N7r4W4aGLSjTccct555513381oL19KqftsNgvHcZ6Fbdtz8JrO3Wt8uNls
         Igh8+L6PRqMh60YQwPc8eISAOOvMZ2AvB0nA/uERqrU9VKrvUD84BDWGWv09SpVd7BCqe3XRfnQ6KL+t
         CjrEM5kMNMex4QVNnJ6dg+vimyfmn79+y5rr5vZOtNF4jK8nZ4RTPIxGSJsmBzj49PkLJpMx+v0+jj98
@@ -4337,7 +4337,7 @@
     <value>747, 50</value>
   </metadata>
   <data name="ContextMenuOpenConcordance.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 4</value>
+    <value>181, 26</value>
   </data>
   <data name="&gt;&gt;ContextMenuOpenConcordance.Name" xml:space="preserve">
     <value>ContextMenuOpenConcordance</value>

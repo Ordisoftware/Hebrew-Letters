@@ -198,6 +198,8 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 #### 2022.04.05 - Version 6.13
 
 - Add a setting to use Hebrew chars in bold or regular.
+- Improve multi-windowing by canceling edition if another process is launched.
+- Fix window is blocked in edition mode after changing language in preferences.
 - Some fixes.
 - Some improvements.
 - Some optimizations.

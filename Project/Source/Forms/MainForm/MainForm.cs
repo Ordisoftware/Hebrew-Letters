@@ -103,7 +103,10 @@ partial class MainForm : Form
     if ( Globals.IsExiting ) return;
     if ( WindowState != FormWindowState.Normal ) return;
     EditScreenNone.PerformClick();
-    SelectAnalyze.Height = PanelWordDetails.Top - 10 - SelectAnalyze.Top;
+    if ( Globals.IsDebugExecutable ) // TODO remove when ready
+      SelectAnalyze.Height = PanelWordDetails.Top - 10 - SelectAnalyze.Top;
+    else
+      SelectAnalyze.Height = EditSentence.Top - 10 - SelectAnalyze.Top;
   }
 
   /// <summary>
@@ -113,8 +116,9 @@ partial class MainForm : Form
   /// <param name="e">Event information.</param>
   private void TimerProcesses_Tick(object sender, EventArgs e)
   {
-    // !TODO? reload data if switch readonly to editable
     Globals.IsReadOnly = Interlocks.IsReadOnly;
+    if ( Globals.IsReadOnly && ( DBApp.IsInTransaction || ActionSave.Enabled ) )
+      ActionUndo.PerformClick();
     Text = Globals.AssemblyTitle;
     if ( Globals.IsReadOnly ) Text += " - " + SysTranslations.ReadOnly.GetLang();
     TextBoxPositive.ReadOnly = Globals.IsReadOnly;
@@ -126,12 +130,11 @@ partial class MainForm : Form
     ActionAddMeaning.Enabled = !Globals.IsReadOnly;
     ActionDeleteMeaning.Enabled = !Globals.IsReadOnly;
     ActionSettings.Enabled = !Globals.IsReadOnly;
-    ActionPreferences.Enabled = !Globals.IsReadOnly;
+    ActionPreferences.Enabled = !Globals.IsReadOnly && !DBApp.IsInTransaction && !ActionSave.Enabled;
     ActionRestoreDefaults.Enabled = !Globals.IsReadOnly;
     ActionNotebookDeleteSentence.Enabled = !Globals.IsReadOnly;
     ActionNotebookDeleteWord.Enabled = !Globals.IsReadOnly;
     ActionNotebookDeleteSentence.Enabled = !Globals.IsReadOnly;
-    TimerProcesses.Enabled = true; // TODO remove this and the previous comment Globals.IsReadOnly;
   }
 
   #endregion
@@ -873,6 +876,7 @@ partial class MainForm : Form
       ActionNewInstance.Enabled = Globals.AllowClose;
       ActionTools.Enabled = Globals.AllowClose;
       ActionExit.Enabled = Globals.AllowClose;
+      ActionPreferences.Enabled = Globals.AllowClose;
       ActionSearchTerm.Enabled = Globals.AllowClose;
       CommonMenusControl.Instance.ActionCheckUpdate.Enabled = Globals.AllowClose;
       AboutBox.Instance.ActionCheckUpdate.Enabled = Globals.AllowClose;
@@ -1087,6 +1091,7 @@ partial class MainForm : Form
   {
     if ( !Globals.IsReady ) return;
     if ( Globals.IsReadOnly ) return;
+    if ( e.ColumnIndex == -1 || e.RowIndex == -1 ) return;
     DBApp.BeginTransaction();
     UpdateDataControls(sender);
   }
