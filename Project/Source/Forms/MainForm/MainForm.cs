@@ -116,8 +116,8 @@ partial class MainForm : Form
   /// <param name="e">Event information.</param>
   private void TimerProcesses_Tick(object sender, EventArgs e)
   {
-    // !TODO? reload data if switch readonly to editable
     Globals.IsReadOnly = Interlocks.IsReadOnly;
+    if ( Globals.IsReadOnly && DBApp.IsInTransaction ) ActionUndo.PerformClick();
     Text = Globals.AssemblyTitle;
     if ( Globals.IsReadOnly ) Text += " - " + SysTranslations.ReadOnly.GetLang();
     TextBoxPositive.ReadOnly = Globals.IsReadOnly;
@@ -134,7 +134,6 @@ partial class MainForm : Form
     ActionNotebookDeleteSentence.Enabled = !Globals.IsReadOnly;
     ActionNotebookDeleteWord.Enabled = !Globals.IsReadOnly;
     ActionNotebookDeleteSentence.Enabled = !Globals.IsReadOnly;
-    TimerProcesses.Enabled = true; // TODO remove this and the previous comment Globals.IsReadOnly;
   }
 
   #endregion
@@ -1090,6 +1089,7 @@ partial class MainForm : Form
   {
     if ( !Globals.IsReady ) return;
     if ( Globals.IsReadOnly ) return;
+    if ( e.ColumnIndex == -1 || e.RowIndex == -1 ) return;
     DBApp.BeginTransaction();
     UpdateDataControls(sender);
   }

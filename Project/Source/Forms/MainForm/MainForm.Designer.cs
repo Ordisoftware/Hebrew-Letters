@@ -1492,6 +1492,7 @@
       // 
       // TimerProcesses
       // 
+      this.TimerProcesses.Enabled = true;
       this.TimerProcesses.Interval = 3000;
       this.TimerProcesses.Tick += new System.EventHandler(this.TimerProcesses_Tick);
       // 

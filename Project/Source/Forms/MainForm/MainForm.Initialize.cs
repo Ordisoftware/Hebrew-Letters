@@ -91,8 +91,8 @@ partial class MainForm
     LoadData();
     Program.UpdateLocalization();
     Globals.IsReady = true;
-    EditWord.Redraw();
     TimerProcesses_Tick(null, null);
+    EditWord.Redraw();
     SelectLetter_SelectedIndexChanged(SelectLetter, EventArgs.Empty);
     LettersNavigator.Refresh();
     UpdateDataControls(SelectLetter);
