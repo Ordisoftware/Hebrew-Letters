@@ -126,4 +126,7 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Resultat de la recherche</value>
   </data>
+  <data name="LabelInfoOccurences.Text" xml:space="preserve">
+    <value>Utilisez les flèches pour basculer entre les listes</value>
+  </data>
 </root>
