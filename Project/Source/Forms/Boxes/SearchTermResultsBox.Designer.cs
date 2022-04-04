@@ -34,6 +34,7 @@
       this.ActionCancel = new System.Windows.Forms.Button();
       this.ListBoxLetters = new System.Windows.Forms.ListBox();
       this.ListBoxMeanings = new System.Windows.Forms.ListBox();
+      this.LabelInfoOccurences = new System.Windows.Forms.Label();
       this.PanelBottom.SuspendLayout();
       this.SuspendLayout();
       // 
@@ -78,12 +79,19 @@
       this.ListBoxMeanings.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ListBox_KeyDown);
       this.ListBoxMeanings.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ListBoxMeanings_MouseDoubleClick);
       // 
+      // LabelInfoOccurences
+      // 
+      resources.ApplyResources(this.LabelInfoOccurences, "LabelInfoOccurences");
+      this.LabelInfoOccurences.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+      this.LabelInfoOccurences.Name = "LabelInfoOccurences";
+      // 
       // SearchTermResultsBox
       // 
       this.AcceptButton = this.ActionSearch;
       resources.ApplyResources(this, "$this");
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.CancelButton = this.ActionCancel;
+      this.Controls.Add(this.LabelInfoOccurences);
       this.Controls.Add(this.ListBoxMeanings);
       this.Controls.Add(this.ListBoxLetters);
       this.Controls.Add(this.PanelBottom);
@@ -93,6 +101,7 @@
       this.Name = "SearchTermResultsBox";
       this.PanelBottom.ResumeLayout(false);
       this.ResumeLayout(false);
+      this.PerformLayout();
 
     }
 
@@ -103,5 +112,6 @@
     private System.Windows.Forms.Button ActionSearch;
     public System.Windows.Forms.ListBox ListBoxLetters;
     public System.Windows.Forms.ListBox ListBoxMeanings;
+    private Label LabelInfoOccurences;
   }
 }

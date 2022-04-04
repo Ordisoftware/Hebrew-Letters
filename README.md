@@ -206,6 +206,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Massive refactorings with new code analyzers.
 - Improve setup to select hebrew font version.
 - Update Aish web links for parashot study.
+- Update grammar and lettriq method notices.
 
 #### 2022.03.20 - Version 6.12
 

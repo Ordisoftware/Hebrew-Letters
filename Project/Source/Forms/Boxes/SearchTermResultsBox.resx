@@ -187,7 +187,7 @@
     <value>Bottom</value>
   </data>
   <data name="PanelBottom.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 185</value>
+    <value>10, 243</value>
   </data>
   <data name="PanelBottom.Size" type="System.Drawing.Size, System.Drawing">
     <value>274, 28</value>
@@ -205,7 +205,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;PanelBottom.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="ListBoxLetters.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left</value>
@@ -214,7 +214,7 @@
     <value>14, 13</value>
   </data>
   <data name="ListBoxLetters.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 160</value>
+    <value>100, 199</value>
   </data>
   <data name="ListBoxLetters.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -229,7 +229,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ListBoxLetters.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="ListBoxMeanings.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -238,7 +238,7 @@
     <value>130, 13</value>
   </data>
   <data name="ListBoxMeanings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>151, 160</value>
+    <value>151, 199</value>
   </data>
   <data name="ListBoxMeanings.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -253,6 +253,42 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;ListBoxMeanings.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="LabelInfoOccurences.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="LabelInfoOccurences.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="LabelInfoOccurences.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt</value>
+  </data>
+  <data name="LabelInfoOccurences.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="LabelInfoOccurences.Location" type="System.Drawing.Point, System.Drawing">
+    <value>11, 220</value>
+  </data>
+  <data name="LabelInfoOccurences.Size" type="System.Drawing.Size, System.Drawing">
+    <value>168, 13</value>
+  </data>
+  <data name="LabelInfoOccurences.TabIndex" type="System.Int32, mscorlib">
+    <value>38</value>
+  </data>
+  <data name="LabelInfoOccurences.Text" xml:space="preserve">
+    <value>Use arrows to toggle between lists</value>
+  </data>
+  <data name="&gt;&gt;LabelInfoOccurences.Name" xml:space="preserve">
+    <value>LabelInfoOccurences</value>
+  </data>
+  <data name="&gt;&gt;LabelInfoOccurences.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;LabelInfoOccurences.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;LabelInfoOccurences.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -262,7 +298,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>294, 223</value>
+    <value>294, 281</value>
   </data>
   <data name="$this.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>10, 10, 10, 10</value>
