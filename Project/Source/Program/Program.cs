@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2022-03 </edited>
+/// <edited> 2022-04 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 //using System.IO.Pipes;
@@ -184,6 +184,7 @@ static partial class Program
       }
       new Infralution.Localization.CultureManager().ManagedControl = StatisticsForm.Instance;
       new Infralution.Localization.CultureManager().ManagedControl = AboutBox.Instance;
+      new Infralution.Localization.CultureManager().ManagedControl = TranscriptionGuideForm;
       new Infralution.Localization.CultureManager().ManagedControl = GrammarGuideForm;
       new Infralution.Localization.CultureManager().ManagedControl = MethodNoticeForm;
       Infralution.Localization.CultureManager.ApplicationUICulture = culture;
@@ -200,6 +201,7 @@ static partial class Program
         LoadingForm.Instance.Relocalize();
         TextBoxEx.Relocalize();
         AboutBox.Instance.AboutBox_Shown(null, null);
+        TranscriptionGuideForm.HTMLBrowserForm_Shown(null, null);
         GrammarGuideForm.HTMLBrowserForm_Shown(null, null);
         MethodNoticeForm.HTMLBrowserForm_Shown(null, null);
       }

@@ -779,5 +779,29 @@ namespace Ordisoftware.Hebrew.Letters.Properties {
                 this["LettersControlHebrewCharsInBold"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("-1, -1")]
+        public global::System.Drawing.Point TranscriptionGuideFormLocation {
+            get {
+                return ((global::System.Drawing.Point)(this["TranscriptionGuideFormLocation"]));
+            }
+            set {
+                this["TranscriptionGuideFormLocation"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("392, 566")]
+        public global::System.Drawing.Size TranscriptionGuideFormSize {
+            get {
+                return ((global::System.Drawing.Size)(this["TranscriptionGuideFormSize"]));
+            }
+            set {
+                this["TranscriptionGuideFormSize"] = value;
+            }
+        }
     }
 }

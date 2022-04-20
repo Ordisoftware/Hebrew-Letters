@@ -365,22 +365,19 @@ partial class MainForm : Form
 
   #region Menu Tools
 
-  private void ProcessHTMLBrowser(HTMLBrowserForm form)
-  {
-    if ( form.WindowState == FormWindowState.Minimized )
-      form.WindowState = FormWindowState.Normal;
-    form.Show();
-    form.BringToFront();
-  }
-
   private void ActionShowMethodNotice_Click(object sender, EventArgs e)
   {
-    ProcessHTMLBrowser(Program.MethodNoticeForm);
+    HTMLBrowserForm.Run(Program.MethodNoticeForm);
+  }
+
+  private void ActionShowTranscriptionGuide_Click(object sender, EventArgs e)
+  {
+    HTMLBrowserForm.Run(Program.TranscriptionGuideForm);
   }
 
   private void ActionShowGrammarGuide_Click(object sender, EventArgs e)
   {
-    ProcessHTMLBrowser(Program.GrammarGuideForm);
+    HTMLBrowserForm.Run(Program.GrammarGuideForm);
   }
 
   private void ActionGematriaCombinations_Click(object sender, EventArgs e)
