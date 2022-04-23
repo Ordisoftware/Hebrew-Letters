@@ -144,7 +144,7 @@
       this.Sep4 = new System.Windows.Forms.ToolStripSeparator();
       this.ActionPreferences = new System.Windows.Forms.ToolStripButton();
       this.ActionSettings = new System.Windows.Forms.ToolStripDropDownButton();
-      this.MenuitemScreenPosition = new System.Windows.Forms.ToolStripMenuItem();
+      this.ActionScreenPosition = new System.Windows.Forms.ToolStripMenuItem();
       this.EditScreenNone = new System.Windows.Forms.ToolStripMenuItem();
       this.EditScreenTopLeft = new System.Windows.Forms.ToolStripMenuItem();
       this.EditScreenTopRight = new System.Windows.Forms.ToolStripMenuItem();
@@ -1219,7 +1219,7 @@
       resources.ApplyResources(this.ActionSettings, "ActionSettings");
       this.ActionSettings.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
       this.ActionSettings.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MenuitemScreenPosition,
+            this.ActionScreenPosition,
             this.ActionResetWinSettings,
             this.toolStripSeparator5,
             this.ActionShowKeyboardNotice,
@@ -1234,17 +1234,17 @@
       this.ActionSettings.Name = "ActionSettings";
       this.ActionSettings.Padding = new System.Windows.Forms.Padding(5);
       // 
-      // MenuitemScreenPosition
+      // ActionScreenPosition
       // 
-      this.MenuitemScreenPosition.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+      this.ActionScreenPosition.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.EditScreenNone,
             this.EditScreenTopLeft,
             this.EditScreenTopRight,
             this.EditScreenBottomLeft,
             this.EditScreenBottomRight,
             this.EditScreenCenter});
-      resources.ApplyResources(this.MenuitemScreenPosition, "MenuitemScreenPosition");
-      this.MenuitemScreenPosition.Name = "MenuitemScreenPosition";
+      resources.ApplyResources(this.ActionScreenPosition, "ActionScreenPosition");
+      this.ActionScreenPosition.Name = "ActionScreenPosition";
       // 
       // EditScreenNone
       // 
@@ -1580,7 +1580,7 @@
     private System.Windows.Forms.ToolStripButton ActionExit;
     private System.Windows.Forms.ToolStripSeparator Sep4;
     private System.Windows.Forms.ToolStripDropDownButton ActionSettings;
-    private System.Windows.Forms.ToolStripMenuItem MenuitemScreenPosition;
+    private System.Windows.Forms.ToolStripMenuItem ActionScreenPosition;
     private System.Windows.Forms.ToolStripSeparator Sep7;
     public System.Windows.Forms.ToolStripMenuItem EditScreenNone;
     public System.Windows.Forms.ToolStripMenuItem EditScreenCenter;

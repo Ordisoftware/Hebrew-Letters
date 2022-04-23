@@ -3540,7 +3540,7 @@
     <value>Alt+0</value>
   </data>
   <data name="EditScreenNone.Size" type="System.Drawing.Size, System.Drawing">
-    <value>178, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="EditScreenNone.Text" xml:space="preserve">
     <value>Loose</value>
@@ -3552,7 +3552,7 @@
     <value>Alt+1</value>
   </data>
   <data name="EditScreenTopLeft.Size" type="System.Drawing.Size, System.Drawing">
-    <value>178, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="EditScreenTopLeft.Text" xml:space="preserve">
     <value>Top left</value>
@@ -3564,7 +3564,7 @@
     <value>Alt+2</value>
   </data>
   <data name="EditScreenTopRight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>178, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="EditScreenTopRight.Text" xml:space="preserve">
     <value>Top right</value>
@@ -3576,7 +3576,7 @@
     <value>Alt+3</value>
   </data>
   <data name="EditScreenBottomLeft.Size" type="System.Drawing.Size, System.Drawing">
-    <value>178, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="EditScreenBottomLeft.Text" xml:space="preserve">
     <value>Bottom left</value>
@@ -3588,7 +3588,7 @@
     <value>Alt+4</value>
   </data>
   <data name="EditScreenBottomRight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>178, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="EditScreenBottomRight.Text" xml:space="preserve">
     <value>Bottom right</value>
@@ -3600,12 +3600,12 @@
     <value>Alt+5</value>
   </data>
   <data name="EditScreenCenter.Size" type="System.Drawing.Size, System.Drawing">
-    <value>178, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="EditScreenCenter.Text" xml:space="preserve">
     <value>Center</value>
   </data>
-  <data name="MenuitemScreenPosition.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="ActionScreenPosition.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         vAAADrwBlbxySQAAArFJREFUOE+NkllI1FEUh+9TL70EERRaRIWB1JM99dBi2eJDWGAgFUHUg45ttFmT
@@ -3623,13 +3623,13 @@
         QmCC
 </value>
   </data>
-  <data name="MenuitemScreenPosition.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
+  <data name="ActionScreenPosition.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
     <value>None</value>
   </data>
-  <data name="MenuitemScreenPosition.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="ActionScreenPosition.Size" type="System.Drawing.Size, System.Drawing">
     <value>252, 22</value>
   </data>
-  <data name="MenuitemScreenPosition.Text" xml:space="preserve">
+  <data name="ActionScreenPosition.Text" xml:space="preserve">
     <value>Screen position</value>
   </data>
   <data name="ActionResetWinSettings.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -4002,13 +4002,13 @@
   <data name="ActionShowTranscriptionGuide.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFxSURBVDhPY6AakMtZ3yufu9YCymWQz1m/Si5nXSiUix+A
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFySURBVDhPY6AakMtZ3yufu9YCymWQz1m/Si5nXSiUix+A
         FAI1/AdpAvFBBoH4cjmrH0nnrpUBKyIEQJqRDZHNWX8MmU8UQNYEw0R7A6QZ5FyoRtJshoUBzDaSDQHZ
         DAowsCZoTMAMAcUOiL/+5MP/Ji1n/2vUnvqvWXf6f+nKG/9B4nCACHmIK6DegRugXnPqv+/Ei//////6
         37j5zH+tulMIAyAuWBeKHmDI6cKk5cx/38kX/8/Y9+C/WevZ/7oNp1FdAAIbjs/fDMJQLgp49ubjfy+g
-        C7q33QMboIfNALtWmUeObTKPQOzM+d6bQXywBBA49Zz/HzPnCtAL//+bAl2D0wD7Ntm/Lp1KH2w7FN/A
-        MEhOvebkf6Pm0/8T5l4DG6DfiBQGMAA2oEX2h3OH4nfHRslf9u0SP50aFb6B5PynXALHQPriG/8zFt/8
-        rwY00HPiJUxD3nx9I3P50SlTkBdsmxS/3H99SQMqRQvAwAAAZjXurtQXR/EAAAAASUVORK5CYII=
+        C7q33QMboIfNALtWmUeObTKPQOzM+d6bQXywBBA49Zz/HzPnCtAL//+bAl2D0wD7Ntm/Lp1KH2w6FN/A
+        MEhOvebkf6Pm0/8T5l4DG6DfiBQGMAAywK5Z5odzh+J3xwbJX/bt4j+dGhS+geT8p1wCx0D64hv/Mxbf
+        /K8GNNBz4iVMQ958fSNz+dEpU5AXbBoVv9x/fUkDKkULwMAAAF627qPH4Wk+AAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="ActionShowTranscriptionGuide.ImageScaling" type="System.Windows.Forms.ToolStripItemImageScaling, System.Windows.Forms">
@@ -4474,10 +4474,10 @@
   <data name="&gt;&gt;ActionSettings.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripDropDownButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;MenuitemScreenPosition.Name" xml:space="preserve">
-    <value>MenuitemScreenPosition</value>
+  <data name="&gt;&gt;ActionScreenPosition.Name" xml:space="preserve">
+    <value>ActionScreenPosition</value>
   </data>
-  <data name="&gt;&gt;MenuitemScreenPosition.Type" xml:space="preserve">
+  <data name="&gt;&gt;ActionScreenPosition.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;EditScreenNone.Name" xml:space="preserve">
