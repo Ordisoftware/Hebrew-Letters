@@ -45,51 +45,6 @@ static partial class Program
     => Path.Combine(MeaningsFolderPath, $"Alphabet-Meanings-{Languages.Current}.txt");
 
   /// <summary>
-  /// Indicates the transcription guide form.
-  /// </summary>
-  static public HTMLBrowserForm TranscriptionGuideForm
-  {
-    get
-    {
-      return _TranscriptionGuideForm ??= new HTMLBrowserForm(HebrewTranslations.TranscriptionGuideTitle,
-                                                             HebrewGlobals.TranscriptionGuideFilePath,
-                                                             nameof(Settings.TranscriptionGuideFormLocation),
-                                                             nameof(Settings.TranscriptionGuideFormSize));
-    }
-  }
-  static private HTMLBrowserForm _TranscriptionGuideForm;
-
-  /// <summary>
-  /// Indicates the grammar guide form.
-  /// </summary>
-  static public HTMLBrowserForm GrammarGuideForm
-  {
-    get
-    {
-      return _GrammarGuideForm ??= new HTMLBrowserForm(HebrewTranslations.GrammarGuideTitle,
-                                                       HebrewGlobals.GrammarGuideFilePath,
-                                                       nameof(Settings.GrammarGuideFormLocation),
-                                                       nameof(Settings.GrammarGuideFormSize));
-    }
-  }
-  static private HTMLBrowserForm _GrammarGuideForm;
-
-  /// <summary>
-  /// Indicates the method notice form.
-  /// </summary>
-  static public HTMLBrowserForm MethodNoticeForm
-  {
-    get
-    {
-      return _MethodGuideForm ??= new HTMLBrowserForm(HebrewTranslations.MethodNoticeTitle,
-                                                      HebrewGlobals.LettriqMethodNoticeFilePath,
-                                                      nameof(Settings.MethodNoticeFormLocation),
-                                                      nameof(Settings.MethodNoticeFormSize));
-    }
-  }
-  static private HTMLBrowserForm _MethodGuideForm;
-
-  /// <summary>
   /// Indicates the command line argument for hebrew word used at startup.
   /// </summary>
   static public string StartupWord

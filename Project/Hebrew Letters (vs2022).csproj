@@ -424,6 +424,7 @@
     <Compile Include="Source\Program\AppTranslations.Keys.cs" />
     <Compile Include="Source\Program\AppTranslations.cs" />
     <Compile Include="Source\Program\ApplicationCommandLine.cs" />
+    <Compile Include="Source\Program\Program.Guides.cs" />
     <Compile Include="Source\Program\SettingsHelper.cs" />
     <Compile Include="Source\Forms\MainForm\ViewMode.cs" />
     <Compile Include="Source\Forms\MainForm\MainForm.Analyse.cs">
