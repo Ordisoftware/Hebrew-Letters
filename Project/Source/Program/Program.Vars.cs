@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2022-03 </edited>
+/// <edited> 2022-04 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 /// <summary>
@@ -45,6 +45,21 @@ static partial class Program
     => Path.Combine(MeaningsFolderPath, $"Alphabet-Meanings-{Languages.Current}.txt");
 
   /// <summary>
+  /// Indicates the transcription guide form.
+  /// </summary>
+  static public HTMLBrowserForm TranscriptionGuideForm
+  {
+    get
+    {
+      return _TranscriptionGuideForm ??= new HTMLBrowserForm(HebrewTranslations.TranscriptionGuideTitle,
+                                                             HebrewGlobals.TranscriptionGuideFilePath,
+                                                             nameof(Settings.TranscriptionGuideFormLocation),
+                                                             nameof(Settings.TranscriptionGuideFormSize));
+    }
+  }
+  static private HTMLBrowserForm _TranscriptionGuideForm;
+
+  /// <summary>
   /// Indicates the grammar guide form.
   /// </summary>
   static public HTMLBrowserForm GrammarGuideForm
@@ -52,7 +67,7 @@ static partial class Program
     get
     {
       return _GrammarGuideForm ??= new HTMLBrowserForm(HebrewTranslations.GrammarGuideTitle,
-                                                       HebrewGlobals.HebrewGrammarGuideFilePath,
+                                                       HebrewGlobals.GrammarGuideFilePath,
                                                        nameof(Settings.GrammarGuideFormLocation),
                                                        nameof(Settings.GrammarGuideFormSize));
     }

@@ -28,6 +28,7 @@
     /// </summary>
     private void InitializeComponent()
     {
+      this.components = new System.ComponentModel.Container();
       System.Windows.Forms.Label LabelName;
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
       System.Windows.Forms.Label LabelStructure;
@@ -54,7 +55,7 @@
       this.EditCopyToClipboardCloseApp = new System.Windows.Forms.CheckBox();
       this.SelectAnalyze = new System.Windows.Forms.Panel();
       this.ActionSearchOnline = new System.Windows.Forms.Button();
-      this.ContextMenuSearchOnline = new System.Windows.Forms.ContextMenuStrip();
+      this.ContextMenuSearchOnline = new System.Windows.Forms.ContextMenuStrip(this.components);
       this.ActionPaste = new System.Windows.Forms.Button();
       this.ActionCopyToHebrew = new System.Windows.Forms.Button();
       this.ActionCopyToUnicode = new System.Windows.Forms.Button();
@@ -94,7 +95,7 @@
       this.PanelLetter = new System.Windows.Forms.Panel();
       this.LettersNavigator = new Ordisoftware.Core.ComboBoxNavigator();
       this.SelectLetter = new System.Windows.Forms.ComboBox();
-      this.LettersBindingSource = new System.Windows.Forms.BindingSource();
+      this.LettersBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.TextBoxStructure = new Ordisoftware.Core.TextBoxEx();
       this.LabelHebrew = new System.Windows.Forms.Label();
       this.ActionRestoreDefaults = new System.Windows.Forms.LinkLabel();
@@ -111,13 +112,13 @@
       this.ActionAddMeaning = new System.Windows.Forms.Button();
       this.EditMeanings = new System.Windows.Forms.DataGridView();
       this.ColumnMeaningsText = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.MeaningsBindingSource = new System.Windows.Forms.BindingSource();
+      this.MeaningsBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.TabPageNotebook = new System.Windows.Forms.TabPage();
       this.PanelViewNotebook = new System.Windows.Forms.Panel();
       this.SplitContainerNotebook = new System.Windows.Forms.SplitContainer();
       this.ListNotebookWords = new System.Windows.Forms.DataGridView();
       this.hebrewDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.TermsBindingSource = new System.Windows.Forms.BindingSource();
+      this.TermsBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.panel1 = new System.Windows.Forms.Panel();
       this.ListNotebookLetters = new System.Windows.Forms.DataGridView();
       this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -127,7 +128,7 @@
       this.ActionNotebookDeleteWord = new System.Windows.Forms.Button();
       this.ListNotebookSentences = new System.Windows.Forms.DataGridView();
       this.sentenceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-      this.LettriqsBindingSource = new System.Windows.Forms.BindingSource();
+      this.LettriqsBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.panel3 = new System.Windows.Forms.Panel();
       this.ActionNotebookClearFilter = new System.Windows.Forms.Button();
       this.EditNotebookFilterSentence = new System.Windows.Forms.TextBox();
@@ -137,7 +138,7 @@
       this.PanelTitleInner = new System.Windows.Forms.Panel();
       this.LabelCurrentView = new System.Windows.Forms.Label();
       this.LabelTitle = new System.Windows.Forms.Label();
-      this.TimerTooltip = new System.Windows.Forms.Timer();
+      this.TimerTooltip = new System.Windows.Forms.Timer(this.components);
       this.ToolStrip = new System.Windows.Forms.ToolStrip();
       this.ActionExit = new System.Windows.Forms.ToolStripButton();
       this.Sep4 = new System.Windows.Forms.ToolStripSeparator();
@@ -169,8 +170,9 @@
       this.ActionNewInstance = new System.Windows.Forms.ToolStripButton();
       this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
       this.ActionTools = new System.Windows.Forms.ToolStripDropDownButton();
-      this.ActionShowMethodNotice = new System.Windows.Forms.ToolStripMenuItem();
+      this.ActionShowTranscriptionGuide = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionShowGrammarGuide = new System.Windows.Forms.ToolStripMenuItem();
+      this.ActionShowMethodNotice = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionGematriaCombinationsSeparator = new System.Windows.Forms.ToolStripSeparator();
       this.ActionGematriaCombinations = new System.Windows.Forms.ToolStripMenuItem();
       this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -178,11 +180,11 @@
       this.ActionVacuumDB = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionWebLinks = new System.Windows.Forms.ToolStripDropDownButton();
       this.ActionInformation = new System.Windows.Forms.ToolStripDropDownButton();
-      this.TimerProcesses = new System.Windows.Forms.Timer();
+      this.TimerProcesses = new System.Windows.Forms.Timer(this.components);
       this.SaveImageDialog = new System.Windows.Forms.SaveFileDialog();
-      this.ToolTipClipboard = new System.Windows.Forms.ToolTip();
-      this.ContextMenuOpenTermLettriq = new System.Windows.Forms.ContextMenuStrip();
-      this.ContextMenuOpenConcordance = new System.Windows.Forms.ContextMenuStrip();
+      this.ToolTipClipboard = new System.Windows.Forms.ToolTip(this.components);
+      this.ContextMenuOpenTermLettriq = new System.Windows.Forms.ContextMenuStrip(this.components);
+      this.ContextMenuOpenConcordance = new System.Windows.Forms.ContextMenuStrip(this.components);
       LabelName = new System.Windows.Forms.Label();
       LabelStructure = new System.Windows.Forms.Label();
       LabelFunction = new System.Windows.Forms.Label();
@@ -1425,6 +1427,7 @@
       resources.ApplyResources(this.ActionTools, "ActionTools");
       this.ActionTools.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
       this.ActionTools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ActionShowTranscriptionGuide,
             this.ActionShowGrammarGuide,
             this.ActionShowMethodNotice,
             this.ActionGematriaCombinationsSeparator,
@@ -1435,17 +1438,23 @@
       this.ActionTools.Name = "ActionTools";
       this.ActionTools.Padding = new System.Windows.Forms.Padding(5);
       // 
-      // ActionShowMethodNotice
+      // ActionShowTranscriptionGuide
       // 
-      resources.ApplyResources(this.ActionShowMethodNotice, "ActionShowMethodNotice");
-      this.ActionShowMethodNotice.Name = "ActionShowMethodNotice";
-      this.ActionShowMethodNotice.Click += new System.EventHandler(this.ActionShowMethodNotice_Click);
+      resources.ApplyResources(this.ActionShowTranscriptionGuide, "ActionShowTranscriptionGuide");
+      this.ActionShowTranscriptionGuide.Name = "ActionShowTranscriptionGuide";
+      this.ActionShowTranscriptionGuide.Click += new System.EventHandler(this.ActionShowTranscriptionGuide_Click);
       // 
       // ActionShowGrammarGuide
       // 
       resources.ApplyResources(this.ActionShowGrammarGuide, "ActionShowGrammarGuide");
       this.ActionShowGrammarGuide.Name = "ActionShowGrammarGuide";
       this.ActionShowGrammarGuide.Click += new System.EventHandler(this.ActionShowGrammarGuide_Click);
+      // 
+      // ActionShowMethodNotice
+      // 
+      resources.ApplyResources(this.ActionShowMethodNotice, "ActionShowMethodNotice");
+      this.ActionShowMethodNotice.Name = "ActionShowMethodNotice";
+      this.ActionShowMethodNotice.Click += new System.EventHandler(this.ActionShowMethodNotice_Click);
       // 
       // ActionGematriaCombinationsSeparator
       // 
@@ -1709,5 +1718,6 @@
     internal System.Windows.Forms.ToolStrip ToolStrip;
     internal Panel PanelGematria;
     private Panel PanelTitleInner;
+    private ToolStripMenuItem ActionShowTranscriptionGuide;
   }
 }

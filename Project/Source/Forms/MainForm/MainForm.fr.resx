@@ -352,4 +352,7 @@
   <data name="ColumnMeaningsText.HeaderText" xml:space="preserve">
     <value>Texte</value>
   </data>
+  <data name="ActionShowTranscriptionGuide.Text" xml:space="preserve">
+    <value>Guide de transcription</value>
+  </data>
 </root>

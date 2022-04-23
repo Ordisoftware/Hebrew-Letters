@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-09 </created>
-/// <edited> 2022-03 </edited>
+/// <edited> 2022-04 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 using System.Configuration;
@@ -105,10 +105,11 @@ partial class PreferencesForm : Form
     Settings.BenchmarkStartingApp = starttime;
     Settings.BenchmarkLoadData = loadtime;
     Settings.RestoreMainForm();
-    SystemManager.TryCatch(Settings.Save);
-    MainForm.Instance.EditSentence.Font = new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence);
+    Program.TranscriptionGuideForm.CenterToMainFormElseScreen();
     Program.GrammarGuideForm.CenterToMainFormElseScreen();
     Program.MethodNoticeForm.CenterToMainFormElseScreen();
+    SystemManager.TryCatch(Settings.Save);
+    MainForm.Instance.EditSentence.Font = new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence);
     DoReset = true;
     IsReady = true;
     Close();
