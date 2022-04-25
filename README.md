@@ -195,6 +195,10 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Add concordance, transcription, dictionary and comment fields for word analysis.
 - Add search online concordance.
 
+#### In progress - Version 6.14
+
+- Add a top button to close other windows.
+
 #### 2022.04.05 - Version 6.13
 
 - Add a setting to use Hebrew chars in bold or regular.
