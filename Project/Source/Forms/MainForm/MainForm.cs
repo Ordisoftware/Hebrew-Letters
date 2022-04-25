@@ -135,6 +135,7 @@ partial class MainForm : Form
     ActionNotebookDeleteSentence.Enabled = !Globals.IsReadOnly;
     ActionNotebookDeleteWord.Enabled = !Globals.IsReadOnly;
     ActionNotebookDeleteSentence.Enabled = !Globals.IsReadOnly;
+    ActionCloseOtherWindows.Enabled = Globals.IsReadOnly;
   }
 
   #endregion
@@ -1254,5 +1255,11 @@ partial class MainForm : Form
   }
 
   #endregion
+
+  private void ActionCloseOtherWindows_Click(object sender, EventArgs e)
+  {
+    foreach ( var item in Globals.ConcurrentRunningProcesses.ToList() )
+      item.CloseMainWindow();
+  }
 
 }
