@@ -486,6 +486,18 @@ partial class MainForm : Form
     SystemManager.RunShell(Process.GetCurrentProcess().MainModule.FileName);
   }
 
+  /// <summary>
+  /// Event handler. Called by ActionCloseOtherWindows for click events.
+  /// </summary>
+  /// <param name="sender">Source of the event.</param>
+  /// <param name="e">Event information.</param>
+  private void ActionCloseOtherWindows_Click(object sender, EventArgs e)
+  {
+    foreach ( var item in Globals.ConcurrentRunningProcesses.ToList() )
+      item.CloseMainWindow();
+    TimerProcesses_Tick(null, null);
+  }
+
   #endregion
 
   #region Update Analysis Controls
@@ -1255,11 +1267,5 @@ partial class MainForm : Form
   }
 
   #endregion
-
-  private void ActionCloseOtherWindows_Click(object sender, EventArgs e)
-  {
-    foreach ( var item in Globals.ConcurrentRunningProcesses.ToList() )
-      item.CloseMainWindow();
-  }
 
 }
