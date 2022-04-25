@@ -355,4 +355,19 @@
   <data name="ActionShowTranscriptionGuide.Text" xml:space="preserve">
     <value>Guide de transcription</value>
   </data>
+  <data name="ActionCloseOtherWindows.Text" xml:space="preserve">
+    <value>Fermer les autres fenêtres</value>
+  </data>
+  <data name="ActionCloseOtherWindows.ToolTipText" xml:space="preserve">
+    <value>Fermer les autres fenêtres</value>
+  </data>
+  <data name="TabPageText.Text" xml:space="preserve">
+    <value>Chercher</value>
+  </data>
+  <data name="TabPageNotebook.Text" xml:space="preserve">
+    <value>Carnet</value>
+  </data>
+  <data name="sentenceDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
+    <value>Phrase</value>
+  </data>
 </root>
