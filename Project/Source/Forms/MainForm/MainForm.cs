@@ -493,7 +493,7 @@ partial class MainForm : Form
   /// <param name="e">Event information.</param>
   private void ActionCloseOtherWindows_Click(object sender, EventArgs e)
   {
-    foreach ( var item in Globals.ConcurrentRunningProcesses.ToList() )
+    foreach ( var item in Globals.ConcurrentRunningProcesses )
       item.CloseMainWindow();
     TimerProcesses_Tick(null, null);
   }
