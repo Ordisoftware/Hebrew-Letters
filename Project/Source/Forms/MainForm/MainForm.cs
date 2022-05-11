@@ -135,6 +135,7 @@ partial class MainForm : Form
     ActionNotebookDeleteSentence.Enabled = !Globals.IsReadOnly;
     ActionNotebookDeleteWord.Enabled = !Globals.IsReadOnly;
     ActionNotebookDeleteSentence.Enabled = !Globals.IsReadOnly;
+    ActionCloseOtherWindows.Enabled = Globals.IsReadOnly;
   }
 
   #endregion
@@ -483,6 +484,18 @@ partial class MainForm : Form
   private void ActionNewInstance_Click(object sender, EventArgs e)
   {
     SystemManager.RunShell(Process.GetCurrentProcess().MainModule.FileName);
+  }
+
+  /// <summary>
+  /// Event handler. Called by ActionCloseOtherWindows for click events.
+  /// </summary>
+  /// <param name="sender">Source of the event.</param>
+  /// <param name="e">Event information.</param>
+  private void ActionCloseOtherWindows_Click(object sender, EventArgs e)
+  {
+    foreach ( var item in Globals.ConcurrentRunningProcesses )
+      item.CloseMainWindow();
+    TimerProcesses_Tick(null, null);
   }
 
   #endregion
