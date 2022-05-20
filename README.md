@@ -194,6 +194,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Add analyzed words data table and notebook view to save results.
 - Add concordance, transcription, dictionary and comment fields for word analysis.
 - Add search online concordance.
+- Add wikipedia web links on gematria.
 
 #### 2022.05.08 - Version 6.14
 
