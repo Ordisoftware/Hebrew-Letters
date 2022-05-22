@@ -80,7 +80,7 @@ Sens kabalistique : Intestin grâle - Cancer
 Lettrique : Soutien de la Matière
 Meanings: Soutien,Créature,Limite,Territoire,Domaine,Engagement,Accord,Influence,Autorité,Purification,Incorruptibilité,Motivation,Renoncement,Lâcheté,Péché
 
-TET
+T'ET
 ValueSimple: 9
 ValueFull: 409
 Positive: Association
@@ -152,7 +152,7 @@ Structure: Appui
 Function: Perfectionnement
 Meanings: Squelette,Framework,Ossature,Berceau,Pulsion,Passion,Réconfort,Sécurité,Alliance,Dissoudre,Ovule
 
-'AYIN
+H'AYIN
 ValueSimple: 70
 ValueFull: 130
 Positive: Visible
