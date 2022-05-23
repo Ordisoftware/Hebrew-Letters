@@ -80,7 +80,7 @@ Kabalistic sense: Intestine grâle - Cancer
 Lettric: Support of Matter
 Meanings: Support,Creature,Boundary,Territory,Domain,Commitment,Agreement,Influence,Authority,Purification,Incorruptibility,Motivation,Renunciation,Cowardice,Sin
 
-TET
+T'ET
 ValueSimple: 9
 ValueFull: 409
 Positive: Association
@@ -152,7 +152,7 @@ Structure: Support
 Function: Improvement
 Meanings: Skeleton,Framing,Frame,Cradle,Impulse,Passion,Solace,Safety,Alliance,Dissolve,Ovum
 
-'AYIN
+H'AYIN
 ValueSimple: 70
 ValueFull: 130
 Positive: Visible

@@ -194,11 +194,13 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Add analyzed words data table and notebook view to save results.
 - Add concordance, transcription, dictionary and comment fields for word analysis.
 - Add search online concordance.
-- Add wikipedia web links on gematria.
 
-#### 2022.05.08 - Version 6.14
+#### In progress - Version 6.14
 
 - Add a top button to close other windows.
+- Improve letter transcriptions following a change to better distinguish between 'Het, T'et and H'ayin.
+- Fix hebrew name of a letter no more displayed since a previous version.
+- Update web links.
 
 #### 2022.04.05 - Version 6.13
 
