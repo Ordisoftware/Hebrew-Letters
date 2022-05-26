@@ -38,10 +38,10 @@ class ApplicationStatistics
     => ApplicationDatabase.Instance.Connection.CountRows(nameof(Letter.Meanings)).ToString();
 
   public string DBEngine
-    => SQLiteNetHelper.EngineNameAndVersion;
+    => SQLiteNetORM.EngineNameAndVersion;
 
   public string DBProvider
-    => SQLiteNetHelper.ProviderName;
+    => SQLiteNetORM.ProviderName;
 
   public string DBFileSize
   {
