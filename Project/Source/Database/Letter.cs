@@ -50,7 +50,7 @@ public class Letter : INotifyPropertyChanged
   [NotNull]
   public string Name
   {
-    get => _Name;
+    get => HebrewTranslations.LettersTranscriptionFromCodes.GetLang(_Code);
     set
     {
       if ( _Name == value ) return;
@@ -63,7 +63,7 @@ public class Letter : INotifyPropertyChanged
   [NotNull]
   public string Hebrew
   {
-    get => _Hebrew;
+    get => HebrewAlphabet.HebrewFromCodes[_Code];
     set
     {
       if ( _Hebrew == value ) return;
