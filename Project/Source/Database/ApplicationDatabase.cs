@@ -133,7 +133,7 @@ class ApplicationDatabase : SQLiteDatabase
     CheckAccess(Meanings, nameof(Meanings));
     try
     {
-      if ( !reset && Connection.CountRows(nameof(Letters)) == HebrewAlphabet.Codes.Length ) return false;
+      if ( !reset && Connection.CountRows(nameof(Letters)) == HebrewAlphabet.KeyCodes.Length ) return false;
       bool temp = Globals.IsReady;
       Globals.IsReady = false;
       BeginTransaction();
@@ -156,13 +156,13 @@ class ApplicationDatabase : SQLiteDatabase
         {
           return Convert.ToInt32(getStrValue(name));
         }
-        for ( int index = 0; index < HebrewAlphabet.Codes.Length; index++ )
+        for ( int index = 0; index < HebrewAlphabet.KeyCodes.Length; index++ )
         {
           var rowLetter = new Letter
           {
-            Code = HebrewAlphabet.Codes[index],
-            Name = HebrewTranslations.Letters.GetLang()[index],
-            Hebrew = HebrewAlphabet.Names[index],
+            Code = HebrewAlphabet.KeyCodes[index],
+            Name = HebrewTranslations.LettersTranscription.GetLang()[index],
+            Hebrew = HebrewAlphabet.Hebrew[index],
             ValueSimple = getIntValue("ValueSimple: "),
             ValueFull = getIntValue("ValueFull: "),
             Positive = getStrValue("Positive: "),
