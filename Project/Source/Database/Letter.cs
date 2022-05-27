@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2021-05 </created>
-/// <edited> 2022-03 </edited>
+/// <edited> 2022-05 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 using System;
@@ -48,7 +48,7 @@ public class Letter : INotifyPropertyChanged
   private string _Code;
 
   [NotNull]
-  public string Name
+  public string Name // Obsolete: Value comes from a dictionary.
   {
     get => HebrewTranslations.LettersTranscriptionFromCodes.GetLang(_Code);
     set
@@ -61,7 +61,7 @@ public class Letter : INotifyPropertyChanged
   private string _Name;
 
   [NotNull]
-  public string Hebrew
+  public string Hebrew // Obsolete: Value comes from a dictionary.
   {
     get => HebrewAlphabet.HebrewFromCodes[_Code];
     set
