@@ -58,7 +58,6 @@ class ApplicationStatistics
   static private string _DBFileSize;
   static internal bool UpdateDBFileSizeRequired { get; set; } = true;
 
-  [SuppressMessage("Design", "GCop160:This is not readable. Either refactor into a method, or use If / else statement.", Justification = "Opinion")]
   public string DBMemorySize
   {
     get
@@ -95,7 +94,6 @@ class ApplicationStatistics
   static private string _DBCommonFileSize;
   static internal bool UpdateDBCommonFileSizeRequired { get; set; } = true;
 
-  [SuppressMessage("Design", "GCop160:This is not readable. Either refactor into a method, or use If / else statement.", Justification = "Opinion")]
   public string DBLettriqsMemorySize
   {
     get

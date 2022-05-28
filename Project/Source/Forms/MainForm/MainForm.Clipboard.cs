@@ -24,7 +24,6 @@ partial class MainForm
   /// <summary>
   /// Checks clipboard content type.
   /// </summary>
-  [SuppressMessage("Design", "GCop160:This is not readable. Either refactor into a method, or use If / else statement.", Justification = "Opinion")]
   internal void CheckClipboardContentType()
   {
     string strContent = Clipboard.GetText();

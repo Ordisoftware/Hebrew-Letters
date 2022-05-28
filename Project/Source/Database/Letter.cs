@@ -47,6 +47,7 @@ public class Letter : INotifyPropertyChanged
   }
   private string _Code;
 
+  [SuppressMessage("Critical Bug", "S4275:Getters and setters should access the expected fields", Justification = "N/A")]
   [NotNull]
   public string Name // Obsolete: Value comes from a dictionary.
   {
@@ -60,6 +61,7 @@ public class Letter : INotifyPropertyChanged
   }
   private string _Name;
 
+  [SuppressMessage("Critical Bug", "S4275:Getters and setters should access the expected fields", Justification = "N/A")]
   [NotNull]
   public string Hebrew // Obsolete: Value comes from a dictionary.
   {
