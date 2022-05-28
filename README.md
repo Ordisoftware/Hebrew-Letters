@@ -198,9 +198,10 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 #### In progress - Version 6.14
 
 - Add a top button to close other windows.
-- Improve letter transcriptions following a change to better distinguish between 'Het, T'et and H'ayin.
+- Add menu for transcription guide in Tools and others windows
+- Improve transcriptions following a change to better distinguish between 'Het, T'et and H'ayin.
 - Fix hebrew name of a letter no more displayed since a previous version.
-- Update web links.
+- Reorganize and add some web links.
 - Serilog WinForms must remains at v2.3.1
 
 #### 2022.04.05 - Version 6.13
