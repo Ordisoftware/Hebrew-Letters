@@ -368,17 +368,17 @@ partial class MainForm : Form
 
   private void ActionShowMethodNotice_Click(object sender, EventArgs e)
   {
-    HTMLBrowserForm.Run(Program.MethodNoticeForm);
+    Program.MethodNoticeForm.Popup();
   }
 
   private void ActionShowTranscriptionGuide_Click(object sender, EventArgs e)
   {
-    HTMLBrowserForm.Run(Program.TranscriptionGuideForm);
+    Program.TranscriptionGuideForm.Popup();
   }
 
   private void ActionShowGrammarGuide_Click(object sender, EventArgs e)
   {
-    HTMLBrowserForm.Run(Program.GrammarGuideForm);
+    Program.GrammarGuideForm.Popup();
   }
 
   private void ActionGematriaCombinations_Click(object sender, EventArgs e)
