@@ -52,7 +52,7 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 - Screen 1024x768 or higher
 - Windows 7 SP1 x32/x64 or higher
 - Framework .NET 4.8
-- SQLite 3.35.5
+- SQLite 3.38.3
 
 ## Download
 
@@ -201,6 +201,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Improve letter transcriptions following a change to better distinguish between 'Het, T'et and H'ayin.
 - Fix hebrew name of a letter no more displayed since a previous version.
 - Update web links.
+- Serilog WinForms must remains at v2.3.1
 
 #### 2022.04.05 - Version 6.13
 
