@@ -195,7 +195,7 @@
       <Value Profile="(Default)">-1, -1</Value>
     </Setting>
     <Setting Name="TranscriptionGuideFormSize" Type="System.Drawing.Size" Scope="User">
-      <Value Profile="(Default)">392, 566</Value>
+      <Value Profile="(Default)">622, 666</Value>
     </Setting>
   </Settings>
 </SettingsFile>
