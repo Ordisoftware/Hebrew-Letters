@@ -31,11 +31,11 @@ static partial class Program
   {
     try
     {
+      Application.EnableVisualStyles();
+      Application.SetCompatibleTextRenderingDefault(false);
       Globals.ChronoStartingApp.Start();
       Globals.SoftpediaURL = "https://www.softpedia.com/get/Others/Home-Education/Hebrew-Letters.shtml";
       Globals.AlternativeToURL = "";
-      Application.EnableVisualStyles();
-      Application.SetCompatibleTextRenderingDefault(false);
       var lang = Settings.LanguageSelected;
       SystemManager.CheckCommandLineArguments<ApplicationCommandLine>(args, ref lang);
       // No IPCAnswers
