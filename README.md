@@ -179,7 +179,6 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Add reset only some columns to factory defaults.
 - Add export analysis items to MSWord table.
 - Add find gematria possible combinations.
-- Add backup and restore database.
 - Add export data to TXT/CSV/JSON/XML.
 - Add import data from TXT/CSV/JSON/XML.
 - Add print letters data.
@@ -194,14 +193,16 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Add analyzed words data table and notebook view to save results.
 - Add concordance, transcription, dictionary and comment fields for word analysis.
 - Add search online concordance.
+- Add backup and restore database.
+- Add export and import analyzed words.
 
-#### In progress - Version 6.14
+#### 2022.06.12 - Version 6.14
 
 - Add a top button to close other windows.
 - Add menu for transcription guide in Tools and others windows
-- Improve transcriptions following a change to better distinguish between 'Het, T'et and H'ayin.
+- Improve transcriptions following a change to better distinguish between He, 'Het, T'et, H'ayin and Tav.
 - Fix hebrew name of a letter no more displayed since a previous version.
-- Reorganize and add some web links.
+- Reorganize and add some web links about Hebrew, Jewish institutions, Rabbis and YouTube.
 - Serilog WinForms must remains at v2.3.1
 
 #### 2022.04.05 - Version 6.13
