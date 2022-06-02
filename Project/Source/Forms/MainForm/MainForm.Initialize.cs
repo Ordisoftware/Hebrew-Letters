@@ -42,7 +42,7 @@ partial class MainForm
     TextBoxEx.ActionPaste.Click += TextBoxData_ContextMenuAction_Click;
     TextBoxEx.ActionDelete.Click += TextBoxData_ContextMenuAction_Click;
     NativeMethods.ClipboardViewerNext = NativeMethods.SetClipboardViewer(Handle);
-    if ( !Globals.IsDebugExecutable ) // TODO remove when ready
+    if ( !ApplicationCommandLine.Instance.IsPreviewEnabled ) // TODO remove when ready
     {
       ActionOpenTermLettriq.Visible = false;
       ActionSaveTermLettriq.Visible = false;
@@ -53,7 +53,7 @@ partial class MainForm
     {
       ActionViewNotebook.Visible = true;
     }
-    if ( !Globals.IsDebugExecutable ) // TODO remove when ready
+    if ( !ApplicationCommandLine.Instance.IsPreviewEnabled ) // TODO remove when ready
     {
       ActionGematriaCombinations.Visible = false;
       ActionGematriaCombinations.Tag = int.MinValue;
@@ -108,7 +108,7 @@ partial class MainForm
   private void DoFormShown(object sender, EventArgs e)
   {
     if ( Globals.IsExiting ) return;
-    if ( Globals.IsDebugExecutable ) // TODO remove when ready
+    if ( ApplicationCommandLine.Instance.IsPreviewEnabled ) // TODO remove when ready
     {
       ActionCopyToMeanings.Top += 46;
       ActionViewAllMeaningsList.Top += 46;
@@ -158,7 +158,7 @@ partial class MainForm
     Settings.BenchmarkStartingApp = Globals.ChronoStartingApp.ElapsedMilliseconds;
     SystemManager.TryCatch(Settings.Save);
     ProcessNewsAndCommandLine();
-    if ( Globals.IsDebugExecutable ) // TODO remove when ready
+    if ( ApplicationCommandLine.Instance.IsPreviewEnabled ) // TODO remove when ready
       ActionViewNotebook.Visible = true;
     this.ForceBringToFront();
     PanelTitleInner.Controls.OfType<Label>().ForEach(label => label.Visible = true);

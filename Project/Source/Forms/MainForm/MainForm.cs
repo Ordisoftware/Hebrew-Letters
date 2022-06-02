@@ -103,7 +103,7 @@ partial class MainForm : Form
     if ( Globals.IsExiting ) return;
     if ( WindowState != FormWindowState.Normal ) return;
     EditScreenNone.PerformClick();
-    if ( Globals.IsDebugExecutable ) // TODO remove when ready
+    if ( ApplicationCommandLine.Instance.IsPreviewEnabled ) // TODO remove when ready
       SelectAnalyze.Height = PanelWordDetails.Top - 10 - SelectAnalyze.Top;
     else
       SelectAnalyze.Height = EditSentence.Top - 10 - SelectAnalyze.Top;
@@ -521,7 +521,7 @@ partial class MainForm : Form
     ActionScreenshot.Enabled = enabled;
     ActionSaveScreenshot.Enabled = enabled;
     ActionSearchOnline.Enabled = enabled;
-    if ( !Globals.IsDebugExecutable ) return; // TODO remove when ready
+    if ( !ApplicationCommandLine.Instance.IsPreviewEnabled ) return; // TODO remove when ready
     var word = EditWord.TextBox.Text;
     var sentence = EditSentence.Text.Trim();
     var combos = SelectAnalyze.Controls.OfType<ComboBox>().ToList();

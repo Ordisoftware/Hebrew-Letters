@@ -65,7 +65,7 @@ partial class MainForm
           ActionViewLetters.PerformClick();
           return true;
         case Keys.F3:
-          if ( !Globals.IsDebugExecutable ) break; // TODO remove when ready
+          if ( !ApplicationCommandLine.Instance.IsPreviewEnabled ) break; // TODO remove when ready
           ActionViewNotebook.PerformClick();
           return true;
         // Application functions
