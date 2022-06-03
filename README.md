@@ -200,7 +200,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 - Add a top button to close other windows.
 - Add menu for transcription guide in Tools and others windows
-- Improve transcriptions following a change to better distinguish between He, 'Het, T'et, H'ayin and Tav.
+- Improve transcriptions following a change to better distinguish between He, 'Het, H'ayin, T'et and Tav.
 - Fix hebrew name of a letter no more displayed since a previous version.
 - Reorganize and add some web links about Hebrew, Jewish institutions, Rabbis and YouTube.
 - Serilog WinForms must remains at v2.3.1
