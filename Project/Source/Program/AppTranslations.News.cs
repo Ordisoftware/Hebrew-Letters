@@ -23,6 +23,15 @@ static partial class AppTranslations
   static public readonly NullSafeDictionary<string, TranslationsDictionary> NoticeNewFeatures = new()
   {
 
+    ["6.14"] = new TranslationsDictionary
+    {
+      [Language.EN] = "" + Globals.NL +
+                      "",
+
+      [Language.FR] = "" + Globals.NL +
+                      "",
+    },
+
     ["6.13"] = new TranslationsDictionary
     {
       [Language.EN] = "• Add setting to use Hebrew chars in bold or regular." + Globals.NL +
