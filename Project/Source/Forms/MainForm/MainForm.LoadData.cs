@@ -28,7 +28,7 @@ partial class MainForm
     {
       DBApp.Open();
       LettersBindingSource.DataSource = DBApp.LettersAsBindingList;
-      if ( Globals.IsDebugExecutable ) // TODO remove when ready
+      if ( ApplicationCommandLine.Instance.IsPreviewEnabled ) // TODO remove when ready
       {
         DBHebrew.TakeLettriqs();
         TermsBindingSource.DataSource = DBHebrew.TermsHebrewAsBindingList;

@@ -56,7 +56,7 @@ static partial class Program
         {
           string word = ApplicationCommandLine.Instance?.WordHebrew ?? string.Empty;
           if ( word.IsNullOrEmpty()
-            && SystemManager.CommandLineArguments?.Length == 1
+            && SystemManager.CommandLineArguments?.Count == 1
             && !SystemManager.CommandLineArguments[0].StartsWith("--", StringComparison.Ordinal) )
             word = SystemManager.CommandLineArguments[0];
           word = HebrewAlphabet.ContainsUnicode(word)
