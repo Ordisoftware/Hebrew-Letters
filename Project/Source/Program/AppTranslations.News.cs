@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2021-02 </created>
-/// <edited> 2022-03 </edited>
+/// <edited> 2022-05 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 /// <summary>
@@ -23,13 +23,21 @@ static partial class AppTranslations
   static public readonly NullSafeDictionary<string, TranslationsDictionary> NoticeNewFeatures = new()
   {
 
+    // TODO delete all 6.x without changing 6.x
+
     ["6.14"] = new TranslationsDictionary
     {
-      [Language.EN] = "" + Globals.NL +
-                      "",
+      [Language.EN] = "• Add a top button to close other windows." + Globals.NL +
+                      "• Add menu for transcription guide in Tools menu and others windows" + Globals.NL +
+                      "• Improve transcriptions following a change to better distinguish between He, 'Het, H'ayin, T'et and Tav." + Globals.NL +
+                      "• Fix hebrew name of a letter no more displayed since a previous version." + Globals.NL +
+                      "• Reorganize and add some web links",
 
-      [Language.FR] = "" + Globals.NL +
-                      "",
+      [Language.FR] = "• Ajout d'un bouton en haut pour fermer les autres fenêtres." + Globals.NL +
+                      "• Ajout d'un menu pour un guide de transcription dans le menu Outils et les autres fenêtres." + Globals.NL +
+                      "• Amélioration des transcriptions suite à un changement pour mieux distinguer He, 'Het, H'ayin, T'et et Tav." + Globals.NL +
+                      "• Correction du nom hébreu d'une lettre qui n'est plus affichée depuis une version précédente." + Globals.NL +
+                      "• Réorganisation et ajout de liens Web."
     },
 
     ["6.13"] = new TranslationsDictionary

@@ -199,7 +199,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 #### 2022.06.12 - Version 6.14
 
 - Add a top button to close other windows.
-- Add menu for transcription guide in Tools and others windows
+- Add menu for transcription guide in Tools menu and others windows.
 - Improve transcriptions following a change to better distinguish between He, 'Het, H'ayin, T'et and Tav.
 - Fix hebrew name of a letter no more displayed since a previous version.
 - Reorganize and add some web links about Hebrew, Jewish institutions, Rabbis and YouTube.
