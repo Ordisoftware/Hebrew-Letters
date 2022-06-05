@@ -34,7 +34,7 @@ static partial class AppTranslations
                       "• Reorganize and add some web links",
 
       [Language.FR] = "• Ajout d'un bouton en haut pour fermer les autres fenêtres." + Globals.NL +
-                      "• Ajout d'un menu pour un guide de transcription dans le menu Outils et les autres fenêtres." + Globals.NL +
+                      "• Ajout d'un menu guide de transcription dans le menu Outils et les autres fenêtres." + Globals.NL +
                       "• Amélioration des transcriptions suite à un changement pour mieux distinguer He, 'Het, H'ayin, T'et et Tav." + Globals.NL +
                       "• Correction du nom hébreu d'une lettre qui n'est plus affichée depuis une version précédente." + Globals.NL +
                       "• Réorganisation et ajout de liens Web."
