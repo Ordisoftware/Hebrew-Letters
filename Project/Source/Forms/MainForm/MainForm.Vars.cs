@@ -43,6 +43,8 @@ partial class MainForm
   /// </summary>
   private bool DataChanged;
 
+  private bool IsSentenceEdited;
+
   public ApplicationDatabase DBApp => ApplicationDatabase.Instance;
   public HebrewDatabase DBHebrew => HebrewDatabase.Instance;
 
