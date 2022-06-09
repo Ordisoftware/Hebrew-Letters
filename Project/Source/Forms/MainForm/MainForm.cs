@@ -483,7 +483,8 @@ partial class MainForm : Form
   /// <param name="e">Event information.</param>
   private void ActionNewInstance_Click(object sender, EventArgs e)
   {
-    SystemManager.RunShell(Process.GetCurrentProcess().MainModule.FileName);
+    string arg = SystemManager.CommandLineOptions.IsPreviewEnabled ? "--withpreview" : "--nopreview";
+    SystemManager.RunShell(Process.GetCurrentProcess().MainModule.FileName, arg);
   }
 
   /// <summary>
@@ -675,11 +676,16 @@ partial class MainForm : Form
 
   private void MeaningComboBox_SelectedIndexChanged(object sender, EventArgs e)
   {
+    // TODO option
+    if ( IsSentenceEdited && !DisplayManager.QueryYesNo("Sentence modifications will be lost.") )
+      return;
     EditSentence.Text = SelectAnalyze.Controls.OfType<ComboBox>().Select(c => c.Text).AsMultiSpace();
+    IsSentenceEdited = false;
   }
 
   private void EditSentence_TextChanged(object sender, EventArgs e)
   {
+    IsSentenceEdited = true;
     ActionCopyToResult.Enabled = EditSentence.Text.Length > 0;
     UpdateAnalysisControls();
   }
