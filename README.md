@@ -26,9 +26,10 @@ A libre and open-source software written in C# that helps for the lettriq letter
 5. [Screenshots](#screenshots)
 6. [Videos](#videos)
 7. [Frequently asked questions](#frequently-asked-questions)
-8. [Keyboard shortcuts](#keyboard-shortcuts)
-9. [Future improvements](#future-improvements)
-10. [Changelog](#changelog)
+8. [Command-line options](#command-line-options)
+9. [Keyboard shortcuts](#keyboard-shortcuts)
+10. [Future improvements](#future-improvements)
+11. [Changelog](#changelog)
 
 ## Functionalities
 
@@ -103,7 +104,7 @@ When enabled, this will speed up rendering of the main form when it is displayed
 
 When disabled, top menu and some controls painting may cause latency, and dynamic items can be generated slowly the larger the number.
 
-#### What are command-line options?
+## Command-line options
 
 - Change interface language (does not change the meanings of letters unless restoring them):
 
@@ -123,7 +124,7 @@ When disabled, top menu and some controls painting may cause latency, and dynami
   
 This program does not use IPC intercom yet since multiple instances can run at the same time.
 
-#### How to run a word contextual analysis from any application such as browser or text editor?
+### How to run a word contextual analysis from any application such as browser or text editor?
 
 It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for example this `Shift + Ctrl + Alt + H` command on a selected word:
 
@@ -197,7 +198,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Add export and import analyzed words.
 - Added an option to display a warning when selecting the meaning of a letter while the sentence has been changed.
 
-#### 2022.06.12 - Version 6.14
+#### 2022.06.14 - Version 6.14
 
 - Add a top button to close other windows.
 - Add menu for transcription guide in Tools menu and others windows.
