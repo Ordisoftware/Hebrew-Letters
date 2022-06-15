@@ -336,8 +336,8 @@ partial class MainForm : Form
     var lastdone = Settings.CheckUpdateLastDone;
     bool exit = WebCheckUpdate.Run(ref lastdone,
                                    Settings.CheckUpdateAtStartupDaysInterval,
-                                   Settings.CheckUpdateAtStartup,
-                                   e is null);
+                                   e is null,
+                                   Settings.CheckUpdateAtStartup);
     Settings.CheckUpdateLastDone = lastdone;
     if ( exit ) Close();
   }
