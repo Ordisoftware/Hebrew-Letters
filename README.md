@@ -110,6 +110,10 @@ When disabled, top menu and some controls painting may cause latency, and dynami
 
   `Ordisoftware.Hebrew.Letters.exe --lang [en|fr]`
 
+- Enable or disable future functionnalities preview:
+
+  `Ordisoftware.Hebrew.Calendar.exe --withpreview | --nopreview`
+
 - Analyze a word in Hebrew Unicode chars or else Hebrew font chars like "`בראשית`" and "`ty>arb`":
 
   `Ordisoftware.Hebrew.Letters.exe --word [word]` 
