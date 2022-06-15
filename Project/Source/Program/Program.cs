@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2022-04 </edited>
+/// <edited> 2022-06 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 //using System.IO.Pipes;
@@ -29,6 +29,13 @@ static partial class Program
   [STAThread]
   static void Main(string[] args)
   {
+    CommonMenusControl.PreviewFunctions = new()
+    {
+      [Language.EN] = "    • Notebook of analyzed words" + Globals.NL +
+                      "    • Web links edition",
+      [Language.FR] = "    • Carnet des mots analysés" + Globals.NL +
+                      "    • Edition des liens web"
+    };
     try
     {
       Application.EnableVisualStyles();
@@ -112,12 +119,29 @@ static partial class Program
         if ( File.Exists(pathWordsDefault) )
           Settings.HebrewWordsExe = pathWordsDefault;
       // Save settings
+      CheckPreviewNotice();
       SystemManager.TryCatch(Settings.Save);
     }
     catch ( Exception ex )
     {
       ex.Manage();
     }
+  }
+
+  /// <summary>
+  /// Checks if the app is in preview mode or not and display a notice if needed.
+  /// </summary>
+  static internal void CheckPreviewNotice()
+  {
+    if ( CommonMenusControl.PreviewFunctions is null ) return;
+    if ( !SystemManager.CommandLineOptions.IsPreviewEnabled || Settings.PreviewModeNotified ) return;
+    string msg = SysTranslations.AskForPreviewMode.GetLang(CommonMenusControl.PreviewFunctions[Languages.Current]);
+    if ( !DisplayManager.QueryYesNo(msg) )
+    {
+      SystemManager.CommandLineOptions.WithPreview = false;
+      SystemManager.CommandLineOptions.NoPreview = true;
+    }
+    Settings.PreviewModeNotified = true;
   }
 
   /// <summary>
