@@ -110,7 +110,7 @@ When disabled, top menu and some controls painting may cause latency, and dynami
 
   `Ordisoftware.Hebrew.Letters.exe --lang [en|fr]`
 
-- Enable or disable future functionnalities preview:
+- Enable or disable future functionalities preview:
 
   `Ordisoftware.Hebrew.Calendar.exe --withpreview | --nopreview`
 
