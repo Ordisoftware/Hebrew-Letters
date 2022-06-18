@@ -202,7 +202,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Add export and import analyzed words.
 - Added an option to display a warning when selecting the meaning of a letter while the sentence has been changed.
 
-#### 2022.06.20 - Version 6.14
+#### 2022.06.21 - Version 6.14
 
 - Add a top button to close other windows.
 - Add menu for transcription guide in Tools menu and others windows.
