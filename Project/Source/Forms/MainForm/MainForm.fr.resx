@@ -130,14 +130,11 @@
   <data name="LabelValueSimple.Size" type="System.Drawing.Size, System.Drawing">
     <value>69, 13</value>
   </data>
-  <data name="LabelValueSimple.Text" xml:space="preserve">
+  <data name="LabelGematriaSimple.Text" xml:space="preserve">
     <value>Valeur simple</value>
   </data>
   <data name="LabelValueFull.Size" type="System.Drawing.Size, System.Drawing">
     <value>68, 13</value>
-  </data>
-  <data name="LabelValueFull.Text" xml:space="preserve">
-    <value>Valeur pleine</value>
   </data>
   <data name="LabelMeanings.Size" type="System.Drawing.Size, System.Drawing">
     <value>69, 13</value>
@@ -164,7 +161,7 @@
     <value>Negatif</value>
   </data>
   <data name="LabelGematriaFull.Text" xml:space="preserve">
-    <value>Plein</value>
+    <value>Valeur pleine</value>
   </data>
   <data name="EditCopyWithFinalLetter.Size" type="System.Drawing.Size, System.Drawing">
     <value>137, 17</value>
