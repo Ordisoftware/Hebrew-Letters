@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2022-06 </edited>
+/// <edited> 2022-07 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 //using System.IO.Pipes;
@@ -230,12 +230,8 @@ static partial class Program
         GrammarGuideForm.HTMLBrowserForm_Shown(null, null);
         MethodNoticeForm.HTMLBrowserForm_Shown(null, null);
       }
-      MainForm.Instance.PanelGematria.Top = MainForm.Instance.PanelWordDetails.Top;
-      MainForm.Instance.LabelClipboardContentType.Left = MainForm.Instance.ActionCopyToUnicode.Left
-                                                       + MainForm.Instance.ActionCopyToUnicode.Width / 2
-                                                       - MainForm.Instance.LabelClipboardContentType.Width / 2;
-      MainForm.Instance.EditCopyToClipboardCloseApp.Left = MainForm.Instance.ActionCopyToResult.Left
-                                                         + MainForm.Instance.ActionCopyToResult.Width + 5;
+      MainForm.Instance.MinimumSize = new Size(MainForm.Instance.MinimumSize.Width, MainForm.Instance.MinimumSize.Height - MainForm.Instance.TabControl.DisplayRectangle.Y - 5);
+      MainForm.Instance.Height -= MainForm.Instance.MinimumSize.Height;
       MainForm.Instance.CheckClipboardContentType();
       task?.Wait();
       MainForm.Instance.CreateSystemInformationMenu();

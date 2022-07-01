@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2022-03 </edited>
+/// <edited> 2022-07 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 /// <summary>
@@ -40,13 +40,13 @@ partial class MainForm
       EditGematriaSimple.Text = "";
       EditGematriaFull.Text = "";
       const int marginTop = 20;
-      const int marginLeft = 100;
+      const int marginLeft = 5;
+      const int marginCombo = 15;
       const int labelWidth = 50;
-      const int comboWidth = 100;
-      //const int labelHeight = 13;
-      //const int comboHeight = 21;
-      const int comboHeightDelta = -4;
+      const int comboWidth = 170;
+      const int comboLeft = marginLeft + labelWidth + marginCombo;
       const int widthCombobox = 160;
+      const int comboHeightDelta = -4;
       const int marginLeftAndcomboWidth = marginLeft + comboWidth;
       const int dummyDelta = 10;
       const int dummyHeightDelta = -2;
@@ -70,7 +70,6 @@ partial class MainForm
           TextAlign = ContentAlignment.TopRight,
           AutoSize = false,
           Width = labelWidth,
-          //Height = labelHeight,
           Left = marginLeft,
           Top = top,
           Text = letter.Name,
@@ -81,9 +80,8 @@ partial class MainForm
         // Combobox
         var combobox = new ComboBoxEx
         {
-          Width = marginLeftAndcomboWidth,
-          //combobox.Height = comboHeight;
-          Left = widthCombobox,
+          Width = comboWidth,
+          Left = comboLeft,
           Top = top + comboHeightDelta,
           DropDownStyle = ComboBoxStyle.DropDownList
         };

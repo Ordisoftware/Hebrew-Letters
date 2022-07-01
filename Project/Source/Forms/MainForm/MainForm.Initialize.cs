@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-01 </created>
-/// <edited> 2022-03 </edited>
+/// <edited> 2022-07 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 using Microsoft.Win32;
@@ -46,8 +46,8 @@ partial class MainForm
     {
       ActionOpenTermLettriq.Visible = false;
       ActionSaveTermLettriq.Visible = false;
-      PanelWordDetails.Visible = false;
-      SelectAnalyze.Height += PanelWordDetails.Height + 5;
+      //PanelWordDetails.Visible = false;
+      //SelectAnalyze.Height += PanelWordDetails.Height + 5;
     }
     else
     {
@@ -71,8 +71,10 @@ partial class MainForm
     if ( Globals.IsExiting ) return;
     Settings.Retrieve();
     EditWord.HebrewCharsInBold = Settings.LettersControlHebrewCharsInBold;
-    EditConcordance.Minimum = HebrewAlphabet.ConcordanceFirst - 1;
-    EditConcordance.Maximum = HebrewAlphabet.ConcordanceLast;
+    EditConcordance1.Minimum = HebrewAlphabet.ConcordanceFirst - 1;
+    EditConcordance1.Maximum = HebrewAlphabet.ConcordanceLast;
+    EditConcordance2.Minimum = EditConcordance1.Minimum;
+    EditConcordance2.Maximum = EditConcordance1.Maximum;
     StatisticsForm.Run(true, Settings.UsageStatisticsEnabled);
     Globals.ChronoStartingApp.Stop();
     var lastdone = Settings.CheckUpdateLastDone;
@@ -108,23 +110,23 @@ partial class MainForm
   private void DoFormShown(object sender, EventArgs e)
   {
     if ( Globals.IsExiting ) return;
-    if ( ApplicationCommandLine.Instance.IsPreviewEnabled ) // TODO remove when ready
-    {
-      ActionCopyToMeanings.Top += 46;
-      ActionViewAllMeaningsList.Top += 46;
-      ActionScreenshot.Top += 46;
-      ActionSaveScreenshot.Top += 46;
-    }
-    PanelEditWordControl.Visible = true;
+    //if ( ApplicationCommandLine.Instance.IsPreviewEnabled ) // TODO remove when ready
+    //{
+    //  ActionCopyToMeanings.Top += 46;
+    //  ActionViewAllMeaningsList.Top += 46;
+    //  ActionScreenshot.Top += 46;
+    //  ActionSaveScreenshot.Top += 46;
+    //}
     if ( !Program.StartupWord.IsNullOrEmpty() )
     {
-      ActionReset.Visible = true;
+      EditWord.InititialWord = Program.StartupWord;
+      EditWord.ActionReset.Visible = true;
       EditWord.TextBox.Text = Program.StartupWord;
       EditWord.Focus(LettersControlFocusSelect.None);
       EditWord.TextBox.Refresh();
     }
     else
-      ActionReset.Visible = false;
+      EditWord.ActionReset.Visible = false;
     ToolStrip.SetDropDownOpening();
     EditSentence.Font = new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence);
     EditWord.TextBox.MaxLength = (int)Settings.HebrewTextBoxMaxLength;

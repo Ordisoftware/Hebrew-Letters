@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-01 </created>
-/// <edited> 2021-12 </edited>
+/// <edited> 2022-07 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 /// <summary>
@@ -86,7 +86,9 @@ partial class MainForm
     ContextMenuOpenConcordance.InitializeFromProviders(HebrewGlobals.WebProvidersConcordance, (sender, e) =>
     {
       var menuitem = (ToolStripMenuItem)sender;
-      HebrewTools.OpenWordConcordance((string)menuitem.Tag, (int)EditConcordance.Value);
+      var owner = ( menuitem?.GetCurrentParent() as ContextMenuStrip ).SourceControl as Button;
+      var control = owner == ActionOpenConcordance ? EditConcordance1 : EditConcordance2;
+      HebrewTools.OpenWordConcordance((string)menuitem.Tag, (int)control.Value);
       EditWord.Focus();
     }, null);
   }
