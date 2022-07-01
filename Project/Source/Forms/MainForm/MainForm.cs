@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2022-03 </edited>
+/// <edited> 2022-07 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 using Equin.ApplicationFramework;
@@ -103,10 +103,10 @@ partial class MainForm : Form
     if ( Globals.IsExiting ) return;
     if ( WindowState != FormWindowState.Normal ) return;
     EditScreenNone.PerformClick();
-    if ( ApplicationCommandLine.Instance.IsPreviewEnabled ) // TODO remove when ready
-      SelectAnalyze.Height = PanelWordDetails.Top - 10 - SelectAnalyze.Top;
-    else
-      SelectAnalyze.Height = EditSentence.Top - 10 - SelectAnalyze.Top;
+    //if ( ApplicationCommandLine.Instance.IsPreviewEnabled ) // TODO remove when ready
+    //  SelectAnalyze.Height = PanelWordDetails.Top - 10 - SelectAnalyze.Top;
+    //else
+    //  SelectAnalyze.Height = EditSentence.Top - 10 - SelectAnalyze.Top;
   }
 
   /// <summary>
@@ -218,9 +218,6 @@ partial class MainForm : Form
   private void ActionPreferences_Click(object sender, EventArgs e)
   {
     bool temp = Globals.IsReadOnly;
-    //if ( Globals.ApplicationInstancesCount > 1 )
-    //  ActionPreferences.Enabled = false;
-    //else
     try
     {
       Globals.IsReadOnly = true;
@@ -228,8 +225,6 @@ partial class MainForm : Form
       EditWord.InputMaxLength = (int)Settings.HebrewTextBoxMaxLength;
       InitializeSpecialMenus();
       InitializeDialogsDirectory();
-      //ClearLettersMeanings();
-      //DoAnalyse();
     }
     catch ( Exception ex )
     {
@@ -511,10 +506,10 @@ partial class MainForm : Form
   private void UpdateAnalysisControls()
   {
     bool enabled = EditWord.TextBox.Text.Length >= 1;
-    ActionReset.Enabled = !Program.StartupWord.IsNullOrEmpty();
+    EditWord.ActionReset.Enabled = !Program.StartupWord.IsNullOrEmpty();
     ActionClear.Enabled = enabled;
-    ActionDelFirst.Enabled = enabled;
-    ActionDelLast.Enabled = enabled;
+    EditWord.ActionDelFirst.Enabled = enabled;
+    EditWord.ActionDelLast.Enabled = enabled;
     ActionCopyToHebrew.Enabled = enabled;
     ActionCopyToUnicode.Enabled = enabled;
     ActionCopyToMeanings.Enabled = enabled;
@@ -552,10 +547,10 @@ partial class MainForm : Form
 
   private void EditSentence_FontChanged(object sender, EventArgs e)
   {
-    double top = ActionCopyToResult.Top;
-    top += ActionCopyToResult.Height / 2d;
-    top -= EditSentence.Height / 2d;
-    EditSentence.Top = (int)Math.Round(top, MidpointRounding.AwayFromZero);
+    //double top = ActionCopyToResult.Top;
+    //top += ActionCopyToResult.Height / 2d;
+    //top -= EditSentence.Height / 2d;
+    //EditSentence.Top = (int)Math.Round(top, MidpointRounding.AwayFromZero);
   }
 
   private void EditGematria_TextChanged(object sender, EventArgs e)
@@ -568,7 +563,7 @@ partial class MainForm : Form
 
   #region Panel Letters
 
-  [System.Diagnostics.CodeAnalysis.SuppressMessage("Redundancy", "RCS1163:Unused parameter.", Justification = "Event Handler")]
+  [SuppressMessage("Redundancy", "RCS1163:Unused parameter.", Justification = "Event Handler")]
   private void EditWord_ViewLetterDetails(LettersControl sender, string code)
   {
     ActionViewLetters.PerformClick();
@@ -577,26 +572,14 @@ partial class MainForm : Form
 
   private void ActionDelFirst_Click(object sender, EventArgs e)
   {
-    if ( EditWord.TextBox.Text.Length < 1 ) return;
-    EditWord.TextBox.SelectionStart = EditWord.TextBox.TextLength - 1;
-    EditWord.TextBox.SelectionLength = 1;
-    EditWord.Focus(LettersControlFocusSelect.Keep);
-    TextBoxEx.ActionDelete.PerformClick();
   }
 
   private void ActionDelLast_Click(object sender, EventArgs e)
   {
-    if ( EditWord.TextBox.Text.Length < 1 ) return;
-    EditWord.TextBox.SelectionStart = 0;
-    EditWord.TextBox.SelectionLength = 1;
-    EditWord.Focus(LettersControlFocusSelect.Keep);
-    TextBoxEx.ActionDelete.PerformClick();
   }
 
   private void ActionReset_Click(object sender, EventArgs e)
   {
-    EditWord.TextBox.Text = Program.StartupWord;
-    EditWord.Focus(LettersControlFocusSelect.None);
   }
 
   private void EditWord_InputTextChanged(object sender, EventArgs e)
@@ -609,7 +592,7 @@ partial class MainForm : Form
   {
     EditWord.TextBox.SelectAll();
     EditWord.TextBox.Paste("");
-    EditConcordance.Value = EditConcordance.Minimum;
+    EditConcordance1.Value = EditConcordance1.Minimum;
     EditTranscription.Text = "";
     EditDictionary.Text = "";
     EditMemo.Text = "";
@@ -626,9 +609,14 @@ partial class MainForm : Form
     ContextMenuSearchOnline.Show(ActionSearchOnline, new Point(0, ActionSearchOnline.Height));
   }
 
-  private void ActionOpenConcordance_Click(object sender, EventArgs e)
+  private void ActionOpenConcordance1_Click(object sender, EventArgs e)
   {
     ContextMenuOpenConcordance.Show(ActionOpenConcordance, new Point(0, ActionOpenConcordance.Height));
+  }
+
+  private void ActionOpenConcordance2_Click(object sender, EventArgs e)
+  {
+    ContextMenuOpenConcordance.Show(ActionOpenConcordanceRoot, new Point(0, ActionOpenConcordanceRoot.Height));
   }
 
   #endregion
@@ -650,7 +638,7 @@ partial class MainForm : Form
   {
     if ( EditWord.TextBox.Text.Length == 0 ) return;
     string str = EditWord.TextBox.Text;
-    if ( EditCopyWithFinalLetter.Checked )
+    if ( EditWord.EditCopyWithFinalLetter.Checked )
       str = HebrewAlphabet.SetFinal(str, true);
     Clipboard.SetText(str);
     DisplayManager.ShowSuccessOrSound(SysTranslations.DataCopiedToClipboard.GetLang(),
@@ -662,7 +650,7 @@ partial class MainForm : Form
   {
     if ( EditWord.TextBox.Text.Length == 0 ) return;
     string str = EditWord.TextBox.Text;
-    if ( EditCopyWithFinalLetter.Checked )
+    if ( EditWord.EditCopyWithFinalLetter.Checked )
       str = HebrewAlphabet.SetFinal(str, true);
     Clipboard.SetText(HebrewAlphabet.ToUnicode(str));
     DisplayManager.ShowSuccessOrSound(SysTranslations.DataCopiedToClipboard.GetLang(),
@@ -722,11 +710,13 @@ partial class MainForm : Form
           Combobox_Enter(list[meaning.Position], EventArgs.Empty);
         list[meaning.Position].SelectedIndex = list[meaning.Position].FindString(meaning.Meaning);
       }
+    EditTitle.Text = lettriq.Title;
     EditSentence.Text = lettriq.Sentence;
     EditTranscription.Text = lettriq.Transcription;
     EditDictionary.Text = lettriq.Dictionary;
     EditMemo.Text = lettriq.Memo;
-    SystemManager.TryCatch(() => EditConcordance.Value = int.Parse(lettriq.ConcordanceID));
+    SystemManager.TryCatch(() => EditConcordance1.Value = int.Parse(lettriq.ConcordanceID));
+    SystemManager.TryCatch(() => EditConcordance2.Value = int.Parse(lettriq.ConcordanceIDRoot));
   }
 
   private void ActionSaveTermLettriq_Click(object sender, EventArgs e)
@@ -748,8 +738,10 @@ partial class MainForm : Form
     {
       ID = Guid.NewGuid().ToString(),
       TermID = term.ID,
-      ConcordanceID = EditConcordance.Value.ToString(),
+      ConcordanceID = EditConcordance1.Value.ToString(),
+      ConcordanceIDRoot = EditConcordance2.Value.ToString(),
       Sentence = EditSentence.Text,
+      Title = EditTitle.Text,
       Transcription = EditTranscription.Text,
       Dictionary = EditDictionary.Text,
       Memo = EditMemo.Text
@@ -824,7 +816,7 @@ partial class MainForm : Form
   {
     if ( EditWord.TextBox.Text.Length == 0 ) return;
     string str = EditWord.TextBox.Text;
-    if ( EditCopyWithFinalLetter.Checked )
+    if ( EditWord.EditCopyWithFinalLetter.Checked )
       str = HebrewAlphabet.SetFinal(str, true);
     SaveImageDialog.FileName = HebrewAlphabet.ToUnicode(str);
     for ( int index = 0; index < Program.ImageExportTargets.Count; index++ )
@@ -942,7 +934,7 @@ partial class MainForm : Form
     DBApp.LoadAll();
     LettersBindingSource.DataSource = DBApp.LettersAsBindingList;
     ActionClear.PerformClick();
-    ActionReset.PerformClick();
+    EditWord.ActionReset.PerformClick();
     EditWord.TextBox.Text = word;
     UpdateDataControls(null);
     ClearLettersMeanings();

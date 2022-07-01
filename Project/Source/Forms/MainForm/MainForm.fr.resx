@@ -370,4 +370,10 @@
   <data name="sentenceDataGridViewTextBoxColumn.HeaderText" xml:space="preserve">
     <value>Phrase</value>
   </data>
+  <data name="LabelCondordanceRoot.Text" xml:space="preserve">
+    <value>Racine</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Titre</value>
+  </data>
 </root>

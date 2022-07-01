@@ -174,7 +174,7 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="MainFormSplitContainerNotebookDistance" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">200</Value>
+      <Value Profile="(Default)">232</Value>
     </Setting>
     <Setting Name="LoadingFormHidden" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
