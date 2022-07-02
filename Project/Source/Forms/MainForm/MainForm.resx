@@ -424,10 +424,10 @@
     <value>Bottom</value>
   </data>
   <data name="panel5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 308</value>
+    <value>10, 303</value>
   </data>
   <data name="panel5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>788, 1</value>
+    <value>838, 1</value>
   </data>
   <data name="panel5.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -514,7 +514,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionOpenTermLettriq.Location" type="System.Drawing.Point, System.Drawing">
-    <value>745, 19</value>
+    <value>795, 19</value>
   </data>
   <data name="ActionOpenTermLettriq.Size" type="System.Drawing.Size, System.Drawing">
     <value>42, 42</value>
@@ -590,7 +590,7 @@
     <value>100, 130</value>
   </data>
   <data name="EditSentence.Size" type="System.Drawing.Size, System.Drawing">
-    <value>640, 23</value>
+    <value>685, 23</value>
   </data>
   <data name="EditSentence.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -684,7 +684,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionCopyToResult.Location" type="System.Drawing.Point, System.Drawing">
-    <value>745, 119</value>
+    <value>795, 119</value>
   </data>
   <data name="ActionCopyToResult.Size" type="System.Drawing.Size, System.Drawing">
     <value>42, 42</value>
@@ -775,7 +775,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionSaveTermLettriq.Location" type="System.Drawing.Point, System.Drawing">
-    <value>745, 69</value>
+    <value>795, 69</value>
   </data>
   <data name="ActionSaveTermLettriq.Size" type="System.Drawing.Size, System.Drawing">
     <value>42, 42</value>
@@ -850,7 +850,7 @@
     <value>100, 80</value>
   </data>
   <data name="EditMemo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>639, 21</value>
+    <value>685, 21</value>
   </data>
   <data name="EditMemo.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -923,7 +923,7 @@
     <value>222, 30</value>
   </data>
   <data name="EditDictionary.Size" type="System.Drawing.Size, System.Drawing">
-    <value>517, 21</value>
+    <value>563, 21</value>
   </data>
   <data name="EditDictionary.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -1037,7 +1037,7 @@
     <value>NoControl</value>
   </data>
   <data name="EditCopyToClipboardCloseApp.Location" type="System.Drawing.Point, System.Drawing">
-    <value>540, 162</value>
+    <value>585, 162</value>
   </data>
   <data name="EditCopyToClipboardCloseApp.Size" type="System.Drawing.Size, System.Drawing">
     <value>200, 17</value>
@@ -1166,10 +1166,10 @@
     <value>Bottom</value>
   </data>
   <data name="panel4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 309</value>
+    <value>10, 304</value>
   </data>
   <data name="panel4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>788, 175</value>
+    <value>838, 180</value>
   </data>
   <data name="panel4.TabIndex" type="System.Int32, mscorlib">
     <value>30</value>
@@ -1230,7 +1230,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionCopyToMeanings.Location" type="System.Drawing.Point, System.Drawing">
-    <value>611, 248</value>
+    <value>661, 248</value>
   </data>
   <data name="ActionCopyToMeanings.Size" type="System.Drawing.Size, System.Drawing">
     <value>42, 42</value>
@@ -1257,7 +1257,7 @@
     <value>True</value>
   </data>
   <data name="SelectAnalyze.Location" type="System.Drawing.Point, System.Drawing">
-    <value>532, 10</value>
+    <value>582, 10</value>
   </data>
   <data name="SelectAnalyze.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>10, 10, 10, 10</value>
@@ -1326,7 +1326,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionSaveScreenshot.Location" type="System.Drawing.Point, System.Drawing">
-    <value>755, 248</value>
+    <value>805, 248</value>
   </data>
   <data name="ActionSaveScreenshot.Size" type="System.Drawing.Size, System.Drawing">
     <value>42, 42</value>
@@ -1397,7 +1397,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionScreenshot.Location" type="System.Drawing.Point, System.Drawing">
-    <value>707, 248</value>
+    <value>757, 248</value>
   </data>
   <data name="ActionScreenshot.Size" type="System.Drawing.Size, System.Drawing">
     <value>42, 42</value>
@@ -1457,7 +1457,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionViewAllMeaningsList.Location" type="System.Drawing.Point, System.Drawing">
-    <value>659, 248</value>
+    <value>709, 248</value>
   </data>
   <data name="ActionViewAllMeaningsList.Size" type="System.Drawing.Size, System.Drawing">
     <value>42, 42</value>
@@ -1481,7 +1481,7 @@
     <value>10, 10</value>
   </data>
   <data name="EditWord.Size" type="System.Drawing.Size, System.Drawing">
-    <value>510, 280</value>
+    <value>560, 280</value>
   </data>
   <data name="EditWord.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1508,7 +1508,7 @@
     <value>10, 10, 10, 10</value>
   </data>
   <data name="PanelViewAnalysis.Size" type="System.Drawing.Size, System.Drawing">
-    <value>808, 494</value>
+    <value>858, 494</value>
   </data>
   <data name="PanelViewAnalysis.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1532,7 +1532,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="TabPageText.Size" type="System.Drawing.Size, System.Drawing">
-    <value>814, 500</value>
+    <value>864, 500</value>
   </data>
   <data name="TabPageText.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1571,7 +1571,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="TabPageLetters.Size" type="System.Drawing.Size, System.Drawing">
-    <value>814, 485</value>
+    <value>814, 500</value>
   </data>
   <data name="TabPageLetters.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1610,7 +1610,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="TabPageNotebook.Size" type="System.Drawing.Size, System.Drawing">
-    <value>814, 485</value>
+    <value>814, 500</value>
   </data>
   <data name="TabPageNotebook.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -1637,7 +1637,7 @@
     <value>0, 0</value>
   </data>
   <data name="TabControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>822, 526</value>
+    <value>872, 526</value>
   </data>
   <data name="TabControl.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -1664,7 +1664,7 @@
     <value>0, 0</value>
   </data>
   <data name="PanelMainCenter.Size" type="System.Drawing.Size, System.Drawing">
-    <value>822, 526</value>
+    <value>872, 526</value>
   </data>
   <data name="PanelMainCenter.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1688,7 +1688,7 @@
     <value>1, 1</value>
   </data>
   <data name="PanelMainInner.Size" type="System.Drawing.Size, System.Drawing">
-    <value>822, 526</value>
+    <value>872, 526</value>
   </data>
   <data name="PanelMainInner.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1715,7 +1715,7 @@
     <value>1, 1, 1, 1</value>
   </data>
   <data name="PanelMainOuter.Size" type="System.Drawing.Size, System.Drawing">
-    <value>824, 528</value>
+    <value>874, 528</value>
   </data>
   <data name="PanelMainOuter.TabIndex" type="System.Int32, mscorlib">
     <value>18</value>
@@ -1739,7 +1739,7 @@
     <value>10, 34</value>
   </data>
   <data name="PanelSepTop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>824, 10</value>
+    <value>874, 10</value>
   </data>
   <data name="PanelSepTop.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -1778,7 +1778,7 @@
     <value>1, 1, 1, 1</value>
   </data>
   <data name="PanelTitle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>824, 24</value>
+    <value>874, 24</value>
   </data>
   <data name="PanelTitle.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -1805,7 +1805,7 @@
     <value>10, 10, 10, 10</value>
   </data>
   <data name="PanelMain.Size" type="System.Drawing.Size, System.Drawing">
-    <value>844, 582</value>
+    <value>894, 582</value>
   </data>
   <data name="PanelMain.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -1844,7 +1844,7 @@
     <value>3, 3</value>
   </data>
   <data name="PanelViewLetters.Size" type="System.Drawing.Size, System.Drawing">
-    <value>808, 479</value>
+    <value>808, 494</value>
   </data>
   <data name="PanelViewLetters.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1946,7 +1946,7 @@
     <value>10, 10, 10, 10</value>
   </data>
   <data name="PanelLettersInner.Size" type="System.Drawing.Size, System.Drawing">
-    <value>808, 479</value>
+    <value>808, 494</value>
   </data>
   <data name="PanelLettersInner.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -2102,7 +2102,7 @@
     <value>10, 10</value>
   </data>
   <data name="PanelLetter.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 459</value>
+    <value>210, 474</value>
   </data>
   <data name="PanelLetter.TabIndex" type="System.Int32, mscorlib">
     <value>25</value>
@@ -2437,7 +2437,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionUndo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>625, 398</value>
+    <value>625, 413</value>
   </data>
   <data name="ActionUndo.Size" type="System.Drawing.Size, System.Drawing">
     <value>42, 42</value>
@@ -2501,7 +2501,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionSave.Location" type="System.Drawing.Point, System.Drawing">
-    <value>625, 350</value>
+    <value>625, 365</value>
   </data>
   <data name="ActionSave.Size" type="System.Drawing.Size, System.Drawing">
     <value>42, 42</value>
@@ -2641,7 +2641,7 @@
     <value>256, 33</value>
   </data>
   <data name="EditMeanings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>350, 407</value>
+    <value>350, 422</value>
   </data>
   <data name="EditMeanings.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -2689,7 +2689,7 @@
     <value>10, 10, 10, 10</value>
   </data>
   <data name="PanelViewNotebook.Size" type="System.Drawing.Size, System.Drawing">
-    <value>808, 479</value>
+    <value>808, 494</value>
   </data>
   <data name="PanelViewNotebook.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -2725,7 +2725,7 @@
     <value>63, 35</value>
   </data>
   <data name="ListNotebookWords.Size" type="System.Drawing.Size, System.Drawing">
-    <value>169, 424</value>
+    <value>169, 439</value>
   </data>
   <data name="ListNotebookWords.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -2749,7 +2749,7 @@
     <value>53, 35</value>
   </data>
   <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>10, 424</value>
+    <value>10, 439</value>
   </data>
   <data name="panel1.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -2776,7 +2776,7 @@
     <value>0, 35</value>
   </data>
   <data name="ListNotebookLetters.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 424</value>
+    <value>53, 439</value>
   </data>
   <data name="ListNotebookLetters.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -2878,7 +2878,7 @@
     <value>0, 35</value>
   </data>
   <data name="ListNotebookSentences.Size" type="System.Drawing.Size, System.Drawing">
-    <value>546, 424</value>
+    <value>546, 439</value>
   </data>
   <data name="ListNotebookSentences.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -2971,7 +2971,7 @@
     <value>250</value>
   </data>
   <data name="SplitContainerNotebook.Size" type="System.Drawing.Size, System.Drawing">
-    <value>788, 459</value>
+    <value>788, 474</value>
   </data>
   <data name="SplitContainerNotebook.SplitterWidth" type="System.Int32, mscorlib">
     <value>10</value>
@@ -3284,7 +3284,7 @@
     <value>1, 1</value>
   </data>
   <data name="PanelTitleInner.Size" type="System.Drawing.Size, System.Drawing">
-    <value>822, 22</value>
+    <value>872, 22</value>
   </data>
   <data name="PanelTitleInner.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -3314,7 +3314,7 @@
     <value>308, 0</value>
   </data>
   <data name="LabelCurrentView.Size" type="System.Drawing.Size, System.Drawing">
-    <value>514, 22</value>
+    <value>564, 22</value>
   </data>
   <data name="LabelCurrentView.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -3392,7 +3392,7 @@
     <value>5, 5, 5, 0</value>
   </data>
   <data name="ToolStrip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>844, 54</value>
+    <value>894, 54</value>
   </data>
   <data name="ToolStrip.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -4371,13 +4371,13 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>844, 636</value>
+    <value>894, 636</value>
   </data>
   <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>860, 675</value>
+    <value>910, 675</value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>860, 675</value>
+    <value>910, 675</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>Manual</value>

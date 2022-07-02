@@ -39,10 +39,10 @@
       this.ActionLetterViewDetails = new System.Windows.Forms.ToolStripMenuItem();
       this.PanelSeparator = new System.Windows.Forms.Panel();
       this.EditCopyWithFinalLetter = new System.Windows.Forms.CheckBox();
-      this.ActionDelFirst = new System.Windows.Forms.Button();
       this.ActionDelLast = new System.Windows.Forms.Button();
       this.ActionReset = new System.Windows.Forms.Button();
-      this.PanelButtons = new System.Windows.Forms.Panel();
+      this.ActionDelFirst = new System.Windows.Forms.Button();
+      this.PanelBottom = new System.Windows.Forms.Panel();
       this.EditGematriaFull = new Ordisoftware.Core.TextBoxEx();
       this.EditGematriaSimple = new Ordisoftware.Core.TextBoxEx();
       this.LabelGematriaSimple = new System.Windows.Forms.Label();
@@ -51,19 +51,19 @@
       this.ActionPaste = new System.Windows.Forms.Button();
       this.ActionCopyToHebrew = new System.Windows.Forms.Button();
       this.ActionCopyToUnicode = new System.Windows.Forms.Button();
-      this.Shape = new System.Windows.Forms.Panel();
+      this.ActionClear = new System.Windows.Forms.Button();
       this.ActionSearchOnline = new System.Windows.Forms.Button();
       this.ContextMenuSearchOnline = new System.Windows.Forms.ContextMenuStrip(this.components);
       this.ToolTipClipboard = new System.Windows.Forms.ToolTip(this.components);
       this.TextBox = new Ordisoftware.Core.TextBoxEx();
-      this.panel1 = new System.Windows.Forms.Panel();
-      this.ActionClear = new System.Windows.Forms.Button();
       this.panel2 = new System.Windows.Forms.Panel();
-      this.panel3 = new System.Windows.Forms.Panel();
+      this.PanelButtons = new System.Windows.Forms.Panel();
+      this.panel1 = new System.Windows.Forms.Panel();
       this.ContextMenuLetter.SuspendLayout();
       this.PanelSeparator.SuspendLayout();
-      this.PanelButtons.SuspendLayout();
+      this.PanelBottom.SuspendLayout();
       this.panel2.SuspendLayout();
+      this.PanelButtons.SuspendLayout();
       this.SuspendLayout();
       // 
       // PanelLetters
@@ -120,7 +120,6 @@
       this.PanelSeparator.Controls.Add(this.ActionDelLast);
       this.PanelSeparator.Controls.Add(this.ActionReset);
       this.PanelSeparator.Controls.Add(this.ActionDelFirst);
-      this.PanelSeparator.Controls.Add(this.panel1);
       resources.ApplyResources(this.PanelSeparator, "PanelSeparator");
       this.PanelSeparator.Name = "PanelSeparator";
       // 
@@ -130,14 +129,6 @@
       this.EditCopyWithFinalLetter.Checked = true;
       this.EditCopyWithFinalLetter.CheckState = System.Windows.Forms.CheckState.Checked;
       this.EditCopyWithFinalLetter.Name = "EditCopyWithFinalLetter";
-      // 
-      // ActionDelFirst
-      // 
-      resources.ApplyResources(this.ActionDelFirst, "ActionDelFirst");
-      this.ActionDelFirst.FlatAppearance.BorderSize = 0;
-      this.ActionDelFirst.Name = "ActionDelFirst";
-      this.ActionDelFirst.UseVisualStyleBackColor = true;
-      this.ActionDelFirst.Click += new System.EventHandler(this.ActionDelFirst_Click);
       // 
       // ActionDelLast
       // 
@@ -155,20 +146,26 @@
       this.ActionReset.UseVisualStyleBackColor = true;
       this.ActionReset.Click += new System.EventHandler(this.ActionReset_Click);
       // 
-      // PanelButtons
+      // ActionDelFirst
       // 
-      this.PanelButtons.Controls.Add(this.EditGematriaFull);
-      this.PanelButtons.Controls.Add(this.EditGematriaSimple);
-      this.PanelButtons.Controls.Add(this.LabelGematriaSimple);
-      this.PanelButtons.Controls.Add(this.LabelGematriaFull);
-      this.PanelButtons.Controls.Add(this.LabelClipboardContentType);
-      this.PanelButtons.Controls.Add(this.ActionPaste);
-      this.PanelButtons.Controls.Add(this.ActionCopyToHebrew);
-      this.PanelButtons.Controls.Add(this.ActionCopyToUnicode);
-      this.PanelButtons.Controls.Add(this.Shape);
-      this.PanelButtons.Controls.Add(this.ActionClear);
-      resources.ApplyResources(this.PanelButtons, "PanelButtons");
-      this.PanelButtons.Name = "PanelButtons";
+      resources.ApplyResources(this.ActionDelFirst, "ActionDelFirst");
+      this.ActionDelFirst.FlatAppearance.BorderSize = 0;
+      this.ActionDelFirst.Name = "ActionDelFirst";
+      this.ActionDelFirst.UseVisualStyleBackColor = true;
+      this.ActionDelFirst.Click += new System.EventHandler(this.ActionDelFirst_Click);
+      // 
+      // PanelBottom
+      // 
+      this.PanelBottom.Controls.Add(this.EditGematriaFull);
+      this.PanelBottom.Controls.Add(this.EditGematriaSimple);
+      this.PanelBottom.Controls.Add(this.LabelGematriaSimple);
+      this.PanelBottom.Controls.Add(this.LabelGematriaFull);
+      this.PanelBottom.Controls.Add(this.LabelClipboardContentType);
+      this.PanelBottom.Controls.Add(this.ActionPaste);
+      this.PanelBottom.Controls.Add(this.ActionCopyToHebrew);
+      this.PanelBottom.Controls.Add(this.ActionCopyToUnicode);
+      resources.ApplyResources(this.PanelBottom, "PanelBottom");
+      this.PanelBottom.Name = "PanelBottom";
       // 
       // EditGematriaFull
       // 
@@ -233,10 +230,14 @@
       this.ActionCopyToUnicode.UseVisualStyleBackColor = true;
       this.ActionCopyToUnicode.Click += new System.EventHandler(this.ActionCopyToUnicode_Click);
       // 
-      // Shape
+      // ActionClear
       // 
-      resources.ApplyResources(this.Shape, "Shape");
-      this.Shape.Name = "Shape";
+      this.ActionClear.Cursor = System.Windows.Forms.Cursors.Default;
+      resources.ApplyResources(this.ActionClear, "ActionClear");
+      this.ActionClear.FlatAppearance.BorderSize = 0;
+      this.ActionClear.Name = "ActionClear";
+      this.ActionClear.UseVisualStyleBackColor = true;
+      this.ActionClear.Click += new System.EventHandler(this.ActionClear_Click);
       // 
       // ActionSearchOnline
       // 
@@ -262,32 +263,24 @@
       this.TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Input_KeyPress);
       this.TextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Input_KeyUp);
       // 
+      // panel2
+      // 
+      this.panel2.Controls.Add(this.TextBox);
+      resources.ApplyResources(this.panel2, "panel2");
+      this.panel2.Name = "panel2";
+      // 
+      // PanelButtons
+      // 
+      this.PanelButtons.Controls.Add(this.ActionSearchOnline);
+      this.PanelButtons.Controls.Add(this.panel1);
+      this.PanelButtons.Controls.Add(this.ActionClear);
+      resources.ApplyResources(this.PanelButtons, "PanelButtons");
+      this.PanelButtons.Name = "PanelButtons";
+      // 
       // panel1
       // 
       resources.ApplyResources(this.panel1, "panel1");
       this.panel1.Name = "panel1";
-      // 
-      // ActionClear
-      // 
-      this.ActionClear.Cursor = System.Windows.Forms.Cursors.Default;
-      resources.ApplyResources(this.ActionClear, "ActionClear");
-      this.ActionClear.FlatAppearance.BorderSize = 0;
-      this.ActionClear.Name = "ActionClear";
-      this.ActionClear.UseVisualStyleBackColor = true;
-      this.ActionClear.Click += new System.EventHandler(this.ActionClear_Click);
-      // 
-      // panel2
-      // 
-      this.panel2.Controls.Add(this.TextBox);
-      this.panel2.Controls.Add(this.panel3);
-      this.panel2.Controls.Add(this.ActionSearchOnline);
-      resources.ApplyResources(this.panel2, "panel2");
-      this.panel2.Name = "panel2";
-      // 
-      // panel3
-      // 
-      resources.ApplyResources(this.panel3, "panel3");
-      this.panel3.Name = "panel3";
       // 
       // LettersControl
       // 
@@ -297,6 +290,7 @@
       this.Controls.Add(this.PanelLetters);
       this.Controls.Add(this.PanelSeparator);
       this.Controls.Add(this.panel2);
+      this.Controls.Add(this.PanelBottom);
       this.Controls.Add(this.PanelButtons);
       this.Name = "LettersControl";
       this.Load += new System.EventHandler(this.LettersControl_Load);
@@ -305,10 +299,11 @@
       this.ContextMenuLetter.ResumeLayout(false);
       this.PanelSeparator.ResumeLayout(false);
       this.PanelSeparator.PerformLayout();
-      this.PanelButtons.ResumeLayout(false);
-      this.PanelButtons.PerformLayout();
+      this.PanelBottom.ResumeLayout(false);
+      this.PanelBottom.PerformLayout();
       this.panel2.ResumeLayout(false);
       this.panel2.PerformLayout();
+      this.PanelButtons.ResumeLayout(false);
       this.ResumeLayout(false);
 
     }
@@ -327,12 +322,11 @@
     public Button ActionDelFirst;
     public Button ActionDelLast;
     public Button ActionReset;
-    private Panel PanelButtons;
+    private Panel PanelBottom;
     internal Label LabelClipboardContentType;
     private Button ActionPaste;
     private Button ActionCopyToHebrew;
     internal Button ActionCopyToUnicode;
-    private Panel Shape;
     private ToolTip ToolTipClipboard;
     private Button ActionSearchOnline;
     internal ContextMenuStrip ContextMenuSearchOnline;
@@ -340,9 +334,9 @@
     internal TextBoxEx EditGematriaSimple;
     internal Label LabelGematriaSimple;
     internal Label LabelGematriaFull;
-    private Panel panel1;
     private Panel panel2;
-    private Panel panel3;
     public Button ActionClear;
+    private Panel PanelButtons;
+    private Panel panel1;
   }
 }
