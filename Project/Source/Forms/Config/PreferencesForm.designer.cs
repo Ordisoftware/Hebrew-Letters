@@ -565,6 +565,7 @@
       this.EditCustomWebSearch.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
       resources.ApplyResources(this.EditCustomWebSearch, "EditCustomWebSearch");
       this.EditCustomWebSearch.Name = "EditCustomWebSearch";
+      this.EditCustomWebSearch.SpellCheckAllowed = false;
       // 
       // ActionResetHebrewWordsPath
       // 
@@ -594,6 +595,7 @@
       resources.ApplyResources(this.EditHebrewWordsPath, "EditHebrewWordsPath");
       this.EditHebrewWordsPath.Name = "EditHebrewWordsPath";
       this.EditHebrewWordsPath.ReadOnly = true;
+      this.EditHebrewWordsPath.SpellCheckAllowed = false;
       // 
       // label2
       // 
@@ -746,6 +748,7 @@
       resources.ApplyResources(this.EditExportFolder, "EditExportFolder");
       this.EditExportFolder.Name = "EditExportFolder";
       this.EditExportFolder.ReadOnly = true;
+      this.EditExportFolder.SpellCheckAllowed = false;
       // 
       // OpenExeFileDialog
       // 

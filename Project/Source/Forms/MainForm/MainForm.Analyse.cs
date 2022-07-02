@@ -37,8 +37,8 @@ partial class MainForm
     {
       SelectAnalyze.Controls.Clear();
       EditSentence.Text = "";
-      EditGematriaSimple.Text = "";
-      EditGematriaFull.Text = "";
+      EditWord.EditGematriaSimple.Text = "";
+      EditWord.EditGematriaFull.Text = "";
       const int marginTop = 20;
       const int marginLeft = 5;
       const int marginCombo = 15;
@@ -119,8 +119,8 @@ partial class MainForm
         Text = ""
       };
       SelectAnalyze.Controls.Add(dummy);
-      EditGematriaSimple.Text = sumSimple.ToString();
-      EditGematriaFull.Text = sumFull.ToString();
+      EditWord.EditGematriaSimple.Text = sumSimple.ToString();
+      EditWord.EditGematriaFull.Text = sumFull.ToString();
     }
     catch ( Exception ex )
     {

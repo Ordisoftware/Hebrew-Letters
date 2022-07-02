@@ -39,10 +39,10 @@
       System.Windows.Forms.Label LabelVerb;
       System.Windows.Forms.Label LabelPositive;
       System.Windows.Forms.Label LabelNegative;
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
       this.PanelMain = new System.Windows.Forms.Panel();
       this.PanelMainOuter = new System.Windows.Forms.Panel();
       this.PanelMainInner = new System.Windows.Forms.Panel();
@@ -50,35 +50,24 @@
       this.TabControl = new System.Windows.Forms.TabControl();
       this.TabPageText = new System.Windows.Forms.TabPage();
       this.PanelViewAnalysis = new System.Windows.Forms.Panel();
-      this.EditGematriaFull = new Ordisoftware.Core.TextBoxEx();
       this.ActionOpenConcordanceRoot = new System.Windows.Forms.Button();
-      this.EditGematriaSimple = new Ordisoftware.Core.TextBoxEx();
-      this.LabelGematriaSimple = new System.Windows.Forms.Label();
-      this.LabelGematriaFull = new System.Windows.Forms.Label();
       this.LabelCondordanceRoot = new System.Windows.Forms.Label();
       this.EditTitle = new Ordisoftware.Core.TextBoxEx();
-      this.EditConcordance2 = new System.Windows.Forms.NumericUpDown();
+      this.EditConcordanceRoot = new System.Windows.Forms.NumericUpDown();
       this.ActionCopyToMeanings = new System.Windows.Forms.Button();
       this.ActionOpenConcordance = new System.Windows.Forms.Button();
-      this.LabelClipboardContentType = new System.Windows.Forms.Label();
       this.LabelCondordance = new System.Windows.Forms.Label();
-      this.EditConcordance1 = new System.Windows.Forms.NumericUpDown();
+      this.EditConcordance = new System.Windows.Forms.NumericUpDown();
       this.EditCopyToClipboardCloseApp = new System.Windows.Forms.CheckBox();
       this.LabelTranscription = new System.Windows.Forms.Label();
-      this.label2 = new System.Windows.Forms.Label();
+      this.LabelSentence = new System.Windows.Forms.Label();
       this.LabelDictionary = new System.Windows.Forms.Label();
-      this.label1 = new System.Windows.Forms.Label();
+      this.LabelConcept = new System.Windows.Forms.Label();
       this.LabelMemo = new System.Windows.Forms.Label();
       this.SelectAnalyze = new System.Windows.Forms.Panel();
       this.EditDictionary = new Ordisoftware.Core.TextBoxEx();
-      this.ActionSearchOnline = new System.Windows.Forms.Button();
-      this.ContextMenuSearchOnline = new System.Windows.Forms.ContextMenuStrip(this.components);
       this.EditMemo = new Ordisoftware.Core.TextBoxEx();
-      this.ActionPaste = new System.Windows.Forms.Button();
       this.EditTranscription = new Ordisoftware.Core.TextBoxEx();
-      this.ActionCopyToHebrew = new System.Windows.Forms.Button();
-      this.ActionCopyToUnicode = new System.Windows.Forms.Button();
-      this.ActionClear = new System.Windows.Forms.Button();
       this.ActionSaveScreenshot = new System.Windows.Forms.Button();
       this.ActionScreenshot = new System.Windows.Forms.Button();
       this.ActionViewAllMeaningsList = new System.Windows.Forms.Button();
@@ -181,9 +170,10 @@
       this.ActionInformation = new System.Windows.Forms.ToolStripDropDownButton();
       this.TimerProcesses = new System.Windows.Forms.Timer(this.components);
       this.SaveImageDialog = new System.Windows.Forms.SaveFileDialog();
-      this.ToolTipClipboard = new System.Windows.Forms.ToolTip(this.components);
       this.ContextMenuOpenTermLettriq = new System.Windows.Forms.ContextMenuStrip(this.components);
       this.ContextMenuOpenConcordance = new System.Windows.Forms.ContextMenuStrip(this.components);
+      this.panel4 = new System.Windows.Forms.Panel();
+      this.panel5 = new System.Windows.Forms.Panel();
       LabelName = new System.Windows.Forms.Label();
       LabelStructure = new System.Windows.Forms.Label();
       LabelFunction = new System.Windows.Forms.Label();
@@ -200,8 +190,8 @@
       this.TabControl.SuspendLayout();
       this.TabPageText.SuspendLayout();
       this.PanelViewAnalysis.SuspendLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.EditConcordance2)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.EditConcordance1)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.EditConcordanceRoot)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.EditConcordance)).BeginInit();
       this.TabPageLetters.SuspendLayout();
       this.PanelViewLetters.SuspendLayout();
       this.PanelLettersInner.SuspendLayout();
@@ -225,6 +215,7 @@
       this.PanelTitle.SuspendLayout();
       this.PanelTitleInner.SuspendLayout();
       this.ToolStrip.SuspendLayout();
+      this.panel4.SuspendLayout();
       this.SuspendLayout();
       // 
       // LabelName
@@ -322,54 +313,15 @@
       // 
       resources.ApplyResources(this.PanelViewAnalysis, "PanelViewAnalysis");
       this.PanelViewAnalysis.BackColor = System.Drawing.SystemColors.Control;
-      this.PanelViewAnalysis.Controls.Add(this.EditGematriaFull);
-      this.PanelViewAnalysis.Controls.Add(this.ActionOpenConcordanceRoot);
-      this.PanelViewAnalysis.Controls.Add(this.EditGematriaSimple);
-      this.PanelViewAnalysis.Controls.Add(this.LabelGematriaSimple);
-      this.PanelViewAnalysis.Controls.Add(this.LabelGematriaFull);
-      this.PanelViewAnalysis.Controls.Add(this.LabelCondordanceRoot);
-      this.PanelViewAnalysis.Controls.Add(this.EditTitle);
-      this.PanelViewAnalysis.Controls.Add(this.EditConcordance2);
+      this.PanelViewAnalysis.Controls.Add(this.panel5);
+      this.PanelViewAnalysis.Controls.Add(this.panel4);
       this.PanelViewAnalysis.Controls.Add(this.ActionCopyToMeanings);
-      this.PanelViewAnalysis.Controls.Add(this.ActionOpenConcordance);
-      this.PanelViewAnalysis.Controls.Add(this.LabelClipboardContentType);
-      this.PanelViewAnalysis.Controls.Add(this.LabelCondordance);
-      this.PanelViewAnalysis.Controls.Add(this.EditConcordance1);
-      this.PanelViewAnalysis.Controls.Add(this.EditCopyToClipboardCloseApp);
-      this.PanelViewAnalysis.Controls.Add(this.LabelTranscription);
-      this.PanelViewAnalysis.Controls.Add(this.label2);
-      this.PanelViewAnalysis.Controls.Add(this.LabelDictionary);
-      this.PanelViewAnalysis.Controls.Add(this.label1);
-      this.PanelViewAnalysis.Controls.Add(this.LabelMemo);
       this.PanelViewAnalysis.Controls.Add(this.SelectAnalyze);
-      this.PanelViewAnalysis.Controls.Add(this.EditDictionary);
-      this.PanelViewAnalysis.Controls.Add(this.ActionSearchOnline);
-      this.PanelViewAnalysis.Controls.Add(this.EditMemo);
-      this.PanelViewAnalysis.Controls.Add(this.ActionPaste);
-      this.PanelViewAnalysis.Controls.Add(this.EditTranscription);
-      this.PanelViewAnalysis.Controls.Add(this.ActionCopyToHebrew);
-      this.PanelViewAnalysis.Controls.Add(this.ActionCopyToUnicode);
-      this.PanelViewAnalysis.Controls.Add(this.ActionClear);
       this.PanelViewAnalysis.Controls.Add(this.ActionSaveScreenshot);
       this.PanelViewAnalysis.Controls.Add(this.ActionScreenshot);
       this.PanelViewAnalysis.Controls.Add(this.ActionViewAllMeaningsList);
-      this.PanelViewAnalysis.Controls.Add(this.ActionSaveTermLettriq);
-      this.PanelViewAnalysis.Controls.Add(this.ActionCopyToResult);
-      this.PanelViewAnalysis.Controls.Add(this.EditSentence);
-      this.PanelViewAnalysis.Controls.Add(this.ActionOpenTermLettriq);
       this.PanelViewAnalysis.Controls.Add(this.EditWord);
       this.PanelViewAnalysis.Name = "PanelViewAnalysis";
-      // 
-      // EditGematriaFull
-      // 
-      this.EditGematriaFull.BackColor = System.Drawing.Color.LavenderBlush;
-      this.EditGematriaFull.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.EditGematriaFull.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
-      resources.ApplyResources(this.EditGematriaFull, "EditGematriaFull");
-      this.EditGematriaFull.Name = "EditGematriaFull";
-      this.EditGematriaFull.ReadOnly = true;
-      this.EditGematriaFull.SpellCheckAllowed = false;
-      this.EditGematriaFull.TextChanged += new System.EventHandler(this.EditGematria_TextChanged);
       // 
       // ActionOpenConcordanceRoot
       // 
@@ -378,27 +330,6 @@
       this.ActionOpenConcordanceRoot.Name = "ActionOpenConcordanceRoot";
       this.ActionOpenConcordanceRoot.UseVisualStyleBackColor = true;
       this.ActionOpenConcordanceRoot.Click += new System.EventHandler(this.ActionOpenConcordance2_Click);
-      // 
-      // EditGematriaSimple
-      // 
-      this.EditGematriaSimple.BackColor = System.Drawing.Color.LavenderBlush;
-      this.EditGematriaSimple.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.EditGematriaSimple.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
-      resources.ApplyResources(this.EditGematriaSimple, "EditGematriaSimple");
-      this.EditGematriaSimple.Name = "EditGematriaSimple";
-      this.EditGematriaSimple.ReadOnly = true;
-      this.EditGematriaSimple.SpellCheckAllowed = false;
-      this.EditGematriaSimple.TextChanged += new System.EventHandler(this.EditGematria_TextChanged);
-      // 
-      // LabelGematriaSimple
-      // 
-      resources.ApplyResources(this.LabelGematriaSimple, "LabelGematriaSimple");
-      this.LabelGematriaSimple.Name = "LabelGematriaSimple";
-      // 
-      // LabelGematriaFull
-      // 
-      resources.ApplyResources(this.LabelGematriaFull, "LabelGematriaFull");
-      this.LabelGematriaFull.Name = "LabelGematriaFull";
       // 
       // LabelCondordanceRoot
       // 
@@ -414,11 +345,11 @@
       this.EditTitle.Name = "EditTitle";
       this.EditTitle.SpellCheckAllowed = false;
       // 
-      // EditConcordance2
+      // EditConcordanceRoot
       // 
-      this.EditConcordance2.BackColor = System.Drawing.Color.MintCream;
-      resources.ApplyResources(this.EditConcordance2, "EditConcordance2");
-      this.EditConcordance2.Name = "EditConcordance2";
+      this.EditConcordanceRoot.BackColor = System.Drawing.Color.MintCream;
+      resources.ApplyResources(this.EditConcordanceRoot, "EditConcordanceRoot");
+      this.EditConcordanceRoot.Name = "EditConcordanceRoot";
       // 
       // ActionCopyToMeanings
       // 
@@ -436,24 +367,16 @@
       this.ActionOpenConcordance.UseVisualStyleBackColor = true;
       this.ActionOpenConcordance.Click += new System.EventHandler(this.ActionOpenConcordance1_Click);
       // 
-      // LabelClipboardContentType
-      // 
-      resources.ApplyResources(this.LabelClipboardContentType, "LabelClipboardContentType");
-      this.LabelClipboardContentType.ForeColor = System.Drawing.SystemColors.GrayText;
-      this.LabelClipboardContentType.Name = "LabelClipboardContentType";
-      this.ToolTipClipboard.SetToolTip(this.LabelClipboardContentType, resources.GetString("LabelClipboardContentType.ToolTip"));
-      this.LabelClipboardContentType.MouseHover += new System.EventHandler(this.LabelClipboardContentType_MouseHover);
-      // 
       // LabelCondordance
       // 
       resources.ApplyResources(this.LabelCondordance, "LabelCondordance");
       this.LabelCondordance.Name = "LabelCondordance";
       // 
-      // EditConcordance1
+      // EditConcordance
       // 
-      this.EditConcordance1.BackColor = System.Drawing.Color.MintCream;
-      resources.ApplyResources(this.EditConcordance1, "EditConcordance1");
-      this.EditConcordance1.Name = "EditConcordance1";
+      this.EditConcordance.BackColor = System.Drawing.Color.MintCream;
+      resources.ApplyResources(this.EditConcordance, "EditConcordance");
+      this.EditConcordance.Name = "EditConcordance";
       // 
       // EditCopyToClipboardCloseApp
       // 
@@ -466,20 +389,20 @@
       resources.ApplyResources(this.LabelTranscription, "LabelTranscription");
       this.LabelTranscription.Name = "LabelTranscription";
       // 
-      // label2
+      // LabelSentence
       // 
-      resources.ApplyResources(this.label2, "label2");
-      this.label2.Name = "label2";
+      resources.ApplyResources(this.LabelSentence, "LabelSentence");
+      this.LabelSentence.Name = "LabelSentence";
       // 
       // LabelDictionary
       // 
       resources.ApplyResources(this.LabelDictionary, "LabelDictionary");
       this.LabelDictionary.Name = "LabelDictionary";
       // 
-      // label1
+      // LabelConcept
       // 
-      resources.ApplyResources(this.label1, "label1");
-      this.label1.Name = "label1";
+      resources.ApplyResources(this.LabelConcept, "LabelConcept");
+      this.LabelConcept.Name = "LabelConcept";
       // 
       // LabelMemo
       // 
@@ -504,21 +427,6 @@
       this.EditDictionary.FontChanged += new System.EventHandler(this.EditSentence_FontChanged);
       this.EditDictionary.TextChanged += new System.EventHandler(this.EditSentence_TextChanged);
       // 
-      // ActionSearchOnline
-      // 
-      this.ActionSearchOnline.ContextMenuStrip = this.ContextMenuSearchOnline;
-      this.ActionSearchOnline.Cursor = System.Windows.Forms.Cursors.Default;
-      resources.ApplyResources(this.ActionSearchOnline, "ActionSearchOnline");
-      this.ActionSearchOnline.FlatAppearance.BorderSize = 0;
-      this.ActionSearchOnline.Name = "ActionSearchOnline";
-      this.ActionSearchOnline.UseVisualStyleBackColor = true;
-      this.ActionSearchOnline.Click += new System.EventHandler(this.ActionSearchOnline_Click);
-      // 
-      // ContextMenuSearchOnline
-      // 
-      this.ContextMenuSearchOnline.Name = "ContextMenuSearchOnline";
-      resources.ApplyResources(this.ContextMenuSearchOnline, "ContextMenuSearchOnline");
-      // 
       // EditMemo
       // 
       resources.ApplyResources(this.EditMemo, "EditMemo");
@@ -530,14 +438,6 @@
       this.EditMemo.FontChanged += new System.EventHandler(this.EditSentence_FontChanged);
       this.EditMemo.TextChanged += new System.EventHandler(this.EditSentence_TextChanged);
       // 
-      // ActionPaste
-      // 
-      this.ActionPaste.FlatAppearance.BorderSize = 0;
-      resources.ApplyResources(this.ActionPaste, "ActionPaste");
-      this.ActionPaste.Name = "ActionPaste";
-      this.ActionPaste.UseVisualStyleBackColor = true;
-      this.ActionPaste.Click += new System.EventHandler(this.ActionPaste_Click);
-      // 
       // EditTranscription
       // 
       this.EditTranscription.BackColor = System.Drawing.Color.AliceBlue;
@@ -548,30 +448,6 @@
       this.EditTranscription.SpellCheckAllowed = false;
       this.EditTranscription.FontChanged += new System.EventHandler(this.EditSentence_FontChanged);
       this.EditTranscription.TextChanged += new System.EventHandler(this.EditSentence_TextChanged);
-      // 
-      // ActionCopyToHebrew
-      // 
-      resources.ApplyResources(this.ActionCopyToHebrew, "ActionCopyToHebrew");
-      this.ActionCopyToHebrew.FlatAppearance.BorderSize = 0;
-      this.ActionCopyToHebrew.Name = "ActionCopyToHebrew";
-      this.ActionCopyToHebrew.UseVisualStyleBackColor = true;
-      this.ActionCopyToHebrew.Click += new System.EventHandler(this.ActionCopyToHebrew_Click);
-      // 
-      // ActionCopyToUnicode
-      // 
-      resources.ApplyResources(this.ActionCopyToUnicode, "ActionCopyToUnicode");
-      this.ActionCopyToUnicode.FlatAppearance.BorderSize = 0;
-      this.ActionCopyToUnicode.Name = "ActionCopyToUnicode";
-      this.ActionCopyToUnicode.UseVisualStyleBackColor = true;
-      this.ActionCopyToUnicode.Click += new System.EventHandler(this.ActionCopyToUnicode_Click);
-      // 
-      // ActionClear
-      // 
-      resources.ApplyResources(this.ActionClear, "ActionClear");
-      this.ActionClear.FlatAppearance.BorderSize = 0;
-      this.ActionClear.Name = "ActionClear";
-      this.ActionClear.UseVisualStyleBackColor = true;
-      this.ActionClear.Click += new System.EventHandler(this.ActionClear_Click);
       // 
       // ActionSaveScreenshot
       // 
@@ -960,9 +836,9 @@
       this.ListNotebookWords.Name = "ListNotebookWords";
       this.ListNotebookWords.ReadOnly = true;
       this.ListNotebookWords.RowHeadersVisible = false;
-      dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-      dataGridViewCellStyle2.Font = new System.Drawing.Font("Hebrew", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.ListNotebookWords.RowsDefaultCellStyle = dataGridViewCellStyle2;
+      dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+      dataGridViewCellStyle46.Font = new System.Drawing.Font("Hebrew", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.ListNotebookWords.RowsDefaultCellStyle = dataGridViewCellStyle46;
       this.ListNotebookWords.RowTemplate.Height = 28;
       this.ListNotebookWords.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
       this.ListNotebookWords.ShowCellToolTips = false;
@@ -972,9 +848,9 @@
       // 
       this.hebrewDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
       this.hebrewDataGridViewTextBoxColumn.DataPropertyName = "Hebrew";
-      dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-      dataGridViewCellStyle1.Font = new System.Drawing.Font("Hebrew", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.hebrewDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+      dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+      dataGridViewCellStyle45.Font = new System.Drawing.Font("Hebrew", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.hebrewDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle45;
       resources.ApplyResources(this.hebrewDataGridViewTextBoxColumn, "hebrewDataGridViewTextBoxColumn");
       this.hebrewDataGridViewTextBoxColumn.Name = "hebrewDataGridViewTextBoxColumn";
       this.hebrewDataGridViewTextBoxColumn.ReadOnly = true;
@@ -1006,9 +882,9 @@
       this.ListNotebookLetters.Name = "ListNotebookLetters";
       this.ListNotebookLetters.ReadOnly = true;
       this.ListNotebookLetters.RowHeadersVisible = false;
-      dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-      dataGridViewCellStyle4.Font = new System.Drawing.Font("Hebrew", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.ListNotebookLetters.RowsDefaultCellStyle = dataGridViewCellStyle4;
+      dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+      dataGridViewCellStyle48.Font = new System.Drawing.Font("Hebrew", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.ListNotebookLetters.RowsDefaultCellStyle = dataGridViewCellStyle48;
       this.ListNotebookLetters.RowTemplate.Height = 28;
       this.ListNotebookLetters.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
       this.ListNotebookLetters.ShowCellToolTips = false;
@@ -1018,9 +894,9 @@
       // 
       this.codeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
       this.codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
-      dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-      dataGridViewCellStyle3.Font = new System.Drawing.Font("Hebrew", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.codeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+      dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+      dataGridViewCellStyle47.Font = new System.Drawing.Font("Hebrew", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.codeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle47;
       resources.ApplyResources(this.codeDataGridViewTextBoxColumn, "codeDataGridViewTextBoxColumn");
       this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
       this.codeDataGridViewTextBoxColumn.ReadOnly = true;
@@ -1519,6 +1395,37 @@
       this.ContextMenuOpenConcordance.Name = "ContextMenuOpenTermLettriq";
       resources.ApplyResources(this.ContextMenuOpenConcordance, "ContextMenuOpenConcordance");
       // 
+      // panel4
+      // 
+      this.panel4.Controls.Add(this.LabelCondordance);
+      this.panel4.Controls.Add(this.ActionOpenTermLettriq);
+      this.panel4.Controls.Add(this.ActionOpenConcordanceRoot);
+      this.panel4.Controls.Add(this.EditSentence);
+      this.panel4.Controls.Add(this.LabelCondordanceRoot);
+      this.panel4.Controls.Add(this.ActionCopyToResult);
+      this.panel4.Controls.Add(this.EditTitle);
+      this.panel4.Controls.Add(this.ActionSaveTermLettriq);
+      this.panel4.Controls.Add(this.EditConcordanceRoot);
+      this.panel4.Controls.Add(this.EditTranscription);
+      this.panel4.Controls.Add(this.EditMemo);
+      this.panel4.Controls.Add(this.ActionOpenConcordance);
+      this.panel4.Controls.Add(this.EditDictionary);
+      this.panel4.Controls.Add(this.LabelMemo);
+      this.panel4.Controls.Add(this.EditConcordance);
+      this.panel4.Controls.Add(this.LabelConcept);
+      this.panel4.Controls.Add(this.EditCopyToClipboardCloseApp);
+      this.panel4.Controls.Add(this.LabelDictionary);
+      this.panel4.Controls.Add(this.LabelTranscription);
+      this.panel4.Controls.Add(this.LabelSentence);
+      resources.ApplyResources(this.panel4, "panel4");
+      this.panel4.Name = "panel4";
+      // 
+      // panel5
+      // 
+      this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      resources.ApplyResources(this.panel5, "panel5");
+      this.panel5.Name = "panel5";
+      // 
       // MainForm
       // 
       resources.ApplyResources(this, "$this");
@@ -1541,9 +1448,8 @@
       this.TabControl.ResumeLayout(false);
       this.TabPageText.ResumeLayout(false);
       this.PanelViewAnalysis.ResumeLayout(false);
-      this.PanelViewAnalysis.PerformLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.EditConcordance2)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.EditConcordance1)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.EditConcordanceRoot)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.EditConcordance)).EndInit();
       this.TabPageLetters.ResumeLayout(false);
       this.PanelViewLetters.ResumeLayout(false);
       this.PanelLettersInner.ResumeLayout(false);
@@ -1571,6 +1477,8 @@
       this.PanelTitleInner.ResumeLayout(false);
       this.ToolStrip.ResumeLayout(false);
       this.ToolStrip.PerformLayout();
+      this.panel4.ResumeLayout(false);
+      this.panel4.PerformLayout();
       this.ResumeLayout(false);
 
     }
@@ -1615,14 +1523,10 @@
     internal System.Windows.Forms.CheckBox EditCopyToClipboardCloseApp;
     private System.Windows.Forms.Button ActionCopyToMeanings;
     private System.Windows.Forms.ToolStripButton ActionPreferences;
-    internal Ordisoftware.Core.TextBoxEx EditGematriaSimple;
     private System.Windows.Forms.DataGridView EditMeanings;
     private System.Windows.Forms.Label LabelHebrew;
     private System.Windows.Forms.ComboBox SelectLetter;
     private System.Windows.Forms.Panel PanelLetter;
-    internal System.Windows.Forms.Button ActionCopyToUnicode;
-    private System.Windows.Forms.Button ActionSearchOnline;
-    private System.Windows.Forms.ContextMenuStrip ContextMenuSearchOnline;
     private System.Windows.Forms.ToolStripButton ActionSearchTerm;
     private System.Windows.Forms.ToolStripDropDownButton ActionTools;
     internal Ordisoftware.Core.TextBoxEx EditSentence;
@@ -1635,10 +1539,6 @@
     internal Ordisoftware.Core.TextBoxEx TextBoxVerb;
     internal Ordisoftware.Core.TextBoxEx TextBoxNegative;
     internal Ordisoftware.Core.TextBoxEx TextBoxPositive;
-    internal System.Windows.Forms.Button ActionClear;
-    internal System.Windows.Forms.Label LabelGematriaSimple;
-    internal Ordisoftware.Core.TextBoxEx EditGematriaFull;
-    internal System.Windows.Forms.Label LabelGematriaFull;
     internal System.Windows.Forms.ToolStripMenuItem EditUseAdvancedDialogBoxes;
     internal System.Windows.Forms.ToolStripMenuItem EditSoundsEnabled;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
@@ -1646,11 +1546,9 @@
     private System.Windows.Forms.Button ActionScreenshot;
     private System.Windows.Forms.Timer TimerProcesses;
     internal System.Windows.Forms.ToolStripDropDownButton ActionInformation;
-    private System.Windows.Forms.Button ActionPaste;
     internal System.Windows.Forms.ToolStripMenuItem EditShowSuccessDialogs;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
     private System.Windows.Forms.ToolStripMenuItem ActionShowKeyboardNotice;
-    private System.Windows.Forms.Button ActionCopyToHebrew;
     private System.Windows.Forms.Button ActionSaveScreenshot;
     private System.Windows.Forms.Button ActionViewAllMeaningsList;
     private System.Windows.Forms.Button ActionUndo;
@@ -1658,8 +1556,6 @@
     private System.Windows.Forms.ToolStripButton ActionNewInstance;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
     private System.Windows.Forms.SaveFileDialog SaveImageDialog;
-    internal System.Windows.Forms.Label LabelClipboardContentType;
-    private System.Windows.Forms.ToolTip ToolTipClipboard;
     internal System.Windows.Forms.Panel PanelMainCenter;
     private Core.ComboBoxNavigator LettersNavigator;
     private System.Windows.Forms.ToolStripSeparator ActionGematriaCombinationsSeparator;
@@ -1701,7 +1597,7 @@
     internal Core.TextBoxEx EditMemo;
     internal System.Windows.Forms.Label LabelMemo;
     internal System.Windows.Forms.Label LabelCondordance;
-    private System.Windows.Forms.NumericUpDown EditConcordance1;
+    private System.Windows.Forms.NumericUpDown EditConcordance;
     internal System.Windows.Forms.Button ActionOpenConcordance;
     private System.Windows.Forms.ContextMenuStrip ContextMenuOpenConcordance;
     private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
@@ -1712,10 +1608,12 @@
     private ToolStripMenuItem ActionShowTranscriptionGuide;
     private ToolStripButton ActionCloseOtherWindows;
     internal TextBoxEx EditTitle;
-    internal Label label2;
-    internal Label label1;
+    internal Label LabelSentence;
+    internal Label LabelConcept;
     internal Button ActionOpenConcordanceRoot;
     internal Label LabelCondordanceRoot;
-    private NumericUpDown EditConcordance2;
+    private NumericUpDown EditConcordanceRoot;
+    private Panel panel4;
+    private Panel panel5;
   }
 }

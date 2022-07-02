@@ -232,7 +232,7 @@ static partial class Program
       }
       MainForm.Instance.MinimumSize = new Size(MainForm.Instance.MinimumSize.Width, MainForm.Instance.MinimumSize.Height - MainForm.Instance.TabControl.DisplayRectangle.Y - 5);
       MainForm.Instance.Height -= MainForm.Instance.MinimumSize.Height;
-      MainForm.Instance.CheckClipboardContentType();
+      MainForm.Instance.EditWord.CheckClipboardContentType();
       task?.Wait();
       MainForm.Instance.CreateSystemInformationMenu();
     }

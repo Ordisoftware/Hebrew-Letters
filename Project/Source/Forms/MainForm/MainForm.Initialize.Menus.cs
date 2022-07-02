@@ -68,7 +68,7 @@ partial class MainForm
   /// </summary>
   private void CreateProvidersLinks()
   {
-    ContextMenuSearchOnline.InitializeFromProviders(HebrewGlobals.WebProvidersWord,
+    EditWord.ContextMenuSearchOnline.InitializeFromProviders(HebrewGlobals.WebProvidersWord,
       (sender, e) =>
       {
         var menuitem = (ToolStripMenuItem)sender;
@@ -79,15 +79,15 @@ partial class MainForm
       {
         var menuitem = new ToolStripMenuItem(HebrewGlobals.AppNameHebrewWords, HebrewWordsIcon);
         menuitem.Click += (sender, e) => HebrewTools.OpenHebrewWordsSearchWord(EditWord.InputText);
-        if ( ContextMenuSearchOnline.Items.Count > 0 )
-          ContextMenuSearchOnline.Items.Add(new ToolStripSeparator());
-        ContextMenuSearchOnline.Items.Add(menuitem);
+        if ( EditWord.ContextMenuSearchOnline.Items.Count > 0 )
+          EditWord.ContextMenuSearchOnline.Items.Add(new ToolStripSeparator());
+        EditWord.ContextMenuSearchOnline.Items.Add(menuitem);
       });
     ContextMenuOpenConcordance.InitializeFromProviders(HebrewGlobals.WebProvidersConcordance, (sender, e) =>
     {
       var menuitem = (ToolStripMenuItem)sender;
       var owner = ( menuitem?.GetCurrentParent() as ContextMenuStrip ).SourceControl as Button;
-      var control = owner == ActionOpenConcordance ? EditConcordance1 : EditConcordance2;
+      var control = owner == ActionOpenConcordance ? EditConcordance : EditConcordanceRoot;
       HebrewTools.OpenWordConcordance((string)menuitem.Tag, (int)control.Value);
       EditWord.Focus();
     }, null);

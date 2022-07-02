@@ -127,7 +127,7 @@ partial class LettersControl
         }
       }
       Height = posY + deltaBetweenLines + deltaY + deltaValues + deltaKeys + deltaValue5
-             + PanelSeparator.Height + TextBox.Height;
+             + PanelSeparator.Height + TextBox.Height + PanelButtons.Height;
       PanelLetters.Controls.AddRange(controls);
     }
     catch ( Exception ex )

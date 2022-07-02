@@ -399,9 +399,6 @@
     <Compile Include="Source\Forms\Config\StatisticsForm.designer.cs">
       <DependentUpon>StatisticsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\Forms\MainForm\MainForm.Clipboard.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Source\Forms\MainForm\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

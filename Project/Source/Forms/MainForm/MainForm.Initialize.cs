@@ -41,6 +41,7 @@ partial class MainForm
     TextBoxEx.ActionCut.Click += TextBoxData_ContextMenuAction_Click;
     TextBoxEx.ActionPaste.Click += TextBoxData_ContextMenuAction_Click;
     TextBoxEx.ActionDelete.Click += TextBoxData_ContextMenuAction_Click;
+    EditWord.Cleared += EditWord_Cleared;
     NativeMethods.ClipboardViewerNext = NativeMethods.SetClipboardViewer(Handle);
     if ( !ApplicationCommandLine.Instance.IsPreviewEnabled ) // TODO remove when ready
     {
@@ -71,10 +72,10 @@ partial class MainForm
     if ( Globals.IsExiting ) return;
     Settings.Retrieve();
     EditWord.HebrewCharsInBold = Settings.LettersControlHebrewCharsInBold;
-    EditConcordance1.Minimum = HebrewAlphabet.ConcordanceFirst - 1;
-    EditConcordance1.Maximum = HebrewAlphabet.ConcordanceLast;
-    EditConcordance2.Minimum = EditConcordance1.Minimum;
-    EditConcordance2.Maximum = EditConcordance1.Maximum;
+    EditConcordance.Minimum = HebrewAlphabet.ConcordanceFirst - 1;
+    EditConcordance.Maximum = HebrewAlphabet.ConcordanceLast;
+    EditConcordanceRoot.Minimum = EditConcordance.Minimum;
+    EditConcordanceRoot.Maximum = EditConcordance.Maximum;
     StatisticsForm.Run(true, Settings.UsageStatisticsEnabled);
     Globals.ChronoStartingApp.Stop();
     var lastdone = Settings.CheckUpdateLastDone;
@@ -120,13 +121,13 @@ partial class MainForm
     if ( !Program.StartupWord.IsNullOrEmpty() )
     {
       EditWord.InititialWord = Program.StartupWord;
-      EditWord.ActionReset.Visible = true;
+      EditWord.ActionReset.Enabled = true;
       EditWord.TextBox.Text = Program.StartupWord;
       EditWord.Focus(LettersControlFocusSelect.None);
       EditWord.TextBox.Refresh();
     }
     else
-      EditWord.ActionReset.Visible = false;
+      EditWord.ActionReset.Enabled = false;
     ToolStrip.SetDropDownOpening();
     EditSentence.Font = new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence);
     EditWord.TextBox.MaxLength = (int)Settings.HebrewTextBoxMaxLength;
@@ -203,7 +204,7 @@ partial class MainForm
         SessionEnding(this, null);
         break;
       case NativeMethods.WM_DRAWCLIPBOARD:
-        CheckClipboardContentType();
+        EditWord.CheckClipboardContentType();
         break;
       default:
         base.WndProc(ref m);
@@ -238,10 +239,10 @@ partial class MainForm
     // Analyser
     EditWord.LettersBackColor = Settings.ColorLettersPanel;
     EditWord.InputBackColor = Settings.ColorHebrewWordTextBox;
+    EditWord.EditGematriaFull.BackColor = Settings.ColorGematriaTextBox;
+    EditWord.EditGematriaSimple.BackColor = Settings.ColorGematriaTextBox;
     SelectAnalyze.BackColor = Settings.ColorMeaningsPanel;
     EditSentence.BackColor = Settings.ColorSentenceTextBox;
-    EditGematriaFull.BackColor = Settings.ColorGematriaTextBox;
-    EditGematriaSimple.BackColor = Settings.ColorGematriaTextBox;
     EditTranscription.BackColor = Settings.ColorHebrewWordTextBox;
     EditDictionary.BackColor = Settings.ColorHebrewWordTextBox;
     EditMemo.BackColor = Settings.ColorHebrewWordTextBox;
