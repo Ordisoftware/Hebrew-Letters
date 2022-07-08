@@ -47,8 +47,6 @@ partial class MainForm
     {
       ActionOpenTermLettriq.Visible = false;
       ActionSaveTermLettriq.Visible = false;
-      //PanelWordDetails.Visible = false;
-      //SelectAnalyze.Height += PanelWordDetails.Height + 5;
     }
     else
     {

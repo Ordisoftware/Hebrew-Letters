@@ -1361,7 +1361,7 @@
     <value>NoControl</value>
   </data>
   <data name="EditCopyToClipboardCloseApp.Location" type="System.Drawing.Point, System.Drawing">
-    <value>483, 163</value>
+    <value>483, 166</value>
   </data>
   <data name="EditCopyToClipboardCloseApp.Size" type="System.Drawing.Size, System.Drawing">
     <value>200, 17</value>
@@ -1510,11 +1510,11 @@
   <data name="&gt;&gt;splitContainer1.Panel2.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="splitContainer1.Panel2MinSize" type="System.Int32, mscorlib">
+    <value>400</value>
+  </data>
   <data name="splitContainer1.Size" type="System.Drawing.Size, System.Drawing">
     <value>838, 180</value>
-  </data>
-  <data name="splitContainer1.SplitterDistance" type="System.Int32, mscorlib">
-    <value>100</value>
   </data>
   <data name="splitContainer1.TabIndex" type="System.Int32, mscorlib">
     <value>31</value>

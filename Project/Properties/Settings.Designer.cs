@@ -709,7 +709,7 @@ namespace Ordisoftware.Hebrew.Letters.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("232")]
+        [global::System.Configuration.DefaultSettingValueAttribute("121")]
         public int MainFormSplitContainerNotebookDistance {
             get {
                 return ((int)(this["MainFormSplitContainerNotebookDistance"]));
@@ -813,6 +813,18 @@ namespace Ordisoftware.Hebrew.Letters.Properties {
             }
             set {
                 this["PreviewModeNotified"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public int MainFormSplitterDistanceDetails {
+            get {
+                return ((int)(this["MainFormSplitterDistanceDetails"]));
+            }
+            set {
+                this["MainFormSplitterDistanceDetails"] = value;
             }
         }
     }

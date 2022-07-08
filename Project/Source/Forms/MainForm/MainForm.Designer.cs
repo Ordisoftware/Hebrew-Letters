@@ -385,6 +385,7 @@
       // 
       // splitContainer1
       // 
+      this.splitContainer1.DataBindings.Add(new System.Windows.Forms.Binding("SplitterDistance", global::Ordisoftware.Hebrew.Letters.Properties.Settings.Default, "MainFormSplitterDistanceDetails", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
       resources.ApplyResources(this.splitContainer1, "splitContainer1");
       this.splitContainer1.Name = "splitContainer1";
       // 
@@ -413,6 +414,7 @@
       this.splitContainer1.Panel2.Controls.Add(this.LabelMemo);
       this.splitContainer1.Panel2.Controls.Add(this.EditMemo);
       this.splitContainer1.Panel2.Controls.Add(this.EditDictionary);
+      this.splitContainer1.SplitterDistance = global::Ordisoftware.Hebrew.Letters.Properties.Settings.Default.MainFormSplitterDistanceDetails;
       // 
       // LabelCondordance
       // 
