@@ -45,9 +45,7 @@ partial class MainForm
       const int labelWidth = 50;
       const int comboWidth = 170;
       const int comboLeft = marginLeft + labelWidth + marginCombo;
-      const int widthCombobox = 160;
       const int comboHeightDelta = -4;
-      const int marginLeftAndcomboWidth = marginLeft + comboWidth;
       const int dummyDelta = 10;
       const int dummyHeightDelta = -2;
       const int deltaY = 30;
@@ -77,7 +75,7 @@ partial class MainForm
         };
         label.Click += LabelLetter_Click;
         SelectAnalyze.Controls.Add(label);
-        // Combobox
+        // Combo box
         var combobox = new ComboBoxEx
         {
           Width = comboWidth,

@@ -85,8 +85,8 @@ partial class MainForm
       });
     ContextMenuOpenConcordance.InitializeFromProviders(HebrewGlobals.WebProvidersConcordance, (sender, e) =>
     {
-      var menuitem = (ToolStripMenuItem)sender;
-      var owner = ( menuitem?.GetCurrentParent() as ContextMenuStrip ).SourceControl as Button;
+      if ( sender is not ToolStripMenuItem menuitem ) return;
+      if ( ( menuitem.GetCurrentParent() as ContextMenuStrip )?.SourceControl is not Button owner ) return;
       var control = owner == ActionOpenConcordance ? EditConcordance : EditConcordanceRoot;
       HebrewTools.OpenWordConcordance((string)menuitem.Tag, (int)control.Value);
       EditWord.Focus();

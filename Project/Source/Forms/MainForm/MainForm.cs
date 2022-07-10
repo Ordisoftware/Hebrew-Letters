@@ -574,18 +574,6 @@ partial class MainForm : Form
     SelectLetter.SelectedIndex = SelectLetter.FindStringExact(code);
   }
 
-  private void ActionDelFirst_Click(object sender, EventArgs e)
-  {
-  }
-
-  private void ActionDelLast_Click(object sender, EventArgs e)
-  {
-  }
-
-  private void ActionReset_Click(object sender, EventArgs e)
-  {
-  }
-
   private void EditWord_InputTextChanged(object sender, EventArgs e)
   {
     DoAnalyse();
