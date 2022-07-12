@@ -57,7 +57,7 @@
       this.ActionScreenshot = new System.Windows.Forms.Button();
       this.ActionViewAllMeaningsList = new System.Windows.Forms.Button();
       this.EditWord = new Ordisoftware.Hebrew.LettersControl();
-      this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+      this.SplitContainer = new System.Windows.Forms.SplitContainer();
       this.LabelCondordance = new System.Windows.Forms.Label();
       this.LabelConcept = new System.Windows.Forms.Label();
       this.ActionOpenConcordanceRoot = new System.Windows.Forms.Button();
@@ -190,10 +190,10 @@
       this.TabControl.SuspendLayout();
       this.TabPageText.SuspendLayout();
       this.PanelViewAnalysis.SuspendLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-      this.splitContainer1.Panel1.SuspendLayout();
-      this.splitContainer1.Panel2.SuspendLayout();
-      this.splitContainer1.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.SplitContainer)).BeginInit();
+      this.SplitContainer.Panel1.SuspendLayout();
+      this.SplitContainer.Panel2.SuspendLayout();
+      this.SplitContainer.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.EditConcordance)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.EditConcordanceRoot)).BeginInit();
       this.TabPageLetters.SuspendLayout();
@@ -323,7 +323,7 @@
       this.PanelViewAnalysis.Controls.Add(this.ActionScreenshot);
       this.PanelViewAnalysis.Controls.Add(this.ActionViewAllMeaningsList);
       this.PanelViewAnalysis.Controls.Add(this.EditWord);
-      this.PanelViewAnalysis.Controls.Add(this.splitContainer1);
+      this.PanelViewAnalysis.Controls.Add(this.SplitContainer);
       this.PanelViewAnalysis.Name = "PanelViewAnalysis";
       // 
       // panel5
@@ -383,38 +383,37 @@
       this.EditWord.ViewLetterDetails += new Ordisoftware.Hebrew.ViewLetterDetails(this.EditWord_ViewLetterDetails);
       this.EditWord.InputTextChanged += new System.EventHandler(this.EditWord_InputTextChanged);
       // 
-      // splitContainer1
+      // SplitContainer
       // 
-      this.splitContainer1.DataBindings.Add(new System.Windows.Forms.Binding("SplitterDistance", global::Ordisoftware.Hebrew.Letters.Properties.Settings.Default, "MainFormSplitterDistanceDetails", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-      resources.ApplyResources(this.splitContainer1, "splitContainer1");
-      this.splitContainer1.Name = "splitContainer1";
+      resources.ApplyResources(this.SplitContainer, "SplitContainer");
+      this.SplitContainer.Name = "SplitContainer";
       // 
-      // splitContainer1.Panel1
+      // SplitContainer.Panel1
       // 
-      this.splitContainer1.Panel1.Controls.Add(this.LabelCondordance);
-      this.splitContainer1.Panel1.Controls.Add(this.LabelConcept);
-      this.splitContainer1.Panel1.Controls.Add(this.ActionOpenConcordanceRoot);
-      this.splitContainer1.Panel1.Controls.Add(this.EditConcordance);
-      this.splitContainer1.Panel1.Controls.Add(this.ActionOpenConcordance);
-      this.splitContainer1.Panel1.Controls.Add(this.LabelCondordanceRoot);
-      this.splitContainer1.Panel1.Controls.Add(this.EditConcordanceRoot);
-      this.splitContainer1.Panel1.Controls.Add(this.EditTitle);
+      this.SplitContainer.Panel1.Controls.Add(this.LabelCondordance);
+      this.SplitContainer.Panel1.Controls.Add(this.LabelConcept);
+      this.SplitContainer.Panel1.Controls.Add(this.ActionOpenConcordanceRoot);
+      this.SplitContainer.Panel1.Controls.Add(this.EditConcordance);
+      this.SplitContainer.Panel1.Controls.Add(this.ActionOpenConcordance);
+      this.SplitContainer.Panel1.Controls.Add(this.LabelCondordanceRoot);
+      this.SplitContainer.Panel1.Controls.Add(this.EditConcordanceRoot);
+      this.SplitContainer.Panel1.Controls.Add(this.EditTitle);
       // 
-      // splitContainer1.Panel2
+      // SplitContainer.Panel2
       // 
-      this.splitContainer1.Panel2.Controls.Add(this.ActionOpenTermLettriq);
-      this.splitContainer1.Panel2.Controls.Add(this.LabelTranscription);
-      this.splitContainer1.Panel2.Controls.Add(this.EditSentence);
-      this.splitContainer1.Panel2.Controls.Add(this.LabelSentence);
-      this.splitContainer1.Panel2.Controls.Add(this.ActionCopyToResult);
-      this.splitContainer1.Panel2.Controls.Add(this.LabelDictionary);
-      this.splitContainer1.Panel2.Controls.Add(this.ActionSaveTermLettriq);
-      this.splitContainer1.Panel2.Controls.Add(this.EditCopyToClipboardCloseApp);
-      this.splitContainer1.Panel2.Controls.Add(this.EditTranscription);
-      this.splitContainer1.Panel2.Controls.Add(this.LabelMemo);
-      this.splitContainer1.Panel2.Controls.Add(this.EditMemo);
-      this.splitContainer1.Panel2.Controls.Add(this.EditDictionary);
-      this.splitContainer1.SplitterDistance = global::Ordisoftware.Hebrew.Letters.Properties.Settings.Default.MainFormSplitterDistanceDetails;
+      this.SplitContainer.Panel2.Controls.Add(this.ActionOpenTermLettriq);
+      this.SplitContainer.Panel2.Controls.Add(this.LabelTranscription);
+      this.SplitContainer.Panel2.Controls.Add(this.EditSentence);
+      this.SplitContainer.Panel2.Controls.Add(this.LabelSentence);
+      this.SplitContainer.Panel2.Controls.Add(this.ActionCopyToResult);
+      this.SplitContainer.Panel2.Controls.Add(this.LabelDictionary);
+      this.SplitContainer.Panel2.Controls.Add(this.ActionSaveTermLettriq);
+      this.SplitContainer.Panel2.Controls.Add(this.EditCopyToClipboardCloseApp);
+      this.SplitContainer.Panel2.Controls.Add(this.EditTranscription);
+      this.SplitContainer.Panel2.Controls.Add(this.LabelMemo);
+      this.SplitContainer.Panel2.Controls.Add(this.EditMemo);
+      this.SplitContainer.Panel2.Controls.Add(this.EditDictionary);
+      this.SplitContainer.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.SplitContainer_SplitterMoved);
       // 
       // LabelCondordance
       // 
@@ -439,6 +438,7 @@
       this.EditConcordance.BackColor = System.Drawing.Color.MintCream;
       resources.ApplyResources(this.EditConcordance, "EditConcordance");
       this.EditConcordance.Name = "EditConcordance";
+      this.EditConcordance.ValueChanged += new System.EventHandler(this.EditConcordance_ValueChanged);
       // 
       // ActionOpenConcordance
       // 
@@ -458,6 +458,7 @@
       this.EditConcordanceRoot.BackColor = System.Drawing.Color.MintCream;
       resources.ApplyResources(this.EditConcordanceRoot, "EditConcordanceRoot");
       this.EditConcordanceRoot.Name = "EditConcordanceRoot";
+      this.EditConcordanceRoot.ValueChanged += new System.EventHandler(this.EditConcordanceRoot_ValueChanged);
       // 
       // EditTitle
       // 
@@ -1459,12 +1460,12 @@
       this.TabControl.ResumeLayout(false);
       this.TabPageText.ResumeLayout(false);
       this.PanelViewAnalysis.ResumeLayout(false);
-      this.splitContainer1.Panel1.ResumeLayout(false);
-      this.splitContainer1.Panel1.PerformLayout();
-      this.splitContainer1.Panel2.ResumeLayout(false);
-      this.splitContainer1.Panel2.PerformLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-      this.splitContainer1.ResumeLayout(false);
+      this.SplitContainer.Panel1.ResumeLayout(false);
+      this.SplitContainer.Panel1.PerformLayout();
+      this.SplitContainer.Panel2.ResumeLayout(false);
+      this.SplitContainer.Panel2.PerformLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.SplitContainer)).EndInit();
+      this.SplitContainer.ResumeLayout(false);
       ((System.ComponentModel.ISupportInitialize)(this.EditConcordance)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.EditConcordanceRoot)).EndInit();
       this.TabPageLetters.ResumeLayout(false);
@@ -1629,6 +1630,6 @@
     internal Label LabelCondordanceRoot;
     private NumericUpDown EditConcordanceRoot;
     private Panel panel5;
-    private SplitContainer splitContainer1;
+    private SplitContainer SplitContainer;
   }
 }

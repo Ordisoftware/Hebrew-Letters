@@ -97,6 +97,7 @@ partial class MainForm
     SelectLetter_SelectedIndexChanged(SelectLetter, EventArgs.Empty);
     LettersNavigator.Refresh();
     UpdateDataControls(SelectLetter);
+    SplitContainer.SplitterDistance = Settings.MainFormSplitterDistanceDetails;
     DebugManager.TraceEnabledChanged += value => CommonMenusControl.Instance.ActionViewLog.Enabled = value;
   }
 

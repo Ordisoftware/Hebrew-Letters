@@ -756,10 +756,10 @@
   <data name="&gt;&gt;EditWord.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="splitContainer1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <data name="SplitContainer.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Bottom</value>
   </data>
-  <data name="splitContainer1.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="SplitContainer.Location" type="System.Drawing.Point, System.Drawing">
     <value>10, 304</value>
   </data>
   <data name="LabelCondordance.AutoSize" type="System.Boolean, mscorlib">
@@ -790,7 +790,7 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;LabelCondordance.Parent" xml:space="preserve">
-    <value>splitContainer1.Panel1</value>
+    <value>SplitContainer.Panel1</value>
   </data>
   <data name="&gt;&gt;LabelCondordance.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -823,7 +823,7 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;LabelConcept.Parent" xml:space="preserve">
-    <value>splitContainer1.Panel1</value>
+    <value>SplitContainer.Panel1</value>
   </data>
   <data name="&gt;&gt;LabelConcept.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -869,7 +869,7 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ActionOpenConcordanceRoot.Parent" xml:space="preserve">
-    <value>splitContainer1.Panel1</value>
+    <value>SplitContainer.Panel1</value>
   </data>
   <data name="&gt;&gt;ActionOpenConcordanceRoot.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -890,7 +890,7 @@
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;EditConcordance.Parent" xml:space="preserve">
-    <value>splitContainer1.Panel1</value>
+    <value>SplitContainer.Panel1</value>
   </data>
   <data name="&gt;&gt;EditConcordance.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -936,7 +936,7 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ActionOpenConcordance.Parent" xml:space="preserve">
-    <value>splitContainer1.Panel1</value>
+    <value>SplitContainer.Panel1</value>
   </data>
   <data name="&gt;&gt;ActionOpenConcordance.ZOrder" xml:space="preserve">
     <value>4</value>
@@ -969,7 +969,7 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;LabelCondordanceRoot.Parent" xml:space="preserve">
-    <value>splitContainer1.Panel1</value>
+    <value>SplitContainer.Panel1</value>
   </data>
   <data name="&gt;&gt;LabelCondordanceRoot.ZOrder" xml:space="preserve">
     <value>5</value>
@@ -990,7 +990,7 @@
     <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;EditConcordanceRoot.Parent" xml:space="preserve">
-    <value>splitContainer1.Panel1</value>
+    <value>SplitContainer.Panel1</value>
   </data>
   <data name="&gt;&gt;EditConcordanceRoot.ZOrder" xml:space="preserve">
     <value>6</value>
@@ -1005,7 +1005,7 @@
     <value>0, 133</value>
   </data>
   <data name="EditTitle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>91, 23</value>
+    <value>93, 23</value>
   </data>
   <data name="EditTitle.TabIndex" type="System.Int32, mscorlib">
     <value>29</value>
@@ -1017,24 +1017,24 @@
     <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.14.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;EditTitle.Parent" xml:space="preserve">
-    <value>splitContainer1.Panel1</value>
+    <value>SplitContainer.Panel1</value>
   </data>
   <data name="&gt;&gt;EditTitle.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="&gt;&gt;splitContainer1.Panel1.Name" xml:space="preserve">
-    <value>splitContainer1.Panel1</value>
+  <data name="&gt;&gt;SplitContainer.Panel1.Name" xml:space="preserve">
+    <value>SplitContainer.Panel1</value>
   </data>
-  <data name="&gt;&gt;splitContainer1.Panel1.Type" xml:space="preserve">
+  <data name="&gt;&gt;SplitContainer.Panel1.Type" xml:space="preserve">
     <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;splitContainer1.Panel1.Parent" xml:space="preserve">
-    <value>splitContainer1</value>
+  <data name="&gt;&gt;SplitContainer.Panel1.Parent" xml:space="preserve">
+    <value>SplitContainer</value>
   </data>
-  <data name="&gt;&gt;splitContainer1.Panel1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;SplitContainer.Panel1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="splitContainer1.Panel1MinSize" type="System.Int32, mscorlib">
+  <data name="SplitContainer.Panel1MinSize" type="System.Int32, mscorlib">
     <value>100</value>
   </data>
   <data name="ActionOpenTermLettriq.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -1074,7 +1074,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionOpenTermLettriq.Location" type="System.Drawing.Point, System.Drawing">
-    <value>691, 22</value>
+    <value>693, 22</value>
   </data>
   <data name="ActionOpenTermLettriq.Size" type="System.Drawing.Size, System.Drawing">
     <value>42, 42</value>
@@ -1089,7 +1089,7 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ActionOpenTermLettriq.Parent" xml:space="preserve">
-    <value>splitContainer1.Panel2</value>
+    <value>SplitContainer.Panel2</value>
   </data>
   <data name="&gt;&gt;ActionOpenTermLettriq.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -1122,7 +1122,7 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;LabelTranscription.Parent" xml:space="preserve">
-    <value>splitContainer1.Panel2</value>
+    <value>SplitContainer.Panel2</value>
   </data>
   <data name="&gt;&gt;LabelTranscription.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -1137,7 +1137,7 @@
     <value>8, 133</value>
   </data>
   <data name="EditSentence.Size" type="System.Drawing.Size, System.Drawing">
-    <value>675, 23</value>
+    <value>677, 23</value>
   </data>
   <data name="EditSentence.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -1149,7 +1149,7 @@
     <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.14.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;EditSentence.Parent" xml:space="preserve">
-    <value>splitContainer1.Panel2</value>
+    <value>SplitContainer.Panel2</value>
   </data>
   <data name="&gt;&gt;EditSentence.ZOrder" xml:space="preserve">
     <value>2</value>
@@ -1182,7 +1182,7 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;LabelSentence.Parent" xml:space="preserve">
-    <value>splitContainer1.Panel2</value>
+    <value>SplitContainer.Panel2</value>
   </data>
   <data name="&gt;&gt;LabelSentence.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -1231,7 +1231,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionCopyToResult.Location" type="System.Drawing.Point, System.Drawing">
-    <value>691, 123</value>
+    <value>693, 123</value>
   </data>
   <data name="ActionCopyToResult.Size" type="System.Drawing.Size, System.Drawing">
     <value>42, 42</value>
@@ -1246,7 +1246,7 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ActionCopyToResult.Parent" xml:space="preserve">
-    <value>splitContainer1.Panel2</value>
+    <value>SplitContainer.Panel2</value>
   </data>
   <data name="&gt;&gt;ActionCopyToResult.ZOrder" xml:space="preserve">
     <value>4</value>
@@ -1279,7 +1279,7 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;LabelDictionary.Parent" xml:space="preserve">
-    <value>splitContainer1.Panel2</value>
+    <value>SplitContainer.Panel2</value>
   </data>
   <data name="&gt;&gt;LabelDictionary.ZOrder" xml:space="preserve">
     <value>5</value>
@@ -1331,7 +1331,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionSaveTermLettriq.Location" type="System.Drawing.Point, System.Drawing">
-    <value>691, 72</value>
+    <value>693, 72</value>
   </data>
   <data name="ActionSaveTermLettriq.Size" type="System.Drawing.Size, System.Drawing">
     <value>42, 42</value>
@@ -1346,7 +1346,7 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ActionSaveTermLettriq.Parent" xml:space="preserve">
-    <value>splitContainer1.Panel2</value>
+    <value>SplitContainer.Panel2</value>
   </data>
   <data name="&gt;&gt;ActionSaveTermLettriq.ZOrder" xml:space="preserve">
     <value>6</value>
@@ -1361,7 +1361,7 @@
     <value>NoControl</value>
   </data>
   <data name="EditCopyToClipboardCloseApp.Location" type="System.Drawing.Point, System.Drawing">
-    <value>483, 166</value>
+    <value>485, 166</value>
   </data>
   <data name="EditCopyToClipboardCloseApp.Size" type="System.Drawing.Size, System.Drawing">
     <value>200, 17</value>
@@ -1382,7 +1382,7 @@
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;EditCopyToClipboardCloseApp.Parent" xml:space="preserve">
-    <value>splitContainer1.Panel2</value>
+    <value>SplitContainer.Panel2</value>
   </data>
   <data name="&gt;&gt;EditCopyToClipboardCloseApp.ZOrder" xml:space="preserve">
     <value>7</value>
@@ -1406,7 +1406,7 @@
     <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.14.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;EditTranscription.Parent" xml:space="preserve">
-    <value>splitContainer1.Panel2</value>
+    <value>SplitContainer.Panel2</value>
   </data>
   <data name="&gt;&gt;EditTranscription.ZOrder" xml:space="preserve">
     <value>8</value>
@@ -1439,7 +1439,7 @@
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;LabelMemo.Parent" xml:space="preserve">
-    <value>splitContainer1.Panel2</value>
+    <value>SplitContainer.Panel2</value>
   </data>
   <data name="&gt;&gt;LabelMemo.ZOrder" xml:space="preserve">
     <value>9</value>
@@ -1454,7 +1454,7 @@
     <value>8, 83</value>
   </data>
   <data name="EditMemo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>675, 21</value>
+    <value>677, 21</value>
   </data>
   <data name="EditMemo.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -1466,7 +1466,7 @@
     <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.14.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;EditMemo.Parent" xml:space="preserve">
-    <value>splitContainer1.Panel2</value>
+    <value>SplitContainer.Panel2</value>
   </data>
   <data name="&gt;&gt;EditMemo.ZOrder" xml:space="preserve">
     <value>10</value>
@@ -1481,7 +1481,7 @@
     <value>130, 33</value>
   </data>
   <data name="EditDictionary.Size" type="System.Drawing.Size, System.Drawing">
-    <value>553, 21</value>
+    <value>555, 21</value>
   </data>
   <data name="EditDictionary.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -1493,42 +1493,45 @@
     <value>Ordisoftware.Core.TextBoxEx, Ordisoftware.Hebrew.Letters, Version=6.14.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;EditDictionary.Parent" xml:space="preserve">
-    <value>splitContainer1.Panel2</value>
+    <value>SplitContainer.Panel2</value>
   </data>
   <data name="&gt;&gt;EditDictionary.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
-  <data name="&gt;&gt;splitContainer1.Panel2.Name" xml:space="preserve">
-    <value>splitContainer1.Panel2</value>
+  <data name="&gt;&gt;SplitContainer.Panel2.Name" xml:space="preserve">
+    <value>SplitContainer.Panel2</value>
   </data>
-  <data name="&gt;&gt;splitContainer1.Panel2.Type" xml:space="preserve">
+  <data name="&gt;&gt;SplitContainer.Panel2.Type" xml:space="preserve">
     <value>System.Windows.Forms.SplitterPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;splitContainer1.Panel2.Parent" xml:space="preserve">
-    <value>splitContainer1</value>
+  <data name="&gt;&gt;SplitContainer.Panel2.Parent" xml:space="preserve">
+    <value>SplitContainer</value>
   </data>
-  <data name="&gt;&gt;splitContainer1.Panel2.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;SplitContainer.Panel2.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="splitContainer1.Panel2MinSize" type="System.Int32, mscorlib">
+  <data name="SplitContainer.Panel2MinSize" type="System.Int32, mscorlib">
     <value>400</value>
   </data>
-  <data name="splitContainer1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="SplitContainer.Size" type="System.Drawing.Size, System.Drawing">
     <value>838, 180</value>
   </data>
-  <data name="splitContainer1.TabIndex" type="System.Int32, mscorlib">
+  <data name="SplitContainer.SplitterDistance" type="System.Int32, mscorlib">
+    <value>100</value>
+  </data>
+  <data name="SplitContainer.TabIndex" type="System.Int32, mscorlib">
     <value>31</value>
   </data>
-  <data name="&gt;&gt;splitContainer1.Name" xml:space="preserve">
-    <value>splitContainer1</value>
+  <data name="&gt;&gt;SplitContainer.Name" xml:space="preserve">
+    <value>SplitContainer</value>
   </data>
-  <data name="&gt;&gt;splitContainer1.Type" xml:space="preserve">
+  <data name="&gt;&gt;SplitContainer.Type" xml:space="preserve">
     <value>System.Windows.Forms.SplitContainer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;splitContainer1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;SplitContainer.Parent" xml:space="preserve">
     <value>PanelViewAnalysis</value>
   </data>
-  <data name="&gt;&gt;splitContainer1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;SplitContainer.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
   <data name="PanelViewAnalysis.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
@@ -2254,7 +2257,7 @@
     <value>63, 35</value>
   </data>
   <data name="ListNotebookWords.Size" type="System.Drawing.Size, System.Drawing">
-    <value>169, 439</value>
+    <value>137, 439</value>
   </data>
   <data name="ListNotebookWords.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -2442,7 +2445,7 @@
     <value>NoControl</value>
   </data>
   <data name="ActionNotebookDeleteWord.Location" type="System.Drawing.Point, System.Drawing">
-    <value>174, 4</value>
+    <value>142, 4</value>
   </data>
   <data name="ActionNotebookDeleteWord.Size" type="System.Drawing.Size, System.Drawing">
     <value>26, 26</value>
@@ -2469,7 +2472,7 @@
     <value>0, 0</value>
   </data>
   <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>232, 35</value>
+    <value>200, 35</value>
   </data>
   <data name="panel2.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -2514,7 +2517,7 @@
     <value>0, 35</value>
   </data>
   <data name="ListNotebookSentences.Size" type="System.Drawing.Size, System.Drawing">
-    <value>596, 439</value>
+    <value>628, 439</value>
   </data>
   <data name="ListNotebookSentences.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -2627,7 +2630,7 @@
 </value>
   </data>
   <data name="ActionNotebookDeleteSentence.Location" type="System.Drawing.Point, System.Drawing">
-    <value>502, 4</value>
+    <value>534, 4</value>
   </data>
   <data name="ActionNotebookDeleteSentence.Size" type="System.Drawing.Size, System.Drawing">
     <value>26, 26</value>
@@ -2654,7 +2657,7 @@
     <value>0, 0</value>
   </data>
   <data name="panel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>596, 35</value>
+    <value>628, 35</value>
   </data>
   <data name="panel3.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>

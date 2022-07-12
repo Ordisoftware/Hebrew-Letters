@@ -1198,4 +1198,25 @@ partial class MainForm : Form
 
   #endregion
 
+  #region Concordances
+
+  private void SplitContainer_SplitterMoved(object sender, SplitterEventArgs e)
+  {
+    if ( !Globals.IsReady ) return;
+    Settings.MainFormSplitterDistanceDetails = SplitContainer.SplitterDistance;
+    Settings.Save();
+  }
+
+  private void EditConcordance_ValueChanged(object sender, EventArgs e)
+  {
+    ActionOpenConcordance.Enabled = EditConcordance.Enabled;
+  }
+
+  private void EditConcordanceRoot_ValueChanged(object sender, EventArgs e)
+  {
+    ActionOpenConcordanceRoot.Enabled = EditConcordanceRoot.Enabled;
+  }
+
+  #endregion
+
 }
