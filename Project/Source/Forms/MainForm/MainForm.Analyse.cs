@@ -37,17 +37,15 @@ partial class MainForm
     {
       SelectAnalyze.Controls.Clear();
       EditSentence.Text = "";
-      EditGematriaSimple.Text = "";
-      EditGematriaFull.Text = "";
+      EditWord.EditGematriaSimple.Text = "";
+      EditWord.EditGematriaFull.Text = "";
       const int marginTop = 20;
       const int marginLeft = 5;
       const int marginCombo = 15;
       const int labelWidth = 50;
       const int comboWidth = 170;
       const int comboLeft = marginLeft + labelWidth + marginCombo;
-      const int widthCombobox = 160;
       const int comboHeightDelta = -4;
-      const int marginLeftAndcomboWidth = marginLeft + comboWidth;
       const int dummyDelta = 10;
       const int dummyHeightDelta = -2;
       const int deltaY = 30;
@@ -77,7 +75,7 @@ partial class MainForm
         };
         label.Click += LabelLetter_Click;
         SelectAnalyze.Controls.Add(label);
-        // Combobox
+        // Combo box
         var combobox = new ComboBoxEx
         {
           Width = comboWidth,
@@ -119,8 +117,8 @@ partial class MainForm
         Text = ""
       };
       SelectAnalyze.Controls.Add(dummy);
-      EditGematriaSimple.Text = sumSimple.ToString();
-      EditGematriaFull.Text = sumFull.ToString();
+      EditWord.EditGematriaSimple.Text = sumSimple.ToString();
+      EditWord.EditGematriaFull.Text = sumFull.ToString();
     }
     catch ( Exception ex )
     {

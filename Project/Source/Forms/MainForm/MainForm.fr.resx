@@ -166,11 +166,9 @@
   <data name="EditCopyWithFinalLetter.Size" type="System.Drawing.Size, System.Drawing">
     <value>137, 17</value>
   </data>
-  <data name="EditCopyWithFinalLetter.Text" xml:space="preserve">
-    <value>Copier avec lettre finale</value>
-  </data>
   <data name="EditCopyToClipboardCloseApp.Text" xml:space="preserve">
-    <value>Fermer</value>
+    <value>Fermer après avoir copié la phrase</value>
+    <comment> </comment>
   </data>
   <data name="ActionRestoreDefaults.Text" xml:space="preserve">
     <value>Restaurer les valeurs par défaut</value>
@@ -370,7 +368,7 @@
   <data name="LabelCondordanceRoot.Text" xml:space="preserve">
     <value>Racine</value>
   </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Titre</value>
+  <data name="LabelSentence.Text" xml:space="preserve">
+    <value>Phrase</value>
   </data>
 </root>

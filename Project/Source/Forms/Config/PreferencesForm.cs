@@ -122,7 +122,7 @@ partial class PreferencesForm : Form
   {
     if ( Settings.LanguageSelected == Language.EN ) return;
     string temp = MainForm.Instance.EditWord.TextBox.Text;
-    MainForm.Instance.ActionClear.PerformClick();
+    MainForm.Instance.EditWord.ActionClear.PerformClick();
     Settings.LanguageSelected = Language.EN;
     Program.UpdateLocalization();
     UpdateLanguagesButtons();
@@ -136,7 +136,7 @@ partial class PreferencesForm : Form
   {
     if ( Settings.LanguageSelected == Language.FR ) return;
     string temp = MainForm.Instance.EditWord.TextBox.Text;
-    MainForm.Instance.ActionClear.PerformClick();
+    MainForm.Instance.EditWord.ActionClear.PerformClick();
     Settings.LanguageSelected = Language.FR;
     Program.UpdateLocalization();
     UpdateLanguagesButtons();

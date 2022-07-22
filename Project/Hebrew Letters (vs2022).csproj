@@ -399,9 +399,6 @@
     <Compile Include="Source\Forms\Config\StatisticsForm.designer.cs">
       <DependentUpon>StatisticsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\Forms\MainForm\MainForm.Clipboard.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Source\Forms\MainForm\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -686,7 +683,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Meziantou.Analyzer">
-      <Version>1.0.702</Version>
+      <Version>1.0.704</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
