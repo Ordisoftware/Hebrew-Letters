@@ -50,7 +50,7 @@
       this.TabControl = new System.Windows.Forms.TabControl();
       this.TabPageText = new System.Windows.Forms.TabPage();
       this.PanelViewAnalysis = new System.Windows.Forms.Panel();
-      this.panel5 = new System.Windows.Forms.Panel();
+      this.PanelHorizontalLine = new System.Windows.Forms.Panel();
       this.ActionCopyToMeanings = new System.Windows.Forms.Button();
       this.SelectAnalyze = new System.Windows.Forms.Panel();
       this.ActionSaveScreenshot = new System.Windows.Forms.Button();
@@ -316,7 +316,7 @@
       // 
       resources.ApplyResources(this.PanelViewAnalysis, "PanelViewAnalysis");
       this.PanelViewAnalysis.BackColor = System.Drawing.SystemColors.Control;
-      this.PanelViewAnalysis.Controls.Add(this.panel5);
+      this.PanelViewAnalysis.Controls.Add(this.PanelHorizontalLine);
       this.PanelViewAnalysis.Controls.Add(this.ActionCopyToMeanings);
       this.PanelViewAnalysis.Controls.Add(this.SelectAnalyze);
       this.PanelViewAnalysis.Controls.Add(this.ActionSaveScreenshot);
@@ -326,11 +326,11 @@
       this.PanelViewAnalysis.Controls.Add(this.SplitContainer);
       this.PanelViewAnalysis.Name = "PanelViewAnalysis";
       // 
-      // panel5
+      // PanelHorizontalLine
       // 
-      this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      resources.ApplyResources(this.panel5, "panel5");
-      this.panel5.Name = "panel5";
+      resources.ApplyResources(this.PanelHorizontalLine, "PanelHorizontalLine");
+      this.PanelHorizontalLine.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.PanelHorizontalLine.Name = "PanelHorizontalLine";
       // 
       // ActionCopyToMeanings
       // 
@@ -1629,7 +1629,7 @@
     internal Button ActionOpenConcordanceRoot;
     internal Label LabelCondordanceRoot;
     private NumericUpDown EditConcordanceRoot;
-    private Panel panel5;
+    private Panel PanelHorizontalLine;
     private SplitContainer SplitContainer;
   }
 }
