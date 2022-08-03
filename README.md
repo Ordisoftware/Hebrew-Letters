@@ -182,24 +182,24 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 - Add option to set primary source for check update between author website or GitHub.
 - Add reset only some columns to factory defaults.
+- Add backup and restore database.
+- Add export letters data to TXT/CSV/JSON/XML.
+- Add import letters data from TXT/CSV/JSON/XML.
+- Add export and import analyzed words.
 - Add export analysis items to MSWord table.
-- Add find gematria possible combinations.
-- Add export data to TXT/CSV/JSON/XML.
-- Add import data from TXT/CSV/JSON/XML.
 - Add print letters data.
 - Add print notebook data.
+- Add find gematria possible combinations.
 - Rewrite advanced TextBox to support multiple undo/redo.
-- Optimize more ComboBoxes creation.
+- Optimize combo boxes creation.
 
 ## Changelog
 
-#### In progress for 2022 - Version 7.0
+#### In progress - Version 7.0
 
 - Add analyzed words data table and notebook view to save results.
 - Add concordance, transcription, dictionary and comment fields for word analysis.
 - Add search online concordance.
-- Add backup and restore database.
-- Add export and import analyzed words.
 - Added an option to display a warning when selecting the meaning of a letter while the sentence has been changed.
 
 #### 2022.06.21 - Version 6.14
