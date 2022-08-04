@@ -128,7 +128,7 @@ When disabled, top menu and some controls painting may cause latency, and dynami
   
 This program does not use IPC intercom yet since multiple instances can run at the same time.
 
-### How to run a word contextual analysis from any application such as browser or text editor?
+#### _How to run a word contextual analysis from any application such as browser or text editor?_
 
 It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for example this `Shift + Ctrl + Alt + H` command on a selected word:
 
