@@ -182,11 +182,12 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 - Add option to set primary source for check update between author website or GitHub.
 - Add reset only some columns to factory defaults.
-- Add backup and restore database.
+- Add backup and restore database, meanings and notebook.
 - Add export letters data to TXT/CSV/JSON/XML.
 - Add import letters data from TXT/CSV/JSON/XML.
 - Add export and import analyzed words.
 - Add export analysis items to MSWord table.
+- Add merge meanings and notbooks from another database
 - Add print letters data.
 - Add print notebook data.
 - Add find gematria possible combinations.
