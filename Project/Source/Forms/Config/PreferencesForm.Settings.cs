@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-09 </created>
-/// <edited> 2022-04 </edited>
+/// <edited> 2022-08 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 using System.Configuration;
@@ -163,7 +163,7 @@ partial class PreferencesForm : Form
 
   private void DoOpenTheme()
   {
-    SystemManager.TryCatch(() => OpenThemeDialog.InitialDirectory = Settings.GetExportDirectory());
+    SystemManager.TryCatch(() => OpenThemeDialog.InitialDirectory = Settings.GetExportSettingsDirectory());
     if ( OpenThemeDialog.ShowDialog() != DialogResult.OK ) return;
     var items = new NullSafeOfStringDictionary<string>();
     if ( !items.LoadKeyValuePairs(OpenThemeDialog.FileName, "=") ) return;
@@ -181,7 +181,7 @@ partial class PreferencesForm : Form
   {
     SystemManager.TryCatch(() =>
     {
-      SaveThemeDialog.InitialDirectory = Settings.GetExportDirectory();
+      SaveThemeDialog.InitialDirectory = Settings.GetExportSettingsDirectory();
       SaveThemeDialog.FileName = "Theme.ini";
     });
     if ( SaveThemeDialog.ShowDialog() != DialogResult.OK ) return;

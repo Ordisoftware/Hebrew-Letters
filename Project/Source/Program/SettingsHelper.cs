@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2022-03 </edited>
+/// <edited> 2022-08 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 using Ordisoftware.Hebrew.Letters.Properties;
@@ -169,14 +169,34 @@ static class SettingsHelper
   }
 
   /// <summary>
-  /// Gets export directory.
+  /// Get the export directory.
   /// </summary>
   static internal string GetExportDirectory(this Settings settings)
   {
-    string result = settings.ExportFolder;
-    if ( result == "%USER_APP_DOCUMENTS%" )
-      result = Globals.UserDocumentsFolderPath;
-    return result;
+    string path = settings.ExportFolder.Replace("%USER_APP_DOCUMENTS%", Globals.UserDocumentsFolderPath);
+    if ( !Directory.Exists(path) ) Directory.CreateDirectory(path);
+    return path;
   }
+
+  /// <summary>
+  /// Gets the settings export directory.
+  /// </summary>
+  static internal string GetExportSettingsDirectory(this Settings settings)
+  {
+    string path = Path.Combine(settings.GetExportDirectory(), "Settings");
+    if ( !Directory.Exists(path) ) Directory.CreateDirectory(path);
+    return path;
+  }
+
+  /// <summary>
+  /// Gets the backup directory.
+  /// </summary>
+  // TODO use when available
+  //static internal string GetBackupDirectory(this Settings settings)
+  //{
+  //  string path = settings.BackupFolder.Replace("%USER_APP_DOCUMENTS%", Globals.UserDocumentsFolderPath);
+  //  if ( !Directory.Exists(path) ) Directory.CreateDirectory(path);
+  //  return path;
+  //}
 
 }

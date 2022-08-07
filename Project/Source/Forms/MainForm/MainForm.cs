@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2022-07 </edited>
+/// <edited> 2022-08 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 using Equin.ApplicationFramework;
