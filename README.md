@@ -187,7 +187,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Add import letters data from TXT/CSV/JSON/XML.
 - Add export and import analyzed words.
 - Add export analysis items to MSWord table.
-- Add merge meanings and notbooks from another database
+- Add merge meanings and notebooks from another database
 - Add print letters data.
 - Add print notebook data.
 - Add find gematria possible combinations.
@@ -201,7 +201,8 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Add analyzed words data table and notebook view to save results.
 - Add concordance, transcription, dictionary and comment fields for word analysis.
 - Add search online concordance.
-- Added an option to display a warning when selecting the meaning of a letter while the sentence has been changed.
+- Add an option to display a warning when selecting the meaning of a letter while the sentence has been changed.
+- Use a dedicated folder in application's document folder for exports and imports settings and themes.
 
 #### 2022.06.21 - Version 6.14
 

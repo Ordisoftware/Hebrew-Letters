@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-09 </created>
-/// <edited> 2022-03 </edited>
+/// <edited> 2022-08 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 using KVPImageExportTarget = KeyValuePair<ImageExportTarget, string>;
@@ -48,7 +48,7 @@ partial class PreferencesForm : Form
   {
     InitializeComponent();
     Icon = MainForm.Instance.Icon;
-    SaveSettingsDialog.InitialDirectory = Program.Settings.GetExportDirectory();
+    SaveSettingsDialog.InitialDirectory = Program.Settings.GetExportSettingsDirectory();
     OpenSettingsDialog.InitialDirectory = SaveSettingsDialog.InitialDirectory;
     SaveSettingsDialog.Filter = ExportTarget.CreateFilters();
     OpenSettingsDialog.Filter = SaveSettingsDialog.Filter;
