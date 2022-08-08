@@ -1188,7 +1188,10 @@ partial class MainForm : Form
   private void EditNotebookFilterSentence_TextChanged(object sender, EventArgs e)
   {
     if ( EditNotebookFilterSentence.Text.Length != 0 )
-      DBHebrew.TermLettriqsAsBindingList.ApplyFilter(l => l.Sentence.RawContains(EditNotebookFilterSentence.Text));
+    {
+      string str = EditNotebookFilterSentence.Text;
+      DBHebrew.TermLettriqsAsBindingList.ApplyFilter(l => l.Sentence.RawContains(str));
+    }
     else
       DBHebrew.TermLettriqsAsBindingList.RemoveFilter();
   }
