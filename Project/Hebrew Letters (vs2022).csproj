@@ -41,7 +41,7 @@
     <Prefer32Bit>false</Prefer32Bit>
     <NoWarn>1587, 1591, 0649</NoWarn>
     <DocumentationFile>..\Bin\Debug\Ordisoftware.Hebrew.Letters.xml</DocumentationFile>
-    <LangVersion>preview</LangVersion>
+    <LangVersion>latest</LangVersion>
     <RunCodeAnalysis>false</RunCodeAnalysis>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
@@ -56,7 +56,7 @@
     <Prefer32Bit>false</Prefer32Bit>
     <DebugSymbols>true</DebugSymbols>
     <NoWarn>1587, 1591, 0649</NoWarn>
-    <LangVersion>preview</LangVersion>
+    <LangVersion>latest</LangVersion>
     <AllowedReferenceRelatedFileExtensions>
           *.pdb;
           Ordisoftware*.xml
