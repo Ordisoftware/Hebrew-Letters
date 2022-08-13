@@ -380,7 +380,6 @@
       this.EditWord.MarginX = -5;
       this.EditWord.MarginY = 0;
       this.EditWord.Name = "EditWord";
-      this.EditWord.ShowGematria = false;
       this.EditWord.ViewLetterDetails += new Ordisoftware.Hebrew.ViewLetterDetails(this.EditWord_ViewLetterDetails);
       this.EditWord.InputTextChanged += new System.EventHandler(this.EditWord_InputTextChanged);
       // 
