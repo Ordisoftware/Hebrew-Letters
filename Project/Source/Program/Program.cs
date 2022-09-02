@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2022-07 </edited>
+/// <edited> 2022-09 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 //using System.IO.Pipes;
@@ -29,24 +29,19 @@ static partial class Program
   [STAThread]
   static void Main(string[] args)
   {
-    CommonMenusControl.PreviewFunctions = new()
-    {
-      [Language.EN] = "    • Notebook of analyzed words" + Globals.NL +
-                      "    • Web links edition",
-      [Language.FR] = "    • Carnet des mots analysés" + Globals.NL +
-                      "    • Edition des liens web"
-    };
     try
     {
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
+      //
       Globals.ChronoStartingApp.Start();
       Globals.SoftpediaURL = "https://www.softpedia.com/get/Others/Home-Education/Hebrew-Letters.shtml";
       Globals.AlternativeToURL = "";
+      CommonMenusControl.PreviewFunctions = AppTranslations.PreviewFunctions;
+      //
       var lang = Settings.LanguageSelected;
       SystemManager.CheckCommandLineArguments<ApplicationCommandLine>(args, ref lang);
-      // No IPCAnswers
-      // No IPCRequests
+      // No IPC
       bool upgrade = Settings.UpgradeRequired;
       Globals.IsSettingsUpgraded = upgrade;
       Settings.CheckUpgradeRequired(ref upgrade);
@@ -56,16 +51,25 @@ static partial class Program
       if ( lang != Language.None ) Settings.LanguageSelected = lang;
       SystemManager.TryCatch(Settings.Save);
       Globals.Settings = Settings;
+      //
+      //Globals.SpellCheckEnabled = Settings.SpellCheckEnabled;
+      //TextBoxEx.InstanceCreated += TextBox_UpdateSpellChecker;
+      //TextBoxEx.UpdateSpellChecker += TextBox_UpdateSpellChecker;
+      //TextBoxEx.Relocalized += TextBox_Relocalized;
+      //TextBox_Relocalized();
       Globals.MainForm = MainForm.Instance;
       DebugManager.TraceEnabled = Settings.TraceEnabled;
       DebugManager.Enabled = Settings.DebuggerEnabled;
+      //
       HebrewGlobals.GetHebrewCalendarExePath = () => string.Empty;
       HebrewGlobals.GetHebrewLettersExePath = () => Globals.ApplicationExeFullPath;
       HebrewGlobals.GetHebrewWordsExePath = () => Settings.HebrewWordsExe;
       HebrewGlobals.GetCustomWebSearchPattern = () => Settings.CustomWebSearch;
+      //
       Globals.ChronoStartingApp.Stop();
       ProcessCommandLineOptions();
       Globals.ChronoStartingApp.Start();
+      //
       LoadingForm.Instance.Hidden = Settings.LoadingFormHidden;
       AboutBox.LicenseAsRTF = Properties.Resources.MPL_2_0;
       AboutBox.DescriptionText = AppTranslations.ApplicationDescription;

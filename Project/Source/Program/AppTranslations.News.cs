@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2021-02 </created>
-/// <edited> 2022-05 </edited>
+/// <edited> 2022-09 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 /// <summary>
@@ -19,6 +19,15 @@ namespace Ordisoftware.Hebrew.Letters;
 /// </summary>
 static partial class AppTranslations
 {
+
+  static public readonly TranslationsDictionary PreviewFunctions = new()
+  {
+    [Language.EN] = "    • Notebook of analyzed words" + Globals.NL +
+                    "    • Web links edition",
+
+    [Language.FR] = "    • Carnet des mots analysés" + Globals.NL +
+                    "    • Edition des liens web"
+  };
 
   static public readonly NullSafeDictionary<string, TranslationsDictionary> NoticeNewFeatures = new()
   {
