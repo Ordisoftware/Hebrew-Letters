@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-01 </created>
-/// <edited> 2022-08 </edited>
+/// <edited> 2022-09 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 using Microsoft.Win32;
@@ -168,6 +168,27 @@ partial class MainForm
   }
 
   /// <summary>
+  /// Does Form Closing event.
+  /// </summary>
+  private void DoFormClosing(object sender, FormClosingEventArgs e)
+  {
+    if ( !Globals.IsReady ) return;
+    if ( Globals.IsExiting ) return;
+    if ( Globals.IsSessionEnding ) return;
+    if ( e.CloseReason != CloseReason.None && e.CloseReason != CloseReason.UserClosing )
+      Globals.IsExiting = true;
+    else
+    if ( !Globals.AllowClose )
+      e.Cancel = true;
+    else
+    if ( EditConfirmClosing.Checked && !Globals.IsSessionEnding )
+      if ( !DisplayManager.QueryYesNo(SysTranslations.AskToExitApplication.GetLang()) )
+        e.Cancel = true;
+      else
+        Globals.IsExiting = true;
+  }
+
+  /// <summary>
   /// Does Form CLosed event.
   /// </summary>
   private void DoFormClosed(object sender, FormClosedEventArgs e)
@@ -187,7 +208,11 @@ partial class MainForm
   /// </summary>
   private void SessionEnding(object sender, SessionEndingEventArgs e)
   {
-    if ( Globals.IsExiting || Globals.IsSessionEnding ) return;
+    if ( Globals.IsExiting ) return;
+    if ( Globals.IsSessionEnding ) return;
+    DebugManager.Trace(LogTraceEvent.Data, e?.Reason.ToStringFull() ?? nameof(NativeMethods.WM_QUERYENDSESSION));
+    Globals.AllowClose = true;
+    Globals.IsSessionEnding = true;
     Close();
   }
 
@@ -274,30 +299,6 @@ partial class MainForm
   {
     if ( Globals.IsSettingsUpgraded && Settings.ShowLastNewInVersionAfterUpdate )
       SystemManager.TryCatch(CommonMenusControl.Instance.ShowLastNews);
-  }
-
-  /// <summary>
-  /// Does Form Closing event.
-  /// </summary>
-  private void DoFormClosing(object sender, FormClosingEventArgs e)
-  {
-    if ( !Globals.IsReady ) return;
-    if ( Globals.IsExiting ) return;
-    if ( e.CloseReason != CloseReason.None && e.CloseReason != CloseReason.UserClosing )
-    {
-      Globals.IsExiting = true;
-      return;
-    }
-    if ( !Globals.AllowClose )
-    {
-      e.Cancel = true;
-      return;
-    }
-    if ( EditConfirmClosing.Checked && !Globals.IsSessionEnding )
-      if ( !DisplayManager.QueryYesNo(SysTranslations.AskToExitApplication.GetLang()) )
-        e.Cancel = true;
-      else
-        Globals.IsExiting = true;
   }
 
 }
