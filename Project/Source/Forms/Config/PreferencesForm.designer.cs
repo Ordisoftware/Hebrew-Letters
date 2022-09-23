@@ -113,13 +113,13 @@
       this.PanelBottom.SuspendLayout();
       this.TabControl.SuspendLayout();
       this.TabPageApplication.SuspendLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.EditVolume)).BeginInit();
+      ( (System.ComponentModel.ISupportInitialize)( this.EditVolume ) ).BeginInit();
       this.TabPageCheckUpdate.SuspendLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.EditCheckUpdateAtStartupInterval)).BeginInit();
+      ( (System.ComponentModel.ISupportInitialize)( this.EditCheckUpdateAtStartupInterval ) ).BeginInit();
       this.TabPageTheme.SuspendLayout();
       this.TabPageAnalyzer.SuspendLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.EditMaxLength)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.EditFontSize)).BeginInit();
+      ( (System.ComponentModel.ISupportInitialize)( this.EditMaxLength ) ).BeginInit();
+      ( (System.ComponentModel.ISupportInitialize)( this.EditFontSize ) ).BeginInit();
       this.TabPageExport.SuspendLayout();
       this.SuspendLayout();
       // 
@@ -775,16 +775,16 @@
       this.TabControl.ResumeLayout(false);
       this.TabPageApplication.ResumeLayout(false);
       this.TabPageApplication.PerformLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.EditVolume)).EndInit();
+      ( (System.ComponentModel.ISupportInitialize)( this.EditVolume ) ).EndInit();
       this.TabPageCheckUpdate.ResumeLayout(false);
       this.TabPageCheckUpdate.PerformLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.EditCheckUpdateAtStartupInterval)).EndInit();
+      ( (System.ComponentModel.ISupportInitialize)( this.EditCheckUpdateAtStartupInterval ) ).EndInit();
       this.TabPageTheme.ResumeLayout(false);
       this.TabPageTheme.PerformLayout();
       this.TabPageAnalyzer.ResumeLayout(false);
       this.TabPageAnalyzer.PerformLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.EditMaxLength)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.EditFontSize)).EndInit();
+      ( (System.ComponentModel.ISupportInitialize)( this.EditMaxLength ) ).EndInit();
+      ( (System.ComponentModel.ISupportInitialize)( this.EditFontSize ) ).EndInit();
       this.TabPageExport.ResumeLayout(false);
       this.TabPageExport.PerformLayout();
       this.ResumeLayout(false);
