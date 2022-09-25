@@ -36,9 +36,9 @@ partial class MainForm
     try
     {
       SelectAnalyze.Controls.Clear();
-      EditSentence.Text = "";
-      EditWord.EditGematriaSimple.Text = "";
-      EditWord.EditGematriaFull.Text = "";
+      EditSentence.Text = string.Empty;
+      EditWord.EditGematriaSimple.Text = string.Empty;
+      EditWord.EditGematriaFull.Text = string.Empty;
       const int marginTop = 20;
       const int marginLeft = 5;
       const int marginCombo = 15;
@@ -114,7 +114,7 @@ partial class MainForm
         Left = dummyDelta,
         Width = dummyDelta,
         Top = dy + dummyHeightDelta,
-        Text = ""
+        Text = string.Empty
       };
       SelectAnalyze.Controls.Add(dummy);
       EditWord.EditGematriaSimple.Text = sumSimple.ToString();
