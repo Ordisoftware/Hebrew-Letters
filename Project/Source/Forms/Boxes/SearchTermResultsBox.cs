@@ -28,8 +28,8 @@ partial class SearchTermResultsBox : Form
     static bool contains(List<Meaning> rows, string str)
       => rows.Any(row => row.Text.ToLower().RemoveDiacritics().Contains(str));
     //
-    code = "";
-    meaning = "";
+    code = string.Empty;
+    meaning = string.Empty;
     var query = from letter in ApplicationDatabase.Instance.Letters
                 where letter.Function.ToLower().RemoveDiacritics().Contains(term)
                    || letter.Verb.ToLower().RemoveDiacritics().Contains(term)

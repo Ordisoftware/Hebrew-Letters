@@ -549,16 +549,16 @@ partial class MainForm : Form
   private void EditGematria_TextChanged(object sender, EventArgs e)
   {
     var textbox = sender as TextBox;
-    if ( textbox.Text == "0" ) textbox.Text = "";
+    if ( textbox.Text == "0" ) textbox.Text = string.Empty;
   }
 
   private void EditWord_Cleared(object sender, EventArgs e)
   {
     EditConcordance.Value = EditConcordance.Minimum;
-    EditTranscription.Text = "";
-    EditDictionary.Text = "";
-    EditMemo.Text = "";
-    EditSentence.Text = "";
+    EditTranscription.Text = string.Empty;
+    EditDictionary.Text = string.Empty;
+    EditMemo.Text = string.Empty;
+    EditSentence.Text = string.Empty;
     SelectAnalyze.Controls.Clear();
     UpdateAnalysisControls();
   }
@@ -705,7 +705,7 @@ partial class MainForm : Form
   {
     if ( EditWord.TextBox.Text.Length == 0 ) return;
     using var form = new ShowTextForm(AppTranslations.LettersWordMeaningsList.GetLang(),
-                                      GetMeaningsText().Replace(Globals.NL, Globals.NL2).Replace(" -,", ""),
+                                      GetMeaningsText().Replace(Globals.NL, Globals.NL2).Replace(" -,", string.Empty),
                                       false, true,
                                       MessageBoxEx.DefaultWidthLarge, MessageBoxEx.DefaultHeightLarge);
     form.ShowDialog();
@@ -957,8 +957,8 @@ partial class MainForm : Form
 
   private void ActionAddMeaning_Click(object sender, EventArgs e)
   {
-    string text = "";
-    if ( DisplayManager.QueryValue("", ref text) != InputValueResult.Modified ) return;
+    string text = string.Empty;
+    if ( DisplayManager.QueryValue(string.Empty, ref text) != InputValueResult.Modified ) return;
     var meaning = new Meaning
     {
       ID = Guid.NewGuid().ToString(),
@@ -1133,7 +1133,8 @@ partial class MainForm : Form
   [SuppressMessage("Performance", "U2U1212:Capture intermediate results in lambda expressions", Justification = "N/A")]
   private void ListNotebookWord_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
   {
-    var lettriq = ( (ObjectView<TermLettriq>)ListNotebookSentences[e.ColumnIndex, e.RowIndex].OwningRow.DataBoundItem ).Object;
+    var cell = ListNotebookSentences[e.ColumnIndex, e.RowIndex];
+    var lettriq = ( (ObjectView<TermLettriq>)cell.OwningRow.DataBoundItem ).Object;
     var word = DBHebrew.TermsHebrew.Find(t => t.ID == lettriq.TermID);
     if ( word is null ) return;
     bool b1 = EditWord.TextBox.Text.Length != 0;
