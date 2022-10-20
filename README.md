@@ -180,6 +180,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 ## Future improvements
 
+- Add export analysis as MSWord table.
 - Add option to set primary source for check update between author website or GitHub.
 - Add reset only some columns to factory defaults.
 - Add backup and restore database, meanings and notebook.
