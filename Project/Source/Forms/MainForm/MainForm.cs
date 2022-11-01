@@ -661,7 +661,7 @@ partial class MainForm : Form
       {
         ID = Guid.NewGuid().ToString(),
         Hebrew = hebrew,
-        Unicode = HebrewAlphabet.ToUnicode(hebrew)
+        Unicode = HebrewAlphabet.ToUnicodeChars(hebrew)
       };
       DBHebrew.TermsHebrew.Add(term);
       DBHebrew.Connection.Insert(term);
@@ -750,7 +750,7 @@ partial class MainForm : Form
     string str = EditWord.TextBox.Text;
     if ( EditWord.EditCopyWithFinalLetter.Checked )
       str = HebrewAlphabet.SetFinal(str, true);
-    SaveImageDialog.FileName = HebrewAlphabet.ToUnicode(str);
+    SaveImageDialog.FileName = HebrewAlphabet.ToUnicodeChars(str);
     for ( int index = 0; index < Program.ImageExportTargets.Count; index++ )
       if ( Program.ImageExportTargets.ElementAt(index).Key == Settings.ExportImagePreferredTarget )
         SaveImageDialog.FilterIndex = index + 1;
