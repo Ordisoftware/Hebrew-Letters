@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2021-02 </created>
-/// <edited> 2022-04 </edited>
+/// <edited> 2022-11 </edited>
 namespace Ordisoftware.Hebrew;
 
 public partial class Parashah
@@ -21,8 +21,18 @@ public partial class Parashah
   {
     string result = Name;
     if ( withLinked ) result += GetLinked() is not null ? " - " + GetLinked().Name : string.Empty;
-    if ( withBookAndref ) result += $" ({Book} {VerseBegin})";
+    if ( withBookAndref ) result += $" ({Book} {ToStringOnlyVerses()})";
     return result;
+  }
+
+  public string ToStringOnlyBookAndFullRef()
+  {
+    return $"{Book} {ToStringOnlyVerses()}";
+  }
+
+  private string ToStringOnlyVerses()
+  {
+    return VerseBegin + " - " + ( IsLinkedToNext ? GetLinked().VerseEnd : VerseEnd );
   }
 
   public override string ToString()
