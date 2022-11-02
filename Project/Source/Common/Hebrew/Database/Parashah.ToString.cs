@@ -17,16 +17,12 @@ namespace Ordisoftware.Hebrew;
 public partial class Parashah
 {
 
-  static public string DisplayName => HebrewDatabase.HebrewNamesInUnicode ? "פרשה" : "Parashah";
-
-  static public string ShabatDisplayName => HebrewDatabase.HebrewNamesInUnicode ? "שבת" : "Shabat";
-
-  public string GetDisplayText() => HebrewDatabase.HebrewNamesInUnicode ? Unicode : Name;
+  public string GetNameDisplayText() => HebrewDatabase.HebrewNamesInUnicode ? Unicode : Name;
 
   public string ToStringShort(bool withBookAndref, bool withLinked)
   {
-    string result = GetDisplayText();
-    if ( withLinked ) result += GetLinked() is not null ? " - " + GetLinked().GetDisplayText() : string.Empty;
+    string result = GetNameDisplayText();
+    if ( withLinked ) result += GetLinked() is not null ? " - " + GetLinked().GetNameDisplayText() : string.Empty;
     if ( withBookAndref )
       result += $" ({ToStringBookAndReferences()})";
     return result;
@@ -34,26 +30,29 @@ public partial class Parashah
 
   public string ToStringBookAndReferences()
   {
+    string refText = ToStringReferenceBegin() + " - " + ToStringReferenceEnd();
     return HebrewDatabase.HebrewNamesInUnicode
-      ? $"{BookInfos.Unicode[(TanakBook)Book]} : {GetUnicodeVerses()}"
-      : $"{Book} {GetLatinVerses()}";
+      ? $"{BookInfos.Unicode[(TanakBook)Book]} : {refText}"
+      : $"{Book} {refText}";
   }
 
-  private string GetUnicodeVerses()
+  public string ToStringReferenceBegin()
   {
-    string result = HebrewAlphabet.IntToUnicode(ChapterBegin);
-    result += ".";
-    result += HebrewAlphabet.IntToUnicode(VerseBegin);
-    result += " - ";
-    result += HebrewAlphabet.IntToUnicode(ChapterEnd);
-    result += ".";
-    result += HebrewAlphabet.IntToUnicode(VerseEnd);
-    return result;
+    return HebrewDatabase.ArabicNumeralReferences
+      ? ChapterAndVerseBegin
+      : HebrewAlphabet.IntToUnicode(ChapterBegin) + "." + HebrewAlphabet.IntToUnicode(VerseBegin);
   }
 
-  private string GetLatinVerses()
+  public string ToStringReferenceEnd()
   {
-    return ChapterAndVerseBegin + " - " + ( IsLinkedToNext ? GetLinked().ChapterAndVerseEnd : ChapterAndVerseEnd );
+    if ( HebrewDatabase.ArabicNumeralReferences )
+      return IsLinkedToNext ? GetLinked().ChapterAndVerseEnd : ChapterAndVerseEnd;
+    else
+    {
+      int chapterEnd = IsLinkedToNext ? GetLinked().ChapterEnd : ChapterEnd;
+      int verseEnd = IsLinkedToNext ? GetLinked().VerseEnd : VerseEnd;
+      return HebrewAlphabet.IntToUnicode(chapterEnd) + "." + HebrewAlphabet.IntToUnicode(verseEnd);
+    }
   }
 
   public override string ToString()
