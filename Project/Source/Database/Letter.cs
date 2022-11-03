@@ -51,7 +51,7 @@ public class Letter : INotifyPropertyChanged
   [NotNull]
   public string Name // Obsolete: Value comes from a dictionary.
   {
-    get => HebrewTranslations.LettersTranscriptionFromCodes.GetLang(_Code);
+    get => HebrewAlphabet.TranscriptionFromCodes.GetLang(_Code);
     set
     {
       if ( _Name == value ) return;
