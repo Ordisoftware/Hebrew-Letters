@@ -20,6 +20,9 @@ partial class HebrewDatabase : SQLiteDatabase
   static public HebrewDatabase Instance { get; protected set; }
 
   static public bool HebrewNamesInUnicode { get; set; }
+  static public bool ArabicNumeralReferences { get; set; }
+
+  static private bool IsParashotUpgradedV10;
 
   static HebrewDatabase()
   {
@@ -80,6 +83,16 @@ partial class HebrewDatabase : SQLiteDatabase
     const string table = "ProcessLocks";
     if ( Connection.CheckTable(table) && Globals.ConcurrentRunningProcesses.Any() )
       Connection.DropTableIfExists(table);
+
+    if ( !Connection.CheckColumn(nameof(Parashot), "ReferenceBegin", "TEXT", "''", true) )
+    {
+      Connection.CheckColumn(nameof(Parashot), "ReferenceEnd", "TEXT", "''", true);
+      Connection.CheckColumn(nameof(Parashot), "FirstChapter", "INTEGER", "0", true);
+      Connection.CheckColumn(nameof(Parashot), "FirstVerse", "INTEGER", "0", true);
+      Connection.CheckColumn(nameof(Parashot), "LastChapter", "INTEGER", "0", true);
+      Connection.CheckColumn(nameof(Parashot), "LastVerse", "INTEGER", "0", true);
+      IsParashotUpgradedV10 = true;
+    }
   }
 
 }

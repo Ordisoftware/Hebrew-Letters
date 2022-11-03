@@ -161,7 +161,7 @@ class ApplicationDatabase : SQLiteDatabase
           var rowLetter = new Letter
           {
             Code = HebrewAlphabet.KeyCodes[index],
-            Name = HebrewTranslations.LettersTranscription.GetLang()[index],
+            Name = HebrewAlphabet.Transcriptions.GetLang()[index],
             Hebrew = HebrewAlphabet.Hebrew[index],
             ValueSimple = getIntValue("ValueSimple: "),
             ValueFull = getIntValue("ValueFull: "),
