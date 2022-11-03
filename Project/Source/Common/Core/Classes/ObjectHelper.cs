@@ -21,9 +21,8 @@ static class ObjectHelper
 {
 
   /// <summary>
-  /// Gets an IEnumerable<typeparamref name="T"/> from a ComboBox.Items collection.
+  /// Gets an IEnumerable<typeparamref name="ListViewItem"/> from a ListView.ListViewItemCollection collection.
   /// </summary>
-  /// <typeparam name="T">Generic type parameter.</typeparam>
   /// <param name="collection">The collection.</param>
   static public IEnumerable<ListViewItem> AsIEnumerable(this ListView.ListViewItemCollection collection)
   {
