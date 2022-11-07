@@ -21,12 +21,23 @@ static class ObjectHelper
 {
 
   /// <summary>
-  /// Gets an IEnumerable<typeparamref name="ListViewItem"/> from a ListView.ListViewItemCollection collection.
+  /// Gets an IEnumerable&lt;ListViewItem&gt; from a ListView.ListViewItemCollection collection.
   /// </summary>
   /// <param name="collection">The collection.</param>
   static public IEnumerable<ListViewItem> AsIEnumerable(this ListView.ListViewItemCollection collection)
   {
     foreach ( ListViewItem item in collection )
+      yield return item;
+  }
+
+  /// <summary>
+  /// Gets an IEnumerable<typeparamref name="T"/> from a ListBox.Items collection.
+  /// </summary>
+  /// <typeparam name="T">Generic type parameter.</typeparam>
+  /// <param name="collection">The collection.</param>
+  static public IEnumerable<T> AsIEnumerable<T>(this ListBox.ObjectCollection collection)
+  {
+    foreach ( T item in collection )
       yield return item;
   }
 
@@ -71,6 +82,22 @@ static class ObjectHelper
     {
       return default;
     }
+  }
+
+  /// <summary>
+  /// Indicates if value is between min and max.
+  /// </summary>
+  static public bool IsInRange(this int value, int min, int max)
+  {
+    return value >= min && value <= max;
+  }
+
+  /// <summary>
+  /// Indicates if an index is in the range of a list.
+  /// </summary>
+  static public bool IsValidIndex(this IList list, int index)
+  {
+    return index >= 0 && index < list.Count;
   }
 
   /// <summary>

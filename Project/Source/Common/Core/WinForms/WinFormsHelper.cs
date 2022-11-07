@@ -14,6 +14,8 @@
 /// <edited> 2022-05 </edited>
 namespace Ordisoftware.Core;
 
+using System.Drawing.Text;
+
 /// <summary>
 /// Provides a solid brushes buffer.
 /// </summary>
@@ -71,6 +73,12 @@ static public class PensPool
 /// </summary>
 static class FormsHelper
 {
+
+  [SuppressMessage("IDisposableAnalyzers.Correctness", "IDISP004:Don't ignore created IDisposable", Justification = "N/A")]
+  static public readonly List<FontFamily> InstalledFonts
+    = new InstalledFontCollection().Families
+                                   .OrderBy(font => font.Name)
+                                   .ToList();
 
   /// <summary>
   /// Applies localized resources.
@@ -339,6 +347,36 @@ static class FormsHelper
     form.TopMost = true;
     form.BringToFront();
     form.TopMost = temp;
+  }
+
+  /// <summary>
+  /// Loads fonts names into a combo box.
+  /// </summary>
+  [SuppressMessage("Performance", "U2U1017:Initialized locals should be used", Justification = "Analysis error")]
+  [SuppressMessage("Minor Code Smell", "S3267:Loops should be simplified with \"LINQ\" expressions", Justification = "N/A")]
+  static public void LoadFonts(this ComboBox control, string nameSelected, Func<FontFamily, bool> filter = null)
+  {
+    foreach ( var font in filter is null ? InstalledFonts : InstalledFonts.Where(filter) )
+    {
+      int index = control.Items.Add(font.Name);
+      if ( font.Name == nameSelected )
+        control.SelectedIndex = index;
+    }
+  }
+
+  /// <summary>
+  /// Loads fonts names into a list box.
+  /// </summary>
+  [SuppressMessage("Performance", "U2U1017:Initialized locals should be used", Justification = "Analysis error")]
+  [SuppressMessage("Minor Code Smell", "S3267:Loops should be simplified with \"LINQ\" expressions", Justification = "N/A")]
+  static public void LoadFonts(this ListBox control, string nameSelected, Func<FontFamily, bool> filter = null)
+  {
+    foreach ( var font in filter is null ? InstalledFonts : InstalledFonts.Where(filter) )
+    {
+      int index = control.Items.Add(font.Name);
+      if ( font.Name == nameSelected )
+        control.SelectedIndex = index;
+    }
   }
 
   /// <summary>
