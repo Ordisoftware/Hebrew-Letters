@@ -25,42 +25,6 @@ partial class MainForm
   private int SavedSelectionLength;
   private bool ViewNotebookFirstTime = true;
 
-  private Dictionary<ViewMode, ViewConnectorButton> ViewConnectors;
-
-  private void InitializeViewConnectors()
-  {
-    ViewConnectors = new Dictionary<ViewMode, ViewConnectorButton>
-    {
-      {
-        ViewMode.Analysis,
-        new ViewConnectorButton
-        {
-          Button = ActionViewAnalysis,
-          Panel = PanelViewAnalysis,
-          Focused = EditWord
-        }
-      },
-      {
-        ViewMode.Letters,
-        new ViewConnectorButton
-        {
-          Button = ActionViewLetters,
-          Panel = PanelLettersInner,
-          Focused = EditMeanings
-        }
-      },
-      {
-        ViewMode.Notebook,
-        new ViewConnectorButton
-        {
-          Button = ActionViewNotebook,
-          Panel = PanelViewNotebook,
-          Focused = PanelViewNotebook
-        }
-      }
-    };
-  }
-
   /// <summary>
   /// Sets the view panel.
   /// </summary>
@@ -71,9 +35,9 @@ partial class MainForm
     if ( Settings.CurrentView == view && !first ) return;
     if ( Settings.CurrentView == ViewMode.Letters )
       ViewConnectors[Settings.CurrentView].Focused.Focus();
-    ViewConnectors[Settings.CurrentView].Button.Checked = false;
+    ViewConnectors[Settings.CurrentView].Component.Checked = false;
     ViewConnectors[Settings.CurrentView].Panel.Parent = null;
-    ViewConnectors[view].Button.Checked = true;
+    ViewConnectors[view].Component.Checked = true;
     ViewConnectors[view].Panel.Parent = PanelMainCenter;
     ViewConnectors[view].Focused.Focus();
     Settings.CurrentView = view;
