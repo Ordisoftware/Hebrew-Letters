@@ -45,7 +45,7 @@ partial class MainForm
     CommonMenusControl.Instance.ActionViewLog.Enabled = DebugManager.TraceEnabled;
     ActionWebLinks.Visible = Settings.WebLinksMenuEnabled;
     if ( Settings.WebLinksMenuEnabled )
-      ActionWebLinks.InitializeFromWebLinks(InitializeSpecialMenus);
+      ActionWebLinks.CreateWebLinks(InitializeSpecialMenus);
   }
 
   static private readonly Image HebrewWordsIcon = CreateImage("hebrew_words16.ico");
@@ -68,7 +68,7 @@ partial class MainForm
   /// </summary>
   private void CreateProvidersLinks()
   {
-    EditWord.ContextMenuSearchOnline.InitializeFromProviders(HebrewGlobals.WebProvidersWord,
+    EditWord.ContextMenuSearchOnline.Initialize(HebrewGlobals.WebProvidersWord,
       (sender, e) =>
       {
         var menuitem = (ToolStripMenuItem)sender;
@@ -83,7 +83,7 @@ partial class MainForm
           EditWord.ContextMenuSearchOnline.Items.Add(new ToolStripSeparator());
         EditWord.ContextMenuSearchOnline.Items.Add(menuitem);
       });
-    ContextMenuOpenConcordance.InitializeFromProviders(HebrewGlobals.WebProvidersConcordance, (sender, e) =>
+    ContextMenuOpenConcordance.Initialize(HebrewGlobals.WebProvidersConcordance, (sender, e) =>
     {
       if ( sender is not ToolStripMenuItem menuitem ) return;
       if ( ( menuitem.GetCurrentParent() as ContextMenuStrip )?.SourceControl is not Button owner ) return;

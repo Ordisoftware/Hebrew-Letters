@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2022-03 </edited>
+/// <edited> 2022-11 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 /// <summary>
@@ -21,32 +21,45 @@ namespace Ordisoftware.Hebrew.Letters;
 partial class MainForm
 {
 
-  /// <summary>
-  /// Provides view connector.
-  /// </summary>
-  private sealed class ViewConnector
-  {
-
-    /// <summary>
-    /// The menu item.
-    /// </summary>
-    public ToolStripButton MenuItem;
-
-    /// <summary>
-    /// The panel.
-    /// </summary>
-    public Panel Panel;
-
-    /// <summary>
-    /// The focused control.
-    /// </summary>
-    public Control Focused;
-
-  }
-
   private int SavedSelectionStart;
   private int SavedSelectionLength;
   private bool ViewNotebookFirstTime = true;
+
+  private Dictionary<ViewMode, ViewConnectorButton> ViewConnectors;
+
+  private void InitializeViewConnectors()
+  {
+    ViewConnectors = new Dictionary<ViewMode, ViewConnectorButton>
+    {
+      {
+        ViewMode.Analysis,
+        new ViewConnectorButton
+        {
+          Button = ActionViewAnalysis,
+          Panel = PanelViewAnalysis,
+          Focused = EditWord
+        }
+      },
+      {
+        ViewMode.Letters,
+        new ViewConnectorButton
+        {
+          Button = ActionViewLetters,
+          Panel = PanelLettersInner,
+          Focused = EditMeanings
+        }
+      },
+      {
+        ViewMode.Notebook,
+        new ViewConnectorButton
+        {
+          Button = ActionViewNotebook,
+          Panel = PanelViewNotebook,
+          Focused = PanelViewNotebook
+        }
+      }
+    };
+  }
 
   /// <summary>
   /// Sets the view panel.
@@ -55,44 +68,14 @@ partial class MainForm
   /// <param name="first">true to first.</param>
   public void SetView(ViewMode view, bool first = false)
   {
-    var viewPanels = new Dictionary<ViewMode, ViewConnector>
-    {
-      {
-        ViewMode.Analysis,
-        new ViewConnector
-        {
-          MenuItem = ActionViewAnalysis,
-          Panel = PanelViewAnalysis,
-          Focused = EditWord
-        }
-      },
-      {
-        ViewMode.Letters,
-        new ViewConnector
-        {
-          MenuItem = ActionViewLetters,
-          Panel = PanelLettersInner,
-          Focused = EditMeanings
-        }
-      },
-      {
-        ViewMode.Notebook,
-        new ViewConnector
-        {
-          MenuItem = ActionViewNotebook,
-          Panel = PanelViewNotebook,
-          Focused = PanelViewNotebook
-        }
-      }
-    };
     if ( Settings.CurrentView == view && !first ) return;
     if ( Settings.CurrentView == ViewMode.Letters )
-      viewPanels[Settings.CurrentView].Focused.Focus();
-    viewPanels[Settings.CurrentView].MenuItem.Checked = false;
-    viewPanels[Settings.CurrentView].Panel.Parent = null;
-    viewPanels[view].MenuItem.Checked = true;
-    viewPanels[view].Panel.Parent = PanelMainCenter;
-    viewPanels[view].Focused.Focus();
+      ViewConnectors[Settings.CurrentView].Focused.Focus();
+    ViewConnectors[Settings.CurrentView].Button.Checked = false;
+    ViewConnectors[Settings.CurrentView].Panel.Parent = null;
+    ViewConnectors[view].Button.Checked = true;
+    ViewConnectors[view].Panel.Parent = PanelMainCenter;
+    ViewConnectors[view].Focused.Focus();
     Settings.CurrentView = view;
     LabelCurrentView.Text = AppTranslations.CurrentViewText[view].GetLang();
     if ( view == ViewMode.Analysis )
