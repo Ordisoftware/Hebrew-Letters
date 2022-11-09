@@ -45,10 +45,9 @@ static partial class OnlineBookInfos
       { "%VERSENUM#2%", verse.ToString("00") },
       { "%VERSENUM%", verse.ToString() }
     };
-    foreach ( var item in dispatch )
-      if ( pattern.Contains(item.Key) )
-        pattern = pattern.Replace(item.Key, item.Value);
-    if ( pattern.Contains("%") )
+    foreach ( var item in dispatch.Where(item => pattern.Contains(item.Key)) )
+      pattern = pattern.Replace(item.Key, item.Value);
+    if ( pattern.IndexOf('%') >= 0 )
     {
       var uri = new Uri(pattern);
       new UriBuilder(uri.Scheme, uri.Host).ToString();

@@ -30,6 +30,7 @@ partial class MainForm
   {
     DoubleBuffered = Settings.WindowsDoubleBufferingEnabled;
     Interlocks.Take();
+    InitializeViewConnectors();
     new Task(InitializeIconsAndSound).Start();
     new Task(InitializeDialogsDirectory).Start();
     SystemManager.TryCatch(() => Icon = new Icon(Globals.ApplicationIconFilePath));
