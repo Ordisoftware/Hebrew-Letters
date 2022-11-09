@@ -29,7 +29,7 @@ partial class MainForm
     {
       {
         ViewMode.Analysis,
-        new ViewConnector<ViewMode, ToolStripButton>
+        new ViewConnector<ToolStripButton>
         {
           Component = ActionViewAnalysis,
           Panel = PanelViewAnalysis,
@@ -38,7 +38,7 @@ partial class MainForm
       },
       {
         ViewMode.Letters,
-        new ViewConnector<ViewMode, ToolStripButton>
+        new ViewConnector<ToolStripButton>
         {
           Component = ActionViewLetters,
           Panel = PanelLettersInner,
@@ -47,7 +47,7 @@ partial class MainForm
       },
       {
         ViewMode.Notebook,
-        new ViewConnector<ViewMode, ToolStripButton>
+        new ViewConnector<ToolStripButton>
         {
           Component = ActionViewNotebook,
           Panel = PanelViewNotebook,
