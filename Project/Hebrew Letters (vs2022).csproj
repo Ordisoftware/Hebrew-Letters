@@ -113,21 +113,27 @@
     </Compile>
     <Compile Include="Dependencies\Windows Global Hotkey\HotkeyManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Source\Common\Core\Classes\CollectionsHelper.cs" />
     <Compile Include="Source\Common\Core\Classes\CompilerHelper.cs" />
     <Compile Include="Source\Common\Core\Classes\CustomColor.cs" />
-    <Compile Include="Source\Common\Core\Data\SQLiteDate.Enums.cs" />
-    <Compile Include="Source\Common\Core\Data\SQLiteDate.Separators.cs" />
-    <Compile Include="Source\Common\Core\Data\SQLiteDate.Settings.cs" />
-    <Compile Include="Source\Common\Core\Debug\Chronometer.cs" />
     <Compile Include="Source\Common\Core\Classes\EnumHelper.cs" />
     <Compile Include="Source\Common\Core\Classes\ExportHelper.cs" />
     <Compile Include="Source\Common\Core\Classes\ObjectHelper.cs" />
     <Compile Include="Source\Common\Core\Classes\StackMethods.cs" />
     <Compile Include="Source\Common\Core\Classes\StringHelper.cs" />
     <Compile Include="Source\Common\Core\Classes\StringHelper.Format.cs" />
+    <Compile Include="Source\Common\Core\Classes\StringHelper.Indent.cs" />
+    <Compile Include="Source\Common\Core\Classes\StringHelper.Join.cs" />
+    <Compile Include="Source\Common\Core\Classes\StringHelper.Multi.cs" />
+    <Compile Include="Source\Common\Core\Classes\StringHelper.Raw.cs" />
+    <Compile Include="Source\Common\Core\Classes\StringHelper.Sanitize.cs" />
+    <Compile Include="Source\Common\Core\Classes\StringHelper.Split.cs" />
+    <Compile Include="Source\Common\Core\Classes\StringHelper.Trim.cs" />
     <Compile Include="Source\Common\Core\Classes\WebCheckUpdate.cs" />
+    <Compile Include="Source\Common\Core\Classes\WebClientEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Source\Common\Core\Collections\AutoResizedList.cs" />
-    <Compile Include="Source\Common\Core\Collections\CollectionsHelper.cs" />
     <Compile Include="Source\Common\Core\Collections\NullSafeDictionary.cs" />
     <Compile Include="Source\Common\Core\Collections\NullSafeList.cs" />
     <Compile Include="Source\Common\Core\Collections\NullSafeOfEnumDictionary.cs" />
@@ -139,12 +145,17 @@
     <Compile Include="Source\Common\Core\Data\DataTableHelper.cs" />
     <Compile Include="Source\Common\Core\Data\SQLiteDatabase.cs" />
     <Compile Include="Source\Common\Core\Data\SQLiteDate.cs" />
+    <Compile Include="Source\Common\Core\Data\SQLiteDate.Enums.cs" />
+    <Compile Include="Source\Common\Core\Data\SQLiteDate.Separators.cs" />
+    <Compile Include="Source\Common\Core\Data\SQLiteDate.Settings.cs" />
     <Compile Include="Source\Common\Core\Data\SQLiteNetORM.cs" />
+    <Compile Include="Source\Common\Core\Debug\Chronometer.cs" />
     <Compile Include="Source\Common\Core\Debug\DebugManager.cs" />
     <Compile Include="Source\Common\Core\Debug\DebugManager.Delegates.cs" />
     <Compile Include="Source\Common\Core\Debug\DebugManager.Trace.cs" />
     <Compile Include="Source\Common\Core\Display\AutoMenu.cs" />
-    <Compile Include="Source\Common\Core\Display\AutoMenu.Test.cs" />
+    <Compile Include="Source\Common\Core\Display\AutoMenuManager.cs" />
+    <Compile Include="Source\Common\Core\Display\AutoMenuManager.Test.cs" />
     <Compile Include="Source\Common\Core\Display\DisplayManager.cs" />
     <Compile Include="Source\Common\Core\Display\DisplayManager.Query.cs" />
     <Compile Include="Source\Common\Core\Display\DisplayManager.QueryValue.cs" />
@@ -163,9 +174,10 @@
     <Compile Include="Source\Common\Core\Enums\ShowExceptionMode.cs" />
     <Compile Include="Source\Common\Core\Enums\SoundSource.cs" />
     <Compile Include="Source\Common\Core\Enums\TraceFileRollOverMode.cs" />
+    <Compile Include="Source\Common\Core\Enums\WebUpdateSelection.cs" />
     <Compile Include="Source\Common\Core\Exceptions\AbortException.cs" />
-    <Compile Include="Source\Common\Core\Exceptions\ExceptionInfo.cs" />
     <Compile Include="Source\Common\Core\Exceptions\AdvNotImplementedException.cs" />
+    <Compile Include="Source\Common\Core\Exceptions\ExceptionInfo.cs" />
     <Compile Include="Source\Common\Core\Exceptions\SQLiteException.cs" />
     <Compile Include="Source\Common\Core\Globalization\Languages.cs" />
     <Compile Include="Source\Common\Core\Globalization\Localizer.cs" />
@@ -177,14 +189,15 @@
     <Compile Include="Source\Common\Core\Globalization\SysTranslations.Processing.cs" />
     <Compile Include="Source\Common\Core\Globalization\SysTranslations.Settings.cs" />
     <Compile Include="Source\Common\Core\Globalization\SysTranslations.WebUpdate.cs" />
-    <Compile Include="Source\Common\Core\Globals\GlobalSuppressions.cs" />
     <Compile Include="Source\Common\Core\Globals\Globals.Assembly.cs" />
     <Compile Include="Source\Common\Core\Globals\Globals.cs" />
     <Compile Include="Source\Common\Core\Globals\Globals.Files.cs" />
     <Compile Include="Source\Common\Core\Globals\Globals.Folders.cs" />
+    <Compile Include="Source\Common\Core\Globals\Globals.Process.cs" />
     <Compile Include="Source\Common\Core\Globals\Globals.Providers.cs" />
     <Compile Include="Source\Common\Core\Globals\Globals.State.cs" />
     <Compile Include="Source\Common\Core\Globals\Globals.Trace.cs" />
+    <Compile Include="Source\Common\Core\Globals\GlobalSuppressions.cs" />
     <Compile Include="Source\Common\Core\Globals\GlobalUsings.cs" />
     <Compile Include="Source\Common\Core\Providers\OnlineProviderItem.cs" />
     <Compile Include="Source\Common\Core\Providers\OnlineProviders.cs" />
@@ -243,6 +256,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Source\Common\Core\WinControls\ToolStripMenuItemHelper.cs" />
+    <Compile Include="Source\Common\Core\WinControls\ViewConnector.cs" />
     <Compile Include="Source\Common\Core\WinForms\AboutBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -267,7 +281,6 @@
     <Compile Include="Source\Common\Core\WinForms\ExceptionForm.designer.cs">
       <DependentUpon>ExceptionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Source\Common\Core\WinForms\WinFormsHelper.cs" />
     <Compile Include="Source\Common\Core\WinForms\HTMLBrowserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -310,6 +323,7 @@
     <Compile Include="Source\Common\Core\WinForms\WebUpdateForm.Designer.cs">
       <DependentUpon>WebUpdateForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Source\Common\Core\WinForms\WinFormsHelper.cs" />
     <Compile Include="Source\Common\Hebrew\Classes\HebrewAlphabet.cs" />
     <Compile Include="Source\Common\Hebrew\Classes\HebrewGlobals.cs" />
     <Compile Include="Source\Common\Hebrew\Classes\HebrewGlobals.Providers.cs" />
@@ -427,7 +441,6 @@
     <Compile Include="Source\Forms\MainForm\MainForm.Vars.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Source\Common\Core\WinControls\ViewConnector.cs" />
     <Compile Include="Source\Program\ApplicationStatistics.cs" />
     <Compile Include="Source\Program\AppTranslations.News.cs" />
     <Compile Include="Source\Program\AppTranslations.Keys.cs" />
@@ -486,7 +499,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Common\Core\WinForms\AboutBox.fr.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Common\Core\WinForms\AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
@@ -700,7 +712,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Meziantou.Analyzer">
-      <Version>1.0.744</Version>
+      <Version>1.0.746</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
@@ -710,7 +722,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Threading.Analyzers">
-      <Version>17.3.48</Version>
+      <Version>17.4.27</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>

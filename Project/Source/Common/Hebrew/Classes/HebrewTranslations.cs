@@ -17,7 +17,7 @@ namespace Ordisoftware.Hebrew;
 /// <summary>
 /// Localization strings.
 /// </summary>
-static partial class HebrewTranslations
+static public partial class HebrewTranslations
 {
 
   static public readonly TranslationsDictionary TranscriptionGuideTitle = new()
@@ -142,7 +142,7 @@ static partial class HebrewTranslations
       [Language.EN] = "Sukot",
       [Language.FR] = "Soukot"
     },
-    // TODO check and uncomment when ready
+    // TODO when ready : check and uncomment 
     //Tevet10,
     //TouBichvat,
     //Hanouka,

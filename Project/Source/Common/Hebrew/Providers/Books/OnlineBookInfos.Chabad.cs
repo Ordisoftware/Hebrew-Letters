@@ -14,10 +14,10 @@
 /// <edited> 2019-09 </edited>
 namespace Ordisoftware.Hebrew;
 
-static partial class OnlineBookInfos
+static public partial class OnlineBookInfos
 {
 
-  // TODO Need to take each chapter number from the web site (for french AND english ?)
+  // TODO need to take each chapter number from the web site for french AND english
 
   static public readonly Dictionary<TanakBook, int> Chabad = new()
   {
