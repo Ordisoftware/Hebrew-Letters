@@ -268,7 +268,7 @@ partial class MainForm : Form
   /// <param name="e">Event information.</param>
   private void ActionShowKeyboardNotice_Click(object sender, EventArgs e)
   {
-    Globals.NoticeKeyboardShortcutsForm?.Popup();
+    Globals.KeyboardShortcutsNotice?.Popup();
   }
 
   /// <summary>
