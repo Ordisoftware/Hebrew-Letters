@@ -17,6 +17,7 @@ namespace Ordisoftware.Hebrew.Letters;
 using System.Configuration;
 using System.Xml.Linq;
 using System.Xml.XPath;
+using MoreLinq;
 
 partial class PreferencesForm : Form
 {
