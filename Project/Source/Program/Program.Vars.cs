@@ -14,6 +14,8 @@
 /// <edited> 2022-04 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
+using MoreLinq;
+
 /// <summary>
 /// Provides Program class.
 /// </summary>

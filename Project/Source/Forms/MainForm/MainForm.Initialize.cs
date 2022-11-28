@@ -15,6 +15,7 @@
 namespace Ordisoftware.Hebrew.Letters;
 
 using Microsoft.Win32;
+using MoreLinq;
 
 /// <summary>
 /// The application's main form.

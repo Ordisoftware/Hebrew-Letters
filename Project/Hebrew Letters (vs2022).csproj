@@ -499,6 +499,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Common\Core\WinForms\AboutBox.fr.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Source\Common\Core\WinForms\AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
@@ -652,7 +653,7 @@
       <Version>2.9.1</Version>
     </PackageReference>
     <PackageReference Include="Enums.NET">
-      <Version>4.0.0</Version>
+      <Version>4.0.1</Version>
     </PackageReference>
     <PackageReference Include="Equin.ApplicationFramework.BindingListView">
       <Version>1.4.5222.35545</Version>
@@ -678,7 +679,7 @@
       <Version>3.3.2</Version>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
-      <Version>13.0.1</Version>
+      <Version>13.0.2</Version>
     </PackageReference>
     <PackageReference Include="Serilog">
       <Version>2.12.0</Version>
@@ -712,7 +713,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Meziantou.Analyzer">
-      <Version>1.0.746</Version>
+      <Version>1.0.756</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
