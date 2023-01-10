@@ -951,7 +951,7 @@
     <value>NoControl</value>
   </data>
   <data name="LabelCondordanceRoot.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-2, 60</value>
+    <value>-2, 65</value>
   </data>
   <data name="LabelCondordanceRoot.Size" type="System.Drawing.Size, System.Drawing">
     <value>30, 13</value>
