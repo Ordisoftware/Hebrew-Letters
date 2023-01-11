@@ -394,6 +394,7 @@
       <DependentUpon>CelebrationVersesBoardForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Source\Database\ApplicationDatabase.cs" />
+    <Compile Include="Source\Database\AbstractRow.cs" />
     <Compile Include="Source\Database\Letter.cs" />
     <Compile Include="Source\Database\Meaning.cs" />
     <Compile Include="Source\Forms\Boxes\SearchTermResultsBox.cs">
