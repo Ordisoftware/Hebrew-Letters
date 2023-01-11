@@ -205,7 +205,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Add an option to display a warning when selecting the meaning of a letter while the sentence has been changed.
 - Use a dedicated folder in application's document folder for exports and imports settings and themes.
 - Improve web update checker security.
-- Improve IPC interop security.
+- Improve IPC interoperability security.
 - Update some nuget dependencies.
 - Update web links.
 
