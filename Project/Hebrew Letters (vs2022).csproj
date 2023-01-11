@@ -441,13 +441,15 @@
     <Compile Include="Source\Forms\MainForm\MainForm.Vars.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Source\Program\ApplicationStatistics.cs" />
-    <Compile Include="Source\Program\AppTranslations.News.cs" />
-    <Compile Include="Source\Program\AppTranslations.Keys.cs" />
-    <Compile Include="Source\Program\AppTranslations.cs" />
-    <Compile Include="Source\Program\ApplicationCommandLine.cs" />
+    <Compile Include="Source\Program\System\ApplicationStatistics.cs" />
+    <Compile Include="Source\Program\Translations\AppTranslations.News.cs" />
+    <Compile Include="Source\Program\Translations\AppTranslations.Keys.cs" />
+    <Compile Include="Source\Program\Translations\AppTranslations.cs" />
+    <Compile Include="Source\Program\System\ApplicationCommandLine.cs" />
     <Compile Include="Source\Program\Program.Guides.cs" />
-    <Compile Include="Source\Program\SettingsHelper.cs" />
+    <Compile Include="Source\Program\Program.Interop.cs" />
+    <Compile Include="Source\Program\Program.Localization.cs" />
+    <Compile Include="Source\Program\System\SettingsHelper.cs" />
     <Compile Include="Source\Forms\MainForm\ViewMode.cs" />
     <Compile Include="Source\Forms\MainForm\MainForm.Analyse.cs">
       <SubType>Form</SubType>
