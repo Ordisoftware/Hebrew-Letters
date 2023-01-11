@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Hebrew Letters.
-/// Copyright 2016-2022 Olivier Rogier.
+/// Copyright 2016-2023 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -217,6 +217,15 @@ partial class MainForm : Form
   /// <param name="e">Event information.</param>
   private void ActionPreferences_Click(object sender, EventArgs e)
   {
+    if ( ActionSaveTermLettriq.Enabled )
+      switch ( DisplayManager.QueryYesNoCancel(AppTranslations.AskToSaveLettriq.GetLang(HebrewAlphabet.ToUnicodeChars(EditWord.InputText))) )
+      {
+        case DialogResult.Yes:
+          ActionSaveTermLettriq.PerformClick();
+          break;
+        case DialogResult.Cancel:
+          return;
+      }
     bool temp = Globals.IsReadOnly;
     try
     {

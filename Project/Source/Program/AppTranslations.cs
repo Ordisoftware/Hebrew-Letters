@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Hebrew Letters.
-/// Copyright 2012-2022 Olivier Rogier.
+/// Copyright 2012-2023 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2021-12 </edited>
+/// <edited> 2023-01 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 /// <summary>
@@ -51,5 +51,10 @@ static partial class AppTranslations
     },
   };
 
+  static public readonly TranslationsDictionary AskToSaveLettriq = new()
+  {
+    [Language.EN] = "Save current analysis for {}?",
+    [Language.FR] = "Sauver l'analyse en cours pour {0} ?"
+  };
 
 }
