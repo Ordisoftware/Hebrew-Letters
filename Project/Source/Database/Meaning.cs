@@ -11,22 +11,35 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2021-05 </created>
-/// <edited> 2022-03 </edited>
+/// <edited> 2023-01 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 using SQLite;
 
 [Serializable]
-public class MeaningNoID : INotifyPropertyChanged
+[Table("Meanings")]
+public class Meaning : MeaningNoID
 {
 
-  [field: NonSerialized]
-  public event PropertyChangedEventHandler PropertyChanged;
-
-  protected void NotifyPropertyChanged(string property)
+  [PrimaryKey]
+  [NotNull]
+  public string ID
   {
-    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
+    get => _ID;
+    set
+    {
+      if ( _ID == value ) return;
+      _ID = value;
+      NotifyPropertyChanged(nameof(ID));
+    }
   }
+  private string _ID;
+
+}
+
+[Serializable]
+public class MeaningNoID : AbstractRow
+{
 
   [NotNull]
   public string LetterCode
@@ -54,26 +67,5 @@ public class MeaningNoID : INotifyPropertyChanged
     }
   }
   private string _Text;
-
-}
-
-[Serializable]
-[Table("Meanings")]
-public class Meaning : MeaningNoID
-{
-
-  [PrimaryKey]
-  [NotNull]
-  public string ID
-  {
-    get => _ID;
-    set
-    {
-      if ( _ID == value ) return;
-      _ID = value;
-      NotifyPropertyChanged(nameof(ID));
-    }
-  }
-  private string _ID;
 
 }

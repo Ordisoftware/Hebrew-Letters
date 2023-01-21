@@ -11,27 +11,15 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2021-05 </created>
-/// <edited> 2022-05 </edited>
+/// <edited> 2023-01 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
-using System;
-using System.Linq;
-using System.Collections.Generic;
-using System.ComponentModel;
 using SQLite;
 
 [Serializable]
 [Table("Letters")]
-public class Letter : INotifyPropertyChanged
+public class Letter : AbstractRow
 {
-
-  [field: NonSerialized]
-  public event PropertyChangedEventHandler PropertyChanged;
-
-  protected void NotifyPropertyChanged(string property)
-  {
-    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
-  }
 
   [PrimaryKey]
   [NotNull]
