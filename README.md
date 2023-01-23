@@ -207,7 +207,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Improve web update checker security.
 - Improve IPC interoperability security.
 - Update some nuget dependencies.
-- Update web links.
+- Update web links with many sites and study menu items.
 
 #### 2022.06.21 - Version 6.14
 
