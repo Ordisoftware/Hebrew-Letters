@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2022-08 </edited>
+/// <edited> 2023-02 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 using Equin.ApplicationFramework;
@@ -390,6 +390,11 @@ partial class MainForm : Form
     int value = 0;
     if ( DisplayManager.QueryValue(EditWord.LabelGematriaSimple.Text, ref value) != InputValueResult.Modified ) return;
     DisplayManager.Show(value.ToString());
+  }
+
+  private void ActionOpenCalculator_Click(object sender, EventArgs e)
+  {
+    SystemManager.RunShell(Settings.CalculatorExe);
   }
 
   private void ActionOpenExportFolder_Click(object sender, EventArgs e)

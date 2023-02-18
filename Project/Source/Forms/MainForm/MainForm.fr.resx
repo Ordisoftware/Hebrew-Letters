@@ -168,7 +168,6 @@
   </data>
   <data name="EditCopyToClipboardCloseApp.Text" xml:space="preserve">
     <value>Fermer après avoir copié la phrase</value>
-    <comment> </comment>
   </data>
   <data name="ActionRestoreDefaults.Text" xml:space="preserve">
     <value>Restaurer les valeurs par défaut</value>
@@ -370,5 +369,8 @@
   </data>
   <data name="LabelSentence.Text" xml:space="preserve">
     <value>Phrase</value>
+  </data>
+  <data name="ActionOpenCalculator.Text" xml:space="preserve">
+    <value>Calculatrice Windows</value>
   </data>
 </root>
