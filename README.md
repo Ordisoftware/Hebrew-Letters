@@ -209,6 +209,9 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Update some nuget dependencies.
 - Update web links with many sites and study menu items.
 
+>- Add menu item for system calculator
+>- Add a button to revert the current analyzed word.
+
 #### 2022.06.21 - Version 6.14
 
 - Add a top button to close other windows.
