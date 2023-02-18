@@ -83,13 +83,6 @@
       this.ActionUseColorsPastel = new System.Windows.Forms.LinkLabel();
       this.ActionUseColorsSystem = new System.Windows.Forms.LinkLabel();
       this.TabPageAnalyzer = new System.Windows.Forms.TabPage();
-      this.ActionResetCustomWebSearch = new System.Windows.Forms.Button();
-      this.LabelCustomWebSearch = new System.Windows.Forms.Label();
-      this.EditCustomWebSearch = new Ordisoftware.Core.TextBoxEx();
-      this.ActionResetHebrewWordsPath = new System.Windows.Forms.Button();
-      this.LabelHebrewWordsPath = new System.Windows.Forms.Label();
-      this.ActionSelectHebrewWordsPath = new System.Windows.Forms.Button();
-      this.EditHebrewWordsPath = new Ordisoftware.Core.TextBoxEx();
       this.label2 = new System.Windows.Forms.Label();
       this.label1 = new System.Windows.Forms.Label();
       this.EditHebrewCharsInBold = new System.Windows.Forms.CheckBox();
@@ -99,28 +92,41 @@
       this.EditFontSize = new System.Windows.Forms.NumericUpDown();
       this.LabelMaxLength = new System.Windows.Forms.Label();
       this.TabPageExport = new System.Windows.Forms.TabPage();
-      this.LabelExportFolder = new System.Windows.Forms.Label();
-      this.ActionResetExportFolder = new System.Windows.Forms.Button();
-      this.ActionSelectExportFolder = new System.Windows.Forms.Button();
       this.EditImageExportFileFormat = new System.Windows.Forms.ComboBox();
       this.LabelImageExportFileFormat = new System.Windows.Forms.Label();
       this.EditAutoOpenExportedFile = new System.Windows.Forms.CheckBox();
       this.EditAutoOpenExportFolder = new System.Windows.Forms.CheckBox();
+      this.TabPagePaths = new System.Windows.Forms.TabPage();
+      this.LabelExportFolder = new System.Windows.Forms.Label();
+      this.ActionResetExportFolder = new System.Windows.Forms.Button();
+      this.ActionResetCustomWebSearch = new System.Windows.Forms.Button();
+      this.LabelCalculatorPath = new System.Windows.Forms.Label();
+      this.ActionSelectExportFolder = new System.Windows.Forms.Button();
+      this.ActionResetCalculatorPath = new System.Windows.Forms.Button();
+      this.LabelCustomWebSearch = new System.Windows.Forms.Label();
+      this.ActionSelectCalculatorPath = new System.Windows.Forms.Button();
+      this.EditCalculatorPath = new Ordisoftware.Core.TextBoxEx();
       this.EditExportFolder = new Ordisoftware.Core.TextBoxEx();
+      this.EditCustomWebSearch = new Ordisoftware.Core.TextBoxEx();
+      this.LabelHebrewWordsPath = new System.Windows.Forms.Label();
+      this.EditHebrewWordsPath = new Ordisoftware.Core.TextBoxEx();
+      this.ActionResetHebrewWordsPath = new System.Windows.Forms.Button();
+      this.ActionSelectHebrewWordsPath = new System.Windows.Forms.Button();
       this.OpenExeFileDialog = new System.Windows.Forms.OpenFileDialog();
       LabelVolume = new System.Windows.Forms.Label();
       LabelCheckUpdateFrequency = new System.Windows.Forms.Label();
       this.PanelBottom.SuspendLayout();
       this.TabControl.SuspendLayout();
       this.TabPageApplication.SuspendLayout();
-      ( (System.ComponentModel.ISupportInitialize)( this.EditVolume ) ).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.EditVolume)).BeginInit();
       this.TabPageCheckUpdate.SuspendLayout();
-      ( (System.ComponentModel.ISupportInitialize)( this.EditCheckUpdateAtStartupInterval ) ).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.EditCheckUpdateAtStartupInterval)).BeginInit();
       this.TabPageTheme.SuspendLayout();
       this.TabPageAnalyzer.SuspendLayout();
-      ( (System.ComponentModel.ISupportInitialize)( this.EditMaxLength ) ).BeginInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.EditFontSize ) ).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.EditMaxLength)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.EditFontSize)).BeginInit();
       this.TabPageExport.SuspendLayout();
+      this.TabPagePaths.SuspendLayout();
       this.SuspendLayout();
       // 
       // LabelVolume
@@ -203,6 +209,7 @@
       this.TabControl.Controls.Add(this.TabPageTheme);
       this.TabControl.Controls.Add(this.TabPageAnalyzer);
       this.TabControl.Controls.Add(this.TabPageExport);
+      this.TabControl.Controls.Add(this.TabPagePaths);
       this.TabControl.DataBindings.Add(new System.Windows.Forms.Binding("SelectedIndex", global::Ordisoftware.Hebrew.Letters.Properties.Settings.Default, "PreferencesFormSelectedTabIndex", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
       this.TabControl.Multiline = true;
       this.TabControl.Name = "TabControl";
@@ -528,13 +535,6 @@
       // 
       this.TabPageAnalyzer.BackColor = System.Drawing.SystemColors.Window;
       this.TabPageAnalyzer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.TabPageAnalyzer.Controls.Add(this.ActionResetCustomWebSearch);
-      this.TabPageAnalyzer.Controls.Add(this.LabelCustomWebSearch);
-      this.TabPageAnalyzer.Controls.Add(this.EditCustomWebSearch);
-      this.TabPageAnalyzer.Controls.Add(this.ActionResetHebrewWordsPath);
-      this.TabPageAnalyzer.Controls.Add(this.LabelHebrewWordsPath);
-      this.TabPageAnalyzer.Controls.Add(this.ActionSelectHebrewWordsPath);
-      this.TabPageAnalyzer.Controls.Add(this.EditHebrewWordsPath);
       this.TabPageAnalyzer.Controls.Add(this.label2);
       this.TabPageAnalyzer.Controls.Add(this.label1);
       this.TabPageAnalyzer.Controls.Add(this.EditHebrewCharsInBold);
@@ -545,57 +545,6 @@
       this.TabPageAnalyzer.Controls.Add(this.LabelMaxLength);
       resources.ApplyResources(this.TabPageAnalyzer, "TabPageAnalyzer");
       this.TabPageAnalyzer.Name = "TabPageAnalyzer";
-      // 
-      // ActionResetCustomWebSearch
-      // 
-      this.ActionResetCustomWebSearch.FlatAppearance.BorderSize = 0;
-      resources.ApplyResources(this.ActionResetCustomWebSearch, "ActionResetCustomWebSearch");
-      this.ActionResetCustomWebSearch.Name = "ActionResetCustomWebSearch";
-      this.ActionResetCustomWebSearch.UseVisualStyleBackColor = true;
-      this.ActionResetCustomWebSearch.Click += new System.EventHandler(this.ActionResetCustomWebSearch_Click);
-      // 
-      // LabelCustomWebSearch
-      // 
-      resources.ApplyResources(this.LabelCustomWebSearch, "LabelCustomWebSearch");
-      this.LabelCustomWebSearch.Name = "LabelCustomWebSearch";
-      // 
-      // EditCustomWebSearch
-      // 
-      this.EditCustomWebSearch.BackColor = System.Drawing.SystemColors.Window;
-      this.EditCustomWebSearch.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
-      resources.ApplyResources(this.EditCustomWebSearch, "EditCustomWebSearch");
-      this.EditCustomWebSearch.Name = "EditCustomWebSearch";
-      this.EditCustomWebSearch.SpellCheckAllowed = false;
-      // 
-      // ActionResetHebrewWordsPath
-      // 
-      this.ActionResetHebrewWordsPath.FlatAppearance.BorderSize = 0;
-      resources.ApplyResources(this.ActionResetHebrewWordsPath, "ActionResetHebrewWordsPath");
-      this.ActionResetHebrewWordsPath.Name = "ActionResetHebrewWordsPath";
-      this.ActionResetHebrewWordsPath.UseVisualStyleBackColor = true;
-      this.ActionResetHebrewWordsPath.Click += new System.EventHandler(this.ActionResetHebrewWordsPath_Click);
-      // 
-      // LabelHebrewWordsPath
-      // 
-      resources.ApplyResources(this.LabelHebrewWordsPath, "LabelHebrewWordsPath");
-      this.LabelHebrewWordsPath.Name = "LabelHebrewWordsPath";
-      // 
-      // ActionSelectHebrewWordsPath
-      // 
-      this.ActionSelectHebrewWordsPath.FlatAppearance.BorderSize = 0;
-      resources.ApplyResources(this.ActionSelectHebrewWordsPath, "ActionSelectHebrewWordsPath");
-      this.ActionSelectHebrewWordsPath.Name = "ActionSelectHebrewWordsPath";
-      this.ActionSelectHebrewWordsPath.UseVisualStyleBackColor = true;
-      this.ActionSelectHebrewWordsPath.Click += new System.EventHandler(this.ActionSelectHebrewWordsPath_Click);
-      // 
-      // EditHebrewWordsPath
-      // 
-      this.EditHebrewWordsPath.BackColor = System.Drawing.SystemColors.Control;
-      this.EditHebrewWordsPath.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
-      resources.ApplyResources(this.EditHebrewWordsPath, "EditHebrewWordsPath");
-      this.EditHebrewWordsPath.Name = "EditHebrewWordsPath";
-      this.EditHebrewWordsPath.ReadOnly = true;
-      this.EditHebrewWordsPath.SpellCheckAllowed = false;
       // 
       // label2
       // 
@@ -681,37 +630,12 @@
       // 
       this.TabPageExport.BackColor = System.Drawing.SystemColors.Window;
       this.TabPageExport.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.TabPageExport.Controls.Add(this.LabelExportFolder);
-      this.TabPageExport.Controls.Add(this.ActionResetExportFolder);
-      this.TabPageExport.Controls.Add(this.ActionSelectExportFolder);
       this.TabPageExport.Controls.Add(this.EditImageExportFileFormat);
       this.TabPageExport.Controls.Add(this.LabelImageExportFileFormat);
       this.TabPageExport.Controls.Add(this.EditAutoOpenExportedFile);
       this.TabPageExport.Controls.Add(this.EditAutoOpenExportFolder);
-      this.TabPageExport.Controls.Add(this.EditExportFolder);
       resources.ApplyResources(this.TabPageExport, "TabPageExport");
       this.TabPageExport.Name = "TabPageExport";
-      // 
-      // LabelExportFolder
-      // 
-      resources.ApplyResources(this.LabelExportFolder, "LabelExportFolder");
-      this.LabelExportFolder.Name = "LabelExportFolder";
-      // 
-      // ActionResetExportFolder
-      // 
-      this.ActionResetExportFolder.FlatAppearance.BorderSize = 0;
-      resources.ApplyResources(this.ActionResetExportFolder, "ActionResetExportFolder");
-      this.ActionResetExportFolder.Name = "ActionResetExportFolder";
-      this.ActionResetExportFolder.UseVisualStyleBackColor = true;
-      this.ActionResetExportFolder.Click += new System.EventHandler(this.ActionResetExportFolder_Click);
-      // 
-      // ActionSelectExportFolder
-      // 
-      this.ActionSelectExportFolder.FlatAppearance.BorderSize = 0;
-      resources.ApplyResources(this.ActionSelectExportFolder, "ActionSelectExportFolder");
-      this.ActionSelectExportFolder.Name = "ActionSelectExportFolder";
-      this.ActionSelectExportFolder.UseVisualStyleBackColor = true;
-      this.ActionSelectExportFolder.Click += new System.EventHandler(this.ActionSelectExportFolder_Click);
       // 
       // EditImageExportFileFormat
       // 
@@ -741,6 +665,92 @@
       this.EditAutoOpenExportFolder.UseVisualStyleBackColor = true;
       this.EditAutoOpenExportFolder.CheckedChanged += new System.EventHandler(this.EditAutoOpenExportFolder_CheckedChanged);
       // 
+      // TabPagePaths
+      // 
+      this.TabPagePaths.BackColor = System.Drawing.SystemColors.Window;
+      this.TabPagePaths.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.TabPagePaths.Controls.Add(this.LabelExportFolder);
+      this.TabPagePaths.Controls.Add(this.ActionResetExportFolder);
+      this.TabPagePaths.Controls.Add(this.ActionResetCustomWebSearch);
+      this.TabPagePaths.Controls.Add(this.LabelCalculatorPath);
+      this.TabPagePaths.Controls.Add(this.ActionSelectExportFolder);
+      this.TabPagePaths.Controls.Add(this.ActionResetCalculatorPath);
+      this.TabPagePaths.Controls.Add(this.LabelCustomWebSearch);
+      this.TabPagePaths.Controls.Add(this.ActionSelectCalculatorPath);
+      this.TabPagePaths.Controls.Add(this.EditCalculatorPath);
+      this.TabPagePaths.Controls.Add(this.EditExportFolder);
+      this.TabPagePaths.Controls.Add(this.EditCustomWebSearch);
+      this.TabPagePaths.Controls.Add(this.LabelHebrewWordsPath);
+      this.TabPagePaths.Controls.Add(this.EditHebrewWordsPath);
+      this.TabPagePaths.Controls.Add(this.ActionResetHebrewWordsPath);
+      this.TabPagePaths.Controls.Add(this.ActionSelectHebrewWordsPath);
+      resources.ApplyResources(this.TabPagePaths, "TabPagePaths");
+      this.TabPagePaths.Name = "TabPagePaths";
+      // 
+      // LabelExportFolder
+      // 
+      resources.ApplyResources(this.LabelExportFolder, "LabelExportFolder");
+      this.LabelExportFolder.Name = "LabelExportFolder";
+      // 
+      // ActionResetExportFolder
+      // 
+      this.ActionResetExportFolder.FlatAppearance.BorderSize = 0;
+      resources.ApplyResources(this.ActionResetExportFolder, "ActionResetExportFolder");
+      this.ActionResetExportFolder.Name = "ActionResetExportFolder";
+      this.ActionResetExportFolder.UseVisualStyleBackColor = true;
+      this.ActionResetExportFolder.Click += new System.EventHandler(this.ActionResetExportFolder_Click);
+      // 
+      // ActionResetCustomWebSearch
+      // 
+      this.ActionResetCustomWebSearch.FlatAppearance.BorderSize = 0;
+      resources.ApplyResources(this.ActionResetCustomWebSearch, "ActionResetCustomWebSearch");
+      this.ActionResetCustomWebSearch.Name = "ActionResetCustomWebSearch";
+      this.ActionResetCustomWebSearch.UseVisualStyleBackColor = true;
+      this.ActionResetCustomWebSearch.Click += new System.EventHandler(this.ActionResetCustomWebSearch_Click);
+      // 
+      // LabelCalculatorPath
+      // 
+      resources.ApplyResources(this.LabelCalculatorPath, "LabelCalculatorPath");
+      this.LabelCalculatorPath.Name = "LabelCalculatorPath";
+      // 
+      // ActionSelectExportFolder
+      // 
+      this.ActionSelectExportFolder.FlatAppearance.BorderSize = 0;
+      resources.ApplyResources(this.ActionSelectExportFolder, "ActionSelectExportFolder");
+      this.ActionSelectExportFolder.Name = "ActionSelectExportFolder";
+      this.ActionSelectExportFolder.UseVisualStyleBackColor = true;
+      this.ActionSelectExportFolder.Click += new System.EventHandler(this.ActionSelectExportFolder_Click);
+      // 
+      // ActionResetCalculatorPath
+      // 
+      this.ActionResetCalculatorPath.FlatAppearance.BorderSize = 0;
+      resources.ApplyResources(this.ActionResetCalculatorPath, "ActionResetCalculatorPath");
+      this.ActionResetCalculatorPath.Name = "ActionResetCalculatorPath";
+      this.ActionResetCalculatorPath.UseVisualStyleBackColor = true;
+      this.ActionResetCalculatorPath.Click += new System.EventHandler(this.ActionResetCalculatorPath_Click);
+      // 
+      // LabelCustomWebSearch
+      // 
+      resources.ApplyResources(this.LabelCustomWebSearch, "LabelCustomWebSearch");
+      this.LabelCustomWebSearch.Name = "LabelCustomWebSearch";
+      // 
+      // ActionSelectCalculatorPath
+      // 
+      this.ActionSelectCalculatorPath.FlatAppearance.BorderSize = 0;
+      resources.ApplyResources(this.ActionSelectCalculatorPath, "ActionSelectCalculatorPath");
+      this.ActionSelectCalculatorPath.Name = "ActionSelectCalculatorPath";
+      this.ActionSelectCalculatorPath.UseVisualStyleBackColor = true;
+      this.ActionSelectCalculatorPath.Click += new System.EventHandler(this.ActionSelectCalculatorPath_Click);
+      // 
+      // EditCalculatorPath
+      // 
+      this.EditCalculatorPath.BackColor = System.Drawing.SystemColors.Control;
+      this.EditCalculatorPath.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
+      resources.ApplyResources(this.EditCalculatorPath, "EditCalculatorPath");
+      this.EditCalculatorPath.Name = "EditCalculatorPath";
+      this.EditCalculatorPath.ReadOnly = true;
+      this.EditCalculatorPath.SpellCheckAllowed = false;
+      // 
       // EditExportFolder
       // 
       this.EditExportFolder.BackColor = System.Drawing.SystemColors.Control;
@@ -749,6 +759,44 @@
       this.EditExportFolder.Name = "EditExportFolder";
       this.EditExportFolder.ReadOnly = true;
       this.EditExportFolder.SpellCheckAllowed = false;
+      // 
+      // EditCustomWebSearch
+      // 
+      this.EditCustomWebSearch.BackColor = System.Drawing.SystemColors.Window;
+      this.EditCustomWebSearch.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
+      resources.ApplyResources(this.EditCustomWebSearch, "EditCustomWebSearch");
+      this.EditCustomWebSearch.Name = "EditCustomWebSearch";
+      this.EditCustomWebSearch.SpellCheckAllowed = false;
+      // 
+      // LabelHebrewWordsPath
+      // 
+      resources.ApplyResources(this.LabelHebrewWordsPath, "LabelHebrewWordsPath");
+      this.LabelHebrewWordsPath.Name = "LabelHebrewWordsPath";
+      // 
+      // EditHebrewWordsPath
+      // 
+      this.EditHebrewWordsPath.BackColor = System.Drawing.SystemColors.Control;
+      this.EditHebrewWordsPath.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
+      resources.ApplyResources(this.EditHebrewWordsPath, "EditHebrewWordsPath");
+      this.EditHebrewWordsPath.Name = "EditHebrewWordsPath";
+      this.EditHebrewWordsPath.ReadOnly = true;
+      this.EditHebrewWordsPath.SpellCheckAllowed = false;
+      // 
+      // ActionResetHebrewWordsPath
+      // 
+      this.ActionResetHebrewWordsPath.FlatAppearance.BorderSize = 0;
+      resources.ApplyResources(this.ActionResetHebrewWordsPath, "ActionResetHebrewWordsPath");
+      this.ActionResetHebrewWordsPath.Name = "ActionResetHebrewWordsPath";
+      this.ActionResetHebrewWordsPath.UseVisualStyleBackColor = true;
+      this.ActionResetHebrewWordsPath.Click += new System.EventHandler(this.ActionResetHebrewWordsPath_Click);
+      // 
+      // ActionSelectHebrewWordsPath
+      // 
+      this.ActionSelectHebrewWordsPath.FlatAppearance.BorderSize = 0;
+      resources.ApplyResources(this.ActionSelectHebrewWordsPath, "ActionSelectHebrewWordsPath");
+      this.ActionSelectHebrewWordsPath.Name = "ActionSelectHebrewWordsPath";
+      this.ActionSelectHebrewWordsPath.UseVisualStyleBackColor = true;
+      this.ActionSelectHebrewWordsPath.Click += new System.EventHandler(this.ActionSelectHebrewWordsPath_Click);
       // 
       // OpenExeFileDialog
       // 
@@ -775,18 +823,20 @@
       this.TabControl.ResumeLayout(false);
       this.TabPageApplication.ResumeLayout(false);
       this.TabPageApplication.PerformLayout();
-      ( (System.ComponentModel.ISupportInitialize)( this.EditVolume ) ).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.EditVolume)).EndInit();
       this.TabPageCheckUpdate.ResumeLayout(false);
       this.TabPageCheckUpdate.PerformLayout();
-      ( (System.ComponentModel.ISupportInitialize)( this.EditCheckUpdateAtStartupInterval ) ).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.EditCheckUpdateAtStartupInterval)).EndInit();
       this.TabPageTheme.ResumeLayout(false);
       this.TabPageTheme.PerformLayout();
       this.TabPageAnalyzer.ResumeLayout(false);
       this.TabPageAnalyzer.PerformLayout();
-      ( (System.ComponentModel.ISupportInitialize)( this.EditMaxLength ) ).EndInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.EditFontSize ) ).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.EditMaxLength)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.EditFontSize)).EndInit();
       this.TabPageExport.ResumeLayout(false);
       this.TabPageExport.PerformLayout();
+      this.TabPagePaths.ResumeLayout(false);
+      this.TabPagePaths.PerformLayout();
       this.ResumeLayout(false);
 
     }
@@ -868,5 +918,10 @@
     private Label LabelCustomWebSearch;
     private TextBoxEx EditCustomWebSearch;
     private CheckBox EditHebrewCharsInBold;
+    private TabPage TabPagePaths;
+    private Label LabelCalculatorPath;
+    private Button ActionResetCalculatorPath;
+    private Button ActionSelectCalculatorPath;
+    private TextBoxEx EditCalculatorPath;
   }
 }

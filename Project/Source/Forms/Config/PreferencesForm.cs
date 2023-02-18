@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-09 </created>
-/// <edited> 2022-08 </edited>
+/// <edited> 2022-03 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 using KVPImageExportTarget = KeyValuePair<ImageExportTarget, string>;
@@ -209,9 +209,20 @@ partial class PreferencesForm : Form
       edit.Text = dialog.FileName;
   }
 
+  private void ActionSelectCalculatorPath_Click(object sender, EventArgs e)
+  {
+    DoActionSelectPath(OpenExeFileDialog, EditCalculatorPath);
+  }
+
   private void ActionSelectHebrewWordsPath_Click(object sender, EventArgs e)
   {
     DoActionSelectPath(OpenExeFileDialog, EditHebrewWordsPath);
+  }
+
+  private void ActionResetCalculatorPath_Click(object sender, EventArgs e)
+  {
+    if ( DisplayManager.QueryYesNo(SysTranslations.AskToResetParameter.GetLang()) )
+      EditCalculatorPath.Text = (string)Settings.Properties[nameof(Settings.CalculatorExe)].DefaultValue;
   }
 
   private void ActionResetHebrewWordsPath_Click(object sender, EventArgs e)

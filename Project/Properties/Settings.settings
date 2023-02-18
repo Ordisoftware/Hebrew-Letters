@@ -203,5 +203,8 @@
     <Setting Name="MainFormSplitterDistanceDetails" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">100</Value>
     </Setting>
+    <Setting Name="CalculatorExe" Type="System.String" Scope="User">
+      <Value Profile="(Default)">calc.exe</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
