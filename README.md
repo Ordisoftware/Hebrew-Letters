@@ -202,15 +202,14 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Add analyzed words data table and notebook view to save results.
 - Add concordance, transcription, dictionary and comment fields for word analysis.
 - Add search online concordance.
+- Add button to revert the current analyzed word.
+- Add menu item for system calculator
 - Add an option to display a warning when selecting the meaning of a letter while the sentence has been changed.
-- Use a dedicated folder in application's document folder for exports and imports settings and themes.
+- Use dedicated folder in application's document folder for exports and imports settings and themes.
 - Improve web update checker security.
 - Improve IPC interoperability security.
 - Update some nuget dependencies.
 - Update web links with many sites and study menu items.
-
->- Add menu item for system calculator
->- Add a button to revert the current analyzed word.
 
 #### 2022.06.21 - Version 6.14
 
