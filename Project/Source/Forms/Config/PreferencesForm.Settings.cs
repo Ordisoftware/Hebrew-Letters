@@ -92,6 +92,8 @@ partial class PreferencesForm : Form
     Settings.ColorGematriaTextBox = EditReadonlyBack.BackColor;
   }
 
+  // TODO solve import & reset mainform height
+
   private void DoResetSettings()
   {
     if ( !DisplayManager.QueryYesNo(SysTranslations.AskToResetPreferences.GetLang()) ) return;
