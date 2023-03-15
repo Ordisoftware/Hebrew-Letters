@@ -85,11 +85,17 @@ partial class MainForm
       });
     ContextMenuOpenConcordance.Initialize(HebrewGlobals.WebProvidersConcordance, (sender, e) =>
     {
-      if ( sender is not ToolStripMenuItem menuitem ) return;
-      if ( ( menuitem.GetCurrentParent() as ContextMenuStrip )?.SourceControl is not Button owner ) return;
-      var control = owner == ActionOpenConcordance ? EditConcordance : EditConcordanceRoot;
-      HebrewTools.OpenWordConcordance((string)menuitem.Tag, (int)control.Value);
-      EditWord.Focus();
+      if ( sender is not ToolStripMenuItem menuitem )
+        return;
+      if ( menuitem.GetCurrentParent() is ContextMenuStrip menu )
+        if ( menu.SourceControl is not Button owner )
+          return;
+        else
+        {
+          var control = owner == ActionOpenConcordance ? EditConcordance : EditConcordanceRoot;
+          HebrewTools.OpenWordConcordance((string)menuitem.Tag, (int)control.Value);
+          EditWord.Focus();
+        }
     }, null);
   }
 
