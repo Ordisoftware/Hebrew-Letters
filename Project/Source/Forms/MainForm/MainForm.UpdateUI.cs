@@ -18,7 +18,7 @@ namespace Ordisoftware.Hebrew.Letters;
 /// The application's main form.
 /// </summary>
 /// <seealso cref="T:System.Windows.Forms.Form"/>
-partial class MainForm
+sealed partial class MainForm
 {
 
   private bool DoScreenPositionMutex;
@@ -53,7 +53,7 @@ partial class MainForm
   /// </summary>
   /// <param name="sender">Source of the event.</param>
   /// <param name="e">Event information.</param>
-  protected void DoScreenPosition(object sender, EventArgs e)
+  private void DoScreenPosition(object sender, EventArgs e)
   {
     if ( DoScreenPositionMutex ) return;
     try

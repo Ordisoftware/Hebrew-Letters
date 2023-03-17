@@ -19,7 +19,7 @@ using System.Xml.Linq;
 using System.Xml.XPath;
 using MoreLinq;
 
-partial class PreferencesForm : Form
+sealed partial class PreferencesForm : Form
 {
 
   private void LoadSettings()

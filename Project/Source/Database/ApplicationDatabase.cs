@@ -17,10 +17,10 @@ namespace Ordisoftware.Hebrew.Letters;
 using Equin.ApplicationFramework;
 
 [SuppressMessage("IDisposableAnalyzers.Correctness", "IDISP006:Implement IDisposable", Justification = "<En attente>")]
-class ApplicationDatabase : SQLiteDatabase
+sealed class ApplicationDatabase : SQLiteDatabase
 {
 
-  static public ApplicationDatabase Instance { get; protected set; }
+  static public ApplicationDatabase Instance { get; }
 
   static ApplicationDatabase()
   {
@@ -29,7 +29,6 @@ class ApplicationDatabase : SQLiteDatabase
 
   public List<Letter> Letters { get; private set; }
   public List<Meaning> Meanings { get; private set; }
-
 
   public BindingListView<Letter> LettersAsBindingList { get; private set; }
 
