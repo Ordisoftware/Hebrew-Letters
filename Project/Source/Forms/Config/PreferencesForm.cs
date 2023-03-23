@@ -16,7 +16,7 @@ namespace Ordisoftware.Hebrew.Letters;
 
 using KVPImageExportTarget = KeyValuePair<ImageExportTarget, string>;
 
-partial class PreferencesForm : Form
+sealed partial class PreferencesForm : Form
 {
 
   static private readonly Properties.Settings Settings = Program.Settings;
