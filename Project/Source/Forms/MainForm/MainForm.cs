@@ -535,12 +535,12 @@ sealed partial class MainForm : Form
     var query = from lettriq in lettriqs
                 where lettriq.Sentence == sentence
                       || ( lettriq.Analyzes.Count == combos.Count
-                        && lettriq.Analyzes.All(m => (string)combos[m.Position].SelectedItem == m.Meaning) )
+                        && lettriq.Analyzes.TrueForAll(m => (string)combos[m.Position].SelectedItem == m.Meaning) )
                 select lettriq;
     ActionSaveTermLettriq.Enabled = !Globals.IsReadOnly
                                  && word.Length != 0
                                  && sentence.Length != 0
-                                 && combos.All(c => c.SelectedIndex != -1)
+                                 && combos.TrueForAll(c => c.SelectedIndex != -1)
                                  && !query.Any();
     ActionOpenTermLettriq.Enabled = lettriqs.Any();
     ContextMenuOpenTermLettriq.Items.Clear();
