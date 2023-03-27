@@ -14,7 +14,7 @@
 /// <edited> 2022-03 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
-partial class SearchTermResultsBox : Form
+sealed partial class SearchTermResultsBox : Form
 {
 
   class LetterItem
@@ -26,7 +26,7 @@ partial class SearchTermResultsBox : Form
   static public bool Run(string term, out string code, out string meaning)
   {
     static bool contains(List<Meaning> rows, string str)
-      => rows.Any(row => row.Text.ToLower().RemoveDiacritics().Contains(str));
+      => rows.Exists(row => row.Text.ToLower().RemoveDiacritics().Contains(str));
     //
     code = string.Empty;
     meaning = string.Empty;

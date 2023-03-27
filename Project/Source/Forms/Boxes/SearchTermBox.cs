@@ -14,7 +14,7 @@
 /// <edited> 2020-04 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
-partial class SearchTermBox : Form
+sealed partial class SearchTermBox : Form
 {
 
   public SearchTermBox()
