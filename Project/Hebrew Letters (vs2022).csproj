@@ -637,6 +637,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\README.html">
+      <Link>README.html</Link>
+      <DependentUpon>README.md</DependentUpon>
+    </Content>
     <Content Include="..\Setup\OrdisoftwareHebrewLettersSetup.iss">
       <Link>Properties\OrdisoftwareHebrewLettersSetup.iss</Link>
     </Content>
@@ -713,7 +717,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="IDisposableAnalyzers">
-      <Version>4.0.3</Version>
+      <Version>4.0.4</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
