@@ -206,6 +206,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Add menu item for system calculator
 - Add an option to display a warning when selecting the meaning of a letter while the sentence has been changed.
 - Use dedicated folder in application's document folder for exports and imports settings and themes.
+- Replace on-the-fly readme.html creation with MarkDig by a generated with VS.
 - Improve web update checker security.
 - Improve IPC interoperability security.
 - Update some nuget dependencies.
