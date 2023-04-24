@@ -1,5 +1,4 @@
-﻿using System.Linq;
-/// <license>
+﻿/// <license>
 /// This file is part of Ordisoftware Hebrew Letters.
 /// Copyright 2012-2023 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
