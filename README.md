@@ -180,6 +180,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 ## Future improvements
 
+- Add gematria for final letters.
 - Add export analysis as MSWord table.
 - Add option to set primary source for check update between author website or GitHub.
 - Add reset only some columns to factory defaults.
@@ -203,6 +204,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Add concordance, transcription, dictionary and comment fields for word analysis.
 - Add search online concordance.
 - Add button to reverse the current analyzed word.
+- Add shorcuts to copy word in unicode to clipboard.
 - Add menu item for system calculator
 - Add an option to display a warning when selecting the meaning of a letter while the sentence has been changed.
 - Use dedicated folder in application's document folder for exports and imports settings and themes.
