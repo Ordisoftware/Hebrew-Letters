@@ -58,9 +58,9 @@ static partial class Program
       DebugManager.TraceEnabled = Settings.TraceEnabled;
       DebugManager.Enabled = Settings.DebuggerEnabled;
       //
-      HebrewGlobals.GetHebrewCalendarExePath = () => string.Empty;
-      HebrewGlobals.GetHebrewLettersExePath = () => Globals.ApplicationExeFullPath;
-      HebrewGlobals.GetHebrewWordsExePath = () => Settings.HebrewWordsExe;
+      HebrewGlobals.GetHebrewCalendarExecutablePath = () => string.Empty;
+      HebrewGlobals.GetHebrewLettersExecutablePath = () => Globals.ApplicationExecutableFullPath;
+      HebrewGlobals.GetHebrewWordsExecutablePath = () => Settings.HebrewWordsExe;
       HebrewGlobals.GetCustomWebSearchPattern = () => Settings.CustomWebSearch;
       //
       Globals.ChronoStartingApp.Stop();
