@@ -121,7 +121,7 @@ partial class MainForm
     //}
     if ( !Program.StartupWord.IsNullOrEmpty() )
     {
-      EditWord.InititialWord = Program.StartupWord;
+      EditWord.InitialWord = Program.StartupWord;
       EditWord.ActionReset.Enabled = true;
       EditWord.TextBox.Text = Program.StartupWord;
       EditWord.Focus(LettersControlFocusSelect.None);
