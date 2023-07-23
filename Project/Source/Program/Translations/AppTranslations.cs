@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2023-01 </edited>
+/// <edited> 2023-07 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 /// <summary>
@@ -55,6 +55,12 @@ static partial class AppTranslations
   {
     [Language.EN] = "Save current analysis for {}?",
     [Language.FR] = "Sauver l'analyse en cours pour {0} ?"
+  };
+
+  static public readonly TranslationsDictionary AskToDeleteMeaningsAll = new()
+  {
+    [Language.EN] = "Erase all meanings?",
+    [Language.FR] = "Effacer toutes les significations ?"
   };
 
 }
