@@ -1035,7 +1035,7 @@ sealed partial class MainForm : Form
   private void EditMeanings_CellEndEdit(object sender, DataGridViewCellEventArgs e)
   {
     if ( !Globals.IsReady ) return;
-    var cell = EditMeanings[e.ColumnIndex, e.ColumnIndex];
+    var cell = EditMeanings[e.ColumnIndex, e.RowIndex];
     var str = (string)cell.Value;
     if ( str.StartsWith(" ", StringComparison.Ordinal) || str.EndsWith(" ", StringComparison.Ordinal) )
       cell.Value = str.Trim();
