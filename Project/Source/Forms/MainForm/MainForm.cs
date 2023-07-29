@@ -1068,7 +1068,7 @@ sealed partial class MainForm : Form
     if ( ( e.Control && e.KeyCode == Keys.Delete ) || ( e.Control && e.KeyCode == Keys.Subtract ) )
       ActionDeleteMeaning.PerformClick();
     else
-    if ( e.KeyCode == Keys.Enter && !EditMeanings.IsCurrentCellInEditMode )
+    if ( !EditMeanings.IsCurrentCellInEditMode && ( e.KeyCode == Keys.Enter || e.KeyCode == Keys.F2 ) )
       EditMeanings.BeginEdit(false);
     else
       return;
