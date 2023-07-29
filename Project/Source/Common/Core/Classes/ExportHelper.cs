@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2020-12 </created>
-/// <edited> 2022-03 </edited>
+/// <edited> 2023-07 </edited>
 namespace Ordisoftware.Core;
 
 /// <summary>
@@ -112,6 +112,18 @@ static public class ExportHelper
       ImageExportTarget.GIF => ImageFormat.Gif,
       _ => throw new AdvNotImplementedException(value),
     };
+  }
+
+  static public bool Run(this FileDialog dialog,
+                         string filename,
+                         DataExportTarget preferred,
+                         NullSafeOfStringDictionary<DataExportTarget> board)
+  {
+    dialog.FileName = filename;
+    for ( int index = 0; index < board.Count; index++ )
+      if ( board.ElementAt(index).Key == preferred )
+        dialog.FilterIndex = index + 1;
+    return dialog.ShowDialog() == DialogResult.OK;
   }
 
 }

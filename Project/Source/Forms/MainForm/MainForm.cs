@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2023-02 </edited>
+/// <edited> 2023-07 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 using Equin.ApplicationFramework;
@@ -819,6 +819,7 @@ sealed partial class MainForm : Form
       var letter = ( (ObjectView<Letter>)SelectLetter.SelectedItem ).Object;
       ActionAddMeaning.Enabled = !Globals.IsReadOnly && !forceEditMode;
       ActionDeleteMeaning.Enabled = !Globals.IsReadOnly && !forceEditMode && letter.Meanings.Count > 0;
+      ActionClearMeanings.Enabled = ActionDeleteMeaning.Enabled;
       ActionSave.Enabled = ( DBApp.IsInTransaction && !forceEditMode ) || ( forceEditMode && sender is TextBox );
       ActionUndo.Enabled = ActionSave.Enabled;
       Globals.AllowClose = !ActionSave.Enabled && !forceEditMode;
@@ -868,8 +869,6 @@ sealed partial class MainForm : Form
     LettersBindingSource.DataSource = DBApp.LettersAsBindingList;
     UpdateDataControls(sender);
     EditMeanings.Focus();
-    ApplicationStatistics.UpdateDBFileSizeRequired = true;
-    ApplicationStatistics.UpdateDBMemorySizeRequired = true;
   }
 
   private void ActionRestoreDefaults_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -1010,6 +1009,17 @@ sealed partial class MainForm : Form
     UpdateDataControls(sender);
   }
 
+  private void ActionClearMeanings_Click(object sender, EventArgs e)
+  {
+    if ( !DisplayManager.QueryYesNo(AppTranslations.AskToDeleteMeaningsAll.GetLang()) ) return;
+    DBApp.BeginTransaction();
+    DBApp.Connection.DeleteAll<Meaning>();
+    int count = MeaningsBindingSource.Count;
+    for ( int index = 0; index < count; index++ )
+      MeaningsBindingSource.RemoveAt(0);
+    UpdateDataControls(sender);
+  }
+
   private void EditMeanings_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
   {
     if ( EditMeanings.IsCurrentCellInEditMode ) return;
@@ -1025,7 +1035,7 @@ sealed partial class MainForm : Form
   private void EditMeanings_CellEndEdit(object sender, DataGridViewCellEventArgs e)
   {
     if ( !Globals.IsReady ) return;
-    var cell = EditMeanings[e.ColumnIndex, e.ColumnIndex];
+    var cell = EditMeanings[e.ColumnIndex, e.RowIndex];
     var str = (string)cell.Value;
     if ( str.StartsWith(" ", StringComparison.Ordinal) || str.EndsWith(" ", StringComparison.Ordinal) )
       cell.Value = str.Trim();
@@ -1058,7 +1068,7 @@ sealed partial class MainForm : Form
     if ( ( e.Control && e.KeyCode == Keys.Delete ) || ( e.Control && e.KeyCode == Keys.Subtract ) )
       ActionDeleteMeaning.PerformClick();
     else
-    if ( e.KeyCode == Keys.Enter && !EditMeanings.IsCurrentCellInEditMode )
+    if ( !EditMeanings.IsCurrentCellInEditMode && ( e.KeyCode == Keys.Enter || e.KeyCode == Keys.F2 ) )
       EditMeanings.BeginEdit(false);
     else
       return;

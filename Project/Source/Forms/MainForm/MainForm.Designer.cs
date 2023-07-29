@@ -39,10 +39,10 @@
       System.Windows.Forms.Label LabelVerb;
       System.Windows.Forms.Label LabelPositive;
       System.Windows.Forms.Label LabelNegative;
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
       this.PanelMain = new System.Windows.Forms.Panel();
       this.PanelMainOuter = new System.Windows.Forms.Panel();
       this.PanelMainInner = new System.Windows.Forms.Panel();
@@ -165,6 +165,7 @@
       this.ActionShowMethodNotice = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionGematriaCombinationsSeparator = new System.Windows.Forms.ToolStripSeparator();
       this.ActionGematriaCombinations = new System.Windows.Forms.ToolStripMenuItem();
+      this.ActionOpenCalculator = new System.Windows.Forms.ToolStripMenuItem();
       this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
       this.ActionOpenExportFolder = new System.Windows.Forms.ToolStripMenuItem();
       this.ActionVacuumDB = new System.Windows.Forms.ToolStripMenuItem();
@@ -174,7 +175,7 @@
       this.SaveImageDialog = new System.Windows.Forms.SaveFileDialog();
       this.ContextMenuOpenTermLettriq = new System.Windows.Forms.ContextMenuStrip(this.components);
       this.ContextMenuOpenConcordance = new System.Windows.Forms.ContextMenuStrip(this.components);
-      this.ActionOpenCalculator = new System.Windows.Forms.ToolStripMenuItem();
+      this.ActionClearMeanings = new System.Windows.Forms.Button();
       LabelName = new System.Windows.Forms.Label();
       LabelStructure = new System.Windows.Forms.Label();
       LabelFunction = new System.Windows.Forms.Label();
@@ -191,31 +192,31 @@
       this.TabControl.SuspendLayout();
       this.TabPageText.SuspendLayout();
       this.PanelViewAnalysis.SuspendLayout();
-      ( (System.ComponentModel.ISupportInitialize)( this.SplitContainer ) ).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.SplitContainer)).BeginInit();
       this.SplitContainer.Panel1.SuspendLayout();
       this.SplitContainer.Panel2.SuspendLayout();
       this.SplitContainer.SuspendLayout();
-      ( (System.ComponentModel.ISupportInitialize)( this.EditConcordance ) ).BeginInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.EditConcordanceRoot ) ).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.EditConcordance)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.EditConcordanceRoot)).BeginInit();
       this.TabPageLetters.SuspendLayout();
       this.PanelViewLetters.SuspendLayout();
       this.PanelLettersInner.SuspendLayout();
       this.PanelLetter.SuspendLayout();
-      ( (System.ComponentModel.ISupportInitialize)( this.LettersBindingSource ) ).BeginInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.EditMeanings ) ).BeginInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.MeaningsBindingSource ) ).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.LettersBindingSource)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.EditMeanings)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.MeaningsBindingSource)).BeginInit();
       this.TabPageNotebook.SuspendLayout();
       this.PanelViewNotebook.SuspendLayout();
-      ( (System.ComponentModel.ISupportInitialize)( this.SplitContainerNotebook ) ).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.SplitContainerNotebook)).BeginInit();
       this.SplitContainerNotebook.Panel1.SuspendLayout();
       this.SplitContainerNotebook.Panel2.SuspendLayout();
       this.SplitContainerNotebook.SuspendLayout();
-      ( (System.ComponentModel.ISupportInitialize)( this.ListNotebookWords ) ).BeginInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.TermsBindingSource ) ).BeginInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.ListNotebookLetters ) ).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.ListNotebookWords)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.TermsBindingSource)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.ListNotebookLetters)).BeginInit();
       this.panel2.SuspendLayout();
-      ( (System.ComponentModel.ISupportInitialize)( this.ListNotebookSentences ) ).BeginInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.LettriqsBindingSource ) ).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.ListNotebookSentences)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.LettriqsBindingSource)).BeginInit();
       this.panel3.SuspendLayout();
       this.PanelTitle.SuspendLayout();
       this.PanelTitleInner.SuspendLayout();
@@ -381,6 +382,7 @@
       this.EditWord.MarginX = -5;
       this.EditWord.MarginY = 0;
       this.EditWord.Name = "EditWord";
+      this.EditWord.ShowGematria = false;
       this.EditWord.ViewLetterDetails += new Ordisoftware.Hebrew.ViewLetterDetails(this.EditWord_ViewLetterDetails);
       this.EditWord.InputTextChanged += new System.EventHandler(this.EditWord_InputTextChanged);
       // 
@@ -581,6 +583,7 @@
       // 
       resources.ApplyResources(this.PanelLettersInner, "PanelLettersInner");
       this.PanelLettersInner.BackColor = System.Drawing.SystemColors.Control;
+      this.PanelLettersInner.Controls.Add(this.ActionClearMeanings);
       this.PanelLettersInner.Controls.Add(this.PanelLetter);
       this.PanelLettersInner.Controls.Add(this.ActionUndo);
       this.PanelLettersInner.Controls.Add(this.ActionSave);
@@ -880,9 +883,9 @@
       this.ListNotebookWords.Name = "ListNotebookWords";
       this.ListNotebookWords.ReadOnly = true;
       this.ListNotebookWords.RowHeadersVisible = false;
-      dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-      dataGridViewCellStyle14.Font = new System.Drawing.Font("Hebrew", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ( (byte)( 0 ) ));
-      this.ListNotebookWords.RowsDefaultCellStyle = dataGridViewCellStyle14;
+      dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+      dataGridViewCellStyle6.Font = new System.Drawing.Font("Hebrew", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.ListNotebookWords.RowsDefaultCellStyle = dataGridViewCellStyle6;
       this.ListNotebookWords.RowTemplate.Height = 28;
       this.ListNotebookWords.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
       this.ListNotebookWords.ShowCellToolTips = false;
@@ -892,9 +895,9 @@
       // 
       this.hebrewDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
       this.hebrewDataGridViewTextBoxColumn.DataPropertyName = "Hebrew";
-      dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-      dataGridViewCellStyle13.Font = new System.Drawing.Font("Hebrew", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ( (byte)( 0 ) ));
-      this.hebrewDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle13;
+      dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+      dataGridViewCellStyle5.Font = new System.Drawing.Font("Hebrew", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.hebrewDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
       resources.ApplyResources(this.hebrewDataGridViewTextBoxColumn, "hebrewDataGridViewTextBoxColumn");
       this.hebrewDataGridViewTextBoxColumn.Name = "hebrewDataGridViewTextBoxColumn";
       this.hebrewDataGridViewTextBoxColumn.ReadOnly = true;
@@ -926,9 +929,9 @@
       this.ListNotebookLetters.Name = "ListNotebookLetters";
       this.ListNotebookLetters.ReadOnly = true;
       this.ListNotebookLetters.RowHeadersVisible = false;
-      dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-      dataGridViewCellStyle16.Font = new System.Drawing.Font("Hebrew", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ( (byte)( 0 ) ));
-      this.ListNotebookLetters.RowsDefaultCellStyle = dataGridViewCellStyle16;
+      dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+      dataGridViewCellStyle8.Font = new System.Drawing.Font("Hebrew", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.ListNotebookLetters.RowsDefaultCellStyle = dataGridViewCellStyle8;
       this.ListNotebookLetters.RowTemplate.Height = 28;
       this.ListNotebookLetters.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
       this.ListNotebookLetters.ShowCellToolTips = false;
@@ -938,9 +941,9 @@
       // 
       this.codeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
       this.codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
-      dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-      dataGridViewCellStyle15.Font = new System.Drawing.Font("Hebrew", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ( (byte)( 0 ) ));
-      this.codeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle15;
+      dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+      dataGridViewCellStyle7.Font = new System.Drawing.Font("Hebrew", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.codeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
       resources.ApplyResources(this.codeDataGridViewTextBoxColumn, "codeDataGridViewTextBoxColumn");
       this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
       this.codeDataGridViewTextBoxColumn.ReadOnly = true;
@@ -1392,6 +1395,13 @@
       this.ActionGematriaCombinations.Name = "ActionGematriaCombinations";
       this.ActionGematriaCombinations.Click += new System.EventHandler(this.ActionGematriaCombinations_Click);
       // 
+      // ActionOpenCalculator
+      // 
+      this.ActionOpenCalculator.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+      resources.ApplyResources(this.ActionOpenCalculator, "ActionOpenCalculator");
+      this.ActionOpenCalculator.Name = "ActionOpenCalculator";
+      this.ActionOpenCalculator.Click += new System.EventHandler(this.ActionOpenCalculator_Click);
+      // 
       // toolStripSeparator1
       // 
       this.toolStripSeparator1.Name = "toolStripSeparator1";
@@ -1440,12 +1450,13 @@
       this.ContextMenuOpenConcordance.Name = "ContextMenuOpenTermLettriq";
       resources.ApplyResources(this.ContextMenuOpenConcordance, "ContextMenuOpenConcordance");
       // 
-      // ActionOpenCalculator
+      // ActionClearMeanings
       // 
-      this.ActionOpenCalculator.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-      resources.ApplyResources(this.ActionOpenCalculator, "ActionOpenCalculator");
-      this.ActionOpenCalculator.Name = "ActionOpenCalculator";
-      this.ActionOpenCalculator.Click += new System.EventHandler(this.ActionOpenCalculator_Click);
+      resources.ApplyResources(this.ActionClearMeanings, "ActionClearMeanings");
+      this.ActionClearMeanings.FlatAppearance.BorderSize = 0;
+      this.ActionClearMeanings.Name = "ActionClearMeanings";
+      this.ActionClearMeanings.UseVisualStyleBackColor = true;
+      this.ActionClearMeanings.Click += new System.EventHandler(this.ActionClearMeanings_Click);
       // 
       // MainForm
       // 
@@ -1474,31 +1485,31 @@
       this.SplitContainer.Panel1.PerformLayout();
       this.SplitContainer.Panel2.ResumeLayout(false);
       this.SplitContainer.Panel2.PerformLayout();
-      ( (System.ComponentModel.ISupportInitialize)( this.SplitContainer ) ).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.SplitContainer)).EndInit();
       this.SplitContainer.ResumeLayout(false);
-      ( (System.ComponentModel.ISupportInitialize)( this.EditConcordance ) ).EndInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.EditConcordanceRoot ) ).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.EditConcordance)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.EditConcordanceRoot)).EndInit();
       this.TabPageLetters.ResumeLayout(false);
       this.PanelViewLetters.ResumeLayout(false);
       this.PanelLettersInner.ResumeLayout(false);
       this.PanelLettersInner.PerformLayout();
       this.PanelLetter.ResumeLayout(false);
       this.PanelLetter.PerformLayout();
-      ( (System.ComponentModel.ISupportInitialize)( this.LettersBindingSource ) ).EndInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.EditMeanings ) ).EndInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.MeaningsBindingSource ) ).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.LettersBindingSource)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.EditMeanings)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.MeaningsBindingSource)).EndInit();
       this.TabPageNotebook.ResumeLayout(false);
       this.PanelViewNotebook.ResumeLayout(false);
       this.SplitContainerNotebook.Panel1.ResumeLayout(false);
       this.SplitContainerNotebook.Panel2.ResumeLayout(false);
-      ( (System.ComponentModel.ISupportInitialize)( this.SplitContainerNotebook ) ).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.SplitContainerNotebook)).EndInit();
       this.SplitContainerNotebook.ResumeLayout(false);
-      ( (System.ComponentModel.ISupportInitialize)( this.ListNotebookWords ) ).EndInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.TermsBindingSource ) ).EndInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.ListNotebookLetters ) ).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.ListNotebookWords)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.TermsBindingSource)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.ListNotebookLetters)).EndInit();
       this.panel2.ResumeLayout(false);
-      ( (System.ComponentModel.ISupportInitialize)( this.ListNotebookSentences ) ).EndInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.LettriqsBindingSource ) ).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.ListNotebookSentences)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.LettriqsBindingSource)).EndInit();
       this.panel3.ResumeLayout(false);
       this.panel3.PerformLayout();
       this.PanelTitle.ResumeLayout(false);
@@ -1642,5 +1653,6 @@
     private Panel PanelHorizontalLine;
     private SplitContainer SplitContainer;
     internal ToolStripMenuItem ActionOpenCalculator;
+    private Button ActionClearMeanings;
   }
 }
