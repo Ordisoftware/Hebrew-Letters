@@ -24,6 +24,7 @@ static partial class Program
   /// Updates localization strings to the whole application.
   /// </summary>
   [SuppressMessage("IDisposableAnalyzers.Correctness", "IDISP004:Don't ignore created IDisposable", Justification = "<En attente>")]
+  [SuppressMessage("Major Code Smell", "S2589:Boolean expressions should not be gratuitous", Justification = "Analysis error")]
   static public void UpdateLocalization()
   {
     Globals.ChronoTranslate.Restart();
