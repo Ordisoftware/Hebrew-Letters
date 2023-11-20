@@ -69,14 +69,14 @@ sealed class ApplicationDatabase : SQLiteDatabase
 
   protected override void DoLoadAll()
   {
-    Letters = Connection.Table<Letter>().ToList();
-    Meanings = Connection.Table<Meaning>().ToList();
+    Letters = [.. Connection.Table<Letter>()];
+    Meanings = [.. Connection.Table<Meaning>()];
   }
 
   protected override void CreateBindingLists()
   {
     LettersAsBindingList?.Dispose();
-    LettersAsBindingList = new BindingListView<Letter>(Letters);
+    LettersAsBindingList = new(Letters);
   }
 
   protected override void DoSaveAll()
