@@ -39,10 +39,10 @@
       System.Windows.Forms.Label LabelVerb;
       System.Windows.Forms.Label LabelPositive;
       System.Windows.Forms.Label LabelNegative;
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
       this.PanelMain = new System.Windows.Forms.Panel();
       this.PanelMainOuter = new System.Windows.Forms.Panel();
       this.PanelMainInner = new System.Windows.Forms.Panel();
@@ -81,6 +81,7 @@
       this.TabPageLetters = new System.Windows.Forms.TabPage();
       this.PanelViewLetters = new System.Windows.Forms.Panel();
       this.PanelLettersInner = new System.Windows.Forms.Panel();
+      this.ActionClearMeanings = new System.Windows.Forms.Button();
       this.PanelLetter = new System.Windows.Forms.Panel();
       this.LettersNavigator = new Ordisoftware.Core.ComboBoxNavigator();
       this.SelectLetter = new System.Windows.Forms.ComboBox();
@@ -175,7 +176,6 @@
       this.SaveImageDialog = new System.Windows.Forms.SaveFileDialog();
       this.ContextMenuOpenTermLettriq = new System.Windows.Forms.ContextMenuStrip(this.components);
       this.ContextMenuOpenConcordance = new System.Windows.Forms.ContextMenuStrip(this.components);
-      this.ActionClearMeanings = new System.Windows.Forms.Button();
       LabelName = new System.Windows.Forms.Label();
       LabelStructure = new System.Windows.Forms.Label();
       LabelFunction = new System.Windows.Forms.Label();
@@ -382,7 +382,6 @@
       this.EditWord.MarginX = -5;
       this.EditWord.MarginY = 0;
       this.EditWord.Name = "EditWord";
-      this.EditWord.ShowGematria = false;
       this.EditWord.ViewLetterDetails += new Ordisoftware.Hebrew.ViewLetterDetails(this.EditWord_ViewLetterDetails);
       this.EditWord.InputTextChanged += new System.EventHandler(this.EditWord_InputTextChanged);
       // 
@@ -592,6 +591,14 @@
       this.PanelLettersInner.Controls.Add(LabelMeanings);
       this.PanelLettersInner.Controls.Add(this.EditMeanings);
       this.PanelLettersInner.Name = "PanelLettersInner";
+      // 
+      // ActionClearMeanings
+      // 
+      resources.ApplyResources(this.ActionClearMeanings, "ActionClearMeanings");
+      this.ActionClearMeanings.FlatAppearance.BorderSize = 0;
+      this.ActionClearMeanings.Name = "ActionClearMeanings";
+      this.ActionClearMeanings.UseVisualStyleBackColor = true;
+      this.ActionClearMeanings.Click += new System.EventHandler(this.ActionClearMeanings_Click);
       // 
       // PanelLetter
       // 
@@ -883,9 +890,9 @@
       this.ListNotebookWords.Name = "ListNotebookWords";
       this.ListNotebookWords.ReadOnly = true;
       this.ListNotebookWords.RowHeadersVisible = false;
-      dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-      dataGridViewCellStyle6.Font = new System.Drawing.Font("Hebrew", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.ListNotebookWords.RowsDefaultCellStyle = dataGridViewCellStyle6;
+      dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+      dataGridViewCellStyle10.Font = new System.Drawing.Font("Hebrew", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.ListNotebookWords.RowsDefaultCellStyle = dataGridViewCellStyle10;
       this.ListNotebookWords.RowTemplate.Height = 28;
       this.ListNotebookWords.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
       this.ListNotebookWords.ShowCellToolTips = false;
@@ -895,9 +902,9 @@
       // 
       this.hebrewDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
       this.hebrewDataGridViewTextBoxColumn.DataPropertyName = "Hebrew";
-      dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-      dataGridViewCellStyle5.Font = new System.Drawing.Font("Hebrew", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.hebrewDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle5;
+      dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+      dataGridViewCellStyle9.Font = new System.Drawing.Font("Hebrew", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.hebrewDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle9;
       resources.ApplyResources(this.hebrewDataGridViewTextBoxColumn, "hebrewDataGridViewTextBoxColumn");
       this.hebrewDataGridViewTextBoxColumn.Name = "hebrewDataGridViewTextBoxColumn";
       this.hebrewDataGridViewTextBoxColumn.ReadOnly = true;
@@ -929,9 +936,9 @@
       this.ListNotebookLetters.Name = "ListNotebookLetters";
       this.ListNotebookLetters.ReadOnly = true;
       this.ListNotebookLetters.RowHeadersVisible = false;
-      dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-      dataGridViewCellStyle8.Font = new System.Drawing.Font("Hebrew", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.ListNotebookLetters.RowsDefaultCellStyle = dataGridViewCellStyle8;
+      dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+      dataGridViewCellStyle12.Font = new System.Drawing.Font("Hebrew", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.ListNotebookLetters.RowsDefaultCellStyle = dataGridViewCellStyle12;
       this.ListNotebookLetters.RowTemplate.Height = 28;
       this.ListNotebookLetters.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
       this.ListNotebookLetters.ShowCellToolTips = false;
@@ -941,9 +948,9 @@
       // 
       this.codeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
       this.codeDataGridViewTextBoxColumn.DataPropertyName = "Code";
-      dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-      dataGridViewCellStyle7.Font = new System.Drawing.Font("Hebrew", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.codeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle7;
+      dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+      dataGridViewCellStyle11.Font = new System.Drawing.Font("Hebrew", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+      this.codeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle11;
       resources.ApplyResources(this.codeDataGridViewTextBoxColumn, "codeDataGridViewTextBoxColumn");
       this.codeDataGridViewTextBoxColumn.Name = "codeDataGridViewTextBoxColumn";
       this.codeDataGridViewTextBoxColumn.ReadOnly = true;
@@ -1449,14 +1456,6 @@
       // 
       this.ContextMenuOpenConcordance.Name = "ContextMenuOpenTermLettriq";
       resources.ApplyResources(this.ContextMenuOpenConcordance, "ContextMenuOpenConcordance");
-      // 
-      // ActionClearMeanings
-      // 
-      resources.ApplyResources(this.ActionClearMeanings, "ActionClearMeanings");
-      this.ActionClearMeanings.FlatAppearance.BorderSize = 0;
-      this.ActionClearMeanings.Name = "ActionClearMeanings";
-      this.ActionClearMeanings.UseVisualStyleBackColor = true;
-      this.ActionClearMeanings.Click += new System.EventHandler(this.ActionClearMeanings_Click);
       // 
       // MainForm
       // 
