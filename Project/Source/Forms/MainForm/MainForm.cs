@@ -596,12 +596,12 @@ sealed partial class MainForm : Form
     UpdateAnalysisControls();
   }
 
-  private void ActionOpenConcordance1_Click(object sender, EventArgs e)
+  private void ActionOpenConcordance_Click(object sender, EventArgs e)
   {
     ContextMenuOpenConcordance.Show(ActionOpenConcordance, new Point(0, ActionOpenConcordance.Height));
   }
 
-  private void ActionOpenConcordance2_Click(object sender, EventArgs e)
+  private void ActionOpenConcordanceRoot_Click(object sender, EventArgs e)
   {
     ContextMenuOpenConcordance.Show(ActionOpenConcordanceRoot, new Point(0, ActionOpenConcordanceRoot.Height));
   }
@@ -1245,5 +1245,15 @@ sealed partial class MainForm : Form
   }
 
   #endregion
+
+  private void EditConcordance_KeyDown(object sender, KeyEventArgs e)
+  {
+    if ( e.KeyCode == Keys.Enter && ContextMenuOpenConcordance.Items.Count > 0 )
+    {
+      ActionOpenConcordance.PerformClick();
+      ContextMenuOpenConcordance.Items[0].PerformClick();
+    }
+
+  }
 
 }
