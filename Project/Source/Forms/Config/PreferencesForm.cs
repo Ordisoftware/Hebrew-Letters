@@ -14,6 +14,7 @@
 /// <edited> 2022-03 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
+using System;
 using KVPImageExportTarget = KeyValuePair<ImageExportTarget, string>;
 
 sealed partial class PreferencesForm : Form
@@ -52,6 +53,18 @@ sealed partial class PreferencesForm : Form
     OpenSettingsDialog.InitialDirectory = SaveSettingsDialog.InitialDirectory;
     SaveSettingsDialog.Filter = ExportTarget.CreateFilters();
     OpenSettingsDialog.Filter = SaveSettingsDialog.Filter;
+    create(HebrewGlobals.WebProvidersConcordance,
+           MenuSelectOnlineVerseURL,
+           (sender, args) => EditDefaultConcordanceUrl.Text = (string)( (ToolStripMenuItem)sender ).Tag);
+    //
+    void create(OnlineProviders provider, ContextMenuStrip menu, EventHandler action)
+    {
+      foreach ( var item in provider.Items )
+        if ( item.Name == "-" )
+          menu.Items.Add(new ToolStripSeparator());
+        else
+          menu.Items.Add(item.CreateMenuItem(action));
+    }
   }
 
   private void PreferencesForm_Load(object sender, EventArgs e)
@@ -285,6 +298,11 @@ sealed partial class PreferencesForm : Form
   private void EditHebrewCharsInBold_CheckedChanged(object sender, EventArgs e)
   {
     MainForm.Instance.EditWord.HebrewCharsInBold = EditHebrewCharsInBold.Checked;
+  }
+
+  private void ActionSelectConcordanceUrl_Click(object sender, EventArgs e)
+  {
+    MenuSelectOnlineVerseURL.Show(ActionSelectConcordanceUrl, new Point(0, ActionSelectConcordanceUrl.Height));
   }
 
 }

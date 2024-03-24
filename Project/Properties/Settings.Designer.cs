@@ -12,7 +12,7 @@ namespace Ordisoftware.Hebrew.Letters.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.4.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.9.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -709,7 +709,7 @@ namespace Ordisoftware.Hebrew.Letters.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("200")]
+        [global::System.Configuration.DefaultSettingValueAttribute("121")]
         public int MainFormSplitContainerNotebookDistance {
             get {
                 return ((int)(this["MainFormSplitContainerNotebookDistance"]));
@@ -837,6 +837,18 @@ namespace Ordisoftware.Hebrew.Letters.Properties {
             }
             set {
                 this["CalculatorExe"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://studybible.info/strongs/H%CONCORDANCE%.html")]
+        public string DefaultConcordanceURL {
+            get {
+                return ((string)(this["DefaultConcordanceURL"]));
+            }
+            set {
+                this["DefaultConcordanceURL"] = value;
             }
         }
     }

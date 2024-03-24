@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2023-07 </edited>
+/// <edited> 2024-03 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 using Equin.ApplicationFramework;
@@ -103,10 +103,6 @@ sealed partial class MainForm : Form
     if ( Globals.IsExiting ) return;
     if ( WindowState != FormWindowState.Normal ) return;
     EditScreenNone.PerformClick();
-    //if ( ApplicationCommandLine.Instance.IsPreviewEnabled ) // TODO remove when ready
-    //  SelectAnalyze.Height = PanelWordDetails.Top - 10 - SelectAnalyze.Top;
-    //else
-    //  SelectAnalyze.Height = EditSentence.Top - 10 - SelectAnalyze.Top;
   }
 
   /// <summary>
@@ -1248,12 +1244,35 @@ sealed partial class MainForm : Form
 
   private void EditConcordance_KeyDown(object sender, KeyEventArgs e)
   {
-    if ( e.KeyCode == Keys.Enter && ContextMenuOpenConcordance.Items.Count > 0 )
+    if ( e.KeyCode == Keys.Enter )
     {
       ActionOpenConcordance.PerformClick();
       ContextMenuOpenConcordance.Items[0].PerformClick();
     }
+  }
 
+  private void EditConcordanceRoot_KeyDown(object sender, KeyEventArgs e)
+  {
+    if ( e.KeyCode == Keys.Enter )
+    {
+      ActionOpenConcordanceRoot.PerformClick();
+      ContextMenuOpenConcordance.Items[0].PerformClick();
+    }
+  }
+
+  private void ActionOpenDefaultConcordance_Click(object sender, EventArgs e)
+  {
+    if ( sender is not ToolStripMenuItem menuitem )
+      return;
+    if ( menuitem.GetCurrentParent() is ContextMenuStrip menu )
+      if ( menu.SourceControl is not Button owner )
+        return;
+      else
+      {
+        var control = owner == ActionOpenConcordance ? EditConcordance : EditConcordanceRoot;
+        HebrewTools.OpenWordConcordance(Settings.DefaultConcordanceURL, (int)control.Value);
+        EditWord.Focus();
+      }
   }
 
 }

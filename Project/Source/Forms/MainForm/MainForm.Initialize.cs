@@ -112,13 +112,6 @@ partial class MainForm
   private void DoFormShown(object sender, EventArgs e)
   {
     if ( Globals.IsExiting ) return;
-    //if ( ApplicationCommandLine.Instance.IsPreviewEnabled ) // TODO remove when ready
-    //{
-    //  ActionCopyToMeanings.Top += 46;
-    //  ActionViewAllMeaningsList.Top += 46;
-    //  ActionScreenshot.Top += 46;
-    //  ActionSaveScreenshot.Top += 46;
-    //}
     if ( !Program.StartupWord.IsNullOrEmpty() )
     {
       EditWord.InitialWord = Program.StartupWord;
@@ -150,11 +143,11 @@ partial class MainForm
       ActionShowMethodNotice.PerformClick();
     }
     Globals.KeyboardShortcutsNotice = new ShowTextForm(AppTranslations.NoticeKeyboardShortcutsTitle,
-                                                           AppTranslations.NoticeKeyboardShortcuts,
-                                                           true, false,
-                                                           MessageBoxEx.DefaultHeightMedium,
-                                                           MessageBoxEx.DefaultHeightBig,
-                                                           false, false);
+                                                       AppTranslations.NoticeKeyboardShortcuts,
+                                                       true, false,
+                                                       MessageBoxEx.DefaultHeightMedium,
+                                                       MessageBoxEx.DefaultHeightBig,
+                                                       false, false);
     Globals.KeyboardShortcutsNotice.TextBox.BackColor = Globals.KeyboardShortcutsNotice.BackColor;
     Globals.KeyboardShortcutsNotice.TextBox.BorderStyle = BorderStyle.None;
     Globals.KeyboardShortcutsNotice.Padding = new Padding(20, 20, 10, 10);
