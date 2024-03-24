@@ -1,4 +1,6 @@
-﻿/// <license>
+﻿using Ordisoftware.Core;
+
+/// <license>
 /// This file is part of Ordisoftware Hebrew Letters.
 /// Copyright 2016-2024 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
@@ -96,7 +98,7 @@ partial class MainForm
           HebrewTools.OpenWordConcordance((string)menuitem.Tag, (int)control.Value);
           EditWord.Focus();
         }
-    }, null);
+    }, null, 2);
   }
 
 }

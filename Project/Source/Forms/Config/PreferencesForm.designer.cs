@@ -32,6 +32,7 @@
       System.Windows.Forms.Label LabelVolume;
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PreferencesForm));
       System.Windows.Forms.Label LabelCheckUpdateFrequency;
+      System.Windows.Forms.Label LabelDefaultCondordanceUrl;
       this.ActionClose = new System.Windows.Forms.Button();
       this.PanelBottom = new System.Windows.Forms.Panel();
       this.ActionExportSettings = new System.Windows.Forms.Button();
@@ -97,6 +98,9 @@
       this.EditAutoOpenExportedFile = new System.Windows.Forms.CheckBox();
       this.EditAutoOpenExportFolder = new System.Windows.Forms.CheckBox();
       this.TabPagePaths = new System.Windows.Forms.TabPage();
+      this.ActionConcordanceUrlHelp = new System.Windows.Forms.Button();
+      this.ActionSelectConcordanceUrl = new System.Windows.Forms.Button();
+      this.EditDefaultConcordanceUrl = new Ordisoftware.Core.TextBoxEx();
       this.LabelExportFolder = new System.Windows.Forms.Label();
       this.ActionResetExportFolder = new System.Windows.Forms.Button();
       this.ActionResetCustomWebSearch = new System.Windows.Forms.Button();
@@ -113,8 +117,10 @@
       this.ActionResetHebrewWordsPath = new System.Windows.Forms.Button();
       this.ActionSelectHebrewWordsPath = new System.Windows.Forms.Button();
       this.OpenExeFileDialog = new System.Windows.Forms.OpenFileDialog();
+      this.MenuSelectConcordanceUrl = new System.Windows.Forms.ContextMenuStrip(this.components);
       LabelVolume = new System.Windows.Forms.Label();
       LabelCheckUpdateFrequency = new System.Windows.Forms.Label();
+      LabelDefaultCondordanceUrl = new System.Windows.Forms.Label();
       this.PanelBottom.SuspendLayout();
       this.TabControl.SuspendLayout();
       this.TabPageApplication.SuspendLayout();
@@ -138,6 +144,11 @@
       // 
       resources.ApplyResources(LabelCheckUpdateFrequency, "LabelCheckUpdateFrequency");
       LabelCheckUpdateFrequency.Name = "LabelCheckUpdateFrequency";
+      // 
+      // LabelDefaultCondordanceUrl
+      // 
+      resources.ApplyResources(LabelDefaultCondordanceUrl, "LabelDefaultCondordanceUrl");
+      LabelDefaultCondordanceUrl.Name = "LabelDefaultCondordanceUrl";
       // 
       // ActionClose
       // 
@@ -669,6 +680,10 @@
       // 
       this.TabPagePaths.BackColor = System.Drawing.SystemColors.Window;
       this.TabPagePaths.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.TabPagePaths.Controls.Add(this.ActionConcordanceUrlHelp);
+      this.TabPagePaths.Controls.Add(this.ActionSelectConcordanceUrl);
+      this.TabPagePaths.Controls.Add(LabelDefaultCondordanceUrl);
+      this.TabPagePaths.Controls.Add(this.EditDefaultConcordanceUrl);
       this.TabPagePaths.Controls.Add(this.LabelExportFolder);
       this.TabPagePaths.Controls.Add(this.ActionResetExportFolder);
       this.TabPagePaths.Controls.Add(this.ActionResetCustomWebSearch);
@@ -686,6 +701,30 @@
       this.TabPagePaths.Controls.Add(this.ActionSelectHebrewWordsPath);
       resources.ApplyResources(this.TabPagePaths, "TabPagePaths");
       this.TabPagePaths.Name = "TabPagePaths";
+      // 
+      // ActionConcordanceUrlHelp
+      // 
+      this.ActionConcordanceUrlHelp.AllowDrop = true;
+      resources.ApplyResources(this.ActionConcordanceUrlHelp, "ActionConcordanceUrlHelp");
+      this.ActionConcordanceUrlHelp.FlatAppearance.BorderSize = 0;
+      this.ActionConcordanceUrlHelp.Name = "ActionConcordanceUrlHelp";
+      this.ActionConcordanceUrlHelp.UseVisualStyleBackColor = true;
+      // 
+      // ActionSelectConcordanceUrl
+      // 
+      this.ActionSelectConcordanceUrl.AllowDrop = true;
+      resources.ApplyResources(this.ActionSelectConcordanceUrl, "ActionSelectConcordanceUrl");
+      this.ActionSelectConcordanceUrl.FlatAppearance.BorderSize = 0;
+      this.ActionSelectConcordanceUrl.Name = "ActionSelectConcordanceUrl";
+      this.ActionSelectConcordanceUrl.UseVisualStyleBackColor = true;
+      this.ActionSelectConcordanceUrl.Click += new System.EventHandler(this.ActionSelectConcordanceUrl_Click);
+      // 
+      // EditDefaultConcordanceUrl
+      // 
+      resources.ApplyResources(this.EditDefaultConcordanceUrl, "EditDefaultConcordanceUrl");
+      this.EditDefaultConcordanceUrl.CaretAfterPaste = Ordisoftware.Core.CaretPositionAfterPaste.Ending;
+      this.EditDefaultConcordanceUrl.Name = "EditDefaultConcordanceUrl";
+      this.EditDefaultConcordanceUrl.SpellCheckAllowed = false;
       // 
       // LabelExportFolder
       // 
@@ -801,6 +840,11 @@
       // OpenExeFileDialog
       // 
       resources.ApplyResources(this.OpenExeFileDialog, "OpenExeFileDialog");
+      // 
+      // MenuSelectConcordanceUrl
+      // 
+      this.MenuSelectConcordanceUrl.Name = "MenuSelectOnlineVerseURL";
+      resources.ApplyResources(this.MenuSelectConcordanceUrl, "MenuSelectConcordanceUrl");
       // 
       // PreferencesForm
       // 
@@ -923,5 +967,9 @@
     private Button ActionResetCalculatorPath;
     private Button ActionSelectCalculatorPath;
     private TextBoxEx EditCalculatorPath;
+    private Button ActionConcordanceUrlHelp;
+    private Button ActionSelectConcordanceUrl;
+    private TextBoxEx EditDefaultConcordanceUrl;
+    private ContextMenuStrip MenuSelectConcordanceUrl;
   }
 }
