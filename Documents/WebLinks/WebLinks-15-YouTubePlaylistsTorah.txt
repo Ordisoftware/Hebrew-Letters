@@ -29,6 +29,9 @@ URL = https://www.youtube.com/playlist?list=PLSn7yTHwEx-C8x-a4WQBMvPbEQAPR4mhk
 Name = (FR/EN) Torah et religion
 URL = https://www.youtube.com/playlist?list=PLSn7yTHwEx-Dkv3zE0tAo494c64BBGTwz
 
+Name = (FR) La parashah de la semaine
+URL = https://www.youtube.com/playlist?list=PLSn7yTHwEx-Dh6iziUZOj2Ugm5AmLSHJc
+
 Name = (FR) Les célébrations de la Torah
 URL = https://www.youtube.com/playlist?list=PLSn7yTHwEx-BbcpGqKOVnyktf9GMFwnVV
 
@@ -47,6 +50,9 @@ URL = https://www.youtube.com/playlist?list=PLSn7yTHwEx-BHHWXJ6_Skb-gFBeAmDlKw
 Name = (FR) Cours de Kabalah
 URL = https://www.youtube.com/playlist?list=PLSn7yTHwEx-CoV3JgJLim0FmSsE1MDZJP
 
+Name = (FR) Cours de Zodiaque
+URL = https://www.youtube.com/playlist?list=PLSn7yTHwEx-BiSbcNLMwWxuSm-pVn6O7F
+
 Name = (FR) Georges Lahy
 URL = https://www.youtube.com/playlist?list=PLSn7yTHwEx-Cjlu1jQW7_xO1R03bCaKhs
 
@@ -63,6 +69,9 @@ URL = https://www.youtube.com/playlist?list=PLSn7yTHwEx-BGZKgCVDgtZqHZCpU8ieK2
 
 Name = (FR) Rav Yonathan Benchetrit
 URL = https://www.youtube.com/playlist?list=PLSn7yTHwEx-Dh6eRE1EGpvsJM-Urlmdre
+
+Name = (FR) Rav Emmanuel Bensimon
+URL = https://www.youtube.com/playlist?list=PLSn7yTHwEx-DXYZSVlH_4FQncGLE8uLEK
 
 Name = (FR) Rav Menahem Berros
 URL = https://www.youtube.com/playlist?list=PLSn7yTHwEx-AVp4Ngd3XuciymreoELu-9
@@ -85,8 +94,20 @@ URL = https://www.youtube.com/playlist?list=PLSn7yTHwEx-BtjVoIn7xLBlPJbUsNcc3Z
 Name = (FR) Rav Yves Marciano
 URL = https://www.youtube.com/playlist?list=PLSn7yTHwEx-BYiFkGEEVWJit3dAj1qGDR
 
+Name = (FR) Rav Baroukh Rosenblum
+URL = https://www.youtube.com/playlist?list=PLSn7yTHwEx-BbVVE9N2yVMwb4_NzMmFRn
+
+Name = (FR) Rav Raphaël Sadin
+URL = https://www.youtube.com/playlist?list=PLSn7yTHwEx-AryezXSAL8QUeyImAGzaPF
+
 Name = (FR/EN) Rav Menachem Mendel Schneerson
 URL = https://www.youtube.com/playlist?list=PLSn7yTHwEx-A4y254NHmPIg4Eca-Dei2I
+
+Name = (FR) Rav David Touitou
+URL = https://www.youtube.com/playlist?list=PLSn7yTHwEx-BvAk0qt2lx0tw4A9K8EU5d
+
+Name = (FR) Shouva Israël France
+URL = https://www.youtube.com/playlist?list=PLSn7yTHwEx-AYmwvio4NwcGESr4cqMO8S
 
 -
 
@@ -96,7 +117,7 @@ URL = https://www.youtube.com/playlist?list=PLSn7yTHwEx-Clbv_vfSf0pNcGcbZjbgDS
 Name = (FR) Rav Raphaël Pinto
 URL = https://www.youtube.com/playlist?list=PLSn7yTHwEx-BXLU4KFZcH1c80NHuqZ7PL
 
-Name = (FR) Rav Moshé Pinto
+Name = (FR) Rav Moché Pinto
 URL = https://www.youtube.com/playlist?list=PLSn7yTHwEx-Be8oTVSRFPNr8bB9HjdHyx
 
 -

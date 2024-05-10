@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Core Library.
-/// Copyright 2004-2022 Olivier Rogier.
+/// Copyright 2004-2024 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -11,13 +11,13 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2022-05 </edited>
+/// <edited> 2022-06 </edited>
 namespace Ordisoftware.Core;
 
 /// <summary>
 /// Localization strings.
 /// </summary>
-static partial class SysTranslations
+static public partial class SysTranslations
 {
 
   static public readonly TranslationsDictionary DatabaseSetDSNError = new()
@@ -156,12 +156,6 @@ static partial class SysTranslations
     [Language.FR] = $"Erreur à la suppression de la table :{Globals.NL2}{{0}}"
   };
 
-  static public readonly TranslationsDictionary DBRenameTableError = new()
-  {
-    [Language.EN] = $"Error on rename table:{Globals.NL2}{{0}} -> {{1}}",
-    [Language.FR] = $"Erreur au renommage de la table :{Globals.NL2}{{0}} -> {{1}}"
-  };
-
   static public readonly TranslationsDictionary DBCreateTableError = new()
   {
     [Language.EN] = $"Error on create table: {{0}}{Globals.NL2}{{1}}",
@@ -178,6 +172,18 @@ static partial class SysTranslations
   {
     [Language.EN] = $"Error on create column:{Globals.NL2}{{0}}",
     [Language.FR] = $"Erreur à la création de la colonne :{Globals.NL2}{{0}}"
+  };
+
+  static public readonly TranslationsDictionary DBRenameTableError = new()
+  {
+    [Language.EN] = $"Error on rename table:{Globals.NL2}{{0}} -> {{1}}",
+    [Language.FR] = $"Erreur au renommage de la table :{Globals.NL2}{{0}} -> {{1}}"
+  };
+
+  static public readonly TranslationsDictionary DBRenameColumnError = new()
+  {
+    [Language.EN] = $"Error on rename column:{Globals.NL2}{{0}} : {{1}} -> {{2}}",
+    [Language.FR] = $"Erreur au renommage de la colonne :{Globals.NL2}{{0}} : {{1}} -> {{2}}",
   };
 
   static public readonly TranslationsDictionary ColumnTooShort = new()

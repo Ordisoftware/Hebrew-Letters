@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Core Library.
-/// Copyright 2004-2022 Olivier Rogier.
+/// Copyright 2004-2024 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -22,8 +22,10 @@ using Microsoft.Win32;
 /// <summary>
 /// Provides system management.
 /// </summary>
-static partial class SystemManager
+static public partial class SystemManager
 {
+
+  private const int FilePathTruncatePosition = 25;
 
   public const string RegistryKeyRun = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run";
 
@@ -32,12 +34,11 @@ static partial class SystemManager
   /// <summary>
   /// Deletes all app settings folders in User\AppData\Local.
   /// </summary>
-  [SuppressMessage("Design", "GCop179:Do not hardcode numbers, strings or other values. Use constant fields, enums, config files or database as appropriate.", Justification = "<En attente>")]
   static public void CleanAllLocalAppSettingsFolders()
   {
     try
     {
-      string filter = Globals.ApplicationExeFileName.Substring(0, 25) + "*";
+      string filter = Globals.ApplicationExecutableFileName.Substring(0, FilePathTruncatePosition) + "*";
       string filterold = filter.Replace("Hebrew.", "Hebrew");
       var list = Directory.GetDirectories(Globals.UserLocalDataFolderPath, filter)
                           .Concat(Directory.GetDirectories(Globals.UserLocalDataFolderPath, filterold));
@@ -140,7 +141,7 @@ static partial class SystemManager
         ex1.Manage(ShowExceptionMode.None);
         try
         {
-          result = System.Runtime.InteropServices.Marshal.SizeOf(instance);
+          result = Marshal.SizeOf(instance);
         }
         catch ( Exception ex2 )
         {
@@ -167,8 +168,8 @@ static partial class SystemManager
   {
     try
     {
-      using ( FileStream stream = new FileInfo(filePath).Open(FileMode.Open, FileAccess.Read, FileShare.None) )
-        stream.Close();
+      using var stream = new FileInfo(filePath).Open(FileMode.Open, FileAccess.Read, FileShare.None);
+      stream.Close();
       return false;
     }
     catch ( IOException )

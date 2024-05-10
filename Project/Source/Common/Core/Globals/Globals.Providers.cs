@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Core Library.
-/// Copyright 2004-2022 Olivier Rogier.
+/// Copyright 2004-2024 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -17,7 +17,7 @@ namespace Ordisoftware.Core;
 /// <summary>
 /// Provides global variables.
 /// </summary>
-static partial class Globals
+static public partial class Globals
 {
 
   /// <summary>
@@ -58,8 +58,8 @@ static partial class Globals
   static public void LoadWebLinksProviders()
   {
     if ( !Directory.Exists(WebLinksFolderPath) ) return;
-    WebLinksProviders = new List<OnlineProviders>();
-    SystemManager.TryCatchManage(ShowExceptionMode.OnlyMessage, () =>
+    WebLinksProviders = [];
+    SystemManager.TryCatchManage(ShowExceptionMode.Message, () =>
     {
       foreach ( var file in Directory.GetFiles(WebLinksFolderPath, "WebLinks*.txt") )
       {

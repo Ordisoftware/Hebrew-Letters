@@ -2,14 +2,14 @@
 [![GitHub all releases downloads](https://img.shields.io/github/downloads/ordisoftware/hebrew-letters/total)](https://github.com/Ordisoftware/Hebrew-Letters/releases)&nbsp;
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/ordisoftware/hebrew-letters)](https://github.com/Ordisoftware/Hebrew-Letters/releases/latest)&nbsp;
 [![GitHub repo size](https://img.shields.io/github/repo-size/ordisoftware/hebrew-letters)](#)&nbsp;
-[![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/ordisoftware/hebrew-letters)](https://github.com/Ordisoftware/Hebrew-Letters/tree/master/Project)&nbsp;
-[![Lines of code](https://img.shields.io/tokei/lines/github/ordisoftware/hebrew-letters)](https://github.com/Ordisoftware/Hebrew-Letters/tree/master/Project)&nbsp;<br/>
+[![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/ordisoftware/hebrew-letters)](https://github.com/Ordisoftware/Hebrew-Letters/tree/main/Project)&nbsp;
+[![Lines of code](https://img.shields.io/tokei/lines/github/ordisoftware/hebrew-letters)](https://github.com/Ordisoftware/Hebrew-Letters/tree/main/Project)&nbsp;<br/>
 [![OS: Windows](https://img.shields.io/badge/Windows%207%2B-279CE8?label=os)](https://www.microsoft.com/windows/)&nbsp;
 [![UI: WinForms](https://img.shields.io/badge/WinForms-279CE8?label=ui)](https://github.com/dotnet/winforms)&nbsp;
 [![Framework: .Net](https://img.shields.io/badge/.NET%204.8-6E5FA6?label=framework)](https://dotnet.microsoft.com)&nbsp;
 [![IDE: Visual Studio](https://img.shields.io/badge/Visual%20Studio%202022-6E5FA6.svg?label=ide)](https://visualstudio.microsoft.com)&nbsp;
-[![Lang: C#](https://img.shields.io/badge/C%23%2011-%23239120.svg?label=lang)](https://docs.microsoft.com/dotnet/csharp/)&nbsp;
-[![DB: SQLite](https://img.shields.io/badge/SQLite%203.38-darkgoldenrod.svg?label=db)](https://www.sqlite.org)&nbsp;<br/>
+[![Lang: C#](https://img.shields.io/badge/C%23%2012-%23239120.svg?label=lang)](https://docs.microsoft.com/dotnet/csharp/)&nbsp;
+[![DB: SQLite](https://img.shields.io/badge/SQLite%203.45-darkgoldenrod.svg?label=db)](https://www.sqlite.org)&nbsp;<br/>
 [![Ordisoftware.com Project](https://img.shields.io/badge/-Ordisoftware.com%20Project-355F90?logo=WordPress&logoColor=white)](https://www.ordisoftware.com/hebrew-letters)&nbsp;
 [![Manufacturing Software Guidelines](https://img.shields.io/badge/-Manufacturing%20Software%20Guidelines-355F90?logo=MicrosoftWord&logoColor=white)](https://github.com/Ordisoftware/Guidelines)&nbsp;
 
@@ -53,7 +53,7 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 - Screen 1024x768 or higher
 - Windows 7 SP1 x32/x64 or higher
 - Framework .NET 4.8
-- SQLite 3.38.3
+- SQLite 3.45
 
 ## Download
 
@@ -82,7 +82,7 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 
 |IDE Extension|Project NuGet| 
 |-|-|
-|[SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.SonarLintforVisualStudio2022)<br>[Roslynator](https://marketplace.visualstudio.com/items?itemName=josefpihrt.Roslynator2022)<br>[F0.Analyzers](https://marketplace.visualstudio.com/items?itemName=Flash0Ware.F0-Analyzers-VS)<br>[Parallel Helper](https://marketplace.visualstudio.com/items?itemName=camrein.ParallelHelper)<br>[Parallel Checker](https://marketplace.visualstudio.com/items?itemName=LBHSR.ParallelChecker)<br>[AsyncFixer](https://marketplace.visualstudio.com/items?itemName=SemihOkur.AsyncFixer2022)<br>[Async Method Name Fixer](https://marketplace.visualstudio.com/items?itemName=PRIYANSHUAGRAWAL92.AsyncMethodNameFixer)<br>[U2U Consult Performance Analyzers](https://marketplace.visualstudio.com/items?itemName=vs-publisher-363830.U2UConsultPerformanceCodeAnalyzersforC7)<br>[Security Code Scan](https://marketplace.visualstudio.com/items?itemName=JaroslavLobacevski.SecurityCodeScanVS2019)<br>[Puma Scan](https://marketplace.visualstudio.com/items?itemName=PumaSecurity.PumaScan)|[Microsoft.CodeAnalysis.NetAnalyzers](https://github.com/dotnet/roslyn-analyzers)<br>[Microsoft.VisualStudio.Threading.Analyzers](https://github.com/microsoft/vs-threading)<br>[MultithreadingAnalyzer](https://github.com/cezarypiatek/MultithreadingAnalyzer)<br>[Meziantou.Analyzer](https://github.com/meziantou/Meziantou.Analyzer)<br>[GCop.All.Common](https://github.com/Geeksltd/GCop)<br>[ReflectionAnalyzers](https://github.com/DotNetAnalyzers/ReflectionAnalyzers)<br>[IDisposableAnalyzers](https://github.com/DotNetAnalyzers/IDisposableAnalyzers)<br>[ErrorProne.NET.CoreAnalyzers](https://github.com/SergeyTeplyakov/ErrorProne.NET)<br>[ErrorProne.NET.Structs](https://github.com/SergeyTeplyakov/ErrorProne.NET)<br><br>|
+|[SonarLint](https://marketplace.visualstudio.com/items?itemName=SonarSource.SonarLintforVisualStudio2022)<br>[Roslynator](https://marketplace.visualstudio.com/items?itemName=josefpihrt.Roslynator2022)<br>[F0.Analyzers](https://marketplace.visualstudio.com/items?itemName=Flash0Ware.F0-Analyzers-VS)<br>[Parallel Helper](https://marketplace.visualstudio.com/items?itemName=camrein.ParallelHelper)<br>[Parallel Checker](https://marketplace.visualstudio.com/items?itemName=LBHSR.ParallelChecker)<br>[AsyncFixer](https://marketplace.visualstudio.com/items?itemName=SemihOkur.AsyncFixer2022)<br>[Async Method Name Fixer](https://marketplace.visualstudio.com/items?itemName=PRIYANSHUAGRAWAL92.AsyncMethodNameFixer)<br>[U2U Consult Performance Analyzers](https://marketplace.visualstudio.com/items?itemName=vs-publisher-363830.U2UConsultPerformanceCodeAnalyzersforC7)<br>[TSQL Analyzer](https://github.com/Zefek/TSQLAnalyzer)<br>[Serilog Analyzer](https://github.com/Suchiman/SerilogAnalyzer)<br>[Security Code Scan](https://marketplace.visualstudio.com/items?itemName=JaroslavLobacevski.SecurityCodeScanVS2019)<br>[Puma Scan](https://marketplace.visualstudio.com/items?itemName=PumaSecurity.PumaScan)<br>[SharpSource](https://github.com/Vannevelj/SharpSource)<br>[Inclusiveness Analyzer](https://github.com/microsoft/InclusivenessAnalyzerVisualStudio)|[Microsoft.CodeAnalysis.NetAnalyzers](https://github.com/dotnet/roslyn-analyzers)<br>[Microsoft.VisualStudio.Threading.Analyzers](https://github.com/microsoft/vs-threading)<br>[MultithreadingAnalyzer](https://github.com/cezarypiatek/MultithreadingAnalyzer)<br>[Meziantou.Analyzer](https://github.com/meziantou/Meziantou.Analyzer)<br>[GCop.All.Common](https://github.com/Geeksltd/GCop)<br>[ReflectionAnalyzers](https://github.com/DotNetAnalyzers/ReflectionAnalyzers)<br>[IDisposableAnalyzers](https://github.com/DotNetAnalyzers/IDisposableAnalyzers)<br>[ErrorProne.NET.CoreAnalyzers](https://github.com/SergeyTeplyakov/ErrorProne.NET)<br>[ErrorProne.NET.Structs](https://github.com/SergeyTeplyakov/ErrorProne.NET)<br><br><br><br><br><br>|
 
 #### What to do if the check update tells that the SSL certificate is wrong or expired?
 
@@ -128,7 +128,7 @@ When disabled, top menu and some controls painting may cause latency, and dynami
   
 This program does not use IPC intercom yet since multiple instances can run at the same time.
 
-### How to run a word contextual analysis from any application such as browser or text editor?
+#### _How to run a word contextual analysis from any application such as browser or text editor?_
 
 It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for example this `Shift + Ctrl + Alt + H` command on a selected word:
 
@@ -180,27 +180,39 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 ## Future improvements
 
+- Add gematria for final letters.
+- Add export analysis as MSWord table.
 - Add option to set primary source for check update between author website or GitHub.
 - Add reset only some columns to factory defaults.
+- Add backup and restore database, meanings and notebook.
+- Add export letters data to TXT/CSV/JSON/XML.
+- Add import letters data from TXT/CSV/JSON/XML.
+- Add export and import analyzed words.
 - Add export analysis items to MSWord table.
-- Add find gematria possible combinations.
-- Add export data to TXT/CSV/JSON/XML.
-- Add import data from TXT/CSV/JSON/XML.
+- Add merge meanings and notebooks from another database
 - Add print letters data.
 - Add print notebook data.
+- Add find gematria possible combinations.
 - Rewrite advanced TextBox to support multiple undo/redo.
-- Optimize more ComboBoxes creation.
+- Optimize combo boxes creation.
 
 ## Changelog
 
-#### In progress for 2022 - Version 7.0
+#### In progress - Version 7.0
 
 - Add analyzed words data table and notebook view to save results.
 - Add concordance, transcription, dictionary and comment fields for word analysis.
 - Add search online concordance.
-- Add backup and restore database.
-- Add export and import analyzed words.
-- Added an option to display a warning when selecting the meaning of a letter while the sentence has been changed.
+- Add button to reverse the current analyzed word.
+- Add shorcuts to copy word in unicode to clipboard.
+- Add menu item for system calculator
+- Add an option to display a warning when selecting the meaning of a letter while the sentence has been changed.
+- Use dedicated folder in application's document folder for exports and imports settings and themes.
+- Replace on-the-fly readme.html creation with MarkDig by a generated with VS.
+- Improve web update checker security.
+- Improve IPC interoperability security.
+- Update some nuget dependencies.
+- Update web links with many sites and study menu items.
 
 #### 2022.06.21 - Version 6.14
 

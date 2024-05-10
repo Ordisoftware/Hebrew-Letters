@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Core Library.
-/// Copyright 2004-2022 Olivier Rogier.
+/// Copyright 2004-2024 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -21,7 +21,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 /// <summary>
 /// Provides system management.
 /// </summary>
-static partial class SystemManager
+static public partial class SystemManager
 {
 
   /// <summary>
@@ -104,6 +104,7 @@ static partial class SystemManager
   /// <summary>
   /// Creates IPC server instance.
   /// </summary>
+  [SuppressMessage("Major Code Smell", "S3966:Objects should not be disposed more than once", Justification = "Analysis error")]
   static public void CreateIPCServer(AsyncCallback ipcRequests)
   {
     if ( ipcRequests is null ) return;
@@ -147,7 +148,8 @@ static partial class SystemManager
       client.Connect(2000);
       try
       {
-        new BinaryFormatter().Serialize(client, command);
+        using var writer = new BinaryWriter(client);
+        writer.Write(command);
       }
       finally
       {

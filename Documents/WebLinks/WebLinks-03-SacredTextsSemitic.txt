@@ -68,7 +68,7 @@ Name = (IW) Tanak Hebrew Text @ fourmilab.ch
 URL = http://www.fourmilab.ch/etexts/www/hebrew/Bible/
 
 Name = (IW) Tanak Hebrew MP3 @ mechon-mamre.org
-URL = https://www.mechon-mamre.org/p/pt/ptmp3prq.htm
+URL = https://mechon-mamre.org/p/pt/ptmp3prq.htm
 
 -
 
@@ -78,12 +78,21 @@ URL = https://studybible.info/IHOT/
 Name = (EN) Interlinear Euangélion @ studybible.info
 URL = https://studybible.info/IGNT
 
+Name = (EN) Literal Torah @ mechanical-translation.org
+URL = https://www.mechanical-translation.org
+
 -
 
 Name = (EN) Interlinear Bible @ biblehub.com
 URL = https://biblehub.com/interlinear/
 
+Name = (FR/IW) Tehilim Online @ tehilim-online.com
+URL = https://tehilim-online.com
+
 -
+
+Name = (FR) Bible comparatif multi-version @ djep.hd.free.fr
+URL = http://djep.hd.free.fr/LaReferenceBiblique/
 
 Name = (FR) Bible en hébreu @ lexilogos.com
 URL = https://www.lexilogos.com/bible_hebreu.htm
@@ -101,6 +110,9 @@ URL = http://corpus.quran.com/wordbyword.jsp
 
 Name = (FR) Quran Interlinéaire @ coran-seul.com
 URL = http://coran-seul.com/index.php/home
+
+Name = (FR) Quran en français @ coran-en-ligne.com
+URL = http://www.coran-en-ligne.com/coran-en-francais.html
 
 Name = (FR/EN) Quran arabic lecture @ notequran.com
 URL = https://www.notequran.com

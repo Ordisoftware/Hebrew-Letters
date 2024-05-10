@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Core Library.
-/// Copyright 2004-2022 Olivier Rogier.
+/// Copyright 2004-2024 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -14,7 +14,7 @@
 /// <edited> 2022-03 </edited>
 namespace Ordisoftware.Core;
 
-abstract class ProviderSettings
+public abstract class ProviderSettings
 {
 
   protected string FilePath;
@@ -43,7 +43,7 @@ abstract class ProviderSettings
       DoClear();
       using var stream = File.OpenText(FilePath);
       while ( ( line = stream.ReadLine() ) is not null )
-        if ( line.Trim().Length != 0 && !line.IsCommentedText() )
+        if ( line.Trim().Length != 0 && !line.IsCommented() )
           DoLoad(line);
     }
     catch ( Exception ex )

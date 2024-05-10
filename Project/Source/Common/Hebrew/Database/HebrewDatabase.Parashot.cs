@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Hebrew Calendar/Letters/Words.
-/// Copyright 2012-2022 Olivier Rogier.
+/// Copyright 2012-2024 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -11,10 +11,10 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2021-05 </created>
-/// <edited> 2021-09 </edited>
+/// <edited> 2021-11 </edited>
 namespace Ordisoftware.Hebrew;
 
-partial class HebrewDatabase : SQLiteDatabase
+public partial class HebrewDatabase : SQLiteDatabase
 {
 
   public readonly string ParashotTableName = nameof(Parashot);
@@ -56,6 +56,17 @@ partial class HebrewDatabase : SQLiteDatabase
   private List<Parashah> LoadParashot()
   {
     Parashot = Load(Connection.Table<Parashah>());
+    if ( IsParashotUpgradedV10 )
+    {
+      foreach ( Parashah item in Parashot )
+      {
+        item.ReferenceBegin = item.VerseBegin;
+        item.ReferenceEnd = item.VerseEnd;
+        item.InitializeReferences();
+      }
+      SaveParashot();
+      IsParashotUpgradedV10 = false;
+    }
     ParashotAsBindingList = new BindingList<Parashah>(Parashot);
     return Parashot;
   }
@@ -77,10 +88,10 @@ partial class HebrewDatabase : SQLiteDatabase
     }
   }
 
-  public void DeleteParashot(bool nocheckaccess = false)
+  public void DeleteParashot(bool noCheckAccess = false)
   {
     CheckConnected();
-    if ( !nocheckaccess ) CheckAccess(Parashot, nameof(Parashot));
+    if ( !noCheckAccess ) CheckAccess(Parashot, nameof(Parashot));
     Connection.DeleteAll<Parashah>();
     Parashot?.Clear();
   }
@@ -108,7 +119,13 @@ partial class HebrewDatabase : SQLiteDatabase
             memos?.AddRange(Parashot.Select(p => p.Memo));
             DeleteParashot(true);
             var list = ParashotFactory.Instance.All.Select(p => p.Clone()).Cast<Parashah>().ToList();
-            if ( noText ) list.ForEach(p => { p.Translation = ""; p.Lettriq = ""; p.Memo = ""; });
+            if ( noText )
+              list.ForEach(p =>
+              {
+                p.Translation = string.Empty;
+                p.Lettriq = string.Empty;
+                p.Memo = string.Empty;
+              });
             if ( memos is not null )
               for ( int index = 0, indexCheck = 0; index < list.Count && indexCheck < memos.Count; index++ )
                 list[index].Memo = memos[index];

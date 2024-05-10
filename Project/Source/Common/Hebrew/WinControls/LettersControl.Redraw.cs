@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Hebrew Calendar/Letters/Words.
-/// Copyright 2012-2022 Olivier Rogier.
+/// Copyright 2012-2024 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -11,13 +11,13 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2012-10 </created>
-/// <edited> 2022-03 </edited>
+/// <edited> 2022-08 </edited>
 namespace Ordisoftware.Hebrew;
 
 /// <summary>
 /// Provides Letters input panel Control.
 /// </summary>
-partial class LettersControl
+public partial class LettersControl
 {
 
   private bool RedrawMutex;
@@ -27,6 +27,7 @@ partial class LettersControl
   /// </summary>
   [SuppressMessage("IDisposableAnalyzers.Correctness", "IDISP003:Dispose previous before re-assigning", Justification = "N/A")]
   [SuppressMessage("Design", "GCop179:Do not hardcode numbers, strings or other values. Use constant fields, enums, config files or database as appropriate.", Justification = "N/A")]
+  [SuppressMessage("Design", "MA0051:Method is too long", Justification = "N/A")]
   public void Redraw()
   {
     if ( !Created || RedrawMutex ) return;
@@ -128,6 +129,7 @@ partial class LettersControl
       }
       Height = posY + deltaBetweenLines + deltaY + deltaValues + deltaKeys + deltaValue5
              + PanelSeparator.Height + TextBox.Height;
+      if ( PanelBottom.Visible ) Height += PanelBottom.Height;
       PanelLetters.Controls.AddRange(controls);
     }
     catch ( Exception ex )

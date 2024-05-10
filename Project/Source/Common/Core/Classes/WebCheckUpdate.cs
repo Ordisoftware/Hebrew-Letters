@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Core Library.
-/// Copyright 2004-2022 Olivier Rogier.
+/// Copyright 2004-2024 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -17,7 +17,7 @@ namespace Ordisoftware.Core;
 /// <summary>
 /// Provides web check update.
 /// </summary>
-static class WebCheckUpdate
+static public class WebCheckUpdate
 {
 
   static private bool Mutex;
@@ -43,19 +43,19 @@ static class WebCheckUpdate
   /// <returns>
   /// True if application must exist else false.
   /// </returns>
-  /// <param name="lastdone">The last done date.</param>
+  /// <param name="lastDone">The last done date.</param>
   /// <param name="interval">Days interval to check.</param>
   /// <param name="auto">True if no user interaction else false.</param>
   /// <param name="checkAtStartup">True if it is a startup check.</param>
   /// <param name="useGitHub">True to use GitHub.</param>
   [SuppressMessage("Performance", "GCop317:This code is repeated {0} times in this method. If its value remains the same during the method execution, store it in a variable. Otherwise define a method (or Func<T> variable) instead of repeating the expression. [{1}]", Justification = "N/A")]
-  static public bool Run(ref DateTime lastdone, int interval, bool auto, bool checkAtStartup, bool useGitHub = false)
+  static public bool Run(ref DateTime lastDone, int interval, bool auto, bool checkAtStartup, bool useGitHub = false)
   {
     if ( interval == -1 ) interval = DefaultCheckDaysInterval;
     CleanTemp();
     if ( Mutex ) return false;
     if ( auto && !checkAtStartup ) return false;
-    if ( auto && lastdone.AddDays(interval) >= DateTime.Now ) return false;
+    if ( auto && lastDone.AddDays(interval) >= DateTime.Now ) return false;
     var form = FormsHelper.GetActiveForm();
     bool formEnabled = form?.Enabled ?? false;
     bool formTopMost = form?.TopMost ?? false;
@@ -75,26 +75,12 @@ static class WebCheckUpdate
       LoadingForm.Instance.DoProgress();
       using var client = new WebClientEx();
       var fileInfo = GetVersionAndChecksum(client, useGitHub);
-      lastdone = DateTime.Now;
+      lastDone = DateTime.Now;
       if ( fileInfo.Item1.CompareTo(Assembly.GetExecutingAssembly().GetName().Version) > 0 )
         return GetUserChoice(client, fileInfo, useGitHub);
       else
       if ( !auto )
         DisplayManager.ShowInformation(SysTranslations.NoNewVersionAvailable.GetLang());
-    }
-    catch ( UnauthorizedAccessException ex )
-    {
-      CleanTemp();
-      DisplayManager.ShowWarning(SysTranslations.CheckUpdate.GetLang(Globals.AssemblyTitle), ex.Message);
-      if ( DisplayManager.QueryYesNo(SysTranslations.AskToOpenGitHubPage.GetLang()) )
-        SystemManager.OpenGitHupRepo();
-    }
-    catch ( IOException ex )
-    {
-      CleanTemp();
-      DisplayManager.ShowWarning(SysTranslations.CheckUpdate.GetLang(Globals.AssemblyTitle), ex.Message);
-      if ( DisplayManager.QueryYesNo(SysTranslations.AskToOpenGitHubPage.GetLang()) )
-        SystemManager.OpenGitHupRepo();
     }
     catch ( WebException ex )
     {
@@ -107,27 +93,28 @@ static class WebCheckUpdate
           if ( useGitHub )
             return false;
           else
-            return Run(ref lastdone, interval, auto, checkAtStartup, true);
+            return Run(ref lastDone, interval, auto, checkAtStartup, true);
         else
         if ( useGitHub )
           msg += Globals.NL2 + SysTranslations.CheckInternetConnection.GetLang();
         else
-          return Run(ref lastdone, interval, auto, checkAtStartup, true);
+          return Run(ref lastDone, interval, auto, checkAtStartup, true);
       }
-      DisplayManager.ShowWarning(SysTranslations.CheckUpdate.GetLang(Globals.AssemblyTitle), msg);
+      if ( !auto )
+        DisplayManager.ShowWarning(SysTranslations.CheckUpdate.GetLang(Globals.AssemblyTitle), msg);
     }
     catch ( Exception ex )
     {
       CleanTemp();
-      DisplayManager.ShowWarning(SysTranslations.CheckUpdate.GetLang(Globals.AssemblyTitle), ex.Message);
+      if ( !auto )
+      {
+        DisplayManager.ShowWarning(SysTranslations.CheckUpdate.GetLang(Globals.AssemblyTitle), ex.Message);
+        if ( ex is UnauthorizedAccessException || ex is IOException )
+          if ( DisplayManager.QueryYesNo(SysTranslations.AskToOpenGitHubPage.GetLang()) )
+            SystemManager.OpenGitHubRepo();
+      }
     }
     finally
-    {
-      doFinally();
-    }
-    return false;
-    //
-    void doFinally()
     {
       Mutex = false;
       LoadingForm.Instance.Hidden = formHidden;
@@ -139,6 +126,7 @@ static class WebCheckUpdate
         form.Enabled = formEnabled;
       }
     }
+    return false;
   }
 
   /// <summary>
@@ -251,7 +239,7 @@ static class WebCheckUpdate
       if ( ex is not null ) throw ex;
       if ( !SystemManager.CheckIfFileIsExecutable(filePathTemp) )
         throw new IOException(SysTranslations.NotAnExecutableFile.GetLang(filePathTemp));
-      if ( SystemManager.GetChecksumSha512(filePathTemp) != fileInfo.checksum )
+      if ( SystemManager.GetChecksumSHA512(filePathTemp) != fileInfo.checksum )
         throw new IOException(SysTranslations.WrongFileChecksum.GetLang(filePathTemp));
       using var process = SystemManager.GetRunShell(filePathTemp, "/SP- /SILENT");
       if ( process is not null )
@@ -288,31 +276,6 @@ static class WebCheckUpdate
                             status.ToStringFull() + Globals.NL +
                             code.ToStringFull());
     }
-  }
-
-}
-
-/// <summary>
-/// Provides web client with timeout.
-/// </summary>
-public class WebClientEx : WebClient
-{
-
-  static public int DefaultTimeOutSeconds { get; set; } = 5;
-
-  public int TimeOutSeconds { get; set; }
-
-  public WebClientEx(int timeOutSeconds = 0)
-  {
-    if ( timeOutSeconds <= 0 ) timeOutSeconds = DefaultTimeOutSeconds;
-    TimeOutSeconds = timeOutSeconds;
-  }
-
-  protected override WebRequest GetWebRequest(Uri address)
-  {
-    var result = base.GetWebRequest(address);
-    result.Timeout = TimeOutSeconds * 1000;
-    return result;
   }
 
 }

@@ -1,5 +1,4 @@
 ﻿using System.Resources;
-using System.Runtime.InteropServices;
 
 // Les informations générales relatives à un assembly dépendent de
 // l'ensemble d'attributs suivant. Changez les valeurs de ces attributs pour modifier les informations
@@ -9,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Ordisoftware")]
 [assembly: AssemblyProduct("www.ordisoftware.com/projects/hebrew-letters")]
-[assembly: AssemblyCopyright("Copyright 2012-2022 Olivier Rogier")]
+[assembly: AssemblyCopyright("Copyright 2012-2024 Olivier Rogier")]
 [assembly: AssemblyTrademark("www.ordisoftware.com")]
 [assembly: AssemblyCulture("")]
 
@@ -31,6 +30,6 @@ using System.Runtime.InteropServices;
 // Vous pouvez spécifier toutes les valeurs ou indiquer les numéros de build et de révision par défaut
 // en utilisant '*', comme indiqué ci-dessous :
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("6.14.0.0")]
-[assembly: AssemblyFileVersion("6.14.0.0")]
+[assembly: AssemblyVersion("7.0.0.0")]
+[assembly: AssemblyFileVersion("7.0.0.0")]
 [assembly: NeutralResourcesLanguage("en")]

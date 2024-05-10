@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Hebrew Letters.
-/// Copyright 2016-2022 Olivier Rogier.
+/// Copyright 2016-2024 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -11,27 +11,15 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2021-05 </created>
-/// <edited> 2022-05 </edited>
+/// <edited> 2023-01 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
-using System;
-using System.Linq;
-using System.Collections.Generic;
-using System.ComponentModel;
 using SQLite;
 
 [Serializable]
 [Table("Letters")]
-public class Letter : INotifyPropertyChanged
+public class Letter : AbstractRow
 {
-
-  [field: NonSerialized]
-  public event PropertyChangedEventHandler PropertyChanged;
-
-  protected void NotifyPropertyChanged(string property)
-  {
-    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
-  }
 
   [PrimaryKey]
   [NotNull]
@@ -51,7 +39,7 @@ public class Letter : INotifyPropertyChanged
   [NotNull]
   public string Name // Obsolete: Value comes from a dictionary.
   {
-    get => HebrewTranslations.LettersTranscriptionFromCodes.GetLang(_Code);
+    get => HebrewAlphabet.TranscriptionFromCodes.GetLang(_Code);
     set
     {
       if ( _Name == value ) return;

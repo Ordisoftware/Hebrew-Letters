@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Hebrew Calendar/Letters/Words.
-/// Copyright 2012-2022 Olivier Rogier.
+/// Copyright 2012-2024 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2021-02 </created>
-/// <edited> 2022-05 </edited>
+/// <edited> 2022-11 </edited>
 namespace Ordisoftware.Hebrew;
 
 using SQLite;
@@ -25,11 +25,19 @@ public partial class Parashah
   public TorahBook Book { get; set; }
   public int Number { get; set; }
 
-  public string VerseBegin { get; set; }
-  public string VerseEnd { get; set; }
+  public string VerseBegin { get; set; } // Obsolete : Moved to ReferenceBegin since v10.0
+  public string VerseEnd { get; set; }   // Obsolete : Moved to ReferenceEnd since v10.0
 
-  public string FullReferenceBegin => $"{(int)Book}.{VerseBegin}";
-  public string FullReferenceEnd => $"{(int)Book}.{VerseEnd}";
+  public string ReferenceBegin { get; set; }
+  public string ReferenceEnd { get; set; }
+
+  public int FirstChapter { get; set; }
+  public int LastChapter { get; set; }
+  public int FirstVerse { get; set; }
+  public int LastVerse { get; set; }
+
+  public string FullReferenceBegin => $"{(int)Book}.{ReferenceBegin}";
+  public string FullReferenceEnd => $"{(int)Book}.{ReferenceEnd}";
 
   public string Name // Obsolete: Value comes from factory.
   {

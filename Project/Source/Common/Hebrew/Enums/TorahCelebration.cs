@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Hebrew Calendar/Letters/Words.
-/// Copyright 2012-2022 Olivier Rogier.
+/// Copyright 2012-2024 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -11,9 +11,12 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2021-09 </created>
-/// <edited> 2021-09 </edited>
+/// <edited> 2022-11 </edited>
 namespace Ordisoftware.Hebrew;
 
+/// <summary>
+/// Torah celebrations steps.
+/// </summary>
 public enum TorahCelebration
 {
   None,
@@ -21,5 +24,18 @@ public enum TorahCelebration
   Chavouot,
   YomTerouah,
   YomHaKipourim,
-  Soukot
+  Soukot,
+  // TODO when ready : check and uncomment 
+  //Tevet10,
+  //TouBichvat,
+  //Hanouka,
+  //Pourim,
+  //TaanitBekhorim,
+  //YomHaShoah,
+  //LagBahomer,
+  //Tammouz17,
+  //TishaBeAv,
+  //TouBeAv,
+  //ShimhatTorah,
+  Shabat
 }

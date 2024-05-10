@@ -16,24 +16,29 @@ URL = https://studybible.info/IHOT/%BOOKSB% %CHAPTERNUM%:%VERSENUM%
 Name = (EN/IW) BibleHub.com (Literal with contextual concordances, and transcription)
 URL = https://biblehub.com/interlinear/%BOOKBIBLEHUB%/%CHAPTERNUM%-%VERSENUM%.htm
 
+Name = (EN/IW) Mechanical-Translation.org (Literal with contextual definitions)
+URL = https://www.mechanical-translation.org/mtt/%BOOKMT%%CHAPTERNUM%.html
+
 -
 
+; Need to take each chapter number from the web site
 Name = (EN/IW) Chabad.org (Side-by-side)
-URL = https://www.chabad.org/library/bible_cdo/aid/%BOOKCHABAD%/jewish/Chapter-%CHAPTERNUM%.htm#v%VERSENUM%
+URL = https://www.chabad.org/library/bible_cdo/aid/%BOOKCHABAD%/
+; URL = https://www.chabad.org/library/bible_cdo/aid/%BOOKCHABAD%/jewish/Chapter-%CHAPTERNUM%.htm#v%VERSENUM%
 
 Name = (EN/IW) Sefaria.org (With contextual dictionary)
 URL = https://www.sefaria.org/%BOOKSEFARIA%.%CHAPTERNUM%.%VERSENUM%?lang=bi&with=all&lang2=en
 
-Name = (FR/IW) Torah-Box.org (L'un ou l'autre, avec Rachi)
+Name = (FR/IW) Torah-Box.com (L'un ou l'autre, avec Rachi)
 URL = https://www.torah-box.com/torah-pdf/%BOOKTORAHBOX%/%CHAPTERNUM%.html
 
 -
 
 Name = (EN/IW) Mechon-Mamre.org (Side-by-side)
-URL = https://www.mechon-mamre.org/p/pt/pt%BOOKMM%%CHAPTERNUM#2%.htm#%VERSENUM%
+URL = https://mechon-mamre.org/p/pt/pt%BOOKMM%%CHAPTERNUM#2%.htm#%VERSENUM%
 
 Name = (FR/IW) Mechon-Mamre.org (Côte-à-côte)
-URL = https://www.mechon-mamre.org/f/ft/ft%BOOKMM%%CHAPTERNUM#2%.htm#%VERSENUM%
+URL = https://mechon-mamre.org/f/ft/ft%BOOKMM%%CHAPTERNUM#2%.htm#%VERSENUM%
 
 -
 

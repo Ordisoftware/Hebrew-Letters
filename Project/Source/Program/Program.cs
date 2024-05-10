@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Hebrew Letters.
-/// Copyright 2012-2022 Olivier Rogier.
+/// Copyright 2012-2024 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -11,11 +11,8 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2022-06 </edited>
+/// <edited> 2023-01 </edited>
 namespace Ordisoftware.Hebrew.Letters;
-
-//using System.IO.Pipes;
-//using System.Runtime.Serialization.Formatters.Binary;
 
 /// <summary>
 /// Provides Program class.
@@ -29,24 +26,19 @@ static partial class Program
   [STAThread]
   static void Main(string[] args)
   {
-    CommonMenusControl.PreviewFunctions = new()
-    {
-      [Language.EN] = "    • Notebook of analyzed words" + Globals.NL +
-                      "    • Web links edition",
-      [Language.FR] = "    • Carnet des mots analysés" + Globals.NL +
-                      "    • Edition des liens web"
-    };
     try
     {
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
+      //
       Globals.ChronoStartingApp.Start();
       Globals.SoftpediaURL = "https://www.softpedia.com/get/Others/Home-Education/Hebrew-Letters.shtml";
-      Globals.AlternativeToURL = "";
+      Globals.AlternativeToURL = string.Empty;
+      CommonMenusControl.PreviewFunctions = AppTranslations.PreviewFunctions;
+      //
       var lang = Settings.LanguageSelected;
       SystemManager.CheckCommandLineArguments<ApplicationCommandLine>(args, ref lang);
-      // No IPCAnswers
-      // No IPCRequests
+      // No IPC & process multiple instance
       bool upgrade = Settings.UpgradeRequired;
       Globals.IsSettingsUpgraded = upgrade;
       Settings.CheckUpgradeRequired(ref upgrade);
@@ -56,16 +48,25 @@ static partial class Program
       if ( lang != Language.None ) Settings.LanguageSelected = lang;
       SystemManager.TryCatch(Settings.Save);
       Globals.Settings = Settings;
+      //
+      //Globals.SpellCheckEnabled = Settings.SpellCheckEnabled;
+      //TextBoxEx.InstanceCreated += TextBox_UpdateSpellChecker;
+      //TextBoxEx.UpdateSpellChecker += TextBox_UpdateSpellChecker;
+      //TextBoxEx.Relocalized += TextBox_Relocalized;
+      //TextBox_Relocalized();
       Globals.MainForm = MainForm.Instance;
       DebugManager.TraceEnabled = Settings.TraceEnabled;
       DebugManager.Enabled = Settings.DebuggerEnabled;
-      HebrewGlobals.GetHebrewCalendarExePath = () => string.Empty;
-      HebrewGlobals.GetHebrewLettersExePath = () => Globals.ApplicationExeFullPath;
-      HebrewGlobals.GetHebrewWordsExePath = () => Settings.HebrewWordsExe;
+      //
+      HebrewGlobals.GetHebrewCalendarExecutablePath = () => string.Empty;
+      HebrewGlobals.GetHebrewLettersExecutablePath = () => Globals.ApplicationExecutableFullPath;
+      HebrewGlobals.GetHebrewWordsExecutablePath = () => Settings.HebrewWordsExe;
       HebrewGlobals.GetCustomWebSearchPattern = () => Settings.CustomWebSearch;
+      //
       Globals.ChronoStartingApp.Stop();
       ProcessCommandLineOptions();
       Globals.ChronoStartingApp.Start();
+      //
       LoadingForm.Instance.Hidden = Settings.LoadingFormHidden;
       AboutBox.LicenseAsRTF = Properties.Resources.MPL_2_0;
       AboutBox.DescriptionText = AppTranslations.ApplicationDescription;
@@ -119,136 +120,14 @@ static partial class Program
         if ( File.Exists(pathWordsDefault) )
           Settings.HebrewWordsExe = pathWordsDefault;
       // Save settings
-      CheckPreviewNotice();
+      bool previewModeNotified = Settings.PreviewModeNotified;
+      SystemCommandLine.CheckPreviewNotice(ref previewModeNotified);
+      Settings.PreviewModeNotified = previewModeNotified;
       SystemManager.TryCatch(Settings.Save);
     }
     catch ( Exception ex )
     {
       ex.Manage();
-    }
-  }
-
-  /// <summary>
-  /// Checks if the app is in preview mode or not and display a notice if needed.
-  /// </summary>
-  static internal void CheckPreviewNotice()
-  {
-    if ( CommonMenusControl.PreviewFunctions is null ) return;
-    if ( !SystemManager.CommandLineOptions.IsPreviewEnabled || Settings.PreviewModeNotified ) return;
-    string msg = SysTranslations.AskForPreviewMode.GetLang(CommonMenusControl.PreviewFunctions[Languages.Current]);
-    if ( !DisplayManager.QueryYesNo(msg) )
-    {
-      SystemManager.CommandLineOptions.WithPreview = false;
-      SystemManager.CommandLineOptions.NoPreview = true;
-    }
-    Settings.PreviewModeNotified = true;
-  }
-
-  /// <summary>
-  /// Processes command line options.
-  /// </summary>
-  static private void ProcessCommandLineOptions()
-  {
-    try
-    {
-      if ( SystemManager.CommandLineOptions is null ) return;
-      if ( SystemManager.CommandLineOptions.ResetSettings )
-      {
-        SystemManager.CleanAllLocalAppSettingsFolders();
-        CheckSettingsReset(true);
-      }
-      else
-      if ( !Settings.FirstLaunch && SystemManager.CommandLineOptions?.HideMainForm == true )
-        Globals.ForceStartupHide = true;
-    }
-    catch ( Exception ex )
-    {
-      ex.Manage();
-    }
-  }
-
-  /// <summary>
-  /// Updates localization strings to the whole application.
-  /// </summary>
-  [SuppressMessage("IDisposableAnalyzers.Correctness", "IDISP004:Don't ignore created IDisposable", Justification = "<En attente>")]
-  static public void UpdateLocalization()
-  {
-    Globals.ChronoTranslate.Restart();
-    Task task = null;
-    try
-    {
-      static void update(Form form)
-      {
-        new Infralution.Localization.CultureManager().ManagedControl = form;
-        var resources = new ComponentResourceManager(form.GetType());
-        resources.ApplyResources(form.Controls);
-      }
-      string lang = "en-US";
-      if ( Settings.LanguageSelected == Language.FR ) lang = "fr-FR";
-      var culture = new CultureInfo(lang);
-      Thread.CurrentThread.CurrentCulture = culture;
-      Thread.CurrentThread.CurrentUICulture = culture;
-      task = new Task(HebrewGlobals.LoadProviders);
-      task.Start();
-      if ( Globals.IsReady )
-      {
-        MessageBoxEx.CloseAll();
-        AboutBox.Instance.Hide();
-        MainForm.Instance.PanelMainCenter.Visible = false;
-        var temp = Settings.CurrentView;
-        MainForm.Instance.SetView(ViewMode.Analysis);
-        update(MainForm.Instance);
-        MainForm.Instance.SetView(ViewMode.Letters);
-        update(MainForm.Instance);
-        MainForm.Instance.SetView(temp);
-      }
-      else
-      {
-        MainForm.Instance.SetView(ViewMode.Analysis, true);
-        update(MainForm.Instance);
-      }
-      new Infralution.Localization.CultureManager().ManagedControl = StatisticsForm.Instance;
-      new Infralution.Localization.CultureManager().ManagedControl = AboutBox.Instance;
-      new Infralution.Localization.CultureManager().ManagedControl = TranscriptionGuideForm;
-      new Infralution.Localization.CultureManager().ManagedControl = GrammarGuideForm;
-      new Infralution.Localization.CultureManager().ManagedControl = MethodNoticeForm;
-      Infralution.Localization.CultureManager.ApplicationUICulture = culture;
-      var formsToSkip = new Form[] { DebugManager.TraceForm, AboutBox.Instance, GrammarGuideForm, MethodNoticeForm };
-      foreach ( Form form in Application.OpenForms.GetAll().Except(formsToSkip) )
-      {
-        update(form);
-        if ( form is ShowTextForm formShowText )
-          formShowText.Relocalize();
-      }
-      // Various updates
-      if ( Globals.IsReady )
-      {
-        LoadingForm.Instance.Relocalize();
-        TextBoxEx.Relocalize();
-        AboutBox.Instance.AboutBox_Shown(null, null);
-        TranscriptionGuideForm.HTMLBrowserForm_Shown(null, null);
-        GrammarGuideForm.HTMLBrowserForm_Shown(null, null);
-        MethodNoticeForm.HTMLBrowserForm_Shown(null, null);
-      }
-      MainForm.Instance.PanelGematria.Top = MainForm.Instance.PanelWordDetails.Top;
-      MainForm.Instance.LabelClipboardContentType.Left = MainForm.Instance.ActionCopyToUnicode.Left
-                                                       + MainForm.Instance.ActionCopyToUnicode.Width / 2
-                                                       - MainForm.Instance.LabelClipboardContentType.Width / 2;
-      MainForm.Instance.EditCopyToClipboardCloseApp.Left = MainForm.Instance.ActionCopyToResult.Left
-                                                         + MainForm.Instance.ActionCopyToResult.Width + 5;
-      MainForm.Instance.CheckClipboardContentType();
-      task?.Wait();
-      MainForm.Instance.CreateSystemInformationMenu();
-    }
-    catch ( Exception ex )
-    {
-      ex.Manage();
-    }
-    finally
-    {
-      MainForm.Instance.PanelMainCenter.Visible = true;
-      Globals.ChronoTranslate.Stop();
-      Settings.BenchmarkTranslate = Globals.ChronoTranslate.ElapsedMilliseconds;
     }
   }
 

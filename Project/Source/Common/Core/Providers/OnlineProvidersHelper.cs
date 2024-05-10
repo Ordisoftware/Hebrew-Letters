@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Core Library.
-/// Copyright 2004-2022 Olivier Rogier.
+/// Copyright 2004-2024 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -11,13 +11,13 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2020-03 </created>
-/// <edited> 2022-06 </edited>
+/// <edited> 2024-03 </edited>
 namespace Ordisoftware.Core;
 
 /// <summary>
 /// Provides online providers list helper to create menu items.
 /// </summary>
-static class OnlineProvidersHelper
+static public class OnlineProvidersHelper
 {
 
   /// <summary>
@@ -66,24 +66,29 @@ static class OnlineProvidersHelper
   /// Creates a list of menu items.
   /// </summary>
   [SuppressMessage("Performance", "U2U1017:Initialized locals should be used", Justification = "N/A")]
-  static private void SetItems(ToolStripItemCollection menuItems,
+  static private void SetItems(ToolStripItemCollection items,
                                OnlineProviders providers,
                                EventHandler action,
                                Action finished,
-                               Action reconstruct)
+                               Action reconstruct,
+                               int countKeepFirstItems)
   {
     if ( providers is null || providers.Items.Count == 0 ) return;
-    menuItems.Clear();
-    string nameItems = StackMethods.NameOfFromStack(3).Replace("Globals.", string.Empty);
+    if ( countKeepFirstItems == 0 )
+      items.Clear();
+    else
+      while ( items.Count > countKeepFirstItems )
+        items.RemoveAt(countKeepFirstItems);
+    string itemsVarName = StackMethods.NameOfFromStack(3).Replace("Globals.", string.Empty);
     foreach ( var item in providers.Items )
-      menuItems.Add(item.CreateMenuItem(action));
+      items.Add(item.CreateMenuItem(action));
     finished?.Invoke();
     if ( providers.Configurable )
     {
-      menuItems.Add(new ToolStripSeparator());
-      menuItems.Add(CreateConfigureMenuItem((sender, e) =>
+      items.Add(new ToolStripSeparator());
+      items.Add(CreateConfigureMenuItem((sender, e) =>
       {
-        if ( DataFileEditorForm.Run(nameItems, providers) )
+        if ( DataFileEditorForm.Run(itemsVarName, providers) )
           reconstruct();
       }));
     }
@@ -92,33 +97,38 @@ static class OnlineProvidersHelper
   /// <summary>
   /// Creates sub-menu items for providers menu.
   /// </summary>
-  static public void InitializeFromProviders(this ContextMenuStrip contextMenu,
-                                             OnlineProviders providers,
-                                             EventHandler action,
-                                             Action finished = null)
+  static public void Initialize(this ContextMenuStrip menu,
+                                OnlineProviders providers,
+                                EventHandler action,
+                                Action finished = null,
+                                int countKeepFirstItems = 0)
   {
-    SetItems(contextMenu.Items,
+    SetItems(menu.Items,
              providers,
              action,
              finished,
-             () => InitializeFromProviders(contextMenu, providers, action, finished));
+             () => Initialize(menu, providers, action, finished),
+             countKeepFirstItems);
   }
 
   /// <summary>
   /// Creates sub-menu items for providers menu.
   /// </summary>
-  static public void InitializeFromProviders(this ToolStripMenuItem menuItem,
-                                             OnlineProviders providers,
-                                             EventHandler action,
-                                             Action finished = null)
+  static public void Initialize(
+    this ToolStripMenuItem item,
+    OnlineProviders providers,
+    EventHandler action,
+    Action finished = null,
+    int countKeepFirstItems = 0)
   {
     if ( providers is null ) return;
-    SetItems(menuItem.DropDownItems,
+    SetItems(item.DropDownItems,
              providers,
              action,
              finished,
-             () => InitializeFromProviders(menuItem, providers, action, finished));
-    menuItem.MouseUp += Menu_MouseUp;
+             () => Initialize(item, providers, action, finished),
+             countKeepFirstItems);
+    item.MouseUp += Menu_MouseUp;
   }
 
   /// <summary>
@@ -126,11 +136,11 @@ static class OnlineProvidersHelper
   /// </summary>
   [SuppressMessage("IDisposableAnalyzers.Correctness", "IDISP001:Dispose created", Justification = "<En attente>")]
   [SuppressMessage("IDisposableAnalyzers.Correctness", "IDISP003:Dispose previous before re-assigning", Justification = "<En attente>")]
-  static public void InitializeFromWebLinks(this ToolStripDropDownButton menuRoot, Action reconstruct)
+  static public void CreateWebLinks(this ToolStripDropDownButton root, Action reconstruct)
   {
     var providers = Globals.WebLinksProviders;
     if ( providers is null ) return;
-    menuRoot.DropDownItems.Clear();
+    root.DropDownItems.Clear();
     foreach ( var items in providers )
       if ( items.Items.Count > 0 )
       {
@@ -140,17 +150,17 @@ static class OnlineProvidersHelper
         {
           string title = items.Title.GetLang();
           if ( items.SeparatorBeforeFolder )
-            menuRoot.DropDownItems.Add(new ToolStripSeparator());
+            root.DropDownItems.Add(new ToolStripSeparator());
           menu = new ToolStripMenuItem(title);
-          menuRoot.DropDownItems.Add(menu);
+          root.DropDownItems.Add(menu);
           menu.ImageScaling = ToolStripItemImageScaling.None;
           menu.Image = OnlineProviderItem.FolderImage;
           menu.MouseUp += Menu_MouseUp;
         }
         else
         {
-          menuRoot.DropDownItems.Add(new ToolStripSeparator());
-          menu = menuRoot;
+          root.DropDownItems.Add(new ToolStripSeparator());
+          menu = root;
         }
         // Items
         foreach ( var item in items.Items )
@@ -160,10 +170,10 @@ static class OnlineProvidersHelper
             SystemManager.OpenWebLink(url);
           }));
       }
-    if ( menuRoot.DropDownItems.Count > 0 && Globals.WebLinksProviders[0].Configurable )
+    if ( root.DropDownItems.Count > 0 && Globals.WebLinksProviders[0].Configurable )
     {
-      menuRoot.DropDownItems.Add(new ToolStripSeparator());
-      menuRoot.DropDownItems.Add(CreateConfigureMenuItem((sender, e) =>
+      root.DropDownItems.Add(new ToolStripSeparator());
+      root.DropDownItems.Add(CreateConfigureMenuItem((sender, e) =>
       {
         if ( DataFileEditorForm.Run(nameof(Globals.WebLinksProviders), Globals.WebLinksProviders) )
           reconstruct();
@@ -179,26 +189,25 @@ static class OnlineProvidersHelper
   static private void Menu_MouseUp(object sender, MouseEventArgs e)
   {
     if ( e.Button != MouseButtons.Right ) return;
-    if ( sender is not ToolStripMenuItem menuItem ) return;
-    if ( menuItem.Owner is ContextMenuStrip contextMenuSingle )
-      contextMenuSingle.Close();
-    if ( menuItem.OwnerItem is ToolStripDropDownButton button )
+    if ( sender is not ToolStripMenuItem item ) return;
+    if ( item.Owner is ContextMenuStrip menuSingle )
+      menuSingle.Close();
+    if ( item.OwnerItem is ToolStripDropDownButton button )
       button.HideDropDown();
     else
-    if ( menuItem.OwnerItem is ToolStripMenuItem ownerMenuItem )
+    if ( item.OwnerItem is ToolStripMenuItem ownerMenuItem )
       if ( ownerMenuItem.Owner is ContextMenuStrip contextMenuInternal )
         contextMenuInternal.Hide();
       else
         ownerMenuItem.HideDropDown();
-    int count = menuItem.DropDownItems.ToEnumerable(item => item is not ToolStripSeparator).Count();
-    string msg = SysTranslations.AskToOpenAllLinks.GetLang(menuItem.Text, count);
+    int count = item.DropDownItems.ToEnumerable(item => item is not ToolStripSeparator).Count();
+    string msg = SysTranslations.AskToOpenAllLinks.GetLang(item.Text, count);
     if ( DisplayManager.QueryYesNo(msg) )
-      foreach ( ToolStripItem item in menuItem.DropDownItems )
-        if ( item.Tag is not null )
-        {
-          item.PerformClick();
-          Thread.Sleep(1500);
-        }
+      foreach ( var subitem in item.DropDownItems.ToEnumerable().Where(subitem => subitem.Tag is not null) )
+      {
+        subitem.PerformClick();
+        Thread.Sleep(1500);
+      }
   }
 
 }

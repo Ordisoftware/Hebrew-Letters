@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Core Library.
-/// Copyright 2004-2022 Olivier Rogier.
+/// Copyright 2004-2024 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -17,7 +17,7 @@ namespace Ordisoftware.Core;
 /// <summary>
 /// Provides system management.
 /// </summary>
-static partial class SystemManager
+static public partial class SystemManager
 {
 
   /// <summary>
@@ -38,7 +38,7 @@ static partial class SystemManager
   {
     try
     {
-      CommandLineArguments = args.ToList();
+      CommandLineArguments = [.. args];
       var options = CommandLine.Parser.Default.ParseArguments<T>(args);
       if ( options.Tag != CommandLine.ParserResultType.Parsed )
       {
@@ -200,7 +200,7 @@ static partial class SystemManager
   /// <summary>
   /// Opens GitHub repository.
   /// </summary>
-  static public void OpenGitHupRepo()
+  static public void OpenGitHubRepo()
   {
     OpenWebLink(Globals.GitHubRepositoryURL);
   }
@@ -213,17 +213,16 @@ static partial class SystemManager
     OpenWebLink(Globals.GitHubCreateIssueURL + query);
   }
 
-
   /// <summary>
   /// Gets the SHA-512 checksum of a file.
   /// </summary>
-  static public string GetChecksumSha512(string filePath)
+  static public string GetChecksumSHA512(string filePath)
   {
     try
     {
       using var stream = File.OpenRead(filePath);
       using var sha = System.Security.Cryptography.SHA512.Create();
-      return BitConverter.ToString(sha.ComputeHash(stream)).Replace("-", "").ToLower();
+      return BitConverter.ToString(sha.ComputeHash(stream)).Replace("-", string.Empty).ToLower();
     }
     catch ( Exception ex )
     {

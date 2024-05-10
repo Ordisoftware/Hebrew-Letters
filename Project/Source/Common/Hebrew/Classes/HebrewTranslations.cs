@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Hebrew Calendar/Letters/Words.
-/// Copyright 2012-2022 Olivier Rogier.
+/// Copyright 2012-2024 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -11,40 +11,14 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2022-06 </edited>
+/// <edited> 2023-01 </edited>
 namespace Ordisoftware.Hebrew;
 
 /// <summary>
 /// Localization strings.
 /// </summary>
-static partial class HebrewTranslations
+static public partial class HebrewTranslations
 {
-
-  static public readonly NullSafeDictionary<Language, string[]> LettersTranscription = new()
-  {
-    [Language.EN] = new string[]
-    {
-      "Alef", "Bet", "Gimel", "Dalet", "He", "Vav", "Zayin", "'Het", "T'et", "Yod", "Kaf",
-      "Lamed", "Mem", "Nun", "Samek", "H'ayin", "Pay", "Tsadi", "Qof", "Resh", "Shin", "Tav"
-    },
-
-    [Language.FR] = new string[]
-    {
-      "Alef", "Bet", "Guimel", "Dalet", "Hé", "Vav", "Zayin", "'Het", "T'et", "Youd", "Kaf",
-      "Lamed", "Mem", "Noun", "Samek", "H'ayin", "Pé", "Tsadi", "Qouf", "Resh", "Shin", "Tav"
-    }
-  };
-
-  static public readonly NullSafeDictionary<Language, Dictionary<string, string>> LettersTranscriptionFromCodes = new()
-  {
-    [Language.EN] = HebrewAlphabet.KeyCodes
-                                  .Zip(LettersTranscription[Language.EN], (k, v) => new { Code = k, Transcription = v })
-                                  .ToDictionary(x => x.Code, x => x.Transcription),
-
-    [Language.FR] = HebrewAlphabet.KeyCodes
-                                  .Zip(LettersTranscription[Language.FR], (k, v) => new { Code = k, Transcription = v })
-                                  .ToDictionary(x => x.Code, x => x.Transcription)
-  };
 
   static public readonly TranslationsDictionary TranscriptionGuideTitle = new()
   {
@@ -94,6 +68,12 @@ static partial class HebrewTranslations
     [Language.FR] = "Lettrique"
   };
 
+  static public readonly TranslationsDictionary LetterDetails = new()
+  {
+    [Language.EN] = "View details about {0}",
+    [Language.FR] = "Voir les détails sur {0}"
+  };
+
   static public readonly TranslationsDictionary AskToResetParashot = new()
   {
     [Language.EN] = "Data will be restored to their default values, except memos. Erase all data before to delete memos too." + Globals.NL2 +
@@ -103,6 +83,24 @@ static partial class HebrewTranslations
     [Language.FR] = "Les données seront restaurées à leurs valeurs par défaut, sauf les memos. Pour effacer les mémos, supprimez toutes les données d'abord." + Globals.NL2 +
                     "Toutes les modifications seront perdues et l'action ne pourra pas être annulée." + Globals.NL2 +
                     SysTranslations.AskToContinue[Language.FR]
+  };
+
+  static public readonly TranslationsDictionary BookNotAvailable = new()
+  {
+    [Language.EN] = "Book {0} is not yet available.",
+    [Language.FR] = "Le livre {0} n'est pas encore disponible."
+  };
+
+  static public readonly TranslationsDictionary ParashahNotFound = new()
+  {
+    [Language.EN] = "Parashah not found : it's Pessa'h or data are not generated.",
+    [Language.FR] = "Parashah non trouvée : c'est Pessa'h ou les données n'ont pas été générées."
+  };
+
+  static public readonly TranslationsDictionary WeeklyParashah = new()
+  {
+    [Language.EN] = "Weekly parashah",
+    [Language.FR] = "Parashah de la semaine"
   };
 
   static public readonly TranslationsDictionary ParashahReading = new()
@@ -129,23 +127,11 @@ static partial class HebrewTranslations
     [Language.FR] = "Chercher avec Hebrew Words"
   };
 
-  static public readonly TranslationsDictionary WeeklyParashah = new()
-  {
-    [Language.EN] = "Weekly parashah",
-    [Language.FR] = "Parashah de la semaine"
-  };
-
-  static public readonly TranslationsDictionary ParashahNotFound = new()
-  {
-    [Language.EN] = "Parashah not found : it's Pesa'h or data are not generated.",
-    [Language.FR] = "Parashah non trouvée : c'est Pessa'h ou les données n'ont pas été générées."
-  };
-
-  static public readonly NullSafeDictionary<TorahCelebration, TranslationsDictionary> TorahCelebrations = new()
+  static public readonly NullSafeDictionary<TorahCelebration, TranslationsDictionary> CelebrationsInLatinChars = new()
   {
     [TorahCelebration.Pessah] = new TranslationsDictionary
     {
-      [Language.EN] = "Pesa'h",
+      [Language.EN] = "Pessa'h",
       [Language.FR] = "Pessa'h"
     },
     [TorahCelebration.Chavouot] = new TranslationsDictionary
@@ -167,7 +153,54 @@ static partial class HebrewTranslations
     {
       [Language.EN] = "Sukot",
       [Language.FR] = "Soukot"
+    },
+    // TODO when ready : check and uncomment 
+    //Tevet10,
+    //TouBichvat,
+    //Hanouka,
+    //Pourim,
+    //TaanitBekhorim,
+    //YomHaShoah,
+    //LagBahomer,
+    //Tammouz17,
+    //TishaBeAv,
+    //TouBeAv,
+    //ShimhatTorah,
+    [TorahCelebration.Shabat] = new TranslationsDictionary
+    {
+      [Language.EN] = "Shabat",
+      [Language.FR] = "Shabat"
     }
   };
+
+  static public readonly Dictionary<TorahCelebration, string> CelebrationsInHebrewChars = new()
+  {
+    [TorahCelebration.Pessah] = "פסח",
+    [TorahCelebration.Chavouot] = "שבועות",
+    [TorahCelebration.YomTerouah] = "יומ תרועה",
+    [TorahCelebration.YomHaKipourim] = "יומ הכיפורים",
+    [TorahCelebration.Soukot] = "סכות",
+    [TorahCelebration.Shabat] = "שבת"
+  };
+
+  static public string GetCelebrationDisplayText(TorahCelebration celebration)
+    => HebrewDatabase.HebrewNamesInUnicode
+       ? CelebrationsInHebrewChars[celebration]
+       : CelebrationsInLatinChars[celebration].GetLang();
+
+  static public string GetLunarMonthDisplayText(int month)
+    => HebrewDatabase.HebrewNamesInUnicode
+     ? HebrewMonths.Unicode[month]
+     : HebrewMonths.Transcriptions.GetLang()[month];
+
+  static public string Shabat
+    => HebrewDatabase.HebrewNamesInUnicode
+       ? CelebrationsInHebrewChars[TorahCelebration.Shabat]
+       : CelebrationsInLatinChars.GetLang(TorahCelebration.Shabat);
+
+  static public string Parashah
+    => HebrewDatabase.HebrewNamesInUnicode
+       ? "פרשה"
+       : "Parashah";
 
 }

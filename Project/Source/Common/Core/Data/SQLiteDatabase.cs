@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Core Library.
-/// Copyright 2004-2022 Olivier Rogier.
+/// Copyright 2004-2024 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -15,6 +15,7 @@
 namespace Ordisoftware.Core;
 
 using System;
+using System.Windows.Forms;
 using SQLite;
 
 public delegate void LoadingDataEventHandler(string caption);
@@ -23,7 +24,7 @@ public delegate void DataLoadedEventHandler(string caption);
 /// <summary>
 /// Provides SQLite database wrapper.
 /// </summary>
-abstract class SQLiteDatabase : IDisposable
+public abstract class SQLiteDatabase : IDisposable
 {
 
   private bool Disposed;
@@ -46,7 +47,7 @@ abstract class SQLiteDatabase : IDisposable
 
   protected bool AutoLoadAllAtOpen { get; init; } = true;
 
-  protected readonly List<object> ModifiedObjects = new();
+  protected readonly List<object> ModifiedObjects = [];
 
   public bool HasChanges => ModifiedObjects.Count > 0;
 
@@ -64,7 +65,7 @@ abstract class SQLiteDatabase : IDisposable
 
   [SuppressMessage("Performance", "U2U1012:Parameter types should be specific", Justification = "Polymorphism needed")]
   [SuppressMessage("CodeQuality", "IDE0079:Retirer la suppression inutile", Justification = "N/A")]
-  internal void AddToModified(object instance)
+  public void AddToModified(object instance)
   {
     if ( Loaded && !ModifiedObjects.Contains(instance) )
     {
@@ -90,8 +91,14 @@ abstract class SQLiteDatabase : IDisposable
   protected virtual void Dispose(bool disposing)
   {
     if ( Disposed ) return;
-    if ( disposing ) Connection.Dispose();
+    if ( disposing ) Connection?.Dispose();
     Disposed = true;
+  }
+
+  protected virtual void ThrowIfDisposed()
+  {
+    if ( Disposed )
+      throw new ObjectDisposedException(GetType().FullName);
   }
 
   protected void CheckConnected()
@@ -216,13 +223,16 @@ abstract class SQLiteDatabase : IDisposable
   protected abstract void DoSaveAll();
 
   [SuppressMessage("Design", "GCop135:{0}", Justification = "N/A")]
+  [SuppressMessage("Correctness", "SS018:Add cases for missing enum member.", Justification = "N/A")]
+  [SuppressMessage("Correctness", "SS019:Switch should have default label.", Justification = "N/A")]
   protected void ProcessTableUpgrade<TRow, TRowTemp>(
     string nameTable,
     string nameTableTemp,
-    Action<TRowTemp, TRow> doCopy!!)
+    Action<TRowTemp, TRow> doCopy)
   where TRow : new()
   where TRowTemp : new()
   {
+    if ( doCopy is null ) throw new ArgumentNullException(nameof(doCopy));
     if ( nameTable.IsNullOrEmpty() ) throw new ArgumentNullException(nameof(nameTable));
     if ( nameTableTemp.IsNullOrEmpty() ) throw new ArgumentNullException(nameof(nameTableTemp));
     if ( Connection.CheckTable(nameTableTemp) )
@@ -264,11 +274,4 @@ abstract class SQLiteDatabase : IDisposable
     }
   }
 
-  protected virtual void ThrowIfDisposed()
-  {
-    if ( this.Disposed )
-    {
-      throw new ObjectDisposedException(this.GetType().FullName);
-    }
-  }
 }

@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Core Library.
-/// Copyright 2004-2022 Olivier Rogier.
+/// Copyright 2004-2024 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -11,13 +11,13 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2021-09 </edited>
+/// <edited> 2022-09 </edited>
 namespace Ordisoftware.Core;
 
 /// <summary>
 /// Provides global variables.
 /// </summary>
-static partial class Globals
+static public partial class Globals
 {
 
   /// <summary>
@@ -44,6 +44,11 @@ static partial class Globals
   /// Indicates if the application is in loading data stage.
   /// </summary>
   static public bool IsLoadingData { get; set; }
+
+  /// <summary>
+  /// Indicates if the application is in loading or rendering or generating data stage.
+  /// </summary>
+  static public bool IsProcessingData => IsLoadingData || IsRendering || IsGenerating;
 
   /// <summary>
   /// Indicates if the application is ready to interact with the user or do its purpose.

@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Core Library.
-/// Copyright 2004-2022 Olivier Rogier.
+/// Copyright 2004-2024 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -18,7 +18,8 @@ namespace Ordisoftware.Core;
 /// Provides SQLite exception.
 /// </summary>
 [Serializable]
-class SQLiteException : System.Data.Common.DbException
+[SuppressMessage("Major Code Smell", "S3925:\"ISerializable\" should be implemented correctly", Justification = "<En attente>")]
+public class SQLiteException : System.Data.Common.DbException
 {
   public SQLiteException() { }
   public SQLiteException(string message) : base(message) { }

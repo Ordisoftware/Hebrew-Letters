@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Hebrew Calendar/Letters/Words.
-/// Copyright 2012-2022 Olivier Rogier.
+/// Copyright 2012-2024 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -11,20 +11,20 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2012-10 </created>
-/// <edited> 2022-06 </edited>
+/// <edited> 2022-11 </edited>
 namespace Ordisoftware.Hebrew;
 
 /// <summary>
 /// Provides Hebrew months names.
 /// </summary>
-static class HebrewMonths
+static public class HebrewMonths
 {
 
   /// <summary>
   /// Indicates Unicode lunar months names.
   /// </summary>
   static public readonly string[] Unicode =
-  {
+  [
     string.Empty,
     "ניסן",
     "איר",
@@ -37,17 +37,17 @@ static class HebrewMonths
     "כסלו",
     "טבת",
     "שבט",
-    "אדר א",
-    "אדר ב"
-  };
+    "אדר",
+    "ואדר"
+  ];
 
   /// <summary>
   /// Indicates phonetic lunar months names.
   /// </summary>
   static public readonly NullSafeDictionary<Language, string[]> Transcriptions = new()
   {
-    [Language.EN] = new string[]
-    {
+    [Language.EN] =
+    [
       string.Empty,
       "Nisan",
       "Iyar",
@@ -61,10 +61,10 @@ static class HebrewMonths
       "Tevet'",
       "Shevat'",
       "Adar",
-      "Adar II",
-    },
-    [Language.FR] = new string[]
-    {
+      "VeAdar",
+    ],
+    [Language.FR] =
+    [
       string.Empty,
       "Nissan",
       "Iyar",
@@ -78,8 +78,8 @@ static class HebrewMonths
       "Tevet'",
       "Shevat'",
       "Adar",
-      "Adar II"
-    }
+      "VeAdar"
+    ]
   };
 
 }

@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Core Library.
-/// Copyright 2004-2022 Olivier Rogier.
+/// Copyright 2004-2024 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -11,9 +11,10 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-01 </created>
-/// <edited> 2022-05 </edited>
+/// <edited> 2022-06 </edited>
 namespace Ordisoftware.Core;
 
+using MoreLinq;
 using SQLite;
 
 /// <summary>
@@ -26,26 +27,30 @@ public class SQLiteNetORM : SQLiteConnection
   /// Indicates the database engine name and version.
   /// </summary>
   static public string EngineNameAndVersion { get; private set; }
-    = SysTranslations.NonthingSlot.GetLang().TrimFirstLast().Titleize();
+    = SysTranslations.NothingSlot.GetLang().TrimFirstLast().Titleize();
 
   /// <summary>
   /// Indicates the provider name.
   /// </summary>
   static public string ProviderName { get; private set; }
-    = SysTranslations.NonthingSlot.GetLang().TrimFirstLast().Titleize();
+    = SysTranslations.NothingSlot.GetLang().TrimFirstLast().Titleize();
 
-  static public int DefaultOptimizeDaysInterval { get; set; } = Globals.DaysOfWeekCount;
+  static public int DefaultOptimizeDaysInterval { get; set; }
+    = Globals.DaysOfWeekCount;
 
-  public SQLiteNetORM(SQLiteConnectionString connectionString) : base(connectionString) { }
+  public SQLiteNetORM(SQLiteConnectionString connectionString)
+    : base(connectionString) { }
 
-  public SQLiteNetORM(string databasePath, bool storeDateTimeAsTicks = true) : base(databasePath, storeDateTimeAsTicks) { }
+  public SQLiteNetORM(string databasePath, bool storeDateTimeAsTicks = true)
+    : base(databasePath, storeDateTimeAsTicks) { }
 
-  public SQLiteNetORM(string databasePath, SQLiteOpenFlags openFlags, bool storeDateTimeAsTicks = true) : base(databasePath, openFlags, storeDateTimeAsTicks) { }
+  public SQLiteNetORM(string databasePath, SQLiteOpenFlags openFlags, bool storeDateTimeAsTicks = true)
+    : base(databasePath, openFlags, storeDateTimeAsTicks) { }
 
   /// <summary>
   /// Gets a single line of a string.
   /// </summary>
-  public string UnformatSQL(string sql)
+  public string UnFormatSQL(string sql)
   {
     return sql.SplitNoEmptyLines().Select(line => line.Trim()).AsMultiSpace();
   }
@@ -54,7 +59,7 @@ public class SQLiteNetORM : SQLiteConnection
   /// Returns true if only one instance of the process is running else false.
   /// </summary>
   /// <param name="silent">True if no message is shown else shown.</param>
-  public bool CheckProcessConcurency(bool silent = false)
+  public bool CheckProcessConcurrency(bool silent = false)
   {
     var list = Process.GetProcessesByName(Globals.ProcessName);
     bool valid = list.Length == 1;
@@ -69,8 +74,8 @@ public class SQLiteNetORM : SQLiteConnection
   [SuppressMessage("Design", "GCop179:Do not hardcode numbers, strings or other values. Use constant fields, enums, config files or database as appropriate.", Justification = "<En attente>")]
   public void InitializeVersion()
   {
-    ProviderName = this?.GetType().Name ?? SysTranslations.ErrorSlot.GetLang();
-    int vernum = this?.LibVersionNumber ?? -1;
+    ProviderName = GetType().Name;
+    int vernum = LibVersionNumber;
     if ( vernum == -1 )
       EngineNameAndVersion = SysTranslations.UnknownSlot.GetLang();
     else
@@ -97,20 +102,20 @@ public class SQLiteNetORM : SQLiteConnection
   /// <summary>
   /// Optimizes the database.
   /// </summary>
-  /// <param name="lastdone">The last done date.</param>
+  /// <param name="lastDone">The last done date.</param>
   /// <param name="interval">Days interval to check.</param>
   /// <param name="force">True to force check.</param>
-  /// <returns>The new date if done else lastdone.</returns>
-  public DateTime Optimize(DateTime lastdone, int interval = -1, bool force = false)
+  /// <returns>The new date if done else lastDone.</returns>
+  public DateTime Optimize(DateTime lastDone, int interval = -1, bool force = false)
   {
     if ( interval == -1 ) interval = DefaultOptimizeDaysInterval;
-    if ( force || lastdone.AddDays(interval) < DateTime.Now )
+    if ( force || lastDone.AddDays(interval) < DateTime.Now )
     {
       CheckIntegrity();
       Vacuum();
-      lastdone = DateTime.Now;
+      lastDone = DateTime.Now;
     }
-    return lastdone;
+    return lastDone;
   }
 
   /// <summary>
@@ -170,11 +175,34 @@ public class SQLiteNetORM : SQLiteConnection
     if ( tableNewName.IsNullOrEmpty() ) throw new ArgumentNullException(nameof(tableNewName));
     try
     {
-      Execute($"ALTER TABLE [{tableOldName}] RENAME TO [{tableNewName}];");
+      Execute($"ALTER TABLE IF EXISTS [{tableOldName}] RENAME TO [{tableNewName}];");
     }
     catch ( Exception ex )
     {
       throw new SQLiteException(SysTranslations.DBRenameTableError.GetLang(tableOldName, tableNewName), ex);
+    }
+  }
+
+  /// <summary>
+  /// Renames a column if exists.
+  /// </summary>
+  /// <param name="tableName">Table name.</param>
+  /// <param name="columnOldName">Old name.</param>
+  /// <param name="columnNewName">New name.</param>
+  public void RenameColumnIfExists(string tableName, string columnOldName, string columnNewName)
+  {
+    if ( tableName.IsNullOrEmpty() ) throw new ArgumentNullException(nameof(tableName));
+    if ( columnOldName.IsNullOrEmpty() ) throw new ArgumentNullException(nameof(columnOldName));
+    if ( columnNewName.IsNullOrEmpty() ) throw new ArgumentNullException(nameof(columnNewName));
+    try
+    {
+      if ( CheckColumn(tableName, columnOldName) )
+        Execute($"ALTER TABLE [{tableName}] RENAME COLUMN [{columnOldName}] TO [{columnNewName}];");
+    }
+    catch ( Exception ex )
+    {
+      string message = SysTranslations.DBRenameTableError.GetLang(tableName, columnOldName, columnNewName);
+      throw new SQLiteException(message, ex);
     }
   }
 
@@ -198,7 +226,7 @@ public class SQLiteNetORM : SQLiteConnection
         }
         catch ( Exception ex )
         {
-          throw new SQLiteException(SysTranslations.DBCreateTableError.GetLang(table, UnformatSQL(sql)), ex);
+          throw new SQLiteException(SysTranslations.DBCreateTableError.GetLang(table, UnFormatSQL(sql)), ex);
         }
     }
     catch ( Exception ex )
@@ -228,7 +256,7 @@ public class SQLiteNetORM : SQLiteConnection
         }
         catch ( Exception ex )
         {
-          throw new SQLiteException(SysTranslations.DBCreateIndexError.GetLang(index, UnformatSQL(sql)), ex);
+          throw new SQLiteException(SysTranslations.DBCreateIndexError.GetLang(index, UnFormatSQL(sql)), ex);
         }
     }
     catch ( Exception ex )
@@ -264,7 +292,7 @@ public class SQLiteNetORM : SQLiteConnection
         }
         catch ( Exception ex )
         {
-          throw new SQLiteException(SysTranslations.DBCreateColumnError.GetLang(UnformatSQL(sql)), ex);
+          throw new SQLiteException(SysTranslations.DBCreateColumnError.GetLang(UnFormatSQL(sql)), ex);
         }
     }
     catch ( Exception ex )
@@ -301,7 +329,7 @@ public class SQLiteNetORM : SQLiteConnection
     if ( type.IsNullOrEmpty() ) throw new ArgumentNullException(nameof(type));
     if ( !valueDefault.IsNullOrEmpty() ) valueDefault = " DEFAULT " + valueDefault;
     if ( valueNotNull ) valueDefault += " NOT NULL";
-    string primary = isPrimary ? "PRIMARY KEY" : "";
+    string primary = isPrimary ? "PRIMARY KEY" : string.Empty;
     if ( isAutoInc ) primary += " AUTOINCREMENT ";
     string sql = $"ALTER TABLE %TABLE% ADD COLUMN %COLUMN% {type} {primary} {valueDefault}";
     return CheckColumn(table, column, sql);

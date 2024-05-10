@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Hebrew Calendar/Letters/Words.
-/// Copyright 2012-2022 Olivier Rogier.
+/// Copyright 2012-2024 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -16,19 +16,13 @@ namespace Ordisoftware.Hebrew;
 
 [SuppressMessage("Performance", "U2U1004:Public value types should implement equality", Justification = "N/A")]
 [StructLayout(LayoutKind.Auto)]
-public readonly struct BookBound
+public readonly record struct BookBound(int Min, int Max)
 {
-  public int Min { get; }
-  public int Max { get; }
   public bool IsIn(int index) => index >= Min && index <= Max;
-  public BookBound(int min, int max)
-  {
-    Min = min;
-    Max = max;
-  }
 }
 
-static class BooksBounds
+[SuppressMessage("Naming", "VSSpell001:Spell Check", Justification = "N/A")]
+static public class BooksBounds
 {
   static public readonly BookBound Torah = Create<TorahBook>();
   static public readonly BookBound Neviim = Create<NeviimBook>();

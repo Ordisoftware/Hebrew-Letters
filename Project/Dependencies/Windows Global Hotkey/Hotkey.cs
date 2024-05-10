@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
+#pragma warning disable VSSpell001 // Spell Check
 namespace Base.Hotkeys
 {
 
@@ -78,7 +79,6 @@ namespace Base.Hotkeys
       if ( Shift ) toString += "Shift + ";
       if ( Alt ) toString += "Alt + ";
       if ( Win ) toString += "Win + ";
-      //
       if ( IsOnlyModifiers )
         toString += "..";
       else
@@ -104,10 +104,10 @@ namespace Base.Hotkeys
         toString += KeyCode - Keys.NumPad0;
       else
         toString += KeyCode;
-      //
       return toString;
     }
 
   }
 
 }
+#pragma warning restore VSSpell001 // Spell Check

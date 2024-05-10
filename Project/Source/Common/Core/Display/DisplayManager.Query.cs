@@ -1,6 +1,6 @@
 /// <license>
 /// This file is part of Ordisoftware Core Library.
-/// Copyright 2004-2022 Olivier Rogier.
+/// Copyright 2004-2024 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -18,7 +18,9 @@ namespace Ordisoftware.Core;
 /// Provides messages and questions with waiting user communication feedback as well as UI sync.
 /// </summary>
 [SuppressMessage("Design", "GCop135:{0}", Justification = "<En attente>")]
-static partial class DisplayManager
+[SuppressMessage("Correctness", "SS018:Add cases for missing enum member.", Justification = "N/A")]
+[SuppressMessage("Correctness", "SS019:Switch should have default label.", Justification = "N/A")]
+static public partial class DisplayManager
 {
 
   /// <summary>
@@ -71,7 +73,6 @@ static partial class DisplayManager
   {
     return QueryYesNoCancel(Title, caption, onYes, onNo, onCancel);
   }
-
 
   /// <summary>
   /// Shows a question.

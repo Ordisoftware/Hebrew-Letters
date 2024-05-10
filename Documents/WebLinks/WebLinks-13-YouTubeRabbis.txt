@@ -18,6 +18,12 @@ Lang/FR = Chaînes YouTube de rabbins
 Name = (FR) Rav Daniel Abdlehak
 URL = https://www.youtube.com/c/RavDanielAbdelhak
 
+Name = (FR) Rav Ronen A Abitbol
+URL = https://www.youtube.com/watch?v=-xHeO-cpkb0
+
+Name = (FR) Rav Ronen A Abitbol
+URL = https://www.youtube.com/watch?v=-xHeO-cpkb0
+
 Name = (FR) Rav Menahem Altabe
 URL = https://www.youtube.com/channel/UCdAlxrOJveWBAcyOkilTqeQ
 
@@ -31,7 +37,10 @@ Name = (FR) Rav Emmanuel Bensimon
 URL = https://www.youtube.com/channel/UCFZbll_XlLWy8gqwIrkTZ0g
 
 Name = (FR) Rav Menahem Berros 
-URL = https://www.youtube.com/c/RavMenahemBerros
+URL = https://www.youtube.com/@RavMenahemBerros
+
+Name = (IW) Rav Menahem Berros 
+URL = https://www.youtube.com/@ravberros
 
 Name = (FR) Rav Ron Chaya
 URL = https://www.youtube.com/channel/UCg-9Mq99UZ_HKW5N7IHqbYw
@@ -45,11 +54,17 @@ URL = https://www.youtube.com/channel/UC33ZSc-6eR7TlWw66Ll-TJA
 Name = (FR) Rav Avraham Ifrah
 URL = https://www.youtube.com/channel/UCNxmzrYvmlJFXO_Zci2a86g
 
+Name = (FR) Rav Asher Marciano
+URL = https://www.youtube.com/@RavAsherMarciano
+
 Name = (FR) Rav Yves Marciano
 URL = https://www.youtube.com/channel/UCin_W6_4xI0z0kvXoVHxQtQ
 
 Name = (FR) Rav Nathan Mrejen
 URL = https://www.youtube.com/channel/UCx3wvPI8c-AHsRMjorGIWSw
+
+Name = (FR) Rav David Touitou
+URL = https://www.youtube.com/@RavTOUITOU
 
 -
 

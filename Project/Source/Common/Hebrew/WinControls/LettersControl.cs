@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Hebrew Calendar/Letters/Words.
-/// Copyright 2012-2022 Olivier Rogier.
+/// Copyright 2012-2024 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2012-10 </created>
-/// <edited> 2022-03 </edited>
+/// <edited> 2024-03 </edited>
 namespace Ordisoftware.Hebrew;
 
 public enum LettersControlFocusSelect
@@ -24,12 +24,12 @@ public enum LettersControlFocusSelect
 /// <summary>
 /// Provides view letter details delegate.
 /// </summary>
-delegate void ViewLetterDetails(LettersControl sender, string code);
+public delegate void ViewLetterDetails(LettersControl sender, string code);
 
 /// <summary>
 /// Provides Letters input panel Control.
 /// </summary>
-partial class LettersControl : UserControl
+public partial class LettersControl : UserControl
 {
 
   public const KnownColor DefaultInputBackColor = KnownColor.AliceBlue;
@@ -56,9 +56,42 @@ partial class LettersControl : UserControl
   }
 
   /// <summary>
+  /// Indicates the initial word.
+  /// </summary>
+  public string InitialWord
+  {
+    get;
+    set;
+  }
+
+  /// <summary>
+  /// Indicates if the bottom panel is visible
+  /// </summary>
+  [DefaultValue(true)]
+  public bool ShowBottomPanel
+  {
+    get => PanelBottom.Visible;
+    set
+    {
+      if ( PanelBottom.Visible == value ) return;
+      PanelBottom.Visible = value;
+      Redraw();
+    }
+  }
+
+  /// <summary>
+  /// Indicates if gematria is visible
+  /// </summary>
+  [DefaultValue(true)]
+  public bool ShowGematria
+  {
+    get => PanelGematria.Visible;
+    set => PanelGematria.Visible = value;
+  }
+
+  /// <summary>
   /// Indicates Input Text property.
   /// </summary>
-  /// <value>The input text.</value>
   [DefaultValue("")]
   public string InputText
   {
@@ -275,7 +308,6 @@ partial class LettersControl : UserControl
     PanelLetters.BackColor = Color.FromKnownColor(DefaultPanelLettersBackColor);
   }
 
-
   /// <summary>
   /// Control load event.
   /// </summary>
@@ -283,6 +315,7 @@ partial class LettersControl : UserControl
   {
     ActionLetterViewDetails_VisibleChanged(null, null);
     Redraw();
+    UpdateControls();
   }
 
   /// <summary>
@@ -447,8 +480,7 @@ partial class LettersControl : UserControl
   private void ActionLetterViewDetails_Click(object sender, EventArgs e)
   {
     if ( ViewLetterDetails is null ) return;
-    var button = (Button)( (ContextMenuStrip)( (ToolStripMenuItem)sender ).Owner ).SourceControl;
-    ViewLetterDetails(this, button.Text);
+    ViewLetterDetails(this, (string)ActionLetterViewDetails.Tag);
   }
 
   /// <summary>
@@ -463,6 +495,10 @@ partial class LettersControl : UserControl
     ActionLetterAddAtCaret.Enabled = ActionLetterAddAtStart.Enabled || TextBox.SelectionLength > 0;
     ActionLetterViewDetails.Enabled = ViewLetterDetails is not null;
     MenuItemSeparator.Enabled = ActionLetterViewDetails.Enabled;
+    var letterButton = (Button)( (ContextMenuStrip)( sender ) ).SourceControl;
+    string letterName = HebrewAlphabet.TranscriptionFromCodes.GetLang(letterButton.Text);
+    ActionLetterViewDetails.Tag = letterButton.Text;
+    ActionLetterViewDetails.Text = HebrewTranslations.LetterDetails.GetLang(letterName);
   }
 
   private void ActionLetterViewDetails_VisibleChanged(object sender, EventArgs e)
@@ -470,13 +506,133 @@ partial class LettersControl : UserControl
     ContextMenuDetailsVisible = ActionLetterViewDetails.Visible;
   }
 
+  private void ActionDelFirst_Click(object sender, EventArgs e)
+  {
+    if ( TextBox.Text.Length < 1 ) return;
+    TextBox.SelectionStart = TextBox.TextLength - 1;
+    TextBox.SelectionLength = 1;
+    Focus(LettersControlFocusSelect.Keep);
+    TextBoxEx.ActionDelete.PerformClick();
+  }
+
+  private void ActionDelLast_Click(object sender, EventArgs e)
+  {
+    if ( TextBox.Text.Length < 1 ) return;
+    TextBox.SelectionStart = 0;
+    TextBox.SelectionLength = 1;
+    Focus(LettersControlFocusSelect.Keep);
+    TextBoxEx.ActionDelete.PerformClick();
+  }
+
+  public event EventHandler Cleared;
+
+  private void ActionClear_Click(object sender, EventArgs e)
+  {
+    TextBox.SelectAll();
+    TextBox.Paste(string.Empty);
+    EditGematriaSimple.Text = string.Empty;
+    EditGematriaFull.Text = string.Empty;
+    Focus();
+    Cleared?.Invoke(this, EventArgs.Empty);
+  }
+
+  private void ActionReset_Click(object sender, EventArgs e)
+  {
+    TextBox.Text = InitialWord;
+    Focus(LettersControlFocusSelect.None);
+  }
+
+  private void ActionCopyToHebrew_Click(object sender, EventArgs e)
+  {
+    if ( TextBox.Text.Length == 0 ) return;
+    string str = TextBox.Text;
+    if ( EditCopyWithFinalLetter.Checked )
+      str = HebrewAlphabet.SetFinal(str, true);
+    Clipboard.SetText(str);
+    DisplayManager.ShowSuccessOrSound(SysTranslations.DataCopiedToClipboard.GetLang(),
+                                      Globals.ClipboardSoundFilePath);
+    Focus(LettersControlFocusSelect.All);
+
+  }
+
+  private void ActionCopyToUnicode_Click(object sender, EventArgs e)
+  {
+    if ( TextBox.Text.Length == 0 ) return;
+    string str = TextBox.Text;
+    if ( EditCopyWithFinalLetter.Checked )
+      str = HebrewAlphabet.SetFinal(str, true);
+    Clipboard.SetText(HebrewAlphabet.ToUnicodeChars(str));
+    DisplayManager.ShowSuccessOrSound(SysTranslations.DataCopiedToClipboard.GetLang(), Globals.ClipboardSoundFilePath);
+    Focus(LettersControlFocusSelect.All);
+
+  }
+
+  private void ActionPaste_Click(object sender, EventArgs e)
+  {
+    Focus(LettersControlFocusSelect.All);
+    TextBox.Text = Clipboard.GetText();
+  }
+
+  private void ActionSearchOnline_Click(object sender, EventArgs e)
+  {
+    ContextMenuSearchOnline.Show(ActionSearchOnline, new Point(0, ActionSearchOnline.Height));
+  }
+
+  private void LabelClipboardContentType_MouseHover(object sender, EventArgs e)
+  {
+    ToolTipClipboard.Show(Clipboard.GetText(), LabelClipboardContentType);
+  }
+
+  private void EditGematria_TextChanged(object sender, EventArgs e)
+  {
+    var textbox = sender as TextBox;
+    if ( textbox.Text == "0" ) textbox.Text = string.Empty;
+  }
+
+  public bool UpdateControls()
+  {
+    bool enabled = TextBox.Text.Length >= 1;
+    ActionReset.Enabled = !InitialWord.IsNullOrEmpty();
+    ActionReset.Text = ActionReset.Enabled ? "-" : string.Empty;
+    ActionClear.Enabled = enabled;
+    ActionDelFirst.Enabled = enabled;
+    ActionDelLast.Enabled = enabled;
+    ActionReverseWord.Enabled = TextBox.Text.Length >= 2;
+    ActionCopyToHebrew.Enabled = enabled;
+    ActionCopyToUnicode.Enabled = enabled;
+    ActionSearchOnline.Enabled = enabled;
+    return enabled;
+  }
+
+  internal void CheckClipboardContentType()
+  {
+    string strContent = Clipboard.GetText();
+    ActionPaste.Enabled = !strContent.IsNullOrEmpty();
+    if ( ActionPaste.Enabled )
+    {
+      var strLabel = HebrewAlphabet.IsValidUnicode(strContent)
+        ? HebrewTranslations.Unicode.GetLang()
+        : HebrewAlphabet.IsValidHebrew(strContent)
+          ? HebrewTranslations.Hebrew.GetLang()
+          : SysTranslations.Uncertain.GetLang();
+      LabelClipboardContentType.Text = $"{strLabel}{Globals.NL}({strContent.Length})";
+    }
+    else
+      LabelClipboardContentType.Text = SysTranslations.UnknownSlot.GetLang().TrimFirstLast().Titleize();
+  }
+
+  private void ActionRevertWord_Click(object sender, EventArgs e)
+  {
+    TextBox.Text = new string(TextBox.Text.Reverse().ToArray());
+  }
+
 }
 
 /// <summary>
 /// Provides LetterEventArgs.
 /// </summary>
-class LetterEventArgs : EventArgs
+public class LetterEventArgs : EventArgs
 {
   public string LetterCode { get; }
-  public LetterEventArgs(string lettercode) { LetterCode = lettercode; }
+  public LetterEventArgs(string letterCode) { LetterCode = letterCode; }
 }

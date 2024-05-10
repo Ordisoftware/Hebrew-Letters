@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Hebrew Letters.
-/// Copyright 2016-2022 Olivier Rogier.
+/// Copyright 2016-2024 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -26,6 +26,7 @@ partial class MainForm
   /// </summary>
   /// <seealso cref="M:System.Windows.Forms.Form.ProcessCmdKey(Message@,Keys)"/>
   [SuppressMessage("Design", "GCop135:{0}", Justification = "N/A")]
+  [SuppressMessage("Correctness", "SS019:Switch should have default label.", Justification = "N/A")]
   protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
   {
     if ( Globals.IsReady )

@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Core Library.
-/// Copyright 2004-2022 Olivier Rogier.
+/// Copyright 2004-2024 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -11,14 +11,12 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2022-06 </edited>
+/// <edited> 2023-04 </edited>
 namespace Ordisoftware.Core;
-
-using Markdig;
 
 using TranslationPair = KeyValuePair<string, TranslationsDictionary>;
 
-partial class CommonMenusControl : UserControl
+public sealed partial class CommonMenusControl : UserControl
 {
 
   private const int WidthButtonSmall = 35;
@@ -40,6 +38,7 @@ partial class CommonMenusControl : UserControl
     Instance = new CommonMenusControl();
     int index = toolStrip.Items.IndexOf(buttonToReplace);
     toolStrip.SuspendLayout();
+    Instance.ActionInformation.Padding = buttonToReplace.Padding;
     toolStrip.Items.Remove(buttonToReplace);
     toolStrip.Items.Insert(index, Instance.ActionInformation);
     toolStrip.ResumeLayout();
@@ -118,6 +117,8 @@ partial class CommonMenusControl : UserControl
         DoShownSound = false,
         ShowInTaskbar = true
       };
+      if ( !Globals.MainForm.Visible || Globals.MainForm.WindowState == FormWindowState.Minimized )
+        form.StartPosition = FormStartPosition.CenterScreen;
       form.ActionOK.Text = SysTranslations.ActionClose.GetLang();
       form.ActionOK.KeyUp += onKeyUp;
       form.ActionYes.DialogResult = DialogResult.None;
@@ -162,6 +163,8 @@ partial class CommonMenusControl : UserControl
       }
     }
     //
+    [SuppressMessage("Correctness", "SS018:Add cases for missing enum member.", Justification = "N/A")]
+    [SuppressMessage("Correctness", "SS019:Switch should have default label.", Justification = "N/A")]
     void onKeyUp(object senderOnKeyUp, KeyEventArgs eOnKeyUp)
     {
       switch ( eOnKeyUp.KeyCode )
@@ -177,6 +180,9 @@ partial class CommonMenusControl : UserControl
           break;
         case Keys.End:
           form.ActionIgnore.PerformClick();
+          break;
+        default:
+          // Nothing to do
           break;
       }
     }
@@ -214,7 +220,7 @@ partial class CommonMenusControl : UserControl
 
   private void ActionGitHubRepo_Click(object sender, EventArgs e)
   {
-    SystemManager.OpenGitHupRepo();
+    SystemManager.OpenGitHubRepo();
   }
 
   private void ActionSubmitBug_Click(object sender, EventArgs e)
@@ -235,19 +241,7 @@ partial class CommonMenusControl : UserControl
 
   private void ActionReadme_Click(object sender, EventArgs e)
   {
-    var fileLines = Markdown.ToHtml(File.ReadAllText(Globals.ApplicationReadmeMDPath),
-                                    new MarkdownPipelineBuilder().UseAdvancedExtensions().Build());
-    string filePath = Path.Combine(Path.GetTempPath(), $"{Globals.ApplicationCode}-README.html");
-    File.WriteAllText(filePath, fileLines, Encoding.UTF8);
-    SystemManager.RunShell(filePath);
-    var timer = new System.Windows.Forms.Timer { Interval = Globals.MilliSecondsInOneMinute };
-    timer.Tick += (_, _) =>
-    {
-      timer.Stop();
-      SystemManager.TryCatch(() => File.Delete(filePath));
-      timer.Dispose();
-    };
-    timer.Start();
+    SystemManager.RunShell(Globals.ApplicationReadMeHtmlPath);
   }
 
   private void ActionAbout_Click(object sender, EventArgs e)

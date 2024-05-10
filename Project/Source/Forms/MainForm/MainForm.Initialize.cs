@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Hebrew Letters.
-/// Copyright 2016-2022 Olivier Rogier.
+/// Copyright 2016-2024 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -11,10 +11,11 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-01 </created>
-/// <edited> 2022-03 </edited>
+/// <edited> 2022-09 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 using Microsoft.Win32;
+using MoreLinq;
 
 /// <summary>
 /// The application's main form.
@@ -30,6 +31,7 @@ partial class MainForm
   {
     DoubleBuffered = Settings.WindowsDoubleBufferingEnabled;
     Interlocks.Take();
+    InitializeViewConnectors();
     new Task(InitializeIconsAndSound).Start();
     new Task(InitializeDialogsDirectory).Start();
     SystemManager.TryCatch(() => Icon = new Icon(Globals.ApplicationIconFilePath));
@@ -41,13 +43,12 @@ partial class MainForm
     TextBoxEx.ActionCut.Click += TextBoxData_ContextMenuAction_Click;
     TextBoxEx.ActionPaste.Click += TextBoxData_ContextMenuAction_Click;
     TextBoxEx.ActionDelete.Click += TextBoxData_ContextMenuAction_Click;
+    EditWord.Cleared += EditWord_Cleared;
     NativeMethods.ClipboardViewerNext = NativeMethods.SetClipboardViewer(Handle);
     if ( !ApplicationCommandLine.Instance.IsPreviewEnabled ) // TODO remove when ready
     {
       ActionOpenTermLettriq.Visible = false;
       ActionSaveTermLettriq.Visible = false;
-      PanelWordDetails.Visible = false;
-      SelectAnalyze.Height += PanelWordDetails.Height + 5;
     }
     else
     {
@@ -73,6 +74,8 @@ partial class MainForm
     EditWord.HebrewCharsInBold = Settings.LettersControlHebrewCharsInBold;
     EditConcordance.Minimum = HebrewAlphabet.ConcordanceFirst - 1;
     EditConcordance.Maximum = HebrewAlphabet.ConcordanceLast;
+    EditConcordanceRoot.Minimum = EditConcordance.Minimum;
+    EditConcordanceRoot.Maximum = EditConcordance.Maximum;
     StatisticsForm.Run(true, Settings.UsageStatisticsEnabled);
     Globals.ChronoStartingApp.Stop();
     var lastdone = Settings.CheckUpdateLastDone;
@@ -96,6 +99,7 @@ partial class MainForm
     SelectLetter_SelectedIndexChanged(SelectLetter, EventArgs.Empty);
     LettersNavigator.Refresh();
     UpdateDataControls(SelectLetter);
+    SplitContainer.SplitterDistance = Settings.MainFormSplitterDistanceDetails;
     DebugManager.TraceEnabledChanged += value => CommonMenusControl.Instance.ActionViewLog.Enabled = value;
   }
 
@@ -108,23 +112,16 @@ partial class MainForm
   private void DoFormShown(object sender, EventArgs e)
   {
     if ( Globals.IsExiting ) return;
-    if ( ApplicationCommandLine.Instance.IsPreviewEnabled ) // TODO remove when ready
-    {
-      ActionCopyToMeanings.Top += 46;
-      ActionViewAllMeaningsList.Top += 46;
-      ActionScreenshot.Top += 46;
-      ActionSaveScreenshot.Top += 46;
-    }
-    PanelEditWordControl.Visible = true;
     if ( !Program.StartupWord.IsNullOrEmpty() )
     {
-      ActionReset.Visible = true;
+      EditWord.InitialWord = Program.StartupWord;
+      EditWord.ActionReset.Enabled = true;
       EditWord.TextBox.Text = Program.StartupWord;
       EditWord.Focus(LettersControlFocusSelect.None);
       EditWord.TextBox.Refresh();
     }
     else
-      ActionReset.Visible = false;
+      EditWord.ActionReset.Enabled = false;
     ToolStrip.SetDropDownOpening();
     EditSentence.Font = new Font("Microsoft Sans Serif", (float)Settings.FontSizeSentence);
     EditWord.TextBox.MaxLength = (int)Settings.HebrewTextBoxMaxLength;
@@ -145,15 +142,15 @@ partial class MainForm
       Settings.FirstLaunch = false;
       ActionShowMethodNotice.PerformClick();
     }
-    Globals.NoticeKeyboardShortcutsForm = new ShowTextForm(AppTranslations.NoticeKeyboardShortcutsTitle,
-                                                           AppTranslations.NoticeKeyboardShortcuts,
-                                                           true, false,
-                                                           MessageBoxEx.DefaultHeightMedium,
-                                                           MessageBoxEx.DefaultHeightBig,
-                                                           false, false);
-    Globals.NoticeKeyboardShortcutsForm.TextBox.BackColor = Globals.NoticeKeyboardShortcutsForm.BackColor;
-    Globals.NoticeKeyboardShortcutsForm.TextBox.BorderStyle = BorderStyle.None;
-    Globals.NoticeKeyboardShortcutsForm.Padding = new Padding(20, 20, 10, 10);
+    Globals.KeyboardShortcutsNotice = new ShowTextForm(AppTranslations.NoticeKeyboardShortcutsTitle,
+                                                       AppTranslations.NoticeKeyboardShortcuts,
+                                                       true, false,
+                                                       MessageBoxEx.DefaultHeightMedium,
+                                                       MessageBoxEx.DefaultHeightBig,
+                                                       false, false);
+    Globals.KeyboardShortcutsNotice.TextBox.BackColor = Globals.KeyboardShortcutsNotice.BackColor;
+    Globals.KeyboardShortcutsNotice.TextBox.BorderStyle = BorderStyle.None;
+    Globals.KeyboardShortcutsNotice.Padding = new Padding(20, 20, 10, 10);
     Globals.ChronoStartingApp.Stop();
     Settings.BenchmarkStartingApp = Globals.ChronoStartingApp.ElapsedMilliseconds;
     SystemManager.TryCatch(Settings.Save);
@@ -163,6 +160,27 @@ partial class MainForm
     this.ForceBringToFront();
     PanelTitleInner.Controls.OfType<Label>().ForEach(label => label.Visible = true);
     Settings.SetFirstAndUpgradeFlagsOff();
+  }
+
+  /// <summary>
+  /// Does Form Closing event.
+  /// </summary>
+  private void DoFormClosing(object sender, FormClosingEventArgs e)
+  {
+    if ( !Globals.IsReady ) return;
+    if ( Globals.IsExiting ) return;
+    if ( Globals.IsSessionEnding ) return;
+    if ( e.CloseReason != CloseReason.None && e.CloseReason != CloseReason.UserClosing )
+      Globals.IsExiting = true;
+    else
+    if ( !Globals.AllowClose )
+      e.Cancel = true;
+    else
+    if ( EditConfirmClosing.Checked )
+      if ( !DisplayManager.QueryYesNo(SysTranslations.AskToExitApplication.GetLang()) )
+        e.Cancel = true;
+      else
+        Globals.IsExiting = true;
   }
 
   /// <summary>
@@ -185,7 +203,11 @@ partial class MainForm
   /// </summary>
   private void SessionEnding(object sender, SessionEndingEventArgs e)
   {
-    if ( Globals.IsExiting || Globals.IsSessionEnding ) return;
+    if ( Globals.IsExiting ) return;
+    if ( Globals.IsSessionEnding ) return;
+    DebugManager.Trace(LogTraceEvent.Data, e?.Reason.ToStringFull() ?? nameof(NativeMethods.WM_QUERYENDSESSION));
+    Globals.AllowClose = true;
+    Globals.IsSessionEnding = true;
     Close();
   }
 
@@ -201,7 +223,7 @@ partial class MainForm
         SessionEnding(this, null);
         break;
       case NativeMethods.WM_DRAWCLIPBOARD:
-        CheckClipboardContentType();
+        EditWord.CheckClipboardContentType();
         break;
       default:
         base.WndProc(ref m);
@@ -236,10 +258,10 @@ partial class MainForm
     // Analyser
     EditWord.LettersBackColor = Settings.ColorLettersPanel;
     EditWord.InputBackColor = Settings.ColorHebrewWordTextBox;
+    EditWord.EditGematriaFull.BackColor = Settings.ColorGematriaTextBox;
+    EditWord.EditGematriaSimple.BackColor = Settings.ColorGematriaTextBox;
     SelectAnalyze.BackColor = Settings.ColorMeaningsPanel;
     EditSentence.BackColor = Settings.ColorSentenceTextBox;
-    EditGematriaFull.BackColor = Settings.ColorGematriaTextBox;
-    EditGematriaSimple.BackColor = Settings.ColorGematriaTextBox;
     EditTranscription.BackColor = Settings.ColorHebrewWordTextBox;
     EditDictionary.BackColor = Settings.ColorHebrewWordTextBox;
     EditMemo.BackColor = Settings.ColorHebrewWordTextBox;
@@ -272,30 +294,6 @@ partial class MainForm
   {
     if ( Globals.IsSettingsUpgraded && Settings.ShowLastNewInVersionAfterUpdate )
       SystemManager.TryCatch(CommonMenusControl.Instance.ShowLastNews);
-  }
-
-  /// <summary>
-  /// Does Form Closing event.
-  /// </summary>
-  private void DoFormClosing(object sender, FormClosingEventArgs e)
-  {
-    if ( !Globals.IsReady ) return;
-    if ( Globals.IsExiting ) return;
-    if ( e.CloseReason != CloseReason.None && e.CloseReason != CloseReason.UserClosing )
-    {
-      Globals.IsExiting = true;
-      return;
-    }
-    if ( !Globals.AllowClose )
-    {
-      e.Cancel = true;
-      return;
-    }
-    if ( EditConfirmClosing.Checked && !Globals.IsSessionEnding )
-      if ( !DisplayManager.QueryYesNo(SysTranslations.AskToExitApplication.GetLang()) )
-        e.Cancel = true;
-      else
-        Globals.IsExiting = true;
   }
 
 }

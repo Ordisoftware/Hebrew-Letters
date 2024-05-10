@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Hebrew Calendar/Letters/Words.
-/// Copyright 2012-2022 Olivier Rogier.
+/// Copyright 2012-2024 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -14,7 +14,7 @@
 /// <edited> 2022-03 </edited>
 namespace Ordisoftware.Hebrew;
 
-static class Interlocks
+static public class Interlocks
 {
 
   static public readonly string TableName = nameof(Interlocks);
@@ -69,6 +69,7 @@ static class Interlocks
   }
 
   [SuppressMessage("Performance", "U2U1209:Use dictionaries efficiently", Justification = "N/A")]
+  [SuppressMessage("Performance", "CA1854:Préférer la méthode 'IDictionary.TryGetValue(TKey, out TValue)'", Justification = "N/A")]
   static public List<string> GetLockers(string name = null)
   {
     name = Convert(name);

@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Hebrew Letters.
-/// Copyright 2016-2022 Olivier Rogier.
+/// Copyright 2016-2024 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2022-03 </edited>
+/// <edited> 2022-07 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 /// <summary>
@@ -36,18 +36,16 @@ partial class MainForm
     try
     {
       SelectAnalyze.Controls.Clear();
-      EditSentence.Text = "";
-      EditGematriaSimple.Text = "";
-      EditGematriaFull.Text = "";
+      EditSentence.Text = string.Empty;
+      EditWord.EditGematriaSimple.Text = string.Empty;
+      EditWord.EditGematriaFull.Text = string.Empty;
       const int marginTop = 20;
-      const int marginLeft = 100;
+      const int marginLeft = 5;
+      const int marginCombo = 15;
       const int labelWidth = 50;
-      const int comboWidth = 100;
-      //const int labelHeight = 13;
-      //const int comboHeight = 21;
+      const int comboWidth = 170;
+      const int comboLeft = marginLeft + labelWidth + marginCombo;
       const int comboHeightDelta = -4;
-      const int widthCombobox = 160;
-      const int marginLeftAndcomboWidth = marginLeft + comboWidth;
       const int dummyDelta = 10;
       const int dummyHeightDelta = -2;
       const int deltaY = 30;
@@ -70,7 +68,6 @@ partial class MainForm
           TextAlign = ContentAlignment.TopRight,
           AutoSize = false,
           Width = labelWidth,
-          //Height = labelHeight,
           Left = marginLeft,
           Top = top,
           Text = letter.Name,
@@ -78,12 +75,11 @@ partial class MainForm
         };
         label.Click += LabelLetter_Click;
         SelectAnalyze.Controls.Add(label);
-        // Combobox
+        // Combo box
         var combobox = new ComboBoxEx
         {
-          Width = marginLeftAndcomboWidth,
-          //combobox.Height = comboHeight;
-          Left = widthCombobox,
+          Width = comboWidth,
+          Left = comboLeft,
           Top = top + comboHeightDelta,
           DropDownStyle = ComboBoxStyle.DropDownList
         };
@@ -118,11 +114,11 @@ partial class MainForm
         Left = dummyDelta,
         Width = dummyDelta,
         Top = dy + dummyHeightDelta,
-        Text = ""
+        Text = string.Empty
       };
       SelectAnalyze.Controls.Add(dummy);
-      EditGematriaSimple.Text = sumSimple.ToString();
-      EditGematriaFull.Text = sumFull.ToString();
+      EditWord.EditGematriaSimple.Text = sumSimple.ToString();
+      EditWord.EditGematriaFull.Text = sumFull.ToString();
     }
     catch ( Exception ex )
     {

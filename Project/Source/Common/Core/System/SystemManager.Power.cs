@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Core Library.
-/// Copyright 2004-2022 Olivier Rogier.
+/// Copyright 2004-2024 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -22,7 +22,7 @@ using Microsoft.Win32;
 /// </summary>
 [SuppressMessage("Refactoring", "GCop638:Shorten this method by defining it as expression-bodied.", Justification = "Opinion")]
 [SuppressMessage("Refactoring", "GCop647:Shorten this property by defining it as expression-bodied.", Justification = "Opinion")]
-static partial class SystemManager
+static public partial class SystemManager
 {
 
   static public List<PowerAction> GetAvailablePowerActions()
@@ -85,7 +85,7 @@ static partial class SystemManager
 
   static public bool IsForegroundFullScreen(Screen screen = null)
   {
-    if ( screen is null ) screen = Screen.PrimaryScreen;
+    screen ??= Screen.PrimaryScreen;
     var rect = new NativeMethods.RECT();
     NativeMethods.GetWindowRect(new HandleRef(null, NativeMethods.GetForegroundWindow()), ref rect);
     var rectangle = new Rectangle(rect.left, rect.top, rect.right - rect.left, rect.bottom - rect.top);

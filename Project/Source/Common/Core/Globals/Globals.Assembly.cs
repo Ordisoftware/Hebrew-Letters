@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Core Library.
-/// Copyright 2004-2022 Olivier Rogier.
+/// Copyright 2004-2024 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -17,7 +17,7 @@ namespace Ordisoftware.Core;
 /// <summary>
 /// Provides global variables.
 /// </summary>
-static partial class Globals
+static public partial class Globals
 {
 
   /// <summary>
@@ -25,10 +25,7 @@ static partial class Globals
   /// </summary>
   static private T GetAttribute<T>() where T : Attribute
   {
-    var attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(T), false);
-    return attributes.Length > 0
-      ? (T)attributes[0]
-      : null;
+    return Assembly.GetEntryAssembly()?.GetCustomAttribute<T>();
   }
 
   /// <summary>
@@ -38,10 +35,8 @@ static partial class Globals
   {
     get
     {
-      var attribute = GetAttribute<AssemblyTitleAttribute>();
-      return attribute is not null && attribute.Title.Length != 0
-        ? attribute.Title
-        : Path.GetFileNameWithoutExtension(Assembly.GetExecutingAssembly().CodeBase);
+      return GetAttribute<AssemblyTitleAttribute>()?.Title
+        ?? Path.GetFileNameWithoutExtension(Assembly.GetExecutingAssembly().CodeBase);
     }
   }
 
@@ -61,37 +56,37 @@ static partial class Globals
   /// Gets information describing the assembly.
   /// </summary>
   static public string AssemblyDescription
-    => GetAttribute<AssemblyDescriptionAttribute>().Description;
+    => GetAttribute<AssemblyDescriptionAttribute>()?.Description ?? string.Empty;
 
   /// <summary>
   /// Gets the assembly product.
   /// </summary>
   static public string AssemblyProduct
-    => GetAttribute<AssemblyProductAttribute>().Product;
+    => GetAttribute<AssemblyProductAttribute>()?.Product ?? string.Empty;
 
   /// <summary>
   /// Gets the assembly copyright.
   /// </summary>
   static public string AssemblyCopyright
-    => GetAttribute<AssemblyCopyrightAttribute>().Copyright;
+    => GetAttribute<AssemblyCopyrightAttribute>()?.Copyright ?? string.Empty;
 
   /// <summary>
   /// Gets the assembly company.
   /// </summary>
   static public string AssemblyCompany
-    => GetAttribute<AssemblyCompanyAttribute>().Company;
+    => GetAttribute<AssemblyCompanyAttribute>()?.Company ?? string.Empty;
 
   /// <summary>
   /// Gets the assembly trademark.
   /// </summary>
   static public string AssemblyTrademark
-    => GetAttribute<AssemblyTrademarkAttribute>().Trademark;
+    => GetAttribute<AssemblyTrademarkAttribute>()?.Trademark ?? string.Empty;
 
   /// <summary>
   /// Gets the assembly GUID.
   /// </summary>
   static public string AssemblyGUID
-    => GetAttribute<System.Runtime.InteropServices.GuidAttribute>().Value;
+    => GetAttribute<GuidAttribute>()?.Value ?? string.Empty;
 
   /// <summary>
   /// Gets the assembly compiled DateTime.
