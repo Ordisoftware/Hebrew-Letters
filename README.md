@@ -214,6 +214,10 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Update some nuget dependencies.
 - Update web links with many sites and study menu items.
 
+#### 2024.05.10 - Version 6.14.1
+
+- Update SSL certificate data for the web update checker.
+
 #### 2022.06.21 - Version 6.14
 
 - Add a top button to close other windows.
