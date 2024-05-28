@@ -45,10 +45,10 @@ partial class MainForm
       const int labelWidth = 50;
       const int comboWidth = 170;
       const int comboLeft = marginLeft + labelWidth + marginCombo;
-      const int comboHeightDelta = -4;
-      const int dummyDelta = 10;
-      const int dummyHeightDelta = -2;
-      const int deltaY = 30;
+      const int comboHeightOffset = -4;
+      const int dummyOffset = 10;
+      const int dummyHeightOffset = -2;
+      const int offsetY = 30;
       int sumSimple = 0;
       int sumFull = 0;
       int dy = 0;
@@ -80,7 +80,7 @@ partial class MainForm
         {
           Width = comboWidth,
           Left = comboLeft,
-          Top = top + comboHeightDelta,
+          Top = top + comboHeightOffset,
           DropDownStyle = ComboBoxStyle.DropDownList
         };
         combobox.SelectedIndexChanged += MeaningComboBox_SelectedIndexChanged;
@@ -106,14 +106,14 @@ partial class MainForm
         combobox.Tag = letter;
         SelectAnalyze.Controls.Add(combobox);
         // Loop
-        dy += deltaY;
+        dy += offsetY;
       }
       var dummy = new Label
       {
         AutoSize = false,
-        Left = dummyDelta,
-        Width = dummyDelta,
-        Top = dy + dummyHeightDelta,
+        Left = dummyOffset,
+        Width = dummyOffset,
+        Top = dy + dummyHeightOffset,
         Text = string.Empty
       };
       SelectAnalyze.Controls.Add(dummy);
