@@ -34,7 +34,7 @@ static partial class Program
         CheckSettingsReset(true);
       }
       else
-      if ( !Settings.FirstLaunch && SystemManager.CommandLineOptions?.HideMainForm == true )
+      if ( !Settings.FirstLaunch && SystemManager.CommandLineOptions.HideMainForm )
         Globals.ForceStartupHide = true;
     }
     catch ( Exception ex )
