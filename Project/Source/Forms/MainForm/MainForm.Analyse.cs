@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2022-07 </edited>
+/// <edited> 2024-08 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 /// <summary>
@@ -50,18 +50,23 @@ partial class MainForm
       const int dummyHeightOffset = -2;
       const int offsetY = 30;
       int sumSimple = 0;
+      int sumFinal = 0;
       int sumFull = 0;
       int dy = 0;
       string word = EditWord.TextBox.Text;
-      for ( int pos = word.Length - 1, index = 0; pos >= 0; index++, pos-- )
+      int wordLastIndex = word.Length - 1;
+      for ( int pos = wordLastIndex, index = 0; pos >= 0; index++, pos-- )
       {
         int top = marginTop + dy;
         // Letter
         string theword = word[pos].ToString();
         var letter = DBApp.Letters.Find(l => l.Code == theword);
         if ( letter is null ) continue;
-        sumSimple += letter.ValueSimple;
         sumFull += letter.ValueFull;
+        sumSimple += letter.ValueSimple;
+        sumFinal += pos == 0 && HebrewAlphabet.ValuesFinal.ContainsKey(letter.Code)
+          ? HebrewAlphabet.ValuesFinal[letter.Code]
+          : letter.ValueSimple;
         // Label
         var label = new Label
         {
@@ -118,6 +123,7 @@ partial class MainForm
       };
       SelectAnalyze.Controls.Add(dummy);
       EditWord.EditGematriaSimple.Text = sumSimple.ToString();
+      EditWord.EditGematriaFinal.Text = sumFinal.ToString();
       EditWord.EditGematriaFull.Text = sumFull.ToString();
     }
     catch ( Exception ex )

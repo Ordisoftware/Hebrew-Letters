@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-09 </created>
-/// <edited> 2023-04 </edited>
+/// <edited> 2024-08 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 using System.Configuration;
@@ -46,6 +46,7 @@ sealed partial class PreferencesForm : Form
     SystemManager.TryCatch(() => EditHebrewCharsInBold.Checked = Settings.LettersControlHebrewCharsInBold);
     SystemManager.TryCatch(() => EditCalculatorPath.Text = Settings.CalculatorExe);
     SystemManager.TryCatch(() => EditDefaultConcordanceUrl.Text = Settings.DefaultConcordanceURL);
+    SystemManager.TryCatch(() => EditShowFinalValues.Checked = Settings.ShowFinalValues);
     EditImageExportFileFormat.Fill(Program.ImageExportTargets, Settings.ExportImagePreferredTarget);
     LoadColors();
   }
@@ -72,6 +73,7 @@ sealed partial class PreferencesForm : Form
     Settings.LettersControlHebrewCharsInBold = EditHebrewCharsInBold.Checked;
     Settings.CalculatorExe = EditCalculatorPath.Text;
     Settings.DefaultConcordanceURL = EditDefaultConcordanceUrl.Text;
+    Settings.ShowFinalValues = EditShowFinalValues.Checked;
     SaveColors();
     SystemManager.TryCatch(Settings.Save);
   }
