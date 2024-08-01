@@ -203,6 +203,8 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Add analyzed words data table and notebook view to save results.
 - Add concordance, transcription, dictionary and comment fields for word analysis.
 - Add search online concordance.
+- Add final values to the input panel.
+>- Add gematria for words with final values.
 - Add button to reverse the current analyzed word.
 - Add shorcuts to copy word in unicode to clipboard.
 - Add menu item for system calculator
