@@ -209,5 +209,8 @@
     <Setting Name="DefaultConcordanceURL" Type="System.String" Scope="User">
       <Value Profile="(Default)">https://studybible.info/strongs/H%CONCORDANCE%.html</Value>
     </Setting>
+    <Setting Name="ShowFinalValues" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
