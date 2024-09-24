@@ -64,8 +64,8 @@ partial class MainForm
         if ( letter is null ) continue;
         sumFull += letter.ValueFull;
         sumSimple += letter.ValueSimple;
-        sumFinal += pos == 0 && HebrewAlphabet.ValuesFinal.ContainsKey(letter.Code)
-          ? HebrewAlphabet.ValuesFinal[letter.Code]
+        sumFinal += pos == 0 && HebrewAlphabet.ValuesFinal.TryGetValue(letter.Code, out int valueFinal)
+          ? valueFinal
           : letter.ValueSimple;
         // Label
         var label = new Label
