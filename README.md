@@ -9,7 +9,7 @@
 [![Framework: .Net](https://img.shields.io/badge/.NET%204.8-6E5FA6?label=framework)](https://dotnet.microsoft.com)&nbsp;
 [![IDE: Visual Studio](https://img.shields.io/badge/Visual%20Studio%202022-6E5FA6.svg?label=ide)](https://visualstudio.microsoft.com)&nbsp;
 [![Lang: C#](https://img.shields.io/badge/C%23%2012-%23239120.svg?label=lang)](https://docs.microsoft.com/dotnet/csharp/)&nbsp;
-[![DB: SQLite](https://img.shields.io/badge/SQLite%203.45-darkgoldenrod.svg?label=db)](https://www.sqlite.org)&nbsp;<br/>
+[![DB: SQLite](https://img.shields.io/badge/SQLite%203.46-darkgoldenrod.svg?label=db)](https://www.sqlite.org)&nbsp;<br/>
 [![Ordisoftware.com Project](https://img.shields.io/badge/-Ordisoftware.com%20Project-355F90?logo=WordPress&logoColor=white)](https://www.ordisoftware.com/hebrew-letters)&nbsp;
 [![Manufacturing Software Guidelines](https://img.shields.io/badge/-Manufacturing%20Software%20Guidelines-355F90?logo=MicrosoftWord&logoColor=white)](https://github.com/Ordisoftware/Guidelines)&nbsp;
 
@@ -53,7 +53,7 @@ _"An easy-to-use and intuitive way to study and translate Hebrew words"_
 - Screen 1024x768 or higher
 - Windows 7 SP1 x32/x64 or higher
 - Framework .NET 4.8
-- SQLite 3.45
+- SQLite 3.46
 
 ## Download
 
@@ -203,6 +203,8 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 - Add analyzed words data table and notebook view to save results.
 - Add concordance, transcription, dictionary and comment fields for word analysis.
 - Add search online concordance.
+- Add final values to the input panel.
+>- Add gematria for words with final values.
 - Add button to reverse the current analyzed word.
 - Add shorcuts to copy word in unicode to clipboard.
 - Add menu item for system calculator

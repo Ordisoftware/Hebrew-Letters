@@ -86,6 +86,7 @@
       this.TabPageAnalyzer = new System.Windows.Forms.TabPage();
       this.label2 = new System.Windows.Forms.Label();
       this.label1 = new System.Windows.Forms.Label();
+      this.EditShowFinalValues = new System.Windows.Forms.CheckBox();
       this.EditHebrewCharsInBold = new System.Windows.Forms.CheckBox();
       this.EditAutoSortAnalysisMeanings = new System.Windows.Forms.CheckBox();
       this.LabelFontSize = new System.Windows.Forms.Label();
@@ -548,6 +549,7 @@
       this.TabPageAnalyzer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.TabPageAnalyzer.Controls.Add(this.label2);
       this.TabPageAnalyzer.Controls.Add(this.label1);
+      this.TabPageAnalyzer.Controls.Add(this.EditShowFinalValues);
       this.TabPageAnalyzer.Controls.Add(this.EditHebrewCharsInBold);
       this.TabPageAnalyzer.Controls.Add(this.EditAutoSortAnalysisMeanings);
       this.TabPageAnalyzer.Controls.Add(this.LabelFontSize);
@@ -568,6 +570,13 @@
       resources.ApplyResources(this.label1, "label1");
       this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
       this.label1.Name = "label1";
+      // 
+      // EditShowFinalValues
+      // 
+      resources.ApplyResources(this.EditShowFinalValues, "EditShowFinalValues");
+      this.EditShowFinalValues.Name = "EditShowFinalValues";
+      this.EditShowFinalValues.UseVisualStyleBackColor = true;
+      this.EditShowFinalValues.CheckedChanged += new System.EventHandler(this.EditShowFinalValues_CheckedChanged);
       // 
       // EditHebrewCharsInBold
       // 
@@ -971,5 +980,6 @@
     private Button ActionSelectConcordanceUrl;
     private TextBoxEx EditDefaultConcordanceUrl;
     private ContextMenuStrip MenuSelectConcordanceUrl;
+    private CheckBox EditShowFinalValues;
   }
 }

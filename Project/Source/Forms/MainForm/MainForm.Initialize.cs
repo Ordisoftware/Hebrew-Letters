@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-01 </created>
-/// <edited> 2022-09 </edited>
+/// <edited> 2024-08 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 using Microsoft.Win32;
@@ -72,6 +72,7 @@ partial class MainForm
     if ( Globals.IsExiting ) return;
     Settings.Retrieve();
     EditWord.HebrewCharsInBold = Settings.LettersControlHebrewCharsInBold;
+    EditWord.ShowFinalValues = Settings.ShowFinalValues;
     EditConcordance.Minimum = HebrewAlphabet.ConcordanceFirst - 1;
     EditConcordance.Maximum = HebrewAlphabet.ConcordanceLast;
     EditConcordanceRoot.Minimum = EditConcordance.Minimum;

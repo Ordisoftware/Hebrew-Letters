@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-09 </created>
-/// <edited> 2022-03 </edited>
+/// <edited> 2024-08 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 using System;
@@ -303,6 +303,11 @@ sealed partial class PreferencesForm : Form
   private void ActionSelectConcordanceUrl_Click(object sender, EventArgs e)
   {
     MenuSelectOnlineVerseURL.Show(ActionSelectConcordanceUrl, new Point(0, ActionSelectConcordanceUrl.Height));
+  }
+
+  private void EditShowFinalValues_CheckedChanged(object sender, EventArgs e)
+  {
+    MainForm.Instance.EditWord.ShowFinalValues = EditShowFinalValues.Checked;
   }
 
 }
