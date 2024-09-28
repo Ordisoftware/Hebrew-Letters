@@ -20,6 +20,9 @@ namespace Ordisoftware.Hebrew.Letters;
 static partial class Program
 {
 
+  // TODO enable save if sentence is <> and not only meanings => replace if exists
+  // TODO if readonly and retake control on db => reload all data and settings
+
   /// <summary>
   /// Process startup method.
   /// </summary>
