@@ -361,7 +361,6 @@
     <Compile Include="Source\Common\Hebrew\Providers\Books\OnlineBookInfos.MechonMamre.cs" />
     <Compile Include="Source\Common\Hebrew\Providers\Books\OnlineBookInfos.Sefaria.cs" />
     <Compile Include="Source\Common\Hebrew\Providers\Books\OnlineBookInfos.StudyBible.cs" />
-    <Compile Include="Source\Common\Hebrew\Providers\Books\OnlineBookInfos.TorahBox.cs" />
     <Compile Include="Source\Common\Hebrew\Providers\OnlineCelebrations.cs" />
     <Compile Include="Source\Common\Hebrew\Providers\Parashot\OnlineParashot..cs" />
     <Compile Include="Source\Common\Hebrew\Providers\Parashot\OnlineParashot.AishEN.cs" />
@@ -372,7 +371,6 @@
     <Compile Include="Source\Common\Hebrew\Providers\Parashot\OnlineParashot.MyJewishLearning.cs" />
     <Compile Include="Source\Common\Hebrew\Providers\Parashot\OnlineParashot.TheTorahCom.cs" />
     <Compile Include="Source\Common\Hebrew\Providers\Parashot\OnlineParashot.TheYeshivaNet.cs" />
-    <Compile Include="Source\Common\Hebrew\Providers\Parashot\OnlineParashot.TorahBox.cs" />
     <Compile Include="Source\Common\Hebrew\Providers\Parashot\OnlineParashot.TorahJews.cs" />
     <Compile Include="Source\Common\Hebrew\Providers\Parashot\OnlineParashot.TorahOrg.cs" />
     <Compile Include="Source\Common\Hebrew\Providers\Parashot\OnlineParashot.WikipediaEN.cs" />
