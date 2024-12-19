@@ -36,7 +36,7 @@ sealed class ApplicationDatabase : SQLiteDatabase
   {
   }
 
-  protected override void Vacuum(bool force = false)
+  protected override void AutoVacuum()
   {
     if ( Program.Settings.VacuumAtStartup )
     {
