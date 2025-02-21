@@ -154,7 +154,6 @@ public class Letter : AbstractRow
   }
   private int _ValueFull;
 
-  public List<Meaning> Meanings
-    => ApplicationDatabase.Instance.Meanings.Where(item => item.LetterCode == Code).ToList();
+  public List<Meaning> Meanings => [.. ApplicationDatabase.Instance.Meanings.Where(item => item.LetterCode == Code)];
 
 }
