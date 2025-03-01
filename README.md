@@ -200,6 +200,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 #### In progress - Version 7.0
 
+- Upgrade to framework 4.8.1 and discontinuation of Windows 7 support.
 - Add analyzed words data table and notebook view to save results.
 - Add concordance, transcription, dictionary and comment fields for word analysis.
 - Add search online concordance.
