@@ -64,9 +64,7 @@ static partial class Program
           word = HebrewAlphabet.ContainsUnicode(word)
                  ? HebrewAlphabet.ToHebrewFont(word)
                  : HebrewAlphabet.OnlyHebrewFont(word);
-          _StartupWordHebrew = new string(word.Where(c => c != ' ')
-                                              .TakeLast((int)Settings.HebrewTextBoxMaxLength)
-                                              .ToArray());
+          _StartupWordHebrew = new string([.. word.Where(c => c != ' ').TakeLast((int)Settings.HebrewTextBoxMaxLength)]);
         }
         catch ( Exception ex )
         {
