@@ -1,6 +1,6 @@
-﻿/// <license>
+/// <license>
 /// This file is part of Ordisoftware Core Library.
-/// Copyright 2004-2022 Olivier Rogier.
+/// Copyright 2004-2023 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -17,7 +17,7 @@ namespace Ordisoftware.Core;
 /// <summary>
 /// Provides system management.
 /// </summary>
-static partial class SystemManager
+static public partial class SystemManager
 {
 
   /// <summary>
@@ -39,8 +39,8 @@ static partial class SystemManager
     request.Timeout = WebClientEx.DefaultTimeOutSeconds * 1000;
     using ( var response = request.GetResponse() ) { }
     point.CloseConnectionGroup(id);
-    if ( certificate["Issuer"] != point.Certificate.Issuer
-      || certificate["Subject"] != point.Certificate.Subject
+    if ( /*certificate["Issuer"] != point.Certificate.Issuer
+      ||*/ certificate["Subject"] != point.Certificate.Subject
       /*|| certificate["Serial"] != point.Certificate.GetSerialNumberString()
       || certificate["PublicKey"] != point.Certificate.GetPublicKeyString()*/ )
     {
@@ -61,7 +61,6 @@ static partial class SystemManager
       throw new UnauthorizedAccessException(msg);
     }
   }
-
 
   /// <summary>
   /// Indicates the application website SSL certificate information.
