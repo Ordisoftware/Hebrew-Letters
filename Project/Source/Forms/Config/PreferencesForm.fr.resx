@@ -295,4 +295,13 @@
   <data name="OpenExeFileDialog.Filter" xml:space="preserve">
     <value>Fichiers EXE (*.exe)|*.exe</value>
   </data>
+  <data name="LabelCalculatorPath.Text" xml:space="preserve">
+    <value>Calculatrice système</value>
+  </data>
+  <data name="TabPagePaths.Text" xml:space="preserve">
+    <value>Chemins</value>
+  </data>
+  <data name="EditShowFinalValues.Text" xml:space="preserve">
+    <value>Afficher les valeurs finales</value>
+  </data>
 </root>

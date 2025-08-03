@@ -16,13 +16,24 @@ Lang/FR = Sites Web sur le judaïsme
 Name = (EN) Judaism 101 (Jew FAQ)
 URL = https://www.jewfaq.org
 
+Name = (EN) Mussar Center (Books and middot lists)
+URL = https://mussar.center/books.html
+
+- 
+
+Name = (FR) Pniné Halakha (Har Bracha Institut)
+URL = https://ph.yhb.org.il/fr/
+
+Name = (EN) Peninei Halakha (Har Bracha Institut)
+URL = https://ph.yhb.org.il/en/
+
+Name = (IW) Peninei Halakha (Har Bracha Institut)
+URL = https://ph.yhb.org.il/
+
 -
 
 Name = (FR) Beit HaZohar
 URL = https://www.beithazohar.com
-
-Name = (FR) Consistoire de Paris
-URL = https://www.consistoire.org/archives-des-cours-hebdomadaires/
 
 Name = (FR) Dvar Torah
 URL = https://www.dvartorah.org
@@ -30,14 +41,17 @@ URL = https://www.dvartorah.org
 Name = (FR) Espace Torah
 URL = http://www.espacetorah.com
 
+Name = (FR) Inspiration Juive
+URL = https://inspirationjuive.com
+
 Name = (FR) Israël Torah
 URL = https://www.israeltorah.com
 
+Name = (FR) La Yéchiva des étudiants
+URL = http://yechiva.com
+
 Name = (FR) Pureté Juive
 URL = https://www.puretejuive.com
-
-Name = (FR) Torah Box
-URL = https://www.torah-box.com
 
 Name = (FR) Torah de Vie
 URL = http://www.torahdevie.com
@@ -52,9 +66,6 @@ URL = https://www.tsarfat.com
 
 Name = (EN) My Jewish Learning
 URL = https://www.myjewishlearning.com
-
-Name = (EN) Reform Judaism
-URL = https://reformjudaism.org
 
 Name = (EN) TheTorah.com
 URL = https://www.thetorah.com
@@ -73,9 +84,6 @@ URL = https://www.truetorahjews.org
 
 -
 
-Name = (FR) Dossier sur Le Rabbi de Loubavitch
-URL = https://fr.chabad.org/library/article_cdo/aid/527991/jewish/Le-Rabbi.htm
-
 Name = (FR) Beth Loubavitch
 URL = https://www.loubavitch.fr
 
@@ -84,12 +92,6 @@ URL = https://fr.chabad.org
 
 Name = (EN) 'Habad Loubavitch
 URL = https://www.chabad.org
-
-Name = (EN) Jewish Educational Media Loubavitch
-URL = https://jemcentral.org
-
-Name = (EN) File on The Rebbe of Lubavitch
-URL = https://www.chabad.org/therebbe/default_cdo/jewish/The-Rebbe.htm
 
 -
 

@@ -1,6 +1,6 @@
 ﻿/// <license>
-/// This file is part of Ordisoftware Hebrew Calendar/Letters/Words.
-/// Copyright 2012-2022 Olivier Rogier.
+/// This file is part of Ordisoftware Hebrew Calendar/Letters/Words/Pi.
+/// Copyright 2012-2025 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -14,14 +14,14 @@
 /// <edited> 2022-03 </edited>
 namespace Ordisoftware.Hebrew;
 
-class ParashotFactory : ProviderSettings
+public class ParashotFactory : ProviderSettings
 {
 
   private const int DataColumnsCount = 6;
 
   static public readonly ParashotFactory Instance = new();
 
-  public readonly NullSafeDictionary<TorahBook, NullSafeList<Parashah>> Items = new();
+  public readonly NullSafeDictionary<TorahBook, NullSafeList<Parashah>> Items = [];
 
   public IEnumerable<Parashah> All
     => Items.SelectMany(item => item.Value);
@@ -40,7 +40,7 @@ class ParashotFactory : ProviderSettings
     var pair = line.Split(':');
     if ( pair.Length < 2 ) return;
     var book = Enums.Parse<TorahBook>(pair[0].Trim());
-    if ( Items[book] is null ) Items[book] = new NullSafeList<Parashah>();
+    if ( Items[book] is null ) Items[book] = [];
     var items = pair[1].Split('-');
     if ( items.Length != DataColumnsCount ) return;
     Items[book].Add(new Parashah(book,
@@ -56,7 +56,7 @@ class ParashotFactory : ProviderSettings
   {
     foreach ( var kvp in Items )
       foreach ( var item in kvp.Value )
-        stream.WriteLine($"{kvp.Key} : {item.Number} - {item.Unicode} - {item.Name} - {item.VerseBegin} - {item.VerseEnd} - {item.IsLinkedToNext}");
+        stream.WriteLine($"{kvp.Key} : {item.Number} - {item.Unicode} - {item.Name} - {item.ReferenceBegin} - {item.ReferenceEnd} - {item.IsLinkedToNext}");
   }
 
   public void Reset()

@@ -1,6 +1,6 @@
 /// <license>
 /// This file is part of Ordisoftware Core Library.
-/// Copyright 2004-2022 Olivier Rogier.
+/// Copyright 2004-2025 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -11,13 +11,13 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2011-12 </created>
-/// <edited> 2022-03 </edited>
+/// <edited> 2025-01 </edited>
 namespace Ordisoftware.Core;
 
 /// <summary>
 /// Provides messages and questions with waiting user communication feedback as well as UI sync.
 /// </summary>
-static partial class DisplayManager
+static public partial class DisplayManager
 {
 
   /// <summary>
@@ -33,24 +33,32 @@ static partial class DisplayManager
     MainThread = Thread.CurrentThread;
   }
 
-  public const int TaskbarWidthCheckTrigger = 250;
+  public const int TaskBarWidthCheckTrigger = 250;
 
   /// <summary>
   /// Gets task bar anchor style.
   /// </summary>
-  static public AnchorStyles GetTaskbarAnchorStyle()
+  static public AnchorStyles GetTaskBarAnchorStyle()
   {
-    var coordonates = StackMethods.GetTaskbarCoordonates();
+    var coordonates = StackMethods.GetTaskbarCoordinates();
     if ( coordonates.Left == 0 && coordonates.Top == 0 )
-      if ( coordonates.Width > TaskbarWidthCheckTrigger )
+      if ( coordonates.Width > TaskBarWidthCheckTrigger )
         return AnchorStyles.Top;
       else
         return AnchorStyles.Left;
     else
-    if ( coordonates.Width > TaskbarWidthCheckTrigger )
+    if ( coordonates.Width > TaskBarWidthCheckTrigger )
       return AnchorStyles.Bottom;
     else
       return AnchorStyles.Right;
+  }
+
+  static public void SyncUISimple(this Control control, Action action)
+  {
+    if ( control.InvokeRequired )
+      control.Invoke(action);
+    else
+      action();
   }
 
   /// <summary>
@@ -73,13 +81,14 @@ static partial class DisplayManager
   /// <param name="wait">true to wait.</param>
   [SuppressMessage("Performance", "U2U1017:Initialized locals should be used", Justification = "Analysis error")]
   [SuppressMessage("IDisposableAnalyzers.Correctness", "IDISP001:Dispose created", Justification = "Done")]
-  static public void SyncUI(this Control control!!, Action action, bool wait = true)
+  static public void SyncUI(this Control control, Action action, bool wait = true)
   {
+    if ( control is null ) throw new ArgumentNullException(nameof(control));
     if ( !Thread.CurrentThread.IsAlive )
       throw new ThreadStateException(SysTranslations.ErrorSlot.GetLang().TrimFirstLast());
     Exception exception = null;
     SemaphoreSlim semaphore = null;
-    var processAction = () =>
+    void processAction()
     {
       try
       {
@@ -89,12 +98,12 @@ static partial class DisplayManager
       {
         exception = ex;
       }
-    };
-    var processActionWait = () =>
+    }
+    void processActionWait()
     {
       processAction();
       semaphore?.Release();
-    };
+    }
     if ( Globals.IsReady && control.InvokeRequired && Thread.CurrentThread != MainThread )
     {
       if ( wait ) semaphore = new SemaphoreSlim(0, 1);

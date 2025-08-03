@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Core Library.
-/// Copyright 2004-2022 Olivier Rogier.
+/// Copyright 2004-2025 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -48,8 +48,9 @@ public abstract class DataFile
   /// <summary>
   /// Constructor.
   /// </summary>
-  protected DataFile(string filePath!!, bool showFileNotFound, bool configurable, DataFileFolder folder)
+  protected DataFile(string filePath, bool showFileNotFound, bool configurable, DataFileFolder folder)
   {
+    if ( filePath.IsNullOrEmpty() ) throw new ArgumentNullException(nameof(filePath));
     FilePathDefault = filePath;
     ShowFileNotFound = showFileNotFound;
     Configurable = configurable;

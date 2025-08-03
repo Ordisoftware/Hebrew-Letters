@@ -1,0 +1,120 @@
+﻿; --------------------------------------------------------------------------------------------------
+; File format for web links
+; --------------------------------------------------------------------------------------------------
+; To create a folder else items will be at root level: Lang/[short code] = Title
+; Use the tag FOLDER-SEPARATOR to insert a separator menu item between folders.
+; --------------------------------------------------------------------------------------------------
+; Name = Title
+; URL = Web link
+; --------------------------------------------------------------------------------------------------
+; Use the "-" char at the beginning of a line to insert a separator
+; --------------------------------------------------------------------------------------------------
+
+Lang/EN = YouTube playlists Rabbis
+Lang/FR = Playlists YouTube de Rabbins
+
+Name = (FR) [Rav Yehia Benchetrit] La Techouva
+URL = https://www.youtube.com/playlist?list=PL20tCo26IlqSTuMCHBn5sc5moEnHXB3Yr
+
+Name = (FR) [Rav Yehia Benchetrit] Le couple
+URL = https://www.youtube.com/playlist?list=PL20tCo26IlqSrt65t4l8dNc5fdWi8ayKc
+
+Name = (FR) [Rav Yehia Benchetrit] L'éducation
+URL = https://www.youtube.com/playlist?list=PL20tCo26IlqSrsMqvdwOGTc_Dh9em1Hpo
+
+Name = (FR) [Rav Yehia Benchetrit] La spiritualite
+URL = https://www.youtube.com/playlist?list=PL20tCo26IlqQ_FjcJbCV0zXc6dKeXuk6c
+
+Name = (FR) [Rav Yehia Benchetrit] Business Ethique
+URL = https://www.youtube.com/playlist?list=PL20tCo26IlqQWUChbtnQC1DQESNFL6ukH
+
+-
+
+Name = (FR) [Rav Menahem Berros] Les lois de la Techouva
+URL = https://www.youtube.com/playlist?list=PLyFGO_NXJ0bzqeTFibTrCRFHKAADFkIe4
+
+Name = (FR) [Rav Menahem Berros] Le couple
+URL = https://www.youtube.com/playlist?list=PLyFGO_NXJ0bzNkljdxpYH4VRGEL6m_RLS
+
+Name = (FR) [Rav Menahem Berros] Les premiers pas de la kabale
+URL = https://www.youtube.com/playlist?list=PLyFGO_NXJ0bzd6MwkHIK9kxLVw_eYrzOJ
+
+Name = (FR) [Rav Menahem Berros] Kabala
+URL = https://www.youtube.com/playlist?list=PLyFGO_NXJ0bw5pK9U7cdfHpbEYn-2aQdJ
+
+Name = (FR) [Rav Menahem Berros] Sefer Haredim
+URL = https://www.youtube.com/playlist?list=PLyFGO_NXJ0byfdxevTAbm0SSJxZAfaUfE
+
+-
+
+Name = (FR) [Rav Azriel Cohen-Arazi] La Techouva
+URL = https://www.youtube.com/playlist?list=PLpdDsB2B_6jo9wF4lrk4Y8IgAf_aaY1Nq
+
+Name = (FR) [Rav Azriel Cohen-Arazi] Les Mitsvot
+URL = https://www.youtube.com/playlist?list=PLpdDsB2B_6jpk3GBGcJlKz4Hi_cVvTCtc
+
+Name = (FR) [Rav Azriel Cohen-Arazi] Le Chabbat
+URL = https://www.youtube.com/playlist?list=PLpdDsB2B_6jps4fuCNobbfY0iR34fPKvx
+
+Name = (FR) [Rav Azriel Cohen-Arazi] La paracha
+URL = https://www.youtube.com/playlist?list=PLpdDsB2B_6jrN5CuUHY6IeM5u8h4Zp2Ct
+
+Name = (FR) [Rav Azriel Cohen-Arazi] Les bénédictions
+URL = https://www.youtube.com/playlist?list=PLpdDsB2B_6jo2QYjROk_FgZZp9k3qO_jr
+
+Name = (FR) [Rav Azriel Cohen-Arazi] Le chiddoukh
+URL = https://www.youtube.com/playlist?list=PLpdDsB2B_6jrWj42MLmUqnh8REQLzEcZ3
+
+Name = (FR) [Rav Azriel Cohen-Arazi] Le chalom baït
+URL = https://www.youtube.com/playlist?list=PLpdDsB2B_6joUZJB0Y38aEJImgYPVeFTc
+
+Name = (FR) [Rav Azriel Cohen-Arazi] Les lois de pureté
+URL = https://www.youtube.com/playlist?list=PLpdDsB2B_6jq60rmp9hew8NO8KdfmyBFJ
+
+Name = (FR) [Rav Azriel Cohen-Arazi] L'éducation
+URL = https://www.youtube.com/playlist?list=PLpdDsB2B_6jrZ7C-bYK-N7c-9VU_iD5gg
+
+-
+
+Name = (FR) [Rav Menahem Altabe] Éducation et enfants
+URL = https://www.youtube.com/playlist?list=PLwh9wT44mCF_f4o7BaXZHc6k0C2hRwiRV
+
+Name = (FR) [Rav Menahem Altabe] Pirké Avot
+URL = https://www.youtube.com/playlist?list=PLwh9wT44mCF_L_bvxuy6sv0unGAN1jCnd
+
+Name = (FR) [Rav Menahem Altabe] Likoutei Si'hot Volume 1
+URL = https://www.youtube.com/playlist?list=PLwh9wT44mCF9XR_2nSRcYHjbPmtTdoRE_
+
+Name = (FR) [Rav Menahem Altabe] Tanya
+URL = https://www.youtube.com/playlist?list=PLwh9wT44mCF9eq7Cc-gWb8uvdu49HvBfh
+
+Name = (FR) [Rav Menahem Altabe] Le Temple
+URL = https://www.youtube.com/playlist?list=PLwh9wT44mCF9wFYkteCXu3MXMBWSexmQ2
+
+Name = (FR) [Rav Menahem Altabe] Rambam - Sefer Hayad
+URL = https://www.youtube.com/playlist?list=PLwh9wT44mCF_sz2DMgJSbX6rEl-EskFcS
+
+Name = (FR) [Rav Menahem Altabe] Rambam - Sefer Hamitsvot
+URL = https://www.youtube.com/playlist?list=PLwh9wT44mCF822tOlpCNiBTW5BW1Z5gD0
+
+Name = (FR) [Rav Menahem Altabe] Kora'h
+URL = https://www.youtube.com/playlist?list=PLwh9wT44mCF9zBjafxjZdxTC4bz_8imf6
+
+- 
+
+Name = (IW) [Rav Yossef Hay] Songs, chants, and meditations
+URL = https://www.youtube.com/playlist?list=PLl4PXR7UyOAFXH3y1mPVYdxB8IdZ3CBsO
+
+- 
+
+Name = (FR) [Rav Yakov Sitruk] Cours hebdomadaires 
+URL = https://www.youtube.com/playlist?list=PL5loNeKYAAWgTGXkk4GNUM8jnyozTIvDM
+
+Name = (FR) [Rav Yakov Sitruk] Pirké Avoth
+URL = https://www.youtube.com/playlist?list=PL5loNeKYAAWiAeDGKqgpuAsGlHIC2qUQ2
+
+Name = (FR) [Rav Yakov Sitruk] H'afetz H'aïm
+URL = https://www.youtube.com/playlist?list=PL5loNeKYAAWjPD13u2ps7oeg6Mh0FvTNT
+
+Name = (FR) [Rav Yakov Sitruk] Halakha Yomit
+URL = https://www.youtube.com/playlist?list=PL5loNeKYAAWjZj6JFtKRmYYgYbVgwPTs6

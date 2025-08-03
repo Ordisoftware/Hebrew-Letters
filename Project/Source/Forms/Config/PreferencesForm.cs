@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Hebrew Letters.
-/// Copyright 2016-2022 Olivier Rogier.
+/// Copyright 2016-2025 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -11,12 +11,13 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-09 </created>
-/// <edited> 2022-03 </edited>
+/// <edited> 2024-08 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
+using System;
 using KVPImageExportTarget = KeyValuePair<ImageExportTarget, string>;
 
-partial class PreferencesForm : Form
+sealed partial class PreferencesForm : Form
 {
 
   static private readonly Properties.Settings Settings = Program.Settings;
@@ -48,10 +49,22 @@ partial class PreferencesForm : Form
   {
     InitializeComponent();
     Icon = MainForm.Instance.Icon;
-    SaveSettingsDialog.InitialDirectory = Program.Settings.GetExportDirectory();
+    SaveSettingsDialog.InitialDirectory = Program.Settings.GetExportSettingsDirectory();
     OpenSettingsDialog.InitialDirectory = SaveSettingsDialog.InitialDirectory;
     SaveSettingsDialog.Filter = ExportTarget.CreateFilters();
     OpenSettingsDialog.Filter = SaveSettingsDialog.Filter;
+    create(HebrewGlobals.WebProvidersConcordance,
+           MenuSelectOnlineVerseURL,
+           (sender, args) => EditDefaultConcordanceUrl.Text = (string)( (ToolStripMenuItem)sender ).Tag);
+    //
+    void create(OnlineProviders provider, ContextMenuStrip menu, EventHandler action)
+    {
+      foreach ( var item in provider.Items )
+        if ( item.Name == "-" )
+          menu.Items.Add(new ToolStripSeparator());
+        else
+          menu.Items.Add(item.CreateMenuItem(action));
+    }
   }
 
   private void PreferencesForm_Load(object sender, EventArgs e)
@@ -122,7 +135,7 @@ partial class PreferencesForm : Form
   {
     if ( Settings.LanguageSelected == Language.EN ) return;
     string temp = MainForm.Instance.EditWord.TextBox.Text;
-    MainForm.Instance.ActionClear.PerformClick();
+    MainForm.Instance.EditWord.ActionClear.PerformClick();
     Settings.LanguageSelected = Language.EN;
     Program.UpdateLocalization();
     UpdateLanguagesButtons();
@@ -136,7 +149,7 @@ partial class PreferencesForm : Form
   {
     if ( Settings.LanguageSelected == Language.FR ) return;
     string temp = MainForm.Instance.EditWord.TextBox.Text;
-    MainForm.Instance.ActionClear.PerformClick();
+    MainForm.Instance.EditWord.ActionClear.PerformClick();
     Settings.LanguageSelected = Language.FR;
     Program.UpdateLocalization();
     UpdateLanguagesButtons();
@@ -209,9 +222,20 @@ partial class PreferencesForm : Form
       edit.Text = dialog.FileName;
   }
 
+  private void ActionSelectCalculatorPath_Click(object sender, EventArgs e)
+  {
+    DoActionSelectPath(OpenExeFileDialog, EditCalculatorPath);
+  }
+
   private void ActionSelectHebrewWordsPath_Click(object sender, EventArgs e)
   {
     DoActionSelectPath(OpenExeFileDialog, EditHebrewWordsPath);
+  }
+
+  private void ActionResetCalculatorPath_Click(object sender, EventArgs e)
+  {
+    if ( DisplayManager.QueryYesNo(SysTranslations.AskToResetParameter.GetLang()) )
+      EditCalculatorPath.Text = (string)Settings.Properties[nameof(Settings.CalculatorExe)].DefaultValue;
   }
 
   private void ActionResetHebrewWordsPath_Click(object sender, EventArgs e)
@@ -274,6 +298,16 @@ partial class PreferencesForm : Form
   private void EditHebrewCharsInBold_CheckedChanged(object sender, EventArgs e)
   {
     MainForm.Instance.EditWord.HebrewCharsInBold = EditHebrewCharsInBold.Checked;
+  }
+
+  private void ActionSelectConcordanceUrl_Click(object sender, EventArgs e)
+  {
+    MenuSelectOnlineVerseURL.Show(ActionSelectConcordanceUrl, new Point(0, ActionSelectConcordanceUrl.Height));
+  }
+
+  private void EditShowFinalValues_CheckedChanged(object sender, EventArgs e)
+  {
+    MainForm.Instance.EditWord.ShowFinalValues = EditShowFinalValues.Checked;
   }
 
 }

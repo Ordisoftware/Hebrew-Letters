@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Core Library.
-/// Copyright 2004-2022 Olivier Rogier.
+/// Copyright 2004-2025 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -14,7 +14,7 @@
 /// <edited> 2022-06 </edited>
 namespace Ordisoftware.Core;
 
-partial class MessageBoxEx : Form
+public sealed partial class MessageBoxEx : Form
 {
 
   public const bool DefaultJustifyEnabled = true;
@@ -38,11 +38,11 @@ partial class MessageBoxEx : Form
   public const int DefaultHeightHuge = 500;
   public const int DefaultHeightVeryHuge = 600;
 
-  private const int WidthDeltaMargin = 55;
+  private const int WidthOffsetMargin = 55;
 
-  static public readonly List<Type> ForceTopMostExcludedForms = new();
+  static public readonly List<Type> ForceTopMostExcludedForms = [];
 
-  static public readonly List<MessageBoxEx> Instances = new();
+  static public readonly List<MessageBoxEx> Instances = [];
 
   [SuppressMessage("Performance", "U2U1210:Do not materialize an IEnumerable<T> unnecessarily", Justification = "N/A")]
   static public void CloseAll()
@@ -75,9 +75,8 @@ partial class MessageBoxEx : Form
   private readonly MessageBoxIcon IconStyle;
   private readonly int LabelMaxWidth;
   private readonly bool Justify;
-  public bool AllowClose;
-
-  public bool DoShownSound = true;
+  public bool AllowClose { get; set; }
+  public bool DoShownSound { get; set; } = true;
 
   private MessageBoxEx()
   {
@@ -92,14 +91,15 @@ partial class MessageBoxEx : Form
                       MessageBoxIcon icon = MessageBoxIcon.None,
                       int width = DefaultWidthSmall,
                       bool justify = DefaultJustifyEnabled,
-                      bool sound = true)
+                      bool sound = true,
+                      bool showInTaskBar = false)
   : this()
   {
     Text = title;
     SetButtons(buttons);
     int labelInitialTop = Label.Top;
     int labelInitialHeight = Label.Height;
-    LabelMaxWidth = width - WidthDeltaMargin;
+    LabelMaxWidth = width - WidthOffsetMargin;
     if ( icon == MessageBoxIcon.None && DisplayManager.IconStyle == MessageBoxIconStyle.ForceInformation )
       icon = MessageBoxIcon.Information;
     else
@@ -132,6 +132,7 @@ partial class MessageBoxEx : Form
     Instances.Add(this);
     IconStyle = icon;
     DoShownSound = sound;
+    ShowInTaskbar = showInTaskBar;
   }
 
   public MessageBoxEx(TranslationsDictionary title,
@@ -140,8 +141,9 @@ partial class MessageBoxEx : Form
                       MessageBoxIcon icon = MessageBoxIcon.None,
                       int width = DefaultWidthSmall,
                       bool justify = DefaultJustifyEnabled,
-                      bool sound = true)
-  : this(title.GetLang(), text.GetLang(), buttons, icon, width, justify, sound)
+                      bool sound = true,
+                      bool showInTaskBar = false)
+  : this(title.GetLang(), text.GetLang(), buttons, icon, width, justify, sound, showInTaskBar)
   {
     LocalizedTitle = title;
     LocalizedText = text;
@@ -172,8 +174,9 @@ partial class MessageBoxEx : Form
     Close();
   }
 
-  public bool ForceNoTopMost;
-  public bool ForceTopMost;
+  public bool ForceNoTopMost { get; set; }
+
+  public bool ForceTopMost { get; set; }
 
   private void MessageBoxEx_Shown(object sender, EventArgs e)
   {
@@ -190,6 +193,7 @@ partial class MessageBoxEx : Form
     if ( DoShownSound ) DisplayManager.DoSound(IconStyle);
     this.Popup();
     this.ForceBringToFront();
+    Refresh();
   }
 
   private void MessageBoxEx_FormClosing(object sender, FormClosingEventArgs e)
@@ -210,6 +214,7 @@ partial class MessageBoxEx : Form
       Close();
   }
 
+  [SuppressMessage("Correctness", "SS018:Add cases for missing enum member.", Justification = "N/A")]
   public void SetIcon(MessageBoxIcon icon)
   {
     switch ( icon )

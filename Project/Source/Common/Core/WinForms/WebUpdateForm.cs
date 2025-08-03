@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Core Library.
-/// Copyright 2004-2022 Olivier Rogier.
+/// Copyright 2004-2025 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -14,14 +14,7 @@
 /// <edited> 2021-04 </edited>
 namespace Ordisoftware.Core;
 
-public enum WebUpdateSelection
-{
-  None,
-  Install,
-  Download,
-}
-
-partial class WebUpdateForm : Form
+public sealed partial class WebUpdateForm : Form
 {
 
   static public WebUpdateSelection Run(Version version)
@@ -33,7 +26,7 @@ partial class WebUpdateForm : Form
     if ( form.ShowDialog() != DialogResult.OK ) return WebUpdateSelection.None;
     if ( form.SelectInstall.Checked ) return WebUpdateSelection.Install;
     if ( form.SelectDownload.Checked ) return WebUpdateSelection.Download;
-    throw new AdvNotImplementedException($"User selection in {form.GetType().Name}.{nameof(Run)}");
+    throw new AdvNotImplementedException($"User selection in {typeof(WebUpdateForm).Name}.{nameof(Run)}");
   }
 
   private WebUpdateForm()

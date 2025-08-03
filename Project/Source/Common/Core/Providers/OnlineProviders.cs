@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Core Library.
-/// Copyright 2004-2022 Olivier Rogier.
+/// Copyright 2004-2025 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -17,7 +17,7 @@ namespace Ordisoftware.Core;
 /// <summary>
 /// Provides online providers list.
 /// </summary>
-class OnlineProviders : DataFile
+public class OnlineProviders : DataFile
 {
 
   static public bool MoveCurrentLanguageAtTop { get; set; } = true;
@@ -35,14 +35,12 @@ class OnlineProviders : DataFile
   /// <summary>
   /// Indicates items.
   /// </summary>
-  public List<OnlineProviderItem> Items { get; private set; }
-   = new List<OnlineProviderItem>();
+  public List<OnlineProviderItem> Items { get; private set; } = [];
 
   /// <summary>
   /// Indicates the multilingual title of the list to create a folder
   /// </summary>
-  public TranslationsDictionary Title { get; }
-    = new TranslationsDictionary();
+  public TranslationsDictionary Title { get; } = [];
 
   /// <summary>
   /// Indicates if a separator must be inserted before the folder
@@ -60,6 +58,7 @@ class OnlineProviders : DataFile
   /// <summary>
   /// Loads or reload data from disk.
   /// </summary>
+  [SuppressMessage("Major Code Smell", "S127:\"for\" loop stop conditions should be invariant", Justification = "N/A")]
   protected override void DoReLoad(string filePath)
   {
     if ( filePath.IsNullOrEmpty() ) return;
@@ -77,7 +76,7 @@ class OnlineProviders : DataFile
         }
         string line = lines[index].Trim();
         if ( line.Length == 0 ) continue;
-        if ( line.IsCommentedText() ) continue;
+        if ( line.IsCommented() ) continue;
         if ( line.StartsWith("FOLDER-SEPARATOR", StringComparison.OrdinalIgnoreCase) )
           SeparatorBeforeFolder = true;
         else
@@ -142,7 +141,7 @@ class OnlineProviders : DataFile
         slice.Insert(index++, item);
       }
     }
-    Items = slices.SelectMany(item => item).ToList();
+    Items = [.. slices.SelectMany(item => item)];
   }
 
 }

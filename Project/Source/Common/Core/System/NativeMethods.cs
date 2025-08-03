@@ -1,6 +1,6 @@
 /// <license>
 /// This file is part of Ordisoftware Core Library.
-/// Copyright 2004-2022 Olivier Rogier.
+/// Copyright 2004-2025 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -16,9 +16,17 @@ namespace Ordisoftware.Core;
 
 using System.Runtime.InteropServices;
 
+[SuppressMessage("CodeQuality", "IDE0079:Retirer la suppression inutile", Justification = "N/A")]
 [SuppressMessage("Naming", "GCop204:Rename the variable '{0}' to something clear and meaningful.", Justification = "<En attente>")]
 [SuppressMessage("Naming", "GCop209:Use PascalCasing for {0} names", Justification = "<En attente>")]
-static class NativeMethods
+[SuppressMessage("Design", "GCop179:Do not hardcode numbers, strings or other values. Use constant fields, enums, config files or database as appropriate.", Justification = "N/A")]
+[SuppressMessage("Performance", "U2U1004:Public value types should implement equality", Justification = "N/A")]
+[SuppressMessage("Major Code Smell", "S4200:Native methods should be wrapped", Justification = "N/A")]
+[SuppressMessage("Major Code Smell", "S4214:\"P/Invoke\" methods should not be visible", Justification = "N/A")]
+[SuppressMessage("Interoperability", "CA1401:Les P/Invoke ne doivent pas être visibles", Justification = "N/A")]
+[SuppressMessage("Naming", "VSSpell001:Spell Check", Justification = "N/A")]
+[SuppressMessage("Performance", "SS017:Structs should implement Equals(), GetHashCode(), and ToString().", Justification = "N/A")]
+static public class NativeMethods
 {
 
   #region WorkStation
@@ -144,7 +152,6 @@ static class NativeMethods
   [DllImport("user32.dll")]
   static public extern IntPtr WindowFromPoint(PointStruct Point);
 
-
   #endregion
 
   #region WinMedia
@@ -206,6 +213,8 @@ static class NativeMethods
 
   // https://stackoverflow.com/questions/1309738/how-do-i-get-an-image-for-the-various-messageboximages-or-messageboxicons#25429905
 
+  [SuppressMessage("Design", "GCop179:Do not hardcode numbers, strings or other values. Use constant fields, enums, config files or database as appropriate.", Justification = "N/A")]
+  [SuppressMessage("CodeQuality", "IDE0079:Retirer la suppression inutile", Justification = "N/A")]
   public enum SHSTOCKICONID : uint
   {
     SIID_DOCNOASSOC = 0,
@@ -306,6 +315,8 @@ static class NativeMethods
 
   [Flags]
   [SuppressMessage("Critical Code Smell", "S2346:Flags enumerations zero-value members should be named \"None\"", Justification = "N/A")]
+  [SuppressMessage("Design", "GCop179:Do not hardcode numbers, strings or other values. Use constant fields, enums, config files or database as appropriate.", Justification = "N/A")]
+  [SuppressMessage("CodeQuality", "IDE0079:Retirer la suppression inutile", Justification = "N/A")]
   public enum SHGSI : uint
   {
     SHGSI_LARGEICON = 0,

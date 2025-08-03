@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Core Library.
-/// Copyright 2004-2022 Olivier Rogier.
+/// Copyright 2004-2025 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -20,14 +20,14 @@ using GregsStack.InputSimulatorStandard.Native;
 /// <summary>
 /// Provides HotkeyManager wrapper.
 /// </summary>
-class SystemHotKey
+public class SystemHotKey
 {
 
   static private HotkeyManager Manager => _Manager ??= new HotkeyManager();
 
   static private HotkeyManager _Manager;
 
-  static public readonly List<SystemHotKey> AllActivated = new();
+  static public readonly List<SystemHotKey> AllActivated = [];
 
   private Hotkey _PublicHotKey;
   private int _PublicHotKeyID;
@@ -72,7 +72,7 @@ class SystemHotKey
       _Key = value;
     }
   }
-  public Keys _Key;
+  private Keys _Key;
 
   [SuppressMessage("Reliability", "CA2011:Éviter la récursivité infinie", Justification = "Required")]
   public Modifiers Modifiers
@@ -90,7 +90,7 @@ class SystemHotKey
       _Modifiers = value;
     }
   }
-  public Modifiers _Modifiers;
+  private Modifiers _Modifiers;
 
   [SuppressMessage("Reliability", "CA2011:Éviter la récursivité infinie", Justification = "Required")]
   public Action KeyPressed
@@ -164,6 +164,7 @@ class SystemHotKey
     AllActivated.Remove(this);
   }
 
+  [SuppressMessage("Major Code Smell", "S2589:Boolean expressions should not be gratuitous", Justification = "Analysis error (callback)")]
   public bool IsValid()
   {
     if ( _PublicHotKey is not null ) return true;
@@ -180,7 +181,7 @@ class SystemHotKey
     try
     {
       Active = true;
-      SystemManager.InputSimulator.Keyboard.ModifiedKeyStroke(modifiers.ToArray(), key);
+      SystemManager.InputSimulator.Keyboard.ModifiedKeyStroke([.. modifiers], key);
       if ( !result )
         for ( int s = 1; s < 100; s++ )
         {

@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Core Library.
-/// Copyright 2004-2022 Olivier Rogier.
+/// Copyright 2004-2025 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -11,13 +11,13 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2021-09 </edited>
+/// <edited> 2024-01 </edited>
 namespace Ordisoftware.Core;
 
 /// <summary>
 /// Provides global variables.
 /// </summary>
-static partial class Globals
+static public partial class Globals
 {
 
   /// <summary>
@@ -46,6 +46,11 @@ static partial class Globals
   static public bool IsLoadingData { get; set; }
 
   /// <summary>
+  /// Indicates if the application is in loading or rendering or generating data stage.
+  /// </summary>
+  static public bool IsProcessingData => IsLoadingData || IsRendering || IsGenerating;
+
+  /// <summary>
   /// Indicates if the application is ready to interact with the user or do its purpose.
   /// </summary>
   static public bool IsReady { get; set; }
@@ -64,6 +69,11 @@ static partial class Globals
   /// Indicates if data is being rendered.
   /// </summary>
   static public bool IsRendering { get; set; }
+
+  /// <summary>
+  /// Indicates if data is being processed.
+  /// </summary>
+  static public bool IsInBatch { get; set; }
 
   /// <summary>
   /// Indicates if data is being printed.
@@ -86,8 +96,23 @@ static partial class Globals
   static public bool AllowClose { get; set; } = true;
 
   /// <summary>
-  /// Indicates if current processing must be cancelled.
+  /// Indicates if current processing must be paused.
+  /// </summary>
+  static public bool PauseRequired { get; set; }
+
+  /// <summary>
+  /// Indicates if current processing must be canceled.
   /// </summary>
   static public bool CancelRequired { get; set; }
+
+  /// <summary>
+  /// Indicates if current processing can be paused.
+  /// </summary>
+  static public bool CanPause { get; set; } = true;
+
+  /// <summary>
+  /// Indicates if current processing can be canceled.
+  /// </summary>
+  static public bool CanCancel { get; set; } = true;
 
 }

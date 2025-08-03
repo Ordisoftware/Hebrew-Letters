@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Core Library.
-/// Copyright 2004-2022 Olivier Rogier.
+/// Copyright 2004-2025 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -11,13 +11,13 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2020-04 </created>
-/// <edited> 2022-03 </edited>
+/// <edited> 2022-11 </edited>
 namespace Ordisoftware.Core;
 
 /// <summary>
 /// Provides system helper.
 /// </summary>
-static partial class StringHelper
+static public partial class StringHelper
 {
 
   /// <summary>
@@ -31,7 +31,7 @@ static partial class StringHelper
   /// <summary>
   /// Creates a readable string from a milliseconds value.
   /// </summary>
-  static public string FormatMilliseconds(this long ms, bool excludems = false)
+  static public string FormatMilliseconds(this long ms, bool excludeMilliseconds = false)
   {
     var time = TimeSpan.FromMilliseconds(ms);
     var list = SysTranslations.MillisecondsFormat.GetLang();
@@ -44,10 +44,13 @@ static partial class StringHelper
           : time.Days == 0
             ? 3
             : 4;
-    string result = list[index];
-    if ( index > 0 && !excludems ) result += " " + list[0];
-    if ( index == 0 && excludems ) result = list[1];
-    return string.Format(result, time.Days, time.Hours, time.Minutes, time.Seconds, time.Milliseconds);
+    string pattern = index switch
+    {
+      > 0 when !excludeMilliseconds => $"{list[index]} {list[0]}",
+      0 when excludeMilliseconds => list[1],
+      _ => list[index]
+    };
+    return string.Format(pattern, time.Days, time.Hours, time.Minutes, time.Seconds, time.Milliseconds);
   }
 
 }

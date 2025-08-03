@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Core Library.
-/// Copyright 2004-2022 Olivier Rogier.
+/// Copyright 2004-2025 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -17,7 +17,7 @@ namespace Ordisoftware.Core;
 /// <summary>
 /// Localization strings.
 /// </summary>
-static partial class SysTranslations
+static public partial class SysTranslations
 {
 
   static public readonly TranslationsDictionary UpgradeResetRequired = new()
@@ -37,8 +37,20 @@ static partial class SysTranslations
 
   static public readonly TranslationsDictionary ResetParameter = new()
   {
-    [Language.EN] = "The parameter will be reset to its default value.",
+    [Language.EN] = "The parameter will be reseted to its default value.",
     [Language.FR] = "Le paramètre va être réinitialisé à sa valeur par défaut."
+  };
+
+  static public readonly TranslationsDictionary SetAllOptions = new()
+  {
+    [Language.EN] = "All options will be enabled.",
+    [Language.FR] = "Toutes les options vont être activées."
+  };
+
+  static public readonly TranslationsDictionary UnsetAllOptions = new()
+  {
+    [Language.EN] = "All options will be disabled.",
+    [Language.FR] = "Toutes les options vont être désactivées."
   };
 
   static public readonly TranslationsDictionary AskToResetPreferences = new()
@@ -51,6 +63,18 @@ static partial class SysTranslations
   {
     [Language.EN] = ResetParameter[Language.EN] + Globals.NL2 + AskToContinue[Language.EN],
     [Language.FR] = ResetParameter[Language.FR] + Globals.NL2 + AskToContinue[Language.FR]
+  };
+
+  static public readonly TranslationsDictionary AskToSetAllOptions = new()
+  {
+    [Language.EN] = SetAllOptions[Language.EN] + Globals.NL2 + AskToContinue[Language.EN],
+    [Language.FR] = SetAllOptions[Language.FR] + Globals.NL2 + AskToContinue[Language.FR]
+  };
+
+  static public readonly TranslationsDictionary AskToUnsetAllOptions = new()
+  {
+    [Language.EN] = UnsetAllOptions[Language.EN] + Globals.NL2 + AskToContinue[Language.EN],
+    [Language.FR] = UnsetAllOptions[Language.FR] + Globals.NL2 + AskToContinue[Language.FR]
   };
 
   static public readonly TranslationsDictionary AskToCheckPreferences = new()
@@ -87,7 +111,7 @@ static partial class SysTranslations
                     "Click Yes to continue with this mode." + Globals.NL2 +
                     "Click No to disable it.",
 
-    [Language.FR] = PreviewModeNotice[Language.EN] + Globals.NL2 +
+    [Language.FR] = PreviewModeNotice[Language.FR] + Globals.NL2 +
                     "Cliquez sur Oui pour continuer avec ce mode." + Globals.NL2 +
                     "Cliquez sur Non pour le désactiver."
   };

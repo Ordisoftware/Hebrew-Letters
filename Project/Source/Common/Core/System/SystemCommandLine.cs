@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Core Library.
-/// Copyright 2004-2022 Olivier Rogier.
+/// Copyright 2004-2025 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2020-12 </created>
-/// <edited> 2022-06 </edited>
+/// <edited> 2023-01 </edited>
 namespace Ordisoftware.Core;
 
 using CommandLine;
@@ -19,7 +19,7 @@ using CommandLine;
 /// <summary>
 /// Provides system command line options.
 /// </summary>
-class SystemCommandLine
+public class SystemCommandLine
 {
 
   [Option("withpreview", Required = false, HelpText = "Enable preview functionalities.")]
@@ -41,5 +41,21 @@ class SystemCommandLine
 
   [Option("lang", Required = false, HelpText = "Change the interface language.")]
   public string Language { get; set; }
+
+  /// <summary>
+  /// Checks if the app is in preview mode or not and display a notice if needed.
+  /// </summary>
+  static public void CheckPreviewNotice(ref bool previewModeNotified)
+  {
+    if ( CommonMenusControl.PreviewFunctions is null ) return;
+    if ( !SystemManager.CommandLineOptions.IsPreviewEnabled || previewModeNotified ) return;
+    string msg = SysTranslations.AskForPreviewMode.GetLang(CommonMenusControl.PreviewFunctions[Languages.Current]);
+    if ( !DisplayManager.QueryYesNo(msg) )
+    {
+      SystemManager.CommandLineOptions.WithPreview = false;
+      SystemManager.CommandLineOptions.NoPreview = true;
+    }
+    previewModeNotified = true;
+  }
 
 }

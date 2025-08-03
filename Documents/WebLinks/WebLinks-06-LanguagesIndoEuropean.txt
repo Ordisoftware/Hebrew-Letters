@@ -29,8 +29,8 @@ URL = https://fr.wikipedia.org/wiki/Sanskrit
 
 -
 
-Name = (EN) Sanskrit Dictionary @ spokensanskrit.org
-URL = https://spokensanskrit.org
+Name = (EN) Sanskrit Dictionary @ learnsanskrit.cc
+URL = https://www.learnsanskrit.cc
 
 Name = (EN) Sanskrit Monier-Williams Dictionary @ sanskrit.inria.fr
 URL = https://sanskrit.inria.fr/DICO/index.en.html
@@ -46,10 +46,16 @@ URL = https://en.wikipedia.org/wiki/Greek_language
 Name = (FR) Grec @ fr.wikipedia.org
 URL = https://fr.wikipedia.org/wiki/Grec
 
+Name = (EN) Kata Biblon Greek Lexicon @ katabiblon.com
+URL = https://lexicon.katabiblon.com
+
 -
 
 Name = (FR) Précis de grammaire grecque @ bcs.fltr.ucl.ac.be
 URL = http://bcs.fltr.ucl.ac.be/GraGre/00.Plan.htm
+
+Name = (FR) Dico Latin @ dicolatin.com
+URL = https://www.dicolatin.com
 
 -
 
@@ -65,8 +71,22 @@ URL = https://en.wikipedia.org/wiki/Old_Norse
 Name = (FR) Vieux norrois @ fr.wikipedia.org
 URL = https://fr.wikipedia.org/wiki/Vieux_norrois
 
+-
+
 Name = (EN) Futhark @ en.wikipedia.org
 URL = https://en.wikipedia.org/wiki/Runes
 
 Name = (FR) Futhark @ fr.wikipedia.org
 URL = https://fr.wikipedia.org/wiki/Rune
+
+Name = (EN) Elder Futhark @ en.wikipedia.org
+URL = https://en.wikipedia.org/wiki/Elder_Futhark
+
+Name = (FR) Vieux futhark @ fr.wikipedia.org
+URL = https://fr.wikipedia.org/wiki/Vieux_futhark
+
+Name = (EN) Younger Futhark @ en.wikipedia.org
+URL = https://en.wikipedia.org/wiki/Younger_Futhark
+
+Name = (FR) Runes scandinaves @ fr.wikipedia.org
+URL = https://fr.wikipedia.org/wiki/Runes_scandinaves

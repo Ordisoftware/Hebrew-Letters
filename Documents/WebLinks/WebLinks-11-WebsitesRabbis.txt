@@ -34,17 +34,28 @@ URL = http://www.torahacademy.fr
 Name = (FR) Rav Avraham Ifrah
 URL = https://breslev.fr
 
-Name = (EN) Rabbi Yosef Yitzchak Jacobson
-URL = https://www.theyeshiva.net
-
 Name = (FR) Rav Nathan Mrejen
 URL = https://www.darkeihaim.com
 
 Name = (FR) Rav Yakov Sitruk
 URL = https://www.alef-ledoroth.com
 
+Name = (FR) Rav David Touitou
+URL = https://torathaim.net
+
+-
+
+Name = (EN) Rabbi Yosef Yitzchak Jacobson
+URL = https://www.theyeshiva.net
+
 Name = (EN) Rabbi Adin Steinsaltz
 URL = https://steinsaltz.org
+
+Name = (EN) Steinsaltz Center
+URL = https://steinsaltz-center.org/portal/library
+
+Name = (IW) Steinsaltz Center
+URL = https://steinsaltz-center.org/he/portal/library
 
 -
 
@@ -67,17 +78,3 @@ URL = http://halachayomit.co.il/en/Default.aspx
 
 Name = (IW) Halacha Yomit (Rabbi Ovadia Yosef)
 URL = http://halachayomit.co.il/he/default.aspx
-
--
-
-Name = (FR) Chiourim.com (Rav Dov Roth Lumbroso)
-URL = https://www.chiourim.com
-
-Name = (FR) Chiourim AlloRav
-URL = https://allorav.com
-
-Name = (FR) Chiourim Questions
-URL = https://www.techouvot.com
-
-Name = (FR) Chiourim Zivoug
-URL = https://www.zivoug.com

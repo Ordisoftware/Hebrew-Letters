@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Hebrew Letters.
-/// Copyright 2016-2022 Olivier Rogier.
+/// Copyright 2016-2025 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -11,7 +11,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2022-03 </edited>
+/// <edited> 2024-08 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 /// <summary>
@@ -36,41 +36,43 @@ partial class MainForm
     try
     {
       SelectAnalyze.Controls.Clear();
-      EditSentence.Text = "";
-      EditGematriaSimple.Text = "";
-      EditGematriaFull.Text = "";
+      EditSentence.Text = string.Empty;
+      EditWord.EditGematriaSimple.Text = string.Empty;
+      EditWord.EditGematriaFull.Text = string.Empty;
       const int marginTop = 20;
-      const int marginLeft = 100;
+      const int marginLeft = 5;
+      const int marginCombo = 15;
       const int labelWidth = 50;
-      const int comboWidth = 100;
-      //const int labelHeight = 13;
-      //const int comboHeight = 21;
-      const int comboHeightDelta = -4;
-      const int widthCombobox = 160;
-      const int marginLeftAndcomboWidth = marginLeft + comboWidth;
-      const int dummyDelta = 10;
-      const int dummyHeightDelta = -2;
-      const int deltaY = 30;
+      const int comboWidth = 170;
+      const int comboLeft = marginLeft + labelWidth + marginCombo;
+      const int comboHeightOffset = -4;
+      const int dummyOffset = 10;
+      const int dummyHeightOffset = -2;
+      const int offsetY = 30;
       int sumSimple = 0;
+      int sumFinal = 0;
       int sumFull = 0;
       int dy = 0;
       string word = EditWord.TextBox.Text;
-      for ( int pos = word.Length - 1, index = 0; pos >= 0; index++, pos-- )
+      int wordLastIndex = word.Length - 1;
+      for ( int pos = wordLastIndex, index = 0; pos >= 0; index++, pos-- )
       {
         int top = marginTop + dy;
         // Letter
         string theword = word[pos].ToString();
         var letter = DBApp.Letters.Find(l => l.Code == theword);
         if ( letter is null ) continue;
-        sumSimple += letter.ValueSimple;
         sumFull += letter.ValueFull;
+        sumSimple += letter.ValueSimple;
+        sumFinal += pos == 0 && HebrewAlphabet.ValuesFinal.TryGetValue(letter.Code, out int valueFinal)
+          ? valueFinal
+          : letter.ValueSimple;
         // Label
         var label = new Label
         {
           TextAlign = ContentAlignment.TopRight,
           AutoSize = false,
           Width = labelWidth,
-          //Height = labelHeight,
           Left = marginLeft,
           Top = top,
           Text = letter.Name,
@@ -78,13 +80,12 @@ partial class MainForm
         };
         label.Click += LabelLetter_Click;
         SelectAnalyze.Controls.Add(label);
-        // Combobox
+        // Combo box
         var combobox = new ComboBoxEx
         {
-          Width = marginLeftAndcomboWidth,
-          //combobox.Height = comboHeight;
-          Left = widthCombobox,
-          Top = top + comboHeightDelta,
+          Width = comboWidth,
+          Left = comboLeft,
+          Top = top + comboHeightOffset,
           DropDownStyle = ComboBoxStyle.DropDownList
         };
         combobox.SelectedIndexChanged += MeaningComboBox_SelectedIndexChanged;
@@ -110,19 +111,20 @@ partial class MainForm
         combobox.Tag = letter;
         SelectAnalyze.Controls.Add(combobox);
         // Loop
-        dy += deltaY;
+        dy += offsetY;
       }
       var dummy = new Label
       {
         AutoSize = false,
-        Left = dummyDelta,
-        Width = dummyDelta,
-        Top = dy + dummyHeightDelta,
-        Text = ""
+        Left = dummyOffset,
+        Width = dummyOffset,
+        Top = dy + dummyHeightOffset,
+        Text = string.Empty
       };
       SelectAnalyze.Controls.Add(dummy);
-      EditGematriaSimple.Text = sumSimple.ToString();
-      EditGematriaFull.Text = sumFull.ToString();
+      EditWord.EditGematriaSimple.Text = sumSimple.ToString();
+      EditWord.EditGematriaFinal.Text = sumFinal.ToString();
+      EditWord.EditGematriaFull.Text = sumFull.ToString();
     }
     catch ( Exception ex )
     {

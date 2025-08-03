@@ -1,6 +1,6 @@
 ﻿/// <license>
-/// This file is part of Ordisoftware Hebrew Calendar/Letters/Words.
-/// Copyright 2012-2022 Olivier Rogier.
+/// This file is part of Ordisoftware Hebrew Calendar/Letters/Words/Pi.
+/// Copyright 2012-2025 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -11,14 +11,14 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2022-06 </edited>
+/// <edited> 2022-11 </edited>
 namespace Ordisoftware.Hebrew;
 
 /// <summary>
 /// Provides Hebrew tools.
 /// </summary>
 [SuppressMessage("Roslynator", "RCS1021:Convert lambda expression body to expression body.", Justification = "Opinion")]
-static class HebrewTools
+static public class HebrewTools
 {
 
   /// <summary>
@@ -41,7 +41,7 @@ static class HebrewTools
   {
     string path = getExePath?.Invoke() ?? throw new SystemException($"Delegate not assigned: {nameof(getExePath)}");
     if ( File.Exists(path) )
-      SystemManager.TryCatchManage(ShowExceptionMode.OnlyMessage, () => process(path));
+      SystemManager.TryCatchManage(ShowExceptionMode.Message, () => process(path));
     else
     if ( DisplayManager.QueryYesNo(HebrewTranslations.AskToDownloadHebrewWords.GetLang()) )
       SystemManager.RunShell($"{Globals.AuthorProjectsURL}/{appcode}");
@@ -52,7 +52,7 @@ static class HebrewTools
   /// </summary>
   static public void OpenHebrewWordsGoToVerse(string reference)
   {
-    ProcessHebrewSoftware(HebrewGlobals.AppCodeHebrewWords, HebrewGlobals.GetHebrewWordsExePath, path =>
+    ProcessHebrewSoftware(HebrewGlobals.AppCodeHebrewWords, HebrewGlobals.GetHebrewWordsExecutablePath, path =>
     {
       SystemManager.RunShell(path, "--verse " + reference);
     });
@@ -63,7 +63,7 @@ static class HebrewTools
   /// </summary>
   static public void OpenHebrewWordsSearchWord(string word)
   {
-    ProcessHebrewSoftware(HebrewGlobals.AppCodeHebrewWords, HebrewGlobals.GetHebrewWordsExePath, path =>
+    ProcessHebrewSoftware(HebrewGlobals.AppCodeHebrewWords, HebrewGlobals.GetHebrewWordsExecutablePath, path =>
     {
       SystemManager.RunShell(path, "--word " + word);
     });
@@ -74,7 +74,7 @@ static class HebrewTools
   /// </summary>
   static public void OpenHebrewWordsSearchTranslated(string word)
   {
-    ProcessHebrewSoftware(HebrewGlobals.AppCodeHebrewWords, HebrewGlobals.GetHebrewWordsExePath, path =>
+    ProcessHebrewSoftware(HebrewGlobals.AppCodeHebrewWords, HebrewGlobals.GetHebrewWordsExecutablePath, path =>
     {
       SystemManager.RunShell(path, "--translated " + word);
     });
@@ -87,7 +87,7 @@ static class HebrewTools
   [SuppressMessage("Style", "IDE0042:Déconstruire la déclaration de variable", Justification = "Opinion")]
   static public void OpenHebrewLetters(string word)
   {
-    ProcessHebrewSoftware(HebrewGlobals.AppCodeHebrewLetters, HebrewGlobals.GetHebrewLettersExePath, path =>
+    ProcessHebrewSoftware(HebrewGlobals.AppCodeHebrewLetters, HebrewGlobals.GetHebrewLettersExecutablePath, path =>
     {
       if ( word.IsNullOrEmpty() )
         SystemManager.RunShell(path);
@@ -96,7 +96,7 @@ static class HebrewTools
         var wordAnalyzed = RemoveNumberingAndDiacritics(word);
         var items = wordAnalyzed.Word.Split(' ');
         if ( wordAnalyzed.IsUnicode )
-          items = items.Reverse().ToArray();
+          items = [.. items.Reverse()];
         foreach ( string item in items )
         {
           SystemManager.RunShell(path, item);
@@ -115,12 +115,12 @@ static class HebrewTools
   static public void OpenWordProvider(string link, string word)
   {
     if ( word.Length > 1 ) word = HebrewAlphabet.SetFinal(word, true);
-    SystemManager.TryCatchManage(ShowExceptionMode.OnlyMessage, () =>
+    SystemManager.TryCatchManage(ShowExceptionMode.Message, () =>
     {
       var wordAnalyzed = RemoveNumberingAndDiacritics(word);
       var items = wordAnalyzed.Word.Split(' ');
       if ( !wordAnalyzed.IsUnicode )
-        items = items.Select(w => HebrewAlphabet.ToUnicode(HebrewAlphabet.SetFinal(w, true))).ToArray();
+        items = [.. items.Select(w => HebrewAlphabet.ToUnicodeChars(HebrewAlphabet.SetFinal(w, true)))];
       foreach ( string item in items )
         if ( item.Length > 0 )
         {
@@ -139,7 +139,7 @@ static class HebrewTools
   static public void OpenWordConcordance(string link, int concordance)
   {
     if ( concordance < 1 ) return;
-    SystemManager.TryCatchManage(ShowExceptionMode.OnlyMessage, () =>
+    SystemManager.TryCatchManage(ShowExceptionMode.Message, () =>
     {
       link = link.Replace("%CONCORDANCE%", concordance.ToString());
       SystemManager.RunShell(link);
@@ -151,9 +151,9 @@ static class HebrewTools
   /// </summary>
   static public void OpenBibleProvider(string url, string reference)
   {
-    SystemManager.TryCatchManage(ShowExceptionMode.OnlyMessage, () =>
+    SystemManager.TryCatchManage(ShowExceptionMode.Message, () =>
     {
-      int[] list = reference.Split('.').Select(int.Parse).ToArray();
+      int[] list = [.. reference.Split('.').Select(int.Parse)];
       OpenBibleProvider(url, list[0], list[1], list[2]);
     });
   }
@@ -163,44 +163,18 @@ static class HebrewTools
   /// </summary>
   [SuppressMessage("Performance", "U2U1103:Index strings correctly", Justification = "For code readability")]
   [SuppressMessage("Style", "GCop414:Remove .ToString() as it's unnecessary.", Justification = "Opinion")]
-  static public void OpenBibleProvider(string url, int book, int chapter, int verse)
+  static public void OpenBibleProvider(string pattern, int book, int chapter, int verse)
   {
-    SystemManager.TryCatchManage(ShowExceptionMode.OnlyMessage, () =>
+    SystemManager.TryCatchManage(ShowExceptionMode.Message, () =>
     {
-      string chapterString = chapter.ToString();
-      if ( url.Contains("%BOOKMM%") && chapter >= 100 )
-      {
-        int dizaine = ( chapter - 100 ) / 10;
-        char centaine = 'a';
-        centaine += (char)dizaine;
-        chapterString = centaine.ToString() + ( chapter - 100 - dizaine * 10 ).ToString();
-        url = url.Replace("%CHAPTERNUM#2%", "%CHAPTERNUM%");
-      }
-      url = url.Replace("%BOOKSEFARIA%", OnlineBookInfos.StudyBible[(TanakBook)book]
-                                                   .Replace("1", "I")
-                                                   .Replace("2", "II")
-                                                   .Replace(" ", "_"))
-               .Replace("%BOOKSB%", OnlineBookInfos.StudyBible[(TanakBook)book])
-               .Replace("%BOOKBIBLEHUB%", OnlineBookInfos.BibleHub[(TanakBook)book])
-               .Replace("%BOOKCHABAD%", ( OnlineBookInfos.Chabad[(TanakBook)book] + chapter - 1 ).ToString())
-               .Replace("%BOOKMM%", OnlineBookInfos.MechonMamre[(TanakBook)book])
-               .Replace("%BOOKTORAHBOX%", OnlineBookInfos.TorahBox[(TanakBook)book])
-               .Replace("%BOOKDJEP%", OnlineBookInfos.Djep[(TanakBook)book])
-               .Replace("%BOOKLE%", OnlineBookInfos.LEvangile[(TanakBook)book])
-               .Replace("%BOOKNUM%", book.ToString())
-               .Replace("%CHAPTERNUM%", chapterString)
-               .Replace("%VERSENUM%", verse.ToString())
-               .Replace("%BOOKNUM#2%", book.ToString("00"))
-               .Replace("%CHAPTERNUM#2%", chapter.ToString("00"))
-               .Replace("%VERSENUM#2%", verse.ToString("00"));
-      SystemManager.RunShell(url);
+      SystemManager.RunShell(OnlineBookInfos.GetUrl(pattern, book, chapter, verse));
     });
   }
 
   /// <summary>
   /// Opens online parashah provider.
   /// </summary>
-  static public void OpenParashahProvider(string url, Parashah parashah, bool openLinked = false)
+  static public void OpenParashahProvider(string pattern, Parashah parashah, bool openLinked = false)
   {
     if ( parashah is null )
     {
@@ -208,7 +182,7 @@ static class HebrewTools
       return;
     }
     open(parashah);
-    if ( openLinked && url.IndexOf('%') >= 0 )
+    if ( openLinked && pattern.IndexOf('%') >= 0 )
     {
       var linked = parashah.GetLinked();
       if ( linked is not null ) open(linked);
@@ -216,23 +190,9 @@ static class HebrewTools
     //
     void open(Parashah item)
     {
-      SystemManager.TryCatchManage(ShowExceptionMode.OnlyMessage, () =>
+      SystemManager.TryCatchManage(ShowExceptionMode.Message, () =>
       {
-        string link = url.Replace("%WIKIPEDIA-EN%", OnlineParashot.WikipediaEN[item.Book][item.Number - 1])
-                         .Replace("%WIKIPEDIA-FR%", OnlineParashot.WikipediaFR[item.Book][item.Number - 1])
-                         .Replace("%TORAHBOX%", OnlineParashot.TorahBox[item.Book][item.Number - 1])
-                         .Replace("%TORAHORG%", OnlineParashot.TorahOrg[item.Book][item.Number - 1])
-                         .Replace("%TORAHJEWS%", OnlineParashot.TorahJews[item.Book][item.Number - 1])
-                         .Replace("%YESHIVACO%", OnlineParashot.YeshivaCo[item.Book][item.Number - 1])
-                         .Replace("%THEYESHIVA%", OnlineParashot.TheYeshivaNet[item.Book][item.Number - 1])
-                         .Replace("%MYJEWISHLEARNING%", OnlineParashot.MyJewishLearning[item.Book][item.Number - 1])
-                         .Replace("%CHABAD-EN%", OnlineParashot.ChabadEN[item.Book][item.Number - 1])
-                         .Replace("%CHABAD-FR%", OnlineParashot.ChabadFR[item.Book][item.Number - 1])
-                         .Replace("%AISH-EN%", OnlineParashot.AishEN[item.Book][item.Number - 1])
-                         .Replace("%AISH-FR%", OnlineParashot.AishFR[item.Book][item.Number - 1])
-                         .Replace("%AISH-IW%", OnlineParashot.AishIW[item.Book][item.Number - 1])
-                         .Replace("%THETORAHCOM%", OnlineParashot.TheTorahCom[item.Book][item.Number - 1]);
-        SystemManager.OpenWebLink(link);
+        SystemManager.OpenWebLink(OnlineParashot.GetUrl(pattern, item));
       });
     }
   }
@@ -240,29 +200,11 @@ static class HebrewTools
   /// <summary>
   /// Opens online celebration provider.
   /// </summary>
-  static public void OpenCelebrationProvider(string url, TorahCelebration celebration)
+  static public void OpenCelebrationProvider(string pattern, TorahCelebration celebration)
   {
-    SystemManager.TryCatchManage(ShowExceptionMode.OnlyMessage, () =>
+    SystemManager.TryCatchManage(ShowExceptionMode.Message, () =>
     {
-      string link = url.Replace("%WIKIPEDIA-EN%", OnlineCelebration.WikipediaEN[celebration])
-                       .Replace("%WIKIPEDIA-FR%", OnlineCelebration.WikipediaFR[celebration])
-                       .Replace("%TORAHBOX%", OnlineCelebration.TorahBox[celebration])
-                       .Replace("%CHIOURIM%", OnlineCelebration.Chiourim[celebration])
-                       .Replace("%TORAHORG%", OnlineCelebration.TorahOrg[celebration])
-                       .Replace("%TORAHJEWS%", OnlineCelebration.TrueTorahJews[celebration])
-                       .Replace("%YESHIVACO%", OnlineCelebration.YeshivaCo[celebration])
-                       .Replace("%THEYESHIVA%", OnlineCelebration.TheYeshiva[celebration])
-                       .Replace("%MYJEWISHLEARNING%", OnlineCelebration.MyJewishLearning[celebration])
-                       .Replace("%LOUBAVITCH%", OnlineCelebration.Loubavitch[celebration])
-                       .Replace("%CHABAD-EN%", OnlineCelebration.ChabadEN[celebration])
-                       .Replace("%CHABAD-FR%", OnlineCelebration.ChabadFR[celebration])
-                       .Replace("%AISH-EN%", OnlineCelebration.AishEN[celebration])
-                       .Replace("%AISH-FR%", OnlineCelebration.AishFR[celebration])
-                       .Replace("%AISH-IW%", OnlineCelebration.AishIW[celebration])
-                       .Replace("%REFORMJUDAISM%", OnlineCelebration.ReformJudaism[celebration])
-                       .Replace("%THETORAHCOM%", OnlineCelebration.TheTorahCom[celebration])
-                       .Replace("%RAVABDELHAK%", OnlineCelebration.RavAbdelhak[celebration]);
-      SystemManager.OpenWebLink(link);
+      SystemManager.OpenWebLink(OnlineCelebration.GetUrl(pattern, celebration));
     });
   }
 

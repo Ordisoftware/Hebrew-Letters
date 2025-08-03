@@ -1,6 +1,6 @@
 ﻿/// <license>
-/// This file is part of Ordisoftware Hebrew Calendar/Letters/Words.
-/// Copyright 2012-2022 Olivier Rogier.
+/// This file is part of Ordisoftware Hebrew Calendar/Letters/Words/Pi.
+/// Copyright 2012-2025 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -14,7 +14,7 @@
 /// <edited> 2022-04 </edited>
 namespace Ordisoftware.Hebrew;
 
-static partial class BookInfos
+static public partial class BookInfos
 {
 
   static public readonly NullSafeDictionary<Language, NullSafeOfStringDictionary<TanakBook>> Transcriptions = new()
@@ -28,19 +28,19 @@ static partial class BookInfos
       { TanakBook.Bamidbar, "Bamidbar" },
       { TanakBook.Devarim, "Devarim" },
       // Nevi'im 
-      { TanakBook.Yehoshoua, "Yehoshoua'" },
+      { TanakBook.Yehoshoua, "Yehoshouah'" },
       { TanakBook.Shoftim, "Shoftim" },
       { TanakBook.Shemouel_I, "Shemouel I" },
       { TanakBook.Shemouel_II, "Shemouel II" },
       { TanakBook.Melakim_I, "Melakim I" },
       { TanakBook.Melakim_II, "Melakim II" },
-      { TanakBook.Yeshayahou, "Yesha'yahou" },
+      { TanakBook.Yeshayahou, "Yeshah'yahou" },
       { TanakBook.Yirmeyahou, "Yirmeyahou" },
       { TanakBook.Yehezqel, "Ye'hezqel" },
-      { TanakBook.Hoshea, "Hoshea'" },
+      { TanakBook.Hoshea, "Hosheah'" },
       { TanakBook.Yoel, "Yoel" },
-      { TanakBook.Amos, "'Amos" },
-      { TanakBook.Obadyah, "'Obadyah" },
+      { TanakBook.Amos, "H'amos" },
+      { TanakBook.Obadyah, "H'obadyah" },
       { TanakBook.Yonah, "Yonah" },
       { TanakBook.Mikah, "Mikah" },
       { TanakBook.Nahoum, "Na'houm" },
@@ -59,7 +59,7 @@ static partial class BookInfos
       { TanakBook.Qohelet, "Qohelet" },
       { TanakBook.Esther, "Esther" },
       { TanakBook.Daniel, "Daniel" },
-      { TanakBook.Ezra, "'Ezra" },
+      { TanakBook.Ezra, "H'ezra" },
       { TanakBook.Nehemiah, "Ne'hemiah" },
       { TanakBook.Divrei_HaYamim_I, "Divrei HaYamim I" },
       { TanakBook.Divrei_HaYamim_II, "Divrei HaYamim II" }
@@ -73,19 +73,19 @@ static partial class BookInfos
       { TanakBook.Bamidbar, "Bamidbar" },
       { TanakBook.Devarim, "Devarim" },
       // Nevi'im 
-      { TanakBook.Yehoshoua, "Yehoshua'" },
+      { TanakBook.Yehoshoua, "Yehoshuah'" },
       { TanakBook.Shoftim, "Shoftim" },
       { TanakBook.Shemouel_I, "Shemuel I" },
       { TanakBook.Shemouel_II, "Shemuel II" },
       { TanakBook.Melakim_I, "Melakim I" },
       { TanakBook.Melakim_II, "Melakim II" },
-      { TanakBook.Yeshayahou, "Yesha'yahu" },
+      { TanakBook.Yeshayahou, "Yeshah'yahu" },
       { TanakBook.Yirmeyahou, "Yirmeyahu" },
       { TanakBook.Yehezqel, "Ye'hezqel" },
-      { TanakBook.Hoshea, "Hoshea'" },
+      { TanakBook.Hoshea, "Hosheah'" },
       { TanakBook.Yoel, "Yoel" },
-      { TanakBook.Amos, "'Amos" },
-      { TanakBook.Obadyah, "'Obadyah" },
+      { TanakBook.Amos, "H'amos" },
+      { TanakBook.Obadyah, "H'obadyah" },
       { TanakBook.Yonah, "Yonah" },
       { TanakBook.Mikah, "Mikah" },
       { TanakBook.Nahoum, "Na'hum" },
@@ -104,7 +104,7 @@ static partial class BookInfos
       { TanakBook.Qohelet, "Qohelet" },
       { TanakBook.Esther, "Esther" },
       { TanakBook.Daniel, "Daniel" },
-      { TanakBook.Ezra, "'Ezra" },
+      { TanakBook.Ezra, "H'ezra" },
       { TanakBook.Nehemiah, "Ne'hemiah" },
       { TanakBook.Divrei_HaYamim_I, "Divrei HaYamim I" },
       { TanakBook.Divrei_HaYamim_II, "Divrei HaYamim II" }

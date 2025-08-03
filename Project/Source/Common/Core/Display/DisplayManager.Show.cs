@@ -1,6 +1,6 @@
 /// <license>
 /// This file is part of Ordisoftware Core Library.
-/// Copyright 2004-2022 Olivier Rogier.
+/// Copyright 2004-2025 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -17,7 +17,7 @@ namespace Ordisoftware.Core;
 /// <summary>
 /// Provides messages and questions with waiting user communication feedback as well as UI sync.
 /// </summary>
-static partial class DisplayManager
+static public partial class DisplayManager
 {
 
   static public bool DoubleBufferingEnabled { get; set; }
@@ -103,9 +103,10 @@ static partial class DisplayManager
   /// <param name="text">The text.</param>
   /// <param name="buttons">The buttons.</param>
   /// <param name="icon">The icon.</param>
-  static public DialogResult Show(string text,
-                                  MessageBoxButtons buttons = MessageBoxButtons.OK,
-                                  MessageBoxIcon icon = MessageBoxIcon.None)
+  static public DialogResult Show(
+    string text,
+    MessageBoxButtons buttons = MessageBoxButtons.OK,
+    MessageBoxIcon icon = MessageBoxIcon.None)
   {
     return Show(Title, text, buttons, icon);
   }
@@ -120,10 +121,11 @@ static partial class DisplayManager
   /// <param name="text">The text.</param>
   /// <param name="buttons">The buttons.</param>
   /// <param name="icon">The icon.</param>
-  static public DialogResult Show(string title,
-                                  string text,
-                                  MessageBoxButtons buttons = MessageBoxButtons.OK,
-                                  MessageBoxIcon icon = MessageBoxIcon.None)
+  static public DialogResult Show(
+    string title,
+    string text,
+    MessageBoxButtons buttons = MessageBoxButtons.OK,
+    MessageBoxIcon icon = MessageBoxIcon.None)
   {
     if ( icon == MessageBoxIcon.None
       && IconStyle == MessageBoxIconStyle.ForceInformation )
@@ -273,18 +275,20 @@ static partial class DisplayManager
   /// <param name="text">The text.</param>
   /// <param name="buttons">The buttons.</param>
   /// <param name="icon">The icon.</param>
-  static private DialogResult ShowWinForm(string title,
-                                          string text,
-                                          MessageBoxButtons buttons,
-                                          MessageBoxIcon icon)
+  static private DialogResult ShowWinForm(
+    string title,
+    string text,
+    MessageBoxButtons buttons,
+    MessageBoxIcon icon)
   {
     return MessageBox.Show(text, title, buttons, icon);
   }
 
-  static private DialogResult ShowAdvancedForm(string title,
-                                               string text,
-                                               MessageBoxButtons buttons,
-                                               MessageBoxIcon icon)
+  static private DialogResult ShowAdvancedForm(
+    string title,
+    string text,
+    MessageBoxButtons buttons,
+    MessageBoxIcon icon)
   {
     using var form = new MessageBoxEx(title, text, buttons, icon);
     return form.ShowDialog();

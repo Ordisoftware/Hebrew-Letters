@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Hebrew Letters.
-/// Copyright 2016-2022 Olivier Rogier.
+/// Copyright 2016-2025 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -17,10 +17,10 @@ namespace Ordisoftware.Hebrew.Letters;
 using Equin.ApplicationFramework;
 
 [SuppressMessage("IDisposableAnalyzers.Correctness", "IDISP006:Implement IDisposable", Justification = "<En attente>")]
-class ApplicationDatabase : SQLiteDatabase
+sealed class ApplicationDatabase : SQLiteDatabase
 {
 
-  static public ApplicationDatabase Instance { get; protected set; }
+  static public ApplicationDatabase Instance { get; }
 
   static ApplicationDatabase()
   {
@@ -30,14 +30,13 @@ class ApplicationDatabase : SQLiteDatabase
   public List<Letter> Letters { get; private set; }
   public List<Meaning> Meanings { get; private set; }
 
-
   public BindingListView<Letter> LettersAsBindingList { get; private set; }
 
   private ApplicationDatabase() : base(Globals.ApplicationDatabaseFilePath)
   {
   }
 
-  protected override void Vacuum(bool force = false)
+  protected override void AutoVacuum()
   {
     if ( Program.Settings.VacuumAtStartup )
     {
@@ -70,14 +69,14 @@ class ApplicationDatabase : SQLiteDatabase
 
   protected override void DoLoadAll()
   {
-    Letters = Connection.Table<Letter>().ToList();
-    Meanings = Connection.Table<Meaning>().ToList();
+    Letters = [.. Connection.Table<Letter>()];
+    Meanings = [.. Connection.Table<Meaning>()];
   }
 
   protected override void CreateBindingLists()
   {
     LettersAsBindingList?.Dispose();
-    LettersAsBindingList = new BindingListView<Letter>(Letters);
+    LettersAsBindingList = new(Letters);
   }
 
   protected override void DoSaveAll()
@@ -161,7 +160,7 @@ class ApplicationDatabase : SQLiteDatabase
           var rowLetter = new Letter
           {
             Code = HebrewAlphabet.KeyCodes[index],
-            Name = HebrewTranslations.LettersTranscription.GetLang()[index],
+            Name = HebrewAlphabet.Transcriptions.GetLang()[index],
             Hebrew = HebrewAlphabet.Hebrew[index],
             ValueSimple = getIntValue("ValueSimple: "),
             ValueFull = getIntValue("ValueFull: "),

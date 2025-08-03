@@ -1,6 +1,6 @@
 ﻿/// <license>
-/// This file is part of Ordisoftware Hebrew Calendar/Letters/Words.
-/// Copyright 2012-2022 Olivier Rogier.
+/// This file is part of Ordisoftware Hebrew Calendar/Letters/Words/Pi.
+/// Copyright 2012-2025 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -11,34 +11,62 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2021-02 </created>
-/// <edited> 2022-04 </edited>
+/// <edited> 2022-11 </edited>
 namespace Ordisoftware.Hebrew;
 
 public partial class Parashah
 {
 
-  public string ToStringShort(bool withBookAndref, bool withLinked)
+  public string GetNameDisplayText() => HebrewDatabase.HebrewNamesInUnicode ? Unicode : Name;
+
+  public string ToStringShort(bool withBookAndRef, bool withLinked)
   {
-    string result = Name;
-    if ( withLinked ) result += GetLinked() is not null ? " - " + GetLinked().Name : string.Empty;
-    if ( withBookAndref ) result += $" ({Book} {VerseBegin})";
+    string result = GetNameDisplayText();
+    if ( withLinked ) result += GetLinked() is not null ? $" - {GetLinked().GetNameDisplayText()}" : string.Empty;
+    if ( withBookAndRef ) result += $" ({ToStringWithBookAndReferences()})";
     return result;
+  }
+
+  public string ToStringWithBookAndReferences()
+  {
+    return HebrewDatabase.HebrewNamesInUnicode
+      ? $"{BookInfos.Unicode[(TanakBook)Book]} : {ToStringReferenceBegin()} - {ToStringReferenceEnd()}"
+      : $"{Book} {ToStringReferenceBegin()} - {ToStringReferenceEnd()}";
+  }
+
+  public string ToStringReferenceBegin()
+  {
+    return !HebrewDatabase.HebrewNamesInUnicode || HebrewDatabase.ArabicNumeralReferences
+      ? ReferenceBegin
+      : $"{HebrewAlphabet.IntToUnicode(FirstChapter)}.{HebrewAlphabet.IntToUnicode(FirstVerse)}";
+  }
+
+  public string ToStringReferenceEnd()
+  {
+    if ( !HebrewDatabase.HebrewNamesInUnicode || HebrewDatabase.ArabicNumeralReferences )
+      return IsLinkedToNext ? GetLinked().ReferenceEnd : ReferenceEnd;
+    else
+    {
+      int chapterEnd = IsLinkedToNext ? GetLinked().LastChapter : LastChapter;
+      int verseEnd = IsLinkedToNext ? GetLinked().LastVerse : LastVerse;
+      return $"{HebrewAlphabet.IntToUnicode(chapterEnd)}.{HebrewAlphabet.IntToUnicode(verseEnd)}";
+    }
   }
 
   public override string ToString()
     => ToString(false);
 
   public string ToString(bool useHebrewFont)
-    => $"Torah Sefer {Book} {VerseBegin} - {VerseEnd} " +
+    => $"Torah Sefer {Book} {ReferenceBegin} - {ReferenceEnd} " +
        $"Parashah n°{Number} " +
        $"{Name}{( IsLinkedToNext ? "*" : string.Empty )} " +
        $"{( useHebrewFont ? Hebrew : Unicode )} : " +
        $"{Translation.GetOrEmpty()} ; " +
        $"{Lettriq.GetOrEmpty()}" +
-       ( Memo.IsNullOrEmpty() ? "" : $" ; {Memo.GetOrEmpty()}" );
+       ( Memo.IsNullOrEmpty() ? string.Empty : $" ; {Memo.GetOrEmpty()}" );
 
   public string ToStringReadable()
-    => $"• Torah Sefer {Book} {VerseBegin} - {VerseEnd}" + Globals.NL +
+    => $"• Torah Sefer {Book} {ReferenceBegin} - {ReferenceEnd}" + Globals.NL +
        $"• Parashah n°{Number} : {Name} {Unicode}" + Globals.NL +
        $"• {HebrewTranslations.Translation.GetLang()} : {Translation.GetOrEmpty()}" + Globals.NL +
        $"• {HebrewTranslations.Lettriq.GetLang()} : {Lettriq.GetOrEmpty()}";

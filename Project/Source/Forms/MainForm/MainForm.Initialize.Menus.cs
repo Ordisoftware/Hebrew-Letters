@@ -1,6 +1,8 @@
-﻿/// <license>
+﻿using Ordisoftware.Core;
+
+/// <license>
 /// This file is part of Ordisoftware Hebrew Letters.
-/// Copyright 2016-2022 Olivier Rogier.
+/// Copyright 2016-2025 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -11,7 +13,7 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2019-01 </created>
-/// <edited> 2021-12 </edited>
+/// <edited> 2022-07 </edited>
 namespace Ordisoftware.Hebrew.Letters;
 
 /// <summary>
@@ -45,7 +47,7 @@ partial class MainForm
     CommonMenusControl.Instance.ActionViewLog.Enabled = DebugManager.TraceEnabled;
     ActionWebLinks.Visible = Settings.WebLinksMenuEnabled;
     if ( Settings.WebLinksMenuEnabled )
-      ActionWebLinks.InitializeFromWebLinks(InitializeSpecialMenus);
+      ActionWebLinks.CreateWebLinks(InitializeSpecialMenus);
   }
 
   static private readonly Image HebrewWordsIcon = CreateImage("hebrew_words16.ico");
@@ -68,7 +70,7 @@ partial class MainForm
   /// </summary>
   private void CreateProvidersLinks()
   {
-    ContextMenuSearchOnline.InitializeFromProviders(HebrewGlobals.WebProvidersWord,
+    EditWord.ContextMenuSearchOnline.Initialize(HebrewGlobals.WebProvidersWord,
       (sender, e) =>
       {
         var menuitem = (ToolStripMenuItem)sender;
@@ -79,16 +81,24 @@ partial class MainForm
       {
         var menuitem = new ToolStripMenuItem(HebrewGlobals.AppNameHebrewWords, HebrewWordsIcon);
         menuitem.Click += (sender, e) => HebrewTools.OpenHebrewWordsSearchWord(EditWord.InputText);
-        if ( ContextMenuSearchOnline.Items.Count > 0 )
-          ContextMenuSearchOnline.Items.Add(new ToolStripSeparator());
-        ContextMenuSearchOnline.Items.Add(menuitem);
+        if ( EditWord.ContextMenuSearchOnline.Items.Count > 0 )
+          EditWord.ContextMenuSearchOnline.Items.Add(new ToolStripSeparator());
+        EditWord.ContextMenuSearchOnline.Items.Add(menuitem);
       });
-    ContextMenuOpenConcordance.InitializeFromProviders(HebrewGlobals.WebProvidersConcordance, (sender, e) =>
+    ContextMenuOpenConcordance.Initialize(HebrewGlobals.WebProvidersConcordance, (sender, e) =>
     {
-      var menuitem = (ToolStripMenuItem)sender;
-      HebrewTools.OpenWordConcordance((string)menuitem.Tag, (int)EditConcordance.Value);
-      EditWord.Focus();
-    }, null);
+      if ( sender is not ToolStripMenuItem menuitem )
+        return;
+      if ( menuitem.GetCurrentParent() is ContextMenuStrip menu )
+        if ( menu.SourceControl is not Button owner )
+          return;
+        else
+        {
+          var control = owner == ActionOpenConcordance ? EditConcordance : EditConcordanceRoot;
+          HebrewTools.OpenWordConcordance((string)menuitem.Tag, (int)control.Value);
+          EditWord.Focus();
+        }
+    }, null, 2);
   }
 
 }

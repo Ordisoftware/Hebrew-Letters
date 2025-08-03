@@ -1,0 +1,69 @@
+﻿; --------------------------------------------------------------------------------------------------
+; File format for online providers items to search a celebration
+; --------------------------------------------------------------------------------------------------
+; To create a folder else items will be at root level: Lang/[short code] = Title
+; Use the tag FOLDER-SEPARATOR to insert a separator menu item between folders
+; --------------------------------------------------------------------------------------------------
+; Name = Title
+; URL = Web link
+; --------------------------------------------------------------------------------------------------
+; Use the "-" char at the beginning of a line to insert a separator
+; --------------------------------------------------------------------------------------------------
+
+Name = (EN) Wikipedia.org Celebration
+URL = https://en.wikipedia.org/wiki/%WIKIPEDIA-EN%
+
+Name = (EN) Wikipedia.org Biblical Shabbath
+URL = https://en.wikipedia.org/wiki/Biblical_Sabbath
+
+Name = (FR) Wikipedia.org Célébration
+URL = https://fr.wikipedia.org/wiki/%WIKIPEDIA-FR%
+
+-
+
+Name = (EN) Torah.org
+URL = https://torah.org/%TORAHORG%/
+
+Name = (EN) TheYeshiva.net
+URL = https://www.theyeshiva.net/jewish/%THEYESHIVA%
+
+Name = (EN) Chabad.org
+URL = https://www.chabad.org/%CHABAD-EN%
+
+Name = (EN) MyJewishLearning.com
+URL = https://www.myjewishlearning.com/category/celebrate/%MYJEWISHLEARNING%/
+
+Name = (EN) TheTorah.com
+URL = https://www.thetorah.com/holidays/%THETORAHCOM%
+
+Name = (EN) Yeshiva.co
+URL = https://www.yeshiva.co/midrash/category/%YESHIVACO%
+
+Name = (EN) TrueTorahJews.org
+URL = https://www.truetorahjews.org/parsha-pearls/%TORAHJEWS%
+
+Name = (EN) ReformJudaism.org
+URL = https://reformjudaism.org/jewish-holidays/%REFORMJUDAISM%
+
+
+Name = (FR) Chabad.org
+URL = https://fr.chabad.org/library/article_cdo/aid/%CHABAD-FR%
+
+Name = (FR) Loubavitch.fr
+URL = https://www.loubavitch.fr/pratique/%LOUBAVITCH%
+
+Name = (FR) Judaïsme en Mouvement
+URL = https://judaismeenmouvement.org/decouvrir/le-judaisme-a-jem/les-fetes-juives/
+
+Name = (FR) Rav Daniel Abdelhak
+URL = https://ravabdelhak.com/category/%RAVABDELHAK%/
+-
+
+Name = (EN) Aish.com
+URL = https://www.aish.com/%AISH-EN%/
+
+Name = (FR) Aish.fr
+URL = https://www.aish.fr/%AISH-FR%/
+
+Name = (IW) Aish.co.il
+URL = https://www.aish.co.il/%AISH-IW%/

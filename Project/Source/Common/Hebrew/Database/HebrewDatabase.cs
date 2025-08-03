@@ -1,6 +1,6 @@
 ﻿/// <license>
-/// This file is part of Ordisoftware Hebrew Calendar/Letters/Words.
-/// Copyright 2012-2022 Olivier Rogier.
+/// This file is part of Ordisoftware Hebrew Calendar/Letters/Words/Pi.
+/// Copyright 2012-2025 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -11,13 +11,18 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2021-05 </created>
-/// <edited> 2022-03 </edited>
+/// <edited> 2023-03 </edited>
 namespace Ordisoftware.Hebrew;
 
-partial class HebrewDatabase : SQLiteDatabase
+public partial class HebrewDatabase : SQLiteDatabase
 {
 
-  static public HebrewDatabase Instance { get; protected set; }
+  static public HebrewDatabase Instance { get; private set; }
+
+  static public bool HebrewNamesInUnicode { get; set; }
+  static public bool ArabicNumeralReferences { get; set; }
+
+  static private bool IsParashotUpgradedV10;
 
   static HebrewDatabase()
   {
@@ -78,6 +83,16 @@ partial class HebrewDatabase : SQLiteDatabase
     const string table = "ProcessLocks";
     if ( Connection.CheckTable(table) && Globals.ConcurrentRunningProcesses.Any() )
       Connection.DropTableIfExists(table);
+    if ( Connection.CheckTable(table) )
+      if ( !Connection.CheckColumn(nameof(Parashot), "ReferenceBegin", "TEXT", "''", true) )
+      {
+        Connection.CheckColumn(nameof(Parashot), "ReferenceEnd", "TEXT", "''", true);
+        Connection.CheckColumn(nameof(Parashot), "FirstChapter", "INTEGER", "0", true);
+        Connection.CheckColumn(nameof(Parashot), "FirstVerse", "INTEGER", "0", true);
+        Connection.CheckColumn(nameof(Parashot), "LastChapter", "INTEGER", "0", true);
+        Connection.CheckColumn(nameof(Parashot), "LastVerse", "INTEGER", "0", true);
+        IsParashotUpgradedV10 = true;
+      }
   }
 
 }

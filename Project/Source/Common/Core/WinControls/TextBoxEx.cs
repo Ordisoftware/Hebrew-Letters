@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Core Library.
-/// Copyright 2004-2022 Olivier Rogier.
+/// Copyright 2004-2025 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -15,6 +15,7 @@
 namespace Ordisoftware.Core;
 
 [SuppressMessage("Performance", "U2U1004:Public value types should implement equality", Justification = "N/A")]
+[SuppressMessage("Performance", "SS017:Structs should implement Equals(), GetHashCode(), and ToString().", Justification = "N/A")]
 public struct UndoRedoItem
 {
   public string Text { get; set; }
@@ -83,7 +84,7 @@ public partial class TextBoxEx : TextBox
     set
     {
       InsertingText?.Invoke(this, TextUpdating.Text, ref value);
-      if ( value is null ) value = string.Empty;
+      value ??= string.Empty;
       if ( value == Text ) return;
       if ( value.Length > MaxLength ) return;
       base.Text = value;
@@ -112,7 +113,7 @@ public partial class TextBoxEx : TextBox
     set
     {
       InsertingText?.Invoke(this, TextUpdating.Selected, ref value);
-      if ( value is null ) value = string.Empty;
+      value ??= string.Empty;
       if ( value == base.SelectedText ) return;
       if ( Text.Length + value.Length - SelectionLength > MaxLength ) return;
       base.SelectedText = value;

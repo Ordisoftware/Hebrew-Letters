@@ -174,7 +174,7 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="MainFormSplitContainerNotebookDistance" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">200</Value>
+      <Value Profile="(Default)">121</Value>
     </Setting>
     <Setting Name="LoadingFormHidden" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
@@ -199,6 +199,18 @@
     </Setting>
     <Setting Name="PreviewModeNotified" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="MainFormSplitterDistanceDetails" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="CalculatorExe" Type="System.String" Scope="User">
+      <Value Profile="(Default)">calc.exe</Value>
+    </Setting>
+    <Setting Name="DefaultConcordanceURL" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://studybible.info/strongs/H%CONCORDANCE%.html</Value>
+    </Setting>
+    <Setting Name="ShowFinalValues" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>
 </SettingsFile>

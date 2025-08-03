@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Core Library.
-/// Copyright 2004-2022 Olivier Rogier.
+/// Copyright 2004-2025 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -11,25 +11,14 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2007-05 </created>
-/// <edited> 2022-03 </edited>
+/// <edited> 2022-11 </edited>
 namespace Ordisoftware.Core;
 
 /// <summary>
 /// Provides object helper.
 /// </summary>
-static class ObjectHelper
+static public partial class ObjectHelper
 {
-
-  /// <summary>
-  /// Gets an IEnumerable<typeparamref name="T"/> from a ComboBox.Items collection.
-  /// </summary>
-  /// <typeparam name="T">Generic type parameter.</typeparam>
-  /// <param name="collection">The collection.</param>
-  static public IEnumerable<T> AsIEnumerable<T>(this ComboBox.ObjectCollection collection)
-  {
-    foreach ( T item in collection )
-      yield return item;
-  }
 
   /// <summary>
   /// Converts the type of a convertible object to another type.
@@ -54,7 +43,23 @@ static class ObjectHelper
   }
 
   /// <summary>
-  /// A bool extension method that determine if one is true and some others not.
+  /// Indicates if value is between min and max.
+  /// </summary>
+  static public bool IsInRange(this int value, int min, int max)
+  {
+    return value >= min && value <= max;
+  }
+
+  /// <summary>
+  /// Indicates if an index is in the range of a list.
+  /// </summary>
+  static public bool IsValidIndex(this IList list, int index)
+  {
+    return index >= 0 && index < list.Count;
+  }
+
+  /// <summary>
+  /// Indicates if one is true and some others not.
   /// </summary>
   /// <param name="first">The first to act on.</param>
   /// <param name="others">A variable-length parameters list containing others.</param>
@@ -63,11 +68,11 @@ static class ObjectHelper
   /// </returns>
   static public bool CheckIfOneIsTrueAndSomeOthersNot(this bool first, params bool[] others)
   {
-    return CheckIfOneIsTrueAndSomeOthersNot(( new bool[] { first } ).Concat(others).ToArray());
+    return CheckIfOneIsTrueAndSomeOthersNot([.. ( new bool[] { first } ), .. others]);
   }
 
   /// <summary>
-  /// A bool extension method that determine if one is true and some others not.
+  /// Indicates if one is true and some others not.
   /// </summary>
   /// <param name="values">A variable-length parameters list containing values.</param>
   /// <returns>

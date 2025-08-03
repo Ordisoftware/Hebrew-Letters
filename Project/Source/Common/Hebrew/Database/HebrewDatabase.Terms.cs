@@ -1,6 +1,6 @@
 ﻿/// <license>
-/// This file is part of Ordisoftware Hebrew Calendar/Letters/Words.
-/// Copyright 2012-2022 Olivier Rogier.
+/// This file is part of Ordisoftware Hebrew Calendar/Letters/Words/Pi.
+/// Copyright 2012-2025 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -17,13 +17,12 @@ namespace Ordisoftware.Hebrew;
 using Equin.ApplicationFramework;
 
 [SuppressMessage("IDisposableAnalyzers.Correctness", "IDISP006:Implement IDisposable", Justification = "<En attente>")]
-partial class HebrewDatabase : SQLiteDatabase
+public sealed partial class HebrewDatabase : SQLiteDatabase
 {
 
   public List<TermHebrew> TermsHebrew { get; private set; }
   public List<TermLettriq> TermLettriqs { get; private set; }
   public List<TermAnalysis> TermAnalyzes { get; private set; }
-
 
   public BindingListView<TermHebrew> TermsHebrewAsBindingList { get; private set; }
   public BindingListView<TermLettriq> TermLettriqsAsBindingList { get; private set; }

@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Core Library.
-/// Copyright 2004-2022 Olivier Rogier.
+/// Copyright 2004-2025 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -19,7 +19,7 @@ using static System.Environment;
 /// <summary>
 /// Provides global variables.
 /// </summary>
-static partial class Globals
+static public partial class Globals
 {
 
   /// <summary>
@@ -55,20 +55,20 @@ static partial class Globals
   /// <summary>
   /// Indicates the application executable file path.
   /// </summary>
-  static public string ApplicationExeFullPath
+  static public string ApplicationExecutableFullPath
     => Process.GetCurrentProcess().MainModule.FileName;
 
   /// <summary>
   /// Indicates the application executable file name.
   /// </summary>
-  static public string ApplicationExeFileName
-    => Path.GetFileNameWithoutExtension(ApplicationExeFullPath);
+  static public string ApplicationExecutableFileName
+    => Path.GetFileNameWithoutExtension(ApplicationExecutableFullPath);
 
   /// <summary>
   /// Indicates the application full file name.
   /// </summary>
   static public string ApplicationFullFileName
-    => ApplicationExeFileName.Replace('.', ' ');
+    => ApplicationExecutableFileName.Replace('.', ' ');
 
   /// <summary>
   /// Indicates the application startup regustry value in Run key.
@@ -92,7 +92,7 @@ static partial class Globals
   /// <summary>
   /// Indicates the application executable path.
   /// </summary>
-  static public string ApplicationExePath
+  static public string ApplicationExecutablePath
     => Application.StartupPath;
 
   /// <summary>
@@ -162,7 +162,7 @@ static partial class Globals
     => Path.Combine(ProjectIconsFolderPath, "Custom");
 
   /// <summary>
-  /// Indicates the project fatcow icons folder path.
+  /// Indicates the project Fatcow icons folder path.
   /// </summary>
   static public string ProjectIconsFatcowFolderPath
     => Path.Combine(ProjectIconsFolderPath, "Fatcow");

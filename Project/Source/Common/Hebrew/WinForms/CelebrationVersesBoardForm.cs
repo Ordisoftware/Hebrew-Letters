@@ -1,6 +1,6 @@
 ﻿/// <license>
-/// This file is part of Ordisoftware Hebrew Calendar/Letters/Words.
-/// Copyright 2012-2022 Olivier Rogier.
+/// This file is part of Ordisoftware Hebrew Calendar/Letters/Words/Pi.
+/// Copyright 2012-2025 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -11,20 +11,30 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2021-09 </created>
-/// <edited> 2022-03 </edited>
+/// <edited> 2022-11 </edited>
 namespace Ordisoftware.Hebrew;
 
-public partial class CelebrationVersesBoardForm : Form
+sealed public partial class CelebrationVersesBoardForm : Form
 {
 
   private const float FontFactor = 1.5f;
 
   static public CelebrationVersesBoardForm Instance { get; private set; }
 
-  static public void Run(string locationPropertyName, string clientSizePropertyName)
+  static public void Run(
+    TorahCelebration celebration,
+    string locationPropertyName,
+    string clientSizePropertyName,
+    string openVerseOnlineURL,
+    bool doubleClickOnVerseOpenDefaultReader,
+    Action<bool> doubleClickOnVerseOpenDefaultReaderChanged)
   {
     if ( Instance is null )
-      Instance = new CelebrationVersesBoardForm(locationPropertyName, clientSizePropertyName);
+      Instance = new CelebrationVersesBoardForm(locationPropertyName,
+                                                clientSizePropertyName,
+                                                openVerseOnlineURL,
+                                                doubleClickOnVerseOpenDefaultReader,
+                                                doubleClickOnVerseOpenDefaultReaderChanged);
     else
     if ( Instance.Visible )
     {
@@ -33,42 +43,95 @@ public partial class CelebrationVersesBoardForm : Form
     }
     Instance.Show();
     Instance.ForceBringToFront();
+    Instance.SelectCelebration(celebration);
   }
 
   private readonly string LocationPropertyName;
   private readonly string ClientSizePropertyName;
+  private readonly string OpenVerseOnlineURL;
+  private readonly Action<bool> DoubleClickOnVerseOpenDefaultReaderChanged;
 
-  public CelebrationVersesBoardForm(string locationPropertyName, string clientSizePropertyName)
+  public CelebrationVersesBoardForm(string locationPropertyName,
+                                    string clientSizePropertyName,
+                                    string openVerseOnlineURL,
+                                    bool doubleClickOnVerseOpenDefaultReader,
+                                    Action<bool> doubleClickOnVerseOpenDefaultReaderChanged)
   {
     InitializeComponent();
-    InitializeMenu();
+    InitializeMenus();
     Icon = Globals.MainForm.Icon;
-    ActiveControl = SelectCelebration;
+    ActiveControl = ListBoxCelebrations;
     LocationPropertyName = locationPropertyName;
     ClientSizePropertyName = clientSizePropertyName;
+    OpenVerseOnlineURL = openVerseOnlineURL;
+    DoubleClickOnVerseOpenDefaultReaderChanged = doubleClickOnVerseOpenDefaultReaderChanged;
+    EditDoubleClickOnVerseOpenDefaultReader.Checked = doubleClickOnVerseOpenDefaultReader;
   }
 
-  private void InitializeMenu()
+  private void InitializeMenus()
   {
-    ActionStudyOnline.InitializeFromProviders(HebrewGlobals.WebProvidersCelebration, (sender, e) =>
+    ActionStudyOnlineTexts.Initialize(HebrewGlobals.WebProvidersCelebrationTexts, (sender, e) =>
     {
-      if ( SelectCelebration.SelectedItems.Count <= 0 ) return;
+      if ( ListBoxCelebrations.SelectedItems.Count <= 0 ) return;
       var menuitem = (ToolStripMenuItem)sender;
-      var celebration = (TorahCelebration)SelectCelebration.SelectedItems[0].Tag;
+      var celebration = (TorahCelebration)ListBoxCelebrations.SelectedItems[0].Tag;
       HebrewTools.OpenCelebrationProvider((string)menuitem.Tag, celebration);
     });
-    ActionOpenVerseOnline.InitializeFromProviders(HebrewGlobals.WebProvidersBible, (sender, e) =>
+    ActionStudyOnlineVideos.Initialize(HebrewGlobals.WebProvidersCelebrationVideos, (sender, _) =>
     {
+      if ( ListBoxCelebrations.SelectedItems.Count <= 0 ) return;
       var menuitem = (ToolStripMenuItem)sender;
-      foreach ( ListViewItem item in SelectVerse.SelectedItems )
-      {
-        var verseitem = (Tuple<TanakBook, string, string>)item.Tag;
-        var reference = $"{(int)verseitem.Item1}.{verseitem.Item2}";
-        HebrewTools.OpenBibleProvider((string)menuitem.Tag, reference);
-        if ( SelectVerse.SelectedItems.Count > 1 )
-          Thread.Sleep(1500);
-      }
+      var celebration = (TorahCelebration)ListBoxCelebrations.SelectedItems[0].Tag;
+      HebrewTools.OpenCelebrationProvider((string)menuitem.Tag, celebration);
     });
+    ActionOpenVerseOnline.Initialize(HebrewGlobals.WebProvidersBible,
+                                     (sender, _) => DoRead((string)( (ToolStripMenuItem)sender ).Tag));
+  }
+
+  private void DoRead(string url)
+  {
+    foreach ( string reference in GetSelectedReferences() )
+    {
+      HebrewTools.OpenBibleProvider(url, reference);
+      if ( ListBoxVerses.SelectedItems.Count > 1 )
+        Thread.Sleep(1500);
+    }
+  }
+
+  private void ActionVerseReadDefault_Click(object sender, EventArgs e)
+  {
+    DoRead(OpenVerseOnlineURL);
+  }
+
+  private IEnumerable<string> GetSelectedReferences()
+  {
+    foreach ( ListViewItem item in ListBoxVerses.SelectedItems )
+    {
+      var verseitem = (Tuple<TanakBook, string, string>)item.Tag;
+      yield return $"{(int)verseitem.Item1}.{verseitem.Item2}";
+    }
+  }
+
+  [SuppressMessage("Minor Code Smell", "S3267:Loops should be simplified with \"LINQ\" expressions", Justification = "N/A")]
+  public void SelectCelebration(TorahCelebration celebration)
+  {
+    if ( ListBoxCelebrations.Items.Count <= 0 ) return;
+    if ( celebration != TorahCelebration.None )
+    {
+      string str = celebration.ToString();
+      foreach ( ListViewItem item in ListBoxCelebrations.Items )
+        if ( str.StartsWith(( (TorahCelebration)item.Tag ).ToString(), StringComparison.Ordinal) )
+        {
+          item.Selected = true;
+          item.Focused = true;
+          break;
+        }
+    }
+    else
+    {
+      Instance.ListBoxCelebrations.Items[0].Selected = true;
+      Instance.ListBoxCelebrations.Items[0].Focused = true;
+    }
   }
 
   private void CelebrationVersesBoardForm_Load(object sender, EventArgs e)
@@ -81,9 +144,9 @@ public partial class CelebrationVersesBoardForm : Form
     this.CheckLocationOrCenterToMainFormElseScreen();
     var items = Enums.GetValues<TorahCelebration>()
                      .Skip(1)
-                     .Select(v => new ListViewItem(HebrewTranslations.TorahCelebrations.GetLang(v)) { Tag = v });
-    SelectCelebration.Items.Clear();
-    SelectCelebration.Items.AddRange(items.ToArray());
+                     .Select(v => new ListViewItem(HebrewTranslations.GetCelebrationDisplayText(v)) { Tag = v });
+    ListBoxCelebrations.Items.Clear();
+    ListBoxCelebrations.Items.AddRange([.. items]);
   }
 
   private void CelebrationVersesBoardForm_Deactivate(object sender, EventArgs e)
@@ -106,44 +169,54 @@ public partial class CelebrationVersesBoardForm : Form
     Close();
   }
 
+  private void EditDoubleClickOnVerseOpenDefaultReader_CheckedChanged(object sender, EventArgs e)
+  {
+    DoubleClickOnVerseOpenDefaultReaderChanged?.Invoke(EditDoubleClickOnVerseOpenDefaultReader.Checked);
+  }
+
   private void ActionOpenHebrewWordsVerse_Click(object sender, EventArgs e)
   {
-    if ( SelectVerse.SelectedItems.Count <= 0 ) return;
-    var verseitem = (Tuple<TanakBook, string, string>)SelectVerse.SelectedItems[0].Tag;
+    if ( ListBoxVerses.SelectedItems.Count <= 0 ) return;
+    var verseitem = (Tuple<TanakBook, string, string>)ListBoxVerses.SelectedItems[0].Tag;
     var reference = $"{(int)verseitem.Item1}.{verseitem.Item2}";
     HebrewTools.OpenHebrewWordsGoToVerse(reference);
   }
 
-  private void SelectCelebration_MouseDoubleClick(object sender, MouseEventArgs e)
+  private void ListBoxCelebrations_MouseDoubleClick(object sender, MouseEventArgs e)
   {
-    SelectCelebration.ContextMenuStrip.Show(Cursor.Position);
+    ListBoxCelebrations.ContextMenuStrip.Show(Cursor.Position);
   }
 
-  private void SelectVerse_MouseDoubleClick(object sender, MouseEventArgs e)
+  private void ListBoxVerses_MouseDoubleClick(object sender, MouseEventArgs e)
   {
-    SelectVerse.ContextMenuStrip.Show(Cursor.Position);
+    if ( EditDoubleClickOnVerseOpenDefaultReader.Checked )
+      ActionVerseReadDefault.PerformClick();
+    else
+      ListBoxVerses.ContextMenuStrip.Show(Cursor.Position);
   }
 
   [SuppressMessage("Design", "GCop135:{0}", Justification = "N/A")]
-  private void Lists_KeyDown(object sender, KeyEventArgs e)
+  [SuppressMessage("Correctness", "SS018:Add cases for missing enum member.", Justification = "N/A")]
+  [SuppressMessage("Correctness", "SS019:Switch should have default label.", Justification = "N/A")]
+  private void ListBoxes_KeyDown(object sender, KeyEventArgs e)
   {
     switch ( e.KeyCode )
     {
       case Keys.Left:
-        SelectCelebration.Focus();
+        ListBoxCelebrations.Focus();
         e.Handled = true;
         break;
       case Keys.Right:
-        SelectVerse.Focus();
+        ListBoxVerses.Focus();
         e.Handled = true;
         break;
       case Keys.Enter:
         if ( sender is ListView control && control.FocusedItem is not null )
         {
-          int delta = (int)( control.Font.SizeInPoints * FontFactor );
+          int offset = (int)( control.Font.SizeInPoints * FontFactor );
           var pos = control.PointToScreen(control.FocusedItem.Position);
-          pos.X += delta;
-          pos.Y += delta;
+          pos.X += offset;
+          pos.Y += offset;
           control.ContextMenuStrip.Show(pos);
           e.Handled = true;
         }
@@ -151,28 +224,31 @@ public partial class CelebrationVersesBoardForm : Form
     }
   }
 
-  private void SelectCelebration_Format(object sender, ListControlConvertEventArgs e)
+  private void ListBoxCelebrations_Format(object sender, ListControlConvertEventArgs e)
   {
-    e.Value = HebrewTranslations.TorahCelebrations[(TorahCelebration)e.Value].GetLang();
+    e.Value = HebrewTranslations.CelebrationsInLatinChars[(TorahCelebration)e.Value].GetLang();
   }
 
-  private void SelectCelebration_SelectedIndexChanged(object sender, EventArgs e)
+  private void ListBoxCelebrations_SelectedIndexChanged(object sender, EventArgs e)
   {
-    if ( SelectCelebration.SelectedItems.Count <= 0 ) return;
-    SelectVerse.Items.Clear();
-    var collection = TorahCelebrationVerses.Instance.Items[(TorahCelebration)SelectCelebration.SelectedItems[0].Tag];
+    if ( ListBoxCelebrations.SelectedItems.Count <= 0 ) return;
+    ListBoxVerses.Items.Clear();
+    var collection = TorahCelebrationVerses.Instance.Items[(TorahCelebration)ListBoxCelebrations.SelectedItems[0].Tag];
     if ( collection is null ) return;
     foreach ( var reference in collection )
     {
-      var item = SelectVerse.Items.Add(reference.Item1.ToString().Replace('_', ' '));
+      string bookname = HebrewDatabase.HebrewNamesInUnicode
+        ? BookInfos.Unicode[reference.Item1]
+        : reference.Item1.ToString().Replace('_', ' ');
+      var item = ListBoxVerses.Items.Add(bookname);
       item.Tag = reference;
       item.SubItems.Add(reference.Item2);
       item.SubItems.Add(reference.Item3);
     }
-    if ( SelectVerse.Items.Count > 0 )
+    if ( ListBoxVerses.Items.Count > 0 )
     {
-      SelectVerse.Items[0].Focused = true;
-      SelectVerse.Items[0].Selected = true;
+      ListBoxVerses.Items[0].Focused = true;
+      ListBoxVerses.Items[0].Selected = true;
     }
   }
 

@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Core Library.
-/// Copyright 2004-2022 Olivier Rogier.
+/// Copyright 2004-2025 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -11,13 +11,13 @@
 /// You may add additional accurate notices of copyright ownership.
 /// </license>
 /// <created> 2016-04 </created>
-/// <edited> 2022-03 </edited>
+/// <edited> 2023-04 </edited>
 namespace Ordisoftware.Core;
 
 /// <summary>
 /// Provides global variables.
 /// </summary>
-static partial class Globals
+static public partial class Globals
 {
 
   /// <summary>
@@ -146,8 +146,14 @@ static partial class Globals
   /// <summary>
   /// Indicates the file path of the application's readme markdown file.
   /// </summary>
-  static public string ApplicationReadmeMDPath
+  static public string ApplicationReadMeMDPath
     => Path.Combine(RootFolderPath, "README.md");
+
+  /// <summary>
+  /// Indicates the file path of the application's readme html file.
+  /// </summary>
+  static public string ApplicationReadMeHtmlPath
+    => Path.Combine(RootFolderPath, "README.html");
 
   /// <summary>
   /// Indicates the file path of the help.

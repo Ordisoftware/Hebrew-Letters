@@ -1,6 +1,6 @@
 ﻿/// <license>
 /// This file is part of Ordisoftware Hebrew Letters.
-/// Copyright 2016-2022 Olivier Rogier.
+/// Copyright 2016-2025 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
 /// This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
 /// If a copy of the MPL was not distributed with this file, You can obtain one at
@@ -18,7 +18,7 @@ namespace Ordisoftware.Hebrew.Letters;
 /// The application's main form.
 /// </summary>
 /// <seealso cref="T:System.Windows.Forms.Form"/>
-partial class MainForm
+sealed partial class MainForm
 {
 
   private bool DoScreenPositionMutex;
@@ -53,7 +53,7 @@ partial class MainForm
   /// </summary>
   /// <param name="sender">Source of the event.</param>
   /// <param name="e">Event information.</param>
-  protected void DoScreenPosition(object sender, EventArgs e)
+  private void DoScreenPosition(object sender, EventArgs e)
   {
     if ( DoScreenPositionMutex ) return;
     try
