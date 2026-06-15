@@ -125,7 +125,7 @@ sealed partial class SearchTermResultsBox : Form
     var listbox = sender as ListBox;
     if ( sender is null ) return;
     if ( e.Index < 0 ) return;
-    bool selected = ( e.State & DrawItemState.Selected ) == DrawItemState.Selected;
+    bool selected = e.State.HasFlag(DrawItemState.Selected);
     if ( selected )
       e = new DrawItemEventArgs(e.Graphics,
                                 e.Font,
