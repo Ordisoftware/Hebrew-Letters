@@ -23,6 +23,9 @@ static partial class Program
   // TODO enable save if sentence is <> and not only meanings => replace if exists
   // TODO if readonly and retake control on db => reload all data and settings
 
+  private const string SoftpediaURL = "https://www.softpedia.com/get/Others/Home-Education/Hebrew-Letters.shtml";
+  private const string AlternativeToURL = "";
+
   /// <summary>
   /// Process startup method.
   /// </summary>
@@ -35,8 +38,8 @@ static partial class Program
       Application.SetCompatibleTextRenderingDefault(false);
       //
       Globals.ChronoStartingApp.Start();
-      Globals.SoftpediaURL = "https://www.softpedia.com/get/Others/Home-Education/Hebrew-Letters.shtml";
-      Globals.AlternativeToURL = string.Empty;
+      Globals.SoftpediaURL = SoftpediaURL;
+      Globals.AlternativeToURL = AlternativeToURL;
       CommonMenusControl.PreviewFunctions = AppTranslations.PreviewFunctions;
       //
       var lang = Settings.LanguageSelected;
