@@ -220,6 +220,15 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 - Update SSL certificate data for the web update checker.
 
+#### 2025.08.03 - Version 6.14.2
+
+- Fix SSL certificate data for the web update checker.
+- Update and fix web links and providers.
+
+#### 2024.10.05 - Version 6.14.1
+
+- Fix SSL certificate data for the web update checker.
+
 #### 2022.06.21 - Version 6.14
 
 - Add a top button to close other windows.
