@@ -1,4 +1,4 @@
-/// <license>
+﻿/// <license>
 /// This file is part of Ordisoftware Core Library.
 /// Copyright 2004-2026 Olivier Rogier.
 /// See www.ordisoftware.com for more information.
@@ -82,7 +82,8 @@ static public partial class SystemManager
   /// </summary>
   static public void LoadSSLCertificate()
   {
-    if ( Globals.IsVisualStudioDesigner ) return;
+    if ( Globals.IsVisualStudioDesigner )
+      return;
     if ( File.Exists(Globals.ApplicationHomeSSLFilePath) )
       AuthorWebsiteSSLCertificate.LoadKeyValuePairs(Globals.ApplicationHomeSSLFilePath, "=>");
     if ( File.Exists(Globals.GitHubSSLFilePath) )
