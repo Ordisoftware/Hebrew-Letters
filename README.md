@@ -179,6 +179,7 @@ It is possible to use [AutoHotKey](https://www.autohotkey.com) to define for exa
 
 ## Future improvements
 
+- Add link menu item to auto-open an IA Chat page to study a word.
 - Add gematria for final letters.
 - Add export analysis as MSWord table.
 - Add option to set primary source for check update between author website or GitHub.
